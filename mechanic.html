@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mechanic — Mechanics Playbook</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="dot"><svg viewBox="0 0 14 14"><path d="M7 1L13 4.5V9.5L7 13L1 9.5V4.5L7 1Z"/></svg></div>Mechanics <span class="ac">Playbook</span></a>
+    <ul class="nav-links">
+      <li><a href="mechanics.html">Mechanics</a></li>
+      <li><a href="systems.html">Systems</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="cheatsheets.html">Cheatsheets</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+    </ul>
+  </div>
+</nav>
+<div id="root"></div>
+<script src="data.js"></script>
+<script>
+const id = new URLSearchParams(location.search).get('id');
+const m = getMechanic(id);
+if (!m) { document.getElementById('root').innerHTML = '<div class="wrap page"><p>Mechanic not found.</p></div>'; }
+else {
+  document.title = m.name + ' — Mechanics Playbook';
+  const relApps = m.apps.map(aid => getApp(aid)).filter(Boolean);
+  const pairedMs = m.paired.map(pid => getMechanic(pid)).filter(Boolean);
+  const plLabels = { achiever:'Achiever', explorer:'Explorer', socializer:'Socializer', competitor:'Competitor' };
+  const catColors = { retention:'var(--blue)', monetization:'var(--orange)', social:'var(--green)' };
+
+  document.getElementById('root').innerHTML = `
+  <div class="detail-head">
+    <div class="wrap">
+      <div class="breadcrumb"><a href="mechanics.html">Mechanics</a> › <span>${m.name}</span></div>
+      <div class="detail-meta">
+        <span class="badge badge-${m.cat}">${m.cat.charAt(0).toUpperCase()+m.cat.slice(1)}</span>
+        <span class="card-num" style="margin:0;">${m.n}</span>
+        ${apiId(m.id)}
+        <button class="copy-btn" onclick="copyText(JSON.stringify({id:'${m.id}',name:'${m.name}',category:'${m.cat}',principle:\`${m.principle.replace(/`/g,"'")}\`},null,2),this)">Copy JSON</button>
+      </div>
+      <h1 class="detail-title">${m.name}</h1>
+      <p class="detail-sub">${m.tagline}</p>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
+        <span style="font-size:12px;color:var(--muted);">Best for:</span>
+        ${m.players.map(p=>`<span class="tag">${plLabels[p]||p}</span>`).join('')}
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
+        <span style="font-size:12px;color:var(--muted);">Context:</span>
+        ${(m.context||[]).map(c=>`<a href="mechanics.html?context=${c}" class="tag" style="font-size:11px;background:var(--blue-bg);border-color:var(--blue-bg);color:var(--blue);">${c}</a>`).join('')}
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <span style="font-size:12px;color:var(--muted);">Motivation:</span>
+        ${(m.sdt||[]).map(s=>`<span class="tag" style="font-size:11px;background:var(--green-bg);border-color:var(--green-bg);color:var(--green);">${s}</span>`).join('')}
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="two-col">
+      <div>
+        <div class="prose">
+          <h2>How it works</h2>
+          <p>${m.desc}</p>
+          <div class="info-box"><div class="lbl">Core Principle</div><p>${m.principle}</p></div>
+          <div class="warn-box"><div class="lbl">Watch out for</div><p>${m.warn}</p></div>
+          <h2>Structural variants</h2>
+          <ul class="vlist">${m.variants.map(v=>`<li>${v}</li>`).join('')}</ul>
+          <h2>Lifecycle placement</h2>
+          <p>${m.lifecycle}</p>
+        </div>
+
+        ${relApps.length > 0 ? `
+        <div style="padding-top:8px;">
+          <div class="slabel">How apps and games apply this mechanic</div>
+          ${relApps.map(app => {
+            const desc = getMechanicAppDesc(m.id, app.id);
+            return `<div class="mitem">
+              <div class="mitem-head">
+                <div>
+                  <div class="mitem-title">${app.name}</div>
+                  <div class="mitem-sub">${typeBadge(app.type)} · ${app.cat}</div>
+                </div>
+                ${desc ? `<button class="copy-btn" onclick="copyText(\`${desc.replace(/`/g,"'")}\`,this)">Copy</button>` : ''}
+              </div>
+              <div class="mitem-body">${desc || 'Description coming soon.'}</div>
+              <div style="margin-top:16px;">
+                ${(() => {
+                  const key = m.id + '_' + app.id;
+                  const files = (typeof SCREENSHOTS !== 'undefined' && SCREENSHOTS[key]) || [];
+                  if (files.length > 0) {
+                    // Real screenshots — show full width in a grid
+                    const cols = Math.min(files.length, 4);
+                    return `<div style="display:grid;grid-template-columns:repeat(${cols},1fr);gap:8px;">
+                      ${files.slice(0,8).map((src,i) =>
+                        `<div style="border-radius:10px;overflow:hidden;aspect-ratio:585/1266;background:var(--alt);">
+                          <img src="${src}" alt="${app.name} screenshot ${i+1}"
+                            style="width:100%;height:100%;object-fit:cover;display:block;">
+                        </div>`
+                      ).join('')}
+                    </div>`;
+                  } else {
+                    // Placeholders — small 120x260 row, up to 3
+                    return `<div style="display:flex;gap:10px;">
+                      ${[0,1,2].map(i => shot(app.name + ' · ' + (i+1))).join('')}
+                    </div>`;
+                  }
+                })()}
+              </div>
+              <div style="margin-top:10px;"><a href="case-study.html?id=${app.id}" style="font-size:12.5px;color:var(--accent);text-decoration:none;font-weight:500;">View full case study →</a></div>
+            </div>`;
+          }).join('')}
+        </div>` : ''}
+      </div>
+
+      <div class="sidebar">
+        ${pairedMs.length > 0 ? `
+        <div class="sbox">
+          <h3>Often paired with</h3>
+          <ul>${pairedMs.map(pm=>`<li><a href="mechanic.html?id=${pm.id}">${pm.name}</a></li>`).join('')}</ul>
+        </div>` : ''}
+
+        <div class="sbox">
+          <h3>Player types</h3>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            ${['achiever','explorer','socializer','competitor'].map(pt => {
+              const active = m.players.includes(pt);
+              const colors = { achiever:'#3060f0', explorer:'#e07830', socializer:'#22a060', competitor:'#cc2244' };
+              return `<div style="display:flex;align-items:center;gap:8px;">
+                <span style="width:10px;height:10px;border-radius:50%;flex-shrink:0;background:${active ? colors[pt] : 'var(--alt)'};border:1.5px solid ${active ? colors[pt] : 'var(--border)'}"></span>
+                <span style="font-size:13px;color:${active ? 'var(--text)' : 'var(--muted)'};">${pt.charAt(0).toUpperCase()+pt.slice(1)}</span>
+              </div>`;
+            }).join('')}
+          </div>
+        </div>
+
+        ${relApps.length > 0 ? `
+        <div class="sbox">
+          <h3>Seen in</h3>
+          <ul>${relApps.map(a=>`<li><a href="case-study.html?id=${a.id}">${a.name}</a></li>`).join('')}</ul>
+        </div>` : ''}
+
+        <div class="sbox">
+          <h3>Export</h3>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <button class="copy-btn" onclick="copyText(\`${m.name}: ${m.desc.replace(/`/g,"'")}\`,this)">Copy description</button>
+            <button class="copy-btn" onclick="copyText(JSON.stringify(MECHANICS.find(x=>x.id==='${m.id}'),null,2),this)">Copy full JSON</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><div class="wrap"><div class="foot-inner"><span>Mechanics Playbook by <a href="https://gamebizconsulting.com">GameBiz Consulting</a></span><span><a href="mailto:hello@gamebizconsulting.com">hello@gamebizconsulting.com</a></span></div></div></footer>`;
+}
+
+function copyText(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    const o = btn.textContent; btn.textContent = 'Copied'; btn.classList.add('ok');
+    setTimeout(() => { btn.textContent = o; btn.classList.remove('ok'); }, 1800);
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glossary — Mechanics Playbook</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="dot"><svg viewBox="0 0 14 14"><path d="M7 1L13 4.5V9.5L7 13L1 9.5V4.5L7 1Z"/></svg></div>Mechanics <span class="ac">Playbook</span></a>
+    <ul class="nav-links">
+      <li><a href="mechanics.html">Mechanics</a></li>
+      <li><a href="systems.html">Systems</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="cheatsheets.html">Cheatsheets</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+    </ul>
+  </div>
+</nav>
+<div id="root"></div>
+<script src="data.js"></script>
+<script>
+const id = new URLSearchParams(location.search).get('id');
+const g = getGlossaryItem(id);
+if (!g) { document.getElementById('root').innerHTML = '<div class="wrap page"><p>Term not found.</p></div>'; }
+else {
+  document.title = g.term + ' — Mechanics Playbook';
+  const relMs = g.related.map(mid => getMechanic(mid)).filter(Boolean);
+
+  document.getElementById('root').innerHTML = `
+  <div class="detail-head">
+    <div class="wrap">
+      <div class="breadcrumb"><a href="glossary.html">Glossary</a> › <span>${g.term}</span></div>
+      <div class="detail-meta">${apiId(g.id)}</div>
+      <h1 class="detail-title">${g.term}</h1>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="two-col">
+      <div class="prose">
+        <p>${g.def}</p>
+        ${relMs.length > 0 ? `
+        <h2>Where you see this in practice</h2>
+        ${relMs.map(m => `
+        <a href="mechanic.html?id=${m.id}" class="mitem" style="display:block;text-decoration:none;margin-bottom:12px;">
+          <div class="mitem-head">
+            <div><span class="badge badge-${m.cat}">${m.cat}</span></div>
+          </div>
+          <div class="mitem-title" style="margin-bottom:6px;">${m.name}</div>
+          <div class="mitem-body">${m.tagline}</div>
+        </a>`).join('')}` : ''}
+      </div>
+      <div class="sidebar">
+        ${relMs.length > 0 ? `
+        <div class="sbox">
+          <h3>Related mechanics</h3>
+          <ul>${relMs.map(m=>`<li><a href="mechanic.html?id=${m.id}">${m.name}</a></li>`).join('')}</ul>
+        </div>` : ''}
+        <div class="sbox">
+          <h3>More terms</h3>
+          <ul>
+            ${GLOSSARY.filter(x=>x.id!==g.id).slice(0,6).map(x=>`<li><a href="glossary-item.html?id=${x.id}">${x.term}</a></li>`).join('')}
+            <li><a href="glossary.html" style="color:var(--accent);">View all →</a></li>
+          </ul>
+        </div>
+        <div class="sbox">
+          <h3>Export</h3>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <button class="copy-btn" onclick="copyText(\`${g.term}: ${g.def.replace(/`/g,"'")}\`,this)">Copy definition</button>
+            <button class="copy-btn" onclick="copyText(JSON.stringify(GLOSSARY.find(x=>x.id==='${g.id}'),null,2),this)">Copy JSON</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><div class="wrap"><div class="foot-inner"><span>Mechanics Playbook by <a href="https://gamebizconsulting.com">GameBiz Consulting</a></span><span><a href="mailto:hello@gamebizconsulting.com">hello@gamebizconsulting.com</a></span></div></div></footer>`;
+}
+
+function copyText(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    const o = btn.textContent; btn.textContent = 'Copied'; btn.classList.add('ok');
+    setTimeout(() => { btn.textContent = o; btn.classList.remove('ok'); }, 1800);
+  });
+}
+</script>
+</body>
+</html>

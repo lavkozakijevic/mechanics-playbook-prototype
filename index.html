@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mechanics Playbook — Game mechanics for apps</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ── APP LOGO STRIP ───────────────────────── */
+.logo-strip { padding: 32px 0 28px; border-bottom: 1px solid var(--border); }
+.logo-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.app-logo {
+  width: 52px; height: 52px; border-radius: 12px;
+  background: var(--alt); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--d); font-size: 9px; font-weight: 700;
+  color: var(--muted); text-align: center; line-height: 1.3;
+  padding: 4px; transition: border-color 0.15s, transform 0.15s;
+  text-decoration: none;
+}
+.app-logo:hover { border-color: var(--text); transform: translateY(-2px); }
+.logo-more {
+  font-size: 12px; color: var(--muted); text-decoration: none;
+  margin-left: 4px; white-space: nowrap; transition: color 0.15s;
+}
+.logo-more:hover { color: var(--text); }
+
+/* ── MECHANICS SLIDER ─────────────────────── */
+.slider-section { padding: 48px 0; border-top: 1px solid var(--border); }
+.slider-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+.slider-controls { display: flex; gap: 8px; }
+.slider-btn {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--card); border: 1px solid var(--border);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  font-size: 16px; color: var(--text); transition: all 0.15s;
+}
+.slider-btn:hover { background: var(--text); color: white; border-color: var(--text); }
+.slider-viewport { overflow: hidden; }
+.slider-track {
+  display: flex; gap: 16px;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.slider-track .card { flex: 0 0 calc(33.333% - 11px); min-width: 260px; }
+
+/* ── FEATURED SECTIONS ────────────────────── */
+.featured-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 8px; }
+.featured-label { font-family: var(--d); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.featured-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 28px; text-decoration: none; color: inherit; display: block; transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s; }
+.featured-card:hover { border-color: var(--text); box-shadow: 0 4px 20px rgba(0,0,0,0.07); transform: translateY(-2px); }
+.featured-card-label { font-family: var(--d); font-size: 9.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+.featured-card-title { font-family: var(--d); font-size: 18px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 10px; }
+.featured-card-body { font-size: 13.5px; color: var(--sub); line-height: 1.6; margin-bottom: 16px; }
+.featured-card-link { font-size: 12.5px; font-weight: 600; color: var(--accent); }
+
+@media (max-width: 640px) {
+  .featured-grid { grid-template-columns: 1fr; }
+  .slider-track .card { flex: 0 0 85%; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="dot"><svg viewBox="0 0 14 14"><path d="M7 1L13 4.5V9.5L7 13L1 9.5V4.5L7 1Z"/></svg></div>Mechanics <span class="ac">Playbook</span></a>
+    <ul class="nav-links">
+      <li><a href="mechanics.html">Mechanics</a></li>
+      <li><a href="systems.html">Systems</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="cheatsheets.html">Cheatsheets</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div style="padding: 64px 0 48px; border-bottom: 1px solid var(--border);">
+  <div class="wrap">
+    <div style="font-family:var(--d);font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;">by GameBiz Consulting</div>
+    <h1 style="font-family:var(--d);font-size:clamp(30px,5vw,52px);font-weight:700;letter-spacing:-0.04em;line-height:1.05;margin-bottom:18px;">We translate proven game<br>mechanics into concrete<br>opportunities for your app.</h1>
+    <p style="font-size:16px;color:var(--sub);max-width:480px;line-height:1.6;margin-bottom:36px;">Most app teams only look at their category and a few obvious references. This library expands that horizon, drawing on how the best games and apps have perfected each mechanic.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="mechanics.html" style="font-family:var(--d);font-size:13px;font-weight:600;padding:11px 20px;background:var(--text);color:white;border-radius:7px;text-decoration:none;display:inline-block;">Browse Mechanics</a>
+      <a href="systems.html" style="font-family:var(--d);font-size:13px;font-weight:600;padding:11px 20px;background:transparent;color:var(--text);border:1.5px solid var(--border);border-radius:7px;text-decoration:none;display:inline-block;">Explore Systems</a>
+    </div>
+  </div>
+</div>
+
+<!-- APP LOGO STRIP -->
+<div class="logo-strip">
+  <div class="wrap">
+    <div class="logo-row" id="logo-row"></div>
+    <div style="margin-top:12px;">
+      <a href="case-studies.html" class="logo-more">Explore all apps and games →</a>
+    </div>
+  </div>
+</div>
+
+<!-- LIBRARY STATS -->
+<div style="padding:48px 0;border-bottom:1px solid var(--border);">
+  <div class="wrap">
+    <div class="slabel">Library contents</div>
+    <div id="stats-grid" class="grid"></div>
+  </div>
+</div>
+
+<!-- MECHANICS SLIDER -->
+<div class="slider-section">
+  <div class="wrap">
+    <div class="slider-header">
+      <div>
+        <div class="slabel">From the library</div>
+        <div style="font-family:var(--d);font-size:18px;font-weight:700;letter-spacing:-0.02em;">Mechanics</div>
+      </div>
+      <div class="slider-controls">
+        <button class="slider-btn" id="prev-btn" onclick="slide(-1)">←</button>
+        <button class="slider-btn" id="next-btn" onclick="slide(1)">→</button>
+      </div>
+    </div>
+    <div class="slider-viewport">
+      <div class="slider-track" id="slider-track"></div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURED -->
+<div style="padding:48px 0;border-top:1px solid var(--border);">
+  <div class="wrap">
+    <div class="slabel" style="margin-bottom:24px;">Featured</div>
+    <div class="featured-grid">
+
+      <!-- Featured Case Study: Strava -->
+      <a href="case-study.html?id=strava" class="featured-card">
+        <div class="featured-card-label" style="color:var(--green);">Case Study</div>
+        <div class="featured-card-title">Strava</div>
+        <div class="featured-card-body">A social fitness system where the activity is the content. Every run, ride, or swim is already a completed achievement — Strava's job is to make it visible, competitive, and socially meaningful. Six mechanics work together to turn a personal workout into a shared social event.</div>
+        <div class="featured-card-link">View case study →</div>
+      </a>
+
+      <!-- Featured Cheatsheet -->
+      <a href="cheatsheet.html?id=launching-streak" class="featured-card">
+        <div class="featured-card-label" style="color:var(--blue);">Cheatsheet</div>
+        <div class="featured-card-title">Launching a Streak Mechanic</div>
+        <div class="featured-card-body">Loss aversion only activates once the user feels the streak is worth something — typically around day 7. Before that, frame streaks positively. Five concrete decisions that determine whether your streak drives retention or drives churn.</div>
+        <div class="featured-card-link">Read the cheatsheet →</div>
+      </a>
+
+      <!-- Featured System -->
+      <a href="system.html?id=duolingo" class="featured-card">
+        <div class="featured-card-label" style="color:var(--accent);">System</div>
+        <div class="featured-card-title">Duolingo System</div>
+        <div class="featured-card-body">A retention engine built on a single daily habit, amplified in every direction. Eight interlocking mechanics, each handling a different drop-off point in the retention curve. The streak is the spine — everything else protects it, extends it, and makes it visible to others.</div>
+        <div class="featured-card-link">Explore the system →</div>
+      </a>
+
+      <!-- Featured Mechanic -->
+      <a href="mechanic.html?id=season-pass" class="featured-card">
+        <div class="featured-card-label" style="color:var(--orange);">Mechanic</div>
+        <div class="featured-card-title">Season Pass / Battle Pass</div>
+        <div class="featured-card-body">Spend once, engage daily. The pass converts a one-time payment into a recurring daily reason to open the app. Clash of Clans saw +145% week-over-week revenue on launch — but only because Supercell deliberately prepared the economy for it first.</div>
+        <div class="featured-card-link">Read the mechanic →</div>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORY OVERVIEW -->
+<div style="padding:48px 0;border-top:1px solid var(--border);">
+  <div class="wrap">
+    <div class="slabel">Categories</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;" id="cat-grid"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <div style="font-family:var(--d);font-size:13px;font-weight:600;letter-spacing:-0.01em;">Mechanics Playbook</div>
+        <div style="font-size:12px;color:var(--muted);">by <a href="https://gamebizconsulting.com">GameBiz Consulting</a></div>
+      </div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;">
+        <a href="mechanics.html">Mechanics</a>
+        <a href="systems.html">Systems</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="cheatsheets.html">Cheatsheets</a>
+        <a href="glossary.html">Glossary</a>
+      </div>
+      <div>
+        <a href="mailto:hello@gamebizconsulting.com">hello@gamebizconsulting.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+// ── APP LOGO STRIP ──────────────────────────────────────
+const logoApps = ['duolingo','strava','fc-mobile','capybara-go','clash-of-clans','canva','picsart','insight-timer'];
+const logoRow = document.getElementById('logo-row');
+logoApps.forEach(aid => {
+  const app = getApp(aid);
+  if (!app) return;
+  const el = document.createElement('a');
+  el.className = 'app-logo';
+  el.href = 'case-study.html?id=' + aid;
+  el.title = app.name;
+  // Initials as placeholder
+  const words = app.name.replace(/[^a-zA-Z ]/g,'').split(' ').filter(Boolean);
+  const initials = words.length >= 2 ? words[0][0] + words[1][0] : words[0].substring(0,2);
+  el.innerHTML = `<span style="font-size:15px;font-weight:700;color:var(--sub);">${initials.toUpperCase()}</span>`;
+  logoRow.appendChild(el);
+});
+
+// ── STATS GRID ──────────────────────────────────────────
+const statsGrid = document.getElementById('stats-grid');
+[
+  { n: MECHANICS.length, label: 'Mechanics', sub: 'Retention, monetization, social', href: 'mechanics.html' },
+  { n: SYSTEMS.length,   label: 'Systems',   sub: 'How mechanics combine into loops', href: 'systems.html' },
+  { n: APPS.length,      label: 'Case Studies', sub: 'Apps and games analyzed first-hand', href: 'case-studies.html' },
+  { n: CHEATSHEETS.length, label: 'Cheatsheets', sub: 'Practical implementation guides', href: 'cheatsheets.html' },
+  { n: GLOSSARY.length,  label: 'Glossary Terms', sub: 'Concepts behind the mechanics', href: 'glossary.html' },
+].forEach(item => {
+  const el = document.createElement('a');
+  el.className = 'card';
+  el.href = item.href;
+  el.innerHTML = `<div style="font-family:var(--d);font-size:28px;font-weight:700;letter-spacing:-0.04em;margin-bottom:4px;">${item.n}</div>
+    <div class="card-title">${item.label}</div>
+    <div class="card-body">${item.sub}</div>`;
+  statsGrid.appendChild(el);
+});
+
+// ── MECHANICS SLIDER ────────────────────────────────────
+// Shuffle and build infinite deck
+const shuffled = [...MECHANICS].sort(() => Math.random() - 0.5);
+const track = document.getElementById('slider-track');
+let offset = 0;
+const CARD_W = 300 + 16; // approx card width + gap
+
+shuffled.forEach(m => {
+  const el = document.createElement('a');
+  el.className = 'card';
+  el.href = 'mechanic.html?id=' + m.id;
+  const ctxTags = (m.context || []).map(c => `<span class="tag" style="font-size:10px;">${c}</span>`).join('');
+  el.innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+      <div class="card-num">${m.n}</div>
+      <span class="badge badge-${m.cat}">${m.cat.charAt(0).toUpperCase()+m.cat.slice(1)}</span>
+    </div>
+    <div class="card-title">${m.name}</div>
+    <div class="card-body" style="margin-bottom:12px;">${m.tagline}</div>
+    <div class="tags" style="margin-bottom:10px;">${ctxTags}</div>
+    <div class="card-foot">
+      <div class="pdots">${m.players.map(p=>`<span class="pdot ${p}"></span>`).join('')}</div>
+      <span style="font-size:11px;color:var(--muted);">${m.apps.length} example${m.apps.length!==1?'s':''}</span>
+    </div>`;
+  track.appendChild(el);
+});
+
+function slide(dir) {
+  const viewport = track.parentElement;
+  const maxOffset = -(CARD_W * (shuffled.length - 3));
+  offset = Math.max(maxOffset, Math.min(0, offset - dir * CARD_W));
+  track.style.transform = `translateX(${offset}px)`;
+}
+
+// ── CATEGORY GRID ────────────────────────────────────────
+const catGrid = document.getElementById('cat-grid');
+[
+  { id:'retention', label:'Retention', color:'var(--blue)', bg:'var(--blue-bg)', desc:'Mechanics that bring users back. Streaks, quests, achievements, and the systems that make daily return feel necessary.' },
+  { id:'monetization', label:'Monetization', color:'var(--orange)', bg:'var(--orange-bg)', desc:'Mechanics that convert engagement into revenue. Season passes, piggy banks, and the timing decisions that make purchasing feel right.' },
+  { id:'social', label:'Social', color:'var(--green)', bg:'var(--green-bg)', desc:'Mechanics built on relationships between users. Feeds, guilds, leaderboards, and the social pressure that keeps users coming back for people, not features.' },
+].forEach(cat => {
+  const count = MECHANICS.filter(m=>m.cat===cat.id).length;
+  const el = document.createElement('a');
+  el.className = 'card';
+  el.href = 'mechanics.html?cat=' + cat.id;
+  el.style.background = cat.bg;
+  el.style.borderColor = 'transparent';
+  el.innerHTML = `<div style="font-family:var(--d);font-size:22px;font-weight:700;color:${cat.color};margin-bottom:4px;">${count} mechanics</div>
+    <div class="card-title">${cat.label}</div>
+    <div class="card-body">${cat.desc}</div>`;
+  catGrid.appendChild(el);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Systems — Mechanics Playbook</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="dot"><svg viewBox="0 0 14 14"><path d="M7 1L13 4.5V9.5L7 13L1 9.5V4.5L7 1Z"/></svg></div>Mechanics <span class="ac">Playbook</span></a>
+    <ul class="nav-links">
+      <li><a href="mechanics.html">Mechanics</a></li>
+      <li><a href="systems.html" class="active">Systems</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="cheatsheets.html">Cheatsheets</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-label">Library</div>
+    <h1>Systems</h1>
+    <p>How multiple mechanics combine into a loop. A single mechanic solves one retention problem. A system solves many simultaneously — and makes each mechanic more powerful than it would be alone.</p>
+  </div>
+  <div class="grid" id="grid"></div>
+</div>
+<footer><div class="wrap"><div class="foot-inner"><span>Mechanics Playbook by <a href="https://gamebizconsulting.com">GameBiz Consulting</a></span><span><a href="mailto:hello@gamebizconsulting.com">hello@gamebizconsulting.com</a></span></div></div></footer>
+<script src="data.js"></script>
+<script>
+const grid = document.getElementById('grid');
+SYSTEMS.forEach(s => {
+  const app = getApp(s.app_id);
+  const el = document.createElement('a');
+  el.className = 'card';
+  el.href = 'system.html?id=' + s.id;
+  el.innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+      ${app ? typeBadge(app.type) : ''}
+      <span style="font-size:11px;color:var(--muted);">${s.mechanics.length} mechanics</span>
+    </div>
+    <div class="card-title">${s.name}</div>
+    <div class="card-body" style="margin-bottom:12px;">${s.tagline}</div>
+    <div class="tags">
+      ${s.mechanics.slice(0,4).map(m => {
+        const mech = getMechanic(m.id);
+        return mech ? `<span class="tag" style="font-size:10px;">${mech.name}</span>` : '';
+      }).join('')}
+      ${s.mechanics.length > 4 ? `<span class="tag" style="font-size:10px;">+${s.mechanics.length-4}</span>` : ''}
+    </div>`;
+  grid.appendChild(el);
+});
+</script>
+</body>
+</html>

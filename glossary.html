@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glossary — Mechanics Playbook</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="dot"><svg viewBox="0 0 14 14"><path d="M7 1L13 4.5V9.5L7 13L1 9.5V4.5L7 1Z"/></svg></div>Mechanics <span class="ac">Playbook</span></a>
+    <ul class="nav-links">
+      <li><a href="mechanics.html">Mechanics</a></li>
+      <li><a href="systems.html">Systems</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="cheatsheets.html">Cheatsheets</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-label">Library</div>
+    <h1>Glossary</h1>
+    <p>The concepts behind the mechanics. Understanding these makes it easier to evaluate which mechanics to build, how to frame them, and which ones will work for your specific user base.</p>
+  </div>
+  <input class="search" placeholder="Search terms..." oninput="filterGlossary(this.value)">
+  <div id="list"></div>
+</div>
+<footer><div class="wrap"><div class="foot-inner"><span>Mechanics Playbook by <a href="https://gamebizconsulting.com">GameBiz Consulting</a></span><span><a href="mailto:hello@gamebizconsulting.com">hello@gamebizconsulting.com</a></span></div></div></footer>
+<script src="data.js"></script>
+<script>
+const list = document.getElementById('list');
+GLOSSARY.forEach(g => {
+  const relMs = g.related.map(mid => getMechanic(mid)).filter(Boolean);
+  const el = document.createElement('a');
+  el.className = 'card';
+  el.href = 'glossary-item.html?id=' + g.id;
+  el.dataset.term = g.term.toLowerCase();
+  el.style.marginBottom = '10px';
+  el.style.display = 'block';
+  el.innerHTML = `
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+      <div style="flex:1;min-width:200px;">
+        <div class="card-title" style="margin-bottom:6px;">${g.term}</div>
+        <div class="card-body">${g.def.substring(0,120)}...</div>
+      </div>
+      ${relMs.length > 0 ? `<div class="tags" style="flex-shrink:0;">${relMs.slice(0,2).map(m=>`<span class="tag">${m.name}</span>`).join('')}</div>` : ''}
+    </div>`;
+  list.appendChild(el);
+});
+
+function filterGlossary(q) {
+  q = q.toLowerCase();
+  document.querySelectorAll('#list .card').forEach(c => {
+    c.style.display = c.dataset.term.includes(q) ? 'block' : 'none';
+  });
+}
+</script>
+</body>
+</html>

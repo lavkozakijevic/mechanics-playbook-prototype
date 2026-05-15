@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cheatsheets — Mechanics Playbook</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="dot"><svg viewBox="0 0 14 14"><path d="M7 1L13 4.5V9.5L7 13L1 9.5V4.5L7 1Z"/></svg></div>Mechanics <span class="ac">Playbook</span></a>
+    <ul class="nav-links">
+      <li><a href="mechanics.html">Mechanics</a></li>
+      <li><a href="systems.html">Systems</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="cheatsheets.html">Cheatsheets</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-label">Library</div>
+    <h1>Cheatsheets</h1>
+    <p>Practical implementation guides for specific mechanics. Each cheatsheet covers the decisions that matter most.</p>
+  </div>
+  <div class="grid" id="grid"></div>
+  <div style="margin-top:40px;padding:24px;background:var(--alt);border:1px solid var(--border);border-radius:10px;max-width:520px;">
+    <div class="slabel">More coming</div>
+    <p style="font-size:13.5px;color:var(--sub);line-height:1.65;">Planned: First-Purchase Timing, Designing a Leaderboard for Non-Competitive Users, Onboarding to Social Features, Building a Credit Economy.</p>
+  </div>
+</div>
+<footer><div class="wrap"><div class="foot-inner"><span>Mechanics Playbook by <a href="https://gamebizconsulting.com">GameBiz Consulting</a></span><span><a href="mailto:hello@gamebizconsulting.com">hello@gamebizconsulting.com</a></span></div></div></footer>
+<script src="data.js"></script>
+<script>
+const grid = document.getElementById('grid');
+CHEATSHEETS.forEach(cs => {
+  const el = document.createElement('a');
+  el.className = 'card';
+  el.href = 'cheatsheet.html?id=' + cs.id;
+  const mechTags = cs.mechanics.slice(0,2).map(mid => {
+    const m = getMechanic(mid);
+    return m ? `<span class="tag">${m.name}</span>` : '';
+  }).join('');
+  el.innerHTML = `
+    <div class="card-title">${cs.title}</div>
+    <div class="card-body">${cs.desc}</div>
+    <div class="card-foot">
+      <div class="tags">${mechTags}</div>
+      <span style="font-size:11px;color:var(--muted);">${cs.steps.length} steps</span>
+    </div>`;
+  grid.appendChild(el);
+});
+</script>
+</body>
+</html>

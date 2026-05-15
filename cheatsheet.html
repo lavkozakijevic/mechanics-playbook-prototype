@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cheatsheet — Mechanics Playbook</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="dot"><svg viewBox="0 0 14 14"><path d="M7 1L13 4.5V9.5L7 13L1 9.5V4.5L7 1Z"/></svg></div>Mechanics <span class="ac">Playbook</span></a>
+    <ul class="nav-links">
+      <li><a href="mechanics.html">Mechanics</a></li>
+      <li><a href="systems.html">Systems</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="cheatsheets.html">Cheatsheets</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+    </ul>
+  </div>
+</nav>
+<div id="root"></div>
+<script src="data.js"></script>
+<script>
+const id = new URLSearchParams(location.search).get('id');
+const cs = getCheatsheet(id);
+if (!cs) { document.getElementById('root').innerHTML = '<div class="wrap page"><p>Not found.</p></div>'; }
+else {
+  document.title = cs.title + ' — Mechanics Playbook';
+  const relMs = cs.mechanics.map(mid => getMechanic(mid)).filter(Boolean);
+
+  document.getElementById('root').innerHTML = `
+  <div class="detail-head">
+    <div class="wrap">
+      <div class="breadcrumb"><a href="cheatsheets.html">Cheatsheets</a> › <span>${cs.title}</span></div>
+      <div class="detail-meta">${apiId(cs.id)}</div>
+      <h1 class="detail-title">${cs.title}</h1>
+      <p class="detail-sub">${cs.desc}</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="two-col">
+      <div style="padding-top:8px;">
+        ${cs.steps.map((s,i) => `
+        <div class="step">
+          <div class="step-n">${String(i+1).padStart(2,'0')}</div>
+          <div class="step-c">
+            <h3>${s.h}</h3>
+            <p>${s.b}</p>
+            <button class="copy-btn" onclick="copyText(\`${s.h}: ${s.b.replace(/`/g,"'")}\`,this)">Copy</button>
+          </div>
+        </div>`).join('')}
+      </div>
+      <div class="sidebar">
+        ${relMs.length > 0 ? `
+        <div class="sbox">
+          <h3>Related mechanics</h3>
+          <ul>${relMs.map(m=>`<li><a href="mechanic.html?id=${m.id}">${m.name}</a></li>`).join('')}</ul>
+        </div>` : ''}
+        <div class="sbox">
+          <h3>Export</h3>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <button class="copy-btn" onclick="copyText(CHEATSHEETS.find(c=>c.id==='${cs.id}').steps.map((s,i)=>(i+1)+'. '+s.h+': '+s.b).join('\\n\\n'),this)">Copy all steps</button>
+            <button class="copy-btn" onclick="copyText(JSON.stringify(CHEATSHEETS.find(c=>c.id==='${cs.id}'),null,2),this)">Copy JSON</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><div class="wrap"><div class="foot-inner"><span>Mechanics Playbook by <a href="https://gamebizconsulting.com">GameBiz Consulting</a></span><span><a href="mailto:hello@gamebizconsulting.com">hello@gamebizconsulting.com</a></span></div></div></footer>`;
+}
+
+function copyText(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    const o = btn.textContent; btn.textContent = 'Copied'; btn.classList.add('ok');
+    setTimeout(() => { btn.textContent = o; btn.classList.remove('ok'); }, 1800);
+  });
+}
+</script>
+</body>
+</html>

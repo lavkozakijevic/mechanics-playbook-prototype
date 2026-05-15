@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System — Mechanics Playbook</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ── MINDMAP ─────────────────────────────────────────── */
+.mindmap-wrap {
+  position: relative;
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 32px 0;
+}
+.mindmap-canvas {
+  position: relative;
+  width: 100%;
+  height: 620px;
+}
+.mindmap-canvas svg.lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+.mnode {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 148px;
+  z-index: 2;
+}
+.mnode:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  transform: translate(-50%, -50%) translateY(-2px);
+}
+.mnode.center {
+  width: 160px;
+  border-width: 2.5px;
+  border-color: var(--accent);
+  background: #fff8f8;
+}
+.mnode-num {
+  font-family: var(--d);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 3px;
+}
+.mnode-name {
+  font-family: var(--d);
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.mnode-cat {
+  font-size: 9.5px;
+  font-weight: 600;
+  margin-top: 4px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+/* connection dot */
+.conn-dot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--muted);
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  pointer-events: all;
+}
+.conn-dot:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+/* popup */
+.conn-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.conn-popup.open { display: flex; }
+.conn-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(3px);
+}
+.conn-card {
+  position: relative;
+  background: var(--card);
+  border-radius: 14px;
+  padding: 28px;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+  z-index: 1;
+}
+.conn-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.conn-badge {
+  font-family: var(--d);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: #fff0f0;
+  border: 1px solid #f0d0d0;
+  border-radius: 4px;
+  padding: 2px 7px;
+}
+.conn-title {
+  font-family: var(--d);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+.conn-desc {
+  font-size: 14px;
+  color: var(--sub);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+.conn-effect {
+  background: var(--alt);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.6;
+}
+.conn-effect-label {
+  font-family: var(--d);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.conn-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--alt);
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+.conn-close:hover { background: var(--border); color: var(--text); }
+
+/* mobile fallback */
+.mobile-fallback {
+  display: none;
+}
+.desktop-mindmap { display: block; }
+
+@media (max-width: 768px) {
+  .desktop-mindmap { display: none; }
+  .mobile-fallback { display: block; }
+}
+
+/* insight box */
+.insight-box {
+  background: linear-gradient(135deg, #fff8f8 0%, #fff 100%);
+  border: 1px solid #f0d0d0;
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 20px 22px;
+  margin: 24px 0;
+}
+.insight-box .lbl {
+  font-family: var(--d); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px;
+}
+.insight-box p { font-size: 14px; color: var(--text); line-height: 1.65; margin: 0; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="dot"><svg viewBox="0 0 14 14"><path d="M7 1L13 4.5V9.5L7 13L1 9.5V4.5L7 1Z"/></svg></div>Mechanics <span class="ac">Playbook</span></a>
+    <ul class="nav-links">
+      <li><a href="mechanics.html">Mechanics</a></li>
+      <li><a href="systems.html" class="active">Systems</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="cheatsheets.html">Cheatsheets</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div id="root"></div>
+
+<!-- Connection popup -->
+<div class="conn-popup" id="popup">
+  <div class="conn-backdrop" onclick="closePopup()"></div>
+  <div class="conn-card">
+    <button class="conn-close" onclick="closePopup()">×</button>
+    <div class="conn-card-header">
+      <span class="conn-badge">Connection</span>
+    </div>
+    <div class="conn-title" id="popup-title"></div>
+    <div class="conn-desc" id="popup-desc"></div>
+    <div class="conn-effect">
+      <div class="conn-effect-label">Effect on user</div>
+      <div id="popup-effect"></div>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script>
+const CONNECTIONS = {
+  duolingo: [
+    { from: "streak", to: "xp-leveling", title: "Streak feeds XP accumulation", desc: "Every lesson that maintains the streak also awards XP. The two mechanics share the same trigger — completing a lesson — which means users who are motivated by the streak are simultaneously building league standing without additional effort.", effect: "The user experiences one action as having two rewards, which makes each lesson feel more productive than it actually is." },
+    { from: "streak", to: "achievements", title: "Streak creates milestone moments", desc: "Streak milestone achievements at day 7, 30, 100, and 365 are the highest organic share moments in the product. The achievement converts a private counter into a public identity marker.", effect: "Users who might not care about achievements become invested in them because the achievement is evidence of their streak — something they already care about deeply." },
+    { from: "streak", to: "energy-lives", title: "Hearts protect the streak", desc: "Running out of hearts ends the session, which creates urgency to complete a lesson before hearts deplete. This urgency reinforces the daily return habit that the streak requires.", effect: "The heart system adds a layer of session pacing that makes daily completion feel more deliberate and therefore more satisfying." },
+    { from: "xp-leveling", to: "leaderboards", title: "XP determines league standing", desc: "XP accumulated each week feeds the league leaderboard. The two mechanics create a dual-timeframe structure: the streak measures daily consistency over months, while the league measures weekly intensity over seven days.", effect: "Users who are demotivated by their streak length (too short) can still compete in the weekly league, giving the system multiple entry points for different motivational profiles." },
+    { from: "xp-leveling", to: "daily-weekly-quests", title: "Quests direct XP-earning behaviour", desc: "Daily quests specify which type of lesson earns bonus XP that day. This prevents users from grinding the easiest lesson type repeatedly and directs engagement toward content that keeps the experience fresh.", effect: "The quest gives the XP-motivated user a specific target, which reduces the paralysis of choice that open-ended XP systems can create." },
+    { from: "achievements", to: "social-feed", title: "Achievements surface in the feed", desc: "Streak milestone achievements appear in the social feed, broadcasting the achievement to followers and triggering kudos-equivalent interactions. The achievement becomes a social event, not just a personal marker.", effect: "The social visibility of an achievement creates ambient competitive awareness — users see others hitting milestones and feel the pull to maintain or extend their own streak." },
+    { from: "variable-reward", to: "streak", title: "Chests reward streak maintenance", desc: "Lesson completion awards chests containing random rewards — streak freezes, gems, XP boosts. The variable reward content makes the act of protecting a streak feel like it has additional upside beyond avoiding a reset.", effect: "The unpredictability of the chest reward adds a small element of anticipation to each lesson completion, which sustains engagement through low-motivation periods." },
+  ],
+  strava: [
+    { from: "social-feed", to: "achievements", title: "Achievements broadcast through the feed", desc: "Personal records, segment trophies, and challenge completions appear in the social feed automatically. The achievement creates content; the feed distributes it.", effect: "Every achievement becomes a social event. Users who might not check their own trophy case still see others' achievements, which creates ambient awareness of what is possible." },
+    { from: "social-feed", to: "challenges", title: "Feed makes challenge participation visible", desc: "When a followed athlete joins or completes a challenge, it appears in the feed. This creates social pressure to participate — seeing others complete a challenge is the strongest recruitment mechanism Strava has.", effect: "Challenge participation compounds organically. Each completion makes more completions likely by surfacing the challenge to people who might not have discovered it." },
+    { from: "leaderboards", to: "challenges", title: "Segments extend challenge motivation", desc: "Segment leaderboards create permanent competitive benchmarks on specific routes. Monthly challenges add a time-limited competitive layer on top of the permanent segment structure.", effect: "The combination gives Strava users two independent competitive reasons to push harder on any given route — their personal segment standing and the current challenge progress." },
+    { from: "leaderboards", to: "social-feed", title: "Segment records surface in the feed", desc: "When a user claims a segment record, it appears in the feed of athletes who have also run that segment. The notification is contextually meaningful — the recipient knows exactly what the achievement required.", effect: "The segment record notification is far more motivating than a generic 'achievement unlocked' because the recipient understands the specific effort it represents." },
+    { from: "community-groups", to: "challenges", title: "Clubs run their own challenges", desc: "Club subscribers can create custom challenges visible only to club members. The club challenge creates a sub-community competitive structure that sits inside the broader Strava challenge system.", effect: "Club-specific challenges give Socializers a reason to engage with the competitive mechanics they would otherwise ignore, because the competition is against people they know." },
+    { from: "streak", to: "social-feed", title: "Weekly streak creates feed content", desc: "Weekly activity streaks generate milestone notifications at 4, 8, 12, and 26 weeks. These appear in the social feed, creating periodic social visibility for consistent behaviour.", effect: "The streak converts long-term consistency into shareable moments, rewarding users who are motivated by social recognition rather than competitive ranking." },
+    { from: "achievements", to: "community-groups", title: "Club leaderboards track achievements", desc: "Club leaderboards rank members by activity distance, elevation, and time within the group. Achievements contribute to a member's club standing, connecting individual recognition to collective identity.", effect: "Club members who feel they are falling behind the group leaderboard have a social reason to push harder that personal motivation alone would not create." },
+  ],
+  "fc-mobile": [
+    { from: "daily-weekly-quests", to: "season-pass", title: "Quests advance the pass", desc: "Every daily quest completed awards season pass XP. The two mechanics share the same daily actions, meaning quest completion and pass progression happen simultaneously from a single session.", effect: "Users experience daily quests as productive on two dimensions at once — immediate rewards and long-term pass progression — which makes the daily session feel more valuable than it would with either mechanic alone." },
+    { from: "daily-weekly-quests", to: "leaderboards", title: "Quests generate match-day points", desc: "Beyond season pass XP, daily quests award match-day points that determine league standing. The league leaderboard adds competitive stakes to actions that would otherwise feel purely personal.", effect: "Users who are not intrinsically motivated by quests gain a competitive reason to complete them — their league position depends on it." },
+    { from: "monthly-card", to: "daily-weekly-quests", title: "Card creates daily return incentive", desc: "The monthly card's daily currency drip requires opening the app to claim. This daily claim creates a session trigger that naturally leads to quest completion and match play.", effect: "A $1.99 monthly spend generates a daily opening habit that multiplies engagement far beyond what the card's face value would suggest." },
+    { from: "season-pass", to: "clans-guilds", title: "Pass rewards feed league economy", desc: "Premium season pass rewards include player cards and currencies that affect a player's club contribution capacity. Stronger players contribute more to club war performance.", effect: "Pass purchasers become more valuable club members, creating social pressure on non-purchasers within a club — the monetisation mechanic gains a social dimension." },
+    { from: "leaderboards", to: "clans-guilds", title: "Dual ranking creates collective stakes", desc: "Both individual player leaderboards and league-level leaderboards run simultaneously. A player's performance affects both their personal ranking and their club's collective standing.", effect: "Players who are not personally competitive still feel the pull of collective standing — their contribution to the club's leaderboard position gives social meaning to individual performance." },
+    { from: "limited-time-events", to: "season-pass", title: "Events feed pass progression", desc: "Limited-time match day events award season pass XP on top of their own rewards. Events become more valuable than their face rewards suggest because they also advance the pass.", effect: "The dual reward structure gives players who are already engaged with the pass an additional reason to participate in every event, increasing event engagement rates." },
+    { from: "first-purchase-bonus", to: "monthly-card", title: "First purchase lowers card barrier", desc: "Once a player has made their first transaction — converting from non-payer to payer — the psychological barrier to the monthly card drops significantly. The first-purchase bonus is a gateway, not a destination.", effect: "Players who claim the first-purchase bonus convert to monthly card subscribers at a significantly higher rate than those who never made an initial purchase." },
+  ],
+  "capybara-go": [
+    { from: "energy-lives", to: "ads", title: "Energy depletion drives ad engagement", desc: "When energy runs out, the rewarded video ad option surfaces as the primary free refill method. The ad is not an interruption — it is the solution to a problem the user has just experienced.", effect: "Ad engagement rates are dramatically higher when the ad is positioned as a resource acquisition tool rather than a monetisation interruption, and users feel agency in the choice." },
+    { from: "energy-lives", to: "xp-leveling", title: "Energy cost makes XP feel earned", desc: "Each run costs energy, which means each XP gain has a real cost attached to it. This scarcity makes the XP accumulation feel meaningful rather than automatic.", effect: "Users who have invested energy in a run are more attentive to the XP and resource gains during it, increasing session engagement quality rather than just quantity." },
+    { from: "xp-leveling", to: "daily-weekly-quests", title: "XP gates unlock quest layers", desc: "Later task chains only unlock after reaching specific XP and chapter milestones. The quest system reveals itself progressively, with deeper layers appearing as the player's investment grows.", effect: "Users who have progressed far enough to unlock advanced quests are already highly invested, which means the advanced quests have a captive, motivated audience." },
+    { from: "variable-reward", to: "energy-lives", title: "Run unpredictability justifies energy cost", desc: "Each run's random equipment drops and event encounters mean no two runs are identical. The variable outcome makes spending energy feel like an investment with uncertain but potentially high upside.", effect: "Players who had a particularly good run are motivated to spend more energy immediately. Players who had a bad run are motivated to try again. Both outcomes drive continued play." },
+    { from: "daily-weekly-quests", to: "clans-guilds", title: "Quests direct players toward guilds", desc: "Later quest chains specifically require guild participation — making guild contributions, participating in guild challenges. The quest system serves as a discovery and onboarding mechanism for the social layer.", effect: "Players who would never organically find or join a guild are directed there by the quest system at the moment when they have enough investment to find it rewarding." },
+    { from: "clans-guilds", to: "leaderboards", title: "Guilds create collective leaderboard stakes", desc: "Guild leaderboards rank collective performance. Individual actions contribute to a group standing that other members can see. The collective ranking gives social meaning to personal performance.", effect: "Guild members who are not personally competitive still feel the pull of collective standing — their contribution to the guild's rank gives social meaning to what would otherwise be a solitary action." },
+    { from: "first-purchase-bonus", to: "xp-leveling", title: "Day 59 offer targets the XP ceiling", desc: "The day 59 first-purchase bonus appears precisely when players hit a natural progression ceiling in the XP and talent systems. The offer is designed to feel like a solution to the specific frustration the player is experiencing at that moment.", effect: "Because the offer appears at a moment of genuine need rather than arbitrary timing, players experience it as helpful rather than manipulative, significantly increasing conversion rates." },
+    { from: "cosmetics", to: "clans-guilds", title: "Cosmetics signal progression within guilds", desc: "Milestone cosmetics — the Chapter 4 mount, the day 59 duck — are visible to guild members. Cosmetics become social signals of how far along the progression system each member has reached.", effect: "Guild members who see high-milestone cosmetics on other members feel both aspiration toward those milestones and social pressure to progress at a comparable rate." },
+  ],
+};
+
+// Node positions for each system (as % of canvas width/height)
+const POSITIONS = {
+  duolingo: {
+    center:            { x: 50, y: 14, label: "DUOLINGO" },
+    "streak":          { x: 50, y: 34 },
+    "xp-leveling":     { x: 22, y: 55 },
+    "achievements":    { x: 78, y: 55 },
+    "energy-lives":    { x: 50, y: 55 },
+    "leaderboards":    { x: 22, y: 78 },
+    "daily-weekly-quests": { x: 50, y: 78 },
+    "variable-reward": { x: 78, y: 78 },
+    "social-feed":     { x: 78, y: 97 },
+  },
+  strava: {
+    center:                { x: 50, y: 12, label: "STRAVA" },
+    "social-feed":         { x: 50, y: 32 },
+    "achievements":        { x: 22, y: 52 },
+    "challenges":          { x: 78, y: 52 },
+    "leaderboards":        { x: 22, y: 74 },
+    "community-groups":    { x: 78, y: 74 },
+    "streak":              { x: 50, y: 92 },
+  },
+  "fc-mobile": {
+    center:                  { x: 50, y: 12, label: "FC MOBILE" },
+    "daily-weekly-quests":   { x: 50, y: 32 },
+    "season-pass":           { x: 22, y: 52 },
+    "leaderboards":          { x: 78, y: 52 },
+    "monthly-card":          { x: 22, y: 74 },
+    "clans-guilds":          { x: 78, y: 74 },
+    "limited-time-events":   { x: 50, y: 74 },
+    "first-purchase-bonus":  { x: 22, y: 94 },
+  },
+  "capybara-go": {
+    center:               { x: 50, y: 10, label: "CAPYBARA GO" },
+    "energy-lives":       { x: 50, y: 28 },
+    "xp-leveling":        { x: 24, y: 48 },
+    "variable-reward":    { x: 76, y: 48 },
+    "ads":                { x: 50, y: 48 },
+    "daily-weekly-quests":{ x: 24, y: 68 },
+    "clans-guilds":       { x: 76, y: 68 },
+    "first-purchase-bonus":{ x: 24, y: 88 },
+    "cosmetics":          { x: 50, y: 88 },
+    "leaderboards":       { x: 76, y: 88 },
+  },
+};
+
+const catColors = {
+  retention:    { bg: "#eef1fd", border: "#3060f0", text: "#3060f0" },
+  monetization: { bg: "#fdf3ea", border: "#e07830", text: "#e07830" },
+  social:       { bg: "#eaf7f0", border: "#22a060", text: "#22a060" },
+};
+
+function px(pct, dim) { return (pct / 100) * dim; }
+
+function buildMindmap(sys) {
+  const pos = POSITIONS[sys.id];
+  if (!pos) return '';
+
+  const conns = CONNECTIONS[sys.id] || [];
+
+  // Build nodes HTML + SVG lines + dots
+  let nodesHtml = '';
+  let linesHtml = '';
+  let dotsHtml = '';
+
+  // Center node
+  const cp = pos.center;
+  nodesHtml += `<div class="mnode center" style="left:${cp.x}%;top:${cp.y}%;">
+    <div class="mnode-name" style="font-size:13px;color:var(--accent);">${cp.label}</div>
+    <div style="font-size:10px;color:var(--muted);margin-top:2px;">${sys.mechanics.length} mechanics</div>
+  </div>`;
+
+  // Center to first mechanic lines (spoke lines)
+  sys.mechanics.forEach(entry => {
+    const mp = pos[entry.id];
+    if (!mp) return;
+    linesHtml += `<line x1="${cp.x}%" y1="${cp.y}%" x2="${mp.x}%" y2="${mp.y}%" stroke="#e0dfd8" stroke-width="1.5" stroke-dasharray="4 3"/>`;
+  });
+
+  // Mechanic nodes
+  sys.mechanics.forEach(entry => {
+    const m = getMechanic(entry.id);
+    const mp = pos[entry.id];
+    if (!m || !mp) return;
+    const col = catColors[m.cat] || { bg: '#f5f4f0', border: '#e0dfd8', text: '#888880' };
+    nodesHtml += `<a class="mnode" href="mechanic.html?id=${m.id}" 
+      style="left:${mp.x}%;top:${mp.y}%;border-color:${col.border};background:${col.bg};">
+      <div class="mnode-num" style="color:${col.text};">${m.n}</div>
+      <div class="mnode-name">${m.name}</div>
+    </a>`;
+  });
+
+  // Connection lines + dots
+  conns.forEach((conn, i) => {
+    const fp = pos[conn.from];
+    const tp = pos[conn.to];
+    if (!fp || !tp) return;
+
+    const mx = (fp.x + tp.x) / 2;
+    const my = (fp.y + tp.y) / 2;
+
+    linesHtml += `<line x1="${fp.x}%" y1="${fp.y}%" x2="${tp.x}%" y2="${tp.y}%" 
+      stroke="#F03636" stroke-width="1.5" opacity="0.4"/>`;
+
+    dotsHtml += `<div class="conn-dot" 
+      style="left:${mx}%;top:${my}%;"
+      onclick="openPopup(${i}, '${sys.id}')" 
+      title="${conn.title}">+</div>`;
+  });
+
+  return `
+  <div class="mindmap-wrap desktop-mindmap">
+    <div style="padding:20px 24px 12px;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+      <div>
+        <div style="font-family:var(--d);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">System Map</div>
+        <div style="font-size:12.5px;color:var(--sub);">Tap <strong style="color:var(--accent);">+</strong> on any connection to understand how two mechanics interact.</div>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted);">
+          <span style="width:20px;height:1.5px;background:#e0dfd8;display:inline-block;"></span> App spine
+        </div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted);">
+          <span style="width:20px;height:1.5px;background:var(--accent);opacity:0.5;display:inline-block;"></span> Mechanic connection
+        </div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--blue);">
+          <span style="width:10px;height:10px;border-radius:3px;background:var(--blue-bg);border:1px solid var(--blue);display:inline-block;"></span> Retention
+        </div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--orange);">
+          <span style="width:10px;height:10px;border-radius:3px;background:var(--orange-bg);border:1px solid var(--orange);display:inline-block;"></span> Monetization
+        </div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--green);">
+          <span style="width:10px;height:10px;border-radius:3px;background:var(--green-bg);border:1px solid var(--green);display:inline-block;"></span> Social
+        </div>
+      </div>
+    </div>
+    <div class="mindmap-canvas">
+      <svg class="lines">${linesHtml}</svg>
+      ${nodesHtml}
+      ${dotsHtml}
+    </div>
+  </div>
+
+  <div class="mobile-fallback">
+    <div style="background:var(--alt);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:24px 0;display:flex;align-items:flex-start;gap:12px;">
+      <div style="font-size:18px;flex-shrink:0;">🖥</div>
+      <div>
+        <div style="font-family:var(--d);font-size:13px;font-weight:600;margin-bottom:4px;">Open on desktop to explore the system map</div>
+        <div style="font-size:12.5px;color:var(--sub);line-height:1.55;">The interactive mindmap shows how each mechanic connects to and reinforces the others. On mobile, here are the mechanics in this system:</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      ${sys.mechanics.map(entry => {
+        const m = getMechanic(entry.id);
+        if (!m) return '';
+        const col = catColors[m.cat] || {};
+        return `<a href="mechanic.html?id=${m.id}" class="mitem" style="display:block;text-decoration:none;">
+          <div class="mitem-head">
+            <div>
+              <span class="badge badge-${m.cat}">${m.cat}</span>
+              <div class="mitem-title" style="margin-top:6px;">${m.name}</div>
+            </div>
+          </div>
+          <div class="mitem-body">${entry.role}</div>
+        </a>`;
+      }).join('')}
+    </div>
+  </div>`;
+}
+
+let currentConnections = [];
+function openPopup(idx, sysId) {
+  const conn = (CONNECTIONS[sysId] || [])[idx];
+  if (!conn) return;
+  document.getElementById('popup-title').textContent = conn.title;
+  document.getElementById('popup-desc').textContent = conn.desc;
+  document.getElementById('popup-effect').textContent = conn.effect;
+  document.getElementById('popup').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closePopup() {
+  document.getElementById('popup').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
+
+const id = new URLSearchParams(location.search).get('id');
+const sys = getSystem(id);
+
+if (!sys) {
+  document.getElementById('root').innerHTML = '<div class="wrap page"><p>System not found.</p></div>';
+} else {
+  document.title = sys.name + ' System — Mechanics Playbook';
+  const app = getApp(sys.app_id);
+
+  document.getElementById('root').innerHTML = `
+  <div class="detail-head">
+    <div class="wrap">
+      <div class="breadcrumb"><a href="systems.html">Systems</a> › <span>${sys.name}</span></div>
+      <div class="detail-meta">
+        ${app ? typeBadge(app.type) : ''}
+        ${app ? `<span class="badge badge-app">${app.cat}</span>` : ''}
+        ${apiId(sys.id)}
+        <button class="copy-btn" onclick="copyText(JSON.stringify(SYSTEMS.find(s=>s.id==='${sys.id}'),null,2),this)">Copy JSON</button>
+      </div>
+      <h1 class="detail-title">${sys.name} System</h1>
+      <p class="detail-sub">${sys.tagline}</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="prose" style="padding-bottom:0;">
+      <h2>Overview</h2>
+      <p>${sys.overview}</p>
+      <h2>The core loop</h2>
+      <p>${sys.loop_description}</p>
+    </div>
+
+    ${buildMindmap(sys)}
+
+    <div class="insight-box">
+      <div class="lbl">Key Insight</div>
+      <p>${sys.key_insight}</p>
+    </div>
+
+    <div class="prose">
+      <h2>What makes it work</h2>
+      <p>${sys.what_makes_it_work}</p>
+    </div>
+
+    <div style="padding:32px 0 16px;">
+      <div class="slabel">View the full case study</div>
+      ${app ? `<a href="case-study.html?id=${app.id}" class="card" style="display:block;max-width:480px;text-decoration:none;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+          ${typeBadge(app.type)}
+          <span style="font-size:11px;color:var(--muted);">${app.cat}</span>
+        </div>
+        <div class="card-title">${app.name}</div>
+        <div class="card-body">${app.summary.substring(0,120)}...</div>
+      </a>` : ''}
+    </div>
+  </div>
+  <footer><div class="wrap"><div class="foot-inner"><span>Mechanics Playbook by <a href="https://gamebizconsulting.com">GameBiz Consulting</a></span><span><a href="mailto:hello@gamebizconsulting.com">hello@gamebizconsulting.com</a></span></div></div></footer>`;
+}
+
+function copyText(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    const o = btn.textContent; btn.textContent = 'Copied'; btn.classList.add('ok');
+    setTimeout(() => { btn.textContent = o; btn.classList.remove('ok'); }, 1800);
+  });
+}
+</script>
+</body>
+</html>

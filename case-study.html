@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study — Mechanics Playbook</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ── LAYOUT ──────────────────────────────────────────── */
+.cs-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 0;
+  min-height: calc(100vh - var(--nav));
+  align-items: start;
+  max-width: calc(var(--max) + 48px);
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Left menu aligns with nav left edge */
+.cs-menu {
+  /* sticky positioning handled below */
+}
+
+/* ── FLOATING LEFT MENU ──────────────────────────────── */
+.cs-menu {
+  position: sticky;
+  top: var(--nav);
+  height: calc(100vh - var(--nav));
+  overflow-y: auto;
+  border-right: 1px solid var(--border);
+  background: var(--bg);
+  padding: 28px 0 40px;
+  display: flex;
+  flex-direction: column;
+}
+.cs-menu-header {
+  padding: 0 20px 20px;
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 8px;
+}
+.cs-menu-app {
+  font-family: var(--d);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+.cs-menu-sub { font-size: 11px; color: var(--muted); }
+.cs-menu-label {
+  font-family: var(--d);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 12px 20px 6px;
+}
+.cs-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 20px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  transition: background 0.12s;
+  border-left: 2.5px solid transparent;
+  font-family: var(--b);
+}
+.cs-menu-item:hover { background: var(--alt); }
+.cs-menu-item.active {
+  background: var(--alt);
+  border-left-color: var(--accent);
+}
+.cs-menu-item-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.cs-menu-item-name {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.3;
+}
+.cs-menu-item.active .cs-menu-item-name {
+  font-weight: 600;
+  color: var(--accent);
+}
+.cs-menu-back {
+  margin-top: auto;
+  padding: 16px 20px 0;
+  border-top: 1px solid var(--border-light);
+}
+.cs-menu-back a {
+  font-size: 12px;
+  color: var(--muted);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.15s;
+}
+.cs-menu-back a:hover { color: var(--text); }
+
+/* ── CONTENT PANEL ───────────────────────────────────── */
+.cs-content { padding: 40px 24px 80px; min-width: 0; }
+
+.mechanic-panel { display: none; }
+.mechanic-panel.active { display: block; }
+
+/* ── OVERVIEW PANEL ──────────────────────────────────── */
+.overview-section { margin-bottom: 36px; }
+.overview-section h2 {
+  font-family: var(--d);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.overview-section p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.overview-section p:last-child { margin-bottom: 0; }
+
+.mechanics-found-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+.mfound-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s, transform 0.15s;
+  cursor: pointer;
+}
+.mfound-card:hover {
+  border-color: var(--text);
+  transform: translateY(-1px);
+}
+.mfound-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.mfound-name {
+  font-family: var(--d);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+.mfound-cat {
+  font-size: 10.5px;
+  color: var(--muted);
+  text-transform: capitalize;
+}
+
+/* ── MECHANIC PANEL ──────────────────────────────────── */
+.mp-header {
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 32px;
+}
+.mp-breadcrumb {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.mp-breadcrumb a { color: var(--muted); text-decoration: none; }
+.mp-breadcrumb a:hover { color: var(--text); }
+
+.mp-title {
+  font-family: var(--d);
+  font-size: clamp(20px, 2.8vw, 30px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+
+/* about this mechanic */
+.mechanic-about {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+.mechanic-about-label {
+  font-family: var(--d);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.mechanic-about-desc {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+.mechanic-about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-light);
+}
+.mabout-item-label {
+  font-family: var(--d);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+.mabout-item-body {
+  font-size: 13px;
+  color: var(--sub);
+  line-height: 1.6;
+}
+
+/* implementation box */
+.impl-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.impl-box-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.impl-box-title {
+  font-family: var(--d);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.impl-box-body { padding: 20px; }
+.impl-box-body strong { color: var(--text); font-weight: 600; }
+.impl-box-body .section-h {
+  font-family: var(--d);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+  margin-top: 18px;
+}
+.impl-box-body .section-h:first-child { margin-top: 0; }
+.impl-box-body .section-body {
+  font-size: 14px;
+  color: var(--sub);
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+.impl-box-body .section-body:last-child { margin-bottom: 0; }
+
+/* screenshots */
+.shots-grid {
+  display: flex;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--alt);
+  border-top: 1px solid var(--border-light);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+.shot-slot {
+  flex-shrink: 0;
+  width: 200px;
+  aspect-ratio: 585 / 1266;
+  background: var(--bg);
+  border: 1.5px dashed var(--border);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 500;
+  text-align: center;
+  padding: 10px;
+  line-height: 1.3;
+  scroll-snap-align: start;
+}
+.shot-slot svg { width: 22px; height: 22px; opacity: 0.3; }
+
+/* no mechanics */
+.no-mechanics { padding: 60px 0; max-width: 480px; }
+.no-mechanics h2 {
+  font-family: var(--d);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.no-mechanics p { font-size: 14.5px; color: var(--sub); line-height: 1.65; margin-bottom: 20px; }
+
+.principle-box {
+  background: var(--alt);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+}
+.principle-box .lbl {
+  font-family: var(--d);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 5px;
+}
+.principle-box p { font-size: 13.5px; color: var(--sub); margin: 0; line-height: 1.6; }
+
+/* ── MOBILE DROPDOWN ─────────────────────────────────── */
+.mobile-selector {
+  display: none;
+  position: sticky;
+  top: var(--nav);
+  z-index: 50;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 16px;
+}
+.mobile-selector-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.mobile-selector select {
+  width: 100%;
+  font-family: var(--b);
+  font-size: 13.5px;
+  font-weight: 500;
+  padding: 9px 32px 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--text);
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888880' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+@media (max-width: 768px) {
+  .cs-layout { grid-template-columns: 1fr; }
+  .cs-menu { display: none; }
+  .mobile-selector { display: block; }
+  .cs-content { padding: 24px 16px 60px; }
+  .mechanic-about-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="dot"><svg viewBox="0 0 14 14"><path d="M7 1L13 4.5V9.5L7 13L1 9.5V4.5L7 1Z"/></svg></div>Mechanics <span class="ac">Playbook</span></a>
+    <ul class="nav-links">
+      <li><a href="mechanics.html">Mechanics</a></li>
+      <li><a href="systems.html">Systems</a></li>
+      <li><a href="case-studies.html" class="active">Case Studies</a></li>
+      <li><a href="cheatsheets.html">Cheatsheets</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="mobile-selector" id="mobile-selector">
+  <div class="mobile-selector-inner">
+  <select id="mobile-select" onchange="switchPanel(this.value)"></select>
+  </div>
+</div>
+
+<div class="cs-layout">
+  <aside class="cs-menu" id="cs-menu"></aside>
+  <main class="cs-content" id="cs-content"></main>
+</div>
+
+<script src="data.js"></script>
+<script>
+const SCREENSHOTS = {
+  // Path structure: screenshots/[mechanic]/[app]/[mechanic][n].png
+  'streak_duolingo': [
+    'screenshots/streaks/duolingo/streak1.png',
+    'screenshots/streaks/duolingo/streak2.png',
+    'screenshots/streaks/duolingo/streak3.png',
+    'screenshots/streaks/duolingo/streak4.png',
+    'screenshots/streaks/duolingo/streak5.png',
+    'screenshots/streaks/duolingo/streak6.png',
+    'screenshots/streaks/duolingo/streak7.png',
+    'screenshots/streaks/duolingo/streak8.png',
+  ],
+  'ads_subway-surfers': [
+    'screenshots/ads/subway-surfers/ads1.png',
+    'screenshots/ads/subway-surfers/ads2.png',
+    'screenshots/ads/subway-surfers/ads3.png',
+    'screenshots/ads/subway-surfers/ads4.png',
+    'screenshots/ads/subway-surfers/ads5.png',
+    'screenshots/ads/subway-surfers/ads6.png',
+    'screenshots/ads/subway-surfers/ads7.png',
+    'screenshots/ads/subway-surfers/ads8.png',
+  ],
+  // Add more: 'mechanic-id_app-id': ['screenshots/mechanic/app/mechanic1.png', ...]
+};
+
+const catColors = {
+  retention:    { dot: '#3060f0', badge: 'badge-retention' },
+  monetization: { dot: '#e07830', badge: 'badge-monetization' },
+  social:       { dot: '#22a060', badge: 'badge-social' },
+};
+
+function shotSlot(label) {
+  return `<div class="shot-slot">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <rect x="3" y="3" width="18" height="18" rx="3"/>
+      <circle cx="8.5" cy="8.5" r="1.5"/>
+      <path d="M21 15l-5-5L5 21"/>
+    </svg>
+    <span>${label}</span>
+  </div>`;
+}
+
+function copyText(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    const o = btn.textContent;
+    btn.textContent = 'Copied';
+    btn.classList.add('ok');
+    setTimeout(() => { btn.textContent = o; btn.classList.remove('ok'); }, 1800);
+  });
+}
+
+function switchPanel(id) {
+  document.querySelectorAll('.mechanic-panel').forEach(p => p.classList.remove('active'));
+  const t = document.getElementById('panel-' + id);
+  if (t) t.classList.add('active');
+  document.querySelectorAll('.cs-menu-item').forEach(i => i.classList.remove('active'));
+  const mi = document.querySelector(`.cs-menu-item[data-id="${id}"]`);
+  if (mi) mi.classList.add('active');
+  const sel = document.getElementById('mobile-select');
+  if (sel) sel.value = id;
+  window.scrollTo(0, 0);
+}
+
+// ── RENDER RICH DESC ────────────────────────────────────
+function renderRichDesc(desc) {
+  if (!desc) return '';
+  // Convert <strong>Section</strong><br>body into styled sections
+  return desc
+    .replace(/<strong>(How [^<]+)<\/strong><br>/g,
+      '<div class="section-h">$1</div>')
+    .replace(/<strong>(Why it works[^<]*)<\/strong><br>/g,
+      '<div class="section-h">$1</div>')
+    .replace(/<strong>(Key findings[^<]*)<\/strong><br>/g,
+      '<div class="section-h">$1</div>')
+    .replace(/<br><br>/g, '</div><div class="section-body">')
+    .replace(/<br>/g, ' ')
+    .replace(/^/, '<div class="section-body">')
+    .replace(/$/, '</div>');
+}
+
+// ── INIT ─────────────────────────────────────────────────
+const appId = new URLSearchParams(location.search).get('id');
+const app = getApp(appId);
+
+if (!app) {
+  document.getElementById('cs-content').innerHTML =
+    '<div class="no-mechanics"><h2>App not found.</h2><p><a href="case-studies.html">Back to case studies</a></p></div>';
+} else {
+  document.title = app.name + ' — Mechanics Playbook';
+  const appMechanics = app.mechanics.map(mid => getMechanic(mid)).filter(Boolean);
+
+  // ── BUILD LEFT MENU ─────────────────────────────────────
+  const menu = document.getElementById('cs-menu');
+  let menuItems = `
+    <div class="cs-menu-header">
+      <div class="cs-menu-app">${app.name}</div>
+      <div class="cs-menu-sub">${app.cat} · ${app.type === 'game' ? 'Game' : 'App'}</div>
+    </div>
+    <button class="cs-menu-item active" data-id="overview" onclick="switchPanel('overview')">
+      <span class="cs-menu-item-dot" style="background:var(--accent);"></span>
+      <span class="cs-menu-item-name">Overview</span>
+    </button>`;
+
+  if (appMechanics.length > 0) {
+    menuItems += `<div class="cs-menu-label">Mechanics</div>`;
+    appMechanics.forEach(m => {
+      const col = catColors[m.cat] || { dot: '#888' };
+      menuItems += `<button class="cs-menu-item" data-id="${m.id}" onclick="switchPanel('${m.id}')">
+        <span class="cs-menu-item-dot" style="background:${col.dot};"></span>
+        <span class="cs-menu-item-name">${m.name}</span>
+      </button>`;
+    });
+  }
+
+  menuItems += `<div class="cs-menu-back"><a href="case-studies.html">← All case studies</a></div>`;
+  menu.innerHTML = menuItems;
+
+  // ── MOBILE SELECT ───────────────────────────────────────
+  const mobileSelector = document.getElementById('mobile-selector');
+  // display handled by CSS media query
+  const sel = document.getElementById('mobile-select');
+  const optOverview = document.createElement('option');
+  optOverview.value = 'overview';
+  optOverview.textContent = 'Overview';
+  sel.appendChild(optOverview);
+  appMechanics.forEach(m => {
+    const opt = document.createElement('option');
+    opt.value = m.id;
+    opt.textContent = m.name;
+    sel.appendChild(opt);
+  });
+
+  // ── BUILD CONTENT ───────────────────────────────────────
+  const content = document.getElementById('cs-content');
+
+  // Count by category
+  const retCount = appMechanics.filter(m => m.cat === 'retention').length;
+  const monCount = appMechanics.filter(m => m.cat === 'monetization').length;
+  const socCount = appMechanics.filter(m => m.cat === 'social').length;
+
+  // Mechanic found cards
+  const mechCards = appMechanics.map(m => {
+    const col = catColors[m.cat] || { dot: '#888' };
+    return `<div class="mfound-card" onclick="switchPanel('${m.id}')">
+      <span class="mfound-dot" style="background:${col.dot};"></span>
+      <div>
+        <div class="mfound-name">${m.name}</div>
+        <div class="mfound-cat">${m.cat}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Category summary line
+  const catSummary = [
+    retCount > 0 ? `${retCount} retention` : '',
+    monCount > 0 ? `${monCount} monetization` : '',
+    socCount > 0 ? `${socCount} social` : '',
+  ].filter(Boolean).join(', ');
+
+  // ── OVERVIEW PANEL ──────────────────────────────────────
+  let overviewPanel = `
+  <div class="mechanic-panel active" id="panel-overview">
+    <div style="padding-bottom:28px;border-bottom:1px solid var(--border);margin-bottom:32px;">
+      <div class="mp-breadcrumb">
+        <a href="case-studies.html">Case Studies</a> › <span>${app.name}</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;">
+        ${typeBadge(app.type)}
+        <span class="badge badge-app">${app.cat}</span>
+        ${apiId(app.id)}
+      </div>
+      <h1 style="font-family:var(--d);font-size:clamp(24px,3.5vw,38px);font-weight:700;letter-spacing:-0.03em;line-height:1.1;margin-bottom:12px;">${app.name}</h1>
+      <p style="font-size:15px;color:var(--sub);line-height:1.65;max-width:600px;">${app.summary}</p>
+    </div>
+
+    ${appMechanics.length > 0 ? `
+    <div class="overview-section">
+      <h2>Mechanics found</h2>
+      <p style="font-size:13.5px;color:var(--muted);margin-bottom:14px;">${appMechanics.length} mechanic${appMechanics.length !== 1 ? 's' : ''} observed — ${catSummary}. Click any mechanic to explore the full analysis.</p>
+      <div class="mechanics-found-grid">${mechCards}</div>
+    </div>` : ''}
+
+    ${appMechanics.length === 0 ? `
+    <div class="overview-section">
+      <div class="principle-box">
+        <div class="lbl">No mechanics observed</div>
+        <p>${app.name} was analyzed but no traditional game mechanics were found. This case study serves as a reference for what engagement looks like without gamification scaffolding — useful as a baseline when evaluating how much headroom exists in a category.</p>
+      </div>
+    </div>` : ''}
+
+    <div class="overview-section" style="padding-top:32px;border-top:1px solid var(--border-light);">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <div>
+          <div style="font-family:var(--d);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Export</div>
+        </div>
+        <button class="copy-btn" onclick="copyText(JSON.stringify(APPS.find(a=>a.id==='${app.id}'),null,2),this)">Copy JSON</button>
+      </div>
+    </div>
+  </div>`;
+
+  // ── MECHANIC PANELS ─────────────────────────────────────
+  let mechanicPanels = '';
+
+  appMechanics.forEach(m => {
+    const desc = getMechanicAppDesc(m.id, app.id);
+    const col = catColors[m.cat] || { dot: '#888', badge: '' };
+    const pairedMs = (m.paired || []).map(pid => getMechanic(pid)).filter(Boolean);
+
+    const shotKey = m.id + '_' + app.id;
+    const shotFiles = SCREENSHOTS[shotKey] || [];
+    const shotCount = shotFiles.length > 0 ? Math.min(shotFiles.length, 8) : 3;
+    const shots = Array.from({length: shotCount}, (_, i) => {
+      if (shotFiles[i]) {
+        return `<div class="shot-slot" style="padding:0;border:none;overflow:hidden;background:none;height:auto;">
+          <img src="${shotFiles[i]}" alt="${app.name} ${m.name} screenshot ${i+1}"
+            style="width:200px;aspect-ratio:585/1266;object-fit:cover;border-radius:10px;display:block;scroll-snap-align:start;">
+        </div>`;
+      }
+      return shotSlot(`${app.name}<br>${m.name}<br>Screen ${i+1}`);
+    }).join('');
+
+    const pairedHtml = pairedMs.length > 0
+      ? `<div class="mabout-item-label">Often paired with</div>
+         <div class="tags">${pairedMs.map(pm =>
+           `<a href="mechanic.html?id=${pm.id}" class="tag" style="font-size:11px;">${pm.name}</a>`
+         ).join('')}</div>`
+      : '';
+
+    const ctxHtml = (m.context || []).map(c =>
+      `<a href="mechanics.html?context=${c}" class="tag" style="font-size:10.5px;background:var(--blue-bg);border-color:var(--blue-bg);color:var(--blue);">${c}</a>`
+    ).join('');
+
+    // Format rich description into structured sections
+    const formattedDesc = renderRichDesc(desc || '');
+
+    mechanicPanels += `
+    <div class="mechanic-panel" id="panel-${m.id}">
+      <div class="mp-header">
+        <div class="mp-breadcrumb">
+          <a href="case-studies.html">Case Studies</a> ›
+          <a href="#" onclick="switchPanel('overview');return false;">${app.name}</a> ›
+          <span>${m.name}</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
+          <span class="badge ${col.badge}">${m.cat}</span>
+          <span style="font-family:var(--d);font-size:10.5px;font-weight:600;color:var(--muted);">${m.n}</span>
+          <a href="mechanic.html?id=${m.id}" style="font-size:11.5px;color:var(--accent);text-decoration:none;font-weight:500;">Full mechanic →</a>
+        </div>
+        <h1 class="mp-title">How ${app.name} applies ${m.name}</h1>
+
+        <div class="mechanic-about">
+          <div class="mechanic-about-label">About this mechanic</div>
+          <div class="mechanic-about-desc">${m.desc}</div>
+          <div class="mechanic-about-grid">
+            <div>
+              <div class="mabout-item-label">Core principle</div>
+              <div class="mabout-item-body">${m.principle}</div>
+            </div>
+            <div>
+              <div class="mabout-item-label">Watch out for</div>
+              <div class="mabout-item-body">${m.warn}</div>
+            </div>
+            ${pairedMs.length > 0 ? `<div>${pairedHtml}</div>` : ''}
+            ${(m.context||[]).length > 0 ? `
+            <div>
+              <div class="mabout-item-label">Product context</div>
+              <div class="tags">${ctxHtml}</div>
+            </div>` : ''}
+          </div>
+        </div>
+      </div>
+
+      <div class="impl-box">
+        <div class="impl-box-header">
+          <div class="impl-box-title">${app.name} — ${m.name}</div>
+          <button class="copy-btn" onclick="copyText(\`${(desc||'').replace(/`/g,"'").replace(/<[^>]+>/g,'').replace(/\n/g,' ')}\`,this)">Copy text</button>
+        </div>
+        <div class="impl-box-body">
+          ${formattedDesc || `<div class="section-body">A detailed description of how ${app.name} applies this mechanic will be added here.</div>`}
+        </div>
+        <div class="shots-grid">${shots}</div>
+      </div>
+
+      <div style="padding-top:20px;">
+        <a href="mechanic.html?id=${m.id}" style="font-size:13px;color:var(--accent);text-decoration:none;font-weight:500;">
+          Explore all implementations of ${m.name} across games and apps →
+        </a>
+      </div>
+    </div>`;
+  });
+
+  content.innerHTML = overviewPanel + mechanicPanels;
+}
+</script>
+</body>
+</html>
