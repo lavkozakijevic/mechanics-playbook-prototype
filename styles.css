@@ -173,14 +173,81 @@ footer { border-top: 1px solid var(--border); padding: 28px 0; margin-top: 60px;
 .vlist li:last-child { border-bottom: none; }
 
 /* MOBILE */
+
+/* ── HAMBURGER NAV ───────────────────────────────────────── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 200;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all 0.25s;
+  transform-origin: center;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-drawer {
+  display: none;
+  position: fixed;
+  top: var(--nav);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg);
+  z-index: 150;
+  padding: 32px 24px;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+}
+.nav-drawer.open { display: flex; }
+.nav-drawer a {
+  font-family: var(--d);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-decoration: none;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-light);
+  display: block;
+  transition: color 0.15s;
+}
+.nav-drawer a:hover { color: var(--accent); }
+.nav-drawer a.active { color: var(--accent); }
+.nav-drawer-footer {
+  margin-top: auto;
+  padding-top: 24px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ── MOBILE OVERFLOW FIXES ───────────────────────────────── */
+@media (max-width: 768px) {
+  /* Show hamburger, hide nav links */
+  .nav-hamburger { display: flex; }
+  .nav-links { display: none; }
+}
+
 @media (max-width: 640px) {
   :root { --nav: 50px; }
   .nav-inner { padding: 0 16px; }
-  .nav-links { gap: 16px; }
-  .nav-links a { font-size: 12px; }
   .wrap { padding: 0 16px; }
   .hero { padding: 32px 0 24px; }
   .grid { grid-template-columns: 1fr; }
+  .grid-tight { grid-template-columns: 1fr; }
   .two-col { grid-template-columns: 1fr; }
   .sidebar { position: static; }
   .card { padding: 16px; }
@@ -190,6 +257,19 @@ footer { border-top: 1px solid var(--border); padding: 28px 0; margin-top: 60px;
   .foot-inner { flex-direction: column; text-align: center; }
   .step { flex-direction: column; gap: 8px; }
   .tbl { font-size: 12px; }
+  /* Prevent card content overflow */
+  .card-title { word-break: break-word; }
+  .card-body { word-break: break-word; }
+  .tags { flex-wrap: wrap; }
+  .tag { font-size: 10px; }
+  /* Prevent badge overflow */
+  .badge { font-size: 9px; }
+  /* Context tags wrap properly */
+  .ctx-tag { font-size: 10px; }
+  /* Mechanic card footer */
+  .card-foot { flex-wrap: wrap; gap: 6px; }
+  /* Ensure images don't overflow */
+  img { max-width: 100%; }
 }
 
 /* HIDDEN */
