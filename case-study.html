@@ -393,6 +393,8 @@
   .mobile-selector { display: block; }
   .cs-content { padding: 24px 16px 60px; }
   .mechanic-about-grid { grid-template-columns: 1fr; }
+  /* Hide placeholder screenshot grid on mobile */
+  .shots-grid:not(:has(img)) { display: none; }
 }
 </style>
 </head>

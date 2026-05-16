@@ -130,6 +130,10 @@ nav { position: sticky; top: 0; height: var(--nav); background: rgba(245,244,240
 
 /* SCREENSHOTS */
 .shots { display: flex; gap: 12px; overflow-x: auto; padding: 20px 0 12px; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; }
+.shot-placeholder-row { display: flex; gap: 10px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.mitem-body ul, .mitem-body ol { padding-left: 18px; margin-top: 8px; margin-bottom: 4px; }
+.mitem-body li { margin-bottom: 6px; font-size: 13.5px; line-height: 1.65; color: var(--sub); }
+.mitem-body strong { color: var(--text); font-weight: 600; }
 .shot { flex-shrink: 0; width: 120px; height: 260px; background: var(--alt); border: 1.5px dashed var(--border); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--muted); font-size: 10px; font-weight: 500; text-align: center; padding: 8px; }
 .shot svg { width: 20px; height: 20px; opacity: 0.35; }
 
@@ -271,6 +275,8 @@ footer { border-top: 1px solid var(--border); padding: 28px 0; margin-top: 60px;
   .card-foot { flex-wrap: wrap; gap: 6px; }
   /* Ensure images don't overflow */
   img { max-width: 100%; }
+  /* Hide screenshot placeholders on mobile — they serve no purpose without real images */
+  .shot-placeholder-row { display: none; }
   /* Fix grid/flex child overflow — critical for two-col layout */
   .two-col > * { min-width: 0; }
   .mitem-head { flex-wrap: wrap; }

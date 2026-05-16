@@ -115,7 +115,7 @@ else {
                     </div>`;
                   } else {
                     // Placeholders — small 120x260 row, up to 3
-                    return `<div style="display:flex;gap:10px;">
+                    return `<div class="shot-placeholder-row">
                       ${[0,1,2].map(i => shot(app.name + ' · ' + (i+1))).join('')}
                     </div>`;
                   }
