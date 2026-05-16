@@ -625,12 +625,6 @@ if (!app) {
       </div>
     </div>` : ''}
 
-    <div class="overview-section" style="padding-top:32px;border-top:1px solid var(--border-light);">
-      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-        <div>
-          <div style="font-family:var(--d);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Export</div>
-        </div>
-        <button class="copy-btn" onclick="copyText(JSON.stringify(APPS.find(a=>a.id==='${app.id}'),null,2),this)">Copy JSON</button>
       </div>
     </div>
   </div>`;
@@ -710,7 +704,6 @@ if (!app) {
       <div class="impl-box">
         <div class="impl-box-header">
           <div class="impl-box-title">${app.name} — ${m.name}</div>
-          <button class="copy-btn" onclick="copyText(\`${(desc||'').replace(/`/g,"'").replace(/<[^>]+>/g,'').replace(/\n/g,' ')}\`,this)">Copy text</button>
         </div>
         <div class="impl-box-body">
           ${formattedDesc || `<div class="section-body">A detailed description of how ${app.name} applies this mechanic will be added here.</div>`}

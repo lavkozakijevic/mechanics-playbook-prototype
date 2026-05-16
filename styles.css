@@ -99,6 +99,7 @@ nav { position: sticky; top: 0; height: var(--nav); background: rgba(245,244,240
 
 /* LAYOUT 2COL */
 .two-col { display: grid; grid-template-columns: 1fr 260px; gap: 40px; align-items: start; padding: 36px 0; }
+.two-col > * { min-width: 0; }
 .sidebar { position: sticky; top: calc(var(--nav) + 16px); display: flex; flex-direction: column; gap: 14px; }
 .sbox { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
 .sbox h3 { font-family: var(--d); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
@@ -107,7 +108,7 @@ nav { position: sticky; top: 0; height: var(--nav); background: rgba(245,244,240
 .sbox ul a:hover { color: var(--accent); }
 
 /* PROSE */
-.prose { padding: 32px 0; }
+.prose { padding: 32px 0; overflow-wrap: break-word; word-break: break-word; }
 .prose h2 { font-family: var(--d); font-size: 17px; font-weight: 600; letter-spacing: -0.02em; margin: 32px 0 10px; color: var(--text); }
 .prose h2:first-child { margin-top: 0; }
 .prose p { font-size: 14.5px; line-height: 1.7; color: var(--text); margin-bottom: 14px; }
@@ -125,7 +126,7 @@ nav { position: sticky; top: 0; height: var(--nav); background: rgba(245,244,240
 .mitem-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
 .mitem-title { font-family: var(--d); font-size: 16px; font-weight: 600; letter-spacing: -0.02em; }
 .mitem-sub { font-size: 11.5px; color: var(--muted); margin-bottom: 8px; }
-.mitem-body { font-size: 13.5px; line-height: 1.65; color: var(--sub); }
+.mitem-body { font-size: 13.5px; line-height: 1.65; color: var(--sub); overflow-wrap: break-word; word-break: break-word; }
 
 /* SCREENSHOTS */
 .shots { display: flex; gap: 12px; overflow-x: auto; padding: 20px 0 12px; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; }
@@ -270,6 +271,26 @@ footer { border-top: 1px solid var(--border); padding: 28px 0; margin-top: 60px;
   .card-foot { flex-wrap: wrap; gap: 6px; }
   /* Ensure images don't overflow */
   img { max-width: 100%; }
+  /* Fix grid/flex child overflow — critical for two-col layout */
+  .two-col > * { min-width: 0; }
+  .mitem-head { flex-wrap: wrap; }
+  .mitem-body { overflow-wrap: break-word; word-break: break-word; }
+  /* Prose content containment */
+  .prose { overflow-x: hidden; }
+  .prose p, .prose li { overflow-wrap: break-word; word-break: break-word; }
+  .prose ul, .prose ol { padding-left: 20px; }
+  .info-box, .warn-box { overflow-wrap: break-word; word-break: break-word; }
+  /* detail-meta row */
+  .detail-meta { flex-wrap: wrap; gap: 8px; }
+  /* impl-box containment */
+  .impl-box { overflow-x: hidden; }
+  .impl-box ul, .impl-box ol { padding-left: 20px; }
+  .impl-box li { overflow-wrap: break-word; word-break: break-word; }
+  .section-body { overflow-wrap: break-word; word-break: break-word; }
+  /* mechanic about section */
+  .mechanic-about { overflow-x: hidden; }
+  .mechanic-about-desc { overflow-wrap: break-word; word-break: break-word; }
+  .mabout-item-body { overflow-wrap: break-word; word-break: break-word; }
 }
 
 /* HIDDEN */

@@ -80,8 +80,6 @@ else {
         <div class="sbox">
           <h3>Export</h3>
           <div style="display:flex;flex-direction:column;gap:6px;">
-            <button class="copy-btn" onclick="copyText(\`${g.term}: ${g.def.replace(/`/g,"'")}\`,this)">Copy definition</button>
-            <button class="copy-btn" onclick="copyText(JSON.stringify(GLOSSARY.find(x=>x.id==='${g.id}'),null,2),this)">Copy JSON</button>
           </div>
         </div>
       </div>

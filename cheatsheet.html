@@ -59,7 +59,6 @@ else {
           <div class="step-c">
             <h3>${s.h}</h3>
             <p>${s.b}</p>
-            <button class="copy-btn" onclick="copyText(\`${s.h}: ${s.b.replace(/`/g,"'")}\`,this)">Copy</button>
           </div>
         </div>`).join('')}
       </div>
@@ -72,8 +71,6 @@ else {
         <div class="sbox">
           <h3>Export</h3>
           <div style="display:flex;flex-direction:column;gap:6px;">
-            <button class="copy-btn" onclick="copyText(CHEATSHEETS.find(c=>c.id==='${cs.id}').steps.map((s,i)=>(i+1)+'. '+s.h+': '+s.b).join('\\n\\n'),this)">Copy all steps</button>
-            <button class="copy-btn" onclick="copyText(JSON.stringify(CHEATSHEETS.find(c=>c.id==='${cs.id}'),null,2),this)">Copy JSON</button>
           </div>
         </div>
       </div>

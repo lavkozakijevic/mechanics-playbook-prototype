@@ -273,6 +273,35 @@
 <script src="data.js"></script>
 <script>
 const CONNECTIONS = {
+  "royal-match": [
+    { from: "energy-lives", to: "gifting", title: "Depletion triggers gifting", desc: "When hearts reach zero, the lives screen routes the player to Ask Your Teammates before showing the paid refill. The social path is the first offered resolution to the energy constraint.", effect: "The player experiences the energy system's most frustrating moment as a social opportunity rather than a paywall. Running out of lives becomes a reason to check the team screen, not a reason to quit." },
+    { from: "energy-lives", to: "clans-guilds", title: "Energy wall introduces teams", desc: "The team join prompt surfaces at levels 19–21, precisely when the first genuine heart depletion occurs. Free lives is the headline value of joining a team.", effect: "Players who would never seek out a social mechanic are guided to it at the moment it solves a real problem they're experiencing. The team adoption rate is driven by the energy system, not by social interest." },
+    { from: "gifting", to: "set-collection", title: "Teammates enable targeted card requests", desc: "One specific named card per teammate per 24 hours converts the final gap in any collection set from a random drop problem into a cooperative daily task.", effect: "Players who are close to completing a set have a daily reason to interact with their team that is distinct from lives gifting, extending cooperative engagement beyond the energy depletion moment." },
+    { from: "clans-guilds", to: "season-pass", title: "Team gift makes pass purchase social", desc: "The Easter Pass team gift provides infinite hearts to all team members for a duration. One member's $9.99 purchase delivers a visible, immediate benefit to everyone in the team.", effect: "The season pass purchase gains a social justification. Players feel they are contributing to their team as much as helping themselves, reducing the psychological cost of the spend." },
+    { from: "limited-time-events", to: "clans-guilds", title: "Team tournament creates collective stakes", desc: "The Team Tournament runs within a defined window with a shared score track. Team members' individual level completions contribute to the collective tournament standing.", effect: "Events that would otherwise feel solo gain a cooperative dimension. Team members feel pull from collective standing alongside their personal desire to clear levels." },
+    { from: "set-collection", to: "variable-reward", title: "Collection gaps sustain pack opening", desc: "Card packs acquired through level completion chests have variable contents. Knowing which cards are missing makes each chest opening feel purposeful rather than arbitrary.", effect: "Variable reward engagement is sustained by set collection incompleteness — the player opens chests not just for random reward but with a specific gap in mind, making each pull feel targeted." },
+  ],
+  "subway-surfers": [
+    { from: "ads", to: "daily-login-reward", title: "Ads monetize every missed day", desc: "Missed daily login calendar days can be claimed by watching an ad or spending 5 keys. The daily rewards screen has five slots, each requiring an ad watch to unlock.", effect: "The ad economy extends into the daily login system — every gap in the streak, and every slot in the daily rewards screen, becomes an ad placement. Return cadence and ad engagement are fully interlinked." },
+    { from: "ads", to: "achievements", title: "Ad watching advances the score multiplier", desc: "Daily tasks including ad watching contribute to mission completion. Missions advance the score multiplier. The multiplier is the primary long-horizon progression axis in the game.", effect: "Ad engagement contributes to the game's only meaningful progression system, giving regular ad watchers a concrete advancement rationale that goes beyond the immediate reward." },
+    { from: "daily-login-reward", to: "cosmetics", title: "Login milestone rewards cosmetics", desc: "The 20-login milestone on the login calendar rewards the Freebird hoverboard — a direct cosmetic reward for consistent daily return over 20 sessions.", effect: "The daily login system has a cosmetics endpoint rather than just currency rewards, giving players who are not motivated by coins a concrete item goal that requires sustained daily return." },
+    { from: "cosmetics", to: "variable-reward", title: "Character tokens are run-variable rewards", desc: "Character and hoverboard tokens appear randomly during runs. Token accumulation toward specific cosmetics makes each run a potential collection advance — the variable reward outcome is filtered through a cosmetic goal.", effect: "Players who are motivated by cosmetics rather than scores have an intrinsic reason to keep running — each run might advance their target character's token count. Variable reward and cosmetics share the same delivery mechanism." },
+    { from: "achievements", to: "variable-reward", title: "Multiplier scales card pack quality", desc: "The score multiplier increases gem yield, which funds card pack pulls. A higher multiplier means more and better variable reward outcomes per session.", effect: "Long-term progression through mission completion directly improves the quality of variable reward outcomes, giving players who invest in the multiplier tangibly better reward experiences." },
+  ],
+  "fifa-panini-collection": [
+    { from: "set-collection", to: "daily-login-reward", title: "Album drives daily pack consumption", desc: "The daily pack limit (4 for registered users) and daily free packs exist entirely to serve album completion. The login reward is pack fuel for the collection, not an independent engagement mechanic.", effect: "Players experience the daily login not as a general reward but as the primary means of advancing toward a personally meaningful goal. The return motivation is the album, not the reward itself." },
+    { from: "set-collection", to: "challenges", title: "Stickers must be glued to count", desc: "Challenges require stickers to be glued into the album before they count toward challenge progress. The challenge system reinforces the album as the organizing hub rather than allowing inventory to count directly.", effect: "Challenges create a structured reason to engage with the gluing mechanic — the core activity of album building. The two mechanics are inseparable: challenge progress requires album progress." },
+    { from: "set-collection", to: "clans-guilds", title: "Collector's Team solves the final-card problem", desc: "Private swap requests within the Collector's Team allow targeted exchanges that the public swap system cannot provide. When a specific missing sticker is needed, the team is the resolution path.", effect: "Album completion is gated behind coordination rather than luck at the final stage. The Collector's Team converts the last few missing stickers from a random drop problem into a social one." },
+    { from: "daily-login-reward", to: "achievements", title: "Coca-Cola scans are counted achievements", desc: "Scanning a Coca-Cola product grants a daily pack equivalent and advances the Coke Scans achievement tier (1 / 10 / 25 items). The physical scanning behaviour is tracked, milestoned, and rewarded.", effect: "The physical product interaction is integrated into the achievement system, making real-world brand engagement part of the in-app progression. The partnership is measurable, not decorative." },
+    { from: "challenges", to: "achievements", title: "Challenges surface collection milestones", desc: "Completing challenges (collect team captains, collect host country stickers) aligns with album completion milestones. Both systems point toward the same underlying goal.", effect: "Players pursuing challenges are simultaneously advancing toward album completion milestones. The two systems reinforce each other without requiring separate engagement tracks." },
+  ],
+  "insight-timer": [
+    { from: "streak", to: "achievements", title: "Day 7 streak triggers the first gift", desc: "The first milestone (7 consecutive days) triggers a trial extension from 7 to 30 days, framed as a gift the user unlocked. The achievement reward is more product time — the most relevant possible prize for a user building a meditation habit.", effect: "The first milestone creates a moment where the user's commitment is explicitly recognized and rewarded with exactly what they need: more time to develop the habit the streak is tracking." },
+    { from: "streak", to: "challenges", title: "Streak is the self-made challenge", desc: "The goal-setting screen during onboarding (3 / 5 / 7 / 10 consecutive days) establishes the streak as a challenge the user created. The 'I'm committed' button post-session reinforces this framing.", effect: "The streak is not experienced as an app-imposed retention mechanic but as a personal commitment made before the first session. The user is accountable to themselves, which is more durable than accountability to an external system." },
+    { from: "challenges", to: "achievements", title: "Commitment prompt leads to milestone", desc: "The 'I'm committed' behavioral commitment after session 1 establishes an expectation. The achievement at day 7 fulfills it. The arc from commitment to recognition is contained within the first week.", effect: "The system creates a complete emotional arc — set goal, commit, return, achieve — within the first week of use. Users who complete this arc have a qualitatively different relationship with the app than those who don't." },
+    { from: "social-feed", to: "community-groups", title: "Real-time counter makes community feel live", desc: "The '594,622 people here today' counter converts the solo meditation experience into a perceived communal practice. It is the entry point to the community layer for users who have not yet found the groups section.", effect: "Users who engage with the counter are primed to discover that the community infrastructure exists. The number creates curiosity about who those people are, making the hidden groups section a discovery worth seeking." },
+    { from: "achievements", to: "social-feed", title: "Milestone sharing distributes the achievement", desc: "Streak milestones generate pre-formatted Instagram Stories and messaging shares. The achievement's social distribution is designed into the sharing UI.", effect: "Every milestone is a potential acquisition moment. The share converts a private habit marker into a public product impression at the moment the user's satisfaction is highest." },
+  ],
   strava: [
     { from: "social-feed", to: "achievements", title: "Achievements broadcast through the feed", desc: "Personal records, segment trophies, and challenge completions appear in the social feed automatically. The achievement creates content; the feed distributes it.", effect: "Every achievement becomes a social event. Users who might not check their own trophy case still see others' achievements, which creates ambient awareness of what is possible." },
     { from: "social-feed", to: "challenges", title: "Feed makes challenge participation visible", desc: "When a followed athlete joins or completes a challenge, it appears in the feed. This creates social pressure to participate — seeing others complete a challenge is the strongest recruitment mechanism Strava has.", effect: "Challenge participation compounds organically. Each completion makes more completions likely by surfacing the challenge to people who might not have discovered it." },
@@ -305,6 +334,40 @@ const CONNECTIONS = {
 
 // Node positions for each system (as % of canvas width/height)
 const POSITIONS = {
+  "royal-match": {
+    center:                  { x: 50, y: 10, label: "ROYAL MATCH" },
+    "energy-lives":          { x: 50, y: 28 },
+    "gifting":               { x: 24, y: 48 },
+    "clans-guilds":          { x: 76, y: 48 },
+    "limited-time-events":   { x: 50, y: 48 },
+    "set-collection":        { x: 24, y: 70 },
+    "season-pass":           { x: 76, y: 70 },
+    "variable-reward":       { x: 50, y: 88 },
+  },
+  "subway-surfers": {
+    center:                  { x: 50, y: 10, label: "SUBWAY SURFERS" },
+    "ads":                   { x: 50, y: 30 },
+    "daily-login-reward":    { x: 22, y: 52 },
+    "achievements":          { x: 78, y: 52 },
+    "cosmetics":             { x: 22, y: 74 },
+    "variable-reward":       { x: 78, y: 74 },
+  },
+  "fifa-panini-collection": {
+    center:                  { x: 50, y: 10, label: "FIFA PANINI" },
+    "set-collection":        { x: 50, y: 30 },
+    "daily-login-reward":    { x: 22, y: 52 },
+    "challenges":            { x: 78, y: 52 },
+    "clans-guilds":          { x: 22, y: 74 },
+    "achievements":          { x: 78, y: 74 },
+  },
+  "insight-timer": {
+    center:                  { x: 50, y: 10, label: "INSIGHT TIMER" },
+    "streak":                { x: 50, y: 30 },
+    "challenges":            { x: 22, y: 52 },
+    "achievements":          { x: 78, y: 52 },
+    "social-feed":           { x: 22, y: 74 },
+    "community-groups":      { x: 78, y: 74 },
+  },
   strava: {
     center:                { x: 50, y: 12, label: "STRAVA" },
     "social-feed":         { x: 50, y: 32 },
@@ -494,7 +557,6 @@ if (!sys) {
         ${app ? typeBadge(app.type) : ''}
         ${app ? `<span class="badge badge-app">${app.cat}</span>` : ''}
         ${apiId(sys.id)}
-        <button class="copy-btn" onclick="copyText(JSON.stringify(SYSTEMS.find(s=>s.id==='${sys.id}'),null,2),this)">Copy JSON</button>
       </div>
       <h1 class="detail-title">${sys.name} System</h1>
       <p class="detail-sub">${sys.tagline}</p>

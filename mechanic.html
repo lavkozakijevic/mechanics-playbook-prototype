@@ -52,7 +52,6 @@ else {
         <span class="badge badge-${m.cat}">${m.cat.charAt(0).toUpperCase()+m.cat.slice(1)}</span>
         <span class="card-num" style="margin:0;">${m.n}</span>
         ${apiId(m.id)}
-        <button class="copy-btn" onclick="copyText(JSON.stringify({id:'${m.id}',name:'${m.name}',category:'${m.cat}',principle:\`${m.principle.replace(/`/g,"'")}\`},null,2),this)">Copy JSON</button>
       </div>
       <h1 class="detail-title">${m.name}</h1>
       <p class="detail-sub">${m.tagline}</p>
@@ -96,7 +95,7 @@ else {
                   <div class="mitem-title">${app.name}</div>
                   <div class="mitem-sub">${typeBadge(app.type)} · ${app.cat}</div>
                 </div>
-                ${desc ? `<button class="copy-btn" onclick="copyText(\`${desc.replace(/`/g,"'")}\`,this)">Copy</button>` : ''}
+                
               </div>
               <div class="mitem-body">${desc || 'Description coming soon.'}</div>
               <div style="margin-top:16px;">
@@ -155,13 +154,7 @@ else {
           <ul>${relApps.map(a=>`<li><a href="case-study.html?id=${a.id}">${a.name}</a></li>`).join('')}</ul>
         </div>` : ''}
 
-        <div class="sbox">
-          <h3>Export</h3>
-          <div style="display:flex;flex-direction:column;gap:6px;">
-            <button class="copy-btn" onclick="copyText(\`${m.name}: ${m.desc.replace(/`/g,"'")}\`,this)">Copy description</button>
-            <button class="copy-btn" onclick="copyText(JSON.stringify(MECHANICS.find(x=>x.id==='${m.id}'),null,2),this)">Copy full JSON</button>
-          </div>
-        </div>
+
       </div>
     </div>
   </div>
