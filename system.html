@@ -273,15 +273,6 @@
 <script src="data.js"></script>
 <script>
 const CONNECTIONS = {
-  duolingo: [
-    { from: "streak", to: "xp-leveling", title: "Streak feeds XP accumulation", desc: "Every lesson that maintains the streak also awards XP. The two mechanics share the same trigger — completing a lesson — which means users who are motivated by the streak are simultaneously building league standing without additional effort.", effect: "The user experiences one action as having two rewards, which makes each lesson feel more productive than it actually is." },
-    { from: "streak", to: "achievements", title: "Streak creates milestone moments", desc: "Streak milestone achievements at day 7, 30, 100, and 365 are the highest organic share moments in the product. The achievement converts a private counter into a public identity marker.", effect: "Users who might not care about achievements become invested in them because the achievement is evidence of their streak — something they already care about deeply." },
-    { from: "streak", to: "energy-lives", title: "Hearts protect the streak", desc: "Running out of hearts ends the session, which creates urgency to complete a lesson before hearts deplete. This urgency reinforces the daily return habit that the streak requires.", effect: "The heart system adds a layer of session pacing that makes daily completion feel more deliberate and therefore more satisfying." },
-    { from: "xp-leveling", to: "leaderboards", title: "XP determines league standing", desc: "XP accumulated each week feeds the league leaderboard. The two mechanics create a dual-timeframe structure: the streak measures daily consistency over months, while the league measures weekly intensity over seven days.", effect: "Users who are demotivated by their streak length (too short) can still compete in the weekly league, giving the system multiple entry points for different motivational profiles." },
-    { from: "xp-leveling", to: "daily-weekly-quests", title: "Quests direct XP-earning behaviour", desc: "Daily quests specify which type of lesson earns bonus XP that day. This prevents users from grinding the easiest lesson type repeatedly and directs engagement toward content that keeps the experience fresh.", effect: "The quest gives the XP-motivated user a specific target, which reduces the paralysis of choice that open-ended XP systems can create." },
-    { from: "achievements", to: "social-feed", title: "Achievements surface in the feed", desc: "Streak milestone achievements appear in the social feed, broadcasting the achievement to followers and triggering kudos-equivalent interactions. The achievement becomes a social event, not just a personal marker.", effect: "The social visibility of an achievement creates ambient competitive awareness — users see others hitting milestones and feel the pull to maintain or extend their own streak." },
-    { from: "variable-reward", to: "streak", title: "Chests reward streak maintenance", desc: "Lesson completion awards chests containing random rewards — streak freezes, gems, XP boosts. The variable reward content makes the act of protecting a streak feel like it has additional upside beyond avoiding a reset.", effect: "The unpredictability of the chest reward adds a small element of anticipation to each lesson completion, which sustains engagement through low-motivation periods." },
-  ],
   strava: [
     { from: "social-feed", to: "achievements", title: "Achievements broadcast through the feed", desc: "Personal records, segment trophies, and challenge completions appear in the social feed automatically. The achievement creates content; the feed distributes it.", effect: "Every achievement becomes a social event. Users who might not check their own trophy case still see others' achievements, which creates ambient awareness of what is possible." },
     { from: "social-feed", to: "challenges", title: "Feed makes challenge participation visible", desc: "When a followed athlete joins or completes a challenge, it appears in the feed. This creates social pressure to participate — seeing others complete a challenge is the strongest recruitment mechanism Strava has.", effect: "Challenge participation compounds organically. Each completion makes more completions likely by surfacing the challenge to people who might not have discovered it." },
@@ -314,17 +305,6 @@ const CONNECTIONS = {
 
 // Node positions for each system (as % of canvas width/height)
 const POSITIONS = {
-  duolingo: {
-    center:            { x: 50, y: 14, label: "DUOLINGO" },
-    "streak":          { x: 50, y: 34 },
-    "xp-leveling":     { x: 22, y: 55 },
-    "achievements":    { x: 78, y: 55 },
-    "energy-lives":    { x: 50, y: 55 },
-    "leaderboards":    { x: 22, y: 78 },
-    "daily-weekly-quests": { x: 50, y: 78 },
-    "variable-reward": { x: 78, y: 78 },
-    "social-feed":     { x: 78, y: 97 },
-  },
   strava: {
     center:                { x: 50, y: 12, label: "STRAVA" },
     "social-feed":         { x: 50, y: 32 },
