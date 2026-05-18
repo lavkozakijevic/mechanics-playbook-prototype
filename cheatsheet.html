@@ -53,20 +53,31 @@ else {
   <div class="wrap">
     <div class="two-col">
       <div style="padding-top:8px;">
-        ${cs.steps.map((s,i) => `
+        ${cs.steps.map((s,i) => {
+          const stepApps = (s.apps||[]).map(aid => getApp(aid)).filter(Boolean);
+          return `
         <div class="step">
           <div class="step-n">${String(i+1).padStart(2,'0')}</div>
           <div class="step-c">
             <h3>${s.h}</h3>
             <p>${s.b}</p>
+            ${stepApps.length > 0 ? `<div class="step-apps">
+              ${stepApps.map(a => `<a href="case-study.html?id=${a.id}" class="step-app-chip">${a.name}</a>`).join('')}
+            </div>` : ''}
           </div>
-        </div>`).join('')}
+        </div>`;
+        }).join('')}
       </div>
       <div class="sidebar">
         ${relMs.length > 0 ? `
         <div class="sbox">
           <h3>Related mechanics</h3>
           <ul>${relMs.map(m=>`<li><a href="mechanic.html?id=${m.id}">${m.name}</a></li>`).join('')}</ul>
+        </div>` : ''}
+        ${(cs.apps||[]).length > 0 ? `
+        <div class="sbox">
+          <h3>Apps in this cheatsheet</h3>
+          <ul>${(cs.apps||[]).map(aid => { const a = getApp(aid); return a ? `<li><a href="case-study.html?id=${a.id}">${a.name}</a></li>` : ''; }).join('')}</ul>
         </div>` : ''}
         <div class="sbox">
           <h3>Export</h3>

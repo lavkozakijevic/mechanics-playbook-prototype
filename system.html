@@ -320,7 +320,52 @@ const CONNECTIONS = {
     { from: "limited-time-events", to: "season-pass", title: "Events feed pass progression", desc: "Limited-time match day events award season pass XP on top of their own rewards. Events become more valuable than their face rewards suggest because they also advance the pass.", effect: "The dual reward structure gives players who are already engaged with the pass an additional reason to participate in every event, increasing event engagement rates." },
     { from: "first-purchase-bonus", to: "monthly-card", title: "First purchase lowers card barrier", desc: "Once a player has made their first transaction — converting from non-payer to payer — the psychological barrier to the monthly card drops significantly. The first-purchase bonus is a gateway, not a destination.", effect: "Players who claim the first-purchase bonus convert to monthly card subscribers at a significantly higher rate than those who never made an initial purchase." },
   ],
-  "capybara-go": [
+  picsart: [
+    { from: "social-feed", to: "challenges", title: "Feed entries become challenge submissions", desc: "Every post in the For You feed is a potential challenge entry. Users who discover a challenge through the feed can submit directly from the creation flow they entered via the Try button.", effect: "The feed, the Try button, and the challenge system form a single funnel — browsing leads to creating, creating leads to competing." },
+    { from: "social-feed", to: "credits-tokens", title: "Feed reveals credit costs at tool entry", desc: "Credit costs for AI tools are not disclosed in the feed — they surface only after the user taps Try and the tool opens. The feed creates desire; the tool reveals the cost at the moment of highest intent.", effect: "Users who tap Try from the feed are in a high-intent state when they encounter the credit cost, improving conversion compared to showing costs upfront." },
+    { from: "challenges", to: "credits-tokens", title: "Challenge wins fund premium tool access", desc: "Winning a platform challenge awards 50 credits — equivalent to 10 weeks of the free tier's allocation. Community participation and the credit economy are directly linked.", effect: "Free users who win challenges can access premium AI tools they could not otherwise afford. Community participation becomes the primary free path to premium features." },
+  ],
+  "wispr-flow": [
+    { from: "streak", to: "achievements", title: "Five days unlocks the ranking", desc: "The streak's stated purpose — dictate for five days so Flow can adapt — coincides with the 500-word threshold where the speaking speed stat and percentile ranking unlock.", effect: "The streak and the milestone reward are aligned. Completing the streak produces the achievement, making the functional justification and the reward arrive at the same moment." },
+    { from: "achievements", to: "streak", title: "Percentile ranking reinforces streak continuation", desc: "The 'top 2% of all Flow users' percentile delivered passively at 500 words frames the user as already exceptional, which strengthens motivation to maintain the streak.", effect: "The achievement reward arrives as affirmation — the user is told they are already performing well, making continuation feel natural rather than effortful." },
+  ],
+  calm: [
+    { from: "daily-login-reward", to: "streak", title: "Daily content creates streak surface", desc: "Each Today's Dailies type contributes to the daily practice count the streak tracks. Completing daily content and maintaining the streak are the same action.", effect: "Users who engage with the daily content layer are simultaneously maintaining their streak without thinking about streak maintenance as a separate objective." },
+    { from: "daily-login-reward", to: "gifting", title: "Daily engagement peak triggers referral", desc: "The guest pass gift popup appears immediately after sign-in — at the same session moment that Today's Dailies is surfaced. The referral prompt arrives when engagement is highest.", effect: "The gifting mechanic captures the user at the moment they are most enthusiastic about the product, maximizing the likelihood that the referral feels like sharing something valuable." },
+    { from: "streak", to: "gifting", title: "Streak milestones generate shareable cards", desc: "Streak milestones generate pre-formatted Instagram Stories cards. Each milestone is a referral moment framed as personal achievement sharing rather than recruitment.", effect: "The streak milestone card is unsolicited and personal; the guest pass is solicited and generous. Together they cover different referral contexts." },
+  ],
+  canva: [
+    { from: "achievements", to: "challenges", title: "Badges and certificates are the same artifact", desc: "Completing a Design School quiz produces both an in-app badge and a downloadable certificate with a credential ID. The completion action serves both systems simultaneously.", effect: "Users who pursue certification for professional reasons accumulate achievement badges as a byproduct. Users who browse achievements discover that each badge corresponds to a completable course." },
+    { from: "challenges", to: "achievements", title: "Course completion unlocks the LinkedIn badge", desc: "The LinkedIn Official badge — the achievement with the most specific external distribution target — is earned through Design School course completion.", effect: "Every course completion is simultaneously a learning moment and a Canva distribution event on LinkedIn. The challenge reward is the ad." },
+    { from: "credits-tokens", to: "challenges", title: "Credit spending reveals subscription value", desc: "Each credit purchase makes the subscription math more legible. Users who have spent credits multiple times have implicitly calculated the subscription value through their own behavior.", effect: "The credit system converts the subscription decision from a cold evaluation to a conclusion the user reaches through their own spending. Engaged users are already invested in the platform." },
+  ],
+  steam: [
+    { from: "credits-tokens", to: "cosmetics", title: "Purchase spend funds the cosmetics economy", desc: "Every game purchase accumulates 117 Points per euro, passively building a cosmetics budget the user did not consciously choose to create.", effect: "The cosmetics decision and the spend decision are separated in time, eliminating the psychological friction of paying for cosmetics at the point of purchase." },
+    { from: "credits-tokens", to: "achievements", title: "Points fund seasonal badge acquisition", desc: "Seasonal badges (Summer and Winter Sales) are purchasable in the Points Shop using accumulated Points — the only time-limited achievements in the system.", effect: "Users with accumulated Points have a natural outlet during sale events, increasing seasonal engagement for users who might otherwise not participate." },
+    { from: "cosmetics", to: "achievements", title: "Showcase upgrades expand the achievement display", desc: "Showcase upgrades purchased with Points expand the profile's capacity to display badges. The cosmetic purchase directly improves the achievement display surface.", effect: "Users with many achievements have a motivated reason to spend Points on showcase upgrades — creating a spending loop between the two mechanics." },
+  ],
+  "solitaire-grand-harvest": [
+    { from: "piggy-bank", to: "energy-lives", title: "Piggy bank resolves credit depletion", desc: "When credits run low inside an active level — the moment of highest purchase motivation — the capped piggy bank is the most visible alternative to direct credit purchase.", effect: "The piggy bank frames the monetization moment as claiming what the player already earned rather than making a new purchase, reducing psychological resistance at depletion." },
+    { from: "variable-reward", to: "set-collection", title: "Multiplier determines pack quality", desc: "Card pack quality is determined by the bet multiplier — x1 yields common packs, x4 yields rare. The stake decision and the collection advancement rate are directly linked.", effect: "Players motivated by collection completion have a concrete incentive to increase their multiplier, which also increases credit depletion speed." },
+    { from: "limited-time-events", to: "energy-lives", title: "Events scale prizes with multiplier", desc: "Event prizes scale with the selected bet multiplier. Higher multipliers mean faster credit depletion and better event rewards simultaneously.", effect: "Events give players an additional reason to bet higher, compounding the stake decision across both the collection system and event rewards." },
+    { from: "daily-login-reward", to: "piggy-bank", title: "Daily returns fill the piggy bank", desc: "The farm delivery bonus requires daily return to maximize value. The piggy bank fills with every level played during those daily sessions.", effect: "A player who returns daily for the login reward is also filling the piggy bank, making the eventual unlock feel more earned with each visit." },
+  ],
+  "fortune-city": [
+    { from: "achievements", to: "ads", title: "Achievement track makes ad watching a progression goal", desc: "The Watch Ads to Help the Salesman track scales from 5 to 1,000 watches, ending in Charitable Superstar. Ad watching is the subject of a named, tiered achievement system.", effect: "Users who care about achievement completion have a 1,000-interaction engagement arc anchored to a single ad placement." },
+    { from: "ads", to: "daily-login-reward", title: "Ad doubling is integrated into the daily claim", desc: "Every daily login reward popup includes a 'watch an ad to double your reward' option. The daily login moment and the ad monetization moment are the same interaction.", effect: "The daily reward claim is also a daily ad monetization surface at the user's highest-engagement daily moment." },
+    { from: "set-collection", to: "daily-login-reward", title: "Fisher's gate requires four consecutive returns", desc: "Fisher requires four consecutive days of expense tracking to unlock — the most behaviorally intentional content gate in the library.", effect: "Users motivated by seeing Fisher return for four consecutive days without any separate streak system. The collection gate does the streak's job." },
+    { from: "daily-weekly-quests", to: "ads", title: "Salesman quest and salesman ad are the same action", desc: "The Flyer Board quest asks the user to find the salesman and watch an ad. The quest reward and the ad reward arrive from the same interaction.", effect: "The quest system gives ad watching a narrative context and a named completion. Users who would not seek the salesman voluntarily are directed to him by the quest system." },
+  ],
+  tiimo: [
+    { from: "streak", to: "achievements", title: "Consecutive days unlock marbles", desc: "The marble collection tracks both consecutive days and tasks completed. Every streak day directly advances the marble ladder — the streak and achievement system share the same metric.", effect: "Users experience streak and achievement as a single integrated progression rather than two separate mechanics." },
+    { from: "achievements", to: "streak", title: "Marble unlocks reinforce streak continuation", desc: "When a marble unlocks at day 3, 7, or 10, the background gradient changes. The achievement reward arrives precisely at the streak milestone, making the milestone feel significant.", effect: "The gradient shift makes streak maintenance feel cumulative. Each new marble changes the daily environment, reinforcing that the streak is building something permanent." },
+  ],
+  uptime: [
+    { from: "streak", to: "achievements", title: "Daily return generates expertise badges", desc: "Returning daily to complete hacks in a topic generates 'expert in X' expertise badges automatically, without any explicit achievement hunting.", effect: "Users who maintain the streak for topic-specific reasons discover they have been accumulating expertise badges — achievements arrive as noticed facts rather than pursued goals." },
+    { from: "achievements", to: "gifting", title: "Achievement cards are referral content", desc: "Pre-formatted achievement cards — 'you're saving time by hacking knowledge' — are the primary social sharing content. Sharing an achievement card is functionally a referral.", effect: "Every achievement milestone is a potential user acquisition moment. The achievement and referral mechanisms share the same shareable image assets." },
+    { from: "streak", to: "gifting", title: "Post-hack screen captures both mechanics", desc: "The post-first-hack screen surfaces the streak counter, reminder setup, and referral gift at the same moment — the peak engagement point of the first session.", effect: "The highest-intent moment captures three retention and acquisition actions simultaneously: streak habit formation, reminder installation, and referral sharing." },
+  ],
+    "capybara-go": [
     { from: "energy-lives", to: "ads", title: "Energy depletion drives ad engagement", desc: "When energy runs out, the rewarded video ad option surfaces as the primary free refill method. The ad is not an interruption — it is the solution to a problem the user has just experienced.", effect: "Ad engagement rates are dramatically higher when the ad is positioned as a resource acquisition tool rather than a monetisation interruption, and users feel agency in the choice." },
     { from: "energy-lives", to: "xp-leveling", title: "Energy cost makes XP feel earned", desc: "Each run costs energy, which means each XP gain has a real cost attached to it. This scarcity makes the XP accumulation feel meaningful rather than automatic.", effect: "Users who have invested energy in a run are more attentive to the XP and resource gains during it, increasing session engagement quality rather than just quantity." },
     { from: "xp-leveling", to: "daily-weekly-quests", title: "XP gates unlock quest layers", desc: "Later task chains only unlock after reaching specific XP and chapter milestones. The quest system reveals itself progressively, with deeper layers appearing as the player's investment grows.", effect: "Users who have progressed far enough to unlock advanced quests are already highly invested, which means the advanced quests have a captive, motivated audience." },
@@ -387,7 +432,64 @@ const POSITIONS = {
     "limited-time-events":   { x: 50, y: 74 },
     "first-purchase-bonus":  { x: 22, y: 94 },
   },
-  "capybara-go": {
+  picsart: {
+    center:              { x: 50, y: 10, label: "PICSART" },
+    "social-feed":       { x: 50, y: 32 },
+    "challenges":        { x: 26, y: 60 },
+    "credits-tokens":    { x: 74, y: 60 },
+  },
+  "wispr-flow": {
+    center:              { x: 50, y: 15, label: "WISPR FLOW" },
+    "streak":            { x: 36, y: 50 },
+    "achievements":      { x: 64, y: 50 },
+  },
+  calm: {
+    center:              { x: 50, y: 10, label: "CALM" },
+    "daily-login-reward":{ x: 50, y: 32 },
+    "streak":            { x: 26, y: 62 },
+    "gifting":           { x: 74, y: 62 },
+  },
+  canva: {
+    center:              { x: 50, y: 10, label: "CANVA" },
+    "achievements":      { x: 50, y: 32 },
+    "challenges":        { x: 26, y: 62 },
+    "credits-tokens":    { x: 74, y: 62 },
+  },
+  steam: {
+    center:              { x: 50, y: 10, label: "STEAM" },
+    "credits-tokens":    { x: 50, y: 32 },
+    "cosmetics":         { x: 26, y: 62 },
+    "achievements":      { x: 74, y: 62 },
+  },
+  "solitaire-grand-harvest": {
+    center:               { x: 50, y: 8, label: "SOLITAIRE" },
+    "piggy-bank":         { x: 50, y: 26 },
+    "variable-reward":    { x: 22, y: 48 },
+    "limited-time-events":{ x: 78, y: 48 },
+    "set-collection":     { x: 22, y: 70 },
+    "daily-login-reward": { x: 78, y: 70 },
+    "energy-lives":       { x: 50, y: 90 },
+  },
+  "fortune-city": {
+    center:               { x: 50, y: 10, label: "FORTUNE CITY" },
+    "achievements":       { x: 50, y: 30 },
+    "ads":                { x: 22, y: 54 },
+    "daily-weekly-quests":{ x: 78, y: 54 },
+    "daily-login-reward": { x: 22, y: 78 },
+    "set-collection":     { x: 78, y: 78 },
+  },
+  tiimo: {
+    center:          { x: 50, y: 18, label: "TIIMO" },
+    "streak":        { x: 32, y: 55 },
+    "achievements":  { x: 68, y: 55 },
+  },
+  uptime: {
+    center:          { x: 50, y: 10, label: "UPTIME" },
+    "streak":        { x: 50, y: 32 },
+    "achievements":  { x: 26, y: 62 },
+    "gifting":       { x: 74, y: 62 },
+  },
+    "capybara-go": {
     center:               { x: 50, y: 10, label: "CAPYBARA GO" },
     "energy-lives":       { x: 50, y: 28 },
     "xp-leveling":        { x: 24, y: 48 },
