@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mechanics Playbook — Game mechanics for apps</title>
+<title>Mechanics Playbook, Game mechanics for apps</title>
 <link rel="stylesheet" href="styles.css">
 <style>
 /* ── APP LOGO STRIP ───────────────────────── */
-.logo-strip { padding: 32px 0 28px; border-bottom: 1px solid var(--border); }
-.logo-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.logo-strip { padding: 32px 0 28px; border-bottom: 1px solid var(--border); overflow-x: auto; }
+.logo-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px 0; }
 .app-logo {
   width: 52px; height: 52px; border-radius: 12px;
   background: var(--alt); border: 1px solid var(--border);
@@ -36,7 +36,7 @@
   font-size: 16px; color: var(--text); transition: all 0.15s;
 }
 .slider-btn:hover { background: var(--text); color: white; border-color: var(--text); }
-.slider-viewport { overflow: hidden; }
+.slider-viewport { overflow: hidden; padding: 6px 0; margin: -6px 0; }
 .slider-track {
   display: flex; gap: 16px;
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -62,7 +62,7 @@
 <body>
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><div class="dot"><svg viewBox="0 0 14 14"><path d="M7 1L13 4.5V9.5L7 13L1 9.5V4.5L7 1Z"/></svg></div>Mechanics <span class="ac">Playbook</span></a>
+    <a href="index.html" class="nav-logo"><img src="gamebiz-logo.svg" alt="GameBiz Consulting" height="28" style="display:block;max-width:160px;"></a>
     <ul class="nav-links">
       <li><a href="mechanics.html">Mechanics</a></li>
       <li><a href="systems.html">Systems</a></li>
@@ -86,14 +86,38 @@
 </div>
 
 <!-- HERO -->
-<div style="padding: 64px 0 48px; border-bottom: 1px solid var(--border);">
+<style>
+.hero-grid { display: grid; grid-template-columns: 1fr 380px; gap: 64px; align-items: center; padding: 72px 0 64px; }
+.hero-carousel-wrap { position: relative; height: 420px; display: flex; align-items: center; justify-content: center; }
+.hero-card { position: absolute; width: 220px; border-radius: 16px; background: var(--card); border: 1px solid var(--border); overflow: hidden; transition: transform 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.6s ease, box-shadow 0.6s ease; cursor: default; }
+.hero-card-img { width: 100%; aspect-ratio: 585/1266; background: var(--alt); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.hero-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-card-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.hero-card-cap { padding: 12px 14px 14px; }
+.hero-card-mech { font-family: var(--d); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px; }
+.hero-card-title { font-family: var(--d); font-size: 13px; font-weight: 700; letter-spacing: -0.01em; color: var(--text); line-height: 1.3; }
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-carousel-wrap { display: none; }
+}
+</style>
+<div style="border-bottom: 1px solid var(--border);">
   <div class="wrap">
-    <div style="font-family:var(--d);font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;">by GameBiz Consulting</div>
-    <h1 style="font-family:var(--d);font-size:clamp(30px,5vw,52px);font-weight:700;letter-spacing:-0.04em;line-height:1.05;margin-bottom:18px;">We translate proven game<br>mechanics into concrete<br>opportunities for your app.</h1>
-    <p style="font-size:16px;color:var(--sub);max-width:480px;line-height:1.6;margin-bottom:36px;">Most app teams only look at their category and a few obvious references. This library expands that horizon, drawing on how the best games and apps have perfected each mechanic.</p>
-    <div style="display:flex;gap:12px;flex-wrap:wrap;">
-      <a href="mechanics.html" style="font-family:var(--d);font-size:13px;font-weight:600;padding:11px 20px;background:var(--text);color:white;border-radius:7px;text-decoration:none;display:inline-block;">Browse Mechanics</a>
-      <a href="systems.html" style="font-family:var(--d);font-size:13px;font-weight:600;padding:11px 20px;background:transparent;color:var(--text);border:1.5px solid var(--border);border-radius:7px;text-decoration:none;display:inline-block;">Explore Systems</a>
+    <div class="hero-grid">
+      <!-- LEFT: text -->
+      <div>
+        <div style="font-family:var(--d);font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;">by GameBiz Consulting</div>
+        <h1 style="font-family:var(--d);font-size:clamp(28px,4.2vw,48px);font-weight:700;letter-spacing:-0.04em;line-height:1.07;margin-bottom:20px;">Power up your app<br>with proven game<br>mechanics.</h1>
+        <p style="font-size:15.5px;color:var(--sub);max-width:440px;line-height:1.65;margin-bottom:36px;">Most app teams only look at their category and a few obvious references. This library expands that horizon, drawing on how the best games and apps have perfected each mechanic.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="mechanics.html" style="font-family:var(--d);font-size:13px;font-weight:600;padding:11px 20px;background:var(--text);color:white;border-radius:7px;text-decoration:none;display:inline-block;">Browse Mechanics</a>
+          <a href="systems.html" style="font-family:var(--d);font-size:13px;font-weight:600;padding:11px 20px;background:transparent;color:var(--text);border:1.5px solid var(--border);border-radius:7px;text-decoration:none;display:inline-block;">Explore Systems</a>
+        </div>
+      </div>
+      <!-- RIGHT: screenshot carousel -->
+      <div class="hero-carousel-wrap" id="hero-carousel-wrap">
+        <!-- populated by JS -->
+      </div>
     </div>
   </div>
 </div>
@@ -101,8 +125,9 @@
 <!-- APP LOGO STRIP -->
 <div class="logo-strip">
   <div class="wrap">
+    <div style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">Some of the apps in this library</div>
     <div class="logo-row" id="logo-row"></div>
-    <div style="margin-top:12px;">
+    <div style="margin-top:14px;">
       <a href="case-studies.html" class="logo-more">Explore all apps and games →</a>
     </div>
   </div>
@@ -145,7 +170,7 @@
       <a href="case-study.html?id=strava" class="featured-card">
         <div class="featured-card-label" style="color:var(--green);">Case Study</div>
         <div class="featured-card-title">Strava</div>
-        <div class="featured-card-body">A social fitness system where the activity is the content. Every run, ride, or swim is already a completed achievement — Strava's job is to make it visible, competitive, and socially meaningful. Six mechanics work together to turn a personal workout into a shared social event.</div>
+        <div class="featured-card-body">A social fitness system where the activity is the content. Every run, ride, or swim is already a completed achievement, Strava's job is to make it visible, competitive, and socially meaningful. Six mechanics work together to turn a personal workout into a shared social event.</div>
         <div class="featured-card-link">View case study →</div>
       </a>
 
@@ -153,7 +178,7 @@
       <a href="cheatsheet.html?id=launching-streak" class="featured-card">
         <div class="featured-card-label" style="color:var(--blue);">Cheatsheet</div>
         <div class="featured-card-title">Launching a Streak Mechanic</div>
-        <div class="featured-card-body">Loss aversion only activates once the user feels the streak is worth something — typically around day 7. Before that, frame streaks positively. Five concrete decisions that determine whether your streak drives retention or drives churn.</div>
+        <div class="featured-card-body">Loss aversion only activates once the user feels the streak is worth something, typically around day 7. Before that, frame streaks positively. Five concrete decisions that determine whether your streak drives retention or drives churn.</div>
         <div class="featured-card-link">Read the cheatsheet →</div>
       </a>
 
@@ -161,7 +186,7 @@
       <a href="system.html?id=strava" class="featured-card">
         <div class="featured-card-label" style="color:var(--accent);">System</div>
         <div class="featured-card-title">Strava System</div>
-        <div class="featured-card-body">A social fitness system where the activity is the content. Every run becomes a social artifact automatically — PR badges surface, kudos arrive, segment rankings update — without the user deciding to make it one.</div>
+        <div class="featured-card-body">A social fitness system where the activity is the content. Every run becomes a social artifact automatically, PR badges surface, kudos arrive, segment rankings update, without the user deciding to make it one.</div>
         <div class="featured-card-link">Explore the system →</div>
       </a>
 
@@ -169,7 +194,7 @@
       <a href="mechanic.html?id=season-pass" class="featured-card">
         <div class="featured-card-label" style="color:var(--orange);">Mechanic</div>
         <div class="featured-card-title">Season Pass / Battle Pass</div>
-        <div class="featured-card-body">Spend once, engage daily. The pass converts a one-time payment into a recurring daily reason to open the app. Clash of Clans saw +145% week-over-week revenue on launch — but only because Supercell deliberately prepared the economy for it first.</div>
+        <div class="featured-card-body">Spend once, engage daily. The pass converts a one-time payment into a recurring daily reason to open the app. Clash of Clans saw +145% week-over-week revenue on launch, but only because Supercell deliberately prepared the economy for it first.</div>
         <div class="featured-card-link">Read the mechanic →</div>
       </a>
 
@@ -210,7 +235,7 @@
 <script src="auth.js"></script>
 <script>
 // ── APP LOGO STRIP ──────────────────────────────────────
-const logoApps = ['strava','fc-mobile','capybara-go','royal-match','subway-surfers','canva','picsart','insight-timer'];
+const logoApps = ['strava','fc-mobile','capybara-go','royal-match','subway-surfers','canva','picsart','insight-timer','chrome-valley-customs','swgoh','solitaire-grand-harvest','tiimo','uptime','fortune-city','match-creek-motors','calm'];
 const logoRow = document.getElementById('logo-row');
 logoApps.forEach(aid => {
   const app = getApp(aid);
@@ -324,7 +349,7 @@ document.querySelectorAll('.nav-drawer a').forEach(a => {
     wrap.id = 'mp-auth-nav';
     wrap.style.cssText = 'display:flex;align-items:center;gap:8px;margin-left:auto;';
     if (isUnlocked()) {
-      wrap.innerHTML = '<span style="font-size:11px;color:var(--muted);font-weight:500;">Full access</span>' +
+      wrap.innerHTML = '' +
         '<button onclick="mpLogout()" style="font-family:var(--d,system-ui);font-size:13px;font-weight:600;padding:11px 20px;background:var(--text,#0a0a0a);color:white;border:none;border-radius:7px;cursor:pointer;">Log out</button>';
     } else {
       wrap.innerHTML = '<button onclick="showLoginModal()" style="font-family:var(--d,system-ui);font-size:13px;font-weight:600;padding:11px 20px;background:var(--text,#0a0a0a);color:white;border:none;border-radius:7px;cursor:pointer;">Log in</button>';
@@ -339,6 +364,109 @@ document.querySelectorAll('.nav-drawer a').forEach(a => {
     addAuthNav();
   }
 })();
+
+// ── HERO CAROUSEL ─────────────────────────────────────────────────────────────
+const heroSlides = [
+  { app: 'royal-match',    mechanic: 'Energy / Lives',   caption: 'How Royal Match gates play with lives',        color: '#4B2EA0', img: 'royal-match-pass-lives.webp' },
+  { app: 'capybara-go',    mechanic: 'Season Pass',      caption: 'How Capybara Go! applies the battle pass',     color: '#7EB854' },
+  { app: 'strava',         mechanic: 'Leaderboards',     caption: 'How Strava builds competitive segments',       color: '#FC4C02' },
+  { app: 'insight-timer',  mechanic: 'Streak',           caption: 'How Insight Timer earns the commitment',       color: '#1AA0A0' },
+  { app: 'canva',          mechanic: 'Achievements',     caption: 'How Canva uses certifications as achievements', color: '#7D2AE8' },
+  { app: 'subway-surfers', mechanic: 'Ads',              caption: 'How Subway Surfers uses ads',                  color: '#F7B500' },
+  { app: 'tiimo',          mechanic: 'Streak',           caption: 'How Tiimo celebrates every step',              color: '#FF6B4A' },
+  { app: 'picsart',        mechanic: 'Challenges',       caption: 'How PicsArt turns feed posts into entries',    color: '#E32C89' },
+];
+
+const wrap = document.getElementById('hero-carousel-wrap');
+if (wrap) {
+  let current = 0;
+  const N = heroSlides.length;
+  const cards = [];
+
+  heroSlides.forEach((slide, i) => {
+    const app = getApp(slide.app);
+    const card = document.createElement('div');
+    card.className = 'hero-card';
+
+    // Image area
+    const imgWrap = document.createElement('div');
+    imgWrap.className = 'hero-card-img';
+    if (slide.img) {
+      imgWrap.style.background = '#ffffff';
+      const img = document.createElement('img');
+      img.src = slide.img;
+      img.alt = slide.caption;
+      imgWrap.appendChild(img);
+    } else {
+      const words = (app ? app.name : slide.app).replace(/[^a-zA-Z ]/g,'').split(' ').filter(Boolean);
+      const initials = words.length >= 2 ? words[0][0] + words[1][0] : words[0].substring(0,2);
+      const ph = document.createElement('div');
+      ph.className = 'hero-card-img-placeholder';
+      ph.style.background = slide.color + '14';
+      ph.innerHTML = '<span style="font-size:48px;font-weight:700;color:' + slide.color + ';opacity:0.35;">' + initials.toUpperCase() + '</span>';
+      imgWrap.appendChild(ph);
+    }
+
+    // Caption area
+    const cap = document.createElement('div');
+    cap.className = 'hero-card-cap';
+    cap.innerHTML = '<div class="hero-card-mech">' + slide.mechanic + '</div>' +
+                    '<div class="hero-card-title">' + slide.caption + '</div>';
+
+    card.appendChild(imgWrap);
+    card.appendChild(cap);
+    wrap.appendChild(card);
+    cards.push(card);
+  });
+
+  function positionCards() {
+    const isMobile = window.innerWidth <= 480;
+    const isTablet = window.innerWidth <= 900;
+    const sideOffset = isMobile ? 108 : isTablet ? 124 : 148;
+    const farOffset  = isMobile ? 172 : isTablet ? 196 : 240;
+    cards.forEach((card, i) => {
+      const offset = ((i - current + N) % N);
+      const pos = offset <= N/2 ? offset : offset - N;
+      const absPos = Math.abs(pos);
+      if (absPos === 0) {
+        card.style.transform = 'translateX(0) scale(1)';
+        card.style.opacity = '1';
+        card.style.zIndex = '10';
+        card.style.boxShadow = '0 8px 32px rgba(0,0,0,0.12)';
+        card.style.pointerEvents = 'auto';
+      } else if (absPos === 1) {
+        const dir = pos > 0 ? 1 : -1;
+        card.style.transform = 'translateX(' + (dir * sideOffset) + 'px) scale(0.84)';
+        card.style.opacity = '0.45';
+        card.style.zIndex = '5';
+        card.style.boxShadow = 'none';
+        card.style.pointerEvents = 'none';
+      } else if (absPos === 2) {
+        const dir = pos > 0 ? 1 : -1;
+        card.style.transform = 'translateX(' + (dir * farOffset) + 'px) scale(0.7)';
+        card.style.opacity = '0.18';
+        card.style.zIndex = '2';
+        card.style.boxShadow = 'none';
+        card.style.pointerEvents = 'none';
+      } else {
+        card.style.transform = 'translateX(0) scale(0.6)';
+        card.style.opacity = '0';
+        card.style.zIndex = '1';
+        card.style.pointerEvents = 'none';
+      }
+    });
+  }
+  window.addEventListener('resize', positionCards);
+
+  positionCards();
+
+  // Auto-advance every 3.5s
+  setInterval(() => {
+    current = (current + 1) % N;
+    positionCards();
+  }, 3500);
+}
+
 </script>
 </body>
 </html>

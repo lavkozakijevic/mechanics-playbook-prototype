@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cheatsheets — Mechanics Playbook</title>
+<title>Cheatsheets, Mechanics Playbook</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><div class="dot"><svg viewBox="0 0 14 14"><path d="M7 1L13 4.5V9.5L7 13L1 9.5V4.5L7 1Z"/></svg></div>Mechanics <span class="ac">Playbook</span></a>
+    <a href="index.html" class="nav-logo"><img src="gamebiz-logo.svg" alt="GameBiz Consulting" height="28" style="display:block;max-width:160px;"></a>
     <ul class="nav-links">
       <li><a href="mechanics.html">Mechanics</a></li>
       <li><a href="systems.html">Systems</a></li>
@@ -98,7 +98,7 @@ document.querySelectorAll('.nav-drawer a').forEach(a => {
     wrap.id = 'mp-auth-nav';
     wrap.style.cssText = 'display:flex;align-items:center;gap:8px;margin-left:auto;';
     if (isUnlocked()) {
-      wrap.innerHTML = '<span style="font-size:11px;color:var(--muted);font-weight:500;">Full access</span>' +
+      wrap.innerHTML = '' +
         '<button onclick="mpLogout()" style="font-family:var(--d,system-ui);font-size:13px;font-weight:600;padding:11px 20px;background:var(--text,#0a0a0a);color:white;border:none;border-radius:7px;cursor:pointer;">Log out</button>';
     } else {
       wrap.innerHTML = '<button onclick="showLoginModal()" style="font-family:var(--d,system-ui);font-size:13px;font-weight:600;padding:11px 20px;background:var(--text,#0a0a0a);color:white;border:none;border-radius:7px;cursor:pointer;">Log in</button>';

@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mechanic — Mechanics Playbook</title>
+<title>Mechanic, Mechanics Playbook</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><div class="dot"><svg viewBox="0 0 14 14"><path d="M7 1L13 4.5V9.5L7 13L1 9.5V4.5L7 1Z"/></svg></div>Mechanics <span class="ac">Playbook</span></a>
+    <a href="index.html" class="nav-logo"><img src="gamebiz-logo.svg" alt="GameBiz Consulting" height="28" style="display:block;max-width:160px;"></a>
     <ul class="nav-links">
       <li><a href="mechanics.html">Mechanics</a></li>
       <li><a href="systems.html">Systems</a></li>
@@ -48,7 +48,7 @@ if (m && !isFree('mechanics', m.id)) {
 }
 if (!m) { document.getElementById('root').innerHTML = '<div class="wrap page"><p>Mechanic not found.</p></div>'; }
 else {
-  document.title = m.name + ' — Mechanics Playbook';
+  document.title = m.name + ', Mechanics Playbook';
   const relApps = m.apps.map(aid => getApp(aid)).filter(Boolean);
   const pairedMs = m.paired.map(pid => getMechanic(pid)).filter(Boolean);
   const plLabels = { achiever:'Achiever', explorer:'Explorer', socializer:'Socializer', competitor:'Competitor' };
@@ -113,7 +113,7 @@ else {
                   const key = m.id + '_' + app.id;
                   const files = (typeof SCREENSHOTS !== 'undefined' && SCREENSHOTS[key]) || [];
                   if (files.length > 0) {
-                    // Real screenshots — show full width in a grid
+                    // Real screenshots, show full width in a grid
                     const cols = Math.min(files.length, 4);
                     return `<div style="display:grid;grid-template-columns:repeat(${cols},1fr);gap:8px;">
                       ${files.slice(0,8).map((src,i) =>
@@ -124,7 +124,7 @@ else {
                       ).join('')}
                     </div>`;
                   } else {
-                    // Placeholders — small 120x260 row, up to 3
+                    // Placeholders, small 120x260 row, up to 3
                     return `<div class="shot-placeholder-row">
                       ${[0,1,2].map(i => shot(app.name + ' · ' + (i+1))).join('')}
                     </div>`;
@@ -205,7 +205,7 @@ document.querySelectorAll('.nav-drawer a').forEach(a => {
     wrap.id = 'mp-auth-nav';
     wrap.style.cssText = 'display:flex;align-items:center;gap:8px;margin-left:auto;';
     if (isUnlocked()) {
-      wrap.innerHTML = '<span style="font-size:11px;color:var(--muted);font-weight:500;">Full access</span>' +
+      wrap.innerHTML = '' +
         '<button onclick="mpLogout()" style="font-family:var(--d,system-ui);font-size:13px;font-weight:600;padding:11px 20px;background:var(--text,#0a0a0a);color:white;border:none;border-radius:7px;cursor:pointer;">Log out</button>';
     } else {
       wrap.innerHTML = '<button onclick="showLoginModal()" style="font-family:var(--d,system-ui);font-size:13px;font-weight:600;padding:11px 20px;background:var(--text,#0a0a0a);color:white;border:none;border-radius:7px;cursor:pointer;">Log in</button>';
