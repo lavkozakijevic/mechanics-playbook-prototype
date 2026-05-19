@@ -193,6 +193,7 @@
 </div>
 
 <script src="data.js"></script>
+<script src="auth.js"></script>
 <script>
 
 const catColors = {
@@ -231,6 +232,13 @@ function parseRichDesc(html) {
 
 const appId = new URLSearchParams(location.search).get('id');
 const app = getApp(appId);
+if (app && !isFree('casestudies', app.id)) {
+  showLoginModal();
+  setTimeout(() => {
+    if (!isUnlocked()) { document.getElementById('bd-content').innerHTML = '<div style="padding:60px 0;text-align:center;"><div style="font-size:48px;margin-bottom:16px;">🔒</div><h2 style="font-family:var(--d);margin-bottom:10px;">Full library access required</h2><p style="color:var(--sub);margin-bottom:24px;">This case study is part of the full Mechanics Playbook.</p><button onclick="showLoginModal()" style="padding:12px 24px;background:var(--text);color:var(--bg);border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;">Enter access password</button><br><br><a href="case-studies.html" style="font-size:13px;color:var(--muted);">← Back to case studies</a></div>';
+    }
+  }, 200);
+}
 const sys = (typeof SYSTEMS !== 'undefined') ? SYSTEMS.find(s => s.app_id === appId) : null;
 
 if (!app) {
@@ -449,6 +457,32 @@ document.querySelectorAll('.nav-drawer a').forEach(a => {
     document.body.style.overflow = '';
   });
 });
+</script>
+
+<script>
+(function() {
+  function addAuthNav() {
+    const navInner = document.querySelector('.nav-inner');
+    if (!navInner || document.getElementById('mp-auth-nav')) return;
+    const wrap = document.createElement('div');
+    wrap.id = 'mp-auth-nav';
+    wrap.style.cssText = 'display:flex;align-items:center;gap:8px;margin-left:auto;';
+    if (isUnlocked()) {
+      wrap.innerHTML = '<span style="font-size:11px;color:var(--muted);font-weight:500;">Full access</span>' +
+        '<button onclick="mpLogout()" style="font-family:var(--d,system-ui);font-size:13px;font-weight:600;padding:11px 20px;background:var(--text,#0a0a0a);color:white;border:none;border-radius:7px;cursor:pointer;">Log out</button>';
+    } else {
+      wrap.innerHTML = '<button onclick="showLoginModal()" style="font-family:var(--d,system-ui);font-size:13px;font-weight:600;padding:11px 20px;background:var(--text,#0a0a0a);color:white;border:none;border-radius:7px;cursor:pointer;">Log in</button>';
+    }
+    // Insert before hamburger
+    const burger = navInner.querySelector('.nav-hamburger');
+    navInner.insertBefore(wrap, burger || null);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', addAuthNav);
+  } else {
+    addAuthNav();
+  }
+})();
 </script>
 </body>
 </html>

@@ -45,23 +45,29 @@
 </div>
 <footer><div class="wrap"><div class="foot-inner"><span>Mechanics Playbook by <a href="https://gamebizconsulting.com">GameBiz Consulting</a></span><span><a href="mailto:hello@gamebizconsulting.com">hello@gamebizconsulting.com</a></span></div></div></footer>
 <script src="data.js"></script>
+<script src="auth.js"></script>
 <script>
 function renderApps(list, gridId) {
   const grid = document.getElementById(gridId);
   list.forEach(app => {
-    const el = document.createElement('a');
-    el.className = 'card';
-    el.href = 'case-study.html?id=' + app.id;
+    const locked = !isFree('casestudies', app.id);
+    const el = document.createElement(locked ? 'div' : 'a');
+    el.className = 'card' + (locked ? ' card-locked' : '');
+    if (!locked) el.href = 'case-study.html?id=' + app.id;
     el.dataset.name = app.name.toLowerCase();
+    if (locked) el.addEventListener('click', showLoginModal);
     const mechNames = app.mechanics.slice(0,3).map(mid => {
       const m = getMechanic(mid);
       return m ? `<span class="tag">${m.name}</span>` : '';
     }).join('');
     const more = app.mechanics.length > 3 ? `<span class="tag">+${app.mechanics.length-3}</span>` : '';
     el.innerHTML = `
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:8px;">
         ${typeBadge(app.type)}
-        <span style="font-size:11px;color:var(--muted);">${app.cat}</span>
+        <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
+          ${locked ? '<span class="lock-chip">' + lockIcon() + 'Full access</span>' : ''}
+          <span style="font-size:11px;color:var(--muted);">${app.cat}</span>
+        </div>
       </div>
       <div class="card-title">${app.name}</div>
       <div class="card-body">${app.summary.substring(0,110)}...</div>
@@ -96,6 +102,32 @@ document.querySelectorAll('.nav-drawer a').forEach(a => {
     document.body.style.overflow = '';
   });
 });
+</script>
+
+<script>
+(function() {
+  function addAuthNav() {
+    const navInner = document.querySelector('.nav-inner');
+    if (!navInner || document.getElementById('mp-auth-nav')) return;
+    const wrap = document.createElement('div');
+    wrap.id = 'mp-auth-nav';
+    wrap.style.cssText = 'display:flex;align-items:center;gap:8px;margin-left:auto;';
+    if (isUnlocked()) {
+      wrap.innerHTML = '<span style="font-size:11px;color:var(--muted);font-weight:500;">Full access</span>' +
+        '<button onclick="mpLogout()" style="font-family:var(--d,system-ui);font-size:13px;font-weight:600;padding:11px 20px;background:var(--text,#0a0a0a);color:white;border:none;border-radius:7px;cursor:pointer;">Log out</button>';
+    } else {
+      wrap.innerHTML = '<button onclick="showLoginModal()" style="font-family:var(--d,system-ui);font-size:13px;font-weight:600;padding:11px 20px;background:var(--text,#0a0a0a);color:white;border:none;border-radius:7px;cursor:pointer;">Log in</button>';
+    }
+    // Insert before hamburger
+    const burger = navInner.querySelector('.nav-hamburger');
+    navInner.insertBefore(wrap, burger || null);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', addAuthNav);
+  } else {
+    addAuthNav();
+  }
+})();
 </script>
 </body>
 </html>
