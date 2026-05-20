@@ -168,9 +168,6 @@ const CHEATSHEETS = [
 // The site does not scan folders automatically — every image must be registered here.
 
 const SCREENSHOTS = {
-  "energy-lives_royal-match": [
-    "screenshots/energy-lives/royal-match/01.jpg",
-  ],
   "clans-guilds_clash-of-clans": [
     "screenshots/clans-guilds/clash-of-clans/01.webp",
   ],
