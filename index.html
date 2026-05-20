@@ -11,14 +11,20 @@
 .logo-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px 0; }
 .app-logo {
   width: 60px; height: 60px; border-radius: 12px;
-  background: var(--alt); border: 1px solid var(--border);
+  background: none; border: none;
   display: flex; align-items: center; justify-content: center;
   font-family: var(--d); font-size: 9px; font-weight: 700;
   color: var(--muted); text-align: center; line-height: 1.3;
-  padding: 4px; transition: border-color 0.15s, transform 0.15s;
-  text-decoration: none;
+  padding: 0; transition: transform 0.15s;
+  text-decoration: none; overflow: hidden; position: relative;
 }
-.app-logo:hover { border-color: var(--text); transform: translateY(-2px); }
+.app-logo:hover { transform: translateY(-2px); }
+.app-logo-fallback {
+  width: 60px; height: 60px; border-radius: 12px;
+  background: var(--alt); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  position: absolute; inset: 0;
+}
 .logo-more {
   font-size: 12px; color: var(--muted); text-decoration: none;
   margin-left: 4px; white-space: nowrap; transition: color 0.15s;
@@ -88,8 +94,8 @@
 <!-- HERO -->
 <style>
 .hero-grid { display: grid; grid-template-columns: 1fr 380px; gap: 64px; align-items: center; padding: 72px 0 64px; }
-.hero-carousel-wrap { position: relative; height: 420px; display: flex; align-items: center; justify-content: center; }
-.hero-card { position: absolute; width: 220px; border-radius: 16px; background: var(--card); border: 1px solid var(--border); overflow: hidden; transition: transform 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.6s ease, box-shadow 0.6s ease; cursor: default; }
+.hero-carousel-wrap { position: relative; height: 336px; display: flex; align-items: center; justify-content: center; }
+.hero-card { position: absolute; width: 176px; border-radius: 16px; background: var(--card); border: 1px solid var(--border); overflow: hidden; transition: transform 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.6s ease, box-shadow 0.6s ease; cursor: default; }
 .hero-card-img { width: 100%; aspect-ratio: 585/1266; background: var(--alt); display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .hero-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .hero-card-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
@@ -246,19 +252,33 @@ logoApps.forEach(aid => {
   el.title = app.name;
   const words = app.name.replace(/[^a-zA-Z ]/g,'').split(' ').filter(Boolean);
   const initials = words.length >= 2 ? words[0][0] + words[1][0] : words[0].substring(0,2);
+  // Fallback initials with border — hidden when icon loads
+  const fallback = document.createElement('div');
+  fallback.style.cssText = 'position:absolute;inset:0;border-radius:12px;background:var(--alt);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;';
   const span = document.createElement('span');
-  span.style.cssText = 'font-size:16px;font-weight:700;color:var(--sub);';
+  span.style.cssText = 'font-size:15px;font-weight:700;color:var(--sub);';
   span.textContent = initials.toUpperCase();
-  el.appendChild(span);
-  const img = new Image();
-  img.onload = function() {
-    if (img.naturalWidth > 4) {
-      img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;position:absolute;inset:0;';
-      el.style.position = 'relative';
-      el.appendChild(img);
-    }
-  };
-  img.src = 'icons/' + aid + '.png';
+  fallback.appendChild(span);
+  el.style.position = 'relative';
+  el.appendChild(fallback);
+  // Try webp first, then png
+  function tryLoad(src) {
+    const img = new Image();
+    img.onload = function() {
+      if (img.naturalWidth > 4) {
+        fallback.style.display = 'none';
+        const i = document.createElement('img');
+        i.src = src;
+        i.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:12px;display:block;';
+        el.appendChild(i);
+      }
+    };
+    img.onerror = function() {
+      if (src.endsWith('.webp')) tryLoad('icons/' + aid + '.png');
+    };
+    img.src = src;
+  }
+  tryLoad('icons/' + aid + '.webp');
   logoRow.appendChild(el);
 });
 
@@ -379,13 +399,13 @@ document.querySelectorAll('.nav-drawer a').forEach(a => {
 // ── HERO CAROUSEL ─────────────────────────────────────────────────────────────
 const heroSlides = [
   { app: 'royal-match',    mechanic: 'Energy / Lives',   caption: 'How Royal Match gates play with lives',        color: '#4B2EA0', img: 'royal-match-pass-lives.webp' },
-  { app: 'capybara-go',    mechanic: 'Season Pass',      caption: 'How Capybara Go! applies the battle pass',     color: '#7EB854' },
-  { app: 'strava',         mechanic: 'Leaderboards',     caption: 'How Strava builds competitive segments',       color: '#FC4C02' },
-  { app: 'insight-timer',  mechanic: 'Streak',           caption: 'How Insight Timer earns the commitment',       color: '#1AA0A0' },
-  { app: 'canva',          mechanic: 'Achievements',     caption: 'How Canva uses certifications as achievements', color: '#7D2AE8' },
-  { app: 'subway-surfers', mechanic: 'Ads',              caption: 'How Subway Surfers uses ads',                  color: '#F7B500' },
-  { app: 'tiimo',          mechanic: 'Streak',           caption: 'How Tiimo celebrates every step',              color: '#FF6B4A' },
-  { app: 'picsart',        mechanic: 'Challenges',       caption: 'How PicsArt turns feed posts into entries',    color: '#E32C89' },
+  { app: 'capybara-go',   mechanic: 'Season Pass',     caption: 'How Capybara Go! applies the battle pass',       color: '#7EB854', img: 'capybara-season-pass.webp' },
+{ app: 'strava',        mechanic: 'Leaderboards',     caption: 'How Strava builds competitive segments',         color: '#FC4C02', img: 'strava-leaderboards.webp' },
+{ app: 'insight-timer', mechanic: 'Streak',           caption: 'How Insight Timer earns the commitment',         color: '#1AA0A0', img: 'insight-timer-streak.webp' },
+{ app: 'canva',         mechanic: 'Achievements',     caption: 'How Canva uses certifications as achievements',  color: '#7D2AE8', img: 'canva-achievements.webp' },
+{ app: 'subway-surfers',mechanic: 'Ads',              caption: 'How Subway Surfers uses ads',                    color: '#F7B500', img: 'subway-surfers-ads.webp' },
+{ app: 'tiimo',         mechanic: 'Streak',           caption: 'How Tiimo celebrates every step',               color: '#FF6B4A', img: 'tiimo-streak.webp' },
+{ app: 'picsart',       mechanic: 'Challenges',       caption: 'How PicsArt turns feed posts into entries',      color: '#E32C89', img: 'picsart-challenges.webp' },
 ];
 
 const wrap = document.getElementById('hero-carousel-wrap');

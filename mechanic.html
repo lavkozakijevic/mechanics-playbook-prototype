@@ -116,8 +116,8 @@ else {
                     // Real screenshots
                     return `<div class="shot-scroll-row">
                       ${files.slice(0,5).map((src,i) =>
-                        `<div style="width:140px;height:303px;flex-shrink:0;cursor:zoom-in;border-radius:8px;overflow:hidden;background:var(--alt);" onclick="openShotModal('${src}','${app.name} screenshot ${i+1}')">
-                          <img src="${src}" alt="${app.name} screenshot ${i+1}" style="width:100%;height:100%;object-fit:cover;display:block;">
+                        `<div style="height:303px;width:auto;max-width:160px;flex-shrink:0;cursor:zoom-in;border-radius:8px;overflow:hidden;" onclick="openShotModal('${src}','${app.name} screenshot ${i+1}')">
+                          <img src="${src}" alt="${app.name} screenshot ${i+1}" style="height:100%;width:auto;display:block;" onload="var p=this.parentElement;if(this.naturalWidth>this.naturalHeight){p.style.height='180px';p.style.maxWidth='460px';}">
                         </div>`
                       ).join('')}
                     </div>`;
