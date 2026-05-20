@@ -111,15 +111,13 @@ else {
               <div style="margin-top:16px;">
                 ${(() => {
                   const key = m.id + '_' + app.id;
-                  const files = (typeof SCREENSHOTS !== 'undefined' && SCREENSHOTS[key]) || [];
+                  const files = (typeof getScreenshots === 'function') ? getScreenshots(m.id, app.id) : [];
                   if (files.length > 0) {
-                    // Real screenshots, show full width in a grid
-                    const cols = Math.min(files.length, 4);
-                    return `<div style="display:grid;grid-template-columns:repeat(${cols},1fr);gap:8px;">
-                      ${files.slice(0,8).map((src,i) =>
-                        `<div style="border-radius:10px;overflow:hidden;aspect-ratio:585/1266;background:var(--alt);">
-                          <img src="${src}" alt="${app.name} screenshot ${i+1}"
-                            style="width:100%;height:100%;object-fit:cover;display:block;">
+                    // Real screenshots
+                    return `<div class="shot-scroll-row">
+                      ${files.slice(0,5).map((src,i) =>
+                        `<div style="width:140px;height:303px;flex-shrink:0;cursor:zoom-in;border-radius:8px;overflow:hidden;background:var(--alt);" onclick="openShotModal('${src}','${app.name} screenshot ${i+1}')">
+                          <img src="${src}" alt="${app.name} screenshot ${i+1}" style="width:100%;height:100%;object-fit:cover;display:block;">
                         </div>`
                       ).join('')}
                     </div>`;
@@ -219,6 +217,35 @@ document.querySelectorAll('.nav-drawer a').forEach(a => {
   } else {
     addAuthNav();
   }
+})();
+</script>
+<script>
+// Screenshot modal
+(function() {
+  function openShotModal(src, alt) {
+    let ov = document.getElementById('shot-modal-overlay');
+    if (!ov) {
+      ov = document.createElement('div');
+      ov.id = 'shot-modal-overlay';
+      ov.className = 'shot-modal-overlay';
+      ov.innerHTML = '<img class="shot-modal-img" id="shot-modal-img" src="" alt="">';
+      ov.addEventListener('click', closeShotModal);
+      document.body.appendChild(ov);
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeShotModal(); });
+    }
+    document.getElementById('shot-modal-img').src = src;
+    document.getElementById('shot-modal-img').alt = alt || '';
+    requestAnimationFrame(function() { ov.classList.add('open'); });
+    document.body.style.overflow = 'hidden';
+  }
+  function closeShotModal() {
+    const ov = document.getElementById('shot-modal-overlay');
+    if (!ov) return;
+    ov.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  window.openShotModal = openShotModal;
+  window.closeShotModal = closeShotModal;
 })();
 </script>
 </body>

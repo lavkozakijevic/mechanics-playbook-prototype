@@ -10,7 +10,7 @@
 .logo-strip { padding: 32px 0 28px; border-bottom: 1px solid var(--border); overflow-x: auto; }
 .logo-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px 0; }
 .app-logo {
-  width: 52px; height: 52px; border-radius: 12px;
+  width: 60px; height: 60px; border-radius: 12px;
   background: var(--alt); border: 1px solid var(--border);
   display: flex; align-items: center; justify-content: center;
   font-family: var(--d); font-size: 9px; font-weight: 700;
@@ -235,7 +235,7 @@
 <script src="auth.js"></script>
 <script>
 // ── APP LOGO STRIP ──────────────────────────────────────
-const logoApps = ['strava','fc-mobile','capybara-go','royal-match','subway-surfers','canva','picsart','insight-timer','chrome-valley-customs','swgoh','solitaire-grand-harvest','tiimo','uptime','fortune-city','match-creek-motors','calm'];
+const logoApps = ['royal-match','clash-of-clans','strava','fc-mobile','capybara-go','canva','subway-surfers','insight-timer','swgoh','fiton','tiimo','ladder'];
 const logoRow = document.getElementById('logo-row');
 logoApps.forEach(aid => {
   const app = getApp(aid);
@@ -244,10 +244,21 @@ logoApps.forEach(aid => {
   el.className = 'app-logo';
   el.href = 'case-study.html?id=' + aid;
   el.title = app.name;
-  // Initials as placeholder
   const words = app.name.replace(/[^a-zA-Z ]/g,'').split(' ').filter(Boolean);
   const initials = words.length >= 2 ? words[0][0] + words[1][0] : words[0].substring(0,2);
-  el.innerHTML = `<span style="font-size:15px;font-weight:700;color:var(--sub);">${initials.toUpperCase()}</span>`;
+  const span = document.createElement('span');
+  span.style.cssText = 'font-size:16px;font-weight:700;color:var(--sub);';
+  span.textContent = initials.toUpperCase();
+  el.appendChild(span);
+  const img = new Image();
+  img.onload = function() {
+    if (img.naturalWidth > 4) {
+      img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;position:absolute;inset:0;';
+      el.style.position = 'relative';
+      el.appendChild(img);
+    }
+  };
+  img.src = 'icons/' + aid + '.png';
   logoRow.appendChild(el);
 });
 

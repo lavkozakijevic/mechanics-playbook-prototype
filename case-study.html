@@ -48,6 +48,11 @@
 .crumb a:hover { color: var(--text); }
 .meta-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
 .bd-title { font-family: var(--d); font-size: clamp(24px,3.5vw,40px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 16px; }
+.app-icon-wrap { width: 64px; height: 64px; border-radius: 14px; background: var(--alt); border: 1px solid var(--border); overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.app-icon-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.app-icon-initials { font-family: var(--d); font-size: 18px; font-weight: 700; color: var(--sub); letter-spacing: -0.02em; }
+.app-header-row { display: flex; align-items: center; gap: 18px; margin-bottom: 14px; }
+.app-header-text { flex: 1; min-width: 0; }
 .bd-intro { font-size: 15.5px; color: var(--sub); line-height: 1.75; max-width: 660px; margin-bottom: 0; }
 
 .mech-grid-label { font-family: var(--d); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
@@ -154,6 +159,26 @@
   min-width: 60px;
 }
 .shot-placeholder svg { opacity: 0.35; }
+
+/* Screenshot modal */
+.shot-modal-overlay {
+  position: fixed; inset: 0; z-index: 9000;
+  background: rgba(0,0,0,0.82);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  opacity: 0; transition: opacity 0.18s;
+  cursor: zoom-out;
+}
+.shot-modal-overlay.open { opacity: 1; }
+.shot-modal-img {
+  max-height: calc(100vh - 48px);
+  max-width: min(585px, calc(100vw - 48px));
+  border-radius: 14px;
+  display: block;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+  transform: scale(0.95); transition: transform 0.18s;
+}
+.shot-modal-overlay.open .shot-modal-img { transform: scale(1); }
 </style>
 </head>
 <body>
@@ -286,10 +311,16 @@ if (!app) {
       '</a>';
   }).join('');
 
+  const iconPath = 'icons/' + app.id + '.png';
+  const iconWords = app.name.replace(/[^a-zA-Z ]/g,'').split(' ').filter(Boolean);
+  const iconInitials = iconWords.length >= 2 ? iconWords[0][0] + iconWords[1][0] : iconWords[0].substring(0,2);
   html += '<div class="bd-head" id="bd-head">' +
     '<div class="crumb"><a href="case-studies.html">Case Studies</a> \u203a <span>' + app.name + '</span> \u203a <span>Full breakdown</span></div>' +
     '<div class="meta-row">' + typeBadge(app.type) + '<span class="badge badge-app">' + app.cat + '</span></div>' +
-    '<h1 class="bd-title">' + app.name + ' \u2014 Full Breakdown</h1>' +
+    '<div class="app-header-row">' +
+      '<div class="app-icon-wrap"><img src="' + iconPath + '" alt="' + app.name + '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><div class="app-icon-initials" style="display:none">' + iconInitials.toUpperCase() + '</div></div>' +
+      '<div class="app-header-text"><h1 class="bd-title" style="margin-bottom:0">' + app.name + ' \u2014 Full Breakdown</h1></div>' +
+    '</div>' +
     '<p class="bd-intro">' + app.summary + '</p>' +
     (appMechanics.length ? '<div style="margin-top:32px;padding-top:28px;border-top:1px solid var(--border-light);">' +
       '<div class="mech-grid-label">Mechanics observed</div>' +
@@ -337,7 +368,7 @@ if (!app) {
         // ── SCREENSHOTS ─────────────────────────────────────────────────────
         (function() {
           var shotKey = m.id + '_' + app.id;
-          var files = (typeof SCREENSHOTS !== 'undefined' && SCREENSHOTS[shotKey]) || [];
+          var files = (typeof getScreenshots === 'function') ? getScreenshots(m.id, app.id) : [];
           var isPortrait = app.type === 'game'; // games default portrait, apps landscape
           if (files.length > 0) {
             // Real images, scrollable row
@@ -346,16 +377,16 @@ if (!app) {
             var aspect = isPortrait ? '585/1266' : '16/9';
             return '<div class="shot-scroll-row">' +
               files.map(function(src, i) {
-                return '<div class="shot-scroll-item" style="height:' + h + ';">' +
-                  '<img src="' + src + '" alt="' + app.name + ' ' + m.name + ' screenshot ' + (i+1) + '" ' +
-                  'style="height:100%;width:auto;border-radius:8px;display:block;object-fit:cover;">' +
-                  '</div>';
+                var alt = app.name + ' ' + m.name + ' screenshot ' + (i+1);
+                return '<div class="shot-scroll-item" style="width:140px;height:303px;cursor:zoom-in;flex-shrink:0;" onclick="openShotModal(\'' + src + '\',\'' + alt + '\')">'
+                  + '<img src="' + src + '" alt="' + alt + '" style="width:100%;height:100%;object-fit:cover;border-radius:8px;display:block;">'
+                  + '</div>';
               }).join('') +
               '</div>';
           } else {
             // 5 placeholders, portrait for games, landscape for apps
-            var h = isPortrait ? '220px' : '140px';
-            var w = isPortrait ? '99px' : '220px';
+            var h = isPortrait ? '303px' : '140px';
+            var w = isPortrait ? '140px' : '240px';
             var label = app.name;
             return '<div class="shot-scroll-row">' +
               [1,2,3,4,5].map(function(n) {
@@ -482,6 +513,35 @@ document.querySelectorAll('.nav-drawer a').forEach(a => {
   } else {
     addAuthNav();
   }
+})();
+</script>
+<script>
+// Screenshot modal
+(function() {
+  function openShotModal(src, alt) {
+    let ov = document.getElementById('shot-modal-overlay');
+    if (!ov) {
+      ov = document.createElement('div');
+      ov.id = 'shot-modal-overlay';
+      ov.className = 'shot-modal-overlay';
+      ov.innerHTML = '<img class="shot-modal-img" id="shot-modal-img" src="" alt="">';
+      ov.addEventListener('click', closeShotModal);
+      document.body.appendChild(ov);
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeShotModal(); });
+    }
+    document.getElementById('shot-modal-img').src = src;
+    document.getElementById('shot-modal-img').alt = alt || '';
+    requestAnimationFrame(function() { ov.classList.add('open'); });
+    document.body.style.overflow = 'hidden';
+  }
+  function closeShotModal() {
+    const ov = document.getElementById('shot-modal-overlay');
+    if (!ov) return;
+    ov.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  window.openShotModal = openShotModal;
+  window.closeShotModal = closeShotModal;
 })();
 </script>
 </body>
