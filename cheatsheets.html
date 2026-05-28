@@ -11,26 +11,81 @@
   <div class="nav-inner">
     <a href="index.html" class="nav-logo"><img src="gamebiz-logo.svg" alt="GameBiz Consulting" height="28" style="display:block;max-width:160px;"></a>
     <ul class="nav-links">
-      <li><a href="mechanics.html">Mechanics</a></li>
-      <li><a href="systems.html">Systems</a></li>
-      <li><a href="case-studies.html">Case Studies</a></li>
-      <li><a href="cheatsheets.html">Cheatsheets</a></li>
-      <li><a href="glossary.html">Glossary</a></li>
+      <li class="nav-item" id="ni-library">
+        <button aria-haspopup="true">Library</button>
+        <div class="nav-dropdown" role="menu">
+          <a class="nd-row " href="mechanics.html">
+            <div class="nd-icon-box">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="5" height="5" rx="1.5" fill="currentColor" opacity=".7"/><rect x="9" y="2" width="5" height="5" rx="1.5" fill="currentColor" opacity=".4"/><rect x="2" y="9" width="5" height="5" rx="1.5" fill="currentColor" opacity=".4"/><rect x="9" y="9" width="5" height="5" rx="1.5" fill="currentColor" opacity=".7"/></svg>
+            </div>
+            <div class="nd-text"><div class="nd-title">Mechanics</div><div class="nd-desc">22 game mechanics with implementation examples from real apps</div></div>
+          </a>
+          <a class="nd-row " href="systems.html">
+            <div class="nd-icon-box">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="2.5" fill="currentColor"/><path d="M8 2v2M8 12v2M2 8h2M12 8h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M3.5 3.5l1.5 1.5M11 11l1.5 1.5M11 3.5L9.5 5M5 11l-1.5 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity=".5"/></svg>
+            </div>
+            <div class="nd-text"><div class="nd-title">Systems</div><div class="nd-desc">How mechanics combine into retention and monetization loops</div></div>
+          </a>
+          <a class="nd-row active" href="cheatsheets.html">
+            <div class="nd-icon-box">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="2" width="10" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M5.5 5.5h5M5.5 8h5M5.5 10.5h3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="nd-text"><div class="nd-title">Cheatsheets</div><div class="nd-desc">Practical implementation guides you can act on immediately</div></div>
+          </a>
+          <a class="nd-row " href="glossary.html">
+            <div class="nd-icon-box">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 4h10M3 7h7M3 10h8M3 13h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
+            <div class="nd-text"><div class="nd-title">Glossary</div><div class="nd-desc">Definitions for the concepts and terminology behind game design</div></div>
+          </a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="case-studies.html" >Case Studies</a></li>
+      <li class="nav-item" id="ni-reports">
+        <button aria-haspopup="true" >Category Reports</button>
+        <div class="nav-dropdown" role="menu">
+          <a class="nd-row " href="reports-finance.html">
+            <div class="nd-icon-box">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12L6 8l3 2 4-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="13" cy="5" r="1.5" fill="currentColor" opacity=".5"/></svg>
+            </div>
+            <div class="nd-text"><div class="nd-title">Finance Apps</div><div class="nd-desc">Gamification opportunities across 10 personal finance and banking apps</div></div>
+          </a>
+          <div class="nav-dropdown-divider"></div>
+          <div class="nd-row inactive">
+            <div class="nd-icon-box">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 3C5.5 3 3.5 5 3.5 7.5c0 1.5.7 2.8 1.8 3.7L8 13l2.7-1.8c1.1-.9 1.8-2.2 1.8-3.7C12.5 5 10.5 3 8 3z" stroke="currentColor" stroke-width="1.4"/></svg>
+            </div>
+            <div class="nd-text"><div class="nd-title">Fitness Apps</div><div class="nd-desc">Coming soon</div></div>
+          </div>
+          <div class="nd-row inactive">
+            <div class="nd-icon-box">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.4"/><rect x="9" y="3" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.4"/><rect x="3" y="9" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.4"/><path d="M11 9v4M9 11h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
+            <div class="nd-text"><div class="nd-title">Productivity Apps</div><div class="nd-desc">Coming soon</div></div>
+          </div>
+        </div>
+      </li>
     </ul>
-      <button class="nav-hamburger" id="nav-hamburger" onclick="toggleNav()" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+    <button class="nav-hamburger" id="nav-hamburger" onclick="toggleNav()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 <div class="nav-drawer" id="nav-drawer">
   <a href="index.html">Home</a>
-  <a href="mechanics.html" >Mechanics</a>
-  <a href="systems.html" >Systems</a>
-  <a href="case-studies.html" >Case Studies</a>
-  <a href="cheatsheets.html" class="active">Cheatsheets</a>
-  <a href="glossary.html" >Glossary</a>
+  <div class="nav-drawer-section-head">Library</div>
+  <a href="mechanics.html" class="sub ">Mechanics</a>
+  <a href="systems.html" class="sub ">Systems</a>
+  <a href="cheatsheets.html" class="sub ">Cheatsheets</a>
+  <a href="glossary.html" class="sub ">Glossary</a>
+  <div class="nav-drawer-section-head">Reports</div>
+  <a href="case-studies.html" class="sub ">Case Studies</a>
+  <a href="reports-finance.html" class="sub ">Finance Apps</a>
+  <a class="sub sub-inactive">Fitness Apps</a>
+  <a class="sub sub-inactive">Productivity Apps</a>
   <div class="nav-drawer-footer">Mechanics Playbook by GameBiz Consulting</div>
 </div>
+
 <div class="wrap">
   <div class="hero">
     <div class="hero-label">Library</div>
@@ -79,7 +134,6 @@ function toggleNav() {
   drawer.classList.toggle('open');
   document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
 }
-// Close drawer on link click
 document.querySelectorAll('.nav-drawer a').forEach(a => {
   a.addEventListener('click', () => {
     document.getElementById('nav-hamburger').classList.remove('open');
@@ -88,7 +142,6 @@ document.querySelectorAll('.nav-drawer a').forEach(a => {
   });
 });
 </script>
-
 <script>
 (function() {
   function addAuthNav() {
@@ -103,7 +156,6 @@ document.querySelectorAll('.nav-drawer a').forEach(a => {
     } else {
       wrap.innerHTML = '<button onclick="showLoginModal()" style="font-family:var(--d,system-ui);font-size:13px;font-weight:600;padding:11px 20px;background:var(--text,#0a0a0a);color:white;border:none;border-radius:7px;cursor:pointer;">Log in</button>';
     }
-    // Insert before hamburger
     const burger = navInner.querySelector('.nav-hamburger');
     navInner.insertBefore(wrap, burger || null);
   }

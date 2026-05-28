@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gamification in Finance Apps 2026, Mechanics Playbook</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+
+/* ── TOC ────────────────────────────────────────────────── */
+.toc-wrap {
+  position: fixed;
+  top: calc(var(--nav) + 24px);
+  left: max(16px, calc((100vw - 1100px) / 2 - 200px));
+  width: 180px;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+@media (max-width: 1340px) { .toc-wrap { display: none; } }
+
+.toc-label {
+  font-family: var(--d);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.toc-section {
+  margin-bottom: 4px;
+}
+.toc-section-head {
+  font-family: var(--d);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--sub);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0;
+  user-select: none;
+  transition: color .12s;
+}
+.toc-section-head:hover { color: var(--text); }
+.toc-section-head.open { color: var(--text); }
+.toc-chevron {
+  font-size: 9px;
+  color: var(--muted);
+  transition: transform .18s;
+  flex-shrink: 0;
+  margin-left: 4px;
+}
+.toc-section-head.open .toc-chevron { transform: rotate(180deg); }
+.toc-items {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .22s ease;
+  margin-bottom: 0;
+}
+.toc-items.open {
+  max-height: 600px;
+  margin-bottom: 8px;
+}
+.toc-link {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 3px 0 3px 10px;
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+  transition: color .12s, border-color .12s;
+}
+.toc-link:hover { color: var(--text); }
+.toc-link.active { color: var(--text); border-left-color: var(--accent); font-weight: 600; }
+
+/* ── MAIN CONTENT ───────────────────────────────────────── */
+.page-wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 24px 120px;
+}
+
+/* ── REPORT HEADER ──────────────────────────────────────── */
+.report-header { padding: 48px 0 36px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+.report-eyebrow { font-family: var(--d); font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+.report-title { font-family: var(--d); font-size: clamp(26px,4vw,44px); font-weight: 700; letter-spacing: -.03em; line-height: 1.08; margin-bottom: 18px; }
+.report-desc { font-size: 15px; color: var(--sub); line-height: 1.75; max-width: 600px; margin-bottom: 28px; }
+.stats-bar { display: flex; border: 1px solid var(--border); border-radius: 10px; background: var(--card); overflow: hidden; flex-wrap: wrap; }
+.stat-item { flex: 1; min-width: 120px; padding: 16px 20px; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-num { font-family: var(--d); font-size: 26px; font-weight: 700; letter-spacing: -.03em; line-height: 1; margin-bottom: 4px; }
+.stat-label { font-size: 11.5px; color: var(--muted); }
+
+/* ── CHAPTER HEADINGS ───────────────────────────────────── */
+.chapter {
+  margin-bottom: 64px;
+}
+.chapter-eyebrow {
+  font-family: var(--d);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.chapter-title {
+  font-family: var(--d);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -.025em;
+  margin-bottom: 10px;
+  scroll-margin-top: calc(var(--nav) + 32px);
+}
+.chapter-intro {
+  font-size: 14px;
+  color: var(--sub);
+  line-height: 1.7;
+  max-width: 600px;
+  margin-bottom: 28px;
+}
+.section-anchor {
+  scroll-margin-top: calc(var(--nav) + 32px);
+}
+
+/* ── FEATURE CARDS ──────────────────────────────────────── */
+.feature-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.feature-card-head {
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+.feature-card-head:hover { background: var(--alt); }
+.feature-card-name { font-family: var(--d); font-size: 14px; font-weight: 700; letter-spacing: -.01em; }
+.feature-card-meta { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.feature-card-count { font-size: 12px; color: var(--muted); }
+.feature-card-toggle { font-size: 16px; color: var(--muted); transition: transform .2s; line-height: 1; }
+.feature-card.open .feature-card-toggle { transform: rotate(180deg); }
+.feature-card-body { display: none; padding: 0 22px 22px; border-top: 1px solid var(--border); }
+.feature-card.open .feature-card-body { display: block; }
+.feature-card-desc { padding-top: 18px; }
+.feature-card-desc p { font-size: 13.5px; color: var(--sub); line-height: 1.75; margin-bottom: 12px; }
+.feature-card-desc p:last-child { margin-bottom: 0; }
+.finding-box { background: var(--alt); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 13px 16px; margin: 16px 0 0; }
+.finding-box .lbl { font-family: var(--d); font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+.finding-box p { font-size: 12.5px; color: var(--sub); line-height: 1.6; margin: 0; }
+.app-examples { margin-top: 18px; border-top: 1px solid var(--border-light); }
+.app-example { padding: 14px 0; border-bottom: 1px solid var(--border-light); display: grid; grid-template-columns: 1fr 100px; gap: 14px; align-items: start; }
+.app-example:last-child { border-bottom: none; }
+.app-example-name { font-family: var(--d); font-size: 12px; font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.app-example-cat { font-family: var(--d); font-size: 9px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); background: var(--alt); border: 1px solid var(--border); border-radius: 4px; padding: 2px 5px; }
+.app-example-body { font-size: 13px; color: var(--sub); line-height: 1.68; }
+.app-example-img { background: var(--alt); border: 1.5px dashed var(--border); border-radius: 8px; aspect-ratio: 9/16; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 9px; text-align: center; }
+@media (max-width: 500px) { .app-example { grid-template-columns: 1fr; } .app-example-img { display: none; } }
+
+/* ── GAMIFICATION STATS ─────────────────────────────────── */
+.stats-mini { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 24px; }
+.stats-mini-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.stats-mini-n { font-family: var(--d); font-size: 26px; font-weight: 700; letter-spacing: -.04em; margin-bottom: 3px; }
+.stats-mini-n span { font-size: 14px; color: var(--muted); }
+.stats-mini-l { font-size: 11.5px; color: var(--muted); }
+
+/* ── MECHANIC OBS CARD ──────────────────────────────────── */
+.mech-obs-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+.mech-obs-head { padding: 18px 22px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.mech-obs-title { font-family: var(--d); font-size: 14px; font-weight: 700; letter-spacing: -.01em; }
+.mech-obs-count { font-family: var(--d); font-size: 11px; font-weight: 700; color: var(--muted); background: var(--alt); border: 1px solid var(--border); border-radius: 6px; padding: 3px 10px; white-space: nowrap; }
+.mech-obs-body { padding: 18px 22px; border-bottom: 1px solid var(--border); }
+.mech-obs-body p { font-size: 13.5px; color: var(--sub); line-height: 1.73; margin-bottom: 10px; }
+.mech-obs-body p:last-child { margin-bottom: 0; }
+.mech-obs-examples {}
+.mech-obs-example { padding: 14px 22px; border-bottom: 1px solid var(--border-light); display: grid; grid-template-columns: 1fr 100px; gap: 14px; align-items: start; }
+.mech-obs-example:last-child { border-bottom: none; }
+.g-finding { background: var(--alt); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 4px; }
+.g-finding .lbl { font-family: var(--d); font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 5px; }
+.g-finding p { font-size: 13px; color: var(--sub); line-height: 1.6; margin: 0; }
+
+/* ── INSIGHT GRID ───────────────────────────────────────── */
+.insight-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 36px; }
+@media (max-width: 560px) { .insight-grid { grid-template-columns: 1fr; } }
+.insight-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+.insight-card-label { font-family: var(--d); font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 7px; }
+.insight-card p { font-size: 12.5px; color: var(--sub); line-height: 1.65; margin: 0; }
+
+/* ── OPPORTUNITY CARDS ──────────────────────────────────── */
+.opp-section-label { font-family: var(--d); font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 36px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.opp-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 22px; margin-bottom: 10px; }
+.opp-head { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+.opp-num { font-family: var(--d); font-size: 20px; font-weight: 700; color: var(--accent); line-height: 1; min-width: 28px; flex-shrink: 0; padding-top: 2px; }
+.opp-inner { flex: 1; }
+.opp-title { font-family: var(--d); font-size: 14px; font-weight: 700; letter-spacing: -.01em; margin-bottom: 7px; }
+.opp-meta { display: flex; gap: 5px; }
+.nov-pill { font-family: var(--d); font-size: 9px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; border-radius: 16px; padding: 3px 9px; }
+.nov-low { color: var(--green); background: var(--green-bg); border: 1px solid #a8ddc2; }
+.nov-mid { color: var(--orange); background: var(--orange-bg); border: 1px solid #f0c898; }
+.nov-high { color: var(--accent); background: #feeaea; border: 1px solid #f8c0c0; }
+.opp-body { font-size: 13.5px; color: var(--sub); line-height: 1.75; margin-bottom: 14px; }
+.opp-body p { margin-bottom: 12px; }
+.opp-body p:last-child { margin-bottom: 0; }
+.opp-applications { border-top: 1px solid var(--border-light); padding-top: 14px; }
+.opp-apps-label { font-family: var(--d); font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.opp-app-item { margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border-light); }
+.opp-app-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.opp-app-title { font-family: var(--d); font-size: 13px; font-weight: 700; letter-spacing: -.01em; color: var(--text); margin-bottom: 4px; }
+.opp-app-text { font-size: 13px; color: var(--sub); line-height: 1.65; margin-bottom: 7px; }
+.opp-prereq { font-size: 11.5px; color: var(--muted); line-height: 1.55; font-style: italic; }
+.opp-prereq strong { color: var(--sub); font-style: normal; font-weight: 600; }
+.syn-box { background: var(--alt); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin-top: 12px; }
+.syn-label { font-family: var(--d); font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.syn-body { font-size: 12px; color: var(--sub); line-height: 1.6; }
+
+/* ── DIVIDER ────────────────────────────────────────────── */
+.chapter-divider { border: none; border-top: 1px solid var(--border); margin: 56px 0; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="gamebiz-logo.svg" alt="GameBiz Consulting" height="28" style="display:block;max-width:160px;"></a>
+    <ul class="nav-links">
+      <li class="nav-item" id="ni-library">
+        <button aria-haspopup="true">Library</button>
+        <div class="nav-dropdown" role="menu">
+          <a class="nd-row " href="mechanics.html">
+            <div class="nd-icon-box">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="5" height="5" rx="1.5" fill="currentColor" opacity=".7"/><rect x="9" y="2" width="5" height="5" rx="1.5" fill="currentColor" opacity=".4"/><rect x="2" y="9" width="5" height="5" rx="1.5" fill="currentColor" opacity=".4"/><rect x="9" y="9" width="5" height="5" rx="1.5" fill="currentColor" opacity=".7"/></svg>
+            </div>
+            <div class="nd-text"><div class="nd-title">Mechanics</div><div class="nd-desc">22 game mechanics with implementation examples from real apps</div></div>
+          </a>
+          <a class="nd-row " href="systems.html">
+            <div class="nd-icon-box">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="2.5" fill="currentColor"/><path d="M8 2v2M8 12v2M2 8h2M12 8h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M3.5 3.5l1.5 1.5M11 11l1.5 1.5M11 3.5L9.5 5M5 11l-1.5 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity=".5"/></svg>
+            </div>
+            <div class="nd-text"><div class="nd-title">Systems</div><div class="nd-desc">How mechanics combine into retention and monetization loops</div></div>
+          </a>
+          <a class="nd-row " href="cheatsheets.html">
+            <div class="nd-icon-box">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="2" width="10" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M5.5 5.5h5M5.5 8h5M5.5 10.5h3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="nd-text"><div class="nd-title">Cheatsheets</div><div class="nd-desc">Practical implementation guides you can act on immediately</div></div>
+          </a>
+          <a class="nd-row " href="glossary.html">
+            <div class="nd-icon-box">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 4h10M3 7h7M3 10h8M3 13h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
+            <div class="nd-text"><div class="nd-title">Glossary</div><div class="nd-desc">Definitions for the concepts and terminology behind game design</div></div>
+          </a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="case-studies.html" >Case Studies</a></li>
+      <li class="nav-item" id="ni-reports">
+        <button aria-haspopup="true" class="active">Category Reports</button>
+        <div class="nav-dropdown" role="menu">
+          <a class="nd-row active" href="reports-finance.html">
+            <div class="nd-icon-box">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12L6 8l3 2 4-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="13" cy="5" r="1.5" fill="currentColor" opacity=".5"/></svg>
+            </div>
+            <div class="nd-text"><div class="nd-title">Finance Apps</div><div class="nd-desc">Gamification opportunities across 10 personal finance and banking apps</div></div>
+          </a>
+          <div class="nav-dropdown-divider"></div>
+          <div class="nd-row inactive">
+            <div class="nd-icon-box">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 3C5.5 3 3.5 5 3.5 7.5c0 1.5.7 2.8 1.8 3.7L8 13l2.7-1.8c1.1-.9 1.8-2.2 1.8-3.7C12.5 5 10.5 3 8 3z" stroke="currentColor" stroke-width="1.4"/></svg>
+            </div>
+            <div class="nd-text"><div class="nd-title">Fitness Apps</div><div class="nd-desc">Coming soon</div></div>
+          </div>
+          <div class="nd-row inactive">
+            <div class="nd-icon-box">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.4"/><rect x="9" y="3" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.4"/><rect x="3" y="9" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.4"/><path d="M11 9v4M9 11h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
+            <div class="nd-text"><div class="nd-title">Productivity Apps</div><div class="nd-desc">Coming soon</div></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" onclick="toggleNav()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-drawer" id="nav-drawer">
+  <a href="index.html">Home</a>
+  <div class="nav-drawer-section-head">Library</div>
+  <a href="mechanics.html" class="sub ">Mechanics</a>
+  <a href="systems.html" class="sub ">Systems</a>
+  <a href="cheatsheets.html" class="sub ">Cheatsheets</a>
+  <a href="glossary.html" class="sub ">Glossary</a>
+  <div class="nav-drawer-section-head">Reports</div>
+  <a href="case-studies.html" class="sub ">Case Studies</a>
+  <a href="reports-finance.html" class="sub active">Finance Apps</a>
+  <a class="sub sub-inactive">Fitness Apps</a>
+  <a class="sub sub-inactive">Productivity Apps</a>
+  <div class="nav-drawer-footer">Mechanics Playbook by GameBiz Consulting</div>
+</div>
+
+<!-- FLOATING TOC -->
+<aside class="toc-wrap" id="toc">
+  <div class="toc-label">Contents</div>
+
+  <div class="toc-section">
+    <div class="toc-section-head open" onclick="toggleTOC(this)" data-section="features">Features <span class="toc-chevron">&#9650;</span></div>
+    <div class="toc-items open" id="toc-features">
+      <a class="toc-link" href="#features">Overview</a>
+      <a class="toc-link" href="#f-expense-categorization">Expense categorization</a>
+      <a class="toc-link" href="#f-budget-management">Budget management</a>
+      <a class="toc-link" href="#f-savings-goals">Savings goals</a>
+      <a class="toc-link" href="#f-spending-analytics">Spending analytics</a>
+      <a class="toc-link" href="#f-referral">Referral programs</a>
+      <a class="toc-link" href="#f-cashback-rewards">Cashback &amp; rewards</a>
+      <a class="toc-link" href="#f-financial-education">Financial education</a>
+      <a class="toc-link" href="#f-spending-threshold">Threshold rewards</a>
+      <a class="toc-link" href="#f-account-aggregation">Account aggregation</a>
+      <a class="toc-link" href="#f-international-transfers">International transfers</a>
+      <a class="toc-link" href="#f-profile-completeness">Profile completeness</a>
+      <a class="toc-link" href="#f-exchange-rate-alerts">Exchange rate alerts</a>
+      <a class="toc-link" href="#f-marketplace">Marketplace</a>
+      <a class="toc-link" href="#f-security-features">Security &amp; trust</a>
+      <a class="toc-link" href="#f-onboarding">Onboarding depth</a>
+    </div>
+  </div>
+
+  <div class="toc-section">
+    <div class="toc-section-head" onclick="toggleTOC(this)" data-section="gamification">Gamification <span class="toc-chevron">&#9650;</span></div>
+    <div class="toc-items" id="toc-gamification">
+      <a class="toc-link" href="#gamification">Overview</a>
+      <a class="toc-link" href="#g-streak">Streak</a>
+      <a class="toc-link" href="#g-achievements">Achievements</a>
+      <a class="toc-link" href="#g-daily-login">Daily Login Reward</a>
+      <a class="toc-link" href="#g-variable">Variable Reward</a>
+    </div>
+  </div>
+
+  <div class="toc-section">
+    <div class="toc-section-head" onclick="toggleTOC(this)" data-section="opportunities">Opportunities <span class="toc-chevron">&#9650;</span></div>
+    <div class="toc-items" id="toc-opportunities">
+      <a class="toc-link" href="#opportunities">Overview</a>
+      <a class="toc-link" href="#o-01">01 Daily Login Reward</a>
+      <a class="toc-link" href="#o-02">02 First-Purchase Bonus</a>
+      <a class="toc-link" href="#o-03">03 Referral</a>
+      <a class="toc-link" href="#o-04">04 Limited-Time Events</a>
+      <a class="toc-link" href="#o-05">05 Achievements</a>
+      <a class="toc-link" href="#o-06">06 Streak</a>
+      <a class="toc-link" href="#o-07">07 Credits / Tokens</a>
+      <a class="toc-link" href="#o-08">08 Quests</a>
+      <a class="toc-link" href="#o-09">09 Piggy Bank</a>
+      <a class="toc-link" href="#o-10">10 Set Collection</a>
+      <a class="toc-link" href="#o-11">11 Variable Reward</a>
+      <a class="toc-link" href="#o-12">12 Challenges</a>
+      <a class="toc-link" href="#o-13">13 XP / Leveling</a>
+      <a class="toc-link" href="#o-14">14 Leaderboards</a>
+      <a class="toc-link" href="#o-15">15 Community / Groups</a>
+      <a class="toc-link" href="#o-16">16 Social Feed</a>
+    </div>
+  </div>
+</aside>
+
+<div class="page-wrap">
+
+  <!-- HEADER -->
+  <div class="report-header">
+    <div style="margin-bottom:12px;font-size:12px;color:var(--muted);"><a href="report-finance.html" style="color:var(--muted);text-decoration:none;">Reports</a> <span style="margin:0 4px;color:var(--border);">&#8250;</span> Finance</div>
+    <div class="report-eyebrow">Industry Report &middot; 2026</div>
+    <h1 class="report-title">Gamification in Finance Apps</h1>
+    <p class="report-desc">Finance apps have strong functional depth and largely unused engagement infrastructure. This report surveys 10 analyzed apps across personal finance, neobanks, and traditional banking. It documents what features they offer, what gamification mechanics they apply, and what the category is consistently leaving on the table.</p>
+    <div class="stats-bar">
+      <div class="stat-item"><div class="stat-num">10</div><div class="stat-label">apps analyzed</div></div>
+      <div class="stat-item"><div class="stat-num">15</div><div class="stat-label">features catalogued</div></div>
+      <div class="stat-item"><div class="stat-num">16</div><div class="stat-label">gamification opportunities</div></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       CHAPTER 1: FEATURES
+  ════════════════════════════════════════ -->
+  <div class="chapter" id="features">
+    <div class="chapter-eyebrow">Chapter 1</div>
+    <h2 class="chapter-title">What finance apps offer</h2>
+    <p class="chapter-intro">15 functional features catalogued across 10 apps. Each feature entry describes what we observed, how implementations differ across the category, and where the most notable examples are. Click any feature to expand the full detail.</p>
+
+    <!-- EXPENSE CATEGORIZATION -->
+    <div class="feature-card" id="f-expense-categorization">
+      <div class="feature-card-head" onclick="toggleFeature(this)">
+        <div class="feature-card-name">Expense categorization</div>
+        <div class="feature-card-meta"><span class="feature-card-count">7 of 10 apps</span><span class="feature-card-toggle">&#8964;</span></div>
+      </div>
+      <div class="feature-card-body">
+        <div class="feature-card-desc">
+          <p>Expense categorization is the most common feature in our set, but the gap between implementations is larger than the prevalence suggests. The core behavior, assigning a category to a transaction, is present almost everywhere. What differs is who does the categorizing, how accurate it is, what the user can do to correct it, and whether the categories serve a financial purpose beyond organizing a list.</p>
+          <p>Banking apps almost universally auto-categorize using merchant data and a fixed taxonomy: food, transport, shopping, entertainment, utilities. The user can reassign manually but rarely create new categories or define subcategories. The result looks organized until users notice their gym membership filed under Health while their yoga class is under Entertainment. Trust erodes quickly when the system produces enough obvious errors without inviting correction.</p>
+          <p>Personal finance apps take a different position. Fortune City goes furthest, it reframes categorization entirely, asking users to sort each expense into wants, needs, or self-investment. That is not a taxonomy of spending; it is a framework for financial reflection. Copilot adds a behavioral consequence: transactions tagged as work expenses are automatically excluded from all budget calculations.</p>
+          <div class="finding-box"><div class="lbl">Pattern across the category</div><p>Auto-categorization without a correction loop produces dashboards users distrust. The apps with the most engaged users around this feature make the correction act itself meaningful: not just a data fix, but a prompt to reflect on how money was spent.</p></div>
+        </div>
+        <div class="app-examples">
+          <div class="app-example"><div><div class="app-example-name">Fortune City <span class="app-example-cat">Expense Tracker</span></div><div class="app-example-body">Uses a wants/needs/self-investment framework rather than a merchant taxonomy. After 2-3 entries, a paywall appears, 85% of expenses remain uncategorized. The user is shown their own data problem and then blocked from solving it without subscribing.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">George App (Erste Bank) <span class="app-example-cat">Traditional Bank</span></div><div class="app-example-body">Full automatic categorization with manual override and fine-grained subcategory visibility. Users switch between "by categories" and "by merchants" views. All previous months of transactions are pre-categorized retroactively on first use. Attachments, notes, and hashtags can be added to any transaction.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Copilot <span class="app-example-cat">Personal Finance</span></div><div class="app-example-body">Transaction review is a daily task surfaced on the dashboard, transactions needing categorization are flagged with a blue circle each morning. Work expenses tagged as such are automatically excluded from all budget calculations, removing them from spending summaries entirely.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">EveryDollar <span class="app-example-cat">Zero-Based Budgeting</span></div><div class="app-example-body">Categorization built around zero-based budget structure, each transaction is assigned to a budget line rather than a merchant taxonomy. Categories mirror budget sections: housing, food, transportation, personal, lifestyle, health, insurance. Bank-connected import is a premium feature.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+
+          <div class="app-example"><div><div class="app-example-name">Monzo <span class="app-example-cat">Neobank</span></div><div class="app-example-body">Merchant-level categorization with category groupings in the Trends tab. Custom categories available on the Extra plan. Excluded-from-spending section separates income, savings, and internal transfers from spending calculations automatically.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Wise <span class="app-example-cat">International Transfer</span></div><div class="app-example-body">Category tagging for the Insights feature allows manual labeling of transactions across 15 categories: bills, cash, eating out, entertainment, expenses, family, groceries, housing, investments, personal care, salary, savings, shopping, transport, and trips. No automatic categorization is applied. Activity type filtering (card transactions, conversions, direct debits, money added, transfers) is a separate filter layer from categories.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Monefy <span class="app-example-cat">Expense Tracker</span></div><div class="app-example-body">Monefy is a minimal expense tracker built around a single-screen pie chart that serves as the home screen. The chart is divided into 14 fixed category segments: grocery, house, car, restaurant, cosmetics, activities, medicine, pets, gifts, phone, clothing, taxi, drinks, and transportation. To add an expense, the user taps the minus button or taps a category segment directly on the chart to open an entry screen for that category. The balance and income-to-expense ratio update in real time as records are added. Creating categories beyond the 14 defaults requires a paid subscription. There is no bank connection or automatic transaction import: every record is entered manually.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- BUDGET MANAGEMENT -->
+    <div class="feature-card" id="f-budget-management">
+      <div class="feature-card-head" onclick="toggleFeature(this)">
+        <div class="feature-card-name">Budget management</div>
+        <div class="feature-card-meta"><span class="feature-card-count">7 of 10 apps</span><span class="feature-card-toggle">&#8964;</span></div>
+      </div>
+      <div class="feature-card-body">
+        <div class="feature-card-desc">
+          <p>Budget management means different things across the category. In banking apps it typically means a per-category spending limit set manually by the user. In personal finance apps it can be a full system: income entry, fixed vs. variable expense planning, zero-based allocation, and alerts as the user approaches each ceiling.</p>
+          <p>The core UX problem is the same everywhere: budgets require setup work before they deliver any value. Apps that get past this quickly, by proposing defaults based on observed spending, or by reducing setup to a single income entry, retain more users. EveryDollar builds the entire budget on a single expanding screen, keeping the total visible throughout. Copilot's budget editing is the most tactile we observed: the user drags a line directly on the category chart and bars change color in real time.</p>
+          <div class="finding-box"><div class="lbl">Pattern across the category</div><p>The gap between a budget users set up once and forget and one they return to weekly is almost entirely a UX question. The data is present in every app; what most are missing is an interaction that makes reviewing it feel worth doing.</p></div>
+        </div>
+        <div class="app-examples">
+          <div class="app-example"><div><div class="app-example-name">EveryDollar <span class="app-example-cat">Zero-Based Budgeting</span></div><div class="app-example-body">Budget builder on a single expanding screen. Sections: income, giving, savings, housing, transportation, food, personal, lifestyle, health, insurance, non-mortgage debt, goal, each with pre-populated line items. Running total visible throughout. Three views: Planned, Spent, Remaining. Monthly cash flow widget (projected inflow vs. scheduled expenses) is a premium feature.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Copilot <span class="app-example-cat">Personal Finance</span></div><div class="app-example-body">Budget editing by dragging a line on the category chart, bar changes color in real time as the limit adjusts. A magic wand button auto-rebalances category budgets based on current-month spending without changing the total. "Free to spend" and "how you're doing" figures surfaced on the dashboard daily.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Monzo <span class="app-example-cat">Neobank</span></div><div class="app-example-body">Budget summary in the Trends tab. A circle shows remaining spend and days remaining in the month. Projection message: "you're set to have GBP 30 left over." Custom start date allows payday-to-payday budgeting. Committed spending view shows all scheduled payments in one place.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">George App (Erste Bank) <span class="app-example-cat">Traditional Bank</span></div><div class="app-example-body">Per-category budget set within each spending spotlight. After setting a budget, the spotlight shows a progress indicator toward the limit. Cross-month scroll allows comparing actual vs. budget across previous months.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Fortune City <span class="app-example-cat">Expense Tracker</span></div><div class="app-example-body">Budget section present in the expenses view. Free tier shows total and remaining amount; category creation and budget reminders at 50%, 20%, 5%, 0% thresholds require subscription. A default figure appeared without the user setting income.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Yettel Bank <span class="app-example-cat">Traditional Bank</span></div><div class="app-example-body">The Bank Max spending threshold widget (30,000 RSD = waived maintenance fee) is the primary budget-adjacent feature, tracking total card spend toward a threshold rather than a user-defined budget. No separate budgeting feature was observed.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Monefy <span class="app-example-cat">Expense Tracker</span></div><div class="app-example-body">Budget mode toggle in settings alongside carryover and recurring records settings. No further detail on how this mode functions in practice was captured in the session.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SAVINGS GOALS -->
+    <div class="feature-card" id="f-savings-goals">
+      <div class="feature-card-head" onclick="toggleFeature(this)">
+        <div class="feature-card-name">Savings goals</div>
+        <div class="feature-card-meta"><span class="feature-card-count">4 of 10 apps</span><span class="feature-card-toggle">&#8964;</span></div>
+      </div>
+      <div class="feature-card-body">
+        <div class="feature-card-desc">
+          <p>Savings goals are the feature with the most visible variance in emotional design across our set. At one end: a labeled account with a target amount and a progress bar. At the other: a motivational object that is named, visualized, and given a projected completion date that updates in real time as saving behavior changes.</p>
+          <p>Copilot's goal system is the most personalized we observed, recommending goals based on observed spending patterns and showing projected completion dates based on current monthly contribution rates. EveryDollar makes the goal the organizing principle of the entire budget from day one, with a slider that lets the user see the completion date move as they adjust monthly contributions.</p>
+          <div class="finding-box"><div class="lbl">Pattern across the category</div><p>The apps where savings goals drive the most return behavior treat the goal as something worth protecting rather than just tracking. A projected completion date that moves forward when you contribute and backward when you miss a month is not a data field, it is a consequence.</p></div>
+        </div>
+        <div class="app-examples">
+          <div class="app-example"><div><div class="app-example-name">Copilot <span class="app-example-cat">Personal Finance</span></div><div class="app-example-body">Goals screen shows total saved this month and whether above or below target. Each goal displays projected completion in plain language. Recommendations appear based on spending patterns: pet care fund, vacation fund, car repairs. A shareable "goal achieved" screen fires on completion with an amount visibility toggle.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">EveryDollar <span class="app-example-cat">Zero-Based Budgeting</span></div><div class="app-example-body">Goal defined during onboarding: name, intensity level (Neutral 1% to Gazelle 15% of income), and monthly contribution amount. A goal intensity score screen shows projected completion date. The slider allows adjusting the monthly contribution and seeing the date update in real time. Goal widget on the budget screen shows percentage complete and target amount.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Monzo <span class="app-example-cat">Neobank</span></div><div class="app-example-body">Savings pots with optional goal amount and target date. Roundup rules configurable at 1x, 2x, 5x, or 10x. Pots can be locked for a chosen duration. Locked pots show a padlock icon and require unlock-and-archive to withdraw, adding friction to breaking the goal commitment. Interest: 4.10% AER free, 4.60% AER paid plans.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">George App (Erste Bank) <span class="app-example-cat">Traditional Bank</span></div><div class="app-example-body">Savings goal can be set per spending spotlight category. A dedicated savings goal product separate from the current account was not observed, what exists is category-level spending target tracking rather than an accumulation goal toward a named target.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SPENDING ANALYTICS -->
+    <div class="feature-card" id="f-spending-analytics">
+      <div class="feature-card-head" onclick="toggleFeature(this)">
+        <div class="feature-card-name">Spending analytics &amp; trends</div>
+        <div class="feature-card-meta"><span class="feature-card-count">6 of 10 apps</span><span class="feature-card-toggle">&#8964;</span></div>
+      </div>
+      <div class="feature-card-body">
+        <div class="feature-card-desc">
+          <p>Spending analytics ranges from a basic pie chart (Monefy) to a multi-dimensional monthly close with shareable summaries (Copilot). The gap is a design decision about what financial reflection is for and how often users want to engage with it.</p>
+          <p>The most engaging implementations make historical data interactive. Copilot's cash flow screen updates summary numbers in real time as the user scrolls through months. George App's spotlight view allows scrolling left and right between months to compare spending in any category across time. The interaction creates the sensation of navigating through financial history rather than reading a report.</p>
+          <div class="finding-box"><div class="lbl">Pattern across the category</div><p>Analytics that require the user to go looking for insight are used once. Analytics that surface insight at the moment the user is already thinking about money, at month end, when approaching a budget ceiling, become part of the regular experience.</p></div>
+        </div>
+        <div class="app-examples">
+          <div class="app-example"><div><div class="app-example-name">Copilot <span class="app-example-cat">Personal Finance</span></div><div class="app-example-body">Month-in-review triggered by scrolling to a month boundary in the transaction feed. Swipeable 5-screen sequence: spending by category with month-over-month comparison, budget performance, savings progress, cash flow, and investment balance. Each screen has a share button with amount visibility toggle.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">George App (Erste Bank) <span class="app-example-cat">Traditional Bank</span></div><div class="app-example-body">Spotlight widgets on the home screen show monthly spend in any configured category. Tapping reveals: category total, daily spending graph, sub-category breakdown, and individual transaction detail. Left and right swipe switches between months, all previous months pre-populated from historical transaction data.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Wise <span class="app-example-cat">International Transfer</span></div><div class="app-example-body">Insights screen shows: spent this month, 3-month average, previous month totals. Category tagging manual. Activity type filtering: card transactions, conversions, direct debits, money added, transfers. Time period: last month, last quarter, last year.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Monzo <span class="app-example-cat">Neobank</span></div><div class="app-example-body">Trends tab with Balance, Spending, and Target sub-tabs. Balance tab shows a graph of the month's balance movement. Spending tab shows merchant-level breakdown with category groupings. Previous months accessible via dropdown, showing money in, money out, pots, spending, and committed spending per period.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Fortune City <span class="app-example-cat">Expense Tracker</span></div><div class="app-example-body">Pie chart accessible from the home screen showing expenses by category for the current month. Users can switch between all accounts, cash, and credit card views. Trends tab (month-over-month comparison) is paywalled on the free tier.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">EveryDollar <span class="app-example-cat">Zero-Based Budgeting</span></div><div class="app-example-body">Three budget views (Planned, Spent, Remaining) provide a static snapshot. The Insights tab is paywalled, described as showing biggest spending categories, income changes over time, and overall standing. No month-over-month comparison was accessible on the free tier.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REFERRAL -->
+    <div class="feature-card" id="f-referral">
+      <div class="feature-card-head" onclick="toggleFeature(this)">
+        <div class="feature-card-name">Referral programs</div>
+        <div class="feature-card-meta"><span class="feature-card-count">3 of 10 apps</span><span class="feature-card-toggle">&#8964;</span></div>
+      </div>
+      <div class="feature-card-body">
+        <div class="feature-card-desc">
+          <p>Three apps have active referral programs: Wise (GBP 10 per referred friend who transfers over GBP 200, up to GBP 50 total, plus a free transfer for the referred friend), Monzo (GBP 5 each), and Copilot (3 free months when 2 users subscribe). All three treat referral as a marketing mechanism. None treats it as a game mechanic with progression, social framing, or a completion state.</p>
+          <p>Wise is the most developed: a persistent "Earn GBP 50" button on the home screen at every session, a tracking screen showing each referred friend by name and their progress toward the qualifying threshold, and a partnership program for influencers. Copilot reveals its referral reward only after the subscription prompt is dismissed, the users most likely to refer (those not subscribing) are least likely to see the option.</p>
+          <div class="finding-box"><div class="lbl">Pattern across the category</div><p>Referral programs that sit in a settings menu are discovered once and forgotten. Wise's placement of "Earn GBP 50" on every home screen session reflects that placement converts. The question is whether the mechanic behind the button matches the placement's ambition.</p></div>
+        </div>
+        <div class="app-examples">
+          <div class="app-example"><div><div class="app-example-name">Wise <span class="app-example-cat">International Transfer</span></div><div class="app-example-body">Persistent "Earn GBP 50" button on the home screen at every session. Tracking screen shows each referred friend's name and their progress toward the GBP 200 qualifying threshold. Referred friend receives a free transfer of up to GBP 500. A partnership program exists for influencers and business partners.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Monzo <span class="app-example-cat">Neobank</span></div><div class="app-example-body">GBP 5 for referrer and referee when the friend signs up and makes a card payment. Accessible via a gift icon in the top-right corner of the home screen and from the payments tab. Summary screen shows referrals completed and total earned. No tiered reward structure.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Copilot <span class="app-example-cat">Personal Finance</span></div><div class="app-example-body">3 months free when 2 users subscribe using the invite code. Referral reward surfaced only after the subscription paywall is dismissed, it is not shown alongside the subscription offer itself. The referral flow was not fully explored in the session.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASHBACK -->
+    <div class="feature-card" id="f-cashback-rewards">
+      <div class="feature-card-head" onclick="toggleFeature(this)">
+        <div class="feature-card-name">Cashback &amp; rewards</div>
+        <div class="feature-card-meta"><span class="feature-card-count">2 of 10 apps</span><span class="feature-card-toggle">&#8964;</span></div>
+      </div>
+      <div class="feature-card-body">
+        <div class="feature-card-desc">
+          <p>Two apps have reward mechanics, but they work differently. Monzo's cashback offers are merchant-driven: time-limited deals with named partners that expire within 2 weeks. The engagement mechanic is the offer rotation, there is always something new to check. Yettel Bank's Bank Max is a threshold mechanic: spend 30,000 RSD per month and the 595 RSD monthly maintenance fee is waived, with a progress bar as the first post-login element.</p>
+          <div class="finding-box"><div class="lbl">Pattern across the category</div><p>Both implementations function as financial products with engagement side effects rather than engagement mechanics with financial rewards attached. Neither has progression, collection, or milestone layering, which explains why neither drives the kind of return behavior a deliberately designed mechanic would.</p></div>
+        </div>
+        <div class="app-examples">
+          <div class="app-example"><div><div class="app-example-name">Monzo <span class="app-example-cat">Neobank</span></div><div class="app-example-body">Dedicated cashback section on the home screen. Partners observed: eBay, National Express, Franco Manca, Currys, ATG Tickets. Each offer shows: cashback percentage, channel (online or in-store), purchase requirements, single-use or multi-use, maximum cap, and expiry date. Most offers expire within 2 weeks. Cumulative cashback shown as "all time earned" with a withdrawable balance.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Yettel Bank <span class="app-example-cat">Traditional Bank</span></div><div class="app-example-body">Bank Max spending threshold widget as the first post-login element, positioned above the account balance. Progress bar tracks monthly card spend toward 30,000 RSD. Reaching threshold waives the 595 RSD monthly maintenance fee. Cross-promotion: 500 RSD monthly cashback and partner discounts for users who also hold a Yettel telecommunications subscription.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINANCIAL EDUCATION -->
+    <div class="feature-card" id="f-financial-education">
+      <div class="feature-card-head" onclick="toggleFeature(this)">
+        <div class="feature-card-name">Financial education</div>
+        <div class="feature-card-meta"><span class="feature-card-count">3 of 10 apps</span><span class="feature-card-toggle">&#8964;</span></div>
+      </div>
+      <div class="feature-card-body">
+        <div class="feature-card-desc">
+          <p>Three apps include a financial education layer with very different depth and intent. EveryDollar's lesson library is the most developed we observed: short video lessons in groups, a lesson streak, to-do items generated from completed lessons, and freely registerable group coaching. George App's Financial Education opens the Erste Znali website in the browser, content is not in-app. Finolo's core product is a 28-day trading challenge locked behind a mandatory paywall, with a 17-screen onboarding quiz whose personalized "readiness score" components do not vary based on the answers given.</p>
+          <div class="finding-box"><div class="lbl">Pattern across the category</div><p>Financial education works as a retention mechanic when it is tied to the user's actual financial situation, lessons surfaced because of what the app observes in the transaction stream rather than because of where the user is in a content sequence.</p></div>
+        </div>
+        <div class="app-examples">
+          <div class="app-example"><div><div class="app-example-name">EveryDollar <span class="app-example-cat">Zero-Based Budgeting</span></div><div class="app-example-body">Short video lessons (3-4 minutes each) in groups: Basics, Personalize Your Budget, Quick Pro Tips, Bank Connection Help, Dial in Your Budget. Completion tracked with X of Y counter. After the day's lessons, a "come back tomorrow" screen appears with one bonus lesson offered. Lesson completion generates to-do items on the Today tab. Lesson streak fires on day 1. Group coaching (Budgeting 101) is freely registerable and requires personal contact details.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">George App (Erste Bank) <span class="app-example-cat">Traditional Bank</span></div><div class="app-example-body">Financial Education accessible from the Discover tab. Topic titles: "Learn more, get familiar with payment cards," "How to become a financial expert," "Savings and how to save money," "Build a responsible approach to your future." Tapping any topic opens the Erste Znali website in the browser. Content is not in-app.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Finolo <span class="app-example-cat">Investment / Trading</span></div><div class="app-example-body">28-day trading challenge framed as the core product. 17-screen onboarding quiz collecting experience, goals, confidence, and time data generates a readiness score, but score components do not vary based on answers. App locked behind a mandatory paywall ($24.99/month or $9.99/week with 3-day trial). A "limited offer" on app re-open uses a countdown timer confirmed not to measure real time.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SPENDING THRESHOLD -->
+    <div class="feature-card" id="f-spending-threshold">
+      <div class="feature-card-head" onclick="toggleFeature(this)">
+        <div class="feature-card-name">Spending threshold rewards</div>
+        <div class="feature-card-meta"><span class="feature-card-count">1 of 10 apps</span><span class="feature-card-toggle">&#8964;</span></div>
+      </div>
+      <div class="feature-card-body">
+        <div class="feature-card-desc">
+          <p>Yettel Bank's Bank Max reward is the only explicit spending threshold mechanic we observed. Spending 30,000 RSD per month waives the 595 RSD monthly maintenance fee. The progress bar is the first element visible after login and is positioned above the account balance. Wise's volume discount (discounted transfer fees above $25,000 USD/month equivalent) is a functional equivalent for high-volume users, but disclosed as a policy in a pop-up rather than visualized as a running total.</p>
+          <div class="finding-box"><div class="lbl">Pattern across the category</div><p>The Yettel Bank implementation demonstrates that threshold mechanics work in a traditional bank context when the reward is tangible and the threshold is achievable. The question is whether the mechanic is most powerful rewarding spend volume, as here, or rewarding the behaviors the bank actually wants to build.</p></div>
+        </div>
+        <div class="app-examples">
+          <div class="app-example"><div><div class="app-example-name">Yettel Bank <span class="app-example-cat">Traditional Bank</span></div><div class="app-example-body">Bank Max threshold widget on home screen as first post-login element, above account balance. Progress bar tracks monthly card spend toward 30,000 RSD. Reaching threshold waives 595 RSD monthly maintenance fee. An information button explains the mechanic. Resets monthly.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCOUNT AGGREGATION -->
+    <div class="feature-card" id="f-account-aggregation">
+      <div class="feature-card-head" onclick="toggleFeature(this)">
+        <div class="feature-card-name">Account aggregation</div>
+        <div class="feature-card-meta"><span class="feature-card-count">2 of 10 apps</span><span class="feature-card-toggle">&#8964;</span></div>
+      </div>
+      <div class="feature-card-body">
+        <div class="feature-card-desc">
+          <p>Account aggregation appears in two apps: Copilot (as the primary product feature) and Monzo (in limited form via its CASS account switch flow). Copilot's aggregation is comprehensive: credit cards, checking and savings, investments, loans, real estate, and manual cash accounts in a unified net worth view with a two-line assets vs. debt graph.</p>
+          <div class="finding-box"><div class="lbl">Pattern across the category</div><p>Aggregation fundamentally changes what the user is tracking, from a single account balance to a composite financial picture. That shift opens the door to mechanics (net worth streaks, cross-account savings goals, portfolio-level variable rewards) that are impossible in a single-institution context.</p></div>
+        </div>
+        <div class="app-examples">
+          <div class="app-example"><div><div class="app-example-name">Copilot <span class="app-example-cat">Personal Finance</span></div><div class="app-example-body">Aggregates credit cards, checking and savings, investments, loans, real estate, and manual accounts via Plaid (US institutions only). Net worth displayed as assets vs. debt on a two-line graph with 1W, 1M, 3M, YTD, 1Y time periods. Live Balance Estimate provides intraday investment performance as an opt-in feature.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Monzo <span class="app-example-cat">Neobank</span></div><div class="app-example-body">Account switching via CASS moves payments, direct debits, and standing orders from a previous bank and closes the old account. International transfers powered by Wise. No cross-institution view of external accounts, Monzo shows only Monzo account data plus an option to connect additional banks on the Extra plan.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTERNATIONAL TRANSFERS -->
+    <div class="feature-card" id="f-international-transfers">
+      <div class="feature-card-head" onclick="toggleFeature(this)">
+        <div class="feature-card-name">International transfers</div>
+        <div class="feature-card-meta"><span class="feature-card-count">3 of 10 apps</span><span class="feature-card-toggle">&#8964;</span></div>
+      </div>
+      <div class="feature-card-body">
+        <div class="feature-card-desc">
+          <p>International transfers appear in Wise (primary product), Monzo (powered by Wise), and Intesa Bank (foreign currency payment with an unexplained document attachment requirement). Wise's in-transfer competitor comparison is the most notable UX pattern, tapping the fee total shows how much more NatWest, Barclays, Lloyds, Nationwide, and Halifax would charge for the same transfer. Wise's rate lock timer on the pre-login landing screen shows the guaranteed rate for 19 hours and counts down in real time before any account creation.</p>
+          <div class="finding-box"><div class="lbl">Pattern across the category</div><p>Wise's rate lock timer is one of the more effective uses of a time-limited mechanic we observed in any app in this set. The deadline is real, the timer is accurate, and the urgency is functional rather than manufactured. It demonstrates what a limited-time event mechanic looks like when the underlying scarcity is genuine.</p></div>
+        </div>
+        <div class="app-examples">
+          <div class="app-example"><div><div class="app-example-name">Wise <span class="app-example-cat">International Transfer</span></div><div class="app-example-body">Transfer calculator on the landing screen before account creation. Shows: send amount, receive amount, two-component fee breakdown, arrival time, and a live rate lock countdown ("guaranteed for 19 hours"). A comparison tab shows how much more NatWest, Barclays, Lloyds, Nationwide, and Halifax would charge for the same transfer. Exchange rate alerts configurable for any currency pair.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Monzo <span class="app-example-cat">Neobank</span></div><div class="app-example-body">International transfers powered by Wise, accessible from the pay someone screen. "Complete transfer with Wise" prompt shows the exchange rate and fee upfront. A cashback banner appears: "Get around 0.30 cash back on this transfer. Upgrade to Monzo Plus." The transfer experience is Wise's, not Monzo's.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Intesa Bank <span class="app-example-cat">Traditional Bank</span></div><div class="app-example-body">Foreign currency payment accessible from the payments section. Exchange rates shown for EUR, USD, GBP, and CHF. A document must be attached to complete a foreign payment, the reason for this requirement was not explained anywhere in the app, in any visible help text, or in the in-app chat accessed during the session.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROFILE COMPLETENESS -->
+    <div class="feature-card" id="f-profile-completeness">
+      <div class="feature-card-head" onclick="toggleFeature(this)">
+        <div class="feature-card-name">Profile completeness</div>
+        <div class="feature-card-meta"><span class="feature-card-count">2 of 10 apps</span><span class="feature-card-toggle">&#8964;</span></div>
+      </div>
+      <div class="feature-card-body">
+        <div class="feature-card-desc">
+          <p>Two apps use a profile completeness indicator as an engagement mechanism. Intesa Bank shows "your profile is at 50%" with specific completion actions: add a profile photo, receive statements in My Documents, turn on marketing consent. EveryDollar's Today tab personalization asks 10 questions and updates the tab with tailored recommendations after completion. The Intesa implementation delivers no reward on completion and has no collection mechanic. The percentage exists as information rather than as a goal.</p>
+          <div class="finding-box"><div class="lbl">Pattern across the category</div><p>A profile completeness indicator is one step from a Set Collection mechanic. The structural difference is a reward on completion and a collection of named items rather than a percentage. In both apps that use this feature, the data model is already in place, the mechanic layer is what's missing.</p></div>
+        </div>
+        <div class="app-examples">
+          <div class="app-example"><div><div class="app-example-name">Intesa Bank <span class="app-example-cat">Traditional Bank</span></div><div class="app-example-body">"Your profile is at 50%" shown in the profile section. Completion actions: add a profile photo, receive statements in My Documents for all accounts (toggle), turn on marketing consent, enable fast balance. No reward on full completion was observed.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">EveryDollar <span class="app-example-cat">Zero-Based Budgeting</span></div><div class="app-example-body">Today tab personalization flow with 10 questions: homeowner status, zip code, birthday, marital status, kids at home, hours worked per week, annual income, retirement savings status, emergency fund coverage, kids' college plans. After completion, the Today tab shows tailored lesson recommendations, a to-do list, and a budget summary widget.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXCHANGE RATE ALERTS -->
+    <div class="feature-card" id="f-exchange-rate-alerts">
+      <div class="feature-card-head" onclick="toggleFeature(this)">
+        <div class="feature-card-name">Exchange rate alerts</div>
+        <div class="feature-card-meta"><span class="feature-card-count">1 of 10 apps</span><span class="feature-card-toggle">&#8964;</span></div>
+      </div>
+      <div class="feature-card-body">
+        <div class="feature-card-desc">
+          <p>Exchange rate alerts appear only in Wise: set a target rate for any currency pair, choose email or push notification, and receive an alert when the rate hits the target. A historical rate graph is shown during configuration. The engagement function is return motivation without session pressure, the user sets a target, stops thinking about it, and is pulled back at exactly the moment when acting is most valuable.</p>
+          <div class="finding-box"><div class="lbl">Pattern across the category</div><p>Exchange rate alerts are a rare example of a return mechanic that aligns perfectly with user intent. The alert fires exactly when the user wants to act. The pattern is transferable to other threshold-based financial signals: a savings balance target, a debt paydown milestone, an investment portfolio performance level.</p></div>
+        </div>
+        <div class="app-examples">
+          <div class="app-example"><div><div class="app-example-name">Wise <span class="app-example-cat">International Transfer</span></div><div class="app-example-body">Two alert types: daily rate updates (push notification every day with the current rate for a chosen currency pair) and threshold alerts (notification when the rate hits a user-defined target). Configuration shows the live rate and a historical rate graph to calibrate the threshold. Alerts configurable per currency pair; multiple pairs can be set simultaneously.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MARKETPLACE -->
+    <div class="feature-card" id="f-marketplace">
+      <div class="feature-card-head" onclick="toggleFeature(this)">
+        <div class="feature-card-name">Marketplace / discount gallery</div>
+        <div class="feature-card-meta"><span class="feature-card-count">1 of 10 apps</span><span class="feature-card-toggle">&#8964;</span></div>
+      </div>
+      <div class="feature-card-body">
+        <div class="feature-card-desc">
+          <p>Intesa Bank's Marketplace is a distinct mini-app within the banking app, with its own navigation bar (Starting Page, For You, My Coupons, My Profile), its own support section, and its own profile section separate from the main banking profile. Categories observed: insurance, karting, hair tools, home decor, fashion, cosmetics, health, optical shops, dental offices, laboratory, jewelry, gaming, bikes, restaurants, travel. Individual offers are presented as coupons added to a coupon wallet.</p>
+          <div class="finding-box"><div class="lbl">Pattern across the category</div><p>The Marketplace demonstrates that a bank can embed a non-financial browsing experience without it feeling out of place. What it does not demonstrate is how to make that experience drive return to the banking features rather than functioning as a separate destination.</p></div>
+        </div>
+        <div class="app-examples">
+          <div class="app-example"><div><div class="app-example-name">Intesa Bank <span class="app-example-cat">Traditional Bank</span></div><div class="app-example-body">Marketplace accessible from the sidebar. Separate navigation: Starting Page, For You, My Coupons, My Profile. A "For You" section shows recommended offers, though no onboarding moment established the preferences behind the recommendations. Coupons activated by tapping an offer and adding to the coupon wallet.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECURITY -->
+    <div class="feature-card" id="f-security-features">
+      <div class="feature-card-head" onclick="toggleFeature(this)">
+        <div class="feature-card-name">Security &amp; trust features</div>
+        <div class="feature-card-meta"><span class="feature-card-count">8 of 10 apps</span><span class="feature-card-toggle">&#8964;</span></div>
+      </div>
+      <div class="feature-card-body">
+        <div class="feature-card-desc">
+          <p>Security features are present in almost every app but treated as table stakes rather than brand differentiators, with two exceptions. Wise has a "secure your account" emergency feature that cancels all pending transfers, suspends all cards, and forces selfie re-verification. Monzo's call status indicator shows in real time whether Monzo is currently calling the user, allowing fraud detection during a live call. Yettel Bank blocks all screenshots and logs each attempt with an "incident noted" pop-up.</p>
+          <div class="finding-box"><div class="lbl">Pattern across the category</div><p>Security features that communicate their existence clearly build trust more effectively than features that work silently. Monzo's call status indicator turns security into an active user behavior rather than a passive system guarantee, the user has a tool for evaluating a live situation.</p></div>
+        </div>
+        <div class="app-examples">
+          <div class="app-example"><div><div class="app-example-name">Wise <span class="app-example-cat">International Transfer</span></div><div class="app-example-body">"Secure your account" emergency feature: cancels all pending transfers, suspends all Wise cards, forces selfie re-verification on next login, logs out from all devices. Two-step verification methods rated: Wise app (very secure), text message (fairly secure), authenticator app (secure). Device management lists all connected devices individually.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Monzo <span class="app-example-cat">Neobank</span></div><div class="app-example-body">Call status indicator: "Monzo call status: we're not talking to you." Real-time indicator of whether Monzo is currently calling the user, allows detection of social engineering calls claiming to be from Monzo. Gambling block toggle. Location-based security (app accessible only from recognized locations, opt-in). Card freeze shows an ice-over animation.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Yettel Bank <span class="app-example-cat">Traditional Bank</span></div><div class="app-example-body">Screenshot blocking active at all times. Every screenshot attempt triggers an "incident noted" pop-up, creating a logged record of each event. Shake-to-logout: shaking the phone logs the user out immediately. Mandatory push notifications for all incoming and outgoing transactions cannot be turned off.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">George App (Erste Bank) <span class="app-example-cat">Traditional Bank</span></div><div class="app-example-body">Card PIN, card number, and CVV are all displayable within the app after biometric confirmation, with tap-to-copy buttons. The ability to view the full card PIN within the app was not observed in any other app in this set. Security check screen shows Face ID status, jailbreak detection status, and app version status simultaneously.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Copilot <span class="app-example-cat">Personal Finance</span></div><div class="app-example-body">When minimized, the Copilot screen blurs in the iPhone multitasking view, account content is not visible in the app switcher. Work-tagged expenses automatically excluded from spending calculations, functioning as a data privacy layer within the app's own analytics.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Intesa Bank <span class="app-example-cat">Traditional Bank</span></div><div class="app-example-body">Threshold-based notifications, users set the minimum transaction amount that triggers a notification rather than receiving alerts for all transactions. Card PIN display available within the app after biometric confirmation. This filters the notification stream to relevant events without requiring rules per merchant.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ONBOARDING -->
+    <div class="feature-card" id="f-onboarding">
+      <div class="feature-card-head" onclick="toggleFeature(this)">
+        <div class="feature-card-name">Onboarding depth</div>
+        <div class="feature-card-meta"><span class="feature-card-count">7 of 10 apps</span><span class="feature-card-toggle">&#8964;</span></div>
+      </div>
+      <div class="feature-card-body">
+        <div class="feature-card-desc">
+          <p>Onboarding depth varies more in this set than any other feature we catalogued. Monefy has no login, no account creation, and no personal data collection. Three swipeable screens are the entire onboarding, and the app is immediately functional afterward. Monzo's onboarding is estimated at 25 minutes minimum before the dashboard is accessible, covering identity verification, credit document sign-off, overdraft setup, Apple Pay configuration, and card delivery confirmation.</p>
+          <p>Finolo's 17-screen onboarding quiz collects extensive preference data but uses none of it functionally, the readiness score components do not vary based on answers given. It is the clearest example we observed of onboarding that performs data collection under the framing of personalization without delivering personalized output. First-paywall timing varies significantly across the set: Monefy surfaces a paywall on app re-open before any user action. Fortune City shows the paywall before the home screen. EveryDollar shows it immediately after email verification. Finolo has no free access path at all.</p>
+          <div class="finding-box"><div class="lbl">Pattern across the category</div><p>The most effective onboarding in our set builds a complete financial picture during the process itself, so the app is immediately useful on first open. Data collection and value delivery are simultaneous rather than sequential. Every setup step serves the user as well as the platform.</p></div>
+        </div>
+        <div class="app-examples">
+          <div class="app-example"><div><div class="app-example-name">Monzo <span class="app-example-cat">Neobank</span></div><div class="app-example-body">Four structured sections: About You (citizenship, employment, industry, role), Your Finances (annual income, housing, dependents), Your Account (goals, expected inflow, source of first payment), Your Identity (photo ID, video selfie, tax residency, T&Cs). Overdraft setup, Apple Pay, and card delivery confirmation all occur before the dashboard. A 1-week free Extra trial is granted automatically post-onboarding regardless of plan choice.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">EveryDollar <span class="app-example-cat">Zero-Based Budgeting</span></div><div class="app-example-body">Four-step goal-setting onboarding: pick a financial goal, enter monthly income, select goal intensity (Neutral to Gazelle), set monthly contribution amount. Then a full budget builder covering 12 category sections on a single expanding screen. Paywall appears immediately after email verification, before any onboarding content is shown.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Copilot <span class="app-example-cat">Personal Finance</span></div><div class="app-example-body">Full interactive demo mode accessible before account creation, pre-populated data, date-aware, and accessible again post-signup to show friends. Post-signup: account linking, notification preferences per notification type with examples, transaction types explainer, subscription paywall with skip option, and financial overview confirmation.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Monefy <span class="app-example-cat">Expense Tracker</span></div><div class="app-example-body">Three swipeable screens. No email, login, or personal data collected. "Get started" button only on the third screen. The app is functional immediately. When closed and reopened before completing the three screens, a paywall appeared on re-launch, before any onboarding step was completed.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Finolo <span class="app-example-cat">Investment / Trading</span></div><div class="app-example-body">17-screen onboarding quiz collecting trading experience, age group, goals, income source, financial situation, confidence, fears, interests, tools, time availability. A readiness score is generated with components for self-motivation, income potential, mindset, and trader knowledge, but components do not vary based on the answers given. Paywall is mandatory. A "limited offer" on app re-open uses a countdown timer confirmed to not measure real time.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Fortune City <span class="app-example-cat">Expense Tracker</span></div><div class="app-example-body">First action: enter an expense before login. First entry generates the first building immediately. Notification permission prompt follows, then Sparkful login offer (skippable). Paywall appears before the home screen with a 14-day free trial offer. A daily reminder notification time is set during onboarding.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+          <div class="app-example"><div><div class="app-example-name">Wise <span class="app-example-cat">International Transfer</span></div><div class="app-example-body">First screen: live transfer calculator with rate lock countdown, before any account creation. Country of residence selected before proceeding; available features listed per country. Phone number verification, password creation, Face ID setup, notification preferences, and ad tracking permission. Personal details collected before the first transfer. Identity verification is triggered at the point of the first transfer rather than during initial account setup.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /chapter features -->
+  <hr class="chapter-divider">
+
+  <!-- ═══════════════════════════════════════
+       CHAPTER 2: GAMIFICATION
+  ════════════════════════════════════════ -->
+  <div class="chapter" id="gamification">
+    <div class="chapter-eyebrow">Chapter 2</div>
+    <h2 class="chapter-title">Gamification mechanics we observed</h2>
+    <p class="chapter-intro">Of the 22 mechanics in the Mechanics Playbook framework, 4 appear in this category, and in each case, implementation is shallow relative to what the same mechanic achieves elsewhere.</p>
+
+    <div class="stats-mini">
+      <div class="stats-mini-card"><div class="stats-mini-n">4<span> / 22</span></div><div class="stats-mini-l">mechanics present in the category</div></div>
+      <div class="stats-mini-card"><div class="stats-mini-n" style="color:var(--orange)">1</div><div class="stats-mini-l">app with 3 or more mechanics</div></div>
+      <div class="stats-mini-card"><div class="stats-mini-n" style="color:var(--muted)">7</div><div class="stats-mini-l">apps with zero gamification observed</div></div>
+    </div>
+
+    <div class="mech-obs-card" id="g-streak">
+      <div class="mech-obs-head"><div class="mech-obs-title">Streak / Streak Bonus</div><div class="mech-obs-count">2 of 10 apps</div></div>
+      <div class="mech-obs-body">
+        <p>We observed streak mechanics in two apps, and in both cases the streak tracks app usage rather than any financial behavior. EveryDollar streaks lesson completions, nothing to do with budgeting or spending. Fortune City uses a streak implicitly: 4 consecutive days of expense entry unlocks the Fisher character. Neither streak is tied to saving more, staying under budget, or any financial outcome the app is nominally designed to support.</p>
+        <p>Fortune City's implementation is structurally more interesting. The streak isn't a counter that resets, it's a character unlock condition. Missing day 3 means failing to unlock Fisher rather than simply losing a streak counter. That framing makes a missed day feel like a consequence rather than a reset, which is a meaningfully different emotional register than the standard streak mechanic.</p>
+      </div>
+      <div class="mech-obs-examples">
+        <div class="mech-obs-example"><div><div class="app-example-name">EveryDollar <span class="app-example-cat">Zero-Based Budgeting</span></div><div class="app-example-body">Completing at least one lesson per day maintains the streak. Day 1 fires a pop-up: "keep it up, learning every day grows your streak. Skipping a date resets it." The streak tracks lesson engagement rather than any budget or spending behavior. No grace period or freeze mechanic was observed.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+        <div class="mech-obs-example"><div><div class="app-example-name">Fortune City <span class="app-example-cat">Expense Tracker</span></div><div class="app-example-body">Four consecutive days of expense entry unlocks the Fisher character. No visible streak counter on the home screen, the mechanic is embedded in the character unlock condition rather than displayed as a number. The Great Habits achievement category also tracks consecutive days (milestones at 1, 3, 7, 14, 30, and 90 days), functioning as a parallel explicit streak system.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+      </div>
+    </div>
+
+    <div class="mech-obs-card" id="g-achievements">
+      <div class="mech-obs-head"><div class="mech-obs-title">Achievements / Milestones</div><div class="mech-obs-count">2 of 10 apps</div></div>
+      <div class="mech-obs-body">
+        <p>Fortune City has the most developed achievement system we've observed in this category, 100 named achievements across multiple categories, each awarding 3 gems, with a dedicated ad-watching track that gamifies ad engagement as a named progression system (5 views to 1,000). Copilot shows a "goal achieved" screen when a savings goal completes, with a share option. Neither treats achievements as a persistent, browsable system the user returns to for motivation.</p>
+        <p>Intesa Bank's profile completeness indicator ("your profile is at 50%") sits adjacent to an achievement system structurally, it names a completion state and surfaces specific actions to improve it, but delivers no reward on completion and has no collection mechanic.</p>
+      </div>
+      <div class="mech-obs-examples">
+        <div class="mech-obs-example"><div><div class="app-example-name">Fortune City <span class="app-example-cat">Expense Tracker</span></div><div class="app-example-body">100 total achievements: Great Habits (consecutive tracking days at 1, 3, 7, 14, 30, 90 days), Mayor Certificates (tutorial, first building, first merge, first friend, visiting a friend's city), Chief Financial Officer (unlock all character collections), City Prosperity (score milestones 10 to 500+), Population Growth (3 to 1,000 citizens), Watch an Ad to Help the Salesman (5 to 1,000 ad views), category-specific expense badges (Foodie Paradise, Beverage Bay, Shopping Mecca, each requiring 10 or 100 expenses), Coin Collector (1,000 to 1,000,000 coins), City Photographer (share 5, 20, or 50 photos), Best Apps (install other Sparkful apps). Pop-ups appear in-session as achievements trigger. Each unlock fires a sharing prompt.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+        <div class="mech-obs-example"><div><div class="app-example-name">Copilot <span class="app-example-cat">Personal Finance</span></div><div class="app-example-body">A "goal achieved" screen fires when a savings goal reaches its target. Shareable as an image with an amount visibility toggle. This is a single moment of celebration, the moment is recorded but not displayed anywhere the user would return to. It is not a persistent achievement library.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+      </div>
+    </div>
+
+    <div class="mech-obs-card" id="g-daily-login">
+      <div class="mech-obs-head"><div class="mech-obs-title">Daily Login Reward</div><div class="mech-obs-count">1 of 10 apps</div></div>
+      <div class="mech-obs-body">
+        <p>Fortune City is the only app in our set with a daily login reward. A 7-day sequence delivers escalating gem amounts on app open, Day 1 delivered 16 coins in our session, with a question mark obscuring future days and a diamond visible at Day 7. An option to watch a rewarded ad to double the day's reward sits alongside a "don't double" option. No banking app or personal finance app in this set offers any form of daily return reward.</p>
+      </div>
+      <div class="mech-obs-examples">
+        <div class="mech-obs-example"><div><div class="app-example-name">Fortune City <span class="app-example-cat">Expense Tracker</span></div><div class="app-example-body">A pop-up appears on every app open before reaching the home screen. Day 1 shows coins (16 observed); future days show question marks; Day 7 shows a diamond. Double reward available via a rewarded ad. Returning after a gap of a few days reset the sequence to Day 1 in our session, the full 7-day escalation was not observed in its entirety. Cycle reset behavior (consecutive days required or not) was not confirmed.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+      </div>
+    </div>
+
+    <div class="mech-obs-card" id="g-variable">
+      <div class="mech-obs-head"><div class="mech-obs-title">Variable Reward</div><div class="mech-obs-count">1 of 10 apps, partial</div></div>
+      <div class="mech-obs-body">
+        <p>Copilot's month-in-review is the closest thing we've observed to a variable reward in this category. Triggered by scrolling to a month boundary in the transaction feed, it opens as a swipeable 5-screen summary. The user doesn't know which categories will be over or under, which month will surface a surprise, or what the aggregate story will be. The uncertainty is real even though the format is consistent.</p>
+        <p>We're calling this partial because the month-in-review is an organic product feature rather than a deliberate variable reward mechanic. The reveal exists because Copilot aggregates a lot of data. It was not designed as a reward loop. That distinction matters, but the user experience at the moment of scrolling to a month boundary is functionally similar to a variable reward, and it's the only thing in the category that comes close.</p>
+      </div>
+      <div class="mech-obs-examples">
+        <div class="mech-obs-example"><div><div class="app-example-name">Copilot <span class="app-example-cat">Personal Finance</span></div><div class="app-example-body">When scrolling through the transactions screen and reaching a month boundary, an "open your month in review" button appears. The review unfolds as a swipeable sequence: spending breakdown by category with month-over-month comparison, budget performance by category (under or over with amounts), savings goal progress, cash flow summary, and investment balance and performance. Each screen has a share button with amount visibility toggle. The moment is triggered by the user scrolling to a month boundary, not by a push notification.</div></div><div class="app-example-img">Screenshot<br>placeholder</div></div>
+      </div>
+    </div>
+
+    <div class="g-finding">
+      <div class="lbl">What the category tells us</div>
+      <p>Every mechanic we observed in finance apps either comes from the gamified expense tracker subset (Fortune City, EveryDollar) or is an incidental feature that happens to resemble a mechanic in function. No banking app or mainstream personal finance app in this set has deliberately implemented a gamification mechanic. The category is not behind. It simply has not started.</p>
+    </div>
+  </div><!-- /chapter gamification -->
+
+  <hr class="chapter-divider">
+
+  <!-- ═══════════════════════════════════════
+       CHAPTER 3: OPPORTUNITIES
+  ════════════════════════════════════════ -->
+  <div class="chapter" id="opportunities">
+    <div class="chapter-eyebrow">Chapter 3</div>
+    <h2 class="chapter-title">Gamification opportunities</h2>
+    <p class="chapter-intro">16 mechanics sorted by the novelty they would bring to the finance category. Each includes what makes it work, where it breaks down, and two or three concrete ways it could be applied, each with the prerequisites worth thinking through before building it.</p>
+
+    <div class="insight-grid">
+      <div class="insight-card"><div class="insight-card-label" style="color:var(--accent)">The household gap</div><p>Almost every gamification mechanic in the literature assumes a solo user managing personal money. A meaningful share of financial behavior is shared, bills, savings goals, rent, shared trips. No app in our set does shared finance well. The household dimension is consistently the strongest social layer available to a finance product, and consistently the most neglected one.</p></div>
+      <div class="insight-card"><div class="insight-card-label" style="color:var(--blue)">Negative-space rewards</div><p>Most game mechanics reward doing more. Finance often rewards doing less: no overdraft, no unnecessary fees, no impulse purchases. Restraint as a reward target is genuinely category-specific: no other app type has a structural reason to build these mechanics. Several of the opportunities below are most powerful when framed around restraint rather than action.</p></div>
+      <div class="insight-card"><div class="insight-card-label" style="color:var(--green)">The transaction stream</div><p>A finance app's transaction stream is the closest equivalent to a game's procedural content engine, a live, personal, endlessly varied data source that can generate quests, streak triggers, variable reveals, and challenge calibration without any user input. Most apps in our set use it only for display. The mechanics that unlock it as a content source are the ones most worth building first.</p></div>
+      <div class="insight-card"><div class="insight-card-label" style="color:var(--orange)">Why privacy is not the real obstacle</div><p>The most common objection to social and competitive mechanics in finance is privacy, users won't share financial data. But the mechanics that work don't require financial data. Behavioral data (actions taken, streaks maintained, goals completed) is already present in the app and reveals nothing sensitive. Designing around behavior rather than balance removes the obstacle entirely.</p></div>
+    </div>
+
+    <div class="opp-section-label">Low novelty &mdash; already adjacent to what the category does</div>
+
+    <div class="opp-card" id="o-01">
+      <div class="opp-head"><div class="opp-num">01</div><div class="opp-inner"><div class="opp-title">Daily Login Reward</div><div class="opp-meta"><span class="nov-pill nov-low">Novelty: Low</span></div></div></div>
+      <div class="opp-body"><p>Fortune City already does this with gems. The question for finance apps is what the reward should be, since virtual currency doesn't carry the same meaning outside a city-building context. The most credible versions tie the reward to a piece of genuinely useful information or a small financial action rather than a token, sidestepping the "why am I earning points at my bank" awkwardness while preserving the return-pressure function.</p><p>Works best for apps where users have a daily financial practice to anchor. Less relevant for reactive-use apps like transfer tools, where forcing a daily return feels artificial.</p></div>
+      <div class="opp-applications">
+        <div class="opp-apps-label">How it could apply</div>
+        <div class="opp-app-item"><div class="opp-app-title">Insight card unlock</div><div class="opp-app-text">Open the app and one piece of analysis about your spending is revealed, "your average grocery transaction this month is 8 EUR higher than last." Shown only to users who open that day, so the value compounds with consistency. The reward is genuinely useful rather than a token.</div><div class="opp-prereq"><strong>Prerequisites:</strong> automatic transaction categorization with at least 2 months of historical data to generate a meaningful comparison. Works best with bank account connection rather than manual entry.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">One-tap pot top-up</div><div class="opp-app-text">A persistent home screen button that moves a small pre-set amount into a chosen savings pot in one tap. The reward is the visible balance tick. No separate currency is needed. Mimics the daily small reward loop without introducing a points economy.</div><div class="opp-prereq"><strong>Prerequisites:</strong> a savings pot or sub-account feature that supports small incremental deposits. Requires the user to have set a pot and a pre-set top-up amount during onboarding or settings.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Named 7-day return sequence</div><div class="opp-app-text">An explicit, named escalating sequence, small reward on day 1, meaningful reward on day 7. Visible from the start, so users know what they're working toward. Monzo's cashback offer rotation has the same return structure; the novelty is making the sequence intentional and clearly communicated rather than incidental.</div><div class="opp-prereq"><strong>Prerequisites:</strong> a reward the app can actually deliver at day 7, a temporary interest rate boost, a partner offer, a free month of premium, or a named badge. Without a meaningful day 7 reward, the sequence feels hollow after the first two days.</div></div>
+      </div>
+      <div class="syn-box"><div class="syn-label">Pairs well with</div><div class="syn-body">Streak (the login reward becomes the streak's daily trigger), Achievements (day 7 completion as a named milestone), Challenges (the 7-day sequence as a challenge entry point).</div></div>
+    </div>
+
+    <div class="opp-card" id="o-02">
+      <div class="opp-head"><div class="opp-num">02</div><div class="opp-inner"><div class="opp-title">First-Purchase Bonus</div><div class="opp-meta"><span class="nov-pill nov-low">Novelty: Low</span></div></div></div>
+      <div class="opp-body"><p>A disproportionately enhanced reward tied to the user's first meaningful financial action. In games this lowers the barrier to the first real-money commitment. In finance, the equivalent is the first savings deposit, the first budget completed, the first recurring payment set up, moments where a meaningful commitment is made but rarely celebrated by the app.</p><p>No app in our set applies a first-action bonus explicitly to a financial behavior. EveryDollar's goal intensity setup makes the first goal commitment feel significant but doesn't reward it tangibly. Copilot's month-in-review fires for the first time after the first full month, the same emotional beat, but not designed around it.</p></div>
+      <div class="opp-applications">
+        <div class="opp-apps-label">How it could apply</div>
+        <div class="opp-app-item"><div class="opp-app-title">First savings pot bonus interest</div><div class="opp-app-text">The first pot created earns a meaningfully higher rate for the first 30 days. Tied to the action, not the deposit amount, so a small balance still gets the reward and the barrier to starting is removed.</div><div class="opp-prereq"><strong>Prerequisites:</strong> a savings pot feature with an interest rate the bank can flex. Works for neobanks and banking apps that control the underlying rate. Not applicable for read-only aggregators.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Streak seeder</div><div class="opp-app-text">Completing a full week of transaction review awards a 7-day streak head start. Reduces cold-start friction and makes the first week of disciplined behavior feel immediately rewarded rather than just the beginning of a long grind.</div><div class="opp-prereq"><strong>Prerequisites:</strong> a defined streak mechanic already in place. Requires transaction import or robust manual entry so the app can verify that a week's transactions have been reviewed and categorized.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Retroactive first-completion unlock</div><div class="opp-app-text">When the achievement system is activated, the app scans existing history and immediately awards every first-action milestone already earned. Creates an instant collection moment, users discover they've already done things worth celebrating, rather than starting at zero.</div><div class="opp-prereq"><strong>Prerequisites:</strong> historical transaction data the app can parse. The retroactive scan needs to be fast, more than a few seconds of loading kills the reveal moment.</div></div>
+      </div>
+      <div class="syn-box"><div class="syn-label">Pairs well with</div><div class="syn-body">Achievements (the first-action bonus is the first achievement in a set), Streak (the seeder version feeds the streak mechanic directly), Set Collection (fills the first slot in a financial foundation set).</div></div>
+    </div>
+
+    <div class="opp-card" id="o-03">
+      <div class="opp-head"><div class="opp-num">03</div><div class="opp-inner"><div class="opp-title">Referral (via Gifting mechanic)</div><div class="opp-meta"><span class="nov-pill nov-low">Novelty: Low</span></div></div></div>
+      <div class="opp-body"><p>Wise, Monzo, and Copilot all have referral programs but none gamifies the referral itself. There is no milestone tracking, no tiered reward structure, and no social framing beyond a link and a code. The opportunity is not to introduce referral, it exists, but to make it feel like a mechanic. Referrals framed as gifts to the recipient convert differently. Referrals tied to a joint action create a social bond that a code does not.</p></div>
+      <div class="opp-applications">
+        <div class="opp-apps-label">How it could apply</div>
+        <div class="opp-app-item"><div class="opp-app-title">Gifted interest boost</div><div class="opp-app-text">An existing user sends a friend a higher interest rate for their first month, framed as a gift sent from the user, not as a referral code. The recipient receives something named and personal rather than a discount.</div><div class="opp-prereq"><strong>Prerequisites:</strong> a savings product with a flexible interest rate. Requires a technical flow that ties the boosted rate to the referral link and a clear expiry date on the boost.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Joint pot invite</div><div class="opp-app-text">Invite a friend into a shared savings pot, a holiday fund, a gift fund, a rent deposit. The referral is functional: the friend needs an account to participate. Both parties have a reason to stay engaged after signup.</div><div class="opp-prereq"><strong>Prerequisites:</strong> a shared or joint account feature that supports multiple contributors. The invited user needs to create an account and connect to the pot without friction before the invite expires.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Tiered referral milestone</div><div class="opp-app-text">A visible progress track showing referral 1 of 3, with escalating rewards at each milestone. Wise's tracking screen already shows who has signed up, adding the milestone layer makes referral feel like a quest with a completion state.</div><div class="opp-prereq"><strong>Prerequisites:</strong> a referral tracking system that can show per-referral progress. The milestone rewards need to be defined and deliverable without manual processing at each milestone.</div></div>
+      </div>
+      <div class="syn-box"><div class="syn-label">Pairs well with</div><div class="syn-body">Challenges (the joint pot invite seeds a partner savings challenge), Community / Groups (referred friends become a natural group anchor), Achievements (first referral as a named milestone).</div></div>
+    </div>
+
+    <div class="opp-card" id="o-04">
+      <div class="opp-head"><div class="opp-num">04</div><div class="opp-inner"><div class="opp-title">Limited-Time Events</div><div class="opp-meta"><span class="nov-pill nov-low">Novelty: Low</span></div></div></div>
+      <div class="opp-body"><p>Monzo's cashback offers already expire within 2 weeks, which is the structural shape of a limited-time event. Making the time limit the engagement mechanic rather than just a commercial constraint is the shift worth making. Finance has a natural calendar of hard deadlines that already exist in users' lives, tax year end, ISA allowance cutoff, pension contribution window. These deadlines do the urgency work without manufacturing artificial scarcity. Wise's rate lock timer is the best example we observed: the deadline is real, the timer is accurate, and the urgency is functional.</p></div>
+      <div class="opp-applications">
+        <div class="opp-apps-label">How it could apply</div>
+        <div class="opp-app-item"><div class="opp-app-title">End-of-tax-year sprint</div><div class="opp-app-text">A 4-week structured event built around a deadline that already exists, ISA allowance, pension contribution, tax filing. A progress bar, daily actions, and a named completion state. The deadline is not manufactured; the app just makes it visible and gives it structure.</div><div class="opp-prereq"><strong>Prerequisites:</strong> awareness of the user's tax jurisdiction to surface the correct deadline. The event needs a completion action the app can actually verify, "completed your savings review" is easier to confirm from in-app behavior than "maxed your ISA."</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Category-of-the-month rotation</div><div class="opp-app-text">Every month, a different spending category is highlighted for review and reduction. January is subscriptions. February is takeout. March is transport. Users opt in. Rotates annually, with year-over-year comparison built in naturally.</div><div class="opp-prereq"><strong>Prerequisites:</strong> automatic transaction categorization so the app can show actual spending in the featured category without manual input. An opt-in moment at the start of each month to confirm participation.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Counter-event</div><div class="opp-app-text">A "no-spend" challenge timed against an existing retail moment, Black Friday, January sales. Inverts cultural pressure rather than amplifying it. No finance app we observed has tried to claim that moment.</div><div class="opp-prereq"><strong>Prerequisites:</strong> real-time transaction monitoring to track whether the user is making purchases in the relevant category during the event period. Needs a clear definition of what counts as "no spend", all spending, or just discretionary categories?</div></div>
+      </div>
+      <div class="syn-box"><div class="syn-label">Pairs well with</div><div class="syn-body">Challenges (the limited-time event is the challenge wrapper), Streak (the event period becomes a streak target), Achievements (event completion as a named, dated badge).</div></div>
+    </div>
+
+    <div class="opp-section-label">Mid novelty &mdash; used in adjacent categories, not yet in finance</div>
+
+    <div class="opp-card" id="o-05">
+      <div class="opp-head"><div class="opp-num">05</div><div class="opp-inner"><div class="opp-title">Achievements / Milestones</div><div class="opp-meta"><span class="nov-pill nov-mid">Novelty: Mid</span></div></div></div>
+      <div class="opp-body"><p>Named, permanent markers for financial behavior. Fortune City and Copilot have shallow versions; neither has a browsable library or a collection that creates cross-feature motivation. The transaction stream already contains the data to calculate most achievements without any additional user action.</p><p>The critical design decision is behavior-based versus balance-based. Balance-based achievements ("saved EUR 1,000") penalize lower-income users and make the mechanic feel like a reflection of wealth rather than effort. Behavior-based achievements ("reviewed transactions for 4 consecutive weeks," "no overdraft for 90 days") work across income brackets and reward the habits the app is designed to build.</p><p>Negative-space achievements, rewards for restraint rather than action, are uniquely suited to finance. "No fees this quarter." "No overdraft for 90 days." "No flagged impulse purchases this month." No other app category has a structural reason to build these. This is a category-specific opportunity that no other app type has a structural reason to implement.</p></div>
+      <div class="opp-applications">
+        <div class="opp-apps-label">How it could apply</div>
+        <div class="opp-app-item"><div class="opp-app-title">Behavior-based achievement library</div><div class="opp-app-text">A browsable set of named achievements tied to actions, not amounts, "reviewed 100 transactions," "set up 3 recurring payments," "no overdraft for 90 days," "completed a full month under budget." The library is browsable before any achievement is earned, so users can see what they're working toward.</div><div class="opp-prereq"><strong>Prerequisites:</strong> transaction history and in-app behavioral data to calculate achievements automatically. The library needs achievements the app can actually verify, achievements that depend on data the app doesn't have won't work without aggregation.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Retroactive unlock on first enable</div><div class="opp-app-text">When the achievement system is activated, the app scans existing history and immediately awards everything already earned, the same way Steam handles achievements for games played before the system was enabled. Creates an instant collection moment rather than a cold start.</div><div class="opp-prereq"><strong>Prerequisites:</strong> historical transaction data the app can parse. If the scan takes more than a few seconds, show a progress animation to maintain the reveal moment.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Annual stamped achievements</div><div class="opp-app-text">A yearly set that resets each January, with a year-stamped badge for each completion, "2026 Budget Streak," "2026 Zero Overdraft Year." These accumulate over time, creating a personal financial history visible inside the app across multiple years. The year stamp makes the badge more meaningful the older it gets.</div><div class="opp-prereq"><strong>Prerequisites:</strong> a persistent badge display system that handles multi-year stacking gracefully. The annual reset means the user has a fresh start each year, but previous years' badges remain visible.</div></div>
+      </div>
+      <div class="syn-box"><div class="syn-label">Pairs well with</div><div class="syn-body">Set Collection (achievements organized into named sets that unlock together), Streak (streak milestones as dated achievements), Limited-Time Events (event completion as a one-off achievement), Challenges (challenge completion feeds the achievement library).</div></div>
+    </div>
+
+    <div class="opp-card" id="o-06">
+      <div class="opp-head"><div class="opp-num">06</div><div class="opp-inner"><div class="opp-title">Streak tied to financial behavior</div><div class="opp-meta"><span class="nov-pill nov-mid">Novelty: Mid</span></div></div></div>
+      <div class="opp-body"><p>The streak mechanic exists in this category. The novelty is entirely in the trigger. Every current implementation rewards app usage. None rewards a financial outcome. Tying the streak to budget adherence, savings contributions, or transaction review changes what the mechanic reinforces and makes it useful rather than just sticky.</p><p>Decoupling streaks by category is worth considering: separate streaks for savings, budget review, and spending control mean a bad month in one area doesn't erase progress in another. Finance is also not as time-sensitive as a Duolingo lesson, some forgiveness should be built in: a 48-hour recovery window, or a streak freeze earned through a longer review session.</p></div>
+      <div class="opp-applications">
+        <div class="opp-apps-label">How it could apply</div>
+        <div class="opp-app-item"><div class="opp-app-title">Budget adherence streak</div><div class="opp-app-text">Consecutive days or weeks ending under the spending target. Copilot already calculates "how you're doing" against the day's ideal spending rate, that number is one step from being the streak trigger.</div><div class="opp-prereq"><strong>Prerequisites:</strong> real-time or near-real-time transaction import so the app can verify end-of-day spending. Requires a budget set up by the user, the streak has nothing to measure against without a target.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Decoupled category streaks</div><div class="opp-app-text">Separate visible counters for savings (consecutive weeks with a deposit), review (consecutive weeks with all transactions categorized), and budget (consecutive months ending under target). Losing one doesn't reset the others.</div><div class="opp-prereq"><strong>Prerequisites:</strong> automatic transaction import for the budget and review streaks. Each streak needs its own defined trigger condition, the categorization streak requires a clear definition of "all transactions categorized."</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Overdraft-free streak</div><div class="opp-app-text">A running counter of consecutive days without entering overdraft, visible on the home screen and celebrated at milestones (7 days, 30 days, 90 days, 1 year). One of the few positive framings of overdraft avoidance that doesn't feel like scolding.</div><div class="opp-prereq"><strong>Prerequisites:</strong> real-time balance monitoring so the streak can break the moment the account enters overdraft. Works only for apps that hold the account directly, aggregators can't break a streak in real time without live balance data.</div></div>
+      </div>
+      <div class="syn-box"><div class="syn-label">Pairs well with</div><div class="syn-body">Achievements (streak milestones as named badges), Daily Login Reward (the reward fires when the streak action is completed, not on app open), Challenges (a 30-day streak challenge with a completion reward).</div></div>
+    </div>
+
+    <div class="opp-card" id="o-07">
+      <div class="opp-head"><div class="opp-num">07</div><div class="opp-inner"><div class="opp-title">Credits / Tokens</div><div class="opp-meta"><span class="nov-pill nov-mid">Novelty: Mid</span></div></div></div>
+      <div class="opp-body"><p>A points layer on top of financial behaviors, earn for on-time bill payments, budget adherence, savings contributions, and spend on fee waivers, interest rate boosts, or feature unlocks. Yettel Bank Max is the closest thing we observed: spend 30,000 RSD and the maintenance fee is waived, the structural shape of a credits system without the earn-and-spend loop made explicit or named.</p><p>The differentiation from a loyalty card mechanic comes from tying the earn conditions to financial behavior rather than spend volume. The spend side matters equally: if credits can only buy fee waivers, the mechanic only reaches users who care about fees. Spending credits on features or interest rate boosts broadens the appeal.</p></div>
+      <div class="opp-applications">
+        <div class="opp-apps-label">How it could apply</div>
+        <div class="opp-app-item"><div class="opp-app-title">Behavior-earned credits</div><div class="opp-app-text">Earn points for on-time bill payments, completing a budget month under target, making a savings deposit. Spend on fee waivers, a temporarily higher interest rate for a specific pot, or a one-month premium feature unlock. The earn trigger is the financial behavior rather than the transaction amount.</div><div class="opp-prereq"><strong>Prerequisites:</strong> a defined credit economy with both earn and spend mechanics designed together before launch. The earn rate needs careful calibration, too easy and credits feel worthless, too hard and users disengage before reaching the spend threshold.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Time-decaying credits</div><div class="opp-app-text">Credits that expire if unspent within 30 days. Creates engagement on the spend side, users have a reason to return before the window closes. Urgency without manufactured scarcity.</div><div class="opp-prereq"><strong>Prerequisites:</strong> a notification system that surfaces the approaching expiry with enough lead time to act. The expiry window needs to be long enough that a user who earns credits on the 1st has time to redeem them before the 30th.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Credits toward a savings goal</div><div class="opp-app-text">Instead of a separate credit economy, credits accumulate directly against a user-chosen savings goal. Earning feels like direct progress toward something the user already cares about rather than abstract points in a parallel system.</div><div class="opp-prereq"><strong>Prerequisites:</strong> a savings goal feature the user has set up. The credit-to-currency conversion rate needs to be meaningful, if 100 credits adds EUR 0.01 to a savings goal, the mechanic feels dismissive.</div></div>
+      </div>
+      <div class="syn-box"><div class="syn-label">Pairs well with</div><div class="syn-body">Streak (streak maintenance earns credits), Daily / Weekly Quests (quest completion is the earn event), XP / Leveling (credits fill the level bar).</div></div>
+    </div>
+
+    <div class="opp-card" id="o-08">
+      <div class="opp-head"><div class="opp-num">08</div><div class="opp-inner"><div class="opp-title">Daily / Weekly Quests</div><div class="opp-meta"><span class="nov-pill nov-mid">Novelty: Mid</span></div></div></div>
+      <div class="opp-body"><p>Structured recurring objectives that reset on a daily or weekly cadence. EveryDollar's lesson to-do list is the closest analogue we observed, tasks generated from lesson content, with persistent uncompleted items that pull users back. The gap is that EveryDollar's tasks come from lessons, not from the user's actual financial state.</p><p>The more powerful version uses the transaction stream to generate quests specific to the user's current situation. "You're 80% to your savings goal, one more deposit gets you there." "You have three transactions from this week that haven't been categorized." These aren't generic tasks, they reflect what the app actually knows about the user, and they change as the situation changes.</p></div>
+      <div class="opp-applications">
+        <div class="opp-apps-label">How it could apply</div>
+        <div class="opp-app-item"><div class="opp-app-title">State-generated quests</div><div class="opp-app-text">Quests derived from the user's actual account data. "Move this month's unallocated income to savings." "Review the 4 transactions you haven't categorized this week." "You're 3 days from a 30-day overdraft-free streak, keep going." Each quest is specific to the user's current situation.</div><div class="opp-prereq"><strong>Prerequisites:</strong> real-time or daily-updated transaction import, plus a quest generation logic layer that reads account state. The quest list should never show more than 3 active quests at once, more than that feels like a task list rather than a game.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Missed-pattern nudge</div><div class="opp-app-text">The app detects when a user has deviated from their own established pattern. "You usually transfer to savings around payday, you haven't this month." A continuity prompt grounded in the user's own history, not a generic reminder.</div><div class="opp-prereq"><strong>Prerequisites:</strong> at least 2-3 months of behavioral history to establish a pattern worth detecting. The pattern detection needs a minimum confidence threshold, surfacing a "missed pattern" based on one previous month's behavior will feel presumptuous.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">User-created weekly objective</div><div class="opp-app-text">The user writes their own weekly goal ("keep restaurant spending under EUR 50 this week"), and the app tracks it automatically through the transaction stream, marking it complete or not at week-end.</div><div class="opp-prereq"><strong>Prerequisites:</strong> automatic transaction categorization so the app can match the user's stated category to actual spending. The matching logic needs to handle category synonyms, "restaurants" and "eating out" and "dining" should map to the same spend category.</div></div>
+      </div>
+      <div class="syn-box"><div class="syn-label">Pairs well with</div><div class="syn-body">Streak (quest completion is the daily streak trigger), Credits / Tokens (quest completion earns credits), Achievements (accumulated quest completions unlock achievements).</div></div>
+    </div>
+
+    <div class="opp-card" id="o-09">
+      <div class="opp-head"><div class="opp-num">09</div><div class="opp-inner"><div class="opp-title">Piggy Bank</div><div class="opp-meta"><span class="nov-pill nov-mid">Novelty: Mid</span></div></div></div>
+      <div class="opp-body"><p>Passive accumulation that requires a deliberate action to unlock, and where the accumulated value is visible before the unlock moment. The key mechanic element is anticipation: watching the pot fill over time, knowing something will happen when it reaches the threshold. Monzo's round-up pots already accumulate passively, the mechanism is in place, but there is no unlock moment. The pot just grows. Adding the unlock moment changes the emotional experience without changing the underlying behavior.</p></div>
+      <div class="opp-applications">
+        <div class="opp-apps-label">How it could apply</div>
+        <div class="opp-app-item"><div class="opp-app-title">Round-up jar with monthly reveal</div><div class="opp-app-text">Round-ups accumulate through the month and reveal as a total on the 1st, shown as a celebratory screen before being swept into savings. The reveal is the mechanic; the round-up itself already exists in several apps in our set.</div><div class="opp-prereq"><strong>Prerequisites:</strong> an existing round-up feature that accumulates without immediate sweep. Requires a defined reveal moment and push notification to bring the user back on the 1st. The reveal screen needs to show a total the user finds meaningful rather than a rounding error.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Threshold-unlock savings pot</div><div class="opp-app-text">A pot with a visible progress bar toward a threshold. Reaching the threshold unlocks something tangible, a temporarily higher interest rate, a fee waiver, a named status. The approaching unlock is visible, creating the anticipation the mechanic depends on.</div><div class="opp-prereq"><strong>Prerequisites:</strong> a savings pot feature and a defined reward the app can deliver at the threshold. The threshold amount needs to be achievable within a realistic timeframe, a threshold that takes 3 years to reach at average savings rates won't create return motivation.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Shared household piggy bank</div><div class="opp-app-text">A joint pot fed by multiple authorized users' round-ups, with a shared visible goal and a shared reveal moment. Both parties see the total building. The reveal fires for everyone simultaneously. No mainstream banking app in our set does this well.</div><div class="opp-prereq"><strong>Prerequisites:</strong> a joint account or shared pot feature that supports multiple contributors. Both users need to see each other's contribution pace without revealing underlying account balances. The reveal notification needs to fire for all parties simultaneously.</div></div>
+      </div>
+      <div class="syn-box"><div class="syn-label">Pairs well with</div><div class="syn-body">Set Collection (the piggy bank unlock completes a slot in a household financial set), Achievements (first threshold reached as a named achievement), Variable Reward (the reveal can include a surprise element).</div></div>
+    </div>
+
+    <div class="opp-card" id="o-10">
+      <div class="opp-head"><div class="opp-num">10</div><div class="opp-inner"><div class="opp-title">Set Collection / Completion</div><div class="opp-meta"><span class="nov-pill nov-mid">Novelty: Mid</span></div></div></div>
+      <div class="opp-body"><p>Items organized into named sets where completing a full set unlocks an additional reward or status. The mechanic's power comes from cross-feature motivation: a user who has budgeting in place but no recurring savings contribution sees the empty slot and is pulled toward setting one up, not because the app pushed them, but because the incomplete set creates its own gravitational pull.</p><p>Life-event sets are the strongest application in this context because they match how financial behavior actually changes, not uniformly, but in response to major life events. "Moving Home," "New Job," "Having a Child" each contain a specific set of financial actions that are genuinely relevant at that stage. No other app type has reason to build this mechanic around life events.</p></div>
+      <div class="opp-applications">
+        <div class="opp-apps-label">How it could apply</div>
+        <div class="opp-app-item"><div class="opp-app-title">Financial foundation set</div><div class="opp-app-text">A visible, always-displayed set of 5-7 financial behaviors: emergency fund started, recurring savings active, no high-interest debt, budget tracked for a full month, recurring payments automated. Filled slots are marked; empty ones show what's missing and link to the relevant feature.</div><div class="opp-prereq"><strong>Prerequisites:</strong> the app needs to track whether each condition in the set is met, which may require cross-feature data. Define the minimum condition for each slot that the app can actually verify.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Life-event sets</div><div class="opp-app-text">Themed collections the user opts into: "Moving Home" (update direct debits, set up a new utility payment, create a moving costs savings pot, review budget for new location), "New Job" (update payee details, adjust savings rate, review tax code). Turns life events into a structured, completable financial checklist.</div><div class="opp-prereq"><strong>Prerequisites:</strong> an opt-in mechanism where the user self-reports the life event. The set items need to map to features that actually exist in the app, a "review your life insurance" slot only works if the app can verify or initiate the action, not just suggest it.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Annual completion set</div><div class="opp-app-text">A yearly set of financial behaviors that resets each January. A full month under budget, a savings goal reached, no overdraft for a quarter, a financial review completed. Finishing the year's set earns a year-stamped status badge.</div><div class="opp-prereq"><strong>Prerequisites:</strong> the annual reset needs to be communicated clearly, users close to completing the set in December need to know the clock is ticking. A year-stamped badge needs a display system that handles multi-year accumulation without cluttering the UI.</div></div>
+      </div>
+      <div class="syn-box"><div class="syn-label">Pairs well with</div><div class="syn-body">Achievements (each set completion is a named achievement), Limited-Time Events (the annual set is a year-long event with a fixed deadline), XP / Leveling (set completion earns a large XP award).</div></div>
+    </div>
+
+    <div class="opp-section-label">High novelty &mdash; genuinely new to the finance category</div>
+
+    <div class="opp-card" id="o-11">
+      <div class="opp-head"><div class="opp-num">11</div><div class="opp-inner"><div class="opp-title">Variable Reward</div><div class="opp-meta"><span class="nov-pill nov-high">Novelty: High</span></div></div></div>
+      <div class="opp-body"><p>A reward where the outcome is uncertain at the moment of receiving it. Finance apps can't use random rewards without feeling gimmicky. The opportunity is semi-variable rewards: the format is consistent, the content is not predictable. Copilot's month-in-review is the closest thing we've observed, a structured reveal that always happens at a month boundary, but whose content is genuinely unknown in advance.</p><p>The transaction stream is the source material. A finance app holds richer and more personally relevant data about the user than almost any other app category. The variable reward is simply the creative surfacing of patterns the user couldn't have anticipated from that data, turned into a reveal moment rather than background information. The watch-out is negative surprises: a reveal that sometimes surfaces bad news needs careful framing to feel like a useful insight rather than an accusation.</p></div>
+      <div class="opp-applications">
+        <div class="opp-apps-label">How it could apply</div>
+        <div class="opp-app-item"><div class="opp-app-title">Monthly close reveal</div><div class="opp-app-text">The end-of-month summary presented as a structured reveal event, a swipeable sequence surfacing one insight at a time. Best-value category, biggest surprise, closest goal to completion. Copilot already does this organically; making it an explicit designed moment is the step worth taking.</div><div class="opp-prereq"><strong>Prerequisites:</strong> at least one full month of transaction data and a defined set of insight types the system can generate. The reveal sequence should never show a negative-only result without a corresponding positive, "you overspent on restaurants" needs pairing with something the user did well.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Transaction of the month surfacing</div><div class="opp-app-text">The app selects one transaction from the past month, best value, most unusual, largest single purchase, and presents it as a featured moment at month end. The selection format is consistent; the result is not predictable.</div><div class="opp-prereq"><strong>Prerequisites:</strong> enough transactions per month to make the selection feel meaningful (at least 20-30 transactions). "Best value" requires merchant category data and average spend per visit; "most unusual" requires a baseline of normal spending patterns.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Surprise insight on milestone</div><div class="opp-app-text">When a user crosses a meaningful threshold, first full month under budget, savings goal reached, 30-day overdraft-free streak, the app reveals a piece of analysis they couldn't have anticipated. The milestone is expected; the specific insight is not.</div><div class="opp-prereq"><strong>Prerequisites:</strong> historical data deep enough to support the comparison (at least 6 months for meaningful context). Define a minimum surprise threshold for what qualifies as a surfaced insight, "you saved 2% more than last month" is not worth the reveal mechanic.</div></div>
+      </div>
+      <div class="syn-box"><div class="syn-label">Pairs well with</div><div class="syn-body">Achievements (the variable reveal fires on an achievement unlock, adding surprise to the celebration), Piggy Bank (the unlock moment includes a variable element), Daily Login Reward (the daily insight card is a low-stakes variable reveal).</div></div>
+    </div>
+
+    <div class="opp-card" id="o-12">
+      <div class="opp-head"><div class="opp-num">12</div><div class="opp-inner"><div class="opp-title">Challenges</div><div class="opp-meta"><span class="nov-pill nov-high">Novelty: High</span></div></div></div>
+      <div class="opp-body"><p>Structured objectives with a visible endpoint that users opt into. Fortune City's frequency challenge, select categories to reduce how often you spend in them, is the only opt-in challenge we observed in this category. No banking app offers anything comparable.</p><p>Privacy is not the obstacle it might appear. A challenge that tracks completion rates and behavioral outcomes rather than amounts exposes nothing sensitive. The couple or partner challenge is the most genuinely novel application: two people working toward a joint savings goal with mutual visibility on contribution pace. Not competitive, the mechanic is mutual accountability, which creates a fundamentally different relationship to a shared financial goal than either person tracking it alone.</p></div>
+      <div class="opp-applications">
+        <div class="opp-apps-label">How it could apply</div>
+        <div class="opp-app-item"><div class="opp-app-title">Couple / partner savings challenge</div><div class="opp-app-text">Two people working toward a joint savings goal, with a shared progress bar and mutual visibility on contribution pace. Not competitive, neither person wins. Each person's contribution shows as a percentage of the shared target, not an amount, if privacy is a concern.</div><div class="opp-prereq"><strong>Prerequisites:</strong> a shared pot or goal feature that supports two contributors. Both users must opt in explicitly. Define the joint goal clearly upfront (amount, deadline) before the challenge starts.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Self-vs-past</div><div class="opp-app-text">"Beat last October." The app pulls the previous year's data for the same month and structures a 30-day challenge against the user's own past behavior. Automatic calibration, no peer comparison, and the data is already present in the app.</div><div class="opp-prereq"><strong>Prerequisites:</strong> at least 13 months of transaction history to compare the same month year-over-year. If the previous year's data shows an unusually good or bad month, offer an alternative reference point to avoid unfair calibration.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Category-cap challenge</div><div class="opp-app-text">Opt into a 30-day spending cap on a specific category. Warnings fire at 75%, 90%, and 100% of the cap. Completion marked at month end. Defined by the user, tracked automatically through the transaction stream, and rewards restraint rather than action.</div><div class="opp-prereq"><strong>Prerequisites:</strong> automatic transaction categorization so the app can match spending to the user's chosen category without manual entry. The warning notifications are essential, without them, the challenge is invisible until the user is already over the cap.</div></div>
+      </div>
+      <div class="syn-box"><div class="syn-label">Pairs well with</div><div class="syn-body">Streak (the challenge period becomes a streak target), Achievements (challenge completion as a named, dated achievement), Community / Groups (a challenge is a natural group-forming mechanism).</div></div>
+    </div>
+
+    <div class="opp-card" id="o-13">
+      <div class="opp-head"><div class="opp-num">13</div><div class="opp-inner"><div class="opp-title">XP / Leveling</div><div class="opp-meta"><span class="nov-pill nov-high">Novelty: High</span></div></div></div>
+      <div class="opp-body"><p>Experience points accumulating through actions and crossing named thresholds that unlock something meaningful. The brand risk is real: a numeric financial health score can feel like a judgment of the user's worth. Named tiers (Starter, Steady, Strong, Stable) are softer and more durable, they describe a state rather than ranking the user. Per-feature leveling ("Saver Level 3," "Budgeter Level 5") avoids the awkwardness of a single number ranking the whole person and matches how financial skills actually develop: one area at a time.</p><p>XP must come from engagement and behavior, not financial outcomes. A user who reviews transactions every week should level up faster than one who never opens the budget screen, regardless of income.</p></div>
+      <div class="opp-applications">
+        <div class="opp-apps-label">How it could apply</div>
+        <div class="opp-app-item"><div class="opp-app-title">Behavior-tier system</div><div class="opp-app-text">Named tiers (Starter, Steady, Strong, Stable) advancing based on consistent financial behaviors, not balance size. Each tier unlocks something tangible: multi-pot setup at Steady, advanced budget categories at Strong, priority support or a better savings rate at Stable.</div><div class="opp-prereq"><strong>Prerequisites:</strong> a defined tier advancement logic that is transparent enough for users to understand. The unlocks at each tier need to be meaningful, advancing to Steady for a feature the user doesn't care about won't motivate the next level. Test tier advancement speed carefully.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Per-feature leveling</div><div class="opp-app-text">"Saver Level 3" means 12 consecutive savings deposits. "Budgeter Level 5" means 5 full months under budget. Each track levels independently. A disciplined saver who never uses the budget tool has a high Saver level and a low Budgeter level. Honest and granular rather than artificially composite.</div><div class="opp-prereq"><strong>Prerequisites:</strong> a tracking system per feature area with clearly defined XP earn events. The level display needs to surface on the relevant feature screen so the context is clear. Define a maximum level to give users a visible endpoint.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Goal intensity as XP analog</div><div class="opp-app-text">EveryDollar's goal intensity slider (Neutral to Gazelle, 1% to 15% of income) is already a single-dimension version of this. Extending it across multiple financial behaviors and making the composite visible and level-able is a modest extension of something that already exists in the category.</div><div class="opp-prereq"><strong>Prerequisites:</strong> income data and at least 3 financial behavior dimensions to make the composite meaningful. The extension of EveryDollar's model requires bank account connection for automatic tracking, the manual version is too friction-heavy to drive level advancement.</div></div>
+      </div>
+      <div class="syn-box"><div class="syn-label">Pairs well with</div><div class="syn-body">Credits / Tokens (XP is earned in credits, spent on unlocks), Set Collection (set completion earns a large XP award), Achievements (achievements are XP multiplier events), Daily / Weekly Quests (quests are the primary XP earn mechanism).</div></div>
+    </div>
+
+    <div class="opp-card" id="o-14">
+      <div class="opp-head"><div class="opp-num">14</div><div class="opp-inner"><div class="opp-title">Leaderboards</div><div class="opp-meta"><span class="nov-pill nov-high">Novelty: High</span></div></div></div>
+      <div class="opp-body"><p>A ranked list with a named metric and a visible user position. Leaderboards don't require financial data, they require behavioral data, and finance apps have it in abundance. A leaderboard ranking savings rate (not savings amount), budget adherence, or transaction review consistency exposes nothing sensitive. Wise's in-transfer competitor comparison is structurally identical, it benchmarks the user against other providers on the same metric, and users accept it naturally because it's framed as information rather than competition.</p></div>
+      <div class="opp-applications">
+        <div class="opp-apps-label">How it could apply</div>
+        <div class="opp-app-item"><div class="opp-app-title">Self-leaderboard</div><div class="opp-app-text">Ranking against your own past months, "this is your 2nd best savings month of the year." No peer data, no privacy concern. The reference point is the user's own history, which is more relevant and less anxiety-inducing than peer comparison.</div><div class="opp-prereq"><strong>Prerequisites:</strong> at least 6 months of consistent data in the metric being ranked. A self-leaderboard based on 2 months of data will show "this is your best month" every time, which quickly loses meaning.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Cohort percentile, not rank</div><div class="opp-app-text">"You're in the top 28% of people in your age group for savings rate this month." Framed as participation in a cohort rather than competition within one. No amounts exposed, only behavioral percentages.</div><div class="opp-prereq"><strong>Prerequisites:</strong> a large enough user base to generate meaningful cohort percentiles by age, income bracket, or geography. The cohort definition needs to be transparent and users should be able to opt out of cohort comparison entirely.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Accountability partner leaderboard</div><div class="opp-app-text">Behavioral ranking visible only to a chosen partner, a friend, spouse, or financial advisor. The rank carries real social weight because the audience is known. Both parties opt in and see each other's completion rates for shared financial behaviors, not amounts.</div><div class="opp-prereq"><strong>Prerequisites:</strong> both parties must opt in explicitly. The metric being compared needs to be defined upfront and the same for both parties. Either party should be able to withdraw from the leaderboard without affecting underlying shared accounts.</div></div>
+      </div>
+      <div class="syn-box"><div class="syn-label">Pairs well with</div><div class="syn-body">Challenges (a challenge is a time-limited leaderboard with a defined endpoint), Community / Groups (a group leaderboard is more motivating than an anonymous cohort ranking), Streak (streak length as the leaderboard metric).</div></div>
+    </div>
+
+    <div class="opp-card" id="o-15">
+      <div class="opp-head"><div class="opp-num">15</div><div class="opp-inner"><div class="opp-title">Community / Groups</div><div class="opp-meta"><span class="nov-pill nov-high">Novelty: High</span></div></div></div>
+      <div class="opp-body"><p>Small groups organized around a shared financial goal type, with group-level progress visible to members. No app in our set has implemented this. The closest analogues in the broader Mechanics Playbook library are Strava's clubs and Ladder's team workouts, both working because the social layer is built on behavioral data rather than personal data.</p><p>The household is the natural group in finance, two people sharing bills, savings, and financial goals already have a social dimension to their app usage that individual-focused mechanics ignore entirely. Goal-matched anonymous groups remove the friction of finding a group while providing social accountability: 5-10 people automatically formed around a shared goal type, progress shown as percentages only.</p></div>
+      <div class="opp-applications">
+        <div class="opp-apps-label">How it could apply</div>
+        <div class="opp-app-item"><div class="opp-app-title">Goal-matched anonymous groups</div><div class="opp-app-text">5-10 people automatically grouped around a shared goal type, building a EUR 1,000 emergency fund by year-end, paying off credit card debt, saving for a home deposit. Progress shown as percentage-complete only. No amounts, no names. The group has a shared name and endpoint.</div><div class="opp-prereq"><strong>Prerequisites:</strong> enough users to form meaningful groups within goal categories. A defined group lifecycle, what happens when the goal deadline passes, or when someone drops out. Groups need a clear endpoint rather than running indefinitely.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Household group</div><div class="opp-app-text">Authorized household members share visibility on financial actions affecting shared finances, bill payments, transfers to joint pots, savings goals hit. Not a feed of strangers. A feed of the people who already share financial decisions.</div><div class="opp-prereq"><strong>Prerequisites:</strong> explicit authorization from every household member. A clear scope definition, which accounts and actions are shared, which remain private. A mechanism for each member to remove themselves from the household group without affecting the underlying shared accounts.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Advisor-anchored group</div><div class="opp-app-text">A financial advisor serves as the anchor for a small group of their clients who can see each other's progress on shared goal types, with explicit consent. The advisor relationship is the trust layer. Clients who wouldn't trust strangers will trust people who share their advisor.</div><div class="opp-prereq"><strong>Prerequisites:</strong> an advisor relationship feature in the app or integration with an advisor platform. Every group member must provide explicit consent to share progress with others in the group and must be able to withdraw that consent at any time.</div></div>
+      </div>
+      <div class="syn-box"><div class="syn-label">Pairs well with</div><div class="syn-body">Challenges (the group is the challenge's social container), Leaderboards (a group leaderboard is more motivating than a global one), Referral (the group invite is a natural referral mechanism).</div></div>
+    </div>
+
+    <div class="opp-card" id="o-16">
+      <div class="opp-head"><div class="opp-num">16</div><div class="opp-inner"><div class="opp-title">Social Feed</div><div class="opp-meta"><span class="nov-pill nov-high">Novelty: High</span></div></div></div>
+      <div class="opp-body"><p>An activity feed showing financial behaviors, not balances or transactions, in a social format. Transaction amounts cannot appear. Account balances cannot appear. But financial actions, setting up a savings goal, completing a budget month, paying off a debt category, hitting a streak milestone, contain no sensitive information and function as social proof for behaviors the app wants to reinforce.</p><p>The household feed is the most practically useful starting point: a feed shared only between authorized household members, showing financial actions affecting shared finances. Not a feed for strangers. A feed for the people you already talk to about money, making those conversations happen inside the app rather than around the kitchen table.</p></div>
+      <div class="opp-applications">
+        <div class="opp-apps-label">How it could apply</div>
+        <div class="opp-app-item"><div class="opp-app-title">Action feed, not transaction feed</div><div class="opp-app-text">A feed of financial behaviors taken in the app, not balances or amounts. "Sarah set up her first emergency fund pot." "12 people in your area completed their savings goal this month." Privacy-safe because no money is mentioned. Functions as social proof for features the user hasn't tried yet.</div><div class="opp-prereq"><strong>Prerequisites:</strong> a defined set of actions that can appear in the feed, with clear opt-in controls for each. Users need to be able to choose whether their actions are visible to others, the default should be private, with opt-in to share.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Coach-style content feed</div><div class="opp-app-text">A single curated channel from a named financial content team, daily short observations, aggregate spending insights, occasional prompts tied to seasonal financial decisions. The format is a feed; the source is editorial, not peer-generated. Lower implementation risk than a true social feed, with the same daily return motivation.</div><div class="opp-prereq"><strong>Prerequisites:</strong> a content production process to keep the feed fresh (minimum 3-5 posts per week). Even light personalization to the user's own account data significantly improves engagement versus purely generic content.</div></div>
+        <div class="opp-app-item"><div class="opp-app-title">Household financial feed</div><div class="opp-app-text">Shared only between authorized household members. Shows financial actions affecting shared finances, a joint pot contribution, a savings goal milestone, a bill paid on time. Makes shared financial decisions visible without requiring a separate conversation about money.</div><div class="opp-prereq"><strong>Prerequisites:</strong> explicit authorization from every household member. A clear scope definition, which accounts and actions are shared, which remain private. Each member should be able to remove themselves from the feed without affecting the underlying shared accounts.</div></div>
+      </div>
+      <div class="syn-box"><div class="syn-label">Pairs well with</div><div class="syn-body">Community / Groups (the group's shared feed is its social layer), Achievements (achievement unlocks appear in the feed as social proof events), Challenges (challenge progress and completion appear in the household or group feed).</div></div>
+    </div>
+
+  </div><!-- /chapter opportunities -->
+</div><!-- /page-wrap -->
+
+<footer><div class="wrap"><div class="foot-inner"><span>Mechanics Playbook by <a href="https://gamebizconsulting.com">GameBiz Consulting</a></span><span><a href="mailto:hello@gamebizconsulting.com">hello@gamebizconsulting.com</a></span></div></div></footer>
+
+<script src="data.js"></script>
+<script src="auth.js"></script>
+<script>
+function toggleNav(){document.getElementById('nav-hamburger').classList.toggle('open');document.getElementById('nav-drawer').classList.toggle('open');}
+
+function toggleFeature(head){
+  const card=head.closest('.feature-card');
+  card.classList.toggle('open');
+}
+
+// TOC accordion, only one section open at a time
+function toggleTOC(head){
+  const section=head.dataset.section;
+  const items=document.getElementById('toc-'+section);
+  const isOpen=items.classList.contains('open');
+
+  // close all
+  document.querySelectorAll('.toc-section-head').forEach(h=>h.classList.remove('open'));
+  document.querySelectorAll('.toc-items').forEach(i=>i.classList.remove('open'));
+
+  // open clicked if it was closed
+  if(!isOpen){
+    head.classList.add('open');
+    items.classList.add('open');
+  }
+}
+
+// Map each anchor id to its TOC section
+const sectionMap={
+  'features':'features','f-expense-categorization':'features','f-budget-management':'features',
+  'f-savings-goals':'features','f-spending-analytics':'features','f-referral':'features',
+  'f-cashback-rewards':'features','f-financial-education':'features','f-spending-threshold':'features',
+  'f-account-aggregation':'features','f-international-transfers':'features','f-profile-completeness':'features',
+  'f-exchange-rate-alerts':'features','f-marketplace':'features','f-security-features':'features','f-onboarding':'features',
+  'gamification':'gamification','g-streak':'gamification','g-achievements':'gamification',
+  'g-daily-login':'gamification','g-variable':'gamification',
+  'opportunities':'opportunities','o-01':'opportunities','o-02':'opportunities','o-03':'opportunities',
+  'o-04':'opportunities','o-05':'opportunities','o-06':'opportunities','o-07':'opportunities',
+  'o-08':'opportunities','o-09':'opportunities','o-10':'opportunities','o-11':'opportunities',
+  'o-12':'opportunities','o-13':'opportunities','o-14':'opportunities','o-15':'opportunities','o-16':'opportunities'
+};
+
+const tocLinks=document.querySelectorAll('.toc-link');
+const anchors=[...document.querySelectorAll('[id]')].filter(el=>el.id);
+let lastSection='';
+
+function updateTOC(){
+  const scrollY=window.scrollY+100;
+  let activeId=null;
+  for(const el of anchors){
+    if(el.getBoundingClientRect().top+window.scrollY<=scrollY) activeId=el.id;
+  }
+
+  tocLinks.forEach(a=>{
+    const href=a.getAttribute('href').replace('#','');
+    a.classList.toggle('active',href===activeId);
+  });
+
+  // auto-open the right TOC section based on scroll position
+  if(activeId && sectionMap[activeId]){
+    const sec=sectionMap[activeId];
+    if(sec!==lastSection){
+      lastSection=sec;
+      document.querySelectorAll('.toc-section-head').forEach(h=>{
+        const match=h.dataset.section===sec;
+        h.classList.toggle('open',match);
+      });
+      document.querySelectorAll('.toc-items').forEach(i=>{
+        const match=i.id==='toc-'+sec;
+        i.classList.toggle('open',match);
+      });
+    }
+  }
+}
+window.addEventListener('scroll',updateTOC,{passive:true});
+updateTOC();
+
+(function() {
+  function addAuthNav() {
+    const navInner = document.querySelector('.nav-inner');
+    if (!navInner || document.getElementById('mp-auth-nav')) return;
+    const wrap = document.createElement('div');
+    wrap.id = 'mp-auth-nav';
+    wrap.style.cssText = 'display:flex;align-items:center;gap:8px;margin-left:auto;';
+    if (typeof isUnlocked === 'function' && isUnlocked()) {
+      wrap.innerHTML = '<button onclick="mpLogout()" style="font-family:var(--d,system-ui);font-size:13px;font-weight:600;padding:11px 20px;background:var(--text,#0a0a0a);color:white;border:none;border-radius:7px;cursor:pointer;">Log out</button>';
+    } else {
+      wrap.innerHTML = '<button onclick="if(typeof showLoginModal===\'function\')showLoginModal()" style="font-family:var(--d,system-ui);font-size:13px;font-weight:600;padding:11px 20px;background:var(--text,#0a0a0a);color:white;border:none;border-radius:7px;cursor:pointer;">Log in</button>';
+    }
+    const burger = navInner.querySelector('.nav-hamburger');
+    navInner.insertBefore(wrap, burger || null);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', addAuthNav);
+  } else {
+    addAuthNav();
+  }
+})();
+
+</script>
+</body>
+</html>
