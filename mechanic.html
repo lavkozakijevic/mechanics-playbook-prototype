@@ -85,8 +85,32 @@
   <a class="sub sub-inactive">Productivity Apps</a>
   <div class="nav-drawer-footer">Mechanics Playbook by GameBiz Consulting</div>
 </div>
+<div id="root"></div>
+<script src="data.js"></script>
+<script src="auth.js"></script>
+<script>
+const id = new URLSearchParams(location.search).get('id');
+const m = getMechanic(id);
+// Freemium gate: redirect if locked
+if (m && !isFree('mechanics', m.id)) {
+  showLoginModal();
+  // If they cancel, send back to list
+  setTimeout(() => {
+    if (!isUnlocked()) { document.getElementById('main').innerHTML = '<div style="padding:60px 40px;text-align:center;"><div style="font-size:48px;margin-bottom:16px;">🔒</div><h2 style="font-family:var(--d);margin-bottom:10px;">Full library access required</h2><p style="color:var(--sub);margin-bottom:24px;">This mechanic is part of the full Mechanics Playbook.</p><button onclick="showLoginModal()" style="padding:12px 24px;background:var(--text);color:var(--bg);border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;">Enter access password</button><br><br><a href="mechanics.html" style="font-size:13px;color:var(--muted);">← Back to mechanics</a></div>';
+    }
+  }, 200);
+}
+if (!m) { document.getElementById('root').innerHTML = '<div class="wrap page"><p>Mechanic not found.</p></div>'; }
+else {
+  document.title = m.name + ', Mechanics Playbook';
+  const relApps = m.apps.map(aid => getApp(aid)).filter(Boolean);
+  const pairedMs = m.paired.map(pid => getMechanic(pid)).filter(Boolean);
+  const plLabels = { achiever:'Achiever', explorer:'Explorer', socializer:'Socializer', competitor:'Competitor' };
+  const catColors = { retention:'var(--blue)', monetization:'var(--orange)', social:'var(--green)' };
 
-<div class="wrap">
+  document.getElementById('root').innerHTML = `
+  <div class="detail-head">
+    <div class="wrap">
       <div class="breadcrumb"><a href="mechanics.html">Mechanics</a> › <span>${m.name}</span></div>
       <div class="detail-meta">
         <span class="badge badge-${m.cat}">${m.cat.charAt(0).toUpperCase()+m.cat.slice(1)}</span>
@@ -173,7 +197,7 @@
         </div>` : ''}
 
         <div class="sbox">
-          <h3>User types</h3>
+          <h3>Player types</h3>
           <div style="display:flex;flex-direction:column;gap:8px;">
             ${['achiever','explorer','socializer','competitor'].map(pt => {
               const active = m.players.includes(pt);
@@ -214,6 +238,7 @@ function toggleNav() {
   drawer.classList.toggle('open');
   document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
 }
+// Close drawer on link click
 document.querySelectorAll('.nav-drawer a').forEach(a => {
   a.addEventListener('click', () => {
     document.getElementById('nav-hamburger').classList.remove('open');
@@ -221,9 +246,21 @@ document.querySelectorAll('.nav-drawer a').forEach(a => {
     document.body.style.overflow = '';
   });
 });
+
+function toggleDD(id){
+  document.querySelectorAll('.nav-item').forEach(function(el){
+    if(el.id!==id) el.classList.remove('open');
+  });
+  var item = document.getElementById(id);
+  if(item) item.classList.toggle('open');
+}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('.nav-item')){
+    document.querySelectorAll('.nav-item').forEach(function(el){ el.classList.remove('open'); });
+  }
+});
 </script>
-<script src="data.js"></script>
-<script src="auth.js"></script>
+
 <script>
 (function() {
   function addAuthNav() {
@@ -238,6 +275,7 @@ document.querySelectorAll('.nav-drawer a').forEach(a => {
     } else {
       wrap.innerHTML = '<button onclick="showLoginModal()" style="font-family:var(--d,system-ui);font-size:13px;font-weight:600;padding:11px 20px;background:var(--text,#0a0a0a);color:white;border:none;border-radius:7px;cursor:pointer;">Log in</button>';
     }
+    // Insert before hamburger
     const burger = navInner.querySelector('.nav-hamburger');
     navInner.insertBefore(wrap, burger || null);
   }
