@@ -42,7 +42,7 @@
 .report-chapter { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; }
 .report-chapter-head { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
 .report-chapter-num { font-family: var(--d); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
-.report-chapter-name { font-family: var(--d); font-size: 14px; font-weight: 700; letter-spacing: -.01em; }
+.report-chapter-name { font-family: var(--d); font-size: 14px; font-weight: 700; letter-spacing: -.01em; color: var(--text); }
 .report-chapter-desc { font-size: 13px; color: var(--sub); line-height: 1.65; }
 
 /* ── CTA CARD ───────────────────────────────────────────── */
@@ -179,7 +179,7 @@
   <!-- HERO -->
   <div class="rp-hero">
     <div class="rp-eyebrow">Category Report &middot; 2026</div>
-    <h1 class="rp-title">Gamification in Finance Apps</h1>
+    <h1 class="rp-title">Gamification for Finance Apps</h1>
     <p class="rp-desc">Finance apps have functional depth and largely unused engagement infrastructure. We analyzed 10 apps across personal finance, neobanks, and traditional banking to document what the category offers, what gamification mechanics it applies, and what it is consistently leaving on the table.</p>
     <div class="rp-hero-meta">
       <div class="rp-meta-item"><div class="rp-meta-n">10</div><div class="rp-meta-l">apps analyzed</div></div>
@@ -248,45 +248,76 @@
       <div>
         <div class="report-overview-title">What the report covers</div>
 
-        <div class="report-chapter">
+        <a href="report-finance-intro.html" class="report-chapter" style="display:block;text-decoration:none;transition:border-color .15s,box-shadow .15s;" onmouseover="this.style.borderColor='var(--text)';this.style.boxShadow='0 2px 12px rgba(0,0,0,.06)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
           <div class="report-chapter-head">
-            <div class="report-chapter-num">Chapter 1</div>
-            <div class="report-chapter-name">Finance App Features</div>
+            <div class="report-chapter-num">Introduction</div>
+            <div class="report-chapter-name">What we set out to understand</div>
           </div>
-          <div class="report-chapter-desc">15 functional features catalogued across all 10 apps, from expense categorization and budget management to exchange rate alerts and onboarding depth. Each feature entry documents what we observed, where implementations differ, and where the most notable examples are.</div>
-        </div>
+          <div class="report-chapter-desc">10 apps analyzed across expense trackers, personal finance, neobanks, and traditional banking. Four gamification mechanics observed across the entire category. Seven apps with zero.</div>
+        </a>
 
-        <div class="report-chapter">
+        <a href="report-finance-wallet.html" class="report-chapter" style="display:block;text-decoration:none;transition:border-color .15s,box-shadow .15s;" onmouseover="this.style.borderColor='var(--text)';this.style.boxShadow='0 2px 12px rgba(0,0,0,.06)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
           <div class="report-chapter-head">
-            <div class="report-chapter-num">Chapter 2</div>
-            <div class="report-chapter-name">Gamification Mechanics Observed</div>
+            
+            <div class="report-chapter-name">Top of wallet</div>
           </div>
-          <div class="report-chapter-desc">Of the 22 mechanics in the Mechanics Playbook framework, 4 appear in this category. In each case implementation is shallow relative to what the same mechanic achieves in other app categories. 7 of the 10 apps we analyzed have zero gamification mechanics present.</div>
-        </div>
+          <div class="report-chapter-desc">Making your app the account a user thinks of first: where salary lands, where bills are paid, where the card comes out automatically. Features and mechanics for building the daily return habit.</div>
+        </a>
 
-        <div class="report-chapter">
+        <a href="report-finance-retention.html" class="report-chapter" style="display:block;text-decoration:none;transition:border-color .15s,box-shadow .15s;" onmouseover="this.style.borderColor='var(--text)';this.style.boxShadow='0 2px 12px rgba(0,0,0,.06)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
           <div class="report-chapter-head">
-            <div class="report-chapter-num">Chapter 3</div>
-            <div class="report-chapter-name">Gamification Opportunities</div>
+            
+            <div class="report-chapter-name">Loyalty and retention</div>
           </div>
-          <div class="report-chapter-desc">16 mechanics ranked by the novelty they would bring to the finance category. Each includes what makes it work, where it breaks down, concrete application ideas for finance products, and the prerequisites worth thinking through before building it.</div>
-        </div>
+          <div class="report-chapter-desc">Keeping the relationship active and valued over months and years. Progression systems, milestone collections, and long-horizon mechanics that reward accumulated behavior.</div>
+        </a>
+
+        <a href="report-finance-savings.html" class="report-chapter" style="display:block;text-decoration:none;transition:border-color .15s,box-shadow .15s;" onmouseover="this.style.borderColor='var(--text)';this.style.boxShadow='0 2px 12px rgba(0,0,0,.06)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+          <div class="report-chapter-head">
+            
+            <div class="report-chapter-name">Savings behavior</div>
+          </div>
+          <div class="report-chapter-desc">Building genuine saving habits rather than passive balance growth. Mechanics that make saving feel like progress before it feels like discipline.</div>
+        </a>
+
+        <a href="report-finance-literacy.html" class="report-chapter" style="display:block;text-decoration:none;transition:border-color .15s,box-shadow .15s;" onmouseover="this.style.borderColor='var(--text)';this.style.boxShadow='0 2px 12px rgba(0,0,0,.06)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+          <div class="report-chapter-head">
+            
+            <div class="report-chapter-name">Financial literacy</div>
+          </div>
+          <div class="report-chapter-desc">Teaching through behavior rather than through content. Using the transaction stream as the primary teaching surface rather than a lesson library.</div>
+        </a>
+
+        <a href="report-finance-family.html" class="report-chapter" style="display:block;text-decoration:none;transition:border-color .15s,box-shadow .15s;" onmouseover="this.style.borderColor='var(--text)';this.style.boxShadow='0 2px 12px rgba(0,0,0,.06)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+          <div class="report-chapter-head">
+            
+            <div class="report-chapter-name">Family and household</div>
+          </div>
+          <div class="report-chapter-desc">Extending the financial relationship beyond the individual user. The most neglected dimension in the category and the strongest structural retention driver available.</div>
+        </a>
+
+        <a href="report-finance-takeaways.html" class="report-chapter" style="display:block;text-decoration:none;transition:border-color .15s,box-shadow .15s;" onmouseover="this.style.borderColor='var(--text)';this.style.boxShadow='0 2px 12px rgba(0,0,0,.06)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+          <div class="report-chapter-head">
+            <div class="report-chapter-num">Takeaways</div>
+            <div class="report-chapter-name">Decision guide</div>
+          </div>
+          <div class="report-chapter-desc">Five starting points, one per goal. The highest-leverage mechanics, the prerequisite that gates each one, and what success looks like in measurable terms.</div>
+        </a>
       </div>
 
-      <!-- CTA CARD -->
+            <!-- CTA CARD -->
       <div>
         <div class="cta-card">
           <div class="cta-card-eyebrow">Full Report</div>
-          <div class="cta-card-title">Gamification in Finance Apps 2026</div>
+          <div class="cta-card-title">Gamification for Finance Apps 2026</div>
           <div class="cta-card-desc">The complete single-page report with all features, observations, and opportunities. Includes the floating table of contents and all app-level examples.</div>
           <div class="cta-card-stats">
             <div class="cta-stat"><div class="cta-stat-n">15</div><div class="cta-stat-l">Finance app features</div></div>
             <div class="cta-stat"><div class="cta-stat-n">4</div><div class="cta-stat-l">Mechanics observed</div></div>
-            <div class="cta-stat"><div class="cta-stat-n">16</div><div class="cta-stat-l">Opportunities</div></div>
+            <div class="cta-stat"><div class="cta-stat-n">5</div><div class="cta-stat-l">Goal chapters</div></div>
             <div class="cta-stat"><div class="cta-stat-n">10</div><div class="cta-stat-l">Apps analyzed</div></div>
           </div>
-          <a href="report-finance-full.html" class="cta-btn">Read the full report</a>
-          <a href="report-finance.html" class="cta-btn-secondary">Open tabbed version</a>
+          <a href="report-finance-intro.html" class="cta-btn">Start reading</a>
         </div>
       </div>
 

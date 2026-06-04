@@ -7,7 +7,7 @@ const MP_KEY = 'mp_unlocked';
 
 // Free tier: what's visible without login
 const FREE = {
-  mechanics:   ['streak', 'season-pass', 'leaderboards'],
+  mechanics:   ['streak'],
   casestudies: ['royal-match'],
   systems:     ['royal-match'],
   cheatsheets: ['launching-streak'],
