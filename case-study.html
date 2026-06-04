@@ -273,6 +273,9 @@
   <main class="bd-content" id="bd-content"></main>
 </div>
 
+
+<script src="data.js"></script>
+<script src="auth.js"></script>
 <script>
 const appId = new URLSearchParams(location.search).get('id');
 const app = getApp(appId);
@@ -508,8 +511,6 @@ document.querySelectorAll('.nav-drawer a').forEach(a => {
   });
 });
 </script>
-<script src="data.js"></script>
-<script src="auth.js"></script>
 <script>
 function toggleNav() {
   const btn = document.getElementById('nav-hamburger');
