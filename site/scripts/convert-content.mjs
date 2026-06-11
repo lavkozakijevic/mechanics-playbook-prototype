@@ -178,7 +178,19 @@ const ADDITIONS = {
   ],
   "clash-of-clans": [{ id: "gifting", depth: "supporting" }],
   "fc-mobile": [{ id: "first-purchase-bonus", depth: "supporting" }],
+  "picsart": [{ id: "credits-tokens", depth: "supporting" }],
+  "steam": [{ id: "credits-tokens", depth: "supporting" }],
 };
+// Corrections ruling for Strava: its clubs are community-groups, not
+// clans-guilds. The analysis classifies them as clans-guilds; the ruling
+// overrides, keeping the existing community-groups write-up from v44.
+const REMAPS = {
+  "strava": { "clans-guilds": "community-groups" },
+};
+// Strava's unrecognized "hard-currency" section is about the subscription
+// model and explicitly says it does NOT map to hard currency — exclude it
+// from the currency harvest. (Flagged in the content questions list.)
+const HARVEST_EXCLUDE = new Set(["hard-currency|strava"]);
 // Harvested currency relationships (corrections §4): unrecognized-section
 // observations. Depth is not graded in those sections; "supporting" is a
 // provisional value flagged for review in the Stage 1 notes.
@@ -218,6 +230,13 @@ const ALL_APPS = [
   { file: "ladder.md", id: "ladder", visibility: "subscriber" },
   { file: "liftoff.md", id: "liftoff", visibility: "subscriber" },
   { file: "match-creek-motors.md", id: "match-creek-motors", visibility: "subscriber" },
+  // Batch 4 (analysis file IDs differ for two: star-wars-swgoh.md → "swgoh",
+  // steam.md says "steam-ios" → v44 id is "steam")
+  { file: "picsart.md", id: "picsart", visibility: "subscriber" },
+  { file: "solitaire-grand-harvest.md", id: "solitaire-grand-harvest", visibility: "subscriber" },
+  { file: "star-wars-swgoh.md", id: "swgoh", visibility: "subscriber" },
+  { file: "steam.md", id: "steam", visibility: "subscriber" },
+  { file: "strava.md", id: "strava", visibility: "subscriber" },
 ];
 
 fs.rmSync(path.join(out, "apps"), { recursive: true, force: true });
@@ -231,11 +250,12 @@ for (const entry of ALL_APPS) {
   const sys = SYSTEMS.find((s) => s.app_id === entry.id) ?? null;
 
   // relationship set
-  const rels = [...a.observed];
+  const rels = a.observed.map((r) => ({ ...r, id: REMAPS[entry.id]?.[r.id] ?? r.id }));
   for (const add of ADDITIONS[entry.id] ?? []) {
     if (!rels.some((r) => r.id === add.id)) rels.push(add);
   }
   for (const u of a.unrecognized) {
+    if (HARVEST_EXCLUDE.has(u + "|" + entry.id)) continue;
     if ((u === "hard-currency" || u === "soft-currency") && !rels.some((r) => r.id === u)) {
       rels.push({ id: u, depth: CURRENCY_DEPTH, provisionalDepth: true });
     }

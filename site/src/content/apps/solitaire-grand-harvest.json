@@ -1,0 +1,256 @@
+{
+  "id": "solitaire-grand-harvest",
+  "name": "Solitaire Grand Harvest",
+  "category": "Casual Game",
+  "type": "game",
+  "visibility": "subscriber",
+  "analysisDate": "2026-04-03",
+  "lastUpdated": "2026-05-15",
+  "summary": "Solitaire Grand Harvest runs two simultaneous daily reward systems, a piggy bank that seeds itself at introduction, and five concurrent limited-time events at peak session depth. The win multiplier system links stake size to reward quality across every downstream system, card pack tier, gem yield, and event prize scale all rise together when the player chooses a higher multiplier.",
+  "icon": "/icons/solitaire-grand-harvest.png",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "daily-login-reward",
+      "depth": "core",
+      "writeup": {
+        "observed": "Two distinct daily reward systems operate simultaneously. The daily goodies calendar (introduced after level 3): a 4-week calendar showing upcoming rewards, with Sam delivering a popup claiming each day's reward, Day 1: 2,500 coins and 6 undos; Day 2: 5,000 credits and 3 free rounds. A separate farm delivery bonus: 'Deliver farm goods to collect your daily bonus,' scaling upward with farm expansion, the first bonus was 1,000 credits.",
+        "presented": "The daily goodies popup appears proactively after a level completes, framed through the Sam character. The 4-week calendar structure shows upcoming rewards. The farm delivery bonus appears as a separate popup tied to farm interaction.",
+        "noting": "The farm delivery bonus scaling with farm expansion creates a compounding daily reward, the more the player has invested in the farm meta-loop, the more their daily login is worth. This gives the farm meta-loop a direct daily economic output, making farm investment feel doubly rewarding: aesthetically and economically.",
+        "findings": [
+          "Two distinct daily reward systems run simultaneously, the login calendar and the farm delivery bonus, creating two separate daily claim interactions.",
+          "The farm delivery bonus scales with farm expansion, giving the meta-loop a direct daily economic return and incentivizing farm investment beyond the aesthetic reward.",
+          "The 4-week calendar structure shows upcoming rewards, creating a visible investment horizon that motivates consecutive daily returns."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "The daily goodies popup with Sam showing the 4-week reward calendar and the Day 1 reward (2,500 coins, 6 undos) ready to collect",
+        "The farm delivery bonus popup explaining \"deliver farm goods to collect your daily bonus\" and \"expand the harvest valley to increase your daily delivery bonus\""
+      ]
+    },
+    {
+      "id": "variable-reward",
+      "depth": "core",
+      "writeup": {
+        "observed": "Three variable reward surfaces operate simultaneously. Lucky Wheel (introduced after level 18): first spin free, segments including 2,000 / 3,000 / 5,000 / 12,000 credits, 2 wild cards, 2 double credits, 24-hour rocket, 3 free rounds. The second spin is offered for $2.99 immediately after the free spin resolves, with higher-value segments. Card packs (from level ~36): tiered by win multiplier (x1 green, x2 blue, x4 purple), delivered with an unwrapping animation, revealing named collection cards with variable crown values. Crop Master crate (after level 46): pick four items from a grid of 20 for prizes.",
+        "presented": "The Lucky Wheel appears as a popup mid-session. Card packs are awarded at level completion. The Crop Master crate appears after crop milestone completion. All three surfaces are introduced progressively at different level thresholds.",
+        "noting": "The Lucky Wheel $2.99 second-spin offer is presented while the result of the free spin is still on screen, a direct upsell at the moment of maximum engagement with the mechanic. Card packs are tiered by bet multiplier, linking stake size to variable reward quality across every level.",
+        "findings": [
+          "The Lucky Wheel $2.99 second-spin offer appears immediately after the free spin resolves, while the result is still visible, the upsell is presented at peak engagement with the mechanic.",
+          "Card pack quality is determined by win multiplier, x1 green, x2 blue, x4 purple, linking stake size to variable reward quality across every level.",
+          "A 'legendary card' pull during analysis delivered an additional 2,000 credits embedded within the card, a reward-within-a-reward structure making high-rarity pulls feel meaningfully different.",
+          "The Crop Master crate uses pick-from-grid mechanics rather than a spin wheel, providing a different variable reward interaction alongside the wheel and pack surfaces."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Lucky Wheel showing all segments with the free-spin result visible, and the $2.99 paid second-spin offer appearing immediately after",
+        "Card pack unwrap animation showing revealed cards going into the grand album collection with crown values visible"
+      ]
+    },
+    {
+      "id": "limited-time-events",
+      "depth": "core",
+      "writeup": {
+        "observed": "Five simultaneous events were active at peak session depth: Cheese Rally, Grand Puzzle, Grand Emblems, Bloomlight Garden Season (farm seasonal event), and My Trail. The 30-minute rotating purchase offers appear in the top-right corner with countdown timers. The Cheese Rally is a racing event with completion tiers. Grand Emblems accumulated through play without the analyst explicitly tracking them, 4 grand emblems were accumulated without noticing the mechanic that produced them.",
+        "presented": "Events are accessible as icons in a left-side strip during gameplay. The 30-minute rotating purchase offers appear in the top-right corner, refreshing with a countdown timer. Event icons and offer timers are simultaneously visible.",
+        "noting": "Each event operates on a different cadence, 30-minute offers create micro-urgency; the seasonal farm event runs across months; My Trail progresses with level completion. The overlapping cadences create perpetual return pressure without any single event dominating.",
+        "findings": [
+          "Five simultaneous events were running at peak session depth, the transcript noted 'I have no idea how I got them but I did' for four accumulated grand emblems, indicating some mechanics operate below conscious awareness.",
+          "30-minute rotating purchase offers create micro-urgency at the session level separate from longer-cadence event timers.",
+          "Three sequential purchase offers appeared automatically when credits ran low during an active level, the most direct triggered monetization moment observed in the library.",
+          "The multiplier system links stake to event prize tier, Cheese Rally prizes scale with the selected multiplier, making stake choice affect event reward as well as level reward."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "The left-side event icon strip showing simultaneous Cheese Rally, Grand Puzzle, Grand Emblems, and pet icons alongside the main farm view",
+        "The 30-minute timed offer popup for One Plus Five showing countdown, labeled rewards, and the \"max one purchase\" note",
+        "Mid-level popup sequence showing all three purchase options (One Plus Three, Triple Farm Fun, store) opening in sequence as the credit balance ran low"
+      ]
+    },
+    {
+      "id": "piggy-bank",
+      "depth": "core",
+      "writeup": {
+        "observed": "Peggy is introduced at level 18 with a seeding deposit of 4,050 credits already loaded, giving the bank immediate visible value before the player has done anything to earn it. It fills automatically with every level played, win or lose, capping at 35,000 credits. At the cap, $3.99 unlocks the accumulated amount. Once capped, Peggy becomes a persistent non-dismissible presence with a two-day countdown timer.",
+        "presented": "Peggy surfaces as a persistent screen element after reaching her cap. The cap indicator is visible throughout the session. When Peggy takes the position held by 30-minute rotating purchase offers, she appears most prominently after each level completion.",
+        "noting": "The seeded starting deposit accelerates the endowment effect, the bank already feels partially yours before a single level is played. By the time it caps at 35,000 credits, the $3.99 unlock feels like reclaiming what play has already earned rather than a store purchase. The non-dismissible presence at cap creates persistent visual pressure without additional prompting.",
+        "findings": [
+          "The bank is seeded with 4,050 credits at introduction ('your first credit deposit is on us'), ensuring the balance is non-zero and visibly growing from the first moment.",
+          "The bank fills automatically on every level played, win or lose, accumulation is tied to engagement rather than success.",
+          "At the cap, Peggy displaces the rotating 30-minute purchase offers in the UI, becoming the most prominent purchase prompt on screen until unlocked.",
+          "A separate 'Peggy's Deal' product offers 'extra benefits with every Peggy purchase', a meta-subscription layered on top of the core bank mechanic."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Peggy visible in the top-right corner, fat and maxed out, with the balance showing 35,000 credits and the \"Peggy just got maxed out\" message",
+        "The Peggy introduction screen with \"Win or lose any solitaire level, Peggy will add bonus credits to your savings. Collect your savings for a great price\" and the $3.99 price"
+      ]
+    },
+    {
+      "id": "set-collection",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "The Grand Album Collection contains named card sets, each with multiple cards. Cards are acquired through card packs (tiered by win multiplier), Lucky Wheel prizes, and level completion. Each card has a crown value (1-crown, 2-crown, 5-crown). A 'legendary card' is a distinct rarity tier with an embedded bonus reward (2,000 credits in the observed pull). Named card sets observed: Leaf Legend, Lily Fountain, Celestial Sigils, Floral Lantern, Spider Key.",
+        "presented": "The collection grid shows named card sets with visible completion gaps. Card pack opening is animated. Crown value displays on each card.",
+        "noting": "Tying card pack quality to the win multiplier links collection progression directly to the bet-sizing mechanic, players who choose higher multipliers not only earn more credits per win but also advance the collection faster. This creates a compounding incentive to bet higher.",
+        "findings": [
+          "Card pack tier is determined by the win multiplier, x1 yields green (common) packs, x2 blue (uncommon), x4 purple (rare), directly linking bet size to collection advancement speed.",
+          "A 'legendary card' rarity tier delivers an embedded bonus (2,000 credits), a reward-within-a-reward structure that distinguishes high-rarity pulls functionally, not just visually.",
+          "Named card sets give the collection thematic coherence, making the gaps feel like named missing items rather than anonymous missing slots."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Grand Spring Album screen showing all 12 named set thumbnails, the 610,000 credit grand prize, and the cat badge",
+        "Crown Center showing current crown balance, and the three reward tiers: 150 crowns for 5k credits, 250 for boosters, 500 for golden pack"
+      ]
+    },
+    {
+      "id": "season-pass",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": [
+        "Bloomlight Garden Season chapter view showing Chapter 1 tasks (Garden Gate, Winged Door, Floral Fence, Beetle Paths) with gem costs and the 300,000-credit grand prize banner"
+      ]
+    },
+    {
+      "id": "xp-leveling",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": [
+        "Farm XP bar at 30% with \"earn XP by completing tasks, level up to unlock new areas\" message visible"
+      ]
+    },
+    {
+      "id": "achievements",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": [
+        "Player profile showing level, crop, first-try wins, longest card streak, longest win streak, and the locked stats with level requirements"
+      ]
+    },
+    {
+      "id": "soft-currency",
+      "depth": "supporting",
+      "provisionalDepth": true,
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "hard-currency",
+      "depth": "supporting",
+      "provisionalDepth": true,
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "A casual game where a single bet-multiplier decision affects five downstream reward variables simultaneously.",
+    "overview": "Solitaire Grand Harvest layers the highest density of simultaneous event systems observed in the library, five concurrent events, two daily reward tracks, a seeded piggy bank, 30-minute rotating purchase offers, and a win multiplier that links stake size to reward quality across every downstream system. The win multiplier is the organizing logic: choosing a higher bet increases coin yield, card pack quality, and event prize scale all at once.",
+    "loop": "The core loop is: choose a bet multiplier → play solitaire → earn coins and gems → receive a card pack (quality determined by multiplier) → spin the Lucky Wheel → claim two daily login rewards → check five simultaneous events → visit Peggy the piggy bank → upgrade the farm. The multiplier decision is also a decision about card pack quality, event prize tier, and credit depletion speed.",
+    "keyInsight": "The win multiplier is the most elegant design decision. Choosing x4 costs six times more credits per level but simultaneously increases coin yield, card pack quality (common → rare), and event prize tier. The single bet-sizing decision affects five downstream variables, every level start is a compound investment choice.",
+    "whatMakesItWork": "The system eliminates unproductive sessions. A failed level still fills the piggy bank and advances five events. There is no session where nothing happens, the structure ensures forward movement across at least one axis regardless of gameplay outcome.",
+    "roles": [
+      {
+        "id": "piggy-bank",
+        "role": "Seeded with 4,050 credits at introduction, the endowment effect begins before a single level is played. Fills win or lose, caps at 35,000, then becomes the most prominent purchase prompt on screen."
+      },
+      {
+        "id": "variable-reward",
+        "role": "Lucky Wheel (free once, $2.99 second spin), card packs tiered by multiplier, and Crop Master pick-from-grid, three distinct variable reward surfaces with different interaction shapes."
+      },
+      {
+        "id": "limited-time-events",
+        "role": "Five simultaneous events operating on cadences from 30-minute rotating offers to months-long farm seasons, the most concurrent event systems in the library."
+      },
+      {
+        "id": "set-collection",
+        "role": "Card pack quality determined by bet multiplier, x1 yields common packs, x4 yields rare packs, linking stake size to collection advancement speed."
+      },
+      {
+        "id": "daily-login-reward",
+        "role": "Two simultaneous daily reward systems: a 4-week calendar and a farm delivery bonus that scales with farm expansion, the more invested the player, the more valuable the daily login."
+      },
+      {
+        "id": "energy-lives",
+        "role": "Credits are the energy equivalent. Three sequential purchase offers appeared automatically when credits ran low inside an active level, the most direct triggered monetization in the library."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 6,
+      "label": "SOLITAIRE GH"
+    },
+    "nodes": [
+      {
+        "id": "piggy-bank",
+        "x": 50,
+        "y": 24
+      },
+      {
+        "id": "variable-reward",
+        "x": 20,
+        "y": 46
+      },
+      {
+        "id": "limited-time-events",
+        "x": 80,
+        "y": 46
+      },
+      {
+        "id": "set-collection",
+        "x": 20,
+        "y": 68
+      },
+      {
+        "id": "daily-login-reward",
+        "x": 80,
+        "y": 68
+      },
+      {
+        "id": "energy-lives",
+        "x": 50,
+        "y": 88
+      }
+    ],
+    "connections": [
+      {
+        "from": "piggy-bank",
+        "to": "energy-lives",
+        "title": "Piggy bank resolves credit depletion",
+        "desc": "When credits run low inside an active level, the moment of highest purchase motivation, the capped piggy bank is the most visible alternative to direct credit purchase.",
+        "effect": "The piggy bank frames the monetization moment as claiming what the player already earned rather than making a new purchase, reducing psychological resistance at depletion."
+      },
+      {
+        "from": "variable-reward",
+        "to": "set-collection",
+        "title": "Multiplier determines pack quality",
+        "desc": "Card pack quality is determined by the bet multiplier, x1 yields common packs, x4 yields rare. The stake decision and the collection advancement rate are directly linked.",
+        "effect": "Players motivated by collection completion have a concrete incentive to increase their multiplier, which also increases credit depletion speed."
+      },
+      {
+        "from": "limited-time-events",
+        "to": "energy-lives",
+        "title": "Events scale prizes with multiplier",
+        "desc": "Event prizes scale with the selected bet multiplier. Higher multipliers mean faster credit depletion and better event rewards simultaneously.",
+        "effect": "Events give players an additional reason to bet higher, compounding the stake decision across both the collection system and event rewards."
+      },
+      {
+        "from": "daily-login-reward",
+        "to": "piggy-bank",
+        "title": "Daily returns fill the piggy bank",
+        "desc": "The farm delivery bonus requires daily return to maximize value. The piggy bank fills with every level played during those daily sessions.",
+        "effect": "A player who returns daily for the login reward is also filling the piggy bank, making the eventual unlock feel more earned with each visit."
+      }
+    ]
+  }
+}
