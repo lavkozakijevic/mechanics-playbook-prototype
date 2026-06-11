@@ -1,22 +1,12 @@
 ---
 import Base from "../../layouts/Base.astro";
+import { WorkWithUsPage } from "../../components/site/WorkWithUs.jsx";
 ---
 
 <Base
   title="Work with us — Mechanics Playbook"
-  description="We help product teams apply the mechanics from the library to their own products. Workshops, sprints, and ongoing advisory."
+  description="We help product teams turn engagement into retention and conversion, using mechanics proven across the world's best apps and games."
   current="work"
 >
-  <main id="main">
-    <section class="band lib-head" style="padding-block:clamp(48px,6vw,80px)">
-      <div class="container" style="max-width:640px">
-        <div class="eyebrow lib-head__eyebrow">Consulting</div>
-        <h1>Work with us</h1>
-        <p style="font:var(--type-body-lg);color:var(--text-secondary);margin-bottom:32px">
-          We study how the best apps keep their users, and help your team apply the same patterns to your product. Workshops, design sprints, and ongoing advisory.
-        </p>
-        <a class="gb-btn gb-btn--primary" href="mailto:hello@gamebiz.co">Get in touch →</a>
-      </div>
-    </section>
-  </main>
+  <WorkWithUsPage />
 </Base>

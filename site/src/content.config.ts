@@ -90,6 +90,7 @@ const settings = defineCollection({
     showcaseSystem: z.string(),
     featuredMechanics: z.array(z.string()),
     cheatsheetCount: z.number(),
+    iconStripApps: z.array(z.string()),
   }),
 });
 
@@ -97,6 +98,7 @@ const cheatsheets = defineCollection({
   loader: glob({ pattern: "*.json", base: "./src/content/cheatsheets" }),
   schema: z.object({
     id: z.string(),
+    n: z.number(),
     title: z.string(),
     desc: z.string(),
     mechanics: z.array(z.string()),

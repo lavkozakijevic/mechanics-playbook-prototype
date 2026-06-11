@@ -95,6 +95,24 @@ test.describe("navigation works", () => {
     await page.locator('a[href^="/case-studies/"]:not([href="/case-studies/"])').first().click();
     await expect(page.locator("h1")).toBeVisible();
   });
+
+  test("every nav link resolves to a built page", async ({ page }) => {
+    await page.goto("/");
+    const hrefs = await page
+      .locator("header a[href^='/']")
+      .evaluateAll((els) => [...new Set(els.map((e) => e.getAttribute("href")!))]);
+    expect(hrefs.length).toBeGreaterThan(5);
+    for (const href of hrefs) {
+      const res = await page.request.get(href);
+      expect(res.status(), `${href} should resolve`).toBe(200);
+    }
+  });
+
+  test("an unknown URL shows the 404 page", async ({ page }) => {
+    const res = await page.goto("/mechanics/nonsense/");
+    expect(res!.status()).toBe(404);
+    await expect(page.locator("h1")).toContainText("isn't in the library");
+  });
 });
 
 test.describe("report-only isolation", () => {

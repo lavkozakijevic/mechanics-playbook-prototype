@@ -27,7 +27,13 @@ const carousel = spotlightApp.mechanics
     title: `How ${spotlightApp.name} uses ${byId.get(r.id)?.name ?? r.id}`,
   }));
 
-const logoApps = apps.map((a) => ({ name: a.data.name, mark: initials(a.data.name) }));
+// Curated icon strip — the list lives in settings/homepage.json (editorial),
+// validated against report-only leaks before every build.
+const appById = new Map(apps.map((a) => [a.data.id, a.data]));
+const logoApps = settings.iconStripApps
+  .map((id) => appById.get(id))
+  .filter(Boolean)
+  .map((a) => ({ name: a!.name, mark: initials(a!.name), iconSrc: a!.icon }));
 
 const stats = {
   caseStudies: apps.length,

@@ -8,8 +8,11 @@ interface Props {
   description: string;
   current?: string;
   newsletter?: boolean;
+  /** false renders the page without nav/footer — the design's standalone
+   *  pages (log in) carry their own brand mark instead of the chrome. */
+  chrome?: boolean;
 }
-const { title, description, current, newsletter = true } = Astro.props;
+const { title, description, current, newsletter = true, chrome = true } = Astro.props;
 const updated = formatDate(await lastUpdated());
 ---
 
@@ -26,9 +29,9 @@ const updated = formatDate(await lastUpdated());
     <link rel="preload" href="/assets/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin />
   </head>
   <body>
-    <SiteNav client:load current={current} />
+    {chrome && <SiteNav client:load current={current} />}
     <slot />
-    {newsletter && <NewsletterBlock client:visible />}
-    <SiteFooter lastUpdated={updated} />
+    {chrome && newsletter && <NewsletterBlock client:visible />}
+    {chrome && <SiteFooter lastUpdated={updated} />}
   </body>
 </html>

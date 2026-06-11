@@ -1,5 +1,6 @@
 {
   "id": "social-cold-start",
+  "n": 3,
   "title": "Solving the Social Cold Start",
   "desc": "How to build enough social density to make social mechanics feel worth engaging with from day one.",
   "mechanics": [

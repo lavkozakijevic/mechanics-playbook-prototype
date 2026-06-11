@@ -1,5 +1,6 @@
 {
   "id": "daily-login-reward",
+  "n": 4,
   "title": "Designing a Daily Login Reward",
   "desc": "How to structure a daily reward system that creates return habit without training users to open, collect, and leave.",
   "mechanics": [

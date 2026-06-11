@@ -1,59 +1,86 @@
 ---
+// Cheatsheets index — design bundle Cheatsheets.jsx (csc cards, cs-head,
+// cs-bar). The design's "more coming" notice is omitted: its planned-topics
+// list was sample text and v44 has no real list (stage-0 Q13).
 import Base from "../../layouts/Base.astro";
 import { publishedCheatsheets, publishedMechanics } from "../../lib/content";
 
-const cheatsheets = await publishedCheatsheets();
+const cheatsheets = (await publishedCheatsheets()).sort((a, b) => a.data.n - b.data.n);
 const byId = new Map((await publishedMechanics()).map((m) => [m.data.id, m.data]));
 ---
 
 <Base
   title="Cheatsheets — Mechanics Playbook"
-  description="Practical step-by-step guides for implementing the mechanics that keep users coming back."
+  description="Quick, practical guides for putting a mechanic into your product, drawn from the apps in the library."
   current="cheatsheets"
 >
   <main id="main">
-    <section class="band--tight lib-head">
+    <section class="cs-head" aria-labelledby="cheat-h">
       <div class="container">
-        <div class="eyebrow lib-head__eyebrow">Practical guides</div>
-        <h1>Cheatsheets</h1>
-        <p>Step-by-step implementation guides for the mechanics that matter most. Each one distils the patterns from the case study library into actionable steps.</p>
+        <nav class="crumb" aria-label="Breadcrumb">
+          <a href="/mechanics/">Library</a>
+          <span class="crumb__sep" aria-hidden="true">/</span>
+          <span>Cheatsheets</span>
+        </nav>
+        <div class="eyebrow cs-head__eyebrow">The library</div>
+        <h1 id="cheat-h">Cheatsheets</h1>
+        <p class="cs-head__def">
+          Quick, practical guides for putting a mechanic into your product. Each one is a short
+          sequence of steps, drawn from the apps in the library, that takes you from the idea to a
+          version your team can build. Start with the free guide, the rest come with the full library.
+        </p>
       </div>
     </section>
 
-    <section class="band">
-      <div class="container">
-        <div class="csheet-grid">
-          {cheatsheets.map((cs) => {
-            const locked = cs.data.visibility !== "public";
-            const href = locked ? "/subscribe/" : `/cheatsheets/${cs.data.id}/`;
-            const mechTags = cs.data.mechanics.slice(0, 2).map((id) => byId.get(id));
-            return (
-              <a class:list={["csheet-card", locked && "csheet-card--locked"]} href={href}>
-                <div class="csheet-card__top">
-                  <h2 class="csheet-card__title">{cs.data.title}</h2>
-                  {locked && (
+    <div class="container cs-wrap">
+      <div class="cs-bar">
+        <span class="cs-bar__count"><b>{cheatsheets.length}</b> cheatsheets</span>
+        <span class="cs-bar__hint">Updated weekly</span>
+      </div>
+
+      <div class="csgrid">
+        {cheatsheets.map((cs) => {
+          const locked = cs.data.visibility !== "public";
+          const href = locked ? "/subscribe/" : `/cheatsheets/${cs.data.id}/`;
+          const tags = cs.data.mechanics.map((id) => byId.get(id)?.name).filter(Boolean).slice(0, 3);
+          return (
+            <a class:list={["csc", locked && "csc--locked"]} href={href}>
+              <div class="csc__top">
+                <span class="csc__index">Cheatsheet {String(cs.data.n).padStart(2, "0")}</span>
+                <span class="csc__badge">
+                  {locked ? (
                     <span class="gb-badge gb-badge--neutral gb-badge--outline">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:12px;height:12px;flex:none;margin-right:3px">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <rect x="4" y="11" width="16" height="10" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" />
                       </svg>
                       For subscribers
                     </span>
+                  ) : (
+                    <span class="gb-badge gb-badge--ok">Free</span>
                   )}
-                </div>
-                <p class="csheet-card__desc">{cs.data.desc}</p>
-                <div class="csheet-card__foot">
-                  <div class="csheet-card__tags">
-                    {mechTags.map((m) => m && (
-                      <span class:list={["gb-tag", `gb-tag--${m.cat}`]}>{m.name}</span>
-                    ))}
-                  </div>
-                  <span class="csheet-card__steps">{cs.data.steps.length} steps</span>
-                </div>
-              </a>
-            );
-          })}
-        </div>
+                </span>
+              </div>
+
+              <h3 class="csc__name">{cs.data.title}</h3>
+              <p class="csc__desc">{cs.data.desc}</p>
+
+              <div class="csc__tags">
+                {tags.map((t) => <span class="pillchip">{t}</span>)}
+              </div>
+
+              <div class="csc__foot">
+                <span class="csc__count"><b>{cs.data.steps.length}</b> steps</span>
+                <span class="csc__go">
+                  {locked ? "Subscribe to read" : "Open the guide"}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          );
+        })}
       </div>
-    </section>
+    </div>
   </main>
 </Base>

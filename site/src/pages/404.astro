@@ -1,0 +1,30 @@
+---
+// NOTE: the Claude Design bundle contains no 404 design (confirmed in
+// stage-0-report.md). This page reuses existing design-system patterns
+// (cs-head title block, gb-btn) pending a designed version.
+import Base from "../layouts/Base.astro";
+---
+
+<Base
+  title="Page not found — Mechanics Playbook"
+  description="The page you were looking for doesn't exist."
+  newsletter={false}
+>
+  <main id="main">
+    <section class="cs-head" aria-labelledby="nf-h">
+      <div class="container">
+        <div class="eyebrow cs-head__eyebrow">404</div>
+        <h1 id="nf-h">That page isn't in the library</h1>
+        <p class="cs-head__def">
+          The address may have changed, or the link may be wrong. Everything we publish is reachable from the library indexes below.
+        </p>
+      </div>
+    </section>
+    <section class="band--tight">
+      <div class="container" style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="gb-btn gb-btn--primary gb-btn--lg" href="/mechanics/">Browse the mechanics</a>
+        <a class="gb-btn gb-btn--secondary gb-btn--lg" href="/case-studies/">Browse the case studies</a>
+      </div>
+    </section>
+  </main>
+</Base>

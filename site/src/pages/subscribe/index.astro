@@ -1,28 +1,32 @@
 ---
 import Base from "../../layouts/Base.astro";
-import { publishedCheatsheets, publishedMechanics, publishedApps } from "../../lib/content";
+import { SubscribePage } from "../../components/site/Subscribe.jsx";
+import { publishedApps, publishedMechanics, publishedCheatsheets, publishedGlossary, formatDate } from "../../lib/content";
 
-const mechanics = await publishedMechanics();
 const apps = await publishedApps();
+const mechanics = await publishedMechanics();
 const cheatsheets = await publishedCheatsheets();
+const glossary = await publishedGlossary();
+
+// The design's "what's inside" counts, computed live (the design's sample
+// numbers were placeholders — stage-0 report).
+const inside = [
+  { count: String(apps.length), label: "App case studies", desc: "Full breakdowns, mechanic by mechanic, with annotated screenshots." },
+  { count: String(mechanics.length), label: "Mechanics", desc: "Every building block, with the psychology behind it and where it fits." },
+  { count: String(apps.filter((a) => a.data.system).length), label: "System maps", desc: "How each app's mechanics connect into the loops that bring players back." },
+  { count: String(cheatsheets.length), label: "Cheatsheets", desc: "Step-by-step guides your team can build straight from." },
+  { count: String(glossary.length), label: "Glossary terms", desc: "Plain-language definitions for every term the library uses." },
+];
+
+const newThisWeek = [...apps]
+  .sort((a, b) => (b.data.lastUpdated ?? "").localeCompare(a.data.lastUpdated ?? ""))
+  .slice(0, 3)
+  .map((a) => ({ title: `${a.data.name} case study`, date: formatDate(a.data.lastUpdated) }));
 ---
 
 <Base
   title="Subscribe — Mechanics Playbook"
-  description="Get full access to all case studies, mechanics, cheatsheets, and reports."
+  description="Full access to every case study, mechanic, system map, and cheatsheet. New apps added every week."
 >
-  <main id="main">
-    <section class="band lib-head" style="padding-block:clamp(48px,6vw,80px)">
-      <div class="container" style="max-width:640px">
-        <div class="eyebrow lib-head__eyebrow">Full access</div>
-        <h1>Every case study. Every mechanic. Every cheatsheet.</h1>
-        <p style="font:var(--type-body-lg);color:var(--text-secondary);margin-bottom:32px">
-          Subscriber access gives you the complete library: {apps.length} case studies, {mechanics.length} mechanics, {cheatsheets.length} cheatsheets, and every report — updated weekly.
-        </p>
-        <div class="subscribe-cta">
-          <p style="font:var(--type-body);color:var(--text-muted);margin-top:16px">Subscription details coming soon. <a href="mailto:hello@gamebiz.co">Get in touch</a> for early access.</p>
-        </div>
-      </div>
-    </section>
-  </main>
+  <SubscribePage client:load inside={inside} newThisWeek={newThisWeek} />
 </Base>

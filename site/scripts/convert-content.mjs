@@ -432,6 +432,14 @@ fs.writeFileSync(
       // Counted from v44 data.js at conversion time until cheatsheets migrate
       // in Stage 2 — computed, never hardcoded.
       cheatsheetCount: CHEATSHEETS.length,
+      // Curated homepage icon strip — the apps v44's index.html hardcoded
+      // (logoApps, 12 entries). Edit here, never in page code; validation
+      // refuses report-only or unknown ids.
+      iconStripApps: [
+        "royal-match", "clash-of-clans", "strava", "fc-mobile",
+        "capybara-go", "canva", "subway-surfers", "insight-timer",
+        "swgoh", "fiton", "tiimo", "ladder",
+      ],
     },
     null,
     2
@@ -447,9 +455,10 @@ function write(coll, id, obj) {
 // in stage-0-report.md: Streak mechanic, Royal Match case study, this cheatsheet).
 const FREE_CHEATSHEETS = new Set(["launching-streak"]);
 fs.mkdirSync(path.join(out, "cheatsheets"), { recursive: true });
-for (const cs of CHEATSHEETS) {
+for (const [i, cs] of CHEATSHEETS.entries()) {
   write("cheatsheets", cs.id, {
     id: cs.id,
+    n: i + 1, // display order = v44 data.js array order ("Cheatsheet 01" …)
     title: cs.title,
     desc: cs.desc,
     mechanics: cs.mechanics ?? [],

@@ -1,5 +1,6 @@
 {
   "id": "launching-streak",
+  "n": 1,
   "title": "Launching a Streak Mechanic",
   "desc": "Practical guidance for implementing a streak system that converts early usage into habitual return.",
   "mechanics": [

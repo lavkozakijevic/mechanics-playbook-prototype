@@ -1,6 +1,12 @@
 ---
+// Glossary item detail — design bundle GlossaryDetail.jsx (sheet-head title
+// block, "Where you see this in practice" MechanicCard grid, sidebar with
+// related mechanics and more terms). The category eyebrow derives from the
+// first related mechanic (v44 terms carry no category); terms with no
+// related mechanics show no category and no practice section.
 import Base from "../../layouts/Base.astro";
-import { publishedGlossary, publishedMechanics } from "../../lib/content";
+import { MechanicCard } from "../../components/ds/MechanicCard.jsx";
+import { publishedGlossary, publishedMechanics, CAT_LABEL, titleCase } from "../../lib/content";
 
 export async function getStaticPaths() {
   const all = await publishedGlossary();
@@ -9,9 +15,20 @@ export async function getStaticPaths() {
 
 const { g } = Astro.props;
 const mechById = new Map((await publishedMechanics()).map((m) => [m.data.id, m.data]));
-const otherTerms = (await publishedGlossary()).filter((x) => x.data.id !== g.data.id).slice(0, 6);
-
 const relMechanics = g.data.related.map((id) => mechById.get(id)).filter(Boolean);
+const cat = relMechanics[0]?.cat;
+
+const practice = relMechanics.map((m) => ({
+  number: Number(m.n),
+  category: m.cat,
+  name: m.name,
+  definition: m.tagline,
+  contextTags: (m.context ?? []).map(titleCase),
+  locked: m.visibility !== "public",
+  href: `/mechanics/${m.id}/`,
+}));
+
+const moreTerms = (await publishedGlossary()).filter((x) => x.data.id !== g.data.id).slice(0, 4);
 ---
 
 <Base
@@ -20,61 +37,44 @@ const relMechanics = g.data.related.map((id) => mechById.get(id)).filter(Boolean
   current="glossary"
 >
   <main id="main">
-    <section class="band--tight mech-head">
+    <section class="cs-head sheet-head" aria-labelledby="term-h">
       <div class="container">
         <nav class="crumb" aria-label="Breadcrumb">
-          <a href="/">Home</a><span class="crumb__sep">/</span>
-          <a href="/glossary/">Glossary</a><span class="crumb__sep">/</span>
+          <a href="/mechanics/">Library</a>
+          <span class="crumb__sep" aria-hidden="true">/</span>
+          <a href="/glossary/">Glossary</a>
+          <span class="crumb__sep" aria-hidden="true">/</span>
           <span>{g.data.term}</span>
         </nav>
-        <h1>{g.data.term}</h1>
+        <div class="sheet-head__slug">
+          <span class="eyebrow">Glossary term</span>
+          {cat && (
+            <>
+              <span class="sheet-head__dot" aria-hidden="true">·</span>
+              <span class="eyebrow eyebrow--muted">{CAT_LABEL[cat]}</span>
+            </>
+          )}
+        </div>
+        <h1 id="term-h">{g.data.term}</h1>
+        <p class="cs-head__def term-def">{g.data.def}</p>
       </div>
     </section>
 
     <div class="container">
       <div class="mech-body">
         <div class="mech-main">
-          <section>
-            <div class="mech-prose">
-              <p>{g.data.def}</p>
-            </div>
-
-            {relMechanics.length > 0 && (
-              <section style="margin-top: clamp(32px, 4vw, 52px)" aria-labelledby="rel-mechs-h">
-                <div class="mech-section__kicker">Mechanics</div>
-                <h2 class="mech-section__title" id="rel-mechs-h">Mechanics that use this principle</h2>
-                <div class="variants">
-                  {relMechanics.map((m) => (
-                    <a class="variant" href={`/mechanics/${m.id}/`} style="text-decoration:none">
-                      <div>
-                        <span class:list={["gb-tag", `gb-tag--${m.cat}`]} style="margin-bottom:10px;display:inline-flex">{m.cat.charAt(0).toUpperCase() + m.cat.slice(1)}</span>
-                        <h4>{m.name}</h4>
-                        <p>{m.tagline}</p>
-                      </div>
-                    </a>
-                  ))}
-                </div>
-              </section>
-            )}
-          </section>
+          {practice.length > 0 && (
+            <section aria-labelledby="practice-h">
+              <div class="mech-section__kicker">Where you see this in practice</div>
+              <h2 class="mech-section__title" id="practice-h">The mechanics that lean on it</h2>
+              <div class="practice-grid">
+                {practice.map((m) => <MechanicCard {...m} />)}
+              </div>
+            </section>
+          )}
         </div>
 
         <aside class="mech-aside" aria-label="Related">
-          {otherTerms.length > 0 && (
-            <div class="amod">
-              <h3>More terms</h3>
-              <div class="amod__list">
-                {otherTerms.map((t) => (
-                  <a class="amod__item" href={`/glossary/${t.data.id}/`}>
-                    <span class="amod__name">{t.data.term}</span>
-                  </a>
-                ))}
-                <a class="amod__item" href="/glossary/" style="margin-top:4px">
-                  <span class="amod__name" style="color:var(--text-accent)">View all terms →</span>
-                </a>
-              </div>
-            </div>
-          )}
           {relMechanics.length > 0 && (
             <div class="amod">
               <h3>Related mechanics</h3>
@@ -88,6 +88,23 @@ const relMechanics = g.data.related.map((id) => mechById.get(id)).filter(Boolean
               </div>
             </div>
           )}
+
+          <div class="amod">
+            <h3>More terms</h3>
+            <div class="amod__list">
+              {moreTerms.map((t) => (
+                <a class="amod__item" href={`/glossary/${t.data.id}/`}>
+                  <span class="amod__name">{t.data.term}</span>
+                </a>
+              ))}
+            </div>
+            <a class="amod__viewall" href="/glossary/">
+              View all terms
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:15px;height:15px">
+                <line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" />
+              </svg>
+            </a>
+          </div>
         </aside>
       </div>
     </div>

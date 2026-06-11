@@ -1,10 +1,14 @@
 ---
+// Cheatsheet detail — design bundle CheatsheetDetail.jsx (sheet-head title
+// block, numbered .steps with "Seen in" refchips, mech-aside sidebar).
+// Only public cheatsheets get detail pages; locked cards link to /subscribe/.
+// The category eyebrow derives from the first related mechanic (v44
+// cheatsheets carry no category of their own).
 import Base from "../../layouts/Base.astro";
-import { publishedCheatsheets, publishedMechanics, publishedApps } from "../../lib/content";
+import { publishedCheatsheets, publishedMechanics, publishedApps, CAT_LABEL, numberWord } from "../../lib/content";
 
 export async function getStaticPaths() {
   const all = await publishedCheatsheets();
-  // Only build detail pages for non-locked cheatsheets; locked ones redirect to /subscribe/
   return all
     .filter((cs) => cs.data.visibility === "public")
     .map((cs) => ({ params: { id: cs.data.id }, props: { cs } }));
@@ -15,7 +19,8 @@ const mechById = new Map((await publishedMechanics()).map((m) => [m.data.id, m.d
 const appById = new Map((await publishedApps()).map((a) => [a.data.id, a.data]));
 
 const relatedMechanics = cs.data.mechanics.map((id) => mechById.get(id)).filter(Boolean);
-const relatedApps = cs.data.apps.map((id) => appById.get(id)).filter(Boolean);
+const featuredApps = cs.data.apps.map((id) => appById.get(id)).filter(Boolean);
+const cat = relatedMechanics[0]?.cat;
 ---
 
 <Base
@@ -24,15 +29,30 @@ const relatedApps = cs.data.apps.map((id) => appById.get(id)).filter(Boolean);
   current="cheatsheets"
 >
   <main id="main">
-    <section class="band--tight mech-head">
+    <section class="cs-head sheet-head" aria-labelledby="sheet-h">
       <div class="container">
         <nav class="crumb" aria-label="Breadcrumb">
-          <a href="/">Home</a><span class="crumb__sep">/</span>
-          <a href="/cheatsheets/">Cheatsheets</a><span class="crumb__sep">/</span>
+          <a href="/mechanics/">Library</a>
+          <span class="crumb__sep" aria-hidden="true">/</span>
+          <a href="/cheatsheets/">Cheatsheets</a>
+          <span class="crumb__sep" aria-hidden="true">/</span>
           <span>{cs.data.title}</span>
         </nav>
-        <h1>{cs.data.title}</h1>
-        <p class="mech-head__def">{cs.data.desc}</p>
+        <div class="sheet-head__slug">
+          <span class="eyebrow">Cheatsheet {String(cs.data.n).padStart(2, "0")}</span>
+          {cat && (
+            <>
+              <span class="sheet-head__dot" aria-hidden="true">·</span>
+              <span class="eyebrow eyebrow--muted">{CAT_LABEL[cat]}</span>
+            </>
+          )}
+        </div>
+        <h1 id="sheet-h">{cs.data.title}</h1>
+        <p class="cs-head__def">{cs.data.desc}</p>
+        <div class="sheet-head__meta">
+          <span class="gb-badge gb-badge--ok">Free guide</span>
+          <span class="sheet-head__count"><b>{cs.data.steps.length}</b> steps</span>
+        </div>
       </div>
     </section>
 
@@ -40,36 +60,37 @@ const relatedApps = cs.data.apps.map((id) => appById.get(id)).filter(Boolean);
       <div class="mech-body">
         <div class="mech-main">
           <section aria-labelledby="steps-h">
-            <div class="mech-section__kicker">Implementation guide</div>
-            <h2 class="mech-section__title" id="steps-h">{cs.data.steps.length} steps to get it right</h2>
-            <div class="csheet-steps">
+            <div class="mech-section__kicker">The guide</div>
+            <h2 class="mech-section__title" id="steps-h">{numberWord(cs.data.steps.length)} steps to get it right</h2>
+            <ol class="steps">
               {cs.data.steps.map((step) => {
                 const stepApps = step.apps.map((id) => appById.get(id)).filter(Boolean);
                 return (
-                  <div class="csheet-step">
-                    <div class="csheet-step__num">{step.n}</div>
-                    <div class="csheet-step__body">
-                      <h3 class="csheet-step__h">{step.heading}</h3>
-                      <p class="csheet-step__p">{step.body}</p>
+                  <li class="step">
+                    <span class="step__n">{step.n}</span>
+                    <div class="step__main">
+                      <h3 class="step__title">{step.heading}</h3>
+                      <div class="step__body"><p>{step.body}</p></div>
                       {stepApps.length > 0 && (
-                        <div class="csheet-step__apps">
+                        <div class="step__refs">
+                          <span class="step__refs-label">Seen in</span>
                           {stepApps.map((app) => (
                             <a class="refchip" href={`/case-studies/${app.id}/`}>{app.name}</a>
                           ))}
                         </div>
                       )}
                     </div>
-                  </div>
+                  </li>
                 );
               })}
-            </div>
+            </ol>
           </section>
         </div>
 
         <aside class="mech-aside" aria-label="Related">
           {relatedMechanics.length > 0 && (
             <div class="amod">
-              <h3>Mechanics covered</h3>
+              <h3>Related mechanics</h3>
               <div class="amod__list">
                 {relatedMechanics.map((m) => (
                   <a class="amod__item" href={`/mechanics/${m.id}/`}>
@@ -80,11 +101,11 @@ const relatedApps = cs.data.apps.map((id) => appById.get(id)).filter(Boolean);
               </div>
             </div>
           )}
-          {relatedApps.length > 0 && (
+          {featuredApps.length > 0 && (
             <div class="amod">
-              <h3>Apps in examples</h3>
+              <h3>Apps in this cheatsheet</h3>
               <div class="amod__list">
-                {relatedApps.slice(0, 8).map((app) => (
+                {featuredApps.map((app) => (
                   <a class="amod__item" href={`/case-studies/${app.id}/`}>
                     <span class="amod__name">{app.name}</span>
                     <span class="amod__meta">{app.category}</span>

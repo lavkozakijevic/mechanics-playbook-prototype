@@ -44,7 +44,8 @@ function Hero({ carousel }) {
   );
 }
 
-/** Logo strip: a sample of the apps studied in the library, as 60×60 marks. */
+/** Logo strip: a curated sample of the apps studied, as 60×60 marks.
+ *  Real app icons where they exist (v44 behaviour), initials otherwise. */
 function LogoStrip({ apps }) {
   return (
     <section className="band band--tight band--sheet" aria-label="Apps in the library">
@@ -52,7 +53,11 @@ function LogoStrip({ apps }) {
         <p className="logostrip__lead">A few of the apps in the library</p>
         <div className="logostrip">
           {apps.map((a) => (
-            <span className="applogo" key={a.name} role="img" aria-label={a.name} title={a.name}>{a.mark}</span>
+            <span className="applogo" key={a.name} role="img" aria-label={a.name} title={a.name}>
+              {a.iconSrc
+                ? <img src={a.iconSrc} alt="" width="60" height="60" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit", display: "block" }} />
+                : a.mark}
+            </span>
           ))}
         </div>
       </div>
