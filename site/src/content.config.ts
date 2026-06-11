@@ -91,6 +91,7 @@ const settings = defineCollection({
     featuredMechanics: z.array(z.string()),
     cheatsheetCount: z.number(),
     iconStripApps: z.array(z.string()),
+    freeSystemApps: z.array(z.string()),
   }),
 });
 

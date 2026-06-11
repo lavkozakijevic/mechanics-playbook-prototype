@@ -150,6 +150,27 @@ if (!fs.existsSync(settingsPath)) {
         problem("settings/homepage.json", `iconStripApps includes "${id}" which is report-only and must never appear on the site`);
     }
   }
+  for (const id of home.freeSystemApps ?? []) {
+    if (!appById.has(id)) problem("settings/homepage.json", `freeSystemApps includes "${id}" which is not an app`);
+    else if (appById.get(id).visibility === "report-only")
+      problem("settings/homepage.json", `freeSystemApps includes "${id}" which is report-only and must never appear on the site`);
+    else if (!appById.get(id).system)
+      problem("settings/homepage.json", `freeSystemApps includes "${id}" which has no system map`);
+  }
+}
+
+// ---- the two-free-case-studies rule (owner ruling, 11 Jun 2026):
+// exactly two apps public at any time — royal-match (permanent) plus the
+// rotating newest addition. Anything else means the rotation broke.
+{
+  const publicApps = apps.filter((a) => a.data.visibility === "public").map((a) => a.data.id);
+  if (!publicApps.includes("royal-match"))
+    problem("apps", "royal-match must always be the permanent free case study, but it is not public");
+  if (publicApps.length !== 2)
+    problem(
+      "apps",
+      `exactly 2 case studies must be open (royal-match + the rotating newest addition); found ${publicApps.length}: ${publicApps.join(", ") || "none"}`
+    );
 }
 
 // ---- cheatsheets: mechanic + app references

@@ -153,6 +153,12 @@
 /* =================== LOGO STRIP =================== */
 .logostrip { display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
   gap: clamp(16px, 3vw, 36px); }
+/* Desktop: the whole curated strip sits on one row — icons give up a little
+   width before anything is allowed to wrap. */
+@media (min-width: 1024px) {
+  .logostrip { flex-wrap: nowrap; gap: clamp(12px, 2.4vw, 28px); }
+  .logostrip .applogo { flex: 0 1 60px; min-width: 40px; height: auto; aspect-ratio: 1; }
+}
 .logostrip__lead { font: var(--type-label); text-transform: uppercase; letter-spacing: var(--tracking-label);
   color: var(--text-muted); margin-bottom: clamp(20px, 3vw, 28px); text-align: center; }
 .applogo { width: 60px; height: 60px; border-radius: 14px; flex: none;

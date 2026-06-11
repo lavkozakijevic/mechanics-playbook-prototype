@@ -232,6 +232,14 @@ const DROPS = new Set([
   "gifting|swgoh",
 ]);
 
+// Standing rule (owner ruling, 11 Jun 2026): exactly two case studies are
+// open at any time — royal-match (permanent, never flips) plus the newest
+// addition to the library (rotating). The weekly import sets this id to the
+// newly imported app; the previous holder flips back to subscriber simply by
+// no longer being named here. Validation enforces the exactly-two invariant.
+// Thin apps awaiting write-up backfill must not hold this slot.
+const ROTATING_FREE_APP = "uptime"; // newest addition (analyzed 18 May 2026); owner broke the uptime/tiimo tie, 11 Jun 2026
+
 const ALL_APPS = [
   { file: "royal-match.md", id: "royal-match", visibility: "public" },
   { file: "cleo.md", id: "cleo", visibility: "report-only" },
@@ -378,7 +386,9 @@ for (const entry of ALL_APPS) {
     name: v44?.name ?? headerName(entry.file),
     category: v44?.cat ?? a.meta["Category"] ?? "",
     type: v44?.type ?? (a.meta["Type"] ?? "app").toLowerCase(),
-    visibility: entry.visibility,
+    // The rotating free slot overrides the declared visibility (standing
+    // rule: two open case studies — royal-match plus the newest addition).
+    visibility: entry.id === ROTATING_FREE_APP ? "public" : entry.visibility,
     analysisDate: isoDate(a.meta["Analysis date"]),
     lastUpdated: isoDate(a.meta["Last updated"]) ?? isoDate(a.meta["Analysis date"]),
     summary: v44?.summary ?? a.overview,
@@ -440,6 +450,10 @@ fs.writeFileSync(
         "capybara-go", "canva", "subway-surfers", "insight-timer",
         "swgoh", "fiton", "tiimo", "ladder",
       ],
+      // System pages open as free samples even though their app is
+      // subscriber-gated (owner ruling, 11 Jun 2026: Strava's system page
+      // is a free sample). Royal-match's system is free via app visibility.
+      freeSystemApps: ["strava"],
     },
     null,
     2

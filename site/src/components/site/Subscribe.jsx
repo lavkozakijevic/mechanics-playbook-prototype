@@ -25,7 +25,8 @@ const MailIcon = (
 );
 
 const FREE = [
-  "The Royal Match case study, in full",
+  "Two case studies in full: Royal Match, plus the newest addition each week",
+  "The Strava system map, as a free sample",
   "A preview of every other case study, mechanic, and system map",
   "The opening of each cheatsheet",
   "The complete glossary",

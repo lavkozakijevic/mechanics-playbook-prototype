@@ -22,5 +22,8 @@
     "fiton",
     "tiimo",
     "ladder"
+  ],
+  "freeSystemApps": [
+    "strava"
   ]
 }

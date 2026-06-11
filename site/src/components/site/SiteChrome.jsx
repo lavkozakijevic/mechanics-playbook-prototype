@@ -197,7 +197,7 @@ export function SiteFooter({ lastUpdated }) {
         <div className="footer__bottom">
           <span className="footer__fresh"><span className="pip" />Updated weekly · last addition {lastUpdated}</span>
           <span className="footer__meta">
-            <a className="footer__email" href="mailto:hello@gamebiz.co">hello@gamebiz.co</a>
+            <a className="footer__email" href="mailto:lav@gamebizconsulting.com">lav@gamebizconsulting.com</a>
             <span className="footer__sep" aria-hidden="true">·</span>
             © 2026 GameBiz Consulting
           </span>
