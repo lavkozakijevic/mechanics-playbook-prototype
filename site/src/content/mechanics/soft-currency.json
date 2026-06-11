@@ -1,0 +1,10 @@
+{
+  "id": "soft-currency",
+  "n": "24",
+  "name": "Soft Currency",
+  "cat": "monetization",
+  "tagline": "In-game currency earned through play, not purchased.",
+  "desc": "In-game currency earned through play, not purchased. Spent on in-app items, upgrades, or actions.",
+  "visibility": "subscriber",
+  "toWrite": true
+}

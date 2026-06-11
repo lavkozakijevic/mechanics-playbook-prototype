@@ -1,0 +1,34 @@
+{
+  "id": "leaderboards",
+  "n": "21",
+  "name": "Leaderboards",
+  "cat": "social",
+  "tagline": "A ranked list of users or groups ordered by a performance metric, making individual standing visible and publicly comparable.",
+  "desc": "Rank is identity for the Competitor. They want to be visibly ahead of real people, and personal progress is not enough. Losing rank is painful. External stakes make every other mechanic feel more serious. The gap to the next position above becomes a goal; the threat of falling creates persistent return pressure.",
+  "principle": "Rank makes progress public and comparative. The leaderboard converts personal achievement into competitive standing.",
+  "players": [
+    "competitor"
+  ],
+  "warn": "Leaderboards that show only the top 0.1% demotivate most users by making the gap feel insurmountable. Local or segmented leaderboards are more motivating for median users because the gap is closable.",
+  "variants": [
+    "Global leaderboard",
+    "Friend leaderboard",
+    "Clan/league leaderboard",
+    "Weekly reset leaderboard"
+  ],
+  "lifecycle": "Mid-to-late lifecycle. Strongest once the user has enough investment to care about their position relative to others.",
+  "paired": [
+    "challenges",
+    "season-pass",
+    "clans-guilds"
+  ],
+  "context": [
+    "retention"
+  ],
+  "sdt": [
+    "competence",
+    "relatedness",
+    "mastery"
+  ],
+  "visibility": "subscriber"
+}

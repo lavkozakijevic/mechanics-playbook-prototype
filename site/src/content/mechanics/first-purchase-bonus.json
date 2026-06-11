@@ -1,0 +1,34 @@
+{
+  "id": "first-purchase-bonus",
+  "n": "13",
+  "name": "First-Purchase Bonus",
+  "cat": "monetization",
+  "tagline": "A significantly enhanced reward package offered exclusively on a user's first transaction.",
+  "desc": "The first purchase is the most important conversion in a freemium product. Once a user has paid once, the psychological barrier to paying again is substantially lower. The first-purchase bonus acknowledges this by offering disproportionate value on the first transaction, often 5x to 10x the equivalent regular price.",
+  "principle": "The first payment is a category shift, not just a transaction. Disproportionate value converts the user's identity from free user to customer.",
+  "players": [
+    "achiever",
+    "competitor"
+  ],
+  "warn": "First-purchase bonuses presented too early, before the user understands what the currency is for, reduce conversion. The user needs to experience a moment of frustration or desire first.",
+  "variants": [
+    "Starter pack",
+    "Welcome bundle",
+    "New player offer",
+    "Day 1 purchase bonus"
+  ],
+  "lifecycle": "Early lifecycle only. Typically shown in the first 24–72 hours.",
+  "paired": [
+    "credits-tokens",
+    "piggy-bank",
+    "monthly-card"
+  ],
+  "context": [
+    "monetization"
+  ],
+  "sdt": [
+    "scarcity",
+    "ownership"
+  ],
+  "visibility": "subscriber"
+}

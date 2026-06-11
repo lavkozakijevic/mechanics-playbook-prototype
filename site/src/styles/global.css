@@ -1,0 +1,13 @@
+/* gameBiz design system — global entry point (from the design handoff bundle).
+   Order matters: fonts and tokens first, then base element styling,
+   then extracted component styles, then the website kit layout. */
+
+@import "./tokens/fonts.css";
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+@import "./tokens/elevation.css";
+@import "./tokens/motion.css";
+@import "./tokens/base.css";
+@import "./ds-components.css";
+@import "./site.css";

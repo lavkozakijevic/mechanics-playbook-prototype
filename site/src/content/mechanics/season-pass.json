@@ -1,0 +1,36 @@
+{
+  "id": "season-pass",
+  "n": "11",
+  "name": "Season Pass / Battle Pass",
+  "cat": "monetization",
+  "tagline": "A time-limited reward track with free and premium tiers, where completing in-app actions advances the user along a progression of rewards.",
+  "desc": "The season pass works when the economy it lands in is ready for it. In Clash of Clans, the Gold Pass launched into an economy Supercell had deliberately deepened first. The pass should accelerate player goals, not satisfy them entirely. Spend once, engage daily.",
+  "principle": "Spend once, engage daily. The pass converts a one-time payment into a recurring daily reason to open the app.",
+  "players": [
+    "explorer",
+    "competitor"
+  ],
+  "warn": "Season passes that front-load premium rewards drive early purchase decisions but may reduce late-season engagement if remaining rewards feel underwhelming. AB test before full activation.",
+  "variants": [
+    "Free + Premium dual track",
+    "Paid single track",
+    "Seasonal Battle Pass with cosmetics",
+    "Subscription-gated pass"
+  ],
+  "lifecycle": "Mid-to-late lifecycle. Requires an established economy to land without cannibalising other revenue.",
+  "paired": [
+    "daily-weekly-quests",
+    "limited-time-events",
+    "streak"
+  ],
+  "context": [
+    "retention",
+    "monetization"
+  ],
+  "sdt": [
+    "mastery",
+    "scarcity",
+    "ownership"
+  ],
+  "visibility": "subscriber"
+}

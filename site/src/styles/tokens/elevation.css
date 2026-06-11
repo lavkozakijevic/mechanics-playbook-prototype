@@ -1,0 +1,27 @@
+/* gameBiz elevation & borders.
+   Prefer the rule over the shadow. An archive is flat: cards are defined by
+   hairline borders on the sheet, not by glossy lifts. Shadows appear only when
+   something genuinely floats above the page (menus, modals, the screenshot viewer). */
+
+:root {
+  /* ---------- Shadows (warm-ink based, never blue-grey) ---------- */
+  --shadow-none: none;
+  --shadow-xs: 0 1px 2px rgba(26, 26, 23, 0.04);
+  --shadow-sm: 0 1px 2px rgba(26, 26, 23, 0.05), 0 2px 6px rgba(26, 26, 23, 0.04);
+  --shadow-md: 0 4px 14px rgba(26, 26, 23, 0.08), 0 1px 3px rgba(26, 26, 23, 0.06);
+  --shadow-lg: 0 12px 32px rgba(26, 26, 23, 0.12), 0 2px 8px rgba(26, 26, 23, 0.06);
+  --shadow-modal: 0 24px 64px rgba(26, 26, 23, 0.22), 0 4px 12px rgba(26, 26, 23, 0.10);
+
+  /* Inset for sunken wells / pressed inputs */
+  --shadow-inset: inset 0 1px 2px rgba(26, 26, 23, 0.06);
+
+  /* ---------- Composed border tokens ---------- */
+  --rule-hairline: 1px solid var(--border-subtle);
+  --rule-default: 1px solid var(--border-default);
+  --rule-strong: 1px solid var(--border-strong);
+  --rule-ink: 1px solid var(--border-ink);     /* the deliberate hard frame */
+  --rule-accent: 2px solid var(--accent);      /* the one underline that says look here */
+
+  /* ---------- Focus ring (visible, keyboard-first, red) ---------- */
+  --ring: 0 0 0 2px var(--focus-ring-offset), 0 0 0 4px var(--focus-ring);
+}

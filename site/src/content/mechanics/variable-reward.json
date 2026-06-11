@@ -1,0 +1,34 @@
+{
+  "id": "variable-reward",
+  "n": "04",
+  "name": "Variable Reward Schedule",
+  "cat": "retention",
+  "tagline": "A reward system where the outcome of an action is uncertain, the user knows they will receive something, but not exactly what.",
+  "desc": "Variable rewards exploit the same psychological mechanism as slot machines: unpredictability makes the reward loop more compelling than fixed outcomes. The anticipation of the reveal is part of the reward. Explorers track drop patterns and build mental models of the probability structure.",
+  "principle": "Unpredictability sustains engagement beyond what fixed rewards can achieve.",
+  "players": [
+    "explorer"
+  ],
+  "warn": "Variable rewards require careful calibration. If the perceived drop rate feels manipulated or low-tier rewards feel worthless, users develop distrust. Many markets require transparency on probabilities.",
+  "variants": [
+    "Loot boxes / chests",
+    "Spin wheels",
+    "Mystery packs",
+    "Gacha pulls"
+  ],
+  "lifecycle": "Effective across all lifecycle stages when paired with ongoing content.",
+  "paired": [
+    "set-collection",
+    "season-pass",
+    "credits-tokens"
+  ],
+  "context": [
+    "retention",
+    "monetization"
+  ],
+  "sdt": [
+    "unpredictability",
+    "mastery"
+  ],
+  "visibility": "subscriber"
+}

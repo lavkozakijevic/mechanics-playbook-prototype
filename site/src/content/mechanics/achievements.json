@@ -1,0 +1,37 @@
+{
+  "id": "achievements",
+  "n": "08",
+  "name": "Achievements / Milestones",
+  "cat": "retention",
+  "tagline": "Named, permanent markers of progress or behaviour that the user collects over time.",
+  "desc": "Achievement systems exist primarily for Achievers. Each completed milestone is a named, permanent record of accomplishment. Tiered achievements extend the goal horizon indefinitely. The mechanic works best when the marker carries value beyond the product that issued it, a badge that can be shared or displayed externally has a second life the app cannot provide.",
+  "principle": "Permanent recognition of behaviour creates identity anchors. The badge is not a reward, it is evidence.",
+  "players": [
+    "achiever",
+    "explorer"
+  ],
+  "warn": "Achievement systems buried deep in settings see almost no organic discovery. Surface achievements at the moment of completion, not in a tab the user never opens.",
+  "variants": [
+    "Tiered badges",
+    "Hidden achievements",
+    "Social badges",
+    "Certification achievements"
+  ],
+  "lifecycle": "Long-term value. Achievers return specifically to close achievement gaps.",
+  "paired": [
+    "streak",
+    "daily-weekly-quests",
+    "leaderboards"
+  ],
+  "context": [
+    "activation",
+    "retention",
+    "referral"
+  ],
+  "sdt": [
+    "mastery",
+    "competence",
+    "relatedness"
+  ],
+  "visibility": "subscriber"
+}

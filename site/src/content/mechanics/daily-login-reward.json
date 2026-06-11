@@ -1,0 +1,34 @@
+{
+  "id": "daily-login-reward",
+  "n": "03",
+  "name": "Daily Login Reward",
+  "cat": "retention",
+  "tagline": "A system that gives users a reward simply for opening the app each day.",
+  "desc": "The reward typically increases with consecutive days logged in, creating a compounding incentive to return. Unlike the streak, the login reward does not require completing a core action, it rewards presence alone. The risk is training users to open, collect, and leave without engaging the core loop.",
+  "principle": "Presence rewarded before engagement. Useful for habit formation but weak as a standalone mechanic without a reason to stay after collecting.",
+  "players": [
+    "achiever",
+    "explorer"
+  ],
+  "warn": "Login rewards attract reward-chasers with no interest in the core product. Track whether users who engage primarily via login rewards convert to core loop engagement or churn after the reward track ends.",
+  "variants": [
+    "Linear daily rewards",
+    "Calendar-based (claim any missed day)",
+    "Milestone rewards at day 7, 14, 30"
+  ],
+  "lifecycle": "High value days 0–14. Diminishing returns after habit forms.",
+  "paired": [
+    "streak",
+    "variable-reward",
+    "daily-weekly-quests"
+  ],
+  "context": [
+    "activation",
+    "retention"
+  ],
+  "sdt": [
+    "unpredictability",
+    "ownership"
+  ],
+  "visibility": "subscriber"
+}

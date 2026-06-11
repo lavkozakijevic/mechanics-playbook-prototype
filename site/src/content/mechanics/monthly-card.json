@@ -1,0 +1,32 @@
+{
+  "id": "monthly-card",
+  "n": "14",
+  "name": "Monthly Card",
+  "cat": "monetization",
+  "tagline": "A subscription-adjacent product that provides a daily currency drip over 30 days in exchange for a single upfront payment.",
+  "desc": "The monthly card converts a one-time payment into a daily reason to open the app. FC Mobile uses two cards targeting different player bottlenecks. Post-match is peak emotional engagement, the player is invested and the offer maps directly onto their desire for progression. The instant currency grant removes hesitation before the 30-day drip even begins.",
+  "principle": "Daily drip creates daily touchpoint. The card is purchased once but felt every day.",
+  "players": [
+    "achiever"
+  ],
+  "warn": "Monthly cards presented outside peak emotional moments convert poorly. Cards providing currency the user has no immediate use for also underperform.",
+  "variants": [
+    "Daily currency drip",
+    "Daily resource pack",
+    "Subscription with daily claim"
+  ],
+  "lifecycle": "Mid-to-late lifecycle. Most effective once the user has a specific goal they are trying to reach.",
+  "paired": [
+    "credits-tokens",
+    "season-pass",
+    "first-purchase-bonus"
+  ],
+  "context": [
+    "monetization"
+  ],
+  "sdt": [
+    "ownership",
+    "mastery"
+  ],
+  "visibility": "subscriber"
+}

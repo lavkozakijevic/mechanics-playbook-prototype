@@ -1,0 +1,12 @@
+{
+  "id": "homepage",
+  "spotlightApp": "royal-match",
+  "showcaseSystem": "royal-match",
+  "featuredMechanics": [
+    "energy-lives",
+    "limited-time-events",
+    "clans-guilds",
+    "season-pass"
+  ],
+  "cheatsheetCount": 6
+}

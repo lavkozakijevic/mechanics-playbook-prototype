@@ -1,0 +1,30 @@
+---
+import Base from "../../layouts/Base.astro";
+import { SystemsPage } from "../../components/site/Systems.jsx";
+import { publishedApps, publishedMechanics } from "../../lib/content";
+import { systemProps } from "../../lib/props";
+
+const byId = new Map((await publishedMechanics()).map((m) => [m.data.id, m.data]));
+const withSystems = (await publishedApps()).filter((a) => a.data.system);
+const systems = withSystems.map((a) => {
+  const p = systemProps(a.data, byId);
+  return {
+    id: a.data.id,
+    name: a.data.name,
+    oneLiner: a.data.system!.tagline,
+    href: `/systems/${a.data.id}/`,
+    nodes: p.nodes,
+    connections: p.connections,
+    type: a.data.type === "game" ? "Game" : "App",
+    locked: a.data.visibility !== "public",
+  };
+});
+---
+
+<Base
+  title="Systems — Mechanics Playbook"
+  description="How each app's mechanics interconnect: the loops, the triggers, and the moments where one mechanic hands the player to the next."
+  current="systems"
+>
+  <SystemsPage systems={systems} />
+</Base>

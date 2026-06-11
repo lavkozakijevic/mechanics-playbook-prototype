@@ -1,0 +1,36 @@
+{
+  "id": "xp-leveling",
+  "n": "10",
+  "name": "XP / Leveling",
+  "cat": "retention",
+  "tagline": "An experience point system where users accumulate points through actions, eventually reaching level thresholds that unlock rewards or status.",
+  "desc": "XP leveling makes the invisible visible: effort accumulates into a number, the number grows, it crosses thresholds, thresholds unlock things. The mechanic converts abstract engagement into concrete progress. Unlike achievements, which are discrete events, XP is continuous, every action contributes, no matter how small.",
+  "principle": "Continuous progress visibility. Every action moves the bar. The level functions as both a progress tracker and a social status marker.",
+  "players": [
+    "achiever",
+    "competitor"
+  ],
+  "warn": "XP systems that cap out leave long-term users with nothing to work toward. Prestige systems (resetting level for cosmetic status) can extend the loop but only work if the reset is genuinely voluntary.",
+  "variants": [
+    "Linear XP",
+    "Skill-based XP tracks",
+    "Social XP",
+    "Seasonal XP"
+  ],
+  "lifecycle": "Effective across all lifecycle stages. Most impactful in early-to-mid engagement.",
+  "paired": [
+    "achievements",
+    "season-pass",
+    "leaderboards"
+  ],
+  "context": [
+    "activation",
+    "retention"
+  ],
+  "sdt": [
+    "mastery",
+    "competence",
+    "ownership"
+  ],
+  "visibility": "subscriber"
+}

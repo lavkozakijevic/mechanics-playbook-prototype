@@ -1,0 +1,35 @@
+{
+  "id": "clans-guilds",
+  "n": "20",
+  "name": "Clans / Guilds",
+  "cat": "social",
+  "tagline": "Structured cooperative groups with internal roles, shared goals, contribution tracking, and collective rewards.",
+  "desc": "Clans and guilds go beyond communities by adding structure: internal roles, contribution tracking, shared objectives, and collective rewards depending on group performance. FC Mobile's league system shows individual rewards and global leaderboard simultaneously, creating dual motivation.",
+  "principle": "Structure converts passive membership into active participation. The role, the contribution tracker, and the shared goal create daily reasons to engage that communities alone cannot.",
+  "players": [
+    "socializer",
+    "competitor"
+  ],
+  "warn": "Guild mechanics require balancing individual and collective incentives. If individual contribution goes unrecognised, free-riding emerges.",
+  "variants": [
+    "Combat-focused guilds",
+    "Cooperative leagues",
+    "Contribution-tracked clans",
+    "Casual social groups"
+  ],
+  "lifecycle": "Mid-to-late lifecycle. Guild systems land best once the user is invested enough to care about collective standing.",
+  "paired": [
+    "leaderboards",
+    "limited-time-events",
+    "social-feed"
+  ],
+  "context": [
+    "retention"
+  ],
+  "sdt": [
+    "relatedness",
+    "competence",
+    "purpose"
+  ],
+  "visibility": "subscriber"
+}

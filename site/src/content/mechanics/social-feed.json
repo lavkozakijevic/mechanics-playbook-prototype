@@ -1,0 +1,37 @@
+{
+  "id": "social-feed",
+  "n": "18",
+  "name": "Social Feed",
+  "cat": "social",
+  "tagline": "A stream of user-generated activity, completed sessions, achievements, milestones, visible to followers or the community.",
+  "desc": "For the Socializer, the feed is the reason to open the app beyond the core loop. Strava's feed integrates kudos, photos, achievements, and challenge completions into a coherent activity stream. The mechanic works best when the feed surfaces personally relevant content, activity from people the user knows.",
+  "principle": "The feed converts private behaviour into social currency. A personal session becomes visible progress in a shared space.",
+  "players": [
+    "socializer",
+    "competitor"
+  ],
+  "warn": "Social feeds require a minimum viable social graph to function. A user with no followers sees an empty feed, which accelerates churn. Seed the social graph during onboarding.",
+  "variants": [
+    "Activity feed",
+    "Achievement feed",
+    "Global community feed",
+    "Friend-only feed"
+  ],
+  "lifecycle": "Grows in value as the social graph expands. Low value days 1–7; high value from day 30+.",
+  "paired": [
+    "achievements",
+    "challenges",
+    "leaderboards"
+  ],
+  "context": [
+    "activation",
+    "retention",
+    "referral"
+  ],
+  "sdt": [
+    "relatedness",
+    "competence",
+    "purpose"
+  ],
+  "visibility": "subscriber"
+}

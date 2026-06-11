@@ -1,0 +1,34 @@
+---
+import "../styles/global.css";
+import { SiteNav, NewsletterBlock, SiteFooter } from "../components/site/SiteChrome.jsx";
+import { lastUpdated, formatDate } from "../lib/content";
+
+interface Props {
+  title: string;
+  description: string;
+  current?: string;
+  newsletter?: boolean;
+}
+const { title, description, current, newsletter = true } = Astro.props;
+const updated = formatDate(await lastUpdated());
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/assets/logo/gamebiz-mark.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="preload" href="/assets/fonts/sora-700.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body>
+    <SiteNav client:load current={current} />
+    <slot />
+    {newsletter && <NewsletterBlock client:visible />}
+    <SiteFooter lastUpdated={updated} />
+  </body>
+</html>

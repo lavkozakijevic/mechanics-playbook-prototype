@@ -1,0 +1,34 @@
+{
+  "id": "ads",
+  "n": "17",
+  "name": "Ads",
+  "cat": "monetization",
+  "tagline": "Advertising integrated into the app as a revenue mechanism, from intrusive interstitials to voluntary rewarded video.",
+  "desc": "Rewarded video ads are the most player-friendly format: the user opts in to watch a 15–30 second ad in exchange for a defined reward. Subway Surfers integrates rewarded ads across more surfaces than any other app in this library, with ad watching offered as a direct substitute for currency payment. Capybara Go! ties ads to energy acquisition, making ad watching part of the core session rhythm.",
+  "principle": "Rewarded ads align incentives. The user gets something, the developer gets revenue, and the session continues. Interstitials extract value without offering any.",
+  "players": [
+    "achiever"
+  ],
+  "warn": "Ad frequency is the primary driver of uninstall in ad-supported apps. Interstitials shown more than once per session dramatically increase churn.",
+  "variants": [
+    "Rewarded video",
+    "Interstitial",
+    "Banner",
+    "Offerwall",
+    "Native/embedded"
+  ],
+  "lifecycle": "Relevant across all stages, most valuable in the free period before monetisation conversion.",
+  "paired": [
+    "energy-lives",
+    "daily-login-reward",
+    "variable-reward"
+  ],
+  "context": [
+    "monetization"
+  ],
+  "sdt": [
+    "autonomy",
+    "scarcity"
+  ],
+  "visibility": "subscriber"
+}

@@ -1,0 +1,26 @@
+---
+import Base from "../../layouts/Base.astro";
+import { MechanicsLibraryPage } from "../../components/site/MechanicsLibrary.jsx";
+import { publishedApps, publishedMechanics, titleCase } from "../../lib/content";
+import { mechanicCard } from "../../lib/props";
+
+const mechanics = await publishedMechanics();
+const apps = await publishedApps();
+const count = (id: string) => apps.filter((a) => a.data.mechanics.some((m) => m.id === id)).length;
+
+const contextOptions = [...new Set(mechanics.flatMap((m) => m.data.context ?? []))].map(titleCase);
+const playerOptions = [...new Set(mechanics.flatMap((m) => m.data.players ?? []))].map(titleCase);
+---
+
+<Base
+  title="Mechanics library — Mechanics Playbook"
+  description="The mechanics that drive retention, monetization, and social engagement — each defined plainly, with the psychology behind it and real apps that use it."
+  current="mechanics"
+>
+  <MechanicsLibraryPage
+    client:load
+    mechanics={mechanics.map((m) => mechanicCard(m.data, count(m.data.id)))}
+    contextOptions={contextOptions}
+    playerOptions={playerOptions}
+  />
+</Base>

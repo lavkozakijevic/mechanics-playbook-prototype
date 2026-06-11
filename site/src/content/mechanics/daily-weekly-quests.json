@@ -1,0 +1,36 @@
+{
+  "id": "daily-weekly-quests",
+  "n": "05",
+  "name": "Daily / Weekly Quests",
+  "cat": "retention",
+  "tagline": "Structured, time-limited objectives that direct user behaviour toward specific actions and reward completion.",
+  "desc": "Quests give users a reason to return distinct from the core loop. They create daily or weekly structure, making the app feel like it has a rhythm. For the Achiever, every ticked task is a concrete record of forward motion. The key design decision is whether quests guide users toward the core loop or introduce novelty.",
+  "principle": "Directed engagement reduces decision fatigue. Quests answer 'what should I do today?' before the user has to ask.",
+  "players": [
+    "achiever",
+    "competitor"
+  ],
+  "warn": "Quest design that feels arbitrary or disconnected from the core experience creates compliance without engagement. Quest chains requiring inconvenient timing can feel punishing.",
+  "variants": [
+    "Daily tasks",
+    "Weekly challenge sets",
+    "Quest chains",
+    "Bounty boards"
+  ],
+  "lifecycle": "Strongest from day 7 onward when the user returns specifically for the quest.",
+  "paired": [
+    "streak",
+    "season-pass",
+    "achievements"
+  ],
+  "context": [
+    "activation",
+    "retention"
+  ],
+  "sdt": [
+    "mastery",
+    "purpose",
+    "autonomy"
+  ],
+  "visibility": "subscriber"
+}

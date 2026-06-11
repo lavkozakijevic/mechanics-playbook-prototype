@@ -1,0 +1,37 @@
+{
+  "id": "cosmetics",
+  "n": "16",
+  "name": "Cosmetics",
+  "cat": "monetization",
+  "tagline": "Purely visual items, skins, avatars, frames, that alter appearance without affecting gameplay or capability.",
+  "desc": "Cosmetics monetise identity and self-expression without creating pay-to-win dynamics. The range of viable implementations is wide: shallow cosmetics like Subway Surfers, deeply developed economies like MOBAs, or app-native versions like Steam's profile customisation. Users pay for how they appear to others, not for capability.",
+  "principle": "Self-expression is a monetisation surface. Users pay to signal identity, not to gain advantage.",
+  "players": [
+    "socializer",
+    "achiever"
+  ],
+  "warn": "Cosmetics require a social context to land with maximum effect. A cosmetic only the user can see has significantly lower perceived value than one visible to others.",
+  "variants": [
+    "Character skins",
+    "Profile customisation",
+    "UI themes",
+    "Animated cosmetics",
+    "Seasonal cosmetics"
+  ],
+  "lifecycle": "Mid-to-late lifecycle. Cosmetic spending correlates with social investment.",
+  "paired": [
+    "season-pass",
+    "set-collection",
+    "social-feed"
+  ],
+  "context": [
+    "monetization",
+    "retention"
+  ],
+  "sdt": [
+    "relatedness",
+    "autonomy",
+    "ownership"
+  ],
+  "visibility": "subscriber"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "hard-currency",
+  "n": "23",
+  "name": "Hard Currency",
+  "cat": "monetization",
+  "tagline": "Premium currency purchased directly with real money and spent directly on in-app items or actions.",
+  "desc": "Premium currency purchased directly with real money and spent directly on in-app items or actions. The purchase-to-spend path has no intermediate conversion step.",
+  "visibility": "subscriber",
+  "toWrite": true
+}
