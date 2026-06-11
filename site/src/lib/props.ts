@@ -104,12 +104,15 @@ export function mechanicStudies(mechanicId: string, apps: App[]) {
         href: `/case-studies/${a.id}/`,
         depth: rel.depth,
         // Every example shows a screenshot area (owner ruling, 11 Jun 2026):
-        // real screenshots flex the count above two; otherwise the slot holds
-        // a pair of placeholders, captioned by suggested shots where they
-        // exist and left blank where the analysis has neither.
+        // real screenshots and suggested-shot captions both flex the count
+        // above two — the two-frame stack is a minimum, never a cap — with
+        // blank placeholders padding examples where the analysis has neither.
         shots: (() => {
-          const slots: { image?: string; label?: string }[] = rel.screenshots.map((src) => ({ image: src }));
-          for (let i = 0; slots.length < 2; i++) slots.push({ label: rel.suggestedShots[i] });
+          const slots: { image?: string; label?: string }[] = [
+            ...rel.screenshots.map((src) => ({ image: src })),
+            ...rel.suggestedShots.map((label) => ({ label })),
+          ];
+          while (slots.length < 2) slots.push({});
           return slots;
         })(),
         body: w ? [w.observed ?? "", w.noting ?? "", w.presented ?? "", w.findings?.[0] ?? ""] : null,

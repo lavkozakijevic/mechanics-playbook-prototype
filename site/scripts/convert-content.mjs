@@ -436,9 +436,12 @@ fs.writeFileSync(
   JSON.stringify(
     {
       id: "homepage",
-      // Editorial picks. Royal Match per the page requirements guide.
-      spotlightApp: "royal-match",
-      showcaseSystem: "royal-match",
+      // Homepage roles (final owner ruling, 11 Jun 2026): the spotlight is
+      // strava — permanent, never flips. The system map showcase follows the
+      // rotating free slot and flips with every weekly import. Both are
+      // guarded by validate-content.mjs.
+      spotlightApp: "strava",
+      showcaseSystem: ROTATING_FREE_APP,
       featuredMechanics: ["energy-lives", "limited-time-events", "clans-guilds", "season-pass"],
       // Counted from v44 data.js at conversion time until cheatsheets migrate
       // in Stage 2 — computed, never hardcoded.
@@ -451,10 +454,11 @@ fs.writeFileSync(
         "capybara-go", "canva", "subway-surfers", "insight-timer",
         "swgoh", "fiton", "tiimo", "ladder",
       ],
-      // System pages open as free samples even though their app is
-      // subscriber-gated (owner ruling, 11 Jun 2026: Strava's system page
-      // is a free sample). Royal-match's system is free via app visibility.
-      freeSystemApps: ["strava"],
+      // System pages open as free samples even when their app is
+      // subscriber-gated: strava's permanently (owner ruling, 11 Jun 2026),
+      // plus the rotating slot holder's while it holds the slot, so the
+      // homepage showcase never links into the paywall.
+      freeSystemApps: ["strava", ROTATING_FREE_APP],
     },
     null,
     2

@@ -54,7 +54,10 @@ function geom(c, byId) {
   return { d: `M ${x1} ${y1} Q ${mx} ${cy} ${x2} ${y2}`, apex: { x: (ax / W) * 100, y: (ay / H) * 100 } };
 }
 
-function InteractiveMap({ nodes, connections, byId, onOpen }) {
+/** The system map. Without `onOpen` it renders statically — nodes and lines,
+ *  no connection tap targets — for reuse outside the system page (homepage
+ *  showcase). */
+export function SystemMap({ nodes, connections, byId, onOpen }) {
   return (
     <div className="smap">
       <div className="smap__paper" />
@@ -79,7 +82,7 @@ function InteractiveMap({ nodes, connections, byId, onOpen }) {
         </a>
       ))}
 
-      {connections.map((c, i) => {
+      {onOpen && connections.map((c, i) => {
         const { apex } = geom(c, byId);
         return (
           <button
@@ -233,7 +236,7 @@ export function SystemDetailPage({ system }) {
             <span className="smap-head__hint">Tap any + on a connection to see how the two mechanics interact</span>
           </div>
           <div className="smap-stage">
-            <InteractiveMap nodes={nodes} connections={connections} byId={byId} onOpen={setActive} />
+            <SystemMap nodes={nodes} connections={connections} byId={byId} onOpen={setActive} />
             <MapLegend />
           </div>
           {listItems.length > 0 && <MechanicList items={listItems} />}

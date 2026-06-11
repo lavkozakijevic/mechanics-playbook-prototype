@@ -1,7 +1,7 @@
 {
   "id": "homepage",
-  "spotlightApp": "royal-match",
-  "showcaseSystem": "royal-match",
+  "spotlightApp": "strava",
+  "showcaseSystem": "uptime",
   "featuredMechanics": [
     "energy-lives",
     "limited-time-events",
@@ -24,6 +24,7 @@
     "ladder"
   ],
   "freeSystemApps": [
-    "strava"
+    "strava",
+    "uptime"
   ]
 }

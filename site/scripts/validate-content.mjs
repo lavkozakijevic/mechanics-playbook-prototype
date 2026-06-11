@@ -159,9 +159,12 @@ if (!fs.existsSync(settingsPath)) {
   }
 }
 
-// ---- the two-free-case-studies rule (final owner ruling, 11 Jun 2026):
-// exactly two apps public at any time — strava (permanent) plus the
-// rotating newest addition. Anything else means the rotation broke.
+// ---- the two-free-case-studies rule and homepage roles (final owner
+// ruling, 11 Jun 2026): exactly two apps public at any time — strava
+// (permanent) plus the rotating newest addition. The homepage spotlight is
+// strava, permanent, never flips; the system map showcase follows the
+// rotating slot, whose system page must be a free sample so the showcase
+// never links into the paywall. Anything else means the rotation broke.
 {
   const publicApps = apps.filter((a) => a.data.visibility === "public").map((a) => a.data.id);
   if (!publicApps.includes("strava"))
@@ -171,6 +174,23 @@ if (!fs.existsSync(settingsPath)) {
       "apps",
       `exactly 2 case studies must be open (strava + the rotating newest addition); found ${publicApps.length}: ${publicApps.join(", ") || "none"}`
     );
+  const rotating = publicApps.find((id) => id !== "strava");
+  if (rotating && !apps.find((a) => a.data.id === rotating).data.system)
+    problem(
+      "apps",
+      `the rotating free app "${rotating}" has no system map — it takes the homepage showcase, so every weekly import must include one`
+    );
+  if (fs.existsSync(settingsPath)) {
+    const home = JSON.parse(fs.readFileSync(settingsPath, "utf8"));
+    if (home.spotlightApp !== "strava")
+      problem("settings/homepage.json", `spotlightApp must always be "strava" (permanent, never flips); found "${home.spotlightApp}"`);
+    if (rotating && home.showcaseSystem !== rotating)
+      problem("settings/homepage.json", `showcaseSystem must follow the rotating free slot ("${rotating}"); found "${home.showcaseSystem}"`);
+    for (const id of ["strava", rotating]) {
+      if (id && !(home.freeSystemApps ?? []).includes(id))
+        problem("settings/homepage.json", `freeSystemApps must include "${id}" — its system page is a free sample while it holds a free slot`);
+    }
+  }
 }
 
 // ---- cheatsheets: mechanic + app references

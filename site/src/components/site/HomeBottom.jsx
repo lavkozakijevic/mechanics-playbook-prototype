@@ -1,7 +1,9 @@
 /* Website kit — bottom homepage sections. */
 import React from "react";
 import { Button } from "../ds/Button.jsx";
+import { Badge } from "../ds/Badge.jsx";
 import { MechanicCard } from "../ds/MechanicCard.jsx";
+import { SystemMap } from "./SystemDetail.jsx";
 
 /** Value proposition 1 — the mechanics library: featured mechanics with real
  *  titles, working as a teaser for the full index. */
@@ -20,6 +22,36 @@ function LibraryPreview({ featured }) {
         </div>
         <div style={{ marginTop: 28 }}>
           <Button variant="secondary" size="lg" as="a" href="/mechanics/" trailingIcon={<i data-lucide="arrow-right" />}>Browse all mechanics</Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** System map showcase — the rotating free app's loop, drawn in the house
+ *  language. The app is free while it holds the slot, so this never links
+ *  into the paywall. */
+function SystemShowcase({ showcase }) {
+  const byId = Object.fromEntries(showcase.nodes.map((n) => [n.id, n]));
+  return (
+    <section className="band band--sunken" id="systems" aria-labelledby="showcase-h">
+      <div className="container">
+        <div className="showcase">
+          <div className="showcase__body">
+            <div className="eyebrow">This week's system map</div>
+            <h2 id="showcase-h">How the {showcase.name} system holds together</h2>
+            <div className="spotlight__meta">
+              <Badge tone="accent" variant="solid">Free</Badge>
+              <span style={{ font: "var(--type-data)", fontSize: 12, color: "var(--text-muted)" }}>{showcase.name}</span>
+            </div>
+            <p>{showcase.tagline}</p>
+            <Button variant="primary" size="lg" as="a" href={showcase.href} trailingIcon={<i data-lucide="arrow-up-right" />}>Explore the {showcase.name} map</Button>
+          </div>
+          <div className="showcase__map">
+            <div className="smap-stage">
+              <SystemMap nodes={showcase.nodes} connections={showcase.connections} byId={byId} />
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -126,10 +158,11 @@ function WorkWithUsBridge() {
 }
 
 /** Bottom homepage sections, in page order. */
-export function HomeBottom({ featured, newThisWeek }) {
+export function HomeBottom({ featured, newThisWeek, showcase }) {
   return (
     <>
       {featured?.length > 0 && <LibraryPreview featured={featured} />}
+      {showcase && <SystemShowcase showcase={showcase} />}
       <CategoryReport />
       {newThisWeek?.length > 0 && <NewThisWeek items={newThisWeek} />}
       <WorkWithUsBridge />

@@ -26,7 +26,7 @@ const MailIcon = (
 
 const FREE = [
   "Two case studies in full: Strava, plus the newest addition each week",
-  "The Strava system map, as a free sample",
+  "Two system maps, as free samples: Strava, plus the newest addition",
   "A preview of every other case study, mechanic, and system map",
   "The opening of each cheatsheet",
   "The complete glossary",

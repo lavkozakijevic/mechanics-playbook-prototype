@@ -143,13 +143,6 @@ function CaseStudies({ studies }) {
               <span className="cstudy__app">{s.app}</span>
               <Tag category="neutral">{s.cat}</Tag>
             </div>
-            <div className="shotgallery">
-              {s.shots.map((shot, i) => (
-                shot.image
-                  ? <figure className="shot" key={i}><div className="shot__frame" style={{ padding: 0, overflow: "hidden" }}><img src={shot.image} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} /></div></figure>
-                  : <ShotPlaceholder key={i} label={shot.label} />
-              ))}
-            </div>
             {s.body && (
               <div className="cstudy__narr">
                 {s.body.map((b, i) => (
@@ -157,6 +150,13 @@ function CaseStudies({ studies }) {
                 ))}
               </div>
             )}
+            <div className="shotgallery">
+              {s.shots.map((shot, i) => (
+                shot.image
+                  ? <figure className="shot" key={i}><div className="shot__frame" style={{ padding: 0, overflow: "hidden" }}><img src={shot.image} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} /></div></figure>
+                  : <ShotPlaceholder key={i} label={shot.label} />
+              ))}
+            </div>
             <div className="cstudy__foot">
               <a className="cstudy__link" href={s.href}>View full case study {IconArrow}</a>
             </div>

@@ -4,7 +4,7 @@ import Base from "../layouts/Base.astro";
 import { HomeTop } from "../components/site/HomeTop.jsx";
 import { HomeBottom } from "../components/site/HomeBottom.jsx";
 import { publishedApps, publishedMechanics, formatDate } from "../lib/content";
-import { dominantCategory, initials } from "../lib/props";
+import { dominantCategory, initials, systemProps } from "../lib/props";
 
 const apps = await publishedApps();
 const mechanics = await publishedMechanics();
@@ -49,9 +49,26 @@ const spotlight = {
   href: `/case-studies/${spotlightApp.id}/`,
   imageSrc: spotlightApp.heroImage,
   imageAlt: `${spotlightApp.name} screenshots`,
-  screenLabel: "Pass and lives screens",
+  screenLabel: shortShot(spotlightApp.mechanics.find((r) => r.depth === "core")?.suggestedShots[0]),
   date: formatDate(spotlightApp.analysisDate),
 };
+
+// System map showcase: follows the rotating free slot (settings written by
+// the convert script, guarded by validation), so it never links into the
+// paywall.
+const showcaseApp = apps.find((a) => a.data.id === settings.showcaseSystem)?.data;
+const showcase = showcaseApp?.system
+  ? (() => {
+      const p = systemProps(showcaseApp, byId);
+      return {
+        name: showcaseApp.name,
+        tagline: showcaseApp.system.tagline,
+        href: `/systems/${showcaseApp.id}/`,
+        nodes: p.nodes,
+        connections: p.connections,
+      };
+    })()
+  : null;
 
 const featured = settings.featuredMechanics
   .map((id) => byId.get(id))
@@ -82,5 +99,5 @@ const newThisWeek = [...apps]
   current="home"
 >
   <HomeTop client:load carousel={carousel} logoApps={logoApps} stats={stats} spotlight={spotlight} />
-  <HomeBottom featured={featured} newThisWeek={newThisWeek} />
+  <HomeBottom featured={featured} newThisWeek={newThisWeek} showcase={showcase} />
 </Base>
