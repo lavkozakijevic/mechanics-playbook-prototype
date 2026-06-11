@@ -3,7 +3,7 @@
   "name": "Uptime",
   "category": "Learning",
   "type": "app",
-  "visibility": "subscriber",
+  "visibility": "public",
   "analysisDate": "2026-05-18",
   "lastUpdated": "2026-05-18",
   "summary": "Uptime is a micro-learning app delivering five-minute book and course summaries. Its streak requires only one insight per day, the most forgiving streak definition in the library. Achievement cards are designed primarily as social media assets: pre-formatted, branded, shareable images generated automatically from consumption behavior. The app deploys three sequential paywalls across onboarding, each offering a better price than the last, reserving the lowest price for the moment after the first content completion.",

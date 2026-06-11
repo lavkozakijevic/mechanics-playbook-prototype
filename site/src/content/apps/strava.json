@@ -3,7 +3,7 @@
   "name": "Strava",
   "category": "Fitness",
   "type": "app",
-  "visibility": "public",
+  "visibility": "subscriber",
   "analysisDate": "2026-04-16",
   "lastUpdated": "2026-05-15",
   "summary": "Strava's system adds social and competitive layers to behaviour the user already wants to do, finish a workout. The Local Legend mechanic reframes leaderboard competition from speed to consistency, making segment competition accessible to athletes who will never hold the fastest time. The post-activity 'Add others' mechanic is the smoothest referral prompt in the library: framing a friend invite as adding them to your activity record, timed at the moment of highest engagement.",

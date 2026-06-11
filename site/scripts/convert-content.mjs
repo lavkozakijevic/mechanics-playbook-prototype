@@ -238,7 +238,7 @@ const DROPS = new Set([
 // newly imported app; the previous holder flips back to subscriber simply by
 // no longer being named here. Validation enforces the exactly-two invariant.
 // Thin apps awaiting write-up backfill must not hold this slot.
-const ROTATING_FREE_APP = "strava"; // owner ruling, 11 Jun 2026 — supersedes the newest-addition default until the next import flips it
+const ROTATING_FREE_APP = "uptime"; // newest addition (analyzed 18 May 2026); owner broke the uptime/tiimo tie, 11 Jun 2026
 
 const ALL_APPS = [
   { file: "royal-match.md", id: "royal-match", visibility: "public" },
