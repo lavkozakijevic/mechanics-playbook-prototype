@@ -276,6 +276,10 @@ const ALL_APPS = [
 fs.rmSync(path.join(out, "apps"), { recursive: true, force: true });
 fs.mkdirSync(path.join(out, "apps"), { recursive: true });
 
+// Repo-relative asset paths (icons, screenshots) referenced by visible apps;
+// synced into site/public after the loop so the deployed site can serve them.
+const publicAssets = new Set();
+
 const knownMechanicIds = new Set([...MECHANICS.map((m) => m.id), ...NEW_MECHANICS.map((m) => m.id)]);
 
 for (const entry of ALL_APPS) {
@@ -360,6 +364,13 @@ for (const entry of ALL_APPS) {
   const iconCandidates = [`icons/${entry.id}.png`, `icons/${entry.id}.webp`];
   const icon = iconCandidates.find((p) => fs.existsSync(path.join(repo, p)));
 
+  // Collect assets to sync into public/ — but never for report-only apps:
+  // nothing of theirs may reach the deployed output, including images.
+  if (entry.visibility !== "report-only") {
+    if (icon) publicAssets.add(icon);
+    for (const r of relationships) for (const s of r.screenshots) publicAssets.add(s.slice(1));
+  }
+
   write("apps", entry.id, {
     id: entry.id,
     // Content truth is v44; the analysis header is the fallback for apps
@@ -384,6 +395,28 @@ function headerName(file) {
   const md = fs.readFileSync(path.join(repo, "sources/analyses", file), "utf8");
   return md.match(/^# (.+)$/m)[1].trim();
 }
+
+// ------------------------------------------------------------ asset sync
+// public/icons and public/screenshots are fully managed by this script:
+// wiped and re-populated from the references collected above, so report-only
+// assets can never linger and removed references never leave stale files.
+const pub = path.resolve(here, "../public");
+for (const dir of ["icons", "screenshots"]) {
+  fs.rmSync(path.join(pub, dir), { recursive: true, force: true });
+}
+let assetCount = 0;
+for (const rel of publicAssets) {
+  const src = path.join(repo, rel);
+  const dest = path.join(pub, rel);
+  if (!fs.existsSync(src)) {
+    console.warn(`warning: referenced asset missing from repo: ${rel}`);
+    continue;
+  }
+  fs.mkdirSync(path.dirname(dest), { recursive: true });
+  fs.copyFileSync(src, dest);
+  assetCount++;
+}
+console.log(`synced ${assetCount} assets into site/public`);
 
 // -------------------------------------------------------------- settings
 fs.mkdirSync(path.join(out, "settings"), { recursive: true });

@@ -9,3 +9,12 @@
 site/node_modules/
 site/dist/
 site/.astro/
+
+# Playwright artifacts
+site/test-results/
+site/playwright-report/
+
+# Synced by site/scripts/convert-content.mjs from the repo's icons/ and
+# screenshots/ dirs on every build — never edit or commit these copies
+site/public/icons/
+site/public/screenshots/
