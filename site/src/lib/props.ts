@@ -103,8 +103,15 @@ export function mechanicStudies(mechanicId: string, apps: App[]) {
         cat: a.category,
         href: `/case-studies/${a.id}/`,
         depth: rel.depth,
-        shots: rel.screenshots.length ? rel.screenshots : rel.suggestedShots.slice(0, 3),
-        shotsAreImages: rel.screenshots.length > 0,
+        // Every example shows a screenshot area (owner ruling, 11 Jun 2026):
+        // real screenshots flex the count above two; otherwise the slot holds
+        // a pair of placeholders, captioned by suggested shots where they
+        // exist and left blank where the analysis has neither.
+        shots: (() => {
+          const slots: { image?: string; label?: string }[] = rel.screenshots.map((src) => ({ image: src }));
+          for (let i = 0; slots.length < 2; i++) slots.push({ label: rel.suggestedShots[i] });
+          return slots;
+        })(),
         body: w ? [w.observed ?? "", w.noting ?? "", w.presented ?? "", w.findings?.[0] ?? ""] : null,
       };
     });

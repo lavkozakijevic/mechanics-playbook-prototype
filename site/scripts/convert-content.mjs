@@ -232,16 +232,16 @@ const DROPS = new Set([
   "gifting|swgoh",
 ]);
 
-// Standing rule (owner ruling, 11 Jun 2026): exactly two case studies are
-// open at any time — royal-match (permanent, never flips) plus the newest
+// Standing rule (final owner ruling, 11 Jun 2026): exactly two case studies
+// are open at any time — strava (permanent, never flips) plus the newest
 // addition to the library (rotating). The weekly import sets this id to the
 // newly imported app; the previous holder flips back to subscriber simply by
 // no longer being named here. Validation enforces the exactly-two invariant.
 // Thin apps awaiting write-up backfill must not hold this slot.
-const ROTATING_FREE_APP = "strava"; // owner override, 11 Jun 2026 — holds the slot until the next import flips it to the new app
+const ROTATING_FREE_APP = "uptime"; // newest addition (analyzed 18 May 2026)
 
 const ALL_APPS = [
-  { file: "royal-match.md", id: "royal-match", visibility: "public" },
+  { file: "royal-match.md", id: "royal-match", visibility: "subscriber" },
   { file: "cleo.md", id: "cleo", visibility: "report-only" },
   // Batch 1
   { file: "calm.md", id: "calm", visibility: "subscriber" },
@@ -267,7 +267,8 @@ const ALL_APPS = [
   { file: "solitaire-grand-harvest.md", id: "solitaire-grand-harvest", visibility: "subscriber" },
   { file: "star-wars-swgoh.md", id: "swgoh", visibility: "subscriber" },
   { file: "steam.md", id: "steam", visibility: "subscriber" },
-  { file: "strava.md", id: "strava", visibility: "subscriber" },
+  // Permanent free case study (final owner ruling, 11 Jun 2026) — never flips.
+  { file: "strava.md", id: "strava", visibility: "public" },
   // Batch 5
   { file: "subway-surfers.md", id: "subway-surfers", visibility: "subscriber" },
   { file: "tiimo.md", id: "tiimo", visibility: "subscriber" },
@@ -387,7 +388,7 @@ for (const entry of ALL_APPS) {
     category: v44?.cat ?? a.meta["Category"] ?? "",
     type: v44?.type ?? (a.meta["Type"] ?? "app").toLowerCase(),
     // The rotating free slot overrides the declared visibility (standing
-    // rule: two open case studies — royal-match plus the newest addition).
+    // rule: two open case studies — strava plus the newest addition).
     visibility: entry.id === ROTATING_FREE_APP ? "public" : entry.visibility,
     analysisDate: isoDate(a.meta["Analysis date"]),
     lastUpdated: isoDate(a.meta["Last updated"]) ?? isoDate(a.meta["Analysis date"]),

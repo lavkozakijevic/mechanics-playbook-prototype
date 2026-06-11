@@ -6,11 +6,11 @@ encode. Do not remove or weaken these when Stage 4 fleshes this file out.
 
 ## Standing rules for the weekly import
 
-### Two free case studies — one fixed, one rotating (owner ruling, 11 Jun 2026)
+### Two free case studies — one fixed, one rotating (final owner ruling, 11 Jun 2026)
 
-- **royal-match is the permanent free case study. It never flips.**
+- **strava is the permanent free case study. It never flips.**
 - **The most recently added app is always open as the second, rotating free
-  case study.** Exactly two case studies are public at any time: Royal Match
+  case study.** Exactly two case studies are public at any time: Strava
   plus the newest addition.
 - **On every import:** set `ROTATING_FREE_APP` in
   `site/scripts/convert-content.mjs` to the newly imported app's id. That is

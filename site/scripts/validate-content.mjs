@@ -159,17 +159,17 @@ if (!fs.existsSync(settingsPath)) {
   }
 }
 
-// ---- the two-free-case-studies rule (owner ruling, 11 Jun 2026):
-// exactly two apps public at any time — royal-match (permanent) plus the
+// ---- the two-free-case-studies rule (final owner ruling, 11 Jun 2026):
+// exactly two apps public at any time — strava (permanent) plus the
 // rotating newest addition. Anything else means the rotation broke.
 {
   const publicApps = apps.filter((a) => a.data.visibility === "public").map((a) => a.data.id);
-  if (!publicApps.includes("royal-match"))
-    problem("apps", "royal-match must always be the permanent free case study, but it is not public");
+  if (!publicApps.includes("strava"))
+    problem("apps", "strava must always be the permanent free case study, but it is not public");
   if (publicApps.length !== 2)
     problem(
       "apps",
-      `exactly 2 case studies must be open (royal-match + the rotating newest addition); found ${publicApps.length}: ${publicApps.join(", ") || "none"}`
+      `exactly 2 case studies must be open (strava + the rotating newest addition); found ${publicApps.length}: ${publicApps.join(", ") || "none"}`
     );
 }
 

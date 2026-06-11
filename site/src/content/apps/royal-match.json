@@ -3,7 +3,7 @@
   "name": "Royal Match",
   "category": "Casual Game",
   "type": "game",
-  "visibility": "public",
+  "visibility": "subscriber",
   "analysisDate": "2026-04-03",
   "lastUpdated": "2026-05-15",
   "summary": "Royal Match layers five simultaneous limited-time events, a set collection system, a battle pass, and a team gifting mechanic on top of a match-3 core. Each system is introduced one at a time as the player advances through levels, preventing early-session overload. The team mechanic surfaces at the exact moment the energy system first becomes painful, level 19–21, making social joining feel like a natural solution rather than a feature to discover.",

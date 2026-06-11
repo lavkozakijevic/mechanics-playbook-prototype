@@ -25,7 +25,7 @@ const MailIcon = (
 );
 
 const FREE = [
-  "Two case studies in full: Royal Match, plus the newest addition each week",
+  "Two case studies in full: Strava, plus the newest addition each week",
   "The Strava system map, as a free sample",
   "A preview of every other case study, mechanic, and system map",
   "The opening of each cheatsheet",
@@ -69,8 +69,8 @@ function CheckoutSheet({ open, onClose }) {
           <div className="sub-sheet__done">
             <span className="sub-sheet__check" aria-hidden="true">{CheckIcon}</span>
             <h2 className="sub-sheet__title">You're on the list</h2>
-            <p className="sub-sheet__p">We'll email you the moment checkout opens. Until then, the Royal Match case study and every preview are yours to read.</p>
-            <Button variant="secondary" size="lg" as="a" href="/case-studies/royal-match/">Read the free case study</Button>
+            <p className="sub-sheet__p">We'll email you the moment checkout opens. Until then, the Strava case study and every preview are yours to read.</p>
+            <Button variant="secondary" size="lg" as="a" href="/case-studies/strava/">Read the free case study</Button>
           </div>
         )}
       </div>
@@ -134,7 +134,7 @@ export function SubscribePage({ inside, newThisWeek }) {
                   <li key={f}><span className="sub-tier__check" aria-hidden="true">{CheckIcon}</span>{f}</li>
                 ))}
               </ul>
-              <Button variant="secondary" size="lg" as="a" href="/case-studies/royal-match/">Read the free case study</Button>
+              <Button variant="secondary" size="lg" as="a" href="/case-studies/strava/">Read the free case study</Button>
             </div>
 
             <div className="sub-tier sub-tier--full">
