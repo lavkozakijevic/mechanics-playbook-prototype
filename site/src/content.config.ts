@@ -30,6 +30,7 @@ const apps = defineCollection({
         id: z.string(),
         depth: z.enum(["core", "supporting", "shallow", "unusual"]),
         provisionalDepth: z.boolean().optional(),
+        note: z.string().optional(),
         writeup,
         screenshots: z.array(z.string()),
         suggestedShots: z.array(z.string()),

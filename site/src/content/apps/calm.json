@@ -63,6 +63,24 @@
       "writeup": null,
       "screenshots": [],
       "suggestedShots": []
+    },
+    {
+      "id": "gifting",
+      "depth": "shallow",
+      "note": "Implementation targets non-users as a referral device (gift-framed guest pass), not in-app transfer between existing users.",
+      "writeup": {
+        "observed": "After sign-in, the app presents a 'Gift a free 30-day Calm guest pass' feature. The gift provides the recipient with 30 days of full Premium access at no cost to the sender. It is shareable via any messaging or social channel using a unique link. No stated limit on the number of guest passes that can be sent was described during analysis. The share sheet did not close automatically after sharing, suggesting multiple shares were possible from a single session.",
+        "presented": "The guest pass gift popup appears as the first thing shown after sign-in, a proactive presentation not triggered by any user action. The share sheet opens standard messaging and social options.",
+        "noting": "The gift-framed referral positions inviting someone as giving them a gift rather than recruiting them. The 30-day duration is more generous than the standard new-user free trial, making the referral path more valuable for recipients than organic discovery. The immediate post-sign-in placement captures the user at the moment of highest enthusiasm for the product.",
+        "findings": [
+          "The guest pass targets non-users rather than existing users, a referral mechanic with gift-framed UI rather than an in-app gifting system between existing users.",
+          "The 30-day guest pass is more generous than the standard 7-day free trial, making referral the highest-value acquisition path for recipients.",
+          "The share sheet did not close automatically, suggesting multiple shares could be initiated from a single popup interaction.",
+          "The popup appears immediately after sign-in with no trigger action required, a proactive referral prompt at the moment of highest new-user enthusiasm."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
     }
   ],
   "system": {

@@ -169,8 +169,24 @@ for (const nm of NEW_MECHANICS) {
 // Corrections §3: relationships = analysis observed sections (with depth)
 // + listed additions − the confirmed drop list.
 const ADDITIONS = {
-  // appId → [{ id, depth }]  (corrections §3b)
-  "royal-match": [{ id: "gifting", depth: "supporting" }],
+  // appId → [{ id, depth }]  (corrections §3b + Stage 2 review rulings)
+  "royal-match": [
+    { id: "gifting", depth: "supporting" },
+    // Stage 1/2 review ruling: the analysis's unrecognized section describes
+    // the castle decoration meta as "the primary aesthetic reward system" —
+    // observed content beats the addendum's seed-list minimum.
+    { id: "passive-construction-meta", depth: "core" },
+  ],
+  // Stage 2 review ruling: analysis recommends mapping the guest pass to
+  // gifting; keep the v44 write-up. Shallow — two passes a year is
+  // peripheral to Calm's model.
+  "calm": [
+    {
+      id: "gifting",
+      depth: "shallow",
+      note: "Implementation targets non-users as a referral device (gift-framed guest pass), not in-app transfer between existing users.",
+    },
+  ],
   "canva": [{ id: "credits-tokens", depth: "supporting" }],
   "capybara-go": [
     { id: "first-purchase-bonus", depth: "supporting" },
@@ -178,6 +194,10 @@ const ADDITIONS = {
   ],
   "clash-of-clans": [{ id: "gifting", depth: "supporting" }],
   "fc-mobile": [{ id: "first-purchase-bonus", depth: "supporting" }],
+  // Stage 2 review ruling: the analysis documents the construction meta as
+  // the organizing framework of the entire app — observed content beats the
+  // addendum's seed list (which is a minimum, not exhaustive).
+  "fortune-city": [{ id: "passive-construction-meta", depth: "core" }],
   "picsart": [{ id: "credits-tokens", depth: "supporting" }],
   "steam": [{ id: "credits-tokens", depth: "supporting" }],
   // corrections §3b: set-collection added at shallow (session didn't reach
@@ -295,6 +315,7 @@ for (const entry of ALL_APPS) {
         id: r.id,
         depth: r.depth,
         ...(r.provisionalDepth ? { provisionalDepth: true } : {}),
+        ...(r.note ? { note: r.note } : {}),
         writeup,
         screenshots: registered.map((p) => "/" + p),
         suggestedShots: (a.shots[r.id] ?? []).slice(0, 3),

@@ -147,6 +147,13 @@
       "suggestedShots": []
     },
     {
+      "id": "passive-construction-meta",
+      "depth": "core",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
       "id": "soft-currency",
       "depth": "supporting",
       "provisionalDepth": true,
