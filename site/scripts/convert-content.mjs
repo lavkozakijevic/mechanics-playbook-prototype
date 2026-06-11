@@ -85,10 +85,12 @@ function parseAnalysis(file) {
 
 function isoDate(s) {
   // "03 Apr 2026" → "2026-04-03"
-  // Handles compound strings like "12 May 2026 (Session 1), ..." by taking the first date only.
+  // Compound strings — "12 May 2026 (Session 1), ..." or ranges like
+  // "06 Apr 2026 – 15 May 2026" — yield the FIRST date (= the analysis start).
   if (!s) return null;
-  const cleaned = s.replace(/\s*\(.*/, "").trim();
-  const d = new Date(cleaned + " UTC");
+  const first = s.match(/\d{1,2} [A-Z][a-z]{2} \d{4}/);
+  if (!first) return null;
+  const d = new Date(first[0] + " UTC");
   return isNaN(d) ? null : d.toISOString().slice(0, 10);
 }
 
@@ -175,6 +177,7 @@ const ADDITIONS = {
     { id: "cosmetics", depth: "shallow" },
   ],
   "clash-of-clans": [{ id: "gifting", depth: "supporting" }],
+  "fc-mobile": [{ id: "first-purchase-bonus", depth: "supporting" }],
 };
 // Harvested currency relationships (corrections §4): unrecognized-section
 // observations. Depth is not graded in those sections; "supporting" is a
@@ -203,6 +206,12 @@ const ALL_APPS = [
   { file: "capybara-go.md", id: "capybara-go", visibility: "subscriber" },
   { file: "chrome-valley-customs.md", id: "chrome-valley-customs", visibility: "subscriber" },
   { file: "clash-of-clans.md", id: "clash-of-clans", visibility: "subscriber" },
+  // Batch 2
+  { file: "fc-mobile.md", id: "fc-mobile", visibility: "subscriber" },
+  { file: "fifa-panini-collection.md", id: "fifa-panini-collection", visibility: "subscriber" },
+  { file: "fiton.md", id: "fiton", visibility: "subscriber" },
+  { file: "fortune-city.md", id: "fortune-city", visibility: "subscriber" },
+  { file: "freeletics.md", id: "freeletics", visibility: "subscriber" },
 ];
 
 fs.rmSync(path.join(out, "apps"), { recursive: true, force: true });
@@ -259,13 +268,22 @@ for (const entry of ALL_APPS) {
       roles: sys.mechanics.map((m) => ({ id: m.id, role: m.role })),
       center: pos.center ?? null,
       nodes,
-      connections: (CONNECTIONS[entry.id] ?? []).map((c) => ({
-        from: c.from,
-        to: c.to,
-        title: c.title,
-        desc: c.desc,
-        effect: c.effect,
-      })),
+      // The live v44 page skips connections whose endpoints have no position
+      // (`if (!fp || !tp) return;` in system.html), so they never render.
+      // Dropping them here matches what the live site actually shows.
+      connections: (CONNECTIONS[entry.id] ?? [])
+        .filter((c) => {
+          const ok = pos[c.from] && pos[c.to];
+          if (!ok) console.warn(`note: ${entry.id} connection ${c.from}->${c.to} has no position; skipped (matches live site)`);
+          return ok;
+        })
+        .map((c) => ({
+          from: c.from,
+          to: c.to,
+          title: c.title,
+          desc: c.desc,
+          effect: c.effect,
+        })),
     };
   }
 
@@ -274,7 +292,9 @@ for (const entry of ALL_APPS) {
 
   write("apps", entry.id, {
     id: entry.id,
-    name: v44?.name ?? a.meta["ID"] === entry.id ? headerName(entry.file) : entry.id,
+    // Content truth is v44; the analysis header is the fallback for apps
+    // that have no v44 entry (e.g. the report-only set).
+    name: v44?.name ?? headerName(entry.file),
     category: v44?.cat ?? a.meta["Category"] ?? "",
     type: v44?.type ?? (a.meta["Type"] ?? "app").toLowerCase(),
     visibility: entry.visibility,

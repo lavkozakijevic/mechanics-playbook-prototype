@@ -1,0 +1,208 @@
+{
+  "id": "fifa-panini-collection",
+  "name": "FIFA Panini Collection",
+  "category": "Sports / Collectibles",
+  "type": "app",
+  "visibility": "subscriber",
+  "analysisDate": "2026-05-15",
+  "lastUpdated": "2026-05-15",
+  "summary": "FIFA Panini Collection is a digital sticker album tied to the FIFA World Cup 2026, extending the physical sticker-collecting experience into a digital format. Coca-Cola product scanning is structural rather than decorative, it is a named achievement category and a daily pack source that effectively doubles the daily pack intake for users with a product at hand. The app has a fixed availability window through September 30, 2026, making the entire experience a limited-time event at the macro level.",
+  "icon": "/icons/fifa-panini-collection.png",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "daily-login-reward",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Registered users receive two free packs per day and can open up to four packs per day. Guests receive one free pack per day and can open one. The pack opening cap operates on a 15-hour reset window rather than a calendar day. After hitting the cap: 'You've reached your daily limit of four packs. Please retry in 15 hours.' Coca-Cola product scanning grants one additional pack per day per product, with its own daily cadence.",
+        "presented": "The free daily pack is surfaced on the home screen in the promo code section. The guest vs. registered account comparison screen presents the pack limit as a primary differentiator at first launch. The Coca-Cola scan bonus operates through the Scan Content section with its own camera flow and daily cap.",
+        "noting": "The 15-hour reset window creates a rolling return incentive, a user who opens their packs at 6pm returns at 9am the next morning rather than waiting until 6pm, pulling the natural session time earlier over successive days. The Coca-Cola integration effectively doubles the daily pack intake for users with a product at hand.",
+        "findings": [
+          "The 15-hour reset window creates a rolling return incentive, each day's session pulls the return time slightly earlier, preventing lock-in to a fixed daily session time.",
+          "Coca-Cola product scanning grants a daily pack equivalent, users with a Coca-Cola product available effectively have double the daily free pack intake.",
+          "The guest vs. registered account comparison screen presents pack limits as the primary differentiation at first launch, making registration value immediately calculable.",
+          "Scanning a Panini album cover granted a free pack immediately without a stated daily cap, the album scan may operate on a one-time or different cadence from the product scan."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "The guest vs. registered account comparison screen showing \"1 free pack every day\" vs. \"2 free packs every day\" and \"open one pack per day\" vs. \"open four packs per day\"",
+        "The \"you've reached your daily limit of four packs. Please retry in 15 hours\" message after hitting the registered user cap"
+      ]
+    },
+    {
+      "id": "challenges",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Three challenges were observed in the dedicated Challenges tab. Challenge 1 (Hosting Countries): collect 2 stickers from each host country, reward: official mascots sticker, expired. Challenge 2 (2022 FIFA World Cup winner team): collect 5 stickers of the winning team, reward: digital power pack, expired. Challenge 3 (Team Captains): collect 10 team captains, reward: Panini logo sticker, 2 days remaining. A 'participate in this challenge' opt-in button changes to 'you are already participating' after tapping. Stickers only count toward a challenge if glued into the album.",
+        "presented": "Challenges are in a dedicated tab in the bottom navigation. Each challenge shows reward, task description, progress counter, remaining time, and a participate status. Challenges are not accessible to guest accounts.",
+        "noting": "The opt-in structure with a visible endpoint and a defined reward creates the defining features of the challenges mechanic, voluntary commitment, visible accountability, concrete goal. The album-gluing requirement adds an intermediate step that reinforces the core collection loop.",
+        "findings": [
+          "Two of three visible challenges had already expired at time of analysis, with no explanation of cycle cadence, suggesting calendar-based challenges tied to real-world events rather than recurring weekly resets.",
+          "Challenges require stickers to be glued into the album before counting toward progress, reinforcing the album as the organizing hub.",
+          "Challenges are not accessible to guest accounts, registration-gating creates a meaningful differentiation between guest and registered experiences.",
+          "The third challenge (Team Captains, 2 days remaining) was the only active challenge at time of analysis, creating urgency that expired challenges could not provide."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Challenge 3 \"Team Captains\" screen showing the reward (Panini logo sticker), 0/10 progress, 2-day timer, and \"participate in this challenge\" button"
+      ]
+    },
+    {
+      "id": "set-collection",
+      "depth": "core",
+      "writeup": {
+        "observed": "The album is the organizing structure of the entire app. Users open packs to receive sticker cards and glue them into named slots across the digital album. The album contains multiple sections: host countries (Canada, Mexico, USA), team rosters, Cosmic Stickers (special rarity), and poster stickers. Duplicates go to the swap stack for trading with other collectors. The Deluxe Pack ($2.00) delivers 9 specifically missing Cosmic stickers and 1 missing poster sticker, removing uncertainty for the two premium collection categories.",
+        "presented": "The album displays all sticker slots, filled slots show the sticker, empty slots show the outline. Swaps are managed through a dedicated swap stack. The Collector's Team enables private swap requests with trusted contacts. Challenges require stickers to be glued into the album before counting toward challenge progress.",
+        "noting": "The Deluxe Pack removes the primary frustration of randomized collection, the possibility of missing a specific known item, for its two premium content categories. A collector who needs specific Cosmic stickers can buy exactly those nine missing items for $2.00 rather than pulling random packs. The known outcome makes the $2 price point calculable.",
+        "findings": [
+          "The Deluxe Pack delivers specifically missing Cosmic and poster stickers rather than random pulls, a targeted completion product that eliminates uncertainty for premium collection categories.",
+          "The entire app is available only until September 30, 2026, a macro-level time limit framing the entire collection experience as a limited-time event.",
+          "Stickers must be glued into the album before counting toward challenges, reinforcing the album as the organizing hub.",
+          "Duplicates route to a swap stack for trading, converting excess randomized pulls into social currency for targeted exchanges."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Album page open during the sticker-gluing interaction, showing the target slot with the plus button highlighted above it and the dragged sticker mid-placement",
+        "The Deluxe Pack description screen showing \"9 missing Cosmic stickers,\" \"1 missing poster sticker,\" and \"10 regular stickers (can contain duplicates)\" with the $2 price"
+      ]
+    },
+    {
+      "id": "achievements",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "The app tracks collection milestones including Coca-Cola scan achievements (1 / 10 / 25 Coke scans), swap milestones, and album completion milestones. All achievements feed the public profile, making collection progress, swap history, and Coca-Cola scan activity visible to other collectors. Completing all Cosmic Stickers unlocks a 100% discount on the digital FIFA World Cup 2026 keepsake album. Reaching 100% album completion triggers a personalized collection recap animation (noted as 'coming soon' at time of analysis).",
+        "presented": "Achievements are visible on the public profile. Deluxe Pack purchase milestones (20 and 25 packs) unlock physical and digital coupons. Completion rewards are disclosed throughout the app.",
+        "findings": [
+          "Coke Scans is a named achievement category with three tiers (1 / 10 / 25 items), making the physical product integration trackable as a named achievement separate from standard collection milestones.",
+          "Completing all Cosmic Stickers unlocks a 100% discount on the digital keepsake album, the most valuable single-item completion reward in the app.",
+          "20 Deluxe Pack purchases unlock a physical print coupon, bridging the digital collection to a physical reward.",
+          "The 100% album completion recap animation was listed as 'coming soon' during analysis, a milestone reward not yet implemented at the time of the session."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "The achievements page in the album showing the full grid of named achievement categories with their three-tier structure and earned/unearned badge status"
+      ]
+    },
+    {
+      "id": "clans-guilds",
+      "depth": "shallow",
+      "writeup": {
+        "observed": "The Collector's Team is the guild equivalent, a named group of collectors who can make private swap requests with each other. The primary benefit is direct sticker trading with trusted contacts, bypassing the public swap queue. Team members' completion percentages are visible in the team view. The Collector's Team is not accessible to guest accounts, registration is required.",
+        "presented": "The Collector's Team is accessible from the bottom navigation as a dedicated tab. Member completion percentages display in the team view. Private swap requests are available within the team context.",
+        "noting": "Private swaps with known collectors solve the core problem of the public swap system, getting specific missing stickers from strangers who also need what you have. The Collector's Team converts the completion challenge from a luck problem into a social coordination problem.",
+        "findings": [
+          "Private swap requests directly accelerate album completion by enabling targeted exchanges with trusted collectors rather than public random swaps.",
+          "Member completion percentages are visible, creating a shared progress context that makes collective progress toward completion transparent.",
+          "The Collector's Team is registration-gated, guests cannot access private swaps, creating a meaningful registration incentive beyond pack quantity.",
+          "The team view was only partially explored after registration due to email verification delays during analysis."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "The Collector's Team homepage showing team name, team ID, slogan, member list with collection completion percentages, and invite friends button"
+      ]
+    }
+  ],
+  "system": {
+    "tagline": "A digital collectible system where the physical world is an integral acquisition channel.",
+    "overview": "FIFA Panini Collection is organized entirely around album completion. The app is a digital extension of the physical Panini sticker album, but with mechanics that the physical format cannot provide: daily pack limits, structured challenges, social swap coordination, and achievement milestones tied to physical product scanning. Every mechanic in the system either drives pack acquisition (daily login, physical scanning, Deluxe Pack purchase) or drives album completion (set collection, challenges, Collector's Team swaps). The entire experience has a hard end date of September 30, 2026.",
+    "loop": "The core loop is: open daily packs → glue stickers into the album → send duplicates to the swap stack → request missing stickers from Collector's Team members → scan physical Coca-Cola products for additional packs → check active challenges for stickers required → buy Deluxe Pack for specifically missing Cosmic stickers → repeat until album is complete. The 15-hour reset on pack openings creates a rolling daily return cadence rather than a fixed daily session time.",
+    "keyInsight": "The Coca-Cola integration is structural, not decorative. Scanning a Coca-Cola product grants the same pack reward as the standard daily free pack, effectively doubling the daily pack intake for users with a product at hand. 'Coke Scans' is a named achievement category with three tiers (1 / 10 / 25 items). The physical product interaction is tracked, milestoned, and rewarded, making the brand partnership a mechanics layer rather than a logo placement.",
+    "whatMakesItWork": "The system works because album completion is a clear, finite, personally meaningful goal, and every mechanic feeds it. Unlike engagement systems in games that manufacture goals through abstract progression, the album already exists as a cultural artifact that millions of people recognise from childhood. The digital mechanics (daily resets, challenge deadlines, private swaps) solve real problems in the analogue collector experience: randomness, gaps, and the inability to trade at scale.",
+    "roles": [
+      {
+        "id": "set-collection",
+        "role": "The organizing logic of the entire app. Album completion drives all other mechanics, daily login rewards generate packs that fill the album, challenges require stickers to be glued, the Collector's Team exists to accelerate targeted collection. The Deluxe Pack removes uncertainty for the two premium categories (Cosmic and poster stickers) by delivering specifically missing items."
+      },
+      {
+        "id": "daily-login-reward",
+        "role": "Registered users receive two free packs per day with a 15-hour reset window, creating a rolling return incentive that pulls the natural session time earlier each day. Coca-Cola product scanning grants an equivalent daily pack, effectively doubling the intake for users with a product at hand."
+      },
+      {
+        "id": "challenges",
+        "role": "Opt-in structured objectives tied to real-world events (2022 World Cup winner, hosting countries, team captains). Challenges require stickers to be glued into the album before counting, reinforcing the album as the organizing hub. Challenges are calendar-based rather than recurring weekly, two of three observed had already expired."
+      },
+      {
+        "id": "achievements",
+        "role": "Tracks collection milestones including Coca-Cola scan tiers (1 / 10 / 25 scans), swap history, and album completion. Completing all Cosmic Stickers unlocks a 100% discount on the digital keepsake album, the most valuable single-item completion reward in the app."
+      },
+      {
+        "id": "clans-guilds",
+        "role": "The Collector's Team enables private swap requests between trusted contacts, converting the final-card problem from a random drop into a social coordination task. Member completion percentages are visible, making collective progress toward album completion transparent."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 10,
+      "label": "FIFA PANINI"
+    },
+    "nodes": [
+      {
+        "id": "set-collection",
+        "x": 50,
+        "y": 30
+      },
+      {
+        "id": "daily-login-reward",
+        "x": 22,
+        "y": 56
+      },
+      {
+        "id": "challenges",
+        "x": 78,
+        "y": 56
+      },
+      {
+        "id": "achievements",
+        "x": 30,
+        "y": 80
+      },
+      {
+        "id": "clans-guilds",
+        "x": 70,
+        "y": 80
+      }
+    ],
+    "connections": [
+      {
+        "from": "set-collection",
+        "to": "daily-login-reward",
+        "title": "Album drives daily pack consumption",
+        "desc": "The daily pack limit (4 for registered users) and daily free packs exist entirely to serve album completion. The login reward is pack fuel for the collection, not an independent engagement mechanic.",
+        "effect": "Players experience the daily login not as a general reward but as the primary means of advancing toward a personally meaningful goal. The return motivation is the album, not the reward itself."
+      },
+      {
+        "from": "set-collection",
+        "to": "challenges",
+        "title": "Stickers must be glued to count",
+        "desc": "Challenges require stickers to be glued into the album before they count toward challenge progress. The challenge system reinforces the album as the organizing hub rather than allowing inventory to count directly.",
+        "effect": "Challenges create a structured reason to engage with the gluing mechanic, the core activity of album building. The two mechanics are inseparable: challenge progress requires album progress."
+      },
+      {
+        "from": "set-collection",
+        "to": "clans-guilds",
+        "title": "Collector's Team solves the final-card problem",
+        "desc": "Private swap requests within the Collector's Team allow targeted exchanges that the public swap system cannot provide. When a specific missing sticker is needed, the team is the resolution path.",
+        "effect": "Album completion is gated behind coordination rather than luck at the final stage. The Collector's Team converts the last few missing stickers from a random drop problem into a social one."
+      },
+      {
+        "from": "daily-login-reward",
+        "to": "achievements",
+        "title": "Coca-Cola scans are counted achievements",
+        "desc": "Scanning a Coca-Cola product grants a daily pack equivalent and advances the Coke Scans achievement tier (1 / 10 / 25 items). The physical scanning behaviour is tracked, milestoned, and rewarded.",
+        "effect": "The physical product interaction is integrated into the achievement system, making real-world brand engagement part of the in-app progression. The partnership is measurable, not decorative."
+      },
+      {
+        "from": "challenges",
+        "to": "achievements",
+        "title": "Challenges surface collection milestones",
+        "desc": "Completing challenges (collect team captains, collect host country stickers) aligns with album completion milestones. Both systems point toward the same underlying goal.",
+        "effect": "Players pursuing challenges are simultaneously advancing toward album completion milestones. The two systems reinforce each other without requiring separate engagement tracks."
+      }
+    ]
+  }
+}

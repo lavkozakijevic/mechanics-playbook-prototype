@@ -1,0 +1,143 @@
+{
+  "id": "freeletics",
+  "name": "Freeletics",
+  "category": "Fitness",
+  "type": "app",
+  "visibility": "subscriber",
+  "analysisDate": "2026-02-25",
+  "lastUpdated": "2026-05-20",
+  "summary": "Freeletics is an AI coaching fitness app that runs a paywall cascade across onboarding: three sequential discount offers, each better than the last, with the lowest price reserved for the moment after the first workout is completed. The week-based challenge structure and community feed are the primary retention surfaces. No daily streak was observed.",
+  "icon": "/icons/freeletics.png",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "challenges",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Challenges are user-generated. Any member creates a challenge by selecting one exercise, a completion type (consistency or repetition), and an end date, then invites others to join. The Challenges sub-tab in the Community section shows a browsable list of user-created challenges: names, creators, participant counts, and exercises. Observed challenges included a 1,000-burpee target, a squat challenge, and a daily stretch completion.",
+        "findings": [
+          "User-generated challenges mean the catalogue quality reflects the health of the community rather than an editorial release schedule. An active community produces a rich challenge catalogue; a declining one produces a sparse one.",
+          "Challenges require no platform effort to maintain once the creation mechanic exists. Each new member is a potential challenge creator and a potential recruit for existing challenges."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Challenges tab showing a list of user-created challenges with creator names, participant counts, exercise names, and the create challenge button"
+      ]
+    },
+    {
+      "id": "leaderboards",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": [
+        "Leaderboard view showing the user at zero points and Freeletics Official at level 74 with 431,000 points — the only populated row in a new user's following leaderboard"
+      ]
+    },
+    {
+      "id": "achievements",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "The profile screen shows a badge area alongside workouts completed, post count, follower and following counts. Achievement details were not described beyond their presence. A Daily Athlete Score is visible on the profile but requires a subscription to view the full metric. The score implies ongoing performance tracking that accumulates over time.",
+        "findings": [
+          "Gating the Daily Athlete Score behind subscription while showing its existence on the free profile creates a persistent visibility of a metric the user cannot fully access, which is a recurring conversion prompt embedded in the core navigation."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "social-feed",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "daily-weekly-quests",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "xp-leveling",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "A fitness coaching app that runs its lowest price past the user three times before the first workout.",
+    "overview": "Freeletics is an AI coaching fitness app with a paywall cascade across onboarding: three sequential discount offers, each better than the last. The week-based challenge structure and community feed are the primary retention surfaces. No daily streak was observed in the session.",
+    "loop": "Complete onboarding and preference personalization. Encounter first paywall. Dismiss. Encounter second paywall with better price. Dismiss. Complete first workout. Encounter third paywall with best price. If dismissed, access the free tier. The AI coach adjusts weekly program difficulty based on logged performance. Community challenges provide a target beyond the weekly plan.",
+    "keyInsight": "The escalating discount paywall cascade is the most structurally deliberate price anchoring observed in the fitness category. The first price sets the anchor. The second makes the user feel they are getting a better deal for waiting. The third, arriving after the first workout completion when motivation is highest, offers the best price at the highest-intent moment. Most users who subscribe will do so at one of these three moments.",
+    "whatMakesItWork": "The AI coaching framing means the product improves with use. Logged performance data calibrates future workouts, which means the app becomes more accurate to the individual over time. This creates a data investment retention driver: switching apps means starting the personalization from zero.",
+    "roles": [
+      {
+        "id": "challenges",
+        "role": "Week-based challenges organized by named fitness goals with leaderboard integration. The primary community engagement surface."
+      },
+      {
+        "id": "leaderboards",
+        "role": "Challenge leaderboards rank participants by workout completions and performance metrics within the challenge window."
+      },
+      {
+        "id": "achievements",
+        "role": "Badge-based milestones for workout completions, challenge participations, and consistency targets."
+      },
+      {
+        "id": "social-feed",
+        "role": "Community feed showing challenge participation and workout completions from followed users."
+      },
+      {
+        "id": "xp-leveling",
+        "role": "God level system with named tiers. Logged workouts advance the user's level within the Freeletics ranking structure."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 18,
+      "label": "FREELETICS"
+    },
+    "nodes": [
+      {
+        "id": "challenges",
+        "x": 28,
+        "y": 50
+      },
+      {
+        "id": "social-feed",
+        "x": 72,
+        "y": 50
+      },
+      {
+        "id": "leaderboards",
+        "x": 28,
+        "y": 78
+      },
+      {
+        "id": "achievements",
+        "x": 72,
+        "y": 78
+      }
+    ],
+    "connections": [
+      {
+        "from": "challenges",
+        "to": "leaderboards",
+        "title": "Challenge participation generates leaderboard position",
+        "desc": "Challenge completions are ranked within the challenge leaderboard. The same action (completing a workout during the challenge window) advances both the challenge and the competitive rank.",
+        "effect": "The leaderboard gives the challenge a competitive dimension beyond personal completion. Users are not just finishing the challenge, they are finishing it relative to others."
+      },
+      {
+        "from": "social-feed",
+        "to": "challenges",
+        "title": "Feed visibility of challenge participation creates social pull",
+        "desc": "Challenge participation by followed users appears in the community feed, making the challenge visible to members who have not joined it.",
+        "effect": "Challenge discovery happens through social observation rather than requiring navigation to a challenge tab."
+      }
+    ]
+  }
+}

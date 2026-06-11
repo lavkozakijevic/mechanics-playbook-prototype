@@ -1,0 +1,393 @@
+{
+  "id": "fc-mobile",
+  "name": "FC Mobile",
+  "category": "Sports Game",
+  "type": "game",
+  "visibility": "subscriber",
+  "analysisDate": "2026-04-06",
+  "lastUpdated": "2026-05-15",
+  "summary": "FC Mobile runs a live-service calendar of overlapping events, daily quest systems, and league competition, all tied structurally to the real football calendar. Five simultaneous events were active during analysis, each with its own currency, quest line, and reward pool. The monthly card is the economic anchor: at $1.99, it creates a daily login reason that feeds quest completion, season pass progress, and league standing simultaneously.",
+  "icon": "/icons/fc-mobile.png",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "daily-login-reward",
+      "depth": "core",
+      "writeup": {
+        "observed": "Two distinct daily login reward systems run simultaneously. The first is inside Kickoff Missions: a 15-entry calendar showing day numbers, with rewards including 150 gems at day 2, 100 gems at day 5, 300 gems at day 10, 500 gems at day 15, and 200,000 gold coins for the current day. Previous days appear grayed out with a clock icon. On Session 2, the daily login popup appeared as the first thing visible on app open. The second is the Dream Chasers Daily Login, running for 10 days within the UEFA Dream Chasers event, on Session 2 it displayed a 16-hour 37-minute countdown with a Draft Voucher as the Day 1 reward.",
+        "presented": "The Kickoff Missions login tab is not surfaced prominently on the home screen, it was found through deliberate exploration. On returning sessions, the daily popup appears before any gameplay. The calendar allows viewing the following month's upcoming rewards from within the current month's screen. One daily reward slot was replaced by an image of credits, packs, and gems with a shopping cart and 'Explore Now' button that linked to an external website.",
+        "noting": "Running two login systems simultaneously, one embedded in the onboarding quest structure, one inside an active event, doubles the daily claim touchpoints without requiring a purchase. Both systems track the same returning-user sessions, meaning day 2 was recorded by both the Kickoff tracker and the Dream Chasers Celebration tracker at the same time.",
+        "findings": [
+          "Two distinct daily login systems run simultaneously and independently, each with its own reward track and countdown.",
+          "Day 2 login was recorded by both the Kickoff Missions tracker and the Dream Chasers Celebration tracker in the same session, the systems share the session event but maintain separate progress states.",
+          "The Kickoff Missions login tab was found through exploration, not through a home screen prompt, a discoverability gap for new players who do not explore the quest hub.",
+          "One daily reward slot linked to an external website rather than delivering an in-app reward, an unusual breakage of the daily login loop that takes the player out of the app."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "The Login tab in Kickoff Missions showing the 15-day reward calendar with day markers, grayed-out past days, and the 200,000 coin reward for April 6",
+        "The Dream Chasers daily login popup appearing on app open in Session 2, showing the 16:37 countdown and Draft Voucher reward"
+      ]
+    },
+    {
+      "id": "monthly-card",
+      "depth": "core",
+      "writeup": {
+        "observed": "Two monthly card products are available simultaneously. The Monthly Supply Card ($1.99) delivers 200 FC Points instantly and 1,000 gems every day for 30 days. The Elite Monthly Supply Card ($4.99) delivers 500 FC Points instantly plus 1,500 gems and 30 rank-up points every day for 30 days, totaling 45,000 gems and 900 rank-up points over the month. Both cards can be purchased and active simultaneously. The delivery mechanic does not require daily login, gems accrue regardless of whether the player opens the app.",
+        "presented": "Monthly cards appeared at three distinct moments during analysis: as a popup before reaching gameplay on Session 7 (the first monetization surface seen that session), as a post-match popup on Session 3, and in the store's dedicated Monthly Card tab. On Session 7 they were visible before the player accessed any game content.",
+        "noting": "At $1.99, the Basic card sits below the psychological threshold for deliberate consideration. Its daily gem drip creates a daily login reason that feeds quest completion and season pass progress, the card is purchased once but generates compounding retention value. The Elite card addresses a specific bottleneck: rank-up points, which players blocked by training caps actively need, making its $4.99 price feel targeted rather than generic.",
+        "findings": [
+          "Both cards can be purchased simultaneously, a player can hold both for a combined $6.98/month, receiving 2,500 gems per day and 30 rank-up points per day.",
+          "Delivery does not require daily login, gems accrue automatically, removing the daily claim friction that typically supports the daily return rationale of other monthly card implementations.",
+          "The cards appeared before gameplay on Session 7, the first monetization surface presented before any game content, at the highest possible session exposure point.",
+          "Session 7 explicitly totaled the Elite card value: 500 FC Points, 45,000 gems, 900 rank-up points over 30 days, a transparency disclosure that helps the player evaluate the purchase."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "The Monthly Card tab in the store showing both cards side by side with instant reward and daily gift details listed",
+        "The post-match popup in Session 3 showing the Monthly Supply Card offer interrupting the return to the home screen"
+      ]
+    },
+    {
+      "id": "daily-weekly-quests",
+      "depth": "core",
+      "writeup": {
+        "observed": "Daily tasks reset each day with four tasks: complete a skill game or match, complete tackles, earn Dream Chaser tokens, and watch an ad. Completing all four unlocks a bundled reward of 3M FC coins, 300 gems, 300 Star Pass Credits, and 750 XP. Individual tasks can be refreshed for 10 gems. Kickoff Missions structure the first seven days of play as a staged onboarding quest line with time-gated unlocks: Day 2 opens 8 hours after Day 1 completion, Day 3 after 32 hours, Day 4 after 3 days, scaling gem rewards to 7,500 at Day 6 and 10,000 at Day 7. A third system, Dream Chasers Celebration, runs parallel to Kickoff Missions with largely identical tasks.",
+        "presented": "Three tabs within the quest hub: Kickoff, Tasks, and Login. Each task card has a Go button that navigates directly to the relevant game section. Day-locked future Kickoff tasks show countdown timers.",
+        "noting": "The time-gated Kickoff Mission cadence is a retention mechanism embedded in the onboarding layer, holding back content to create daily return reasons across the first week. The parallel quest systems, daily tasks, Kickoff Missions, Dream Chasers Celebration, league quests, and event-specific quest lines, create overlapping tracking surfaces that maximize daily interaction points.",
+        "findings": [
+          "An observed inconsistency: 'Train a player once' marked complete in Dream Chasers Celebration but not in Kickoff Missions within the same session, the parallel systems share missions but not completion state.",
+          "The time-gated Kickoff Mission cadence creates daily return reasons for the first seven days embedded within the onboarding structure itself.",
+          "Future-day Dream Chasers rewards for Days 3 and 4 were claimable before those days arrived in Session 3, a time-gate bypass that may have been unintentional.",
+          "Go buttons navigate directly to the relevant game section from within the task hub, reducing the friction between seeing a task and acting on it."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Kickoff Missions screen showing all 7 day tabs, with Day 1 completed, Day 2 partially done, and Days 3–7 showing lock timers",
+        "The Daily Tasks card for the Watch Ad task showing the refresh button, the reward breakdown, and the 10-gem refresh cost popup"
+      ]
+    },
+    {
+      "id": "variable-reward",
+      "depth": "core",
+      "writeup": {
+        "observed": "Multiple gacha layers operate simultaneously. Draft pools display guarantee counters: 'Pool B or higher guaranteed in 11 drafts. Pool A guaranteed in 51 drafts.' Each pack requires a tap-to-open step followed by a reveal, with a 'reveal all' button appearing after the initial item, adding a second beat to each opening. The Easter Egg Hunt used a multi-step exchange chain: egg pieces converted to Easter Egg Tickets, which were exchanged for Easter Boxes requiring 6 Easter Cards each. The Easter Box opened to gems only during analysis, against imagery prominently featuring high-overall players as possible rewards. No drop rate statistics were visible in the Easter Box UI.",
+        "presented": "Pack-open animations run for every reward including small ones. Guarantee counters display at the top of each draft screen, showing progress toward the next guaranteed pull. The Easter Box had no probability disclosure, a visible inconsistency with the draft screens that do surface guarantee information.",
+        "noting": "The guarantee counter on drafts is one of the few places in the game where probability information is proactively surfaced, a disclosed pity system that gives players a defined endpoint for the variable reward loop. The Easter Box runs the same mechanic with zero probability disclosure, creating a notable inconsistency in transparency between different variable reward surfaces within the same game.",
+        "findings": [
+          "Draft screens display guarantee counters (Pool B in 11, Pool A in 51), one of the few proactive probability disclosures in the library.",
+          "The Easter Box had no probability disclosure, creating a transparency inconsistency between it and the draft system within the same game.",
+          "The Easter Box opened to gems only during analysis, against imagery prominently featuring high-overall players, a gap between visual expectation and observed outcome.",
+          "The 'reveal all' button appears after the initial item in pack opening, adding a deliberate second beat that extends the reveal interaction."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "UEFA Dream Chasers draft screen showing Pool A and Pool B player previews sliding, with \"Pool B guaranteed in 10 drafts\" and \"Pool A guaranteed in 100 drafts\" text visible",
+        "Kickoff Draft pack open animation mid-reveal, before tapping \"Reveal All\""
+      ]
+    },
+    {
+      "id": "season-pass",
+      "depth": "core",
+      "writeup": {
+        "observed": "The Star Pass is a dual-track progression system. The paid tier (Premium Ticket, $9.99) has a 30x reward gap at Step 3 compared to the free tier, the free track grants 100,000 FC coins while the paid track grants 3,000,000 for the same progression point. The 120 OVR Miroslav Klose player sits behind the paid tier. Star Pass Credits are earned through Division Rivals and live events, resetting each season. A parallel Songkran Splash Mini Pass runs simultaneously at $9.99 or $19.99 bundled, with its own separate credit economy.",
+        "presented": "The Star Pass is accessible from the home screen and promoted in the store before being explained to new players. Clicking the purchase button inside the Star Pass redirects to the external store rather than offering an inline purchase. Season duration shows as a progress bar without a stated day count.",
+        "noting": "The 30x gap at Step 3 makes the paid tier's value immediately visible in the reward comparison, the disparity is explicit rather than hidden across 30 steps. The season pass was surfaced and promoted before the Jude tutorial explained what it was, meaning a player could purchase it without understanding the reset cadence or credit system.",
+        "findings": [
+          "The Step 3 reward gap (100,000 coins free vs. 3,000,000 coins paid) makes the paid tier's value immediately legible, the disparity is front-loaded rather than distributed evenly across the track.",
+          "The Star Pass was promoted in the store before the tutorial explained what it was, a player could purchase it without understanding the reset cadence or credit system.",
+          "Two passes run simultaneously with separate credit economies (Star Pass and Songkran Splash Mini Pass), adding friction without clear player benefit.",
+          "Season duration is shown as a progress bar without a stated day count, players cannot calculate the daily engagement requirement needed to complete the track."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Star Pass track showing step 3 free reward (100,000 coins) vs. premium reward (3 million coins) side by side, with the purchase button under Klose visible further down",
+        "The Premium Star Pass Ticket Bundle offer in the store showing the $19.99 price and 6,000 credits with no step-count translation visible"
+      ]
+    },
+    {
+      "id": "limited-time-events",
+      "depth": "core",
+      "writeup": {
+        "observed": "Five or more named events ran simultaneously during analysis. UEFA Dream Chasers (78-day primary event with weekly chapter unlocks and a prediction mechanic tied to actual UEFA fixture scheduling). Songkran Splash (with its own Mini Pass). Easter Egg Hunt (egg piece collection and box opening). Nation Story (country shard collection). Zlatan Chronicles (268-day story event covering six eras of Zlatan Ibrahimović's career). UCL Final event tied to the May 30 match date. Daily store offers refresh every 15–16 hours and display 'expires in X hours' labels, functioning as daily resets in practice.",
+        "presented": "Each event is accessible from a central hub on the home screen with its own navigation, store section, and quest line. Events open as sequential popups on launch when multiple are active. The Dream Chasers duel mechanic required choosing a match winner within a 13-hour window tied to actual UEFA fixture scheduling.",
+        "noting": "The Dream Chasers prediction window is set by real UEFA fixture scheduling, not by game design, the 13-hour deadline is externally grounded, making the urgency feel different from standard manufactured scarcity. The Zlatan Chronicles runs for 268 days, far longer than any season or monthly cadence, and functions as permanent content dressed as a time-limited event. Five simultaneous events means a player checking all daily reward sources interacts with 10+ distinct systems before playing a single match.",
+        "findings": [
+          "The Dream Chasers prediction window (13 hours, tied to real UEFA fixtures) is externally grounded urgency, the deadline is set by the football calendar, not by game design.",
+          "The Zlatan Chronicles runs for 268 days, the longest 'limited-time' event observed in the library, functioning as permanent narrative content with a distant expiry.",
+          "Five simultaneous active events create 10+ daily interaction points before any actual gameplay begins.",
+          "Daily store offers labeled 'expires in X hours' operate as daily resets in practice, the expiry framing adds urgency to what is effectively a 15-hour refresh cycle."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Icon Chronicles Chapter 1 first task screen showing \"Objective: Free Kick, Amateur difficulty, expires in 1631 days, guaranteed reward: 200,000 coins\"",
+        "The home screen with five simultaneous \"Go now\" event buttons visible — UEFA Dream Chasers, Songkran Splash, England, Icon Chronicles, and generic rewards",
+        "Songkran Splash event screen showing the egg-of-the-day free reward with \"one egg per day\" copy and 14-hour return timer"
+      ]
+    },
+    {
+      "id": "leaderboards",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Head-to-Head matches operate within a weekly leaderboard: wins earn stars, losses remove one star, with promotion or demotion based on star count at week's end. Weekly leaderboard rankings show rewards tiered by final position (top 1, top 8, top 20). Manager Mode seasons last 15 days with a separate division ranking. The global league ranking shows top leagues by points, the top league held 1.7M points and a 128 OVR average during analysis. The analyzed account's league was ranked 19th of 20 visible leagues globally with 104 badges total, and the individual global ranking was 600,000th.",
+        "presented": "The weekly Head-to-Head leaderboard is accessed from the H2H screen. The global league ranking is visible from the league hub with a toggle between group and global ranked views.",
+        "noting": "The dual leaderboard cadence (7-day H2H and 15-day Manager Mode season) creates two parallel ranking pressure cycles running simultaneously. The global league ranking display communicates competitive position without masking the gap, 19th of 20, individual rank 600,000th is shown without softening.",
+        "findings": [
+          "The global league ranking shows 19th of 20 leagues and individual rank 600,000th without softening, a transparent communication of competitive position that most apps would obscure.",
+          "The dual leaderboard cadence (7-day H2H and 15-day Manager Mode) creates two overlapping ranking pressure cycles simultaneously.",
+          "The top league held 1.7M points and a 128 OVR average, a visible ceiling that communicates the investment required for top-tier competition.",
+          "The Share with League button on match result screens is greyed out until the player joins a league, a friction point that delays social engagement until the guild system is accessed."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "League leaderboard showing the user's league at position 19 in group, the top three leagues' point totals, and the group promotion/demotion structure"
+      ]
+    },
+    {
+      "id": "clans-guilds",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Leagues are the guild equivalent, costing 3,000 gems to create with configurable minimum overall rating, privacy settings, and preferred game modes. A league of 42 members was observed during analysis, ranked 19th of 20 visible leagues globally. League quests combine individual and collaborative tasks: 'Top buyer' requires 200 store packs bought across all league members in 2 days; 'Ad veteran' counts ad views toward a collective goal; other quests cover transfer market activity and friendly match play. All members can claim rewards after collaborative quest completion. Tournaments require manual member sign-up with no notification mechanism, only one member had signed up during the analyzed session.",
+        "presented": "The league hub is accessed from the home screen with tabs for quests, leaderboard, tournaments, and chat. A Share with League button appears on match result screens, greyed out until the player joins a league.",
+        "noting": "The 'Ad veteran' quest integrates advertising engagement into social obligation, watching ads counts as a contribution to the league's collective goal, framing ad viewing as a group action. Tournament participation is directly undermined by the absence of any notification or invitation mechanism, producing observed participation of one member in a 42-member league.",
+        "findings": [
+          "The 'Ad veteran' quest makes ad watching a social obligation, ad views count as a contribution to the league's collective target.",
+          "Tournament participation was one member in a 42-member league, directly undermined by the absence of any notification or invitation mechanism for upcoming tournaments.",
+          "The 'Top buyer' quest (200 store packs across the league in 2 days) creates social pressure around spending without any mechanism for individual members to see whether that pressure is directed at them.",
+          "Creating a league costs 3,000 gems, a meaningful currency cost that gates league creation behind meaningful play investment."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "League Quests screen showing collective activity quests (Ad Veteran, Top Buyer) alongside match-based quests (Head to Head Prodigy 37/50)",
+        "League season rewards track showing the 100-reward milestone list, with the first reward claimed and the 10,000 season points threshold marker visible"
+      ]
+    },
+    {
+      "id": "achievements",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": [
+        "Achievement Quests tab showing the named achievement list — Join a League, Team Building, Go Head to Head, Matchmaster, Striver, Training Master — with completion status"
+      ]
+    },
+    {
+      "id": "xp-leveling",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Account XP is earned from missions, matches, skill games, and daily tasks (750 XP per completed daily bundle). Level-ups unlock new systems on a defined schedule: Level 5 unlocks Challenge Mode, Level 6 unlocks Scouting Camp, Level 9 unlocks the Transfer Market, Level 14 unlocks Manager Mode. Three level-ups occurred in a single early session. Each level-up grants a pack containing 200 gems. Individual players have separate training levels (capped at 30 per rank) and rank-up levels, creating a second progression axis alongside account level.",
+        "presented": "Level-up popups announce each new unlock with copy stating 'XP is used to increase your account level. Each level unlocks new content.' No persistent XP bar was visible during normal play, progress is only surfaced at the moment of level-up. Player-level details are accessible in the squad management UI.",
+        "noting": "The staggered feature unlock schedule means every level-up is meaningful, it either grants a pack (always) or unlocks a new system (at defined thresholds). The dual-axis leveling system (account level plus per-player training and rank-up) creates a significant resource management layer, though it introduced friction early: rank-up points were at zero when the tutorial first prompted their use.",
+        "findings": [
+          "Level-up copy names the function without conveying value, 'each level unlocks new content' describes the mechanic rather than telling the player what specifically they are about to unlock.",
+          "Rank-up points were at zero when the tutorial first prompted their use, leaving the player with no way to act on the instruction, a onboarding sequencing issue.",
+          "Three level-ups occurred in a single early session, making the XP gate feel permeable in the first days of play.",
+          "No persistent XP bar is visible during normal play, progress is invisible between level-up moments, removing the continuous progress signal that makes XP systems motivating."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Level-up interstitial showing \"Level 8 reached — lineup slot added\" alongside the Level Up Pack animation"
+      ]
+    },
+    {
+      "id": "set-collection",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": [
+        "UEFA Dream Chasers \"Heroes in Britain\" group showing Hazard, Carragher, and Ljungberg card slots, the 3,000 gem completion reward, and 0/3 acquired status"
+      ]
+    },
+    {
+      "id": "ads",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Watching a rewarded video is one of the four daily tasks, with completion contributing to the full daily bundle of 3M FC coins, 300 gems, 300 Star Pass Credits, and 750 XP. An offerwall under Extra Time ('earn gems, complete offer') provides small gem payouts for completing external actions, downloading games, completing web quizzes (61 gems for a 1-minute quiz). Individual daily tasks can be swapped for 10 gems, including the ad task. The league quest system includes an 'Ad veteran' collaborative quest where ad views count toward the league's shared target.",
+        "presented": "The ad task appears as a card in the daily tasks list with a dedicated Watch button. The offerwall opens in a separate webview labeled 'earn gems complete offer.' The league quest system surfaces the 'Ad veteran' collective goal within the league hub.",
+        "noting": "The offerwall routes players to third-party games and websites in exchange for small gem amounts, functioning as an embedded acquisition tool for other titles rather than standard rewarded video. The 'Ad veteran' league quest integrates advertising engagement into social obligation, watching ads contributes to the league's collective goal, framing ad viewing as a contribution to the group rather than a personal choice.",
+        "findings": [
+          "The 'Ad veteran' league quest makes ad watching a social obligation, ad views count toward the league's collective target, framing the behaviour as contributing to the group rather than as personal monetization.",
+          "The offerwall routes players to third-party games and external quizzes in exchange for gems, functioning as an embedded acquisition tool for other titles rather than a standard rewarded video placement.",
+          "Individual daily tasks including the ad task can be refreshed for 10 gems, a gem cost to avoid an ad, inverting the standard rewarded-ad value exchange.",
+          "Ad engagement is embedded in the daily task bundle, not watching the ad means missing the full 3M coins, 300 gems, 300 Star Pass Credits, and 750 XP bundle completion bonus."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Daily Task card for \"Watch one ad\" showing the Watch button, reward breakdown (60 gems, 225 Star Pass credits, egg pieces), and daily limit of 1"
+      ]
+    },
+    {
+      "id": "first-purchase-bonus",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "The 2x Top Up is a dedicated store tab offering doubled FC Points on every price tier, from $0.39 (80 FC Points, doubled to 160 on first purchase) to $99.99 (20,000 FC Points, doubled to 40,000). The tab is labeled as a 'first purchase bonus' without any explicit one-time language, and remains accessible in the store rather than disappearing after first use. Three parallel FC Points pricing tiers exist simultaneously: the 2x Top Up section, Daily FP Deals (time-limited), and the regular FC Points section, all offering different quantities at the same or similar price points, with no labeling of the differences.",
+        "presented": "The 2x Top Up sits as a separate tab within the FC Points store, distinct from the standard pricing page and the daily deals tab. Daily FC Point deals refresh every 16 hours with countdown timers and featured placement, but offer worse value than the 2x Top Up at identical price points, 15,000 FC Points for $99.99 in a daily deal vs. 40,000 FC Points on the 2x Top Up page at the same price.",
+        "noting": "The first-purchase doubling is a strong conversion tool because the value is immediately legible, the same money buys twice as much. The fact that it remains accessible after first use rather than expiring blurs the 'first purchase' framing, but also means the value is always available as a discovery reward for players who find the tab for the first time at any point in their session history.",
+        "findings": [
+          "The first-purchase bonus is always available, it is not shown as expiring or one-time, undermining the exclusivity framing.",
+          "Three parallel FC Points pricing tiers at the same price points offer different quantities with no labeling of why, players who engage with the featured daily deals without exploring the store further receive significantly fewer FC Points for the same spend.",
+          "The 2x Top Up offers 40,000 FC Points for $99.99; the Daily FP Deals offer 15,000 FC Points for the same price at the same time, a 2.67x value difference for the same currency spend with no communication of the discrepancy.",
+          "Dream Chasers Welcome Pack requires purchasing Pack 1 before Pack 2 becomes available, with Pack 3 requiring Pack 2, a sequential purchase unlock chain sitting alongside the standard store."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "hard-currency",
+      "depth": "supporting",
+      "provisionalDepth": true,
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "soft-currency",
+      "depth": "supporting",
+      "provisionalDepth": true,
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "A monetisation system where the revenue mechanics are also the retention mechanics.",
+    "overview": "FC Mobile's system is unusual because its monetisation mechanics are structurally indistinguishable from its retention mechanics. The monthly card, the season pass, the daily quests, and the league system all reinforce each other in a loop where spending creates reasons to return, returning creates reasons to spend, and the football calendar provides an external narrative structure that makes the whole system feel live rather than manufactured.",
+    "loop": "The core loop is: play matches → earn season pass XP and match-day points → complete daily quests → claim monthly card rewards → reinvest in player progression → unlock access to higher league tiers → face stronger competition → need better players → consider spending. The loop has no natural end state, the football season always continues.",
+    "keyInsight": "FC Mobile's system succeeds because the football calendar does narrative work that the game itself doesn't have to do. When a real Champions League final happens, FC Mobile launches a Champions League event. The player's sense that something significant is happening in the real world makes the in-game event feel significant without FC Mobile having to manufacture that feeling.",
+    "whatMakesItWork": "The monthly card is the system's economic anchor. At $1.99, it's below the psychological threshold for deliberate consideration, players renew on autopilot. But its daily drip creates a daily login incentive, which feeds quest completion, which feeds season pass progress, which creates purchase pressure for the premium tier. A $1.99 monthly card generates a compounding retention effect worth far more than its face value.",
+    "roles": [
+      {
+        "id": "daily-weekly-quests",
+        "role": "Daily quests direct session behaviour toward specific in-game actions. Each completed quest rewards both XP (for the season pass) and match-day points (for the league system), creating dual-track progression from a single action."
+      },
+      {
+        "id": "season-pass",
+        "role": "The season pass converts daily quest completion into a premium reward track. Free and paid tiers run simultaneously. The paid tier's rewards are calibrated to address the current progression bottleneck, making the purchase feel like an acceleration of existing goals rather than a separate purchase."
+      },
+      {
+        "id": "monthly-card",
+        "role": "Two cards address different bottlenecks: daily gem drip for the general economy and rank-up points for the specific training ceiling. Both appear post-match, at peak engagement. The cards create a daily reason to open the app even on days when the player doesn't want to play a full match."
+      },
+      {
+        "id": "leaderboards",
+        "role": "Both individual and league-level leaderboards run simultaneously. The dual ranking creates competitive pressure at the personal and collective level, meaning both solo players and league leaders have standing to protect."
+      },
+      {
+        "id": "clans-guilds",
+        "role": "The league system creates collective identity. League rewards depend on collective performance, creating cooperative pressure within the group and competitive pressure between groups."
+      },
+      {
+        "id": "limited-time-events",
+        "role": "Events tied to real football fixtures, match days, transfer windows, trophies, mirror the real football calendar. The live calendar makes the game feel like it exists in the same time as the sport itself, which is the source of much of FC Mobile's emotional resonance."
+      },
+      {
+        "id": "first-purchase-bonus",
+        "role": "The first-purchase bonus appears at the moment of first natural friction, when the player needs a resource they don't have. Disproportionate value on the first transaction converts the player's identity from free user to spender, dramatically lowering the barrier for future purchases."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 8,
+      "label": "FC MOBILE"
+    },
+    "nodes": [
+      {
+        "id": "daily-weekly-quests",
+        "x": 50,
+        "y": 26
+      },
+      {
+        "id": "season-pass",
+        "x": 20,
+        "y": 46
+      },
+      {
+        "id": "monthly-card",
+        "x": 50,
+        "y": 46
+      },
+      {
+        "id": "leaderboards",
+        "x": 80,
+        "y": 46
+      },
+      {
+        "id": "clans-guilds",
+        "x": 20,
+        "y": 70
+      },
+      {
+        "id": "limited-time-events",
+        "x": 50,
+        "y": 70
+      },
+      {
+        "id": "first-purchase-bonus",
+        "x": 80,
+        "y": 70
+      }
+    ],
+    "connections": [
+      {
+        "from": "daily-weekly-quests",
+        "to": "season-pass",
+        "title": "Quests advance the pass",
+        "desc": "Every daily quest completed awards season pass XP. The two mechanics share the same daily actions, meaning quest completion and pass progression happen simultaneously from a single session.",
+        "effect": "Users experience daily quests as productive on two dimensions at once, immediate rewards and long-term pass progression, which makes the daily session feel more valuable than it would with either mechanic alone."
+      },
+      {
+        "from": "daily-weekly-quests",
+        "to": "leaderboards",
+        "title": "Quests generate match-day points",
+        "desc": "Beyond season pass XP, daily quests award match-day points that determine league standing. The league leaderboard adds competitive stakes to actions that would otherwise feel purely personal.",
+        "effect": "Users who are not intrinsically motivated by quests gain a competitive reason to complete them, their league position depends on it."
+      },
+      {
+        "from": "monthly-card",
+        "to": "daily-weekly-quests",
+        "title": "Card creates daily return incentive",
+        "desc": "The monthly card's daily currency drip requires opening the app to claim. This daily claim creates a session trigger that naturally leads to quest completion and match play.",
+        "effect": "A $1.99 monthly spend generates a daily opening habit that multiplies engagement far beyond what the card's face value would suggest."
+      },
+      {
+        "from": "season-pass",
+        "to": "clans-guilds",
+        "title": "Pass rewards feed league economy",
+        "desc": "Premium season pass rewards include player cards and currencies that affect a player's club contribution capacity. Stronger players contribute more to club war performance.",
+        "effect": "Pass purchasers become more valuable club members, creating social pressure on non-purchasers within a club, the monetisation mechanic gains a social dimension."
+      },
+      {
+        "from": "leaderboards",
+        "to": "clans-guilds",
+        "title": "Dual ranking creates collective stakes",
+        "desc": "Both individual player leaderboards and league-level leaderboards run simultaneously. A player's performance affects both their personal ranking and their club's collective standing.",
+        "effect": "Players who are not personally competitive still feel the pull of collective standing, their contribution to the club's leaderboard position gives social meaning to individual performance."
+      },
+      {
+        "from": "limited-time-events",
+        "to": "season-pass",
+        "title": "Events feed pass progression",
+        "desc": "Limited-time match day events award season pass XP on top of their own rewards. Events become more valuable than their face rewards suggest because they also advance the pass.",
+        "effect": "The dual reward structure gives players who are already engaged with the pass an additional reason to participate in every event, increasing event engagement rates."
+      },
+      {
+        "from": "first-purchase-bonus",
+        "to": "monthly-card",
+        "title": "First purchase lowers card barrier",
+        "desc": "Once a player has made their first transaction, converting from non-payer to payer, the psychological barrier to the monthly card drops significantly. The first-purchase bonus is a gateway, not a destination.",
+        "effect": "Players who claim the first-purchase bonus convert to monthly card subscribers at a significantly higher rate than those who never made an initial purchase."
+      }
+    ]
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "id": "fiton",
+  "name": "FitOn",
+  "category": "Fitness",
+  "type": "app",
+  "visibility": "subscriber",
+  "analysisDate": "2026-02-25",
+  "lastUpdated": "2026-05-20",
+  "summary": "FitOn positions itself as a social fitness platform before it positions itself as a workout app. The full community taxonomy is presented during onboarding — specific named groups including Intermittent Fasting Club, Single and Crushing It, and 30s Club — before the user has completed a single workout. Three paywalls appear in the first session. The mandatory workout rating after completion means no user can bypass the feedback gate.",
+  "icon": "/icons/fiton.png",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "achievements",
+      "depth": "core",
+      "writeup": {
+        "observed": "The profile tab contains dozens of browsable badges organized in a grid, accessible after one completed workout. The scale was notable in the session: \"dozens and dozens and dozens and dozens of badges.\" A post-workout shareable graphic showing muscle groups and calories burned functions as a completion marker that can be shared externally. Before-and-after photo upload is co-located with the badge display on the profile screen.",
+        "findings": [
+          "Mandatory workout rating before continuing means the achievement system is seeded by a gate that cannot be bypassed, ensuring completion data is always captured.",
+          "The scale of the badge catalogue communicates a long engagement arc from the very first session, even before the user has earned any of them."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Profile tab showing the workout count, calorie summary, activity calendar, and the badge grid with multiple unlocked badges visible after one completed session"
+      ]
+    },
+    {
+      "id": "community-groups",
+      "depth": "core",
+      "writeup": {
+        "observed": "Community groups are presented during onboarding as a multi-select step, with the full taxonomy visible: Food (Intermittent Fasting Club, Low Carb Keto Crew, Meal Preppers, Vegetarians), Journey (Newbies, Gain Muscle, Modifiers), Lifestyle (Single and Crushing It, 30s Club, Apple Watch Crew), Activity (Walkers United, Run the World, Meditation Squad, Yoga Lovers). The Friends tab shows a group feed with member questions and active comment threads. Group discovery and joining are available at any time from the same tab.",
+        "findings": [
+          "Presenting the full group catalogue during onboarding rather than after first use positions FitOn as a social platform with fitness content rather than a fitness app with social features. The framing difference matters for user expectations and return behavior.",
+          "Specific niche communities (\"Single and Crushing It,\" \"30s Club\") signal that identity-based community is a design priority, not just workout-type grouping."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Onboarding group selection screen showing the full community taxonomy (Food, Journey, Lifestyle, Activity groups) with specific group names and the multi-select interface",
+        "Friends tab showing the group feed with member questions and comments, and the \"groups you may like\" recommendation section below the active feed"
+      ]
+    },
+    {
+      "id": "streak",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "FitonE tracks consecutive days of workout activity and surfaces the streak counter on the home screen alongside the user's weekly activity summary. The streak fires after the first completed session and is framed as a running total of active days rather than a countdown to the next milestone. Streak milestones trigger an in-app notification at meaningful thresholds (7, 14, 30 days).",
+        "presented": "The streak counter appears on the home screen dashboard as a persistent element. Weekly progress rings provide a parallel visual layer showing how many of the user's planned workouts have been completed in the current week.",
+        "findings": [
+          "The streak runs alongside a weekly progress ring, giving the user two distinct timescales of feedback: daily consecutive activity and weekly workout completion.",
+          "Milestone notifications are triggered at 7, 14, and 30 days, spacing reward moments across the early engagement arc.",
+          "FitonE does not surface a recovery or freeze mechanic within the session analyzed. A missed day breaks the streak with no recovery path observed."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "social-feed",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "limited-time-events",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "challenges",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "daily-weekly-quests",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "A fitness platform that front-loads its community identity before the user has done a single workout.",
+    "overview": "FitOn presents its full community taxonomy during onboarding, before any workout has been completed. Groups organized by topic, including names like Single and Crushing It and 30s Club, are selectable during setup. Three paywalls appear in the first session. Rating each workout is mandatory to continue, meaning the app forces feedback collection at every completion. The free Basic tier provides unlimited workouts with no time limit.",
+    "loop": "Complete onboarding including group selection. Select Basic (free) at the paywall. Complete a workout. Rate it mandatorily. Receive shareable muscle-map graphic. Browse community group feeds. Log steps and activity via connected device. Maintain CR Streak across workouts and steps. Return for live classes on a fixed schedule.",
+    "keyInsight": "Three paywalls in one session is the most aggressive paywall cadence observed across all fitness apps in the library. The third appears specifically after the first workout completion, at the moment of highest perceived value. Combined with the mandatory workout rating, which forces a positive engagement signal before the third paywall, the timing is deliberate.",
+    "whatMakesItWork": "The free tier is genuinely free with no time limit and unlimited workouts. The community groups selected during onboarding create a social investment before the user has done anything, making the app feel established from the first session rather than empty.",
+    "roles": [
+      {
+        "id": "achievements",
+        "role": "Dozens of badges browsable by category in the profile tab, with the catalogue visible after one completed workout."
+      },
+      {
+        "id": "community-groups",
+        "role": "Full taxonomy presented during onboarding: Food, Journey, Lifestyle, Activity groups with specific niche names. The app positions itself as a social platform first."
+      },
+      {
+        "id": "streak",
+        "role": "CR Streak combines workout completions with device step count data, displayed as the primary dashboard element in the For You tab."
+      },
+      {
+        "id": "limited-time-events",
+        "role": "Celebrity and branded workout collections (Lizzo, La La Anthony) and live class schedules create time-bounded content events."
+      },
+      {
+        "id": "challenges",
+        "role": "Program-based challenges with defined endpoints. Functionally shallow at the observed depth but structurally present in the workout tab."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 15,
+      "label": "FITON"
+    },
+    "nodes": [
+      {
+        "id": "community-groups",
+        "x": 50,
+        "y": 36
+      },
+      {
+        "id": "achievements",
+        "x": 22,
+        "y": 62
+      },
+      {
+        "id": "social-feed",
+        "x": 78,
+        "y": 62
+      },
+      {
+        "id": "streak",
+        "x": 50,
+        "y": 84
+      }
+    ],
+    "connections": [
+      {
+        "from": "community-groups",
+        "to": "streak",
+        "title": "Group feeds surface streak activity from other members",
+        "desc": "The Friends tab feed shows workout completions and streak milestones from group members. Seeing others maintain streaks creates social proof for the behavior.",
+        "effect": "Streak maintenance is visible to the community. The social observation of others maintaining theirs applies return pressure independent of personal motivation."
+      },
+      {
+        "from": "streak",
+        "to": "achievements",
+        "title": "CR Streak milestones unlock named badges",
+        "desc": "Streak milestones appear as achievement categories in the profile badge catalogue alongside workout count, calorie, and exercise-type badges.",
+        "effect": "The streak produces two outputs simultaneously: a maintained counter and progress toward a badge threshold."
+      }
+    ]
+  }
+}
