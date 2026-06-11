@@ -1,0 +1,24 @@
+{
+  "id": "starling-bank",
+  "name": "Starling Bank",
+  "category": "Finance / Banking (Neo-bank)",
+  "type": "app",
+  "visibility": "report-only",
+  "analysisDate": "2026-06-02",
+  "lastUpdated": "2026-06-04",
+  "summary": "Starling Bank is a UK-regulated digital bank offering personal, joint, business, and sole trader accounts. It is notable for having no monthly fees on personal accounts and fee-free spending abroad. Core features include Spaces (savings pots with virtual debit cards), subscription tracking, a child account product (Kite), a connected card product for delegated spending, and a current account switching service. The app covers spending analytics, card controls, international transfers, check deposit by photo, and a referral program.",
+  "icon": null,
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "gifting",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": [
+        "Refer a Friend screen showing the National Trust Day pass reward description, the bilateral framing, the six-month validity, and the share referral link button"
+      ]
+    }
+  ],
+  "system": null
+}

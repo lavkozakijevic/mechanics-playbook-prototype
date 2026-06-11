@@ -180,6 +180,9 @@ const ADDITIONS = {
   "fc-mobile": [{ id: "first-purchase-bonus", depth: "supporting" }],
   "picsart": [{ id: "credits-tokens", depth: "supporting" }],
   "steam": [{ id: "credits-tokens", depth: "supporting" }],
+  // corrections §3b: set-collection added at shallow (session didn't reach
+  // multiplier level 7, so analysis has no observed section for it)
+  "subway-surfers": [{ id: "set-collection", depth: "shallow" }],
 };
 // Corrections ruling for Strava: its clubs are community-groups, not
 // clans-guilds. The analysis classifies them as clans-guilds; the ruling
@@ -237,6 +240,17 @@ const ALL_APPS = [
   { file: "star-wars-swgoh.md", id: "swgoh", visibility: "subscriber" },
   { file: "steam.md", id: "steam", visibility: "subscriber" },
   { file: "strava.md", id: "strava", visibility: "subscriber" },
+  // Batch 5
+  { file: "subway-surfers.md", id: "subway-surfers", visibility: "subscriber" },
+  { file: "tiimo.md", id: "tiimo", visibility: "subscriber" },
+  { file: "uptime.md", id: "uptime", visibility: "subscriber" },
+  { file: "wispr-flow.md", id: "wispr-flow", visibility: "subscriber" },
+  // Report-only remainder (never appear in deployed output)
+  { file: "orbit.md", id: "orbit", visibility: "report-only" },
+  { file: "dave.md", id: "dave", visibility: "report-only" },
+  { file: "acorns.md", id: "acorns", visibility: "report-only" },
+  { file: "starling-bank.md", id: "starling-bank", visibility: "report-only" },
+  { file: "george-erste-bank.md", id: "george-app-erste-serbia", visibility: "report-only" },
 ];
 
 fs.rmSync(path.join(out, "apps"), { recursive: true, force: true });
@@ -262,8 +276,17 @@ for (const entry of ALL_APPS) {
   }
   const relationships = rels
     .filter((r) => !DROPS.has(r.id + "|" + entry.id))
+    .filter((r) => {
+      if (!knownMechanicIds.has(r.id)) {
+        if (entry.visibility === "report-only") {
+          console.warn(`note: ${entry.id} references unknown mechanic ${r.id}; skipped (report-only)`);
+          return false;
+        }
+        throw new Error("unknown mechanic " + r.id + " in " + entry.file);
+      }
+      return true;
+    })
     .map((r) => {
-      if (!knownMechanicIds.has(r.id)) throw new Error("unknown mechanic " + r.id + " in " + entry.file);
       const writeup = splitWriteup(RICH_DESCRIPTIONS[r.id + "_" + entry.id] ?? null);
       const registered = (SCREENSHOTS[r.id + "_" + entry.id] ?? []).filter((p) =>
         fs.existsSync(path.join(repo, p))

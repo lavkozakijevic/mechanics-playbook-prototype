@@ -1,0 +1,110 @@
+{
+  "id": "wispr-flow",
+  "name": "Wispr Flow",
+  "category": "Productivity",
+  "type": "app",
+  "visibility": "subscriber",
+  "analysisDate": "2026-04-26",
+  "lastUpdated": "2026-05-15",
+  "summary": "Wispr Flow frames its streak as a product improvement mechanism rather than a retention mechanic: 'continue dictating for the next five days so Flow can adapt to you.' This is the only instance in the library where a streak is justified to the user on functional grounds. After crossing 500 words dictated, a speaking speed stat unlocks with a percentile ranking, a social comparison metric delivered passively through usage, not through any competitive entry.",
+  "icon": "/icons/wispr-flow.png",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "streak",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "A streak counter appears on the home screen after the first dictation session, displaying as one of four summary cards alongside word count, words-per-minute, and trial status. The first appearance is a full-screen celebration: 'one day streak, continue dictating for the next five days so Flow can adapt to you.' The streak is framed as a functional product benefit, five days of use allows the AI to adapt to the user's voice and speech patterns, rather than as a retention mechanic.",
+        "presented": "The streak celebration appears at the conclusion of the onboarding test dictation, before the user has seen the home screen. On the home screen, it appears as one of four cards with a named milestone label: 'Day one, momentum begins,' implying future milestones have their own named labels.",
+        "noting": "Framing the streak as a product improvement mechanism, 'Flow will adapt to you', is the only instance in the library where a streak is explicitly justified to the user on functional grounds. The stated five-day endpoint gives the streak a defined duration rather than an open-ended consecutive-day requirement, making it a bounded commitment the user can evaluate before agreeing to it.",
+        "findings": [
+          "The streak is framed as a product improvement mechanism, 'so Flow can adapt to you', rather than a retention incentive, the only such framing observed across the library.",
+          "The stated five-day adaptation endpoint makes the streak a bounded commitment rather than an open-ended consecutive-day requirement.",
+          "The streak celebration screen appears before the home screen, during onboarding, ensuring 100% first-session exposure.",
+          "The referral gift (one month Pro) is more generous than the standard new-user trial (two weeks Pro), making referral the highest-value acquisition path for recipients."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "One-day streak celebration screen showing \"1 day streak — continue dictating for the next five days so Flow can adapt to you\" with the Continue button",
+        "Home screen showing all four summary cards: streak (Day 1, momentum begins), word count (674 words, 13 postcards), speed (129 wpm, top 2%), and trial status"
+      ]
+    },
+    {
+      "id": "achievements",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Two achievement-adjacent surfaces were observed. The word count milestone: after crossing 500 words dictated, the speaking speed stat (words per minute) unlocks on the home screen, accompanied by a percentile ranking, 'top 2% of all Flow users', at 674 words dictated during analysis. The session also displayed '674 words, you've written 13 postcards,' translating the raw word count into a real-world equivalence anchor.",
+        "presented": "The milestone is previewed in advance as a progress prompt: '276 more words to unlock your speaking speed.' After crossing the threshold, the stat appears on the home screen card alongside the day streak. The percentile ranking appears as a named comparative result, not a badge.",
+        "noting": "The user didn't enter a competition, they just used the product. After crossing 500 words, a percentile ranking appeared that positioned their speaking speed favorably among all users. This is a social comparison metric delivered passively through usage, rewarding engagement with a flattering comparative signal without requiring any deliberate performance.",
+        "findings": [
+          "The 'top 2% of all Flow users' percentile emerges from hitting a word-count threshold during normal use, not from any competitive entry, a social comparison delivered passively.",
+          "The '13 postcards' framing converts a raw word count into a tangible real-world equivalent, making the metric feel meaningful without requiring the user to understand word-count norms.",
+          "Two onboarding bugs were observed: the test dictation breaking on scroll, and the settings screen opening multiple times in the navigation stack, friction points at the point of first use.",
+          "Privacy is asserted early then complicated mid-onboarding, 'we never store or sell what you say' appears before a later opt-in screen for sharing audio and transcripts for model training."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Home screen word count card showing \"674 words dictated — you've written 13 postcards\" alongside the 129 wpm card with \"top 2% of all Flow users\" label"
+      ]
+    },
+    {
+      "id": "gifting",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "A productivity tool that justifies its retention mechanic on functional grounds, the only app in the library to do so.",
+    "overview": "Wispr Flow is a voice dictation app whose engagement mechanics are minimal and unusually honest. The streak is framed as a product improvement mechanism rather than a retention device, 'continue dictating for the next five days so Flow can adapt to you', the only stated functional justification for a streak in the library. The word-count milestone that unlocks a percentile ranking is delivered passively through normal use, making it a discovered reward rather than a pursued one.",
+    "loop": "The core loop is: dictate text → word count accumulates → at 500 words, speaking speed unlocks and a percentile ranking appears → the streak increments daily → Flow's AI adapts to the user's voice patterns. The mechanic layer is thin by design, the product's value is in the dictation quality, not in engagement systems.",
+    "keyInsight": "The streak framing is the most honest in the library. Instead of 'keep your streak,' Wispr Flow says 'dictate for five more days so the AI gets better at understanding you.' The behavioral outcome is identical; the psychological framing is fundamentally different, the user is investing in product quality, not protecting a number.",
+    "whatMakesItWork": "The system works because the functional justification is true. Five days of dictation does improve Flow's voice model accuracy. The mechanic and the product benefit are aligned. This makes the retention system feel like product advice rather than manipulation.",
+    "roles": [
+      {
+        "id": "streak",
+        "role": "Framed as a product improvement mechanism ('so Flow can adapt to you') rather than a retention incentive, the only streak in the library with a stated functional justification rather than a behavioral one."
+      },
+      {
+        "id": "achievements",
+        "role": "The 500-word milestone unlocks a speaking speed stat and a percentile ranking delivered passively through normal use, a social comparison metric that appears as a discovered fact about the user rather than a pursued achievement."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 18,
+      "label": "WISPR FLOW"
+    },
+    "nodes": [
+      {
+        "id": "streak",
+        "x": 32,
+        "y": 58
+      },
+      {
+        "id": "achievements",
+        "x": 68,
+        "y": 58
+      }
+    ],
+    "connections": [
+      {
+        "from": "streak",
+        "to": "achievements",
+        "title": "Five days unlocks the ranking",
+        "desc": "The streak's stated purpose, dictate for five days so Flow can adapt, coincides with the 500-word threshold where the speaking speed stat and percentile ranking unlock.",
+        "effect": "The streak and the milestone reward are aligned. Completing the streak produces the achievement, making the functional justification and the reward arrive at the same moment."
+      },
+      {
+        "from": "achievements",
+        "to": "streak",
+        "title": "Percentile ranking reinforces streak continuation",
+        "desc": "The 'top 2% of all Flow users' percentile delivered passively at 500 words frames the user as already exceptional, which strengthens motivation to maintain the streak.",
+        "effect": "The achievement reward arrives as affirmation, the user is told they are already performing well, making continuation feel natural rather than effortful."
+      }
+    ]
+  }
+}

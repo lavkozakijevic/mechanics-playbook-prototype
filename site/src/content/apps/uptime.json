@@ -1,0 +1,147 @@
+{
+  "id": "uptime",
+  "name": "Uptime",
+  "category": "Learning",
+  "type": "app",
+  "visibility": "subscriber",
+  "analysisDate": "2026-05-18",
+  "lastUpdated": "2026-05-18",
+  "summary": "Uptime is a micro-learning app delivering five-minute book and course summaries. Its streak requires only one insight per day, the most forgiving streak definition in the library. Achievement cards are designed primarily as social media assets: pre-formatted, branded, shareable images generated automatically from consumption behavior. The app deploys three sequential paywalls across onboarding, each offering a better price than the last, reserving the lowest price for the moment after the first content completion.",
+  "icon": "/icons/uptime.png",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "streak",
+      "depth": "core",
+      "writeup": {
+        "observed": "The streak counter appears in the top-right corner of the home screen immediately after the first hack is completed. The You tab opens directly to My Stats where the streak is the first element: \"One day complete, complete one insight a day from any hack to get your daily streak.\" The daily minimum is explicitly stated on-screen: one insight from any hack, not a complete hack. After the first hack, a congratulations screen appeared: \"you've saved 11 hours, your streak: one day, you just got smarter in [topics],\" followed immediately by a \"set up a daily reminder\" button. Sharing is built in: tapping share generates a visual card (\"one day, your streak, keep going with your learning habit\") ready to post to social platforms.",
+        "presented": "The streak counter is visible in the top-right corner of the home screen alongside the premium trial countdown. The daily minimum action is defined on-screen in plain language. The post-hack congratulations screen surfaces the reminder setup button at peak engagement rather than during onboarding.",
+        "noting": "The one-insight minimum is the most forgiving streak definition in the library, less demanding than Insight Timer's single session or Strava's weekly activity. A user who has five minutes and opens one card maintains their streak. The reminder setup button appearing after the first hack completion rather than during onboarding follows the same pattern Insight Timer uses, capturing the return habit at the moment the user has just experienced the product's value, not before they have any reason to care.",
+        "findings": [
+          "The one-insight daily minimum is the lowest streak bar in the library, a single card swipe satisfies the streak requirement, making this accessible even on the user's busiest days.",
+          "The reminder setup prompt appears after completing the first hack, at peak motivation, rather than during onboarding, following the same pattern as Insight Timer.",
+          "The streak is shareable as a pre-formatted visual card, making every milestone a potential social post and acquisition moment.",
+          "The streak counter appears on the home screen alongside the premium trial countdown, connecting the streak display to the conversion pressure of an expiring trial."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "You tab My Stats view showing \"1 day complete — complete one insight a day from any hack to get your daily streak\" with the change reminder button and longest streak display",
+        "Post-first-hack congratulations screen showing \"you've saved 11 hours — your streak: 1 day — you just got smarter\" with set up daily reminder button"
+      ]
+    },
+    {
+      "id": "achievements",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "My Stats on the You tab contains a horizontally scrollable row of pre-formatted shareable achievement cards. Achievements earned in one session: 1 Day (streak milestone), 3 Insights Learned, 10 Hours Saved, Arts and Design (topic expertise badge), 6 Topics Covered. Each card has a distinct design and motivational label. Two types are interleaved: engagement milestones (days, insights, hours saved) and content expertise markers generated automatically from consumption behavior (completing hacks in a topic produces an \"expert in X\" badge). Tapping an expertise badge opens content in that topic rather than showing an achievement detail screen.",
+        "presented": "Achievements display as a card row in My Stats, no badge icons, locked future milestones, or progress bars. Cards appear only once earned. Each card has an individual share button generating a branded shareable image.",
+        "noting": "The achievement system's primary output is social media content. Each card is pre-formatted and branded as a shareable image, \"10 hours saved, you're saving time by hacking knowledge\", designed to be posted rather than to be displayed in the app. The expertise markers (\"you're an expert in arts and design\") are automatically generated from consumption behavior without any explicit achievement hunting, making them feel like discovered facts about the user rather than manufactured rewards.",
+        "findings": [
+          "Achievement cards are designed as social media assets first, pre-formatted, branded, shareable images with motivational copy, and progress markers second.",
+          "Expertise badges (\"you're an expert in X\") are generated automatically from content consumption behavior, without explicit achievement hunting, they feel like the app noticing something true about the user.",
+          "Tapping an expertise badge opens filtered content in that topic, achievements function as content discovery entry points rather than trophy displays.",
+          "No locked future milestones are visible, the achievement system shows only earned cards, creating a pure record of past behavior rather than a visible progression ladder ahead."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "My Stats achievement card row showing the streak card (1 day), insights card (3 learned), hours saved card (10 hours), and arts and design expertise card — all shareable"
+      ]
+    },
+    {
+      "id": "daily-login-reward",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "set-collection",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "gifting",
+      "depth": "shallow",
+      "writeup": {
+        "observed": "A referral mechanic appears in the discovery feed as a banner: \"give a friend three days of premium for free.\" The gift provides the recipient with three days of full premium access, identical to the auto-grant that all new users receive at onboarding. A shareable link is generated. The same mechanic appeared at the bottom of the My Sparks tab after completing all spaced repetition cards. The referring user's benefit was not stated in the session. The embed mechanic, tapping \"embed hack\" generates code for placing Uptime content on a website or blog, is adjacent to gifting as a content-sharing surface but is not a currency transfer.",
+        "findings": [
+          "The three-day premium gift is identical to the standard new-user auto-grant, meaning recipients receive what they would have received anyway through organic discovery, removing the differentiation premium of the gift.",
+          "The referral mechanic appeared passively in the feed and at the bottom of the spaced repetition completion screen, surfaced at low-friction moments rather than as a primary feature.",
+          "The referring user's benefit was not disclosed in the observed session, the asymmetry of a sender-benefit-unknown gifting mechanic makes it closer to a social sharing mechanic than a bilateral gift system."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "A micro-learning app where achievement cards are designed as social media content rather than in-app trophies.",
+    "overview": "Uptime's system is built around the most forgiving streak in the library (one insight per day from any hack), achievement cards designed as pre-formatted shareable images rather than in-app badges, and a post-hack congratulations screen that captures four distinct engagement actions at the single highest-motivation moment in the session.",
+    "loop": "The core loop is: open app → select a hack → read through cards → save Sparks → complete hack → see congratulations screen (streak, hours saved, reminder setup, next hack, autoplay) → review Sparks via spaced repetition → browse discovery. The post-hack congratulations screen is the system's highest-density engagement moment.",
+    "keyInsight": "The post-hack congratulations screen captures four distinct engagement actions at the single highest-motivation moment: social sharing, reminder setup, next hack suggestion, and autoplay toggle. All four at once, when the user has just experienced the product's core value for the first time.",
+    "whatMakesItWork": "Achievement cards work because they are social media content first. Every milestone produces a branded shareable image with motivational copy. Users share their progress not to promote Uptime but because the cards look good and say something flattering about them. The achievement system's primary output is user acquisition through organic social sharing.",
+    "roles": [
+      {
+        "id": "streak",
+        "role": "One insight per day from any hack, the lowest streak bar in the library. The reminder setup button appears at the post-hack congratulations screen at peak motivation rather than during onboarding."
+      },
+      {
+        "id": "achievements",
+        "role": "Pre-formatted shareable image cards generated automatically from consumption behavior, expertise badges appear without explicit achievement hunting and function as content discovery entry points and social sharing assets."
+      },
+      {
+        "id": "gifting",
+        "role": "A three-day premium referral gift surfaced passively in the feed and at the bottom of spaced repetition completion."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 15,
+      "label": "UPTIME"
+    },
+    "nodes": [
+      {
+        "id": "streak",
+        "x": 50,
+        "y": 38
+      },
+      {
+        "id": "achievements",
+        "x": 26,
+        "y": 68
+      },
+      {
+        "id": "gifting",
+        "x": 74,
+        "y": 68
+      }
+    ],
+    "connections": [
+      {
+        "from": "streak",
+        "to": "achievements",
+        "title": "Daily return generates expertise badges",
+        "desc": "Returning daily to complete hacks in a topic generates 'expert in X' expertise badges automatically, without any explicit achievement hunting.",
+        "effect": "Users who maintain the streak for topic-specific reasons discover they have been accumulating expertise badges, achievements arrive as noticed facts rather than pursued goals."
+      },
+      {
+        "from": "achievements",
+        "to": "gifting",
+        "title": "Achievement cards are referral content",
+        "desc": "Pre-formatted achievement cards, 'you're saving time by hacking knowledge', are the primary social sharing content. Sharing an achievement card is functionally a referral.",
+        "effect": "Every achievement milestone is a potential user acquisition moment. The achievement and referral mechanisms share the same shareable image assets."
+      },
+      {
+        "from": "streak",
+        "to": "gifting",
+        "title": "Post-hack screen captures both mechanics",
+        "desc": "The post-first-hack screen surfaces the streak counter, reminder setup, and referral gift at the same moment, the peak engagement point of the first session.",
+        "effect": "The highest-intent moment captures three retention and acquisition actions simultaneously: streak habit formation, reminder installation, and referral sharing."
+      }
+    ]
+  }
+}
