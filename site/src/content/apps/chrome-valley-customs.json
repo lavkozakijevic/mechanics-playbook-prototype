@@ -1,0 +1,175 @@
+{
+  "id": "chrome-valley-customs",
+  "name": "Chrome Valley Customs",
+  "category": "Puzzle / Meta",
+  "type": "game",
+  "visibility": "subscriber",
+  "analysisDate": "2026-03-03",
+  "lastUpdated": "2026-05-19",
+  "summary": "Chrome Valley Customs wraps a match-3 core inside a car restoration meta-game where every coin earned from a level is immediately spent on a named restoration task. Each task produces a visible change to a 3D car model the player is authoring across roughly 22 choices per episode. Five named NPCs with domain-specific expertise (engine, paint, mechanics, sourcing, ownership) comment on every choice, and the episode-end client dialogue references specific decisions the player made, making the car feel personally authored rather than procedurally generated.",
+  "icon": "/icons/chrome-valley-customs.png",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "passive-construction-meta",
+      "depth": "core",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": [
+        "Task panel showing approximately 8 active tasks with progress bar at 52%, alongside the partially restored car model",
+        "Car reveal cinematic showing the finished Episode 1 car with client Taylor and his personalized dialogue referencing specific chosen parts"
+      ]
+    },
+    {
+      "id": "energy-lives",
+      "depth": "core",
+      "writeup": {
+        "observed": "Players start with 5 hearts. Each failed match-3 level costs one heart. The session never reached a hard heart block because the Rig's Road Trip event awarded 30 minutes of infinite health before natural exhaustion occurred, the energy system was visible throughout but was not experienced as a blocker in the first episode. Multiple sources of infinite health were available from the start: from event rewards (30 minutes), from store bundles (1 hour, 6 hours, 18 hours), and from standalone store packages.",
+        "presented": "Hearts display in the top bar alongside coins and gems. When infinite health is active, a countdown timer shows the remaining duration. The infinite health award from the event was delivered narratively by the guide character, framing it as a game reward rather than a monetization prompt.",
+        "noting": "Granting infinite health through event participation before the natural energy cap is reached removes the hard blocker from the new user experience entirely. The player is aware of the energy system but does not experience its constraint during their first episode, a deliberate design choice to maximize content exposure before monetization pressure begins.",
+        "findings": [
+          "The event reward (30 minutes infinite health) preceded natural heart exhaustion, meaning the energy system was never experienced as a blocker during Episode 1, a deliberate new-player design choice.",
+          "Multiple infinite health tiers are available in the store (1 hour, 6 hours, 18 hours), creating a premium alternative to the event-granted free version at multiple price points.",
+          "The game requires approximately 10 match-3 levels to fund one full episode, heart exhaustion within an episode is the primary monetization pressure point."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "variable-reward",
+      "depth": "core",
+      "writeup": {
+        "observed": "Match-3 levels produce variable coin and gem yields. Each completed level awards coins (primary restoration currency), gems (secondary premium currency), and gas cans (Rig's Road Trip event currency) simultaneously. A \"perfect restoration\" rating on a level appeared to affect yield. Toolboxes were awarded with disclosed contents shown before opening, removing the variable element for that specific reward type. In-level power-ups (hammer, rockets, bombs) appear as randomly placed board elements at different positions each level.",
+        "presented": "Reward delivery after each level uses a collection animation. Toolboxes show their contents before opening. The Rig's Road Trip event disclosed its milestone reward sequence progressively: gems → multipliers → 30 minutes infinite health → toolbox → coins grand prize.",
+        "findings": [
+          "Toolboxes are a named reward container with disclosed contents, the variable reward element is removed at the point where contents are revealed, making toolbox claims feel more like milestone rewards than random pulls.",
+          "The match-3 level itself is the primary variable surface, each level run produces an unknown quantity of coins, gems, and event currency, making every level a three-currency variable outcome.",
+          "The \"perfect restoration\" rating implies a variable yield multiplier based on gameplay quality, not confirmed but described as affecting reward amounts."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "limited-time-events",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Rig's Road Trip appeared as a popup mid-episode at the point of the first match-3 level completion: \"collect 50 gas cans to get rewards, grand prize 10,000 coins, 2 days 9 hours remaining.\" Gas cans dropped automatically during normal match-3 play, no separate action required. The event reward structure had 25 total milestones, only the first few disclosed at introduction. The session accumulated 228 gas cans through normal play by episode completion, unlocking two milestone rewards beyond the 30-minute infinite health.",
+        "presented": "Popup introduction at a natural break point (after the first match-3 level). Persistent banner on home screen showing live gas can progress. Milestone rewards revealed progressively rather than fully disclosed upfront, the 25-milestone structure only became clear as play continued.",
+        "noting": "The event appears at the moment the player is familiar enough with the core loop to handle an additional layer without confusion. Gas can collection is entirely passive, it happens during match-3 play that was already occurring, meaning the event adds reward without adding friction. The infinite health milestone feeds back into match-3 by removing heart costs, allowing more levels, funding more restoration tasks.",
+        "findings": [
+          "Gas cans drop during normal match-3 play without any separate player action, the event is entirely passive from the player's perspective, adding reward with zero additional friction.",
+          "The 25-milestone structure was not disclosed at event introduction, rewards revealed progressively create a longer engagement arc than a fully-disclosed calendar would.",
+          "The infinite health milestone reward loops back into match-3 engagement by removing heart costs, creating a self-reinforcing cycle: play match-3 → earn infinite health → play more match-3 → fund more restoration tasks."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Rig's Road Trip event popup showing \"collect 50 gas cans — grand prize 10,000 coins — 2 days 9 hours remaining\" with progress bar and 30-minute infinite health milestone reward"
+      ]
+    },
+    {
+      "id": "daily-weekly-quests",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "leaderboards",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "cosmetics",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "achievements",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "soft-currency",
+      "depth": "supporting",
+      "provisionalDepth": true,
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "A puzzle game where every match-3 coin is immediately converted into a named change on a 3D car the player is authoring.",
+    "overview": "Chrome Valley Customs uses the match-3 format as a pure funding mechanism for a car restoration meta-game. Every coin earned from a level is spent on a specific named task (replace front fenders, fit headlights, choose paint), and each task produces a visible change to a 3D car model. Five NPCs with domain-specific expertise comment on every choice, and the episode-end client dialogue references specific decisions the player made, making the cosmetic output feel authored rather than procedural.",
+    "loop": "The core loop is: play match-3 level → earn coins and gems → spend coins on named restoration task → car model updates → choose customization option (one of three) → NPC expert comments on choice → repeat until 100% episode completion → car reveal cinematic → client dialogue references your specific choices → Episode 2 begins. The match-3 game and the car restoration are in a direct economic relationship, every level played directly funds a specific named restoration action.",
+    "keyInsight": "The client's episode-end dialogue references specific customization decisions by name ('I'm glad you kept the factory springs, keep it classic, baby'). The cosmetic output is not generic, it is acknowledged by an NPC who names the player's choices. This is the mechanic that makes the car feel authored rather than procedurally generated, and it justifies the 30–40 minutes of match-3 play that funded it.",
+    "whatMakesItWork": "The system works because the match-3 levels are deliberately short (15–30 seconds each) and the restoration tasks are deliberately varied in cost, so the rhythm alternates between quick match-3 sessions and satisfying visual updates to the car. The match-3 is framed as a means to an end, the car, rather than as the product itself, which inverts the typical puzzle game experience.",
+    "roles": [
+      {
+        "id": "energy-lives",
+        "role": "Hearts gate match-3 access, which gates coin earning, which gates task completion. The episode-1 event grant of 30 minutes infinite health removed this constraint before it was felt, a deliberate new-player design choice."
+      },
+      {
+        "id": "variable-reward",
+        "role": "Match-3 levels produce variable coin, gem, and event currency yields simultaneously. Each level run is a three-currency variable outcome that funds the restoration economy."
+      },
+      {
+        "id": "limited-time-events",
+        "role": "Rig's Road Trip collects gas cans passively during match-3 play, with milestone rewards including infinite health that feeds back into the match-3 loop."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 15,
+      "label": "CHROME VALLEY"
+    },
+    "nodes": [
+      {
+        "id": "energy-lives",
+        "x": 50,
+        "y": 38
+      },
+      {
+        "id": "variable-reward",
+        "x": 26,
+        "y": 68
+      },
+      {
+        "id": "limited-time-events",
+        "x": 74,
+        "y": 68
+      }
+    ],
+    "connections": [
+      {
+        "from": "energy-lives",
+        "to": "variable-reward",
+        "title": "Energy cost makes variable yield feel earned",
+        "desc": "Each heart spent on a match-3 level produces a variable coin and gem yield. The energy cost makes the variable outcome feel like an investment rather than a free spin.",
+        "effect": "Players who deplete energy on a low-yield level are motivated to try again on the next session, sustaining return without requiring an explicit re-engagement mechanic."
+      },
+      {
+        "from": "variable-reward",
+        "to": "limited-time-events",
+        "title": "Level rewards feed event currency passively",
+        "desc": "Gas cans drop during normal match-3 play. The variable yield from each level includes event currency as a third output alongside coins and gems.",
+        "effect": "The event progresses without the player making any separate decision about it. A session motivated by restoration funding simultaneously advances the event track."
+      },
+      {
+        "from": "limited-time-events",
+        "to": "energy-lives",
+        "title": "Event milestone rewards infinite health",
+        "desc": "Rig's Road Trip milestones include a 30-minute infinite health grant. This removes the energy constraint that would otherwise limit match-3 play.",
+        "effect": "Completing event milestones enables more match-3 sessions in the same sitting, which funds more restoration tasks. The event reward extends the session it was generated by."
+      }
+    ]
+  }
+}

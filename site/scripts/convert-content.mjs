@@ -8,8 +8,8 @@
  *  - sources/analyses/*.md → relationship set + depth grades + dates (corrections §2–3)
  *  - analysis prompt       → definitions of the three new mechanics (corrections §4)
  *
- * Stage 1 scope: all 25 mechanics, the royal-match app, and the cleo app
- * (report-only, used to prove report-only content never reaches the build).
+ * Stage 2 scope: all 25 mechanics, all 30 apps (25 library + 5 report-only).
+ * Converted in batches of five; the report-only apps never reach the build output.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -85,8 +85,10 @@ function parseAnalysis(file) {
 
 function isoDate(s) {
   // "03 Apr 2026" → "2026-04-03"
+  // Handles compound strings like "12 May 2026 (Session 1), ..." by taking the first date only.
   if (!s) return null;
-  const d = new Date(s + " UTC");
+  const cleaned = s.replace(/\s*\(.*/, "").trim();
+  const d = new Date(cleaned + " UTC");
   return isNaN(d) ? null : d.toISOString().slice(0, 10);
 }
 
@@ -165,8 +167,14 @@ for (const nm of NEW_MECHANICS) {
 // Corrections §3: relationships = analysis observed sections (with depth)
 // + listed additions − the confirmed drop list.
 const ADDITIONS = {
-  // appId → [{ id, depth }]
+  // appId → [{ id, depth }]  (corrections §3b)
   "royal-match": [{ id: "gifting", depth: "supporting" }],
+  "canva": [{ id: "credits-tokens", depth: "supporting" }],
+  "capybara-go": [
+    { id: "first-purchase-bonus", depth: "supporting" },
+    { id: "cosmetics", depth: "shallow" },
+  ],
+  "clash-of-clans": [{ id: "gifting", depth: "supporting" }],
 };
 // Harvested currency relationships (corrections §4): unrecognized-section
 // observations. Depth is not graded in those sections; "supporting" is a
@@ -186,9 +194,15 @@ const DROPS = new Set([
   "gifting|swgoh",
 ]);
 
-const STAGE1_APPS = [
+const ALL_APPS = [
   { file: "royal-match.md", id: "royal-match", visibility: "public" },
   { file: "cleo.md", id: "cleo", visibility: "report-only" },
+  // Batch 1
+  { file: "calm.md", id: "calm", visibility: "subscriber" },
+  { file: "canva.md", id: "canva", visibility: "subscriber" },
+  { file: "capybara-go.md", id: "capybara-go", visibility: "subscriber" },
+  { file: "chrome-valley-customs.md", id: "chrome-valley-customs", visibility: "subscriber" },
+  { file: "clash-of-clans.md", id: "clash-of-clans", visibility: "subscriber" },
 ];
 
 fs.rmSync(path.join(out, "apps"), { recursive: true, force: true });
@@ -196,7 +210,7 @@ fs.mkdirSync(path.join(out, "apps"), { recursive: true });
 
 const knownMechanicIds = new Set([...MECHANICS.map((m) => m.id), ...NEW_MECHANICS.map((m) => m.id)]);
 
-for (const entry of STAGE1_APPS) {
+for (const entry of ALL_APPS) {
   const a = parseAnalysis(entry.file);
   const v44 = APPS.find((x) => x.id === entry.id) ?? null;
   const sys = SYSTEMS.find((s) => s.app_id === entry.id) ?? null;
@@ -305,4 +319,4 @@ function write(coll, id, obj) {
   fs.writeFileSync(path.join(out, coll, id + ".json"), JSON.stringify(obj, null, 2));
 }
 
-console.log(`converted: ${mechanicCount} mechanics, ${STAGE1_APPS.length} apps`);
+console.log(`converted: ${mechanicCount} mechanics, ${ALL_APPS.length} apps`);
