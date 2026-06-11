@@ -1,0 +1,224 @@
+{
+  "id": "insight-timer",
+  "name": "Insight Timer",
+  "category": "Wellness",
+  "type": "app",
+  "visibility": "subscriber",
+  "analysisDate": "2026-04-20",
+  "lastUpdated": "2026-05-15",
+  "summary": "Insight Timer opens onboarding with a scientific argument for its own efficacy, graphs of mood improvement, a consistency curve, and a personalized prediction dated three months from sign-up, before showing any content or asking for payment. Installing the home screen widget extends the free trial from seven days to thirty days, rewarding the completion of the app's most powerful habit-formation action with more time to form the habit. It is the only app in the library that framed a trial extension as an achievement unlock.",
+  "icon": "/icons/insight-timer.png",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "streak",
+      "depth": "core",
+      "writeup": {
+        "observed": "A consecutive-day streak is the primary retention mechanic, displayed as a flower/plant icon in the top-right corner of the home screen. The streak detail screen shows current consecutive days, progress toward the user's self-set goal (3 / 5 / 7 / 10 days, chosen during onboarding), a calendar of practiced days, and a milestones section. After the first session: 'Can you make it to a two day streak? Come back tomorrow.' An 'I'm committed' button appears. Installing the home screen widget extends the free trial from 7 to 30 days.",
+        "presented": "The streak flower icon is visible immediately on the home screen without navigating anywhere. Goal-setting during onboarding frames the streak as a commitment the user made before their first session. Widget installation is prompted twice in close succession after the first session, with the stated rationale 'you're more likely to be consistent with your practice.'",
+        "noting": "The goal-setting screen during onboarding frames the streak as a self-made commitment, not an imposed requirement. The 'I'm committed' button reinforces that prior commitment at the moment of first completion. The trial extension triggered by widget installation rewards the completion of the app's most powerful habit-formation tool with more time to develop the habit that makes the subscription feel necessary.",
+        "findings": [
+          "The trial extension (7 days to 30 days) is triggered by installing the home screen widget, rewarding the completion of Insight Timer's most powerful habit-formation tool with more time to form the habit.",
+          "The 'I'm committed' button after the first session is the only explicit behavioral commitment extraction mechanic observed across the library.",
+          "The goal-setting screen during onboarding (3 / 5 / 7 / 10 days) frames the streak as a self-made commitment before the user has completed a single session.",
+          "Milestone thresholds: 7 consecutive days (first milestone), then 50 non-consecutive days, the first milestone is designed to be reachable in the first week."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Streak detail screen showing the flower icon, \"1 consecutive day — great work,\" the 10-day goal bar, and the April calendar with one day marked",
+        "Post-session \"can you make it to a two day streak?\" screen with the \"I'm committed\" button"
+      ]
+    },
+    {
+      "id": "daily-login-reward",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": [
+        "\"Congratulations, you've unlocked a gift — claim your one month free trial for Plus — we've extended your one week free trial to four weeks — limited time offer ends in 7 days\" popup"
+      ]
+    },
+    {
+      "id": "challenges",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Challenges are framed as self-set goals during onboarding: the user chooses 3, 5, 7, or 10 consecutive practice days, with labels (Good / Great / Amazing / Incredible). The recommended default is 5 days. After the first session, the 'I'm committed' button explicitly asks the user to affirm their chosen goal. Challenge archive access is gated behind the Plus subscription.",
+        "presented": "The goal-setting screen during onboarding presents the challenge as a commitment the user makes before their first session. Progress displays as 'Day 1 of 10' on the home screen. Post-session, the 'Can you make it to a two day streak?' screen reinforces the challenge framing.",
+        "noting": "Framing the challenge as a user-set goal rather than an app-imposed task shifts psychological ownership. The 'I'm committed' button reinforces the user's own stated commitment rather than making a new demand. The challenge cadence (3–10 days) is calibrated to produce a first milestone within the first week of use.",
+        "findings": [
+          "The goal-setting during onboarding frames the challenge as a self-made commitment, 'I want to practice 10 consecutive days' is a user declaration, not an app requirement.",
+          "Challenge archive access is gated behind Plus, a retention mechanic (completed challenges) is partially paywalled.",
+          "The 'I'm committed' button is the only explicit behavioral commitment extraction mechanic in the library.",
+          "The onboarding makes a behavioral science argument before the challenge prompt, mood graphs, consistency curves, and a personalized prediction, establishing a scientific justification for the commitment before asking for it."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Dopamine Rebalance Challenge page showing the 10-day structure with day-by-day teacher breakdown, 165,000 joined count, and the participant location map"
+      ]
+    },
+    {
+      "id": "community-groups",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "7,000+ groups cover Buddhism, poetry, psychology, weight loss, LGBTQIA+ communities, and more. Groups are accessible through the sidebar rather than any primary navigation tab, a user who explores only the five primary tabs will not find them. Live events are free-to-attend digital events with real-time attendee counts. A Therapist Directory lists 42,000 therapists globally, filterable by country and specialty. A Retreats marketplace lists 500+ real-world experiences from $50 to $11,452.",
+        "presented": "Groups are in the sidebar, not primary navigation. Live events show teacher name, topic, attendee count, and scheduled time. The real-time engagement counter ('594,622 people here today, 21,416 right now') is visible on the home screen.",
+        "noting": "7,000 groups with combined active membership means no niche interest goes unrepresented. The breadth makes Insight Timer hard to replace for a user invested in a specific community. The de-emphasis in navigation may reflect a deliberate choice to surface groups to users who seek them out rather than to all users.",
+        "findings": [
+          "Groups are hidden behind the sidebar with no presence in the five primary navigation tabs, a significant community infrastructure deliberately de-emphasized in the main navigation.",
+          "The real-time counter ('594,622 people here today') frames the app as a live communal space rather than a content archive.",
+          "The Retreats section lists 500+ real-world retreats from $50 to $11,452, a real-world service marketplace embedded in a free wellness app, observable immediately after a session completes.",
+          "The app crashed twice during analysis, a stability concern given the app's reliance on the sidebar for key features."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Browse groups view showing type filters (writing, LGBTQIA+, women only, psychology) and popular groups with member counts (Be Here Now 200,000+)"
+      ]
+    },
+    {
+      "id": "achievements",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Milestone thresholds: 7 consecutive days (first milestone), 50 non-consecutive days, 1 milestone, 5 milestones, 25 milestones, 100 milestones. Each milestone unlock triggers a 'you've unlocked a gift' screen framing the reward as something the user earned. The trial extension at the first milestone extends from 7 to 30 days. Stats accumulate permanently: total sessions, total minutes, milestones count, longest streak.",
+        "presented": "Milestones appear in the streak detail screen. Each achievement triggers a 'gift you've unlocked' screen. The full stats history is visible in the profile sidebar.",
+        "noting": "The trial extension at the first milestone is the most structurally sophisticated achievement design in the library, it rewards reaching a milestone with more time inside the product, making the achievement's value inseparable from continued engagement. The 'gift' framing uses reciprocity rather than reward language.",
+        "findings": [
+          "The first milestone (7 consecutive days) triggers a trial extension from 7 to 30 days, the achievement reward is more product access, making continued engagement the most natural next action.",
+          "The 'gift you've unlocked' framing uses reciprocity language rather than reward language, positioning the extension as a gift from the app rather than a mechanical bonus.",
+          "Stats accumulate permanently across all session types, the achievement layer covers every use case rather than a single content type.",
+          "Widget installation prompts are framed with a stated behavioral rationale rather than a feature description, 'you're more likely to be consistent' rather than 'install the widget.'"
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Streak screen showing the milestones ladder — 7 consecutive days / 50 non-consecutive days / 1 milestone / 5 milestones / 25 milestones / 100 milestones — with the current 0 milestones state"
+      ]
+    },
+    {
+      "id": "xp-leveling",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "social-feed",
+      "depth": "shallow",
+      "writeup": {
+        "observed": "Insight Timer's social layer surfaces group activity, teacher posts, and a community gratitude wall. The real-time engagement counter, '594,622 people here today', is visible without navigating to any specific section. Live events appear with attendee counts and scheduled times. Teacher profiles list follower counts, published tracks, and courses. Following a teacher routes their new content into the home screen recommendations.",
+        "presented": "The social layer is distributed across the primary home tab (recommendations from followed teachers), the library (browseable by teacher), and the sidebar (groups, retreats). The real-time counter is on the home screen.",
+        "noting": "The real-time counter frames the app as a live communal space, 594,622 people here today communicates simultaneous presence that converts the solo meditation experience into a shared one without requiring any social interaction.",
+        "findings": [
+          "The real-time counter converts the solo meditation app into a perceived communal space without requiring social interaction.",
+          "Teacher donation amounts run from $1.99 to $199.99, routing through Apple's in-app purchase system, Apple's 30% fee applies to teacher donations, a fact noted in the app's 'Why We're Free' copy.",
+          "Live events appear with attendee counts and can be added to Apple Calendar, converting event discovery into a commitment mechanism.",
+          "Insight Timer's free tier provides access to 280,000+ tracks with no ads, the paywall targets depth of practice (courses, challenges) rather than basic content access."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Home screen mid-scroll showing the \"594,622 people here today — 21,416 right now\" community counter and the Gratitude Wall with user posts"
+      ]
+    }
+  ],
+  "system": {
+    "tagline": "A wellness system that uses behavioral science arguments to earn the commitment it then mechanizes.",
+    "overview": "Insight Timer's system is unusual because it makes its retention design visible rather than concealing it. The onboarding opens with graphs of mood improvement and a consistency curve, establishing a scientific justification for the mechanics that follow. The user sets their own goal (3 / 5 / 7 / 10 consecutive days), then the system mechanizes that self-made commitment through a streak, a behavioral commitment button, and a trial extension reward for installing the home screen widget. The system's depth, 280,000 free tracks, 7,000 groups, a retreat marketplace, ensures that the mechanics never feel like they are substituting for substance.",
+    "loop": "The core loop is: complete a meditation session → streak increments → 'I'm committed' post-session button reinforces the self-made goal → install home screen widget (trial extends from 7 to 30 days) → milestone at day 7 unlocks another gift → explore teacher profiles and groups → attend live events → discover retreats and therapist directory → consider Plus for course archive and offline access. The streak is the daily spine; the social and content depth keeps users engaged on the sessions that don't feel habitual.",
+    "keyInsight": "The trial extension triggered by widget installation is the system's most structurally elegant mechanic. The app rewards installing its most powerful habit-formation tool, a home screen widget, with more time to develop the habit that makes the subscription feel necessary. The reward is more opportunity to form the habit that justifies the reward.",
+    "whatMakesItWork": "The system works because its retention mechanics are justified, not just applied. The streak is framed as the user's own goal. The 'I'm committed' button makes the commitment explicit. The widget extends the trial because it genuinely increases retention. The scientific argument in onboarding (mood graphs, consistency curve, personalized prediction) means the user understands why they're being asked to return daily before they're asked. Transparency about the mechanism doesn't weaken it, it strengthens it.",
+    "roles": [
+      {
+        "id": "streak",
+        "role": "The daily retention spine. Displayed as a flower icon on the home screen, tracking consecutive days. The goal was set by the user during onboarding (3–10 days), making the streak a self-made commitment rather than an app-imposed requirement. The 'I'm committed' button after each session reinforces this framing."
+      },
+      {
+        "id": "achievements",
+        "role": "Milestone thresholds at 7 consecutive days, 50 non-consecutive days, then escalating milestone counts. The first milestone (7 days) triggers a trial extension from 7 to 30 days, framed as 'a gift you've unlocked.' The achievement reward is more product time, making continued engagement the most natural next action."
+      },
+      {
+        "id": "challenges",
+        "role": "Self-set consecutive-day goal chosen during onboarding (Good / Great / Amazing / Incredible). The goal-setting screen establishes the challenge before the first session. The 'I'm committed' post-session button is the only explicit behavioral commitment extraction mechanic observed across the library."
+      },
+      {
+        "id": "social-feed",
+        "role": "The real-time counter ('594,622 people here today') frames the app as a live communal space rather than a content archive, converting the solo meditation experience into a perceived shared practice. Teacher-following routes new content directly into home screen recommendations."
+      },
+      {
+        "id": "community-groups",
+        "role": "7,000+ groups covering Buddhism, poetry, psychology, weight loss, LGBTQIA+ communities, hidden behind the sidebar rather than surfaced in primary navigation. The retreat marketplace (500+ real-world retreats from $50 to $11,452) and a 42,000-therapist directory extend the platform into real-world services."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 10,
+      "label": "INSIGHT TIMER"
+    },
+    "nodes": [
+      {
+        "id": "streak",
+        "x": 50,
+        "y": 30
+      },
+      {
+        "id": "achievements",
+        "x": 22,
+        "y": 55
+      },
+      {
+        "id": "challenges",
+        "x": 78,
+        "y": 55
+      },
+      {
+        "id": "social-feed",
+        "x": 22,
+        "y": 80
+      },
+      {
+        "id": "community-groups",
+        "x": 78,
+        "y": 80
+      }
+    ],
+    "connections": [
+      {
+        "from": "streak",
+        "to": "achievements",
+        "title": "Day 7 streak triggers the first gift",
+        "desc": "The first milestone (7 consecutive days) triggers a trial extension from 7 to 30 days, framed as a gift the user unlocked. The achievement reward is more product time, the most relevant possible prize for a user building a meditation habit.",
+        "effect": "The first milestone creates a moment where the user's commitment is explicitly recognized and rewarded with exactly what they need: more time to develop the habit the streak is tracking."
+      },
+      {
+        "from": "streak",
+        "to": "challenges",
+        "title": "Streak is the self-made challenge",
+        "desc": "The goal-setting screen during onboarding (3 / 5 / 7 / 10 consecutive days) establishes the streak as a challenge the user created. The 'I'm committed' button post-session reinforces this framing.",
+        "effect": "The streak is not experienced as an app-imposed retention mechanic but as a personal commitment made before the first session. The user is accountable to themselves, which is more durable than accountability to an external system."
+      },
+      {
+        "from": "challenges",
+        "to": "achievements",
+        "title": "Commitment prompt leads to milestone",
+        "desc": "The 'I'm committed' behavioral commitment after session 1 establishes an expectation. The achievement at day 7 fulfills it. The arc from commitment to recognition is contained within the first week.",
+        "effect": "The system creates a complete emotional arc, set goal, commit, return, achieve, within the first week of use. Users who complete this arc have a qualitatively different relationship with the app than those who don't."
+      },
+      {
+        "from": "social-feed",
+        "to": "community-groups",
+        "title": "Real-time counter makes community feel live",
+        "desc": "The '594,622 people here today' counter converts the solo meditation experience into a perceived communal practice. It is the entry point to the community layer for users who have not yet found the groups section.",
+        "effect": "Users who engage with the counter are primed to discover that the community infrastructure exists. The number creates curiosity about who those people are, making the hidden groups section a discovery worth seeking."
+      },
+      {
+        "from": "achievements",
+        "to": "social-feed",
+        "title": "Milestone sharing distributes the achievement",
+        "desc": "Streak milestones generate pre-formatted Instagram Stories and messaging shares. The achievement's social distribution is designed into the sharing UI.",
+        "effect": "Every milestone is a potential acquisition moment. The share converts a private habit marker into a public product impression at the moment the user's satisfaction is highest."
+      }
+    ]
+  }
+}

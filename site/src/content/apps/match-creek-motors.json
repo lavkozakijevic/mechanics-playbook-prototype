@@ -1,0 +1,179 @@
+{
+  "id": "match-creek-motors",
+  "name": "Match Creek Motors",
+  "category": "Puzzle / Meta",
+  "type": "game",
+  "visibility": "subscriber",
+  "analysisDate": "2026-03-05",
+  "lastUpdated": "2026-05-19",
+  "summary": "Match Creek Motors runs the same match-3-funds-restoration loop as Chrome Valley Customs, with a buyer negotiation mechanic at episode end: three buyers make sequential concealed offers and the player must accept or reject each without seeing the remaining offers. An interpersonal NPC subplot (Aaron, Brooke, Logan, the absent brother Mitch) runs across episodes, providing ongoing narrative investment separate from the car itself. Achievements and leaderboards are fully delegated to Apple Game Center and are invisible during normal play.",
+  "icon": "/icons/match-creek-motors.png",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "passive-construction-meta",
+      "depth": "core",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": [
+        "Task list showing the progress arc from broken car to complete car, with intermediate reward chests visible and current task (headlights) highlighted",
+        "Buyer negotiation screen showing three offer cards — Terry (20 gold coins + 1 booster), Hank (20 gold coins), Liz (100 gold coins + 3 boosters) — with drag-left-to-reject and drag-right-to-accept instructions"
+      ]
+    },
+    {
+      "id": "energy-lives",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Hearts display in the top bar from the first screen. Tapping the hearts icon early in the session produced \"your lives are full, let's play some levels,\" confirming the standard 5-heart maximum. No hearts were lost during the session, all approximately 11 match-3 levels were completed on first attempt, suggesting Episode 1 difficulty is calibrated to ensure success during first-install play. The energy system was present and visible without creating friction in the observed session.",
+        "findings": [
+          "Episode 1 difficulty appears calibrated so that new players do not fail match-3 levels, the heart system is visible but non-limiting during the first episode, ensuring the restoration meta is not interrupted by energy exhaustion on first install.",
+          "The \"let's play some levels\" copy embedded in the hearts tap response frames the energy system as encouragement rather than a constraint, a different tone from most energy prompts in the library."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "variable-reward",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Match-3 level completion produces wrenches and gold coins. Milestone reward chests at task completion points on the progress arc disclosed their contents at delivery (25 gold coins), transparent rather than variable. The buyer negotiation at episode end is the primary variable-adjacent mechanic: three buyers present offers sequentially with unknown values. In the observed session: Terry (20 gold coins + 1 booster, rejected), Hank (20 gold coins, rejected), Liz (100 gold coins + 3 boosters, accepted). The player cannot see all three offers simultaneously, each requires an accept or reject decision before the next is revealed.",
+        "presented": "Brooke introduces the negotiation: \"time to try out your negotiation skills, I've arranged three buyers, try and get the best deal you can.\" The game guided the first-time player to the correct answer on first play (\"okay, this is the one, drag right to accept it\" appearing on Liz's card). At higher levels with less guidance, the negotiation implies genuine strategic uncertainty.",
+        "findings": [
+          "The buyer negotiation is a sequential concealed-offer mechanic, the player must decide without knowing whether a better offer is coming, creating controlled strategic tension at the episode's highest-investment moment.",
+          "The game guided the first-time player to accept the best offer, making the mechanic feel rewarding rather than punishing on first encounter, the uncertainty increases with reduced guidance at higher levels.",
+          "Gold coin purpose was not explained during Episode 1, the episode rewards a currency whose spend mechanic has not been introduced, making the reward feel abstract rather than meaningful at this stage."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Match-3 level completion screen showing wrenches and gold coin reward delivery animation"
+      ]
+    },
+    {
+      "id": "achievements",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Achievements are accessible via Settings → Account → Achievements, which opens Apple Game Center's interface. Named achievement categories: \"High Win Streak\" and \"First Try Wins.\" Both Global and Friends leaderboards are accessible through the same path. Player profile (character avatar and stats) unlocks at level 14. The current player level was not displayed anywhere on screen, making the distance to the level 14 profile unlock uncalculable.",
+        "presented": "Achievements require navigating Settings → Account → Achievements, a three-tap path from the home screen. No achievement progress is visible during normal gameplay. No popup fires when an achievement is earned in-session.",
+        "findings": [
+          "Delegating achievements to Apple Game Center with no in-game surface makes the achievement system effectively invisible during normal play, a player who does not navigate to Settings will not encounter it during Episode 1 or likely beyond.",
+          "The \"High Win Streak\" and \"First Try Wins\" achievement categories are pure match-3 skill metrics, no narrative or restoration-based achievements were described.",
+          "The player profile unlocking at level 14 with no level counter visible creates an unknown unlock horizon, a player cannot know how close they are to the profile without external research."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "leaderboards",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Two leaderboards accessible via Apple Game Center through Settings → Account → Leaderboards: \"High Win Streak\" and \"First Try Wins.\" Both a Friends view and a Global view are available. No in-game leaderboard surface exists, all access is through Game Center. No leaderboard position data was accessible in the observed session as only one episode had been completed.",
+        "findings": [
+          "Both leaderboard metrics (win streak and first-try wins) measure match-3 skill rather than restoration progress or social activity, the competitive axis is the puzzle game, not the meta-game.",
+          "Routing all leaderboard access through Game Center with no in-game surface makes this the most invisible leaderboard implementation in the library, sharing the same approach as its sister game Chrome Valley Customs."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "daily-weekly-quests",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "limited-time-events",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "soft-currency",
+      "depth": "supporting",
+      "provisionalDepth": true,
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "A puzzle game where the episode ends with a buyer negotiation instead of a reveal cinematic, making the player an active participant in the sale.",
+    "overview": "Match Creek Motors runs the same match-3-funds-restoration loop as Chrome Valley Customs, with a distinct episode-end mechanic: three buyers present sequential concealed offers, and the player must accept or reject each without seeing the remaining offers. The interpersonal NPC subplot (Aaron, Brooke, Logan's love triangle, the absent brother Mitch) provides narrative investment across episodes beyond the car itself. Achievement and leaderboard systems are fully delegated to Apple Game Center and are invisible during normal play.",
+    "loop": "The core loop is: play match-3 level → earn wrenches → spend wrenches on named customization task → car model updates → choose customization option → NPC may or may not comment → repeat to 100% episode completion → buyer negotiation (three sequential concealed offers, drag to accept or reject) → gold coin reward → Episode 2 car selection (choose from three options).",
+    "keyInsight": "The buyer negotiation makes the episode end interactive in a way that Chrome Valley Customs' passive cinematic does not. The player must make a real decision (accept or reject) without full information, at the moment they are most invested in the episode's car. On first play, the game guides the correct choice, but the mechanic implies genuine strategic tension at higher levels with less guidance.",
+    "whatMakesItWork": "The interpersonal subplot (Aaron and Brooke's complicated history, Mitch's mysterious departure, Logan's role as rival and scout) provides return motivation that is not tied to any individual car. A player who has completed the Episode 1 car still has unresolved narrative threads pulling them into Episode 2, a retention mechanism that game mechanics alone cannot provide.",
+    "roles": [
+      {
+        "id": "energy-lives",
+        "role": "Hearts are visible but non-limiting during Episode 1, difficulty is calibrated so new players do not fail levels, removing the energy constraint from the first-install experience."
+      },
+      {
+        "id": "variable-reward",
+        "role": "The buyer negotiation at episode end is the primary variable-adjacent mechanic: three buyers with concealed offer values, each requiring an accept or reject decision without knowing what comes next."
+      },
+      {
+        "id": "achievements",
+        "role": "High Win Streak and First Try Wins achievement categories route entirely through Apple Game Center, invisible during normal play, accessible only via Settings → Account → Achievements."
+      },
+      {
+        "id": "leaderboards",
+        "role": "High Win Streak and First Try Wins leaderboards in Game Center, same invisible routing as achievements, accessible only outside normal gameplay flow."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 15,
+      "label": "MATCH CREEK"
+    },
+    "nodes": [
+      {
+        "id": "energy-lives",
+        "x": 50,
+        "y": 38
+      },
+      {
+        "id": "variable-reward",
+        "x": 20,
+        "y": 65
+      },
+      {
+        "id": "achievements",
+        "x": 50,
+        "y": 65
+      },
+      {
+        "id": "leaderboards",
+        "x": 80,
+        "y": 65
+      }
+    ],
+    "connections": [
+      {
+        "from": "energy-lives",
+        "to": "variable-reward",
+        "title": "Energy gates the episode's variable outcome",
+        "desc": "Match-3 levels cost hearts. Each completed level produces a variable wrench yield that funds the next restoration task. The energy system determines how many attempts at the variable outcome are available.",
+        "effect": "Heart scarcity is also yield scarcity. Players who exhaust hearts before completing a task have to wait or pay, increasing the perceived value of each successful level."
+      },
+      {
+        "from": "variable-reward",
+        "to": "achievements",
+        "title": "Win streaks and first-try wins emerge from level runs",
+        "desc": "High Win Streak and First Try Wins are the two achievement categories. Both measure match-3 performance quality. Variable level difficulty means neither is guaranteed.",
+        "effect": "Players aware of the streak achievement play more carefully, attending to level quality rather than rushing. The achievement system gives the variable reward surface a second layer of stakes."
+      },
+      {
+        "from": "achievements",
+        "to": "leaderboards",
+        "title": "Achievement metrics feed the leaderboards",
+        "desc": "High Win Streak and First Try Wins are both achievement categories and leaderboard metrics. The same performance tracked for personal achievement is also tracked for competitive ranking.",
+        "effect": "Players competing on leaderboards are simultaneously advancing achievement categories. The two systems share the same underlying metric, making each tracked behaviour count twice."
+      }
+    ]
+  }
+}

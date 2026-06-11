@@ -1,0 +1,182 @@
+{
+  "id": "liftoff",
+  "name": "Liftoff",
+  "category": "Fitness",
+  "type": "app",
+  "visibility": "subscriber",
+  "analysisDate": "2026-02-24",
+  "lastUpdated": "2026-05-20",
+  "summary": "Liftoff is a strength training app that applies the most explicit XP leveling system observed in the fitness category. Every logged set contributes volume points toward a rank, with named rank tiers visible ahead of the current position. A per-muscle rank system means the user tracks separate progression levels for each muscle group. The variable reward is tied to workout completion rather than spending.",
+  "icon": "/icons/liftoff.png",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "xp-leveling",
+      "depth": "core",
+      "writeup": {
+        "observed": "The body rank system gives each muscle group an independent rank advancing through Bronze, Silver, Gold, Platinum, and Diamond. Performing exercises targeted at a muscle group fills that muscle's rank bar. At onboarding, a rank assessment asks the user for their best lifts on one chosen exercise and assigns an immediate rank (Bronze 3 for pull-ups in the session), with a predicted date to reach Gold. The account also carries a level displayed on the home screen avatar with a progress bar. A Double XP Shake consumable doubles XP earned during a single workout.",
+        "findings": [
+          "Per-muscle ranking creates visible imbalance: a user who only trains chest sees chest rank advance while back rank stagnates. The imbalance is motivating without any explicit prompt, because the display itself communicates what is missing.",
+          "The \"top 76.23%\" social comparison at rank assignment puts the new user in a competitive context before they have completed a single workout, establishing the leaderboard mindset from the first session.",
+          "The predicted Gold date (\"we predict you can reach Gold by April 26th\") gives the rank a concrete timeline, converting an abstract tier into a calculable near-term goal."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Body rank overview screen showing multiple muscle groups each with their own Bronze/Silver/Gold rank indicator and percentage fill bars, with the \"body graph\" visual showing which muscles are high-ranked vs. lagging"
+      ]
+    },
+    {
+      "id": "leaderboards",
+      "depth": "core",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "achievements",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": [
+        "Profile screen showing three displayed medals, the body rank summary, follower/following counts, and the option to select which medals to display — with a \"secret\" medal shown as a locked indicator"
+      ]
+    },
+    {
+      "id": "daily-weekly-quests",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "variable-reward",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "cosmetics",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "social-feed",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "streak",
+      "depth": "shallow",
+      "writeup": {
+        "observed": "Liftoff tracks consecutive days of logged workouts and surfaces the streak as a named counter in the activity summary. The streak is introduced after the first completed session. The app's logging-first design, where users record exercises, sets, and reps each session, creates a natural completion event that triggers the streak increment. Streak milestones are acknowledged with a notification and a brief animated celebration on the home screen.",
+        "presented": "The streak counter appears in the profile and workout history section alongside total sessions logged and personal bests. Post-session, a summary screen shows the updated streak count alongside volume lifted and exercises completed.",
+        "findings": [
+          "The logging-first design means streak maintenance requires the user to complete the core product behavior (recording a workout) rather than a minimal action like opening the app, aligning the streak with the behavior the product is designed to build.",
+          "Post-session streak display on the summary screen surfaces the counter at peak motivation, immediately after the user has completed the action that earned the increment.",
+          "No streak freeze or recovery mechanic was observed within the session analyzed."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "challenges",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "hard-currency",
+      "depth": "supporting",
+      "provisionalDepth": true,
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "soft-currency",
+      "depth": "supporting",
+      "provisionalDepth": true,
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "A strength training app where every muscle group has its own rank, and every logged set advances it.",
+    "overview": "Liftoff applies the most explicit XP leveling system observed in the fitness category. Logged workout volume contributes to an overall rank and to per-muscle rank, with named tier levels visible ahead of the current position. The variable reward at workout completion is tied to performance rather than spending. Cosmetics and social features are present but secondary to the progression mechanics.",
+    "loop": "Log a workout by tracking sets, reps, and weights. Each set contributes volume points to the overall rank and to the relevant muscle group ranks. Complete the workout. Receive a variable reward based on performance. View rank progression across all muscle groups. Check leaderboard position. Return for the next scheduled workout.",
+    "keyInsight": "The per-muscle rank system creates 10 or more simultaneous progression tracks rather than one. A user who trains chest three times per week and legs once per week will see asymmetric rank advancement that reflects their actual training priorities, making the rank feel like an accurate self-portrait rather than a generic progress bar.",
+    "whatMakesItWork": "Volume-based XP means the quality of the reward is determined by the quantity of work logged. There is no way to game the system by opening the app and closing it. The only way to advance is to do the actual workout.",
+    "roles": [
+      {
+        "id": "xp-leveling",
+        "role": "Overall rank and per-muscle ranks advance through logged workout volume. Named tier levels are visible ahead of the current position across each muscle group independently."
+      },
+      {
+        "id": "leaderboards",
+        "role": "Rankings across multiple metrics and time windows. Per-muscle leaderboards create competitive surfaces beyond total volume."
+      },
+      {
+        "id": "variable-reward",
+        "role": "Post-workout reward tied to performance metrics. Outcome varies based on workout quality rather than requiring separate spending."
+      },
+      {
+        "id": "achievements",
+        "role": "Milestone badges for rank thresholds, consistency records, and personal bests across individual exercises and muscle groups."
+      },
+      {
+        "id": "cosmetics",
+        "role": "Avatar customization and profile theming unlocked through rank progression rather than purchase."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 8,
+      "label": "LIFTOFF"
+    },
+    "nodes": [
+      {
+        "id": "xp-leveling",
+        "x": 50,
+        "y": 26
+      },
+      {
+        "id": "leaderboards",
+        "x": 22,
+        "y": 50
+      },
+      {
+        "id": "daily-weekly-quests",
+        "x": 78,
+        "y": 50
+      },
+      {
+        "id": "credits-tokens",
+        "x": 22,
+        "y": 76
+      },
+      {
+        "id": "cosmetics",
+        "x": 78,
+        "y": 76
+      }
+    ],
+    "connections": [
+      {
+        "from": "xp-leveling",
+        "to": "leaderboards",
+        "title": "Volume-based XP determines leaderboard position",
+        "desc": "The same logged workout volume that advances rank also determines position on volume leaderboards. One logging action serves both systems.",
+        "effect": "Logging workouts carefully is both a personal progression behavior and a competitive one. The motivation to record every set has a leaderboard dimension."
+      }
+    ]
+  }
+}

@@ -212,6 +212,12 @@ const ALL_APPS = [
   { file: "fiton.md", id: "fiton", visibility: "subscriber" },
   { file: "fortune-city.md", id: "fortune-city", visibility: "subscriber" },
   { file: "freeletics.md", id: "freeletics", visibility: "subscriber" },
+  // Batch 3
+  { file: "gymverse.md", id: "gymverse", visibility: "subscriber" },
+  { file: "insight-timer.md", id: "insight-timer", visibility: "subscriber" },
+  { file: "ladder.md", id: "ladder", visibility: "subscriber" },
+  { file: "liftoff.md", id: "liftoff", visibility: "subscriber" },
+  { file: "match-creek-motors.md", id: "match-creek-motors", visibility: "subscriber" },
 ];
 
 fs.rmSync(path.join(out, "apps"), { recursive: true, force: true });
