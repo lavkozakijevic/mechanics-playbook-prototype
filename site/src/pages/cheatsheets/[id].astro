@@ -1,0 +1,100 @@
+---
+import Base from "../../layouts/Base.astro";
+import { publishedCheatsheets, publishedMechanics, publishedApps } from "../../lib/content";
+
+export async function getStaticPaths() {
+  const all = await publishedCheatsheets();
+  // Only build detail pages for non-locked cheatsheets; locked ones redirect to /subscribe/
+  return all
+    .filter((cs) => cs.data.visibility === "public")
+    .map((cs) => ({ params: { id: cs.data.id }, props: { cs } }));
+}
+
+const { cs } = Astro.props;
+const mechById = new Map((await publishedMechanics()).map((m) => [m.data.id, m.data]));
+const appById = new Map((await publishedApps()).map((a) => [a.data.id, a.data]));
+
+const relatedMechanics = cs.data.mechanics.map((id) => mechById.get(id)).filter(Boolean);
+const relatedApps = cs.data.apps.map((id) => appById.get(id)).filter(Boolean);
+---
+
+<Base
+  title={`${cs.data.title} — Cheatsheet — Mechanics Playbook`}
+  description={cs.data.desc.slice(0, 155)}
+  current="cheatsheets"
+>
+  <main id="main">
+    <section class="band--tight mech-head">
+      <div class="container">
+        <nav class="crumb" aria-label="Breadcrumb">
+          <a href="/">Home</a><span class="crumb__sep">/</span>
+          <a href="/cheatsheets/">Cheatsheets</a><span class="crumb__sep">/</span>
+          <span>{cs.data.title}</span>
+        </nav>
+        <h1>{cs.data.title}</h1>
+        <p class="mech-head__def">{cs.data.desc}</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="mech-body">
+        <div class="mech-main">
+          <section aria-labelledby="steps-h">
+            <div class="mech-section__kicker">Implementation guide</div>
+            <h2 class="mech-section__title" id="steps-h">{cs.data.steps.length} steps to get it right</h2>
+            <div class="csheet-steps">
+              {cs.data.steps.map((step) => {
+                const stepApps = step.apps.map((id) => appById.get(id)).filter(Boolean);
+                return (
+                  <div class="csheet-step">
+                    <div class="csheet-step__num">{step.n}</div>
+                    <div class="csheet-step__body">
+                      <h3 class="csheet-step__h">{step.heading}</h3>
+                      <p class="csheet-step__p">{step.body}</p>
+                      {stepApps.length > 0 && (
+                        <div class="csheet-step__apps">
+                          {stepApps.map((app) => (
+                            <a class="refchip" href={`/case-studies/${app.id}/`}>{app.name}</a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        </div>
+
+        <aside class="mech-aside" aria-label="Related">
+          {relatedMechanics.length > 0 && (
+            <div class="amod">
+              <h3>Mechanics covered</h3>
+              <div class="amod__list">
+                {relatedMechanics.map((m) => (
+                  <a class="amod__item" href={`/mechanics/${m.id}/`}>
+                    <span class="amod__dot" style={`background:var(--cat-${m.cat})`} />
+                    <span class="amod__name">{m.name}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+          {relatedApps.length > 0 && (
+            <div class="amod">
+              <h3>Apps in examples</h3>
+              <div class="amod__list">
+                {relatedApps.slice(0, 8).map((app) => (
+                  <a class="amod__item" href={`/case-studies/${app.id}/`}>
+                    <span class="amod__name">{app.name}</span>
+                    <span class="amod__meta">{app.category}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+        </aside>
+      </div>
+    </div>
+  </main>
+</Base>

@@ -143,6 +143,35 @@ if (!fs.existsSync(settingsPath)) {
     problem("settings/homepage.json", "cheatsheetCount is missing or not a number");
 }
 
+// ---- cheatsheets: mechanic + app references
+const cheatsheets = readCollection("cheatsheets");
+const appIds = new Set(apps.map((a) => a.data.id));
+for (const { file, data } of cheatsheets) {
+  for (const id of data.mechanics ?? []) {
+    if (!mechanicIds.has(id))
+      problem(file, `references mechanic "${id}" which does not exist in the mechanics library`);
+  }
+  for (const id of data.apps ?? []) {
+    if (!appIds.has(id))
+      problem(file, `references app "${id}" which does not exist in the apps collection`);
+  }
+  for (const step of data.steps ?? []) {
+    for (const id of step.apps ?? []) {
+      if (!appIds.has(id))
+        problem(file, `step "${step.heading}" references app "${id}" which does not exist`);
+    }
+  }
+}
+
+// ---- glossary: mechanic references
+const glossary = readCollection("glossary");
+for (const { file, data } of glossary) {
+  for (const id of data.related ?? []) {
+    if (!mechanicIds.has(id))
+      problem(file, `references mechanic "${id}" which does not exist in the mechanics library`);
+  }
+}
+
 // ---- result
 if (problems.length) {
   console.error(`Content validation failed — ${problems.length} problem(s):\n`);
@@ -150,4 +179,4 @@ if (problems.length) {
   console.error("\nThe build was stopped so these cannot reach the live site.");
   process.exit(1);
 }
-console.log(`Content validation passed: ${apps.length} apps, ${mechanics.length} mechanics, settings OK.`);
+console.log(`Content validation passed: ${apps.length} apps, ${mechanics.length} mechanics, ${cheatsheets.length} cheatsheets, ${glossary.length} glossary terms, settings OK.`);

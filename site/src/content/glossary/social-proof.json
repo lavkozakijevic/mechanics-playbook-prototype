@@ -1,0 +1,11 @@
+{
+  "id": "social-proof",
+  "term": "Social Proof",
+  "def": "The tendency to look to others' behaviour as a guide for one's own, particularly in uncertain situations. Insight Timer's '594,622 people here today' and Strava's challenge participant counts both use social proof to validate the decision to engage.",
+  "related": [
+    "social-feed",
+    "challenges",
+    "leaderboards"
+  ],
+  "visibility": "public"
+}

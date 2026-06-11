@@ -1,0 +1,11 @@
+{
+  "id": "session-pacing",
+  "term": "Session Pacing",
+  "def": "The deliberate structuring of how long sessions run and how frequently users return. Energy systems pace sessions by limiting play. Daily quests shape return frequency. The goal is a sustainable engagement rhythm rather than binge-and-churn cycles.",
+  "related": [
+    "energy-lives",
+    "daily-weekly-quests",
+    "daily-login-reward"
+  ],
+  "visibility": "public"
+}

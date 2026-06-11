@@ -1,0 +1,10 @@
+{
+  "id": "loss-aversion",
+  "term": "Loss Aversion",
+  "def": "A cognitive bias where the pain of losing something is felt more strongly than the pleasure of gaining something of equal value. Streaks and energy systems both exploit loss aversion, the user is not motivated to gain a reward so much as to avoid losing what they have already accumulated.",
+  "related": [
+    "streak",
+    "energy-lives"
+  ],
+  "visibility": "public"
+}

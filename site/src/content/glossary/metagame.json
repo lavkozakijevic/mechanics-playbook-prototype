@@ -1,0 +1,11 @@
+{
+  "id": "metagame",
+  "term": "Metagame",
+  "def": "Any game layer that exists outside the core loop, collection systems, social standing, progression tracks, that gives players long-term goals beyond the session-by-session experience. Well-designed metagames extend engagement across months rather than days.",
+  "related": [
+    "season-pass",
+    "set-collection",
+    "xp-leveling"
+  ],
+  "visibility": "public"
+}

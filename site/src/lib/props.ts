@@ -103,7 +103,8 @@ export function mechanicStudies(mechanicId: string, apps: App[]) {
         cat: a.category,
         href: `/case-studies/${a.id}/`,
         depth: rel.depth,
-        screens: [],
+        shots: rel.screenshots.length ? rel.screenshots : rel.suggestedShots.slice(0, 3),
+        shotsAreImages: rel.screenshots.length > 0,
         body: w ? [w.observed ?? "", w.noting ?? "", w.presented ?? "", w.findings?.[0] ?? ""] : null,
       };
     });

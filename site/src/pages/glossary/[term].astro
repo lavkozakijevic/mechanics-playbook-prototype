@@ -1,0 +1,95 @@
+---
+import Base from "../../layouts/Base.astro";
+import { publishedGlossary, publishedMechanics } from "../../lib/content";
+
+export async function getStaticPaths() {
+  const all = await publishedGlossary();
+  return all.map((g) => ({ params: { term: g.data.id }, props: { g } }));
+}
+
+const { g } = Astro.props;
+const mechById = new Map((await publishedMechanics()).map((m) => [m.data.id, m.data]));
+const otherTerms = (await publishedGlossary()).filter((x) => x.data.id !== g.data.id).slice(0, 6);
+
+const relMechanics = g.data.related.map((id) => mechById.get(id)).filter(Boolean);
+---
+
+<Base
+  title={`${g.data.term} — Glossary — Mechanics Playbook`}
+  description={g.data.def.slice(0, 155)}
+  current="glossary"
+>
+  <main id="main">
+    <section class="band--tight mech-head">
+      <div class="container">
+        <nav class="crumb" aria-label="Breadcrumb">
+          <a href="/">Home</a><span class="crumb__sep">/</span>
+          <a href="/glossary/">Glossary</a><span class="crumb__sep">/</span>
+          <span>{g.data.term}</span>
+        </nav>
+        <h1>{g.data.term}</h1>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="mech-body">
+        <div class="mech-main">
+          <section>
+            <div class="mech-prose">
+              <p>{g.data.def}</p>
+            </div>
+
+            {relMechanics.length > 0 && (
+              <section style="margin-top: clamp(32px, 4vw, 52px)" aria-labelledby="rel-mechs-h">
+                <div class="mech-section__kicker">Mechanics</div>
+                <h2 class="mech-section__title" id="rel-mechs-h">Mechanics that use this principle</h2>
+                <div class="variants">
+                  {relMechanics.map((m) => (
+                    <a class="variant" href={`/mechanics/${m.id}/`} style="text-decoration:none">
+                      <div>
+                        <span class:list={["gb-tag", `gb-tag--${m.cat}`]} style="margin-bottom:10px;display:inline-flex">{m.cat.charAt(0).toUpperCase() + m.cat.slice(1)}</span>
+                        <h4>{m.name}</h4>
+                        <p>{m.tagline}</p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </section>
+            )}
+          </section>
+        </div>
+
+        <aside class="mech-aside" aria-label="Related">
+          {otherTerms.length > 0 && (
+            <div class="amod">
+              <h3>More terms</h3>
+              <div class="amod__list">
+                {otherTerms.map((t) => (
+                  <a class="amod__item" href={`/glossary/${t.data.id}/`}>
+                    <span class="amod__name">{t.data.term}</span>
+                  </a>
+                ))}
+                <a class="amod__item" href="/glossary/" style="margin-top:4px">
+                  <span class="amod__name" style="color:var(--text-accent)">View all terms →</span>
+                </a>
+              </div>
+            </div>
+          )}
+          {relMechanics.length > 0 && (
+            <div class="amod">
+              <h3>Related mechanics</h3>
+              <div class="amod__list">
+                {relMechanics.map((m) => (
+                  <a class="amod__item" href={`/mechanics/${m.id}/`}>
+                    <span class="amod__dot" style={`background:var(--cat-${m.cat})`} />
+                    <span class="amod__name">{m.name}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+        </aside>
+      </div>
+    </div>
+  </main>
+</Base>

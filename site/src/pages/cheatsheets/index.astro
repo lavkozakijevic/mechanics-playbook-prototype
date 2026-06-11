@@ -1,0 +1,59 @@
+---
+import Base from "../../layouts/Base.astro";
+import { publishedCheatsheets, publishedMechanics } from "../../lib/content";
+
+const cheatsheets = await publishedCheatsheets();
+const byId = new Map((await publishedMechanics()).map((m) => [m.data.id, m.data]));
+---
+
+<Base
+  title="Cheatsheets — Mechanics Playbook"
+  description="Practical step-by-step guides for implementing the mechanics that keep users coming back."
+  current="cheatsheets"
+>
+  <main id="main">
+    <section class="band--tight lib-head">
+      <div class="container">
+        <div class="eyebrow lib-head__eyebrow">Practical guides</div>
+        <h1>Cheatsheets</h1>
+        <p>Step-by-step implementation guides for the mechanics that matter most. Each one distils the patterns from the case study library into actionable steps.</p>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="container">
+        <div class="csheet-grid">
+          {cheatsheets.map((cs) => {
+            const locked = cs.data.visibility !== "public";
+            const href = locked ? "/subscribe/" : `/cheatsheets/${cs.data.id}/`;
+            const mechTags = cs.data.mechanics.slice(0, 2).map((id) => byId.get(id));
+            return (
+              <a class:list={["csheet-card", locked && "csheet-card--locked"]} href={href}>
+                <div class="csheet-card__top">
+                  <h2 class="csheet-card__title">{cs.data.title}</h2>
+                  {locked && (
+                    <span class="gb-badge gb-badge--neutral gb-badge--outline">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:12px;height:12px;flex:none;margin-right:3px">
+                        <rect x="4" y="11" width="16" height="10" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" />
+                      </svg>
+                      For subscribers
+                    </span>
+                  )}
+                </div>
+                <p class="csheet-card__desc">{cs.data.desc}</p>
+                <div class="csheet-card__foot">
+                  <div class="csheet-card__tags">
+                    {mechTags.map((m) => m && (
+                      <span class:list={["gb-tag", `gb-tag--${m.cat}`]}>{m.name}</span>
+                    ))}
+                  </div>
+                  <span class="csheet-card__steps">{cs.data.steps.length} steps</span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>

@@ -1,0 +1,7 @@
+{
+  "id": "bartle-taxonomy",
+  "term": "Bartle Taxonomy",
+  "def": "A classification of video game player types developed by Richard Bartle in 1996. The four types, Achievers, Explorers, Socializers, and Killers (adapted as Competitors in app contexts), describe different motivational profiles that respond to different mechanics. Understanding which type dominates a product's user base changes which mechanics to build and which ones will silently drive churn.",
+  "related": [],
+  "visibility": "public"
+}

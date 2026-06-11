@@ -25,10 +25,10 @@ const ctx = {};
 vm.createContext(ctx);
 vm.runInContext(
   fs.readFileSync(path.join(repo, "data.js"), "utf8") +
-    ";__o={MECHANICS,APPS,SYSTEMS,RICH_DESCRIPTIONS,SCREENSHOTS,CHEATSHEETS};",
+    ";__o={MECHANICS,APPS,SYSTEMS,RICH_DESCRIPTIONS,SCREENSHOTS,CHEATSHEETS,GLOSSARY};",
   ctx
 );
-const { MECHANICS, APPS, SYSTEMS, RICH_DESCRIPTIONS, SCREENSHOTS, CHEATSHEETS } = ctx.__o;
+const { MECHANICS, APPS, SYSTEMS, RICH_DESCRIPTIONS, SCREENSHOTS, CHEATSHEETS, GLOSSARY } = ctx.__o;
 
 // ---------------------------------------------------------- system.html
 // CONNECTIONS and POSITIONS are object literals embedded in the page. Some
@@ -442,4 +442,39 @@ function write(coll, id, obj) {
   fs.writeFileSync(path.join(out, coll, id + ".json"), JSON.stringify(obj, null, 2));
 }
 
-console.log(`converted: ${mechanicCount} mechanics, ${ALL_APPS.length} apps`);
+// ------------------------------------------------------------- cheatsheets
+// "launching-streak" is the one free cheatsheet (matches the free item list
+// in stage-0-report.md: Streak mechanic, Royal Match case study, this cheatsheet).
+const FREE_CHEATSHEETS = new Set(["launching-streak"]);
+fs.mkdirSync(path.join(out, "cheatsheets"), { recursive: true });
+for (const cs of CHEATSHEETS) {
+  write("cheatsheets", cs.id, {
+    id: cs.id,
+    title: cs.title,
+    desc: cs.desc,
+    mechanics: cs.mechanics ?? [],
+    apps: cs.apps ?? [],
+    steps: (cs.steps ?? []).map((s, i) => ({
+      n: String(i + 1).padStart(2, "0"),
+      heading: s.h,
+      body: s.b,
+      apps: s.apps ?? [],
+    })),
+    visibility: FREE_CHEATSHEETS.has(cs.id) ? "public" : "subscriber",
+  });
+}
+
+// -------------------------------------------------------------- glossary
+// Glossary is ungated (public) — it was not behind login in v44.
+fs.mkdirSync(path.join(out, "glossary"), { recursive: true });
+for (const g of GLOSSARY) {
+  write("glossary", g.id, {
+    id: g.id,
+    term: g.term,
+    def: g.def,
+    related: g.related ?? [],
+    visibility: "public",
+  });
+}
+
+console.log(`converted: ${mechanicCount} mechanics, ${ALL_APPS.length} apps, ${CHEATSHEETS.length} cheatsheets, ${GLOSSARY.length} glossary terms`);

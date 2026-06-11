@@ -1,0 +1,66 @@
+{
+  "id": "daily-login-reward",
+  "title": "Designing a Daily Login Reward",
+  "desc": "How to structure a daily reward system that creates return habit without training users to open, collect, and leave.",
+  "mechanics": [
+    "daily-login-reward",
+    "streak",
+    "variable-reward"
+  ],
+  "apps": [
+    "fc-mobile",
+    "capybara-go",
+    "subway-surfers",
+    "solitaire-grand-harvest",
+    "calm",
+    "fortune-city"
+  ],
+  "steps": [
+    {
+      "n": "01",
+      "heading": "Decide between calendar visibility and uncertainty",
+      "body": "Most daily login systems show upcoming rewards in advance to create anticipation pull (FC Mobile shows gems at days 2, 5, 10, 15). Fortune City deliberately hides Day 2 behind a question mark, applying variable reward uncertainty to the daily return incentive. Both work, choose based on whether you want forward pull (show rewards) or curiosity drive (hide them). Showing rewards is safer; hiding them may drive stronger day-2 return.",
+      "apps": [
+        "fc-mobile",
+        "fortune-city"
+      ]
+    },
+    {
+      "n": "02",
+      "heading": "Make the day 7 reward meaningfully different",
+      "body": "The day 7 milestone must be visibly more valuable than day 1 to justify a week of consistent return. FC Mobile gates gem amounts at days 10 and 15. Fortune City uses a 'special gift' framing without disclosure. Capybara Go! gates the daily login system behind Chapter 2 completion entirely, the reward only exists for users who have invested enough to understand what the currencies mean.",
+      "apps": [
+        "fc-mobile",
+        "fortune-city",
+        "capybara-go"
+      ]
+    },
+    {
+      "n": "03",
+      "heading": "Integrate ad watching as an optional doubling mechanic",
+      "body": "Fortune City and Subway Surfers both integrate an ad watch option at the daily reward claim moment, watch to double your coins, or don't. The opt-out is named and visible. This converts the daily reward moment into an additional ad monetization surface without making the ad mandatory.",
+      "apps": [
+        "fortune-city",
+        "subway-surfers"
+      ]
+    },
+    {
+      "n": "04",
+      "heading": "Run a second parallel daily system for compound return pressure",
+      "body": "Subway Surfers runs a login calendar alongside a separate five-slot daily rewards screen where every slot requires an ad. Solitaire Grand Harvest runs a 4-week calendar alongside a farm delivery bonus that scales with farm expansion. The two systems operate on different cadences and serve different motivations, the calendar rewards return, the parallel system rewards engagement.",
+      "apps": [
+        "subway-surfers",
+        "solitaire-grand-harvest"
+      ]
+    },
+    {
+      "n": "05",
+      "heading": "Gate the daily reward behind early progression",
+      "body": "Capybara Go! gates daily login rewards behind Chapter 2 completion, introducing it as a feature discovery moment after the player has invested enough to understand what the currencies mean and how they will be used. A daily login reward shown before the player understands the economy is noise; shown after they do, it is a signal.",
+      "apps": [
+        "capybara-go"
+      ]
+    }
+  ],
+  "visibility": "subscriber"
+}

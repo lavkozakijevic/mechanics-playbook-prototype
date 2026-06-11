@@ -93,4 +93,35 @@ const settings = defineCollection({
   }),
 });
 
-export const collections = { apps, mechanics, settings };
+const cheatsheets = defineCollection({
+  loader: glob({ pattern: "*.json", base: "./src/content/cheatsheets" }),
+  schema: z.object({
+    id: z.string(),
+    title: z.string(),
+    desc: z.string(),
+    mechanics: z.array(z.string()),
+    apps: z.array(z.string()),
+    steps: z.array(
+      z.object({
+        n: z.string(),
+        heading: z.string(),
+        body: z.string(),
+        apps: z.array(z.string()),
+      })
+    ),
+    visibility,
+  }),
+});
+
+const glossary = defineCollection({
+  loader: glob({ pattern: "*.json", base: "./src/content/glossary" }),
+  schema: z.object({
+    id: z.string(),
+    term: z.string(),
+    def: z.string(),
+    related: z.array(z.string()),
+    visibility,
+  }),
+});
+
+export const collections = { apps, mechanics, settings, cheatsheets, glossary };

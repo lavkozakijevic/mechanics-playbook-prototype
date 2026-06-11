@@ -61,17 +61,19 @@ test.describe("indexes show correct counts", () => {
     expect(hrefs.length).toBe(visibleApps.length);
   });
 
-  test("mechanics library lists every mechanic after hydration", async ({ page }) => {
+  test("mechanics library has all cards in static HTML before hydration", async ({ page }) => {
+    // waitUntil: "domcontentloaded" stops before <script type="module"> islands run,
+    // so this assertion verifies that Astro pre-rendered every card — not React.
+    await page.goto("/mechanics/", { waitUntil: "domcontentloaded" });
+    await expect(page.locator("[data-mechanic-card]")).toHaveCount(mechanics.length);
+  });
+
+  test("mechanics library shows all mechanics after hydration with no filter active", async ({ page }) => {
     await page.goto("/mechanics/");
-    const links = page.locator('a[href^="/mechanics/"]:not([href="/mechanics/"])');
-    await expect
-      .poll(async () => {
-        const hrefs = await links.evaluateAll((els) =>
-          [...new Set(els.map((e) => e.getAttribute("href")))]
-        );
-        return hrefs.length;
-      })
-      .toBe(mechanics.length);
+    // The filter form appearing means React has mounted and the first useEffect has run
+    await expect(page.locator(".filters")).toBeVisible();
+    // No filter active → all cards visible (none carry [hidden])
+    await expect(page.locator("[data-mechanic-card]:not([hidden])")).toHaveCount(mechanics.length);
   });
 
   test("systems index lists every visible app with a system map", async ({ page }) => {

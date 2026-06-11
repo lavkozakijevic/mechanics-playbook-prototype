@@ -122,6 +122,15 @@ function Lifecycle({ mech }) {
   );
 }
 
+function ShotPlaceholder({ label }) {
+  return (
+    <figure className="shot">
+      <div className="shot__frame"><span className="shot__ph">screenshot</span></div>
+      {label && <figcaption className="shot__cap">{label}</figcaption>}
+    </figure>
+  );
+}
+
 function CaseStudies({ studies }) {
   return (
     <section aria-labelledby="cs-h">
@@ -134,10 +143,12 @@ function CaseStudies({ studies }) {
               <span className="cstudy__app">{s.app}</span>
               <Tag category="neutral">{s.cat}</Tag>
             </div>
-            {s.screens?.length > 0 && (
-              <div className="cstudy__thumbs">
-                {s.screens.map((sc) => (
-                  <div className="cthumb" key={sc}>{sc}</div>
+            {s.shots?.length > 0 && (
+              <div className="shotgallery">
+                {s.shots.map((shot) => (
+                  s.shotsAreImages
+                    ? <figure className="shot" key={shot}><div className="shot__frame" style={{ padding: 0, overflow: "hidden" }}><img src={shot} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} /></div></figure>
+                    : <ShotPlaceholder key={shot} label={shot} />
                 ))}
               </div>
             )}

@@ -1,0 +1,11 @@
+{
+  "id": "zeigarnik-effect",
+  "term": "Zeigarnik Effect",
+  "def": "The tendency to remember uncompleted tasks more readily than completed ones. Set collection, quest tracking, and season pass progress bars all exploit the Zeigarnik effect, the visible incomplete progress creates a cognitive pull toward completion.",
+  "related": [
+    "set-collection",
+    "daily-weekly-quests",
+    "season-pass"
+  ],
+  "visibility": "public"
+}

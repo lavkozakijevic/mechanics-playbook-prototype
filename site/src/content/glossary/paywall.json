@@ -1,0 +1,11 @@
+{
+  "id": "paywall",
+  "term": "Paywall",
+  "def": "A point in the user journey where further progress requires payment. Paywall placement and framing are among the most consequential design decisions in a freemium product. Paywalls that appear before the user understands the product's value proposition consistently underperform those that appear immediately after a moment of genuine frustration or desire.",
+  "related": [
+    "energy-lives",
+    "first-purchase-bonus",
+    "monthly-card"
+  ],
+  "visibility": "public"
+}

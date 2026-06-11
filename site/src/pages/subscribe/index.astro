@@ -1,0 +1,28 @@
+---
+import Base from "../../layouts/Base.astro";
+import { publishedCheatsheets, publishedMechanics, publishedApps } from "../../lib/content";
+
+const mechanics = await publishedMechanics();
+const apps = await publishedApps();
+const cheatsheets = await publishedCheatsheets();
+---
+
+<Base
+  title="Subscribe — Mechanics Playbook"
+  description="Get full access to all case studies, mechanics, cheatsheets, and reports."
+>
+  <main id="main">
+    <section class="band lib-head" style="padding-block:clamp(48px,6vw,80px)">
+      <div class="container" style="max-width:640px">
+        <div class="eyebrow lib-head__eyebrow">Full access</div>
+        <h1>Every case study. Every mechanic. Every cheatsheet.</h1>
+        <p style="font:var(--type-body-lg);color:var(--text-secondary);margin-bottom:32px">
+          Subscriber access gives you the complete library: {apps.length} case studies, {mechanics.length} mechanics, {cheatsheets.length} cheatsheets, and every report — updated weekly.
+        </p>
+        <div class="subscribe-cta">
+          <p style="font:var(--type-body);color:var(--text-muted);margin-top:16px">Subscription details coming soon. <a href="mailto:hello@gamebiz.co">Get in touch</a> for early access.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>

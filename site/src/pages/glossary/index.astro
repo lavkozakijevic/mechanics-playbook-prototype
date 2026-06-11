@@ -1,0 +1,46 @@
+---
+import Base from "../../layouts/Base.astro";
+import { publishedGlossary, publishedMechanics } from "../../lib/content";
+
+const glossary = await publishedGlossary();
+const mechById = new Map((await publishedMechanics()).map((m) => [m.data.id, m.data]));
+---
+
+<Base
+  title="Glossary — Mechanics Playbook"
+  description="Plain-language definitions for every psychological and design term used across the Mechanics Playbook."
+  current="glossary"
+>
+  <main id="main">
+    <section class="band--tight lib-head">
+      <div class="container">
+        <div class="eyebrow lib-head__eyebrow">Reference</div>
+        <h1>Glossary</h1>
+        <p>Plain-language definitions for the psychological and design concepts behind the mechanics. Every term links back to the mechanics that use it.</p>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="container">
+        <div class="gloss-grid">
+          {glossary.map((g) => {
+            const relMechs = g.data.related.map((id) => mechById.get(id)).filter(Boolean);
+            return (
+              <a class="gloss-card" href={`/glossary/${g.data.id}/`}>
+                <h2 class="gloss-card__term">{g.data.term}</h2>
+                <p class="gloss-card__def">{g.data.def.slice(0, 140)}{g.data.def.length > 140 ? "…" : ""}</p>
+                {relMechs.length > 0 && (
+                  <div class="gloss-card__tags">
+                    {relMechs.slice(0, 3).map((m) => (
+                      <span class:list={["gb-tag", `gb-tag--${m.cat}`]}>{m.name}</span>
+                    ))}
+                  </div>
+                )}
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>

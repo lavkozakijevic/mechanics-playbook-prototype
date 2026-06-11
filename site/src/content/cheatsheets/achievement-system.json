@@ -1,0 +1,71 @@
+{
+  "id": "achievement-system",
+  "title": "Designing an Achievement System That Travels",
+  "desc": "How to build achievements that serve the product, not just the user, and that leave the app to work in the real world.",
+  "mechanics": [
+    "achievements",
+    "social-feed",
+    "challenges"
+  ],
+  "apps": [
+    "canva",
+    "strava",
+    "uptime",
+    "tiimo",
+    "fortune-city",
+    "insight-timer"
+  ],
+  "steps": [
+    {
+      "n": "01",
+      "heading": "Design achievements as external artifacts, not internal trophies",
+      "body": "Canva Design School certificates carry a verifiable credential ID and are designed for LinkedIn. Uptime achievement cards are pre-formatted shareable images, 'you're saving time by hacking knowledge', designed as social media posts. Tiimo's marble colors change the ambient visual environment of the stats screen. Each approach makes the achievement do work outside the app. An achievement that lives only in a badge tray is only useful to users who navigate to the tray.",
+      "apps": [
+        "canva",
+        "uptime",
+        "tiimo"
+      ]
+    },
+    {
+      "n": "02",
+      "heading": "Use achievements to reward the behavior you actually want",
+      "body": "Fortune City's achievement groups directly reward ad watching (Watch Ads to Help the Salesman, 5 to 1,000 watches) and cross-app installs (Best Apps). Strava's Local Legend rewards consistency over speed, making the leaderboard competitive for athletes who will never hold the fastest time. Uptime generates expertise badges automatically from content consumption, the achievement system notices behavior rather than requiring the user to hunt for achievements.",
+      "apps": [
+        "fortune-city",
+        "strava",
+        "uptime"
+      ]
+    },
+    {
+      "n": "03",
+      "heading": "Make the first achievement immediately accessible",
+      "body": "Tiimo awards the first marble (Ignition) during the onboarding swipe gesture, before the user has completed a real session. Insight Timer's first milestone (7 consecutive days) is designed to be reachable in the first week. Strava triggers a First Activity trophy during any logged activity regardless of duration. The first achievement should be an early-session certainty, not a multi-session goal.",
+      "apps": [
+        "tiimo",
+        "insight-timer",
+        "strava"
+      ]
+    },
+    {
+      "n": "04",
+      "heading": "Surface achievements at the moment of creation, not in a buried tab",
+      "body": "Uptime's achievement cards appear immediately in My Stats after each milestone. Strava attaches PR badges automatically to activity posts in the feed. Fortune City's achievement popups fire immediately after the triggering action. Achievement systems buried in settings menus see almost no organic discovery, surface them at the moment of completion, in the context where the user is most engaged.",
+      "apps": [
+        "uptime",
+        "strava",
+        "fortune-city"
+      ]
+    },
+    {
+      "n": "05",
+      "heading": "Let the achievement change something, not just mark something",
+      "body": "Tiimo's marbles change the background gradient of the stats screen when unlocked. Canva certificates leave the app and appear on LinkedIn. Uptime expertise badges open filtered content in the relevant topic. An achievement that changes the product experience, visually, functionally, or socially, is more motivating than one that adds a badge to an existing grid.",
+      "apps": [
+        "tiimo",
+        "canva",
+        "uptime"
+      ]
+    }
+  ],
+  "visibility": "subscriber"
+}

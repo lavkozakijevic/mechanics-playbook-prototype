@@ -57,6 +57,20 @@ export function numberWord(n: number): string {
   return WORDS[n] ?? String(n);
 }
 
+export async function publishedCheatsheets() {
+  const all = await getCollection("cheatsheets");
+  return all
+    .filter((c) => c.data.visibility !== "report-only")
+    .sort((a, b) => a.data.title.localeCompare(b.data.title));
+}
+
+export async function publishedGlossary() {
+  const all = await getCollection("glossary");
+  return all
+    .filter((g) => g.data.visibility !== "report-only")
+    .sort((a, b) => a.data.term.localeCompare(b.data.term));
+}
+
 /** Latest content date across apps — powers "last updated" in chrome. */
 export async function lastUpdated(): Promise<string | null> {
   const apps = await publishedApps();
