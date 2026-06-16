@@ -49,7 +49,6 @@ export function SiteNav({ current }) {
         <a className="nav__brand" href="/" aria-label="GameBiz home">
           <img className="nav__logo" src={LOGO} alt="GameBiz" width="100" height="22" />
         </a>
-        <span className="nav__fresh"><span className="pip" />Updated weekly</span>
 
         <div className="nav__spacer" />
 

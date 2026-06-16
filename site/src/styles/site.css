@@ -1245,16 +1245,21 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
   margin: 0 0 8px; }
 .catland-step__body { font: var(--type-body-sm); color: var(--text-secondary); line-height: 1.6; margin: 0; }
 
-/* Free report — image placeholder beside the download card */
+/* Free report — landscape screenshot beside the download card */
 .catland-report { display: grid; grid-template-columns: 1fr; gap: clamp(28px, 4vw, 48px); align-items: start; }
-@media (min-width: 800px) { .catland-report { grid-template-columns: 200px 1fr; } }
+@media (min-width: 800px) { .catland-report { grid-template-columns: 340px 1fr; } }
+.catland-report__cover { width: 100%; }
 .catland-report__cover img { width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
-.catland-report__placeholder { width: 200px; max-width: 100%; aspect-ratio: 3 / 4;
+.catland-report__placeholder { width: 100%; aspect-ratio: 16 / 9;
   background: linear-gradient(155deg, var(--ink-50) 0%, var(--ink-100) 100%);
   border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);
   display: flex; align-items: center; justify-content: center;
   font: var(--type-label); font-size: 11px; color: var(--text-faint);
   text-transform: uppercase; letter-spacing: 0.1em; }
+
+/* Book a call — h2 must override the base element color on the ink background */
+.catland-call h2 { color: var(--paper); }
+.catland-call p { color: var(--ink-300); }
 
 /* The six problems — numbered cards */
 .catland-problems { list-style: none; margin: clamp(28px, 3.4vw, 44px) 0 0; padding: 0;
