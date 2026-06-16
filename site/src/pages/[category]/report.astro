@@ -1,0 +1,36 @@
+---
+// Placeholder for category report pages. The real report content will be
+// designed and added to each category's report.astro (or composed here from
+// a content file). This route exists so the email-capture flow is testable
+// end-to-end before the finished report is ready.
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+
+export async function getStaticPaths() {
+  const cats = await getCollection("categories");
+  return cats.map((c) => ({ params: { category: c.data.slug }, props: { cat: c.data } }));
+}
+
+const { cat } = Astro.props;
+---
+
+<Base
+  title={`${cat.name} Gamification Report — Mechanics Playbook`}
+  description={`How game design applies to ${cat.name.toLowerCase()} apps — the full report.`}
+  current={cat.slug}
+>
+  <main id="main">
+    <section class="band" style="min-height:60vh;display:flex;align-items:center">
+      <div class="container container--narrow" style="text-align:center">
+        <div class="eyebrow" style="margin-bottom:16px">{cat.name} report</div>
+        <h1 style="font:var(--type-h1);font-size:clamp(28px,4vw,42px);letter-spacing:var(--tracking-display);margin-bottom:20px">
+          The {cat.name} Gamification Report
+        </h1>
+        <p style="font:var(--type-body-lg);color:var(--text-secondary);max-width:48ch;margin:0 auto 32px">
+          The full report is being prepared. It will appear here shortly — check back soon.
+        </p>
+        <a class="gb-btn gb-btn--secondary gb-btn--lg" href={`/${cat.slug}/`}>← Back to the {cat.name} page</a>
+      </div>
+    </section>
+  </main>
+</Base>

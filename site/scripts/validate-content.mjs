@@ -239,11 +239,7 @@ for (const { file, base, data } of categories) {
     problem(file, `slug "${data.slug}" must match the filename "${base}" (the slug is the URL)`);
   if (seenSlugs.has(data.slug)) problem(file, `duplicate category slug "${data.slug}"`);
   seenSlugs.add(data.slug);
-  const href = data.report?.fileHref ?? "";
-  if (!href.startsWith("/"))
-    problem(file, `report.fileHref "${href}" must be a site-absolute path (e.g. /downloads/finance-report.pdf)`);
-  else if (!fs.existsSync(path.join(pub, href.replace(/^\//, ""))))
-    problem(file, `report file "${href}" does not exist in public/ — the download would 404`);
+  // Report is served as an HTML page at /{slug}/report — no static asset to check.
 }
 
 // ---- result

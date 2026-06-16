@@ -163,10 +163,7 @@ const categories = defineCollection({
       stats: z.array(z.object({ n: z.string(), l: z.string() })).optional(),
       // Optional report cover image shown beside the download card.
       imageHref: z.string().optional(),
-      // Lead magnet served as a static asset; the email gate is wired through
-      // the /api/lead Cloudflare Function, never a mailto.
-      fileHref: z.string(),
-      fileLabel: z.string(),
+      // Report URL is derived at runtime: /{slug}/report — no field needed here.
     }),
   }),
 });

@@ -20,8 +20,6 @@ interface Props {
       title: string;
       body: string;
       stats?: { n: string; l: string }[];
-      fileHref: string;
-      fileLabel: string;
       imageHref?: string;
     };
   };
@@ -147,8 +145,6 @@ const STEPS = [
               client:load
               category={cat.slug}
               source="category-report"
-              fileHref={cat.report.fileHref}
-              fileLabel={cat.report.fileLabel}
             />
           </div>
         </div>

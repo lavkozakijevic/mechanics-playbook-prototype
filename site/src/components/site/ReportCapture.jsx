@@ -3,31 +3,29 @@ import { Button } from "../ds/Button.jsx";
 import { Input } from "../ds/Input.jsx";
 
 /**
- * Email-gated report download. The visitor enters an email and clicks; the
- * submission is POSTed to the /api/lead Cloudflare Function, which notifies
- * the owner server-side and (here) the client then starts the static-file
- * download. The owner's address lives only in the Function's environment —
- * it is never in this page or its source, and there is no mailto.
+ * Email-gated report. The visitor enters an email and clicks; the submission
+ * is POSTed to the /api/lead Cloudflare Function, which notifies the owner
+ * server-side. On success the report opens as an HTML page in a new tab
+ * (falling back to the same tab if the browser blocks the popup).
  *
+ * The report URL is derived from the category slug: /{category}/report.
  * Reusable: `source`/`category` are passed through so the same endpoint can
- * back other capture points (e.g. the future paywall) without change.
+ * back other capture points without change.
  */
-export function ReportCapture({ category, source = "category-report", fileHref, fileLabel = "Get the free report" }) {
+export function ReportCapture({ category, source = "category-report" }) {
   const [email, setEmail] = useState("");
   const [state, setState] = useState("idle"); // idle | sending | done | error
   const [error, setError] = useState("");
 
+  const reportUrl = `/${category}/report`;
   const valid = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.trim());
 
-  function startDownload() {
-    // Static asset: open in a new tab so the success state stays on screen.
-    const a = document.createElement("a");
-    a.href = fileHref;
-    a.download = "";
-    a.rel = "noopener";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
+  function openReport() {
+    // window.open can return null when called after an async boundary because
+    // some browsers treat it as a popup rather than a direct user gesture.
+    // Fall back to same-tab navigation so the reader always reaches the report.
+    const w = window.open(reportUrl, "_blank", "noopener,noreferrer");
+    if (!w) window.location.href = reportUrl;
   }
 
   async function onSubmit(e) {
@@ -43,7 +41,7 @@ export function ReportCapture({ category, source = "category-report", fileHref, 
       });
       if (!res.ok) throw new Error(String(res.status));
       setState("done");
-      startDownload();
+      openReport();
     } catch {
       setState("error");
       setError("Something went wrong sending that. Try again, or email us directly.");
@@ -53,10 +51,9 @@ export function ReportCapture({ category, source = "category-report", fileHref, 
   if (state === "done") {
     return (
       <div className="capture capture--done" role="status">
-        <p className="capture__done-h">Your report is on the way.</p>
+        <p className="capture__done-h">Opening your report now.</p>
         <p className="capture__done-p">
-          The download should have started.{" "}
-          <a href={fileHref}>Click here if it didn't.</a>
+          <a href={reportUrl} target="_blank" rel="noopener noreferrer">Click here if it didn't open.</a>
         </p>
       </div>
     );
@@ -81,10 +78,10 @@ export function ReportCapture({ category, source = "category-report", fileHref, 
           size="lg"
           disabled={!valid || state === "sending"}
         >
-          {state === "sending" ? "Sending…" : fileLabel}
+          {state === "sending" ? "Sending…" : "Get the free report"}
         </Button>
       </div>
-      <p className="capture__fine">One email, the report by return. No list, no spam.</p>
+      <p className="capture__fine">One email, the report opens instantly. No list, no spam.</p>
     </form>
   );
 }
