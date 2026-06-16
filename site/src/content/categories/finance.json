@@ -11,7 +11,7 @@
   },
   "problems": {
     "kicker": "Where we can help",
-    "title": "Six familiar problems, seen through game design",
+    "title": "Where gamification helps in finance apps",
     "items": [
       {
         "title": "Top of wallet loyalty",
@@ -45,24 +45,11 @@
       }
     ]
   },
-  "lens": {
-    "kicker": "How games work",
-    "title": "A few simple ideas, working together",
-    "body": "A good game rarely leans on one clever trick. It gives a person a clear thing to aim for, makes the progress toward it visible, and offers a small, well timed reward for getting there. A streak it would be a shame to lose. A goal sitting just within reach. A reward waiting the moment the app opens. Each idea is modest on its own. Put together with care, they are what turn something a person tries once into something they return to without being asked."
-  },
-  "trust": {
-    "title": "Engagement that respects the customer",
-    "body": "The same mechanics that can trap a person can also genuinely help them, and in finance that difference matters more than almost anywhere. We care about which side of that line your product is built on. The habits worth creating are the ones that leave a customer better off, and those are the only ones we help you build."
-  },
   "report": {
     "eyebrow": "A sample of the report",
     "title": "See exactly what to expect",
     "body": "See how other finance apps already use game design, plus the full contents so you know what to expect from the complete report. Enter your email and the download starts.",
     "fileHref": "/downloads/finance-report.pdf",
     "fileLabel": "Download the sample"
-  },
-  "call": {
-    "title": "Bring us your app and a problem",
-    "body": "Tell us what you are working on and where it stalls. In half an hour we can usually point to two or three places where game design would genuinely help, and how to approach each one."
   }
 }

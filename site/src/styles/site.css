@@ -1224,13 +1224,37 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
 /* ============================================================ category landing
    Shared template for /finance, /productivity, … . Composes existing tokens;
    only the layouts unique to these pages live here. */
-.catland-hero { padding-block: clamp(56px, 9vw, 104px); background: var(--surface-page); }
-.catland-hero__in { max-width: 760px; }
-.catland-hero h1 { font: var(--type-h1); font-size: clamp(34px, 5.6vw, 64px); line-height: 1.05;
-  letter-spacing: var(--tracking-display); color: var(--ink-900); margin: 10px 0 0; text-wrap: balance; }
-.catland-hero__sub { font: var(--type-body-lg); font-size: clamp(17px, 1.9vw, 22px); color: var(--text-secondary);
-  line-height: 1.55; max-width: 58ch; margin: 22px 0 0; text-wrap: pretty; }
-.catland-hero__cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: clamp(28px, 3.4vw, 40px); }
+
+/* Hero: reuses .hero / .hero__grid layout; this class adds an h1 max-width
+   override so longer category headlines don't wrap to too many lines. */
+.catland-hero h1 { max-width: 18ch; }
+
+/* Why gamification matters — single prose column */
+.catland-why { max-width: 760px; }
+.catland-why__p { font: var(--type-body-lg); font-size: clamp(16px, 1.6vw, 19px); color: var(--text-secondary);
+  line-height: 1.6; margin: 16px 0 0; text-wrap: pretty; }
+
+/* Gamifying your app — four numbered steps */
+.catland-steps { list-style: none; margin: clamp(28px, 3.4vw, 44px) 0 0; padding: 0;
+  display: grid; grid-template-columns: 1fr; gap: clamp(24px, 3vw, 36px); }
+@media (min-width: 720px) { .catland-steps { grid-template-columns: 1fr 1fr; } }
+.catland-step { display: grid; grid-template-columns: auto 1fr; gap: 16px; }
+.catland-step__n { font: var(--type-data); font-size: 13px; font-weight: var(--weight-semibold);
+  color: var(--text-accent); padding-top: 3px; }
+.catland-step__title { font: var(--type-h3); font-size: clamp(16px, 1.5vw, 18px); color: var(--ink-900);
+  margin: 0 0 8px; }
+.catland-step__body { font: var(--type-body-sm); color: var(--text-secondary); line-height: 1.6; margin: 0; }
+
+/* Free report — image placeholder beside the download card */
+.catland-report { display: grid; grid-template-columns: 1fr; gap: clamp(28px, 4vw, 48px); align-items: start; }
+@media (min-width: 800px) { .catland-report { grid-template-columns: 200px 1fr; } }
+.catland-report__cover img { width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+.catland-report__placeholder { width: 200px; max-width: 100%; aspect-ratio: 3 / 4;
+  background: linear-gradient(155deg, var(--ink-50) 0%, var(--ink-100) 100%);
+  border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);
+  display: flex; align-items: center; justify-content: center;
+  font: var(--type-label); font-size: 11px; color: var(--text-faint);
+  text-transform: uppercase; letter-spacing: 0.1em; }
 
 /* The six problems — numbered cards */
 .catland-problems { list-style: none; margin: clamp(28px, 3.4vw, 44px) 0 0; padding: 0;
@@ -1244,11 +1268,6 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
 .catland-problem h3 { font: var(--type-h3); font-size: clamp(16px, 1.5vw, 18px); color: var(--ink-900); margin: 0 0 6px; }
 .catland-problem p { font: var(--type-body-sm); color: var(--text-secondary); line-height: 1.55; margin: 0; }
 .catland-problem .catland-problem__lead { color: var(--ink-900); font-weight: var(--weight-semibold); margin: 0 0 8px; line-height: 1.45; }
-
-/* The lens — single prose column */
-.catland-lens { max-width: 760px; }
-.catland-lens__p { font: var(--type-body-lg); font-size: clamp(16px, 1.6vw, 19px); color: var(--text-secondary);
-  line-height: 1.6; margin: 16px 0 0; text-wrap: pretty; }
 
 /* The report block — email capture under the existing report-landing card */
 .report-landing__capture { margin-top: clamp(24px, 3vw, 32px); padding-top: clamp(20px, 2.6vw, 28px);

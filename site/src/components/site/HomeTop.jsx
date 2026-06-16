@@ -9,26 +9,34 @@ import { AnnotatedScreenshot } from "../ds/AnnotatedScreenshot.jsx";
 const CAT_LABEL = { retention: "Retention", monetization: "Monetization", social: "Social" };
 
 /** Hero: the promise, in the visitor's language, beside a self-sliding carousel
- *  of real mechanics drawn from the library. */
-function Hero({ carousel }) {
-  const loop = carousel.concat(carousel);
+ *  of real mechanics drawn from the library. Exported so category landing pages
+ *  can reuse the same layout with their own copy and CTAs. */
+export function Hero({ carousel, eyebrow, headline, sub, ctas, className = "" }) {
+  const items = carousel || [];
+  const loop = items.concat(items);
+  const buttons = ctas || [
+    { label: "Explore the library", href: "/mechanics/", variant: "primary" },
+    { label: "Work with us", href: "/work-with-us/", variant: "secondary" },
+  ];
+  const sectionClass = ["hero", className].filter(Boolean).join(" ");
   return (
-    <section className="hero" id="top" aria-labelledby="hero-h">
+    <section className={sectionClass} id="top" aria-labelledby="hero-h">
       <div className="container hero__grid">
         <div className="hero__body">
-          <div className="eyebrow hero__eyebrow">Explore gamification options for your app</div>
-          <h1 id="hero-h">Power up your app with proven game mechanics</h1>
-          <p className="hero__sub">See how the best apps and games turn everyday features into habits. We break down each mechanic, map how they fit together, and help your team apply the ones that suit your product.</p>
+          <div className="eyebrow hero__eyebrow">{eyebrow ?? "Explore gamification options for your app"}</div>
+          <h1 id="hero-h">{headline ?? "Power up your app with proven game mechanics"}</h1>
+          <p className="hero__sub">{sub ?? "See how the best apps and games turn everyday features into habits. We break down each mechanic, map how they fit together, and help your team apply the ones that suit your product."}</p>
           <div className="hero__cta">
-            <Button variant="primary" size="lg" as="a" href="/mechanics/">Explore the library</Button>
-            <Button variant="secondary" size="lg" as="a" href="/work-with-us/">Work with us</Button>
+            {buttons.map((c) => (
+              <Button key={c.label} variant={c.variant} size="lg" as="a" href={c.href}>{c.label}</Button>
+            ))}
           </div>
         </div>
         <div className="hero__evidence">
           <div className="carousel" aria-label="Mechanics from the library">
             <div className="carousel__track">
               {loop.map((m, i) => (
-                <article className="mcard" key={i} aria-hidden={i >= carousel.length ? "true" : undefined}>
+                <article className="mcard" key={i} aria-hidden={i >= items.length ? "true" : undefined}>
                   <div className="mcard__shot">{m.app} · {m.screen}</div>
                   <div className="mcard__body">
                     <Tag category={m.cat} dot>{m.mechanic}</Tag>

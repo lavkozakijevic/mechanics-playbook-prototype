@@ -155,16 +155,14 @@ const categories = defineCollection({
         .array(z.object({ title: z.string(), lead: z.string(), body: z.string() }))
         .length(6),
     }),
-    // Shared blocks — optional overrides; the template defaults apply if absent.
-    lens: z.object({ kicker: z.string(), title: z.string(), body: z.string() }).optional(),
-    trust: z.object({ kicker: z.string().optional(), title: z.string(), body: z.string() }).optional(),
-    call: z.object({ title: z.string(), body: z.string() }).optional(),
     report: z.object({
       eyebrow: z.string(),
       title: z.string(),
       body: z.string(),
       // Optional headline stats above the capture form.
       stats: z.array(z.object({ n: z.string(), l: z.string() })).optional(),
+      // Optional report cover image shown beside the download card.
+      imageHref: z.string().optional(),
       // Lead magnet served as a static asset; the email gate is wired through
       // the /api/lead Cloudflare Function, never a mailto.
       fileHref: z.string(),

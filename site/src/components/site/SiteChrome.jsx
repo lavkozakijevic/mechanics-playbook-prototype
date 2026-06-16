@@ -6,8 +6,6 @@ import { Input } from "../ds/Input.jsx";
 const LOGO = "/assets/logo/gamebiz-logo.svg";
 const LOGO_INK = "/assets/logo/gamebiz-logo-ink.svg";
 
-// Static nav. The "By industry" group is built per-render from the category
-// landing pages (passed in from the layout), so it isn't listed here.
 const NAV = [
   {
     label: "Library",
@@ -23,24 +21,6 @@ const NAV = [
   { label: "Work with us", href: "/work-with-us/", key: "work" },
 ];
 
-// Build the full nav for a render, splicing the data-driven "By industry"
-// group (the category landing pages) in just before "Work with us".
-function navWithCategories(categories) {
-  if (!categories || categories.length === 0) return NAV;
-  const group = {
-    label: "By industry",
-    href: `/${categories[0].slug}/`,
-    children: categories.map((c) => ({
-      label: c.name,
-      href: `/${c.slug}/`,
-      key: c.slug,
-      desc: c.desc,
-    })),
-  };
-  const i = NAV.findIndex((item) => item.key === "work");
-  return [...NAV.slice(0, i), group, ...NAV.slice(i)];
-}
-
 function Caret() {
   return (
     <svg className="nav__caret" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -52,9 +32,9 @@ function Caret() {
 /** Primary site navigation. Sticky, paper, hairline rule. Three groups, two with
  *  dropdown menus (hover and keyboard-focus on desktop). Collapses to a drawer
  *  below 1024px. Subscribe is the one accent action. */
-export function SiteNav({ current, categories }) {
+export function SiteNav({ current }) {
   const [open, setOpen] = useState(false);
-  const nav = navWithCategories(categories);
+  const nav = NAV;
   const isCurrent = (key) => (current && key && key === current ? "page" : undefined);
   const isCurrentItem = (item) =>
     item.key

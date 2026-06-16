@@ -16,8 +16,8 @@ interface Props {
 const { title, description, current, newsletter = true, chrome = true } = Astro.props;
 const updated = formatDate(await lastUpdated());
 
-// Category landing pages drive the "By industry" nav menu and footer column,
-// so adding a category file lists it everywhere with no chrome edit.
+// Category landing pages drive the footer "Practice" column; adding a category
+// file lists it in the footer with no chrome edit.
 const categories = (await getCollection("categories"))
   .map((c) => ({ slug: c.data.slug, name: c.data.navLabel ?? c.data.name, desc: c.data.navDesc, order: c.data.order }))
   .sort((a, b) => a.order - b.order || a.name.localeCompare(b.name));
@@ -36,7 +36,7 @@ const categories = (await getCollection("categories"))
     <link rel="preload" href="/assets/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin />
   </head>
   <body>
-    {chrome && <SiteNav client:load current={current} categories={categories} />}
+    {chrome && <SiteNav client:load current={current} />}
     <slot />
     {chrome && newsletter && <NewsletterBlock client:visible />}
     {chrome && <SiteFooter lastUpdated={updated} categories={categories} />}
