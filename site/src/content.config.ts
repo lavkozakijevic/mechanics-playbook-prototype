@@ -127,4 +127,37 @@ const glossary = defineCollection({
   }),
 });
 
-export const collections = { apps, mechanics, settings, cheatsheets, glossary };
+// Category landing pages (/finance, /productivity, …). Each file supplies only
+// the category-specific blocks; the shared blocks (the lens, the trust section,
+// the call) live in the template and are inherited. A missing or malformed
+// block fails the build here, before anything ships.
+const categories = defineCollection({
+  loader: glob({ pattern: "*.json", base: "./src/content/categories" }),
+  schema: z.object({
+    slug: z.string(),
+    name: z.string(),
+    // Optional nav label/description and sort order for the "By industry" menu.
+    navLabel: z.string().optional(),
+    navDesc: z.string(),
+    order: z.number().default(100),
+    hero: z.object({
+      kicker: z.string(),
+      headline: z.string(),
+      sub: z.string(),
+    }),
+    // Exactly six — the section is "the six problems" by design.
+    problems: z.array(z.object({ title: z.string(), body: z.string() })).length(6),
+    report: z.object({
+      eyebrow: z.string(),
+      title: z.string(),
+      body: z.string(),
+      stats: z.array(z.object({ n: z.string(), l: z.string() })),
+      // Lead magnet served as a static asset; the email gate is wired through
+      // the /api/lead Cloudflare Function, never a mailto.
+      fileHref: z.string(),
+      fileLabel: z.string(),
+    }),
+  }),
+});
+
+export const collections = { apps, mechanics, settings, cheatsheets, glossary, categories };

@@ -1,0 +1,144 @@
+---
+// Shared template for every category landing page (/finance, /productivity, …).
+// Category-specific blocks (hero, the six problems, the report) come from the
+// `cat` content file; the shared blocks (the lens, the trust section, the call)
+// live here and are inherited by every category. Adding a category means adding
+// one content file — nothing in this template changes.
+import { ReportCapture } from "./ReportCapture.jsx";
+
+interface Props {
+  cat: {
+    slug: string;
+    name: string;
+    hero: { kicker: string; headline: string; sub: string };
+    problems: { title: string; body: string }[];
+    report: {
+      eyebrow: string;
+      title: string;
+      body: string;
+      stats: { n: string; l: string }[];
+      fileHref: string;
+      fileLabel: string;
+    };
+  };
+  // Shared "trust" proof, computed from the live library at build time.
+  trust: { mechanics: number; apps: number; systems: number };
+}
+const { cat, trust } = Astro.props;
+---
+
+<main id="main">
+  {/* Hero — category-specific */}
+  <section class="catland-hero" aria-labelledby="cat-h">
+    <div class="container">
+      <div class="catland-hero__in">
+        <div class="eyebrow">{cat.hero.kicker}</div>
+        <h1 id="cat-h">{cat.hero.headline}</h1>
+        <p class="catland-hero__sub">{cat.hero.sub}</p>
+        <div class="catland-hero__cta">
+          <a class="gb-btn gb-btn--accent gb-btn--lg" href="#get-report">{cat.report.fileLabel}</a>
+          <a class="gb-btn gb-btn--secondary gb-btn--lg" href="/work-with-us/">Book a call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* The six problems — category-specific */}
+  <section class="band band--sheet" aria-labelledby="prob-h">
+    <div class="container">
+      <div class="mech-section__kicker">Where {cat.name.toLowerCase()} teams get stuck</div>
+      <h2 class="mech-section__title" id="prob-h">Six problems we hear again and again</h2>
+      <ol class="catland-problems">
+        {cat.problems.map((p, i) => (
+          <li class="catland-problem">
+            <span class="catland-problem__n" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+            <div>
+              <h3>{p.title}</h3>
+              <p>{p.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  {/* The lens — shared across all categories */}
+  <section class="band" aria-labelledby="lens-h">
+    <div class="container">
+      <div class="catland-lens">
+        <div class="mech-section__kicker">The lens</div>
+        <h2 class="mech-section__title" id="lens-h">We start from the features you already have</h2>
+        <p class="catland-lens__p">
+          We don't arrive with a list of features to bolt on. We study the features your product
+          already ships, your users, and your category, then find the engagement mechanics that will
+          take root — the ones that fit how people actually use a {cat.name.toLowerCase()} app. A mechanic
+          that works brilliantly in one product fails in another; the difference is what's underneath it,
+          and that's what we read for.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* The report — category-specific, with the email-gated download */}
+  <section class="band band--sunken" id="get-report" aria-labelledby="report-h">
+    <div class="container">
+      <div class="report-landing">
+        <div class="report-landing__card">
+          <div class="eyebrow" style="color:var(--text-accent);margin-bottom:12px">{cat.report.eyebrow}</div>
+          <h2 id="report-h">{cat.report.title}</h2>
+          <p style="font:var(--type-body-lg);color:var(--text-secondary);max-width:52ch;margin-bottom:24px">{cat.report.body}</p>
+          <div class="report-landing__stats">
+            {cat.report.stats.map((s) => (
+              <div class="report-landing__stat"><span class="report-landing__n">{s.n}</span><span class="report-landing__l">{s.l}</span></div>
+            ))}
+          </div>
+          <div class="report-landing__capture">
+            <ReportCapture
+              client:load
+              category={cat.slug}
+              source="category-report"
+              fileHref={cat.report.fileHref}
+              fileLabel={cat.report.fileLabel}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* The trust section — shared; the library as standing proof, shown not claimed */}
+  <section class="band" aria-labelledby="trust-h">
+    <div class="container">
+      <div class="catland-trust">
+        <div class="catland-trust__lede">
+          <div class="mech-section__kicker">Why us</div>
+          <h2 class="mech-section__title" id="trust-h">A working library, not a pitch</h2>
+          <p>
+            Everything we recommend is drawn from a library of real app breakdowns we maintain every
+            week — what the best products actually do, mechanic by mechanic. The evidence is on this
+            site; the recommendations come from reading it closely.
+          </p>
+        </div>
+        <div class="catland-trust__stats">
+          <div class="catland-stat"><span class="catland-stat__n">{trust.mechanics}</span><span class="catland-stat__l">mechanics mapped</span></div>
+          <div class="catland-stat"><span class="catland-stat__n">{trust.apps}</span><span class="catland-stat__l">app breakdowns</span></div>
+          <div class="catland-stat"><span class="catland-stat__n">{trust.systems}</span><span class="catland-stat__l">system maps</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* The call — shared; the two actions, calm, no urgency */}
+  <section class="band band--ink catland-call" aria-labelledby="call-h">
+    <div class="container">
+      <div class="catland-call__in">
+        <h2 id="call-h">See what fits your product</h2>
+        <p>Read the free report, or talk it through with us. No preparation needed.</p>
+        <div class="catland-call__cta">
+          <a class="gb-btn gb-btn--accent gb-btn--lg" href="/work-with-us/">Book a call</a>
+          <a class="gb-btn gb-btn--secondary gb-btn--lg" href="#get-report">Get the free report</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

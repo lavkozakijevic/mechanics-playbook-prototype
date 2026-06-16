@@ -1,0 +1,50 @@
+{
+  "slug": "finance",
+  "name": "Finance",
+  "navLabel": "Finance",
+  "navDesc": "What banking and fintech apps rely on, and where the openings are.",
+  "order": 1,
+  "hero": {
+    "kicker": "For finance & fintech teams",
+    "headline": "Your users open the app once. Then the habit never forms.",
+    "sub": "Banking, investing, and budgeting apps win on engagement, not features. We study how the most habit-forming apps keep people coming back, and help your team apply what fits your product — without turning people's money into a game."
+  },
+  "problems": [
+    {
+      "title": "The one-and-done signup",
+      "body": "People link an account, check a balance, and never build a reason to come back. Activation looks fine; the second week falls off a cliff."
+    },
+    {
+      "title": "Saving feels like a chore",
+      "body": "The behaviours you want — saving, budgeting, investing on a schedule — carry no momentum, so good intentions stall within days."
+    },
+    {
+      "title": "Nothing to return for",
+      "body": "Between the monthly statement and the next bill, there is no reason to open the app. Engagement collapses to a utility people tolerate."
+    },
+    {
+      "title": "Engagement that feels gimmicky",
+      "body": "Bolt-on points and badges read as childish next to someone's salary, and they quietly erode the trust a finance brand depends on."
+    },
+    {
+      "title": "Progress no one can see",
+      "body": "Users can't watch themselves improving, so the early effort never compounds into the kind of loyalty that survives a competitor's ad."
+    },
+    {
+      "title": "Features ship, retention doesn't move",
+      "body": "You keep adding tools, but the number that matters — who is still here in ninety days — refuses to move. The roadmap is busy and the curve is flat."
+    }
+  ],
+  "report": {
+    "eyebrow": "Free report",
+    "title": "Gamification in Finance",
+    "body": "What banking and fintech apps rely on for engagement and retention — app by app, mechanic by mechanic — and where the openings are for products that haven't caught up yet. Enter your email and we'll send you the full report.",
+    "stats": [
+      { "n": "9", "l": "apps analysed" },
+      { "n": "7", "l": "chapters" },
+      { "n": "25+", "l": "opportunities identified" }
+    ],
+    "fileHref": "/downloads/finance-report.pdf",
+    "fileLabel": "Get the free report"
+  }
+}

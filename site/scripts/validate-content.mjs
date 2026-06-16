@@ -222,6 +222,30 @@ for (const { file, data } of glossary) {
   }
 }
 
+// ---- category landing pages: slug matches filename, unique slugs, and the
+// gated report file actually exists in public/ (a broken lead magnet must not
+// ship). Block structure is enforced by the zod schema in content.config.ts.
+const categoriesDir = path.join(content, "categories");
+const categories = fs.existsSync(categoriesDir)
+  ? fs.readdirSync(categoriesDir).filter((f) => f.endsWith(".json")).map((f) => ({
+      file: `categories/${f}`,
+      base: f.replace(/\.json$/, ""),
+      data: JSON.parse(fs.readFileSync(path.join(categoriesDir, f), "utf8")),
+    }))
+  : [];
+const seenSlugs = new Set();
+for (const { file, base, data } of categories) {
+  if (data.slug !== base)
+    problem(file, `slug "${data.slug}" must match the filename "${base}" (the slug is the URL)`);
+  if (seenSlugs.has(data.slug)) problem(file, `duplicate category slug "${data.slug}"`);
+  seenSlugs.add(data.slug);
+  const href = data.report?.fileHref ?? "";
+  if (!href.startsWith("/"))
+    problem(file, `report.fileHref "${href}" must be a site-absolute path (e.g. /downloads/finance-report.pdf)`);
+  else if (!fs.existsSync(path.join(pub, href.replace(/^\//, ""))))
+    problem(file, `report file "${href}" does not exist in public/ — the download would 404`);
+}
+
 // ---- result
 if (problems.length) {
   console.error(`Content validation failed — ${problems.length} problem(s):\n`);
@@ -229,4 +253,4 @@ if (problems.length) {
   console.error("\nThe build was stopped so these cannot reach the live site.");
   process.exit(1);
 }
-console.log(`Content validation passed: ${apps.length} apps, ${mechanics.length} mechanics, ${cheatsheets.length} cheatsheets, ${glossary.length} glossary terms, settings OK.`);
+console.log(`Content validation passed: ${apps.length} apps, ${mechanics.length} mechanics, ${cheatsheets.length} cheatsheets, ${glossary.length} glossary terms, ${categories.length} category page(s), settings OK.`);

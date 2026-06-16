@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import CategoryLanding from "../components/site/CategoryLanding.astro";
+import { publishedApps, publishedMechanics } from "../lib/content";
+
+export async function getStaticPaths() {
+  const cats = await getCollection("categories");
+  return cats.map((c) => ({ params: { category: c.data.slug }, props: { cat: c.data } }));
+}
+
+const { cat } = Astro.props;
+
+// Shared "trust" proof, computed from the live library so it can never drift.
+const apps = await publishedApps();
+const mechanics = await publishedMechanics();
+const trust = {
+  mechanics: mechanics.length,
+  apps: apps.length,
+  systems: apps.filter((a) => a.data.system).length,
+};
+---
+
+<Base
+  title={`Gamification for ${cat.name.toLowerCase()} — Mechanics Playbook`}
+  description={cat.hero.sub.slice(0, 155)}
+  current={cat.slug}
+>
+  <CategoryLanding cat={cat} trust={trust} />
+</Base>

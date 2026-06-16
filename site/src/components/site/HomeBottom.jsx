@@ -77,7 +77,7 @@ function CategoryReport() {
             <div className="eyebrow">Custom report</div>
             <h2 id="report-h">Get a report built for your category</h2>
             <p>Tell us your app and your industry. We'll show you which mechanics your category already relies on, which ones are still open, and the few worth trying first, each with a recommendation for your product.</p>
-            <Button variant="primary" size="lg" as="a" href="/reports/" trailingIcon={<i data-lucide="arrow-right" />}>Get your category report</Button>
+            <Button variant="primary" size="lg" as="a" href="/work-with-us/" trailingIcon={<i data-lucide="arrow-right" />}>Get your category report</Button>
           </div>
           <div className="showcase__map">
             <div className="report">

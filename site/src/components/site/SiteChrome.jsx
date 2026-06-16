@@ -6,6 +6,8 @@ import { Input } from "../ds/Input.jsx";
 const LOGO = "/assets/logo/gamebiz-logo.svg";
 const LOGO_INK = "/assets/logo/gamebiz-logo-ink.svg";
 
+// Static nav. The "By industry" group is built per-render from the category
+// landing pages (passed in from the layout), so it isn't listed here.
 const NAV = [
   {
     label: "Library",
@@ -18,16 +20,26 @@ const NAV = [
     ],
   },
   { label: "Case studies", href: "/case-studies/", key: "case-studies" },
-  {
-    label: "Reports",
-    href: "/reports/",
-    key: "reports",
-    children: [
-      { label: "Gamification for finance", href: "/reports/", key: "reports", desc: "What banking and fintech apps rely on, and where the openings are." },
-    ],
-  },
   { label: "Work with us", href: "/work-with-us/", key: "work" },
 ];
+
+// Build the full nav for a render, splicing the data-driven "By industry"
+// group (the category landing pages) in just before "Work with us".
+function navWithCategories(categories) {
+  if (!categories || categories.length === 0) return NAV;
+  const group = {
+    label: "By industry",
+    href: `/${categories[0].slug}/`,
+    children: categories.map((c) => ({
+      label: c.name,
+      href: `/${c.slug}/`,
+      key: c.slug,
+      desc: c.desc,
+    })),
+  };
+  const i = NAV.findIndex((item) => item.key === "work");
+  return [...NAV.slice(0, i), group, ...NAV.slice(i)];
+}
 
 function Caret() {
   return (
@@ -40,8 +52,9 @@ function Caret() {
 /** Primary site navigation. Sticky, paper, hairline rule. Three groups, two with
  *  dropdown menus (hover and keyboard-focus on desktop). Collapses to a drawer
  *  below 1024px. Subscribe is the one accent action. */
-export function SiteNav({ current }) {
+export function SiteNav({ current, categories }) {
   const [open, setOpen] = useState(false);
+  const nav = navWithCategories(categories);
   const isCurrent = (key) => (current && key && key === current ? "page" : undefined);
   const isCurrentItem = (item) =>
     item.key
@@ -61,7 +74,7 @@ export function SiteNav({ current }) {
         <div className="nav__spacer" />
 
         <nav className="nav__links" aria-label="Primary">
-          {NAV.map((item) =>
+          {nav.map((item) =>
             item.children ? (
               <div className="nav__item" key={item.label}>
                 <a className="nav__link nav__trigger" href={item.href} aria-haspopup="true" aria-current={isCurrentItem(item)}>
@@ -102,7 +115,7 @@ export function SiteNav({ current }) {
       </div>
 
       <div className="nav__drawer" data-open={open} role="dialog" aria-label="Menu" aria-hidden={!open}>
-        {NAV.map((item) => (
+        {nav.map((item) => (
           <div className="nav__drawer-group" key={item.label}>
             <a className="nav__drawer-head" href={item.href} onClick={() => setOpen(false)}>{item.label}</a>
             {item.children && (
@@ -146,35 +159,35 @@ export function NewsletterBlock() {
   );
 }
 
-const FOOTER_COLS = [
-  {
-    h: "Library",
-    links: [
-      { label: "Mechanics", href: "/mechanics/" },
-      { label: "Apps", href: "/case-studies/" },
-      { label: "Systems", href: "/systems/" },
-      { label: "Cheatsheets", href: "/cheatsheets/" },
-      { label: "Glossary", href: "/glossary/" },
-    ],
-  },
-  {
+const FOOTER_LIBRARY = {
+  h: "Library",
+  links: [
+    { label: "Mechanics", href: "/mechanics/" },
+    { label: "Apps", href: "/case-studies/" },
+    { label: "Systems", href: "/systems/" },
+    { label: "Cheatsheets", href: "/cheatsheets/" },
+    { label: "Glossary", href: "/glossary/" },
+  ],
+};
+const FOOTER_ACCOUNT = {
+  h: "Account",
+  links: [
+    { label: "Subscribe", href: "/subscribe/" },
+    { label: "Log in", href: "/login/" },
+  ],
+};
+
+/** Footer: all navigation, the one-liner, contact, freshness, copyright. The
+ *  "Practice" column lists Work with us plus the category landing pages. */
+export function SiteFooter({ lastUpdated, categories }) {
+  const practice = {
     h: "Practice",
     links: [
       { label: "Work with us", href: "/work-with-us/" },
-      { label: "Reports", href: "/reports/" },
+      ...(categories ?? []).map((c) => ({ label: c.name, href: `/${c.slug}/` })),
     ],
-  },
-  {
-    h: "Account",
-    links: [
-      { label: "Subscribe", href: "/subscribe/" },
-      { label: "Log in", href: "/login/" },
-    ],
-  },
-];
-
-/** Footer: all navigation, the one-liner, contact, freshness, copyright. */
-export function SiteFooter({ lastUpdated }) {
+  };
+  const footerCols = [FOOTER_LIBRARY, practice, FOOTER_ACCOUNT];
   return (
     <footer className="footer" id="footer">
       <div className="container">
@@ -184,7 +197,7 @@ export function SiteFooter({ lastUpdated }) {
             <p className="footer__desc">We study how the best apps and games keep their players, mechanic by mechanic, and help your team apply what fits your product, so your users stay, engage, and grow.</p>
           </div>
           <div className="footer__cols">
-            {FOOTER_COLS.map((c) => (
+            {footerCols.map((c) => (
               <div className="footer__col" key={c.h}>
                 <h4>{c.h}</h4>
                 {c.links.map((l) => (
