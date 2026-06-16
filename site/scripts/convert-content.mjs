@@ -239,7 +239,7 @@ const ROTATING_FREE_APP = "uptime"; // newest addition (analyzed 18 May 2026)
 
 const ALL_APPS = [
   { file: "royal-match.md", id: "royal-match", visibility: "subscriber" },
-  { file: "cleo.md", id: "cleo", visibility: "report-only" },
+  { file: "cleo.md", id: "cleo", visibility: "subscriber" },
   // Batch 1
   { file: "calm.md", id: "calm", visibility: "subscriber" },
   { file: "canva.md", id: "canva", visibility: "subscriber" },
@@ -274,7 +274,7 @@ const ALL_APPS = [
   // Report-only remainder (never appear in deployed output)
   { file: "orbit.md", id: "orbit", visibility: "report-only" },
   { file: "dave.md", id: "dave", visibility: "report-only" },
-  { file: "acorns.md", id: "acorns", visibility: "report-only" },
+  { file: "acorns.md", id: "acorns", visibility: "subscriber" },
   { file: "starling-bank.md", id: "starling-bank", visibility: "report-only" },
   { file: "george-erste-bank.md", id: "george-app-erste-serbia", visibility: "report-only" },
 ];

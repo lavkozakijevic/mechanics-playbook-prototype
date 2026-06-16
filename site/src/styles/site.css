@@ -150,22 +150,14 @@
 .mcard__title { font: var(--type-body); font-size: 15px; font-weight: var(--weight-semibold);
   color: var(--ink-900); line-height: 1.35; text-wrap: pretty; }
 
-/* =================== LOGO STRIP =================== */
-.logostrip { display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
-  gap: clamp(16px, 3vw, 36px); }
-/* Desktop: the whole curated strip sits on one row — icons give up a little
-   width before anything is allowed to wrap. */
-@media (min-width: 1024px) {
-  .logostrip { flex-wrap: nowrap; gap: clamp(12px, 2.4vw, 28px); }
-  .logostrip .applogo { flex: 0 1 60px; min-width: 40px; height: auto; aspect-ratio: 1; }
-}
-.logostrip__lead { font: var(--type-label); text-transform: uppercase; letter-spacing: var(--tracking-label);
-  color: var(--text-muted); margin-bottom: clamp(20px, 3vw, 28px); text-align: center; }
-.applogo { width: 60px; height: 60px; border-radius: 14px; flex: none;
-  display: grid; place-items: center; background: var(--surface-card);
-  border: 1px solid var(--border-subtle); box-shadow: var(--shadow-xs);
-  font-family: var(--font-display); font-weight: var(--weight-bold); font-size: 22px;
-  color: var(--ink-800); letter-spacing: -0.01em; }
+/* Logo-only variant of the mechanic card (used on category hero carousels) */
+.mcard--logo .mcard__logo-slot { background: var(--paper-deep); position: relative; }
+.mcard__mark { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: 32px;
+  color: var(--ink-500); letter-spacing: -0.02em; position: relative; z-index: 0; }
+.mcard--logo picture { position: absolute; inset: 0; z-index: 1; display: flex; }
+.mcard--logo picture img { width: 100%; height: 100%; object-fit: contain; padding: 20px; }
+.mcard__name { font: var(--type-body); font-size: 15px; font-weight: var(--weight-semibold);
+  color: var(--ink-900); line-height: 1.35; }
 
 /* =================== LIBRARY CONTENTS =================== */
 .libgrid { display: grid; grid-template-columns: 1fr; gap: 16px; }

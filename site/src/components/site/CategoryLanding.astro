@@ -22,28 +22,35 @@ interface Props {
       stats?: { n: string; l: string }[];
       imageHref?: string;
     };
+    heroApps?: { id: string; name: string }[];
   };
 }
 const { cat } = Astro.props;
 
-// Carousel: reuse the homepage spotlight app (currently Strava) core mechanics.
+// Carousel: logo cards for categories that supply heroApps, otherwise fall back
+// to the homepage spotlight app's core mechanics.
 const settings = (await getEntry("settings", "homepage"))!.data;
-const allApps = await getCollection("apps");
-const allMechanics = await getCollection("mechanics");
-const byMechId = new Map(allMechanics.map((m) => [m.data.id, m.data]));
-const spotlightApp = allApps.find((a) => a.data.id === settings.spotlightApp)?.data;
-const shortShot = (s?: string) => (s ? s.split(/ showing | with |,/)[0] : "Screen study");
-const carousel = spotlightApp
-  ? spotlightApp.mechanics
-      .filter((r) => r.depth === "core")
-      .map((r) => ({
-        app: spotlightApp.name,
-        mechanic: byMechId.get(r.id)?.name ?? r.id,
-        cat: byMechId.get(r.id)?.cat ?? "retention",
-        screen: shortShot(r.suggestedShots[0]),
-        title: `How ${spotlightApp.name} uses ${byMechId.get(r.id)?.name ?? r.id}`,
-      }))
-  : [];
+const carousel = await (async () => {
+  if (cat.heroApps && cat.heroApps.length > 0) {
+    return cat.heroApps.map((a) => ({ logoOnly: true, id: a.id, name: a.name }));
+  }
+  const allApps = await getCollection("apps");
+  const allMechanics = await getCollection("mechanics");
+  const byMechId = new Map(allMechanics.map((m) => [m.data.id, m.data]));
+  const spotlightApp = allApps.find((a) => a.data.id === settings.spotlightApp)?.data;
+  const shortShot = (s?: string) => (s ? s.split(/ showing | with |,/)[0] : "Screen study");
+  return spotlightApp
+    ? spotlightApp.mechanics
+        .filter((r) => r.depth === "core")
+        .map((r) => ({
+          app: spotlightApp.name,
+          mechanic: byMechId.get(r.id)?.name ?? r.id,
+          cat: byMechId.get(r.id)?.cat ?? "retention",
+          screen: shortShot(r.suggestedShots[0]),
+          title: `How ${spotlightApp.name} uses ${byMechId.get(r.id)?.name ?? r.id}`,
+        }))
+    : [];
+})();
 
 const heroCtas = [
   { label: "Book a call", href: "https://calendar.app.google/EvXYKKXGxJvKbxns5", variant: "secondary", target: "_blank", rel: "noopener noreferrer" },

@@ -49,5 +49,16 @@
     "eyebrow": "A sample of the report",
     "title": "See exactly what to expect",
     "body": "See how other finance apps already use game design, plus the full contents so you know what to expect from the complete report. Enter your email and the report opens instantly."
-  }
+  },
+  "heroApps": [
+    { "id": "revolut", "name": "Revolut" },
+    { "id": "monzo", "name": "Monzo" },
+    { "id": "chase", "name": "Chase" },
+    { "id": "monefy", "name": "Monefy" },
+    { "id": "monarch", "name": "Monarch" },
+    { "id": "binance", "name": "Binance" },
+    { "id": "acorns", "name": "Acorns" },
+    { "id": "cash-app", "name": "Cash App" },
+    { "id": "cleo", "name": "Cleo" }
+  ]
 }

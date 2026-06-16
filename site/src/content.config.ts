@@ -90,7 +90,6 @@ const settings = defineCollection({
     showcaseSystem: z.string(),
     featuredMechanics: z.array(z.string()),
     cheatsheetCount: z.number(),
-    iconStripApps: z.array(z.string()),
     freeSystemApps: z.array(z.string()),
   }),
 });
@@ -165,6 +164,8 @@ const categories = defineCollection({
       imageHref: z.string().optional(),
       // Report URL is derived at runtime: /{slug}/report — no field needed here.
     }),
+    // Optional logo cards for the hero carousel (finance, etc.)
+    heroApps: z.array(z.object({ id: z.string(), name: z.string() })).optional(),
   }),
 });
 

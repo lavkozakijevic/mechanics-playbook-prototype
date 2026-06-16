@@ -141,15 +141,6 @@ if (!fs.existsSync(settingsPath)) {
   }
   if (typeof home.cheatsheetCount !== "number")
     problem("settings/homepage.json", "cheatsheetCount is missing or not a number");
-  if (!Array.isArray(home.iconStripApps) || home.iconStripApps.length === 0) {
-    problem("settings/homepage.json", "iconStripApps is missing or empty — the icon strip is curated here");
-  } else {
-    for (const id of home.iconStripApps) {
-      if (!appById.has(id)) problem("settings/homepage.json", `iconStripApps includes "${id}" which is not an app`);
-      else if (appById.get(id).visibility === "report-only")
-        problem("settings/homepage.json", `iconStripApps includes "${id}" which is report-only and must never appear on the site`);
-    }
-  }
   for (const id of home.freeSystemApps ?? []) {
     if (!appById.has(id)) problem("settings/homepage.json", `freeSystemApps includes "${id}" which is not an app`);
     else if (appById.get(id).visibility === "report-only")

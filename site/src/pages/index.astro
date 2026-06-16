@@ -4,7 +4,7 @@ import Base from "../layouts/Base.astro";
 import { HomeTop } from "../components/site/HomeTop.jsx";
 import { HomeBottom } from "../components/site/HomeBottom.jsx";
 import { publishedApps, publishedMechanics, formatDate } from "../lib/content";
-import { dominantCategory, initials, systemProps } from "../lib/props";
+import { dominantCategory, systemProps } from "../lib/props";
 
 const apps = await publishedApps();
 const mechanics = await publishedMechanics();
@@ -26,14 +26,6 @@ const carousel = spotlightApp.mechanics
     screen: shortShot(r.suggestedShots[0]),
     title: `How ${spotlightApp.name} uses ${byId.get(r.id)?.name ?? r.id}`,
   }));
-
-// Curated icon strip — the list lives in settings/homepage.json (editorial),
-// validated against report-only leaks before every build.
-const appById = new Map(apps.map((a) => [a.data.id, a.data]));
-const logoApps = settings.iconStripApps
-  .map((id) => appById.get(id))
-  .filter(Boolean)
-  .map((a) => ({ name: a!.name, mark: initials(a!.name), iconSrc: a!.icon }));
 
 const stats = {
   caseStudies: apps.length,
@@ -98,6 +90,6 @@ const newThisWeek = [...apps]
   description="A library of the mechanics behind the most engaging apps and games: what they are, why they work, and how to apply them to your product. Updated weekly."
   current="home"
 >
-  <HomeTop client:load carousel={carousel} logoApps={logoApps} stats={stats} spotlight={spotlight} />
+  <HomeTop client:load carousel={carousel} stats={stats} spotlight={spotlight} />
   <HomeBottom featured={featured} newThisWeek={newThisWeek} showcase={showcase} />
 </Base>

@@ -8,6 +8,11 @@ import { AnnotatedScreenshot } from "../ds/AnnotatedScreenshot.jsx";
 
 const CAT_LABEL = { retention: "Retention", monetization: "Monetization", social: "Social" };
 
+function logoInitials(name) {
+  const words = name.replace(/[^a-zA-Z ]/g, "").split(" ").filter(Boolean);
+  return (words.length >= 2 ? words[0][0] + words[1][0] : (words[0] ?? "??").slice(0, 2)).toUpperCase();
+}
+
 /** Hero: the promise, in the visitor's language, beside a self-sliding carousel
  *  of real mechanics drawn from the library. Exported so category landing pages
  *  can reuse the same layout with their own copy and CTAs. */
@@ -35,38 +40,37 @@ export function Hero({ carousel, eyebrow, headline, sub, ctas, className = "" })
         <div className="hero__evidence">
           <div className="carousel" aria-label="Mechanics from the library">
             <div className="carousel__track">
-              {loop.map((m, i) => (
-                <article className="mcard" key={i} aria-hidden={i >= items.length ? "true" : undefined}>
-                  <div className="mcard__shot">{m.app} · {m.screen}</div>
-                  <div className="mcard__body">
-                    <Tag category={m.cat} dot>{m.mechanic}</Tag>
-                    <p className="mcard__title">{m.title}</p>
-                  </div>
-                </article>
-              ))}
+              {loop.map((m, i) =>
+                m.logoOnly ? (
+                  <article className="mcard mcard--logo" key={i} aria-hidden={i >= items.length ? "true" : undefined}>
+                    <div className="mcard__shot mcard__logo-slot">
+                      <span className="mcard__mark">{logoInitials(m.name)}</span>
+                      <picture>
+                        <source srcSet={`/icons/${m.id}.webp`} type="image/webp" />
+                        <img
+                          src={`/icons/${m.id}.png`}
+                          alt=""
+                          className="mcard__logo-img"
+                          onError={(e) => { const p = e.currentTarget.parentElement; if (p) p.style.display = "none"; }}
+                        />
+                      </picture>
+                    </div>
+                    <div className="mcard__body">
+                      <p className="mcard__name">{m.name}</p>
+                    </div>
+                  </article>
+                ) : (
+                  <article className="mcard" key={i} aria-hidden={i >= items.length ? "true" : undefined}>
+                    <div className="mcard__shot">{m.app} · {m.screen}</div>
+                    <div className="mcard__body">
+                      <Tag category={m.cat} dot>{m.mechanic}</Tag>
+                      <p className="mcard__title">{m.title}</p>
+                    </div>
+                  </article>
+                )
+              )}
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/** Logo strip: a curated sample of the apps studied, as 60×60 marks.
- *  Real app icons where they exist (v44 behaviour), initials otherwise. */
-function LogoStrip({ apps }) {
-  return (
-    <section className="band band--tight band--sheet" aria-label="Apps in the library">
-      <div className="container">
-        <p className="logostrip__lead">A few of the apps in the library</p>
-        <div className="logostrip">
-          {apps.map((a) => (
-            <span className="applogo" key={a.name} role="img" aria-label={a.name} title={a.name}>
-              {a.iconSrc
-                ? <img src={a.iconSrc} alt="" width="60" height="60" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit", display: "block" }} />
-                : a.mark}
-            </span>
-          ))}
         </div>
       </div>
     </section>
@@ -136,11 +140,10 @@ function CaseStudySpotlight({ spotlight }) {
 }
 
 /** Top homepage sections, in page order. */
-export function HomeTop({ carousel, logoApps, stats, spotlight }) {
+export function HomeTop({ carousel, stats, spotlight }) {
   return (
     <>
       <Hero carousel={carousel || []} />
-      {logoApps?.length > 0 && <LogoStrip apps={logoApps} />}
       {stats && <LibraryContents stats={stats} />}
       {spotlight && <CaseStudySpotlight spotlight={spotlight} />}
     </>
