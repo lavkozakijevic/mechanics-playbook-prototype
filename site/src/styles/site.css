@@ -1243,6 +1243,7 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
 .catland-problem__n { font: var(--type-data); font-size: 13px; color: var(--text-accent); font-weight: var(--weight-semibold); }
 .catland-problem h3 { font: var(--type-h3); font-size: clamp(16px, 1.5vw, 18px); color: var(--ink-900); margin: 0 0 6px; }
 .catland-problem p { font: var(--type-body-sm); color: var(--text-secondary); line-height: 1.55; margin: 0; }
+.catland-problem .catland-problem__lead { color: var(--ink-900); font-weight: var(--weight-semibold); margin: 0 0 8px; line-height: 1.45; }
 
 /* The lens — single prose column */
 .catland-lens { max-width: 760px; }
@@ -1260,15 +1261,10 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
 .capture__done-h { font: var(--type-h3); font-size: 17px; color: var(--ink-900); margin: 0; }
 .capture__done-p { font: var(--type-body-sm); color: var(--text-secondary); margin: 0; }
 
-/* The trust section — lede beside computed proof stats */
-.catland-trust { display: grid; grid-template-columns: 1fr; gap: clamp(28px, 4vw, 48px); align-items: center; }
-@media (min-width: 880px) { .catland-trust { grid-template-columns: 1.1fr 0.9fr; } }
-.catland-trust__lede h2 { margin-bottom: 14px; }
-.catland-trust__lede p { font: var(--type-body); color: var(--text-secondary); line-height: 1.6; max-width: 52ch; }
-.catland-trust__stats { display: flex; gap: clamp(20px, 3vw, 40px); flex-wrap: wrap; }
-.catland-stat { display: flex; flex-direction: column; gap: 4px; }
-.catland-stat__n { font: var(--type-h2); font-size: clamp(30px, 3.4vw, 44px); letter-spacing: var(--tracking-heading); color: var(--ink-900); }
-.catland-stat__l { font: var(--type-label); color: var(--text-muted); }
+/* The trust section — a single values statement, prose column */
+.catland-trust { max-width: 760px; }
+.catland-trust__p { font: var(--type-body-lg); font-size: clamp(16px, 1.6vw, 19px); color: var(--text-secondary);
+  line-height: 1.6; margin: 16px 0 0; text-wrap: pretty; }
 
 /* The call — shared closing block */
 .catland-call__in { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; align-items: center;

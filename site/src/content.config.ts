@@ -127,10 +127,11 @@ const glossary = defineCollection({
   }),
 });
 
-// Category landing pages (/finance, /productivity, …). Each file supplies only
-// the category-specific blocks; the shared blocks (the lens, the trust section,
-// the call) live in the template and are inherited. A missing or malformed
-// block fails the build here, before anything ships.
+// Category landing pages (/finance, /productivity, …). Each file supplies the
+// category-specific blocks; the shared blocks (the lens, the trust section, the
+// call) are optional here — a category may override them, and the template
+// supplies a sensible default when it doesn't. A malformed block fails the
+// build here, before anything ships.
 const categories = defineCollection({
   loader: glob({ pattern: "*.json", base: "./src/content/categories" }),
   schema: z.object({
@@ -145,13 +146,25 @@ const categories = defineCollection({
       headline: z.string(),
       sub: z.string(),
     }),
-    // Exactly six — the section is "the six problems" by design.
-    problems: z.array(z.object({ title: z.string(), body: z.string() })).length(6),
+    // "The six problems" — a section heading plus exactly six items, each with
+    // a short title, a one-line lead, and a paragraph.
+    problems: z.object({
+      kicker: z.string(),
+      title: z.string(),
+      items: z
+        .array(z.object({ title: z.string(), lead: z.string(), body: z.string() }))
+        .length(6),
+    }),
+    // Shared blocks — optional overrides; the template defaults apply if absent.
+    lens: z.object({ kicker: z.string(), title: z.string(), body: z.string() }).optional(),
+    trust: z.object({ kicker: z.string().optional(), title: z.string(), body: z.string() }).optional(),
+    call: z.object({ title: z.string(), body: z.string() }).optional(),
     report: z.object({
       eyebrow: z.string(),
       title: z.string(),
       body: z.string(),
-      stats: z.array(z.object({ n: z.string(), l: z.string() })),
+      // Optional headline stats above the capture form.
+      stats: z.array(z.object({ n: z.string(), l: z.string() })).optional(),
       // Lead magnet served as a static asset; the email gate is wired through
       // the /api/lead Cloudflare Function, never a mailto.
       fileHref: z.string(),

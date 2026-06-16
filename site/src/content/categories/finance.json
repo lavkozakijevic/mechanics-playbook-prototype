@@ -2,49 +2,67 @@
   "slug": "finance",
   "name": "Finance",
   "navLabel": "Finance",
-  "navDesc": "What banking and fintech apps rely on, and where the openings are.",
+  "navDesc": "How the design that makes games worth opening can make a finance app worth opening too.",
   "order": 1,
   "hero": {
-    "kicker": "For finance & fintech teams",
-    "headline": "Your users open the app once. Then the habit never forms.",
-    "sub": "Banking, investing, and budgeting apps win on engagement, not features. We study how the most habit-forming apps keep people coming back, and help your team apply what fits your product — without turning people's money into a game."
+    "kicker": "For banks and finance apps",
+    "headline": "Games are very good at turning small actions into habits people keep.",
+    "sub": "The design that makes a game worth opening every day can make a finance app worth opening too. We help product teams understand which of those ideas fit their app, and how to use them in ways that earn a customer's loyalty instead of chasing it."
   },
-  "problems": [
-    {
-      "title": "The one-and-done signup",
-      "body": "People link an account, check a balance, and never build a reason to come back. Activation looks fine; the second week falls off a cliff."
-    },
-    {
-      "title": "Saving feels like a chore",
-      "body": "The behaviours you want — saving, budgeting, investing on a schedule — carry no momentum, so good intentions stall within days."
-    },
-    {
-      "title": "Nothing to return for",
-      "body": "Between the monthly statement and the next bill, there is no reason to open the app. Engagement collapses to a utility people tolerate."
-    },
-    {
-      "title": "Engagement that feels gimmicky",
-      "body": "Bolt-on points and badges read as childish next to someone's salary, and they quietly erode the trust a finance brand depends on."
-    },
-    {
-      "title": "Progress no one can see",
-      "body": "Users can't watch themselves improving, so the early effort never compounds into the kind of loyalty that survives a competitor's ad."
-    },
-    {
-      "title": "Features ship, retention doesn't move",
-      "body": "You keep adding tools, but the number that matters — who is still here in ninety days — refuses to move. The roadmap is busy and the curve is flat."
-    }
-  ],
+  "problems": {
+    "kicker": "Where we can help",
+    "title": "Six familiar problems, seen through game design",
+    "items": [
+      {
+        "title": "Top of wallet loyalty",
+        "lead": "Your card competes with two others at every checkout.",
+        "body": "The question is never whether your card is good. It is whether it is the one a customer reaches for without thinking. Habits like that grow from a small, renewing reason to return, the kind a good game offers every single day."
+      },
+      {
+        "title": "Savings behaviour",
+        "lead": "Customers want to save and mostly don't.",
+        "body": "Wanting to save and actually saving are separated by a gap that is old and stubborn. The way across it is something game design leans on constantly: break a distant goal into steps small enough to feel doable, and make each step visible enough to feel like progress."
+      },
+      {
+        "title": "Financial literacy",
+        "lead": "Education that feels like homework gets ignored.",
+        "body": "People rarely set aside time to learn about money, so the lesson has to come to them. The best games teach inside the activity itself, one small idea at the moment it is useful, with progress the learner can actually see."
+      },
+      {
+        "title": "The salary account",
+        "lead": "Customers will change jobs more often than they'll change banks.",
+        "body": "The account a customer never bothers to leave is one they have quietly invested in: their history, their progress, a sense of standing they would lose by walking away. That kind of earned attachment is exactly what game design is built to create."
+      },
+      {
+        "title": "Cashback that sticks",
+        "lead": "Flat rewards get noticed once and then forgotten.",
+        "body": "A reward changes behaviour only while a customer can feel it. Keep it visible and a little bit earned, a streak worth continuing or a milestone in sight, and the next purchase becomes something worth tracking rather than something to ignore."
+      },
+      {
+        "title": "Onboarding and activation",
+        "lead": "The first session decides who stays past day one.",
+        "body": "A nervous new user needs one clear thing to do, and one small win to feel it was worth doing. The opening minutes are where people quietly decide whether to return, which is why game design treats them with so much care."
+      }
+    ]
+  },
+  "lens": {
+    "kicker": "How games work",
+    "title": "A few simple ideas, working together",
+    "body": "A good game rarely leans on one clever trick. It gives a person a clear thing to aim for, makes the progress toward it visible, and offers a small, well timed reward for getting there. A streak it would be a shame to lose. A goal sitting just within reach. A reward waiting the moment the app opens. Each idea is modest on its own. Put together with care, they are what turn something a person tries once into something they return to without being asked."
+  },
+  "trust": {
+    "title": "Engagement that respects the customer",
+    "body": "The same mechanics that can trap a person can also genuinely help them, and in finance that difference matters more than almost anywhere. We care about which side of that line your product is built on. The habits worth creating are the ones that leave a customer better off, and those are the only ones we help you build."
+  },
   "report": {
-    "eyebrow": "Free report",
-    "title": "Gamification in Finance",
-    "body": "What banking and fintech apps rely on for engagement and retention — app by app, mechanic by mechanic — and where the openings are for products that haven't caught up yet. Enter your email and we'll send you the full report.",
-    "stats": [
-      { "n": "9", "l": "apps analysed" },
-      { "n": "7", "l": "chapters" },
-      { "n": "25+", "l": "opportunities identified" }
-    ],
+    "eyebrow": "A sample of the report",
+    "title": "See exactly what to expect",
+    "body": "See how other finance apps already use game design, plus the full contents so you know what to expect from the complete report. Enter your email and the download starts.",
     "fileHref": "/downloads/finance-report.pdf",
-    "fileLabel": "Get the free report"
+    "fileLabel": "Download the sample"
+  },
+  "call": {
+    "title": "Bring us your app and a problem",
+    "body": "Tell us what you are working on and where it stalls. In half an hour we can usually point to two or three places where game design would genuinely help, and how to approach each one."
   }
 }
