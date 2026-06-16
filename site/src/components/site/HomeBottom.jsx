@@ -141,7 +141,7 @@ function WorkWithUsBridge() {
             <div className="eyebrow">Work with us</div>
             <h2 id="work-h">A practice you can hire, not just a library you can read</h2>
             <p>We start from the features you already have, then find the mechanics that fit your app and your users.</p>
-            <Button variant="accent" size="lg" as="a" href="/work-with-us/" trailingIcon={<i data-lucide="arrow-up-right" />}>Book a discovery call</Button>
+            <Button variant="accent" size="lg" as="a" href="https://calendar.app.google/EvXYKKXGxJvKbxns5" target="_blank" rel="noopener noreferrer" trailingIcon={<i data-lucide="arrow-up-right" />}>Book a discovery call</Button>
           </div>
           <ol className="worklist" style={{ listStyle: "none", margin: 0, padding: 0 }}>
             {ENGAGEMENT.map((t, i) => (

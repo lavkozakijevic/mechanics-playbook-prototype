@@ -45,7 +45,7 @@ export function WorkWithUsPage() {
               across hundreds of the world's best apps and games.
             </p>
             <div className="ww-hero__cta">
-              <Button variant="primary" size="lg" as="a" href="#discovery">Book a discovery call</Button>
+              <Button variant="primary" size="lg" as="a" href="https://calendar.app.google/EvXYKKXGxJvKbxns5" target="_blank" rel="noopener noreferrer">Book a discovery call</Button>
               <Button variant="secondary" size="lg" as="a" href="#approach" trailingIcon={DownIcon}>See how we work</Button>
             </div>
           </div>
@@ -121,7 +121,7 @@ export function WorkWithUsPage() {
           <div className="ww-final__in">
             <h2 id="final-h">Book a discovery call</h2>
             <p>A conversation about your goals and your app. No preparation needed.</p>
-            <Button variant="accent" size="lg" as="a" href="mailto:lav@gamebizconsulting.com">Book a discovery call</Button>
+            <Button variant="accent" size="lg" as="a" href="https://calendar.app.google/EvXYKKXGxJvKbxns5" target="_blank" rel="noopener noreferrer">Book a discovery call</Button>
           </div>
         </div>
       </section>

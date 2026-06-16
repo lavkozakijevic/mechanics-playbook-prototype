@@ -27,8 +27,8 @@ export function Hero({ carousel, eyebrow, headline, sub, ctas, className = "" })
           <h1 id="hero-h">{headline ?? "Power up your app with proven game mechanics"}</h1>
           <p className="hero__sub">{sub ?? "See how the best apps and games turn everyday features into habits. We break down each mechanic, map how they fit together, and help your team apply the ones that suit your product."}</p>
           <div className="hero__cta">
-            {buttons.map((c) => (
-              <Button key={c.label} variant={c.variant} size="lg" as="a" href={c.href}>{c.label}</Button>
+            {buttons.map(({ label, variant, href, ...rest }) => (
+              <Button key={label} variant={variant} size="lg" as="a" href={href} {...rest}>{label}</Button>
             ))}
           </div>
         </div>
