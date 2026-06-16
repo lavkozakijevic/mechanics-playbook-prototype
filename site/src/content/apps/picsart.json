@@ -5,7 +5,7 @@
   "type": "app",
   "visibility": "subscriber",
   "analysisDate": "2026-04-26",
-  "lastUpdated": "2026-05-15",
+  "lastUpdated": "2026-06-15",
   "summary": "PicsArt embeds a creation entry point directly in every post in its For You feed, a Try button that opens the specific editing tool used to make that effect, converting content browsing into tool usage in a single tap. Challenge winners receive 50 credits, equivalent to the free tier's 10-week allocation, creating a direct economic incentive for community participation. The paywall at first sign-in has a close button camouflaged inside a red decorative image element, making the exit path deliberately hard to find.",
   "icon": "/icons/picsart.png",
   "heroImage": null,
@@ -52,20 +52,6 @@
     {
       "id": "community-groups",
       "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
-    },
-    {
-      "id": "achievements",
-      "depth": "shallow",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
-    },
-    {
-      "id": "cosmetics",
-      "depth": "shallow",
       "writeup": null,
       "screenshots": [],
       "suggestedShots": []

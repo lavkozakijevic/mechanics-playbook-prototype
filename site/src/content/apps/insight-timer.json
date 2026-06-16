@@ -5,7 +5,7 @@
   "type": "app",
   "visibility": "subscriber",
   "analysisDate": "2026-04-20",
-  "lastUpdated": "2026-05-15",
+  "lastUpdated": "2026-06-15",
   "summary": "Insight Timer opens onboarding with a scientific argument for its own efficacy, graphs of mood improvement, a consistency curve, and a personalized prediction dated three months from sign-up, before showing any content or asking for payment. Installing the home screen widget extends the free trial from seven days to thirty days, rewarding the completion of the app's most powerful habit-formation action with more time to form the habit. It is the only app in the library that framed a trial extension as an achievement unlock.",
   "icon": "/icons/insight-timer.png",
   "heroImage": null,
@@ -31,15 +31,6 @@
       ]
     },
     {
-      "id": "daily-login-reward",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": [
-        "\"Congratulations, you've unlocked a gift — claim your one month free trial for Plus — we've extended your one week free trial to four weeks — limited time offer ends in 7 days\" popup"
-      ]
-    },
-    {
       "id": "challenges",
       "depth": "supporting",
       "writeup": {
@@ -60,7 +51,7 @@
     },
     {
       "id": "community-groups",
-      "depth": "supporting",
+      "depth": "core",
       "writeup": {
         "observed": "7,000+ groups cover Buddhism, poetry, psychology, weight loss, LGBTQIA+ communities, and more. Groups are accessible through the sidebar rather than any primary navigation tab, a user who explores only the five primary tabs will not find them. Live events are free-to-attend digital events with real-time attendee counts. A Therapist Directory lists 42,000 therapists globally, filterable by country and specialty. A Retreats marketplace lists 500+ real-world experiences from $50 to $11,452.",
         "presented": "Groups are in the sidebar, not primary navigation. Live events show teacher name, topic, attendee count, and scheduled time. The real-time engagement counter ('594,622 people here today, 21,416 right now') is visible on the home screen.",
@@ -80,6 +71,7 @@
     {
       "id": "achievements",
       "depth": "supporting",
+      "provisionalDepth": true,
       "writeup": {
         "observed": "Milestone thresholds: 7 consecutive days (first milestone), 50 non-consecutive days, 1 milestone, 5 milestones, 25 milestones, 100 milestones. Each milestone unlock triggers a 'you've unlocked a gift' screen framing the reward as something the user earned. The trial extension at the first milestone extends from 7 to 30 days. Stats accumulate permanently: total sessions, total minutes, milestones count, longest streak.",
         "presented": "Milestones appear in the streak detail screen. Each achievement triggers a 'gift you've unlocked' screen. The full stats history is visible in the profile sidebar.",
@@ -97,15 +89,8 @@
       ]
     },
     {
-      "id": "xp-leveling",
-      "depth": "shallow",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
-    },
-    {
       "id": "social-feed",
-      "depth": "shallow",
+      "depth": "supporting",
       "writeup": {
         "observed": "Insight Timer's social layer surfaces group activity, teacher posts, and a community gratitude wall. The real-time engagement counter, '594,622 people here today', is visible without navigating to any specific section. Live events appear with attendee counts and scheduled times. Teacher profiles list follower counts, published tracks, and courses. Following a teacher routes their new content into the home screen recommendations.",
         "presented": "The social layer is distributed across the primary home tab (recommendations from followed teachers), the library (browseable by teacher), and the sidebar (groups, retreats). The real-time counter is on the home screen.",

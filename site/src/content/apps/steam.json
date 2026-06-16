@@ -5,7 +5,7 @@
   "type": "app",
   "visibility": "subscriber",
   "analysisDate": "2026-05-11",
-  "lastUpdated": "2026-05-15",
+  "lastUpdated": "2026-06-15",
   "summary": "Steam's Points Shop is funded entirely by game purchases, 117 points per euro spent, meaning cosmetic spending is free at the point of redemption, retroactively funded by purchasing behaviour. Community Awards allow users to spend points to attach a visible recognition marker to another user's content, turning the cosmetics spend surface into a social quality-signaling system. Seasonal badges, available only during Summer and Winter Sales, are the sole mechanic creating urgency in the otherwise perpetually available cosmetics catalogue.",
   "icon": "/icons/steam.png",
   "heroImage": null,
@@ -31,59 +31,36 @@
       ]
     },
     {
-      "id": "achievements",
+      "id": "xp-leveling",
       "depth": "supporting",
-      "writeup": {
-        "observed": "Player profiles display badges collected over the account's history. Profile XP is tied to badge collection, seasonal badges specifically 'contribute towards profile XP.' The user's level displays on their public profile alongside username and last-online time. Showcase upgrades (purchased via Points Shop) expand the profile page to display more badges and artwork. Seasonal badges available only during Summer and Winter Sales create time-limited acquisition windows.",
-        "presented": "Badges appear on the public profile alongside games owned, friends count, recent activity, and playtime. Aliases (previous usernames) are stored and visible to others.",
-        "noting": "The badge system is display-first, the primary purpose is profile visibility to other Steam users. Showcase upgrades expand the display capacity, creating a secondary spend motivation tied to the achievement display rather than the achievement acquisition itself.",
-        "findings": [
-          "Seasonal badges (Summer and Winter Sales) are the only time-limited cosmetics in the session, the sole mechanic creating urgency in the broader cosmetics system.",
-          "Showcase upgrades expand how many badges can be displayed on the profile, a meta-cosmetic that monetizes the achievement display rather than the achievement itself.",
-          "Profile XP from badge collection links achievements to the public-facing profile level, making achievement engagement visible through the level number.",
-          "The Steam Guard setup flow requests camera access without prior warning, a notable onboarding friction point observed during analysis."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": [
-        "User profile view showing level indicator, badge display, games count, friends count, and recent activity with playtime"
-      ]
-    },
-    {
-      "id": "variable-reward",
-      "depth": "shallow",
       "writeup": null,
       "screenshots": [],
-      "suggestedShots": [
-        "Discovery Queue showing the current game card with follow/wishlist/ignore controls and the \"12 games in queue\" counter"
-      ]
+      "suggestedShots": []
+    },
+    {
+      "id": "limited-time-events",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "social-feed",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "set-collection",
+      "depth": "supporting",
+      "provisionalDepth": true,
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
     },
     {
       "id": "community-groups",
-      "depth": "shallow",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
-    },
-    {
-      "id": "credits-tokens",
-      "depth": "supporting",
-      "writeup": {
-        "observed": "Steam Points accumulate at 117 per €1 spent on any Steam purchase. Points are spent in the Points Shop on cosmetics. There is no direct purchase path for Points, they accumulate as a passive by-product of game purchases. Community Awards allow users to spend points to attach a visible recognition marker to another user's content, permanently visible on the awarded content for all to see.",
-        "presented": "Steam Points balance is visible in the Points Shop header. The earn rate is disclosed in the 'How Points Work' section. Community Awards have their own dedicated section in the Points Shop.",
-        "noting": "The purchase-rebate model makes cosmetics feel free, users are spending points earned from purchases they were already making, not making a new spend decision. Community Awards extend points spending into social recognition, giving points a use case beyond self-expression.",
-        "findings": [
-          "Steam Points cannot be purchased directly, they are earned exclusively through game purchases, making the cosmetics economy fully retroactively funded by existing spending behaviour.",
-          "Community Awards allow points to be spent on other users' content, turning the cosmetics economy into a social recognition system alongside personal customization.",
-          "117 points per €1 spent means €1 in game purchases yields approximately one-tenth of the cost of a typical Points Shop item.",
-          "Bundle pricing waives cost for already-owned items, a re-purchase protection mechanic that makes bundle pricing non-punitive for existing collectors."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": []
-    },
-    {
-      "id": "hard-currency",
       "depth": "supporting",
       "provisionalDepth": true,
       "writeup": null,
@@ -92,68 +69,102 @@
     }
   ],
   "system": {
-    "tagline": "A gaming platform where cosmetics are retroactively funded by purchases the user was already making.",
-    "overview": "Steam's engagement system is built around a single elegant mechanic: Points accumulate at 117 per euro spent on any Steam purchase, and are spent in the Points Shop on cosmetics. At the point of redemption, the spending feels free, the user is claiming something they earned through purchases they would have made regardless. Community Awards extend the cosmetics economy into social recognition, allowing points to be spent on other users' content.",
-    "loop": "The core loop is: buy games → accumulate Points passively → redeem Points for cosmetics → display cosmetics on profile → seasonal badges during Summer and Winter Sales create urgency → Community Awards: spend Points on other users' reviews to attach a visible quality marker. The purchase decision and the cosmetics decision are separated in time, making redemption feel like a windfall.",
-    "keyInsight": "Community Awards turn points spending into social recognition, the user spends points to attach a visible marker to someone else's content. This creates a second motivation for point accumulation (rewarding others) alongside the self-expression motivation of personal cosmetics.",
-    "whatMakesItWork": "The purchase-rebate model works because the cosmetics decision and the game purchase decision are separated in time. The user buys a game thinking only about the game. The Points accumulate. Weeks later, redemption feels like a windfall. The economic decision was already made; the cosmetics feel free.",
+    "tagline": "A gaming platform where a deeply developed cosmetics catalogue is funded retroactively by purchases the user was already making.",
+    "overview": "Steam's engagement system centers on the Points Shop cosmetics catalogue. Points accumulate at 117 per euro spent on any Steam purchase and are spent on cosmetics at the point of redemption — making the spend feel free, funded retroactively by game purchases. Seasonal badges (Summer and Winter Sales only) are the sole urgency mechanic in an otherwise perpetually available catalogue. Community Awards extend the economy into social recognition. Profile XP and level grow through badge collection, making cosmetics engagement visible as a persistent progress marker.",
+    "loop": "The core loop is: buy games → accumulate Points passively → redeem Points for cosmetics → display cosmetics on profile → seasonal badges during Summer and Winter Sales create urgency → Community Awards: spend Points on other users' content to attach a visible recognition marker → profile level increases through badge collection. The purchase decision and the cosmetics decision are separated in time, making redemption feel like a windfall.",
+    "keyInsight": "Community Awards turn Points spending into social recognition — the user spends points to attach a visible marker to someone else's content. This creates a second motivation for point accumulation (rewarding others) alongside the self-expression motivation of personal cosmetics.",
+    "whatMakesItWork": "The purchase-rebate model works because the cosmetics decision and the game purchase decision are separated in time. The user buys a game thinking only about the game. The Points accumulate. Weeks later, redemption feels like a windfall. The economic decision was already made; the cosmetics feel free. Seasonal badges make this otherwise frictionless system feel urgent twice a year.",
     "roles": [
       {
-        "id": "credits-tokens",
-        "role": "Steam Points accumulate passively through game purchases at 117 per euro, the cosmetics economy is funded retroactively, making redemption feel free at the point of use."
-      },
-      {
         "id": "cosmetics",
-        "role": "A deeply developed cosmetics catalogue where seasonal badges (Summer and Winter Sales only) are the sole urgency mechanic, every other item is perpetually available."
+        "role": "A deeply developed cosmetics catalogue funded by the purchase-rebate Points economy. Seasonal badges (Summer and Winter Sales only) are the sole urgency mechanic; every other item is perpetually available."
       },
       {
-        "id": "achievements",
-        "role": "Seasonal badges contribute to profile XP and create time-limited acquisition windows, the only urgency in an otherwise perpetually available cosmetics system."
+        "id": "xp-leveling",
+        "role": "Profile XP accumulates through badge collection, displayed as a public-facing level on the user's profile alongside username and last-online time."
+      },
+      {
+        "id": "limited-time-events",
+        "role": "Seasonal badges available only during Summer and Winter Sales are the sole time-limited acquisition window in the otherwise perpetually available Points Shop catalogue."
+      },
+      {
+        "id": "social-feed",
+        "role": "The Discovery Queue surfaces up to 12 sequentially revealed games per session. Community Awards allow Steam Points to be spent to attach a visible recognition marker to another user's content."
+      },
+      {
+        "id": "set-collection",
+        "role": "The Points Shop catalogue functions as a collectible set — avatar frames, profile backgrounds, game profiles, animated stickers, showcase upgrades — with bundle pricing that waives cost for already-owned items."
+      },
+      {
+        "id": "community-groups",
+        "role": "Steam Groups are accessible through the profile's friends section. Accessible but not explored in depth during the session."
       }
     ],
     "center": {
       "x": 50,
-      "y": 15,
+      "y": 8,
       "label": "STEAM"
     },
     "nodes": [
       {
-        "id": "credits-tokens",
-        "x": 50,
-        "y": 38
-      },
-      {
         "id": "cosmetics",
-        "x": 26,
-        "y": 68
+        "x": 50,
+        "y": 26
       },
       {
-        "id": "achievements",
-        "x": 74,
-        "y": 68
+        "id": "xp-leveling",
+        "x": 22,
+        "y": 48
+      },
+      {
+        "id": "limited-time-events",
+        "x": 78,
+        "y": 48
+      },
+      {
+        "id": "social-feed",
+        "x": 16,
+        "y": 72
+      },
+      {
+        "id": "set-collection",
+        "x": 50,
+        "y": 72
+      },
+      {
+        "id": "community-groups",
+        "x": 84,
+        "y": 72
       }
     ],
     "connections": [
       {
-        "from": "credits-tokens",
-        "to": "cosmetics",
-        "title": "Purchase spend funds the cosmetics economy",
-        "desc": "Every game purchase accumulates 117 Points per euro, passively building a cosmetics budget the user did not consciously choose to create.",
-        "effect": "The cosmetics decision and the spend decision are separated in time, eliminating the psychological friction of paying for cosmetics at the point of purchase."
-      },
-      {
-        "from": "credits-tokens",
-        "to": "achievements",
-        "title": "Points fund seasonal badge acquisition",
-        "desc": "Seasonal badges (Summer and Winter Sales) are purchasable in the Points Shop using accumulated Points, the only time-limited achievements in the system.",
-        "effect": "Users with accumulated Points have a natural outlet during sale events, increasing seasonal engagement for users who might otherwise not participate."
+        "from": "cosmetics",
+        "to": "xp-leveling",
+        "title": "Seasonal badges feed profile XP",
+        "desc": "Seasonal badges available in the Points Shop contribute towards profile XP. The cosmetics system and the leveling system share the same seasonal badge item.",
+        "effect": "Acquiring seasonal badges advances both the cosmetic display layer and the profile level simultaneously, giving the same item two progression roles."
       },
       {
         "from": "cosmetics",
-        "to": "achievements",
-        "title": "Showcase upgrades expand the achievement display",
-        "desc": "Showcase upgrades purchased with Points expand the profile's capacity to display badges. The cosmetic purchase directly improves the achievement display surface.",
-        "effect": "Users with many achievements have a motivated reason to spend Points on showcase upgrades, creating a spending loop between the two mechanics."
+        "to": "limited-time-events",
+        "title": "Sale events gate the seasonal badge window",
+        "desc": "Seasonal badges are only available during Summer and Winter Sales, making sale events the sole urgency mechanic in the otherwise perpetually available cosmetics catalogue.",
+        "effect": "Users aware of the seasonal badge system have a concrete reason to engage with the Points Shop during sale windows rather than treating the catalogue as always-available."
+      },
+      {
+        "from": "limited-time-events",
+        "to": "set-collection",
+        "title": "Sale events expand the Points Shop catalogue",
+        "desc": "Each sale event introduces new featured items to the Points Shop, adding to the permanent catalogue. Items acquired during sale events are kept forever.",
+        "effect": "Sale participation expands the collectible catalogue permanently. The event is also an acquisition window for catalogue items that will persist well beyond the event itself."
+      },
+      {
+        "from": "social-feed",
+        "to": "community-groups",
+        "title": "Discovery leads to group membership",
+        "desc": "The Discovery Queue and community content browsing surface Steam Groups as a natural next step for users who engage with content from specific communities.",
+        "effect": "Browsing the social layer exposes users to group activity, making group membership a discovered outcome rather than a navigated feature."
       }
     ]
   }

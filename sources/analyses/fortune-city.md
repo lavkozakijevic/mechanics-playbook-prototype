@@ -5,7 +5,7 @@
 **Type:** App
 **Platform analyzed:** iOS
 **Analysis date:** 13 May 2026 (Session 1), 17 May 2026 (Session 2)
-**Last updated:** 17 May 2026
+**Last updated:** 15 Jun 2026
 **Session state:** Session 1 — first install, onboarding through full feature exploration. Session 2 — returning user after several days, second play session.
 
 ---
@@ -129,87 +129,25 @@ The Day 2 reward is hidden behind a question mark — a variable reward framing 
 
 ---
 
-### Daily-Weekly Quests (`daily-weekly-quests`) · Supporting
+### Streak (`streak`) · Supporting
 
-**What was observed:**
-The City Bulletin Board functions as the daily quest system. It is accessed from a bulletin board icon on the city map (which replaced the City Management Guide icon after the guide was completed). It shows: "Help your citizens and get a thank you gift — 40 times remaining to help them."
-
-Three named quest types were observed on the bulletin board:
-
-**Flyer Board (Salesman):** "The number above my head shows how many sales I still have to do — can you help me reduce it? I'd be so thankful — Reward: 1 Diamond — [Find Salesman button]" — tapping triggers an ad watch (the salesman ad placement).
-
-**Citizen Classified Quests (Level 1–3):** Short narrative tasks where the player finds a citizen or item in the city. Examples:
-- "A baseball club must have teleported somewhere — it's disappeared — help someone find their baseball club" (Level 1)
-- "I bought a new walker but now my friend's driven off with it — have you seen it?" (Level 2 — reward 1 diamond; triggers interstitial ad on completion)
-- "Someone said he would pluck the stars from the sky for me but he never returned — can you help me find him?" (Level 3 — reward 2 diamonds)
-
-Quests have a cooldown after completion: "Mission is completed — wait time is 59 minutes — in an hour there will be another mission there." The Level 1 classified quest refreshes after 59 minutes.
-
-**Session 2 observation:** The bulletin board showed "help 5 times — 35 remaining" for the salesman counter (down from 40), confirming it is a cumulative session-across tracker rather than a single-day task. However, individual classified quests reset on a sub-daily cadence (59 minutes observed).
-
-**How it is presented:**
-The bulletin board is a map-level object in the city, replacing the City Management Guide icon after the guide is completed. It has a notification bubble showing unread/available tasks. It is not in the nav bar — it requires navigating within the city view.
-
-**What is notable:**
-The bulletin board quests use the city's character cast (the salesman, citizens with objects, Kashi) as quest givers, maintaining narrative consistency. The "help the salesman" quests directly bridge the quest system and the ads system — the quest reward and the ad reward are the same action. The 59-minute cooldown makes the quests sub-daily rather than strictly daily, allowing multiple quest cycles within a single session.
-
-**Screenshot suggestions:**
-
-`[City Bulletin Board popup showing the Flyer Board (Find Salesman, 1 diamond reward), Citizen Classified Level 1, Level 2 (1 diamond), and Level 3 (2 diamonds) quests]`
-*Documents the three quest types on the bulletin board and their diamond reward structure.*
+Write-up pending.
 
 ---
 
-### Variable Reward (`variable-reward`) · Supporting
+### Energy-Lives (`energy-lives`) · Supporting
 
-**What was observed:**
-Building merging produces an unknown building type. When two identical buildings are merged, the result is announced as a named new building with a character description. Examples: merging two drink buildings produced "Toy Vendor" (described as "there are always many children in front of toy stores"), then later "Bus Stand" and "Community Park." The specific merged result appears to follow category logic but the exact output name and character story are unknown before merging.
-
-The daily login reward Day 2 is hidden behind a question mark — a deliberate concealment of an upcoming reward. Similarly, the Day 7 "special gift" is not disclosed upfront.
-
-The citizen character pool is also variable — when visiting characters appear in the city, their identity and backstory are unknown until tapped. The cost to recruit varies: some are free (Arthur Harris), others cost 1 diamond (Imogen Rodriguez).
-
-**How it is presented:**
-Building merges are confirmed through a popup announcing the new building with its name, description, and a "show it off" share prompt. Daily reward Day 2 and Day 7 are shown as question mark and gift icon respectively on the calendar strip.
+Write-up pending.
 
 ---
 
-### XP Leveling (`xp-leveling`) · Supporting
+### Cosmetics (`cosmetics`) · Supporting
 
-**What was observed:**
-City Hall has three upgradeable levels across three axes: Finance, Economy, and Livelihood — each described as Level 1 at the start of the game.
-
-- Finance Level 1 → 2: costs 1,350 coins; rewards: +2 prosperity, +5,000 coin storage
-- Economy Level 1 → 2: costs 1,500 coins; rewards: +10 prosperity, 1 new vehicle
-- Livelihood Level 1 → 2: costs 1,500 coins; rewards: +1 city prosperity, 1 new VIP citizen
-
-A separate "Builder's Hub" upgrade increases the number of buildings that can be constructed per day (default: 5; upgrade: 6; upgrade costs 500 diamonds).
-
-City Prosperity is a cumulative score that increases with each achievement milestone, building addition, and upgrade. Prosperity is displayed in the top bar and checked against achievement thresholds (prosperity reaches 10, 20, 30, 50...).
-
-**How it is presented:**
-City Hall upgrade options appear when tapping the city hall building. The three axes (Finance, Economy, Livelihood) are listed with current level, upgrade cost, and upgrade benefit. City Prosperity is displayed as a number in the top UI bar.
-
-**What is notable:**
-The leveling mechanic is split across three parallel axes that each unlock different content types (storage vs. vehicles vs. citizens), giving the player a strategic choice about which axis to prioritize. Prosperity functions as a visible, continuously accumulating score that maps to achievement thresholds.
+Write-up pending.
 
 ---
 
-### Clans-Guilds (`clans-guilds`) · Shallow
-
-**What was observed:**
-A friends and social system was described: "Ranking — log in, join the great community, develop the city with your friends — log in with your social account to expand the city with your friends — show off your rankings and back up all your entries and progress." Achievements include Diplomatic Envoy (have your first friend) and Good Neighbor (first time visiting a friend's city). Both achievements require logging in to a Sparkful account.
-
-The City Photographer achievement track (share photos 5 / 20 / 50 times) is a friend-sharing mechanic. The city itself can be photographed and shared as an image.
-
-No further detail about the friend visit mechanic, what visiting a friend's city entails, or whether shared goals or collective rewards exist was described. Login was skipped in both sessions, so the full social system was not accessed.
-
-**How it is presented:**
-The Ranking tab in the hamburger menu requires login. Achievements reference friend mechanics but are inaccessible without a Sparkful account.
-
----
-
-### Set Collection (`set-collection`) · Shallow
+### Set Collection (`set-collection`) · Supporting
 
 **What was observed:**
 City Council Members are five named characters (Kashi, Fisher, Audi, Yilty, Sir Fox) each with their own collection of items that unlock as the player progresses. Fisher is unlocked by tracking expenses for four consecutive days. Kashi's collection unlocks items "every week when you check categories." Each council member has a profile screen showing collection slots and an "unlock collections" button (which opens the paywall for premium slots).

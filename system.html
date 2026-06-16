@@ -346,7 +346,6 @@ const CONNECTIONS = {
   "fifa-panini-collection": [
     { from: "set-collection", to: "daily-login-reward", title: "Album drives daily pack consumption", desc: "The daily pack limit (4 for registered users) and daily free packs exist entirely to serve album completion. The login reward is pack fuel for the collection, not an independent engagement mechanic.", effect: "Players experience the daily login not as a general reward but as the primary means of advancing toward a personally meaningful goal. The return motivation is the album, not the reward itself." },
     { from: "set-collection", to: "challenges", title: "Stickers must be glued to count", desc: "Challenges require stickers to be glued into the album before they count toward challenge progress. The challenge system reinforces the album as the organizing hub rather than allowing inventory to count directly.", effect: "Challenges create a structured reason to engage with the gluing mechanic, the core activity of album building. The two mechanics are inseparable: challenge progress requires album progress." },
-    { from: "set-collection", to: "clans-guilds", title: "Collector's Team solves the final-card problem", desc: "Private swap requests within the Collector's Team allow targeted exchanges that the public swap system cannot provide. When a specific missing sticker is needed, the team is the resolution path.", effect: "Album completion is gated behind coordination rather than luck at the final stage. The Collector's Team converts the last few missing stickers from a random drop problem into a social one." },
     { from: "daily-login-reward", to: "achievements", title: "Coca-Cola scans are counted achievements", desc: "Scanning a Coca-Cola product grants a daily pack equivalent and advances the Coke Scans achievement tier (1 / 10 / 25 items). The physical scanning behaviour is tracked, milestoned, and rewarded.", effect: "The physical product interaction is integrated into the achievement system, making real-world brand engagement part of the in-app progression. The partnership is measurable, not decorative." },
     { from: "challenges", to: "achievements", title: "Challenges surface collection milestones", desc: "Completing challenges (collect team captains, collect host country stickers) aligns with album completion milestones. Both systems point toward the same underlying goal.", effect: "Players pursuing challenges are simultaneously advancing toward album completion milestones. The two systems reinforce each other without requiring separate engagement tracks." },
   ],
@@ -395,9 +394,10 @@ const CONNECTIONS = {
     { from: "credits-tokens", to: "challenges", title: "Credit spending reveals subscription value", desc: "Each credit purchase makes the subscription math more legible. Users who have spent credits multiple times have implicitly calculated the subscription value through their own behavior.", effect: "The credit system converts the subscription decision from a cold evaluation to a conclusion the user reaches through their own spending. Engaged users are already invested in the platform." },
   ],
   steam: [
-    { from: "credits-tokens", to: "cosmetics", title: "Purchase spend funds the cosmetics economy", desc: "Every game purchase accumulates 117 Points per euro, passively building a cosmetics budget the user did not consciously choose to create.", effect: "The cosmetics decision and the spend decision are separated in time, eliminating the psychological friction of paying for cosmetics at the point of purchase." },
-    { from: "credits-tokens", to: "achievements", title: "Points fund seasonal badge acquisition", desc: "Seasonal badges (Summer and Winter Sales) are purchasable in the Points Shop using accumulated Points, the only time-limited achievements in the system.", effect: "Users with accumulated Points have a natural outlet during sale events, increasing seasonal engagement for users who might otherwise not participate." },
-    { from: "cosmetics", to: "achievements", title: "Showcase upgrades expand the achievement display", desc: "Showcase upgrades purchased with Points expand the profile's capacity to display badges. The cosmetic purchase directly improves the achievement display surface.", effect: "Users with many achievements have a motivated reason to spend Points on showcase upgrades, creating a spending loop between the two mechanics." },
+    { from: "cosmetics", to: "xp-leveling", title: "Seasonal badges feed profile XP", desc: "Seasonal badges available in the Points Shop contribute towards profile XP. The cosmetics system and the leveling system share the same seasonal badge item.", effect: "Acquiring seasonal badges advances both the cosmetic display layer and the profile level simultaneously, giving the same item two progression roles." },
+    { from: "cosmetics", to: "limited-time-events", title: "Sale events gate the seasonal badge window", desc: "Seasonal badges are only available during Summer and Winter Sales, making sale events the sole urgency mechanic in the otherwise perpetually available cosmetics catalogue.", effect: "Users aware of the seasonal badge system have a concrete reason to engage with the Points Shop during sale windows rather than treating the catalogue as always-available." },
+    { from: "limited-time-events", to: "set-collection", title: "Sale events expand the Points Shop catalogue", desc: "Each sale event introduces new featured items to the Points Shop, adding to the permanent catalogue. Items acquired during sale events are kept forever.", effect: "Sale participation expands the collectible catalogue permanently. The event is also an acquisition window for catalogue items that will persist well beyond the event itself." },
+    { from: "social-feed", to: "community-groups", title: "Discovery leads to group membership", desc: "The Discovery Queue and community content browsing surface Steam Groups as a natural next step for users who engage with content from specific communities.", effect: "Browsing the social layer exposes users to group activity, making group membership a discovered outcome rather than a navigated feature." },
   ],
   "solitaire-grand-harvest": [
     { from: "piggy-bank", to: "energy-lives", title: "Piggy bank resolves credit depletion", desc: "When credits run low inside an active level, the moment of highest purchase motivation, the capped piggy bank is the most visible alternative to direct credit purchase.", effect: "The piggy bank frames the monetization moment as claiming what the player already earned rather than making a new purchase, reducing psychological resistance at depletion." },
@@ -409,7 +409,6 @@ const CONNECTIONS = {
     { from: "achievements", to: "ads", title: "Achievement track makes ad watching a progression goal", desc: "The Watch Ads to Help the Salesman track scales from 5 to 1,000 watches, ending in Charitable Superstar. Ad watching is the subject of a named, tiered achievement system.", effect: "Users who care about achievement completion have a 1,000-interaction engagement arc anchored to a single ad placement." },
     { from: "ads", to: "daily-login-reward", title: "Ad doubling is integrated into the daily claim", desc: "Every daily login reward popup includes a 'watch an ad to double your reward' option. The daily login moment and the ad monetization moment are the same interaction.", effect: "The daily reward claim is also a daily ad monetization surface at the user's highest-engagement daily moment." },
     { from: "set-collection", to: "daily-login-reward", title: "Fisher's gate requires four consecutive returns", desc: "Fisher requires four consecutive days of expense tracking to unlock, the most behaviorally intentional content gate in the library.", effect: "Users motivated by seeing Fisher return for four consecutive days without any separate streak system. The collection gate does the streak's job." },
-    { from: "daily-weekly-quests", to: "ads", title: "Salesman quest and salesman ad are the same action", desc: "The Flyer Board quest asks the user to find the salesman and watch an ad. The quest reward and the ad reward arrive from the same interaction.", effect: "The quest system gives ad watching a narrative context and a named completion. Users who would not seek the salesman voluntarily are directed to him by the quest system." },
   ],
   tiimo: [
     { from: "streak", to: "achievements", title: "Consecutive days unlock marbles", desc: "The marble collection tracks both consecutive days and tasks completed. Every streak day directly advances the marble ladder, the streak and achievement system share the same metric.", effect: "Users experience streak and achievement as a single integrated progression rather than two separate mechanics." },
@@ -534,8 +533,7 @@ const POSITIONS = {
     "set-collection":        { x: 50, y: 30 },
     "daily-login-reward":    { x: 22, y: 56 },
     "challenges":            { x: 78, y: 56 },
-    "achievements":          { x: 30, y: 80 },
-    "clans-guilds":          { x: 70, y: 80 },
+    "achievements":          { x: 50, y: 80 },
   },
   "insight-timer": {
     center:                  { x: 50, y: 10, label: "INSIGHT TIMER" },
@@ -600,10 +598,13 @@ const POSITIONS = {
     "credits-tokens":        { x: 74, y: 68 },
   },
   "steam": {
-    center:                  { x: 50, y: 15, label: "STEAM" },
-    "credits-tokens":        { x: 50, y: 38 },
-    "cosmetics":             { x: 26, y: 68 },
-    "achievements":          { x: 74, y: 68 },
+    center:                    { x: 50, y: 8,  label: "STEAM" },
+    "cosmetics":               { x: 50, y: 26 },
+    "xp-leveling":             { x: 22, y: 48 },
+    "limited-time-events":     { x: 78, y: 48 },
+    "social-feed":             { x: 16, y: 72 },
+    "set-collection":          { x: 50, y: 72 },
+    "community-groups":        { x: 84, y: 72 },
   },
   "solitaire-grand-harvest": {
     center:                  { x: 50, y: 6,  label: "SOLITAIRE GH" },
@@ -616,11 +617,10 @@ const POSITIONS = {
   },
   "fortune-city": {
     center:                  { x: 50, y: 8,  label: "FORTUNE CITY" },
-    "achievements":          { x: 50, y: 28 },
-    "ads":                   { x: 20, y: 52 },
-    "daily-weekly-quests":   { x: 80, y: 52 },
-    "daily-login-reward":    { x: 20, y: 76 },
-    "set-collection":        { x: 80, y: 76 },
+    "achievements":          { x: 50, y: 30 },
+    "ads":                   { x: 26, y: 58 },
+    "daily-login-reward":    { x: 26, y: 82 },
+    "set-collection":        { x: 74, y: 70 },
   },
   "tiimo": {
     center:                  { x: 50, y: 18, label: "TIIMO" },

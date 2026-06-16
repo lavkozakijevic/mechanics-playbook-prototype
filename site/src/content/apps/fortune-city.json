@@ -5,7 +5,7 @@
   "type": "app",
   "visibility": "subscriber",
   "analysisDate": "2026-05-13",
-  "lastUpdated": "2026-05-17",
+  "lastUpdated": "2026-06-15",
   "summary": "Fortune City turns expense recording into city building. Every transaction becomes a building on a floating island; citizens are recruited, assigned jobs, and generate passive coins. The gamification layer is entirely free, the subscription gates the actual financial analysis tools. The most structurally unusual element is the salesman character, a recurring city resident whose only function is to frame rewarded video ad watching as a civic relationship.",
   "icon": "/icons/fortune-city.png",
   "heroImage": null,
@@ -70,70 +70,29 @@
       ]
     },
     {
-      "id": "daily-weekly-quests",
+      "id": "streak",
       "depth": "supporting",
-      "writeup": {
-        "observed": "The City Bulletin Board functions as the quest hub, accessed from a map icon that replaces the City Management Guide after onboarding. Three quest types run simultaneously: the Flyer Board (salesman ad watch, reward 1 diamond), Citizen Classified Level 1 (find an object in the city, reward 1 diamond, 59-minute cooldown), Level 2 (1 diamond, triggers interstitial on completion), and Level 3 (2 diamonds). Quest narratives use the city's character cast, the salesman, citizens with missing objects, Kashi. The Level 1 classified quest refreshes after 59 minutes, making quest cycles sub-daily rather than daily.",
-        "presented": "The bulletin board is a city map object with a notification bubble showing available tasks. It is not in the navigation bar, it requires tapping within the city view. Go buttons in each quest navigate to the relevant city area.",
-        "noting": "The salesman quest bridges the quest system and the ads system, the Flyer Board quest reward and the salesman ad reward are the same action. Completing a quest means watching an ad; the quest framing gives the ad watching a narrative context and a diamond reward. The 59-minute cooldown makes quest cycles available multiple times per day, creating structured return pressure at sub-daily intervals without requiring a long session each time.",
-        "findings": [
-          "The 59-minute classified quest cooldown allows multiple quest completions per day, creating denser return pressure than daily-only quest systems.",
-          "The Flyer Board quest is structurally identical to the salesman ad placement, the quest system and the ad system share the same interaction, with the quest adding a narrative frame and diamond reward to an ad watch.",
-          "Quest narratives use the city's named characters (salesman, Kashi, citizens with objects), maintaining thematic consistency with the city-building metaphor rather than surfacing generic quest objectives.",
-          "An interstitial ad fires after completing the Level 2 classified quest, the quest reward and an unrelated ad are delivered at the same moment."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": [
-        "City Bulletin Board popup showing the Flyer Board (Find Salesman, 1 diamond reward), Citizen Classified Level 1, Level 2 (1 diamond), and Level 3 (2 diamonds) quests"
-      ]
-    },
-    {
-      "id": "variable-reward",
-      "depth": "supporting",
-      "writeup": {
-        "observed": "Building merging produces an unknown named building type. When two identical buildings are merged, the result is announced as a new building with a name and character description, Toy Vendor, Bus Stand, Community Park appeared as examples. The specific merged output name and story are unknown before merging. The daily login Day 2 reward is hidden behind a question mark, and the Day 7 \"special gift\" is undisclosed upfront. Visiting citizens who appear on the city map also have unknown identities and backstories until tapped, some are free to recruit, others cost 1 diamond.",
-        "presented": "Merge outcomes are announced via a popup with the new building's name, description, and a \"show it off\" share prompt. Daily reward Day 2 and Day 7 are shown as question mark and gift icon on the calendar strip.",
-        "findings": [
-          "The building merge variable reward is category-logic constrained, merging two drink buildings produces a drink-category building, but the specific named result is unknown, maintaining the discovery element within a defined category.",
-          "The daily login calendar uses question marks rather than previewed rewards for Day 2, applying variable reward uncertainty to a mechanic where most apps use anticipation instead.",
-          "Visiting citizens have unknown recruitment costs (free or 1 diamond) until tapped, even the small cost decisions involve a discovery element."
-        ]
-      },
+      "writeup": null,
       "screenshots": [],
       "suggestedShots": []
     },
     {
-      "id": "xp-leveling",
+      "id": "energy-lives",
       "depth": "supporting",
-      "writeup": {
-        "observed": "City Hall has three upgrade axes, Finance, Economy, and Livelihood, each independently upgradeable. Finance Level 1→2 costs 1,350 coins and adds coin storage and prosperity. Economy Level 1→2 costs 1,500 coins and unlocks a vehicle. Livelihood Level 1→2 costs 1,500 coins and adds a VIP citizen. City Prosperity is a cumulative score visible in the top bar, increasing with each achievement, building addition, and upgrade, and checked against achievement thresholds (prosperity reaches 10, 20, 30, 50...). Builder's Hub is a separate upgrade increasing the daily building construction limit from 5 to 6, costing 500 diamonds.",
-        "presented": "City Hall upgrade options appear by tapping the city hall building. The three axes are listed with current level, upgrade cost, and benefit. City Prosperity displays continuously in the top UI bar.",
-        "findings": [
-          "Three parallel upgrade axes (Finance → storage, Economy → vehicles, Livelihood → citizens) give the player a strategic choice about which city aspect to develop first, creating a personalization layer in what would otherwise be a linear progression.",
-          "Prosperity is a score with no spend mechanic, it accumulates but is never consumed, making it a pure status and achievement-trigger metric rather than a currency.",
-          "The 5-buildings-per-day construction limit means recording more than 5 expenses in one day produces no additional buildings after the fifth, creating a soft daily activity ceiling for gamification rewards while leaving expense recording unlimited."
-        ]
-      },
+      "writeup": null,
       "screenshots": [],
       "suggestedShots": []
     },
     {
-      "id": "clans-guilds",
-      "depth": "shallow",
-      "writeup": {
-        "observed": "Fortune City has a friends system, accessible only after signing into a Sparkful account. It lets you visit friends' cities and exchange diamonds. The social layer is not visible to users who skip account creation, which many do. What remains accessible to everyone is the City Photographer achievement track, which rewards sharing city photos at 5, 20, and 50 shares. The city can be photographed from any angle and shared directly from the app.",
-        "findings": [
-          "The friends system is gated behind Sparkful account creation. Users who skip login, which the app makes easy to do, never see this layer at all.",
-          "City Photographer is the social mechanic that reaches the widest audience because it does not require account creation or a friend network to activate."
-        ]
-      },
+      "id": "cosmetics",
+      "depth": "supporting",
+      "writeup": null,
       "screenshots": [],
       "suggestedShots": []
     },
     {
       "id": "set-collection",
-      "depth": "shallow",
+      "depth": "supporting",
       "writeup": {
         "observed": "Five City Council Members (Kashi, Fisher, Audi, Yilty, Sir Fox) each have their own collection of items that unlock through specific behaviors: Fisher requires four consecutive days of expense tracking; Kashi's collection unlocks items weekly when the user checks categories. Each council member has a profile screen with collection slots. VIP Citizens are 40 named characters shown as silhouettes until earned through City Hall Livelihood upgrades. Building type galleries, vehicle galleries, and council member collection galleries are all viewable under Your City.",
         "presented": "Your City → Characters tab shows council members and VIP citizens. Your City → Buildings and Vehicles tabs show their respective collections. Council member slots are visible with locked items shown as outlines.",
@@ -143,21 +102,6 @@
           "The building type gallery (level 1 through 8 versions of each building category) functions as a long-horizon completionist goal, visible in full from the start with locked slots throughout."
         ]
       },
-      "screenshots": [],
-      "suggestedShots": []
-    },
-    {
-      "id": "passive-construction-meta",
-      "depth": "core",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
-    },
-    {
-      "id": "soft-currency",
-      "depth": "supporting",
-      "provisionalDepth": true,
-      "writeup": null,
       "screenshots": [],
       "suggestedShots": []
     }
@@ -184,10 +128,6 @@
       {
         "id": "daily-login-reward",
         "role": "Day 2 reward hidden as a question mark, the only daily login calendar in the library that applies variable reward uncertainty to the return incentive. The ad doubling option is integrated into every daily claim."
-      },
-      {
-        "id": "daily-weekly-quests",
-        "role": "The Flyer Board quest and the salesman ad are the same action. The quest system gives ad watching a narrative frame and a named completion reward, directing users to the salesman who would not seek him out voluntarily."
       }
     ],
     "center": {
@@ -199,27 +139,22 @@
       {
         "id": "achievements",
         "x": 50,
-        "y": 28
+        "y": 30
       },
       {
         "id": "ads",
-        "x": 20,
-        "y": 52
-      },
-      {
-        "id": "daily-weekly-quests",
-        "x": 80,
-        "y": 52
+        "x": 26,
+        "y": 58
       },
       {
         "id": "daily-login-reward",
-        "x": 20,
-        "y": 76
+        "x": 26,
+        "y": 82
       },
       {
         "id": "set-collection",
-        "x": 80,
-        "y": 76
+        "x": 74,
+        "y": 70
       }
     ],
     "connections": [
@@ -243,13 +178,6 @@
         "title": "Fisher's gate requires four consecutive returns",
         "desc": "Fisher requires four consecutive days of expense tracking to unlock, the most behaviorally intentional content gate in the library.",
         "effect": "Users motivated by seeing Fisher return for four consecutive days without any separate streak system. The collection gate does the streak's job."
-      },
-      {
-        "from": "daily-weekly-quests",
-        "to": "ads",
-        "title": "Salesman quest and salesman ad are the same action",
-        "desc": "The Flyer Board quest asks the user to find the salesman and watch an ad. The quest reward and the ad reward arrive from the same interaction.",
-        "effect": "The quest system gives ad watching a narrative context and a named completion. Users who would not seek the salesman voluntarily are directed to him by the quest system."
       }
     ]
   }

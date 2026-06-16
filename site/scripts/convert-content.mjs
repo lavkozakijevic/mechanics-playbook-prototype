@@ -64,10 +64,11 @@ function parseAnalysis(file) {
   const md = fs.readFileSync(path.join(repo, "sources/analyses", file), "utf8");
   const meta = {};
   for (const [, k, v] of md.matchAll(/^\*\*([^:*]+):\*\*\s*(.+)$/gm)) meta[k.trim()] = v.trim();
-  // Observed mechanics: "### Name (`id`) · Level"
-  const observed = [...md.matchAll(/^### .+?\(`([a-z0-9-]+)`\)\s*·\s*(\w+)/gm)].map((m) => ({
+  // Observed mechanics: "### Name (`id`) · Level" or "### Name (`id`) · Level · Thin"
+  const observed = [...md.matchAll(/^### .+?\(`([a-z0-9-]+)`\)\s*·\s*(\w+)(?:\s*·\s*(Thin))?/gm)].map((m) => ({
     id: m[1],
     depth: m[2].toLowerCase(),
+    ...(m[3] === "Thin" ? { provisionalDepth: true } : {}),
   }));
   // Unrecognized mechanics: "### `working-name`" (may carry a trailing note)
   const unrecognized = [...md.matchAll(/^### `([a-z0-9-]+)`/gm)].map((m) => m[1]);
@@ -194,12 +195,7 @@ const ADDITIONS = {
   ],
   "clash-of-clans": [{ id: "gifting", depth: "supporting" }],
   "fc-mobile": [{ id: "first-purchase-bonus", depth: "supporting" }],
-  // Stage 2 review ruling: the analysis documents the construction meta as
-  // the organizing framework of the entire app — observed content beats the
-  // addendum's seed list (which is a minimum, not exhaustive).
-  "fortune-city": [{ id: "passive-construction-meta", depth: "core" }],
   "picsart": [{ id: "credits-tokens", depth: "supporting" }],
-  "steam": [{ id: "credits-tokens", depth: "supporting" }],
   // corrections §3b: set-collection added at shallow (session didn't reach
   // multiplier level 7, so analysis has no observed section for it)
   "subway-surfers": [{ id: "set-collection", depth: "shallow" }],
@@ -213,7 +209,7 @@ const REMAPS = {
 // Strava's unrecognized "hard-currency" section is about the subscription
 // model and explicitly says it does NOT map to hard currency — exclude it
 // from the currency harvest. (Flagged in the content questions list.)
-const HARVEST_EXCLUDE = new Set(["hard-currency|strava"]);
+const HARVEST_EXCLUDE = new Set(["hard-currency|strava", "hard-currency|steam"]);
 // Harvested currency relationships (corrections §4): unrecognized-section
 // observations. Depth is not graded in those sections; "supporting" is a
 // provisional value flagged for review in the Stage 1 notes.
@@ -230,6 +226,7 @@ const DROPS = new Set([
   "ads|chrome-valley-customs",
   "ads|match-creek-motors",
   "gifting|swgoh",
+  "soft-currency|fortune-city",
 ]);
 
 // Standing rule (final owner ruling, 11 Jun 2026): exactly two case studies

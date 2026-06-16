@@ -5,7 +5,7 @@
   "type": "app",
   "visibility": "subscriber",
   "analysisDate": "2026-05-15",
-  "lastUpdated": "2026-05-15",
+  "lastUpdated": "2026-06-15",
   "summary": "FIFA Panini Collection is a digital sticker album tied to the FIFA World Cup 2026, extending the physical sticker-collecting experience into a digital format. Coca-Cola product scanning is structural rather than decorative, it is a named achievement category and a daily pack source that effectively doubles the daily pack intake for users with a product at hand. The app has a fixed availability window through September 30, 2026, making the entire experience a limited-time event at the macro level.",
   "icon": "/icons/fifa-panini-collection.png",
   "heroImage": null,
@@ -88,23 +88,25 @@
       ]
     },
     {
-      "id": "clans-guilds",
-      "depth": "shallow",
-      "writeup": {
-        "observed": "The Collector's Team is the guild equivalent, a named group of collectors who can make private swap requests with each other. The primary benefit is direct sticker trading with trusted contacts, bypassing the public swap queue. Team members' completion percentages are visible in the team view. The Collector's Team is not accessible to guest accounts, registration is required.",
-        "presented": "The Collector's Team is accessible from the bottom navigation as a dedicated tab. Member completion percentages display in the team view. Private swap requests are available within the team context.",
-        "noting": "Private swaps with known collectors solve the core problem of the public swap system, getting specific missing stickers from strangers who also need what you have. The Collector's Team converts the completion challenge from a luck problem into a social coordination problem.",
-        "findings": [
-          "Private swap requests directly accelerate album completion by enabling targeted exchanges with trusted collectors rather than public random swaps.",
-          "Member completion percentages are visible, creating a shared progress context that makes collective progress toward completion transparent.",
-          "The Collector's Team is registration-gated, guests cannot access private swaps, creating a meaningful registration incentive beyond pack quantity.",
-          "The team view was only partially explored after registration due to email verification delays during analysis."
-        ]
-      },
+      "id": "variable-reward",
+      "depth": "core",
+      "writeup": null,
       "screenshots": [],
-      "suggestedShots": [
-        "The Collector's Team homepage showing team name, team ID, slogan, member list with collection completion percentages, and invite friends button"
-      ]
+      "suggestedShots": []
+    },
+    {
+      "id": "energy-lives",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "community-groups",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
     }
   ],
   "system": {
@@ -116,7 +118,7 @@
     "roles": [
       {
         "id": "set-collection",
-        "role": "The organizing logic of the entire app. Album completion drives all other mechanics, daily login rewards generate packs that fill the album, challenges require stickers to be glued, the Collector's Team exists to accelerate targeted collection. The Deluxe Pack removes uncertainty for the two premium categories (Cosmic and poster stickers) by delivering specifically missing items."
+        "role": "The organizing logic of the entire app. Album completion drives all other mechanics, daily login rewards generate packs that fill the album, challenges require stickers to be glued, and achievements track collection milestones. The Deluxe Pack removes uncertainty for the two premium categories (Cosmic and poster stickers) by delivering specifically missing items."
       },
       {
         "id": "daily-login-reward",
@@ -129,10 +131,6 @@
       {
         "id": "achievements",
         "role": "Tracks collection milestones including Coca-Cola scan tiers (1 / 10 / 25 scans), swap history, and album completion. Completing all Cosmic Stickers unlocks a 100% discount on the digital keepsake album, the most valuable single-item completion reward in the app."
-      },
-      {
-        "id": "clans-guilds",
-        "role": "The Collector's Team enables private swap requests between trusted contacts, converting the final-card problem from a random drop into a social coordination task. Member completion percentages are visible, making collective progress toward album completion transparent."
       }
     ],
     "center": {
@@ -158,12 +156,7 @@
       },
       {
         "id": "achievements",
-        "x": 30,
-        "y": 80
-      },
-      {
-        "id": "clans-guilds",
-        "x": 70,
+        "x": 50,
         "y": 80
       }
     ],
@@ -181,13 +174,6 @@
         "title": "Stickers must be glued to count",
         "desc": "Challenges require stickers to be glued into the album before they count toward challenge progress. The challenge system reinforces the album as the organizing hub rather than allowing inventory to count directly.",
         "effect": "Challenges create a structured reason to engage with the gluing mechanic, the core activity of album building. The two mechanics are inseparable: challenge progress requires album progress."
-      },
-      {
-        "from": "set-collection",
-        "to": "clans-guilds",
-        "title": "Collector's Team solves the final-card problem",
-        "desc": "Private swap requests within the Collector's Team allow targeted exchanges that the public swap system cannot provide. When a specific missing sticker is needed, the team is the resolution path.",
-        "effect": "Album completion is gated behind coordination rather than luck at the final stage. The Collector's Team converts the last few missing stickers from a random drop problem into a social one."
       },
       {
         "from": "daily-login-reward",
