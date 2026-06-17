@@ -3,12 +3,18 @@
 // designed and added to each category's report.astro (or composed here from
 // a content file). This route exists so the email-capture flow is testable
 // end-to-end before the finished report is ready.
+//
+// finance is excluded: its finished report ships as a standalone page at
+// public/finance/report/index.html (served at /finance/report/), so the route
+// must not also emit /finance/report or the two would collide.
 import { getCollection } from "astro:content";
 import Base from "../../layouts/Base.astro";
 
 export async function getStaticPaths() {
   const cats = await getCollection("categories");
-  return cats.map((c) => ({ params: { category: c.data.slug }, props: { cat: c.data } }));
+  return cats
+    .filter((c) => c.data.slug !== "finance")
+    .map((c) => ({ params: { category: c.data.slug }, props: { cat: c.data } }));
 }
 
 const { cat } = Astro.props;
