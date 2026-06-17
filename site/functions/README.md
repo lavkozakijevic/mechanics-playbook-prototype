@@ -14,19 +14,25 @@ returns `{ ok: true }`; the client then starts the download.
 Set these in **Cloudflare Pages → Settings → Variables and Secrets** (Production
 and Preview). They stay server-side and are never exposed to the page.
 
-| Name | Type | Example | Notes |
-|---|---|---|---|
-| `RESEND_API_KEY` | Secret | `re_xxx` | From resend.com → API Keys |
-| `LEAD_NOTIFY_TO` | Variable | `lav@gamebizconsulting.com` | Where lead notifications land |
-| `LEAD_FROM` | Variable | `GameBiz <leads@gamebizconsulting.com>` | Must be a Resend-verified domain sender |
+| Name | Type | Required | Default | Notes |
+|---|---|---|---|---|
+| `RESEND_API_KEY` | Secret | Yes | — | From resend.com → API Keys |
+| `LEAD_NOTIFY_TO` | Variable | No | `lav@gamebizconsulting.com` | Where lead notifications land |
+| `LEAD_FROM` | Variable | No | `GameBiz Leads <onboarding@resend.dev>` | Resend's shared sender (no domain verification). Override with a verified-domain sender once set up. |
 
-### One-time setup
+The recipient and sender defaults live in the Function itself, so the endpoint
+works with **only `RESEND_API_KEY`** set.
 
-1. Create a Resend account and **verify the `gamebizconsulting.com` domain**
-   (adds SPF/DKIM DNS records) so mail to your own inbox isn't filtered. For a
-   quick test you can use `onboarding@resend.dev` as `LEAD_FROM` first.
-2. Create an API key, set it as the `RESEND_API_KEY` secret above.
-3. Set `LEAD_NOTIFY_TO` and `LEAD_FROM`.
+### One-time setup (minimum)
+
+1. Create a Resend account and an API key.
+2. Set it as the `RESEND_API_KEY` secret above (Production and Preview).
+3. Redeploy so the secret takes effect, then submit the form to test.
+
+Notifications send from `onboarding@resend.dev` out of the box — no domain
+verification required. To send from your own domain later, **verify
+`gamebizconsulting.com`** in Resend (adds SPF/DKIM DNS records) and set
+`LEAD_FROM` to e.g. `GameBiz <leads@gamebizconsulting.com>`.
 
 ### Local testing
 

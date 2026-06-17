@@ -7,14 +7,24 @@
  *
  * Reusable by design: nothing here is finance-specific, so the future paywall
  * can POST to the same endpoint. The owner's notification address and the API
- * key live only in the environment (Cloudflare secrets/vars) — they are never
- * in the page, the page source, or this file. No mailto anywhere.
+ * key live only in the environment (Cloudflare secrets/vars) or this
+ * server-side function — they are never in the page, the page source, or any
+ * client bundle. No mailto anywhere.
  *
- * Required environment variables (Pages → Settings → Variables and Secrets):
- *   RESEND_API_KEY   (secret)  — Resend API key
- *   LEAD_NOTIFY_TO             — where notifications go, e.g. lav@gamebizconsulting.com
- *   LEAD_FROM                  — verified Resend sender, e.g. "GameBiz <leads@gamebizconsulting.com>"
+ * Environment variables (Pages → Settings → Variables and Secrets):
+ *   RESEND_API_KEY   (secret, required)  — Resend API key
+ *   LEAD_NOTIFY_TO   (optional)          — recipient; defaults to the owner address below
+ *   LEAD_FROM        (optional)          — sender; defaults to Resend's shared
+ *                                          onboarding@resend.dev (no domain
+ *                                          verification needed). Override with a
+ *                                          verified-domain sender once set up.
  */
+
+// Server-side defaults so the endpoint works with only RESEND_API_KEY set.
+// onboarding@resend.dev is Resend's shared sender and needs no domain
+// verification. These live only in this Function — never in the page source.
+const DEFAULT_NOTIFY_TO = "lav@gamebizconsulting.com";
+const DEFAULT_FROM = "GameBiz Leads <onboarding@resend.dev>";
 
 const json = (obj, status = 200) =>
   new Response(JSON.stringify(obj), {
@@ -39,9 +49,12 @@ export async function onRequestPost({ request, env }) {
   const category = clip(body.category, 60);
   const source = clip(body.source, 60);
 
-  if (!env.RESEND_API_KEY || !env.LEAD_NOTIFY_TO || !env.LEAD_FROM) {
+  if (!env.RESEND_API_KEY) {
     return json({ error: "not_configured" }, 500);
   }
+
+  const notifyTo = env.LEAD_NOTIFY_TO || DEFAULT_NOTIFY_TO;
+  const from = env.LEAD_FROM || DEFAULT_FROM;
 
   const subject = `New lead${category ? `: ${category}` : ""} — ${email}`;
   const text = [
@@ -60,8 +73,8 @@ export async function onRequestPost({ request, env }) {
       "content-type": "application/json",
     },
     body: JSON.stringify({
-      from: env.LEAD_FROM,
-      to: [env.LEAD_NOTIFY_TO],
+      from,
+      to: [notifyTo],
       reply_to: email,
       subject,
       text,
