@@ -129,7 +129,17 @@ const STEPS = [
       <div class="catland-report">
         <div class="catland-report__cover" aria-hidden="true">
           {cat.report.imageHref
-            ? <img src={cat.report.imageHref} alt="" loading="lazy" />
+            ? (
+              <Fragment>
+                <img
+                  src={cat.report.imageHref}
+                  alt=""
+                  loading="lazy"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+                />
+                <div class="catland-report__placeholder" style="display:none"><span>Report&nbsp;preview</span></div>
+              </Fragment>
+            )
             : <div class="catland-report__placeholder"><span>Report&nbsp;preview</span></div>
           }
         </div>
