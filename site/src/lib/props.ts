@@ -92,12 +92,39 @@ export function mechanicDetailProps(mech: Mechanic) {
   };
 }
 
+// Apps barred from appearing as mechanic-page examples (owner ruling, 17 Jun
+// 2026). The report-only finance set never renders as a worked example; cleo
+// and acorns are published as finance hero logos / case studies but, like the
+// rest of the set, must not surface as examples until the owner says otherwise.
+const EXAMPLE_EXCLUDED = new Set([
+  "cleo",
+  "dave",
+  "acorns",
+  "starling-bank",
+  "orbit",
+  "george-app-erste-serbia",
+]);
+
+// An example may render only when its write-up carries all four parts the card
+// shows (How they use it / Why it works / The detail / Takeaway). A missing
+// part hides the whole example rather than printing a half-filled card.
+function exampleComplete(w: App["mechanics"][number]["writeup"]) {
+  return !!(
+    w &&
+    w.observed?.trim() &&
+    w.noting?.trim() &&
+    w.presented?.trim() &&
+    w.findings?.[0]?.trim()
+  );
+}
+
 export function mechanicStudies(mechanicId: string, apps: App[]) {
   return apps
-    .filter((a) => a.mechanics.some((m) => m.id === mechanicId))
+    .filter((a) => !EXAMPLE_EXCLUDED.has(a.id))
+    .filter((a) => exampleComplete(a.mechanics.find((m) => m.id === mechanicId)?.writeup))
     .map((a) => {
       const rel = a.mechanics.find((m) => m.id === mechanicId)!;
-      const w = rel.writeup;
+      const w = rel.writeup!;
       return {
         app: a.name,
         cat: a.category,
@@ -115,7 +142,7 @@ export function mechanicStudies(mechanicId: string, apps: App[]) {
           while (slots.length < 2) slots.push({});
           return slots;
         })(),
-        body: w ? [w.observed ?? "", w.noting ?? "", w.presented ?? "", w.findings?.[0] ?? ""] : null,
+        body: [w.observed ?? "", w.noting ?? "", w.presented ?? "", w.findings?.[0] ?? ""],
       };
     });
 }

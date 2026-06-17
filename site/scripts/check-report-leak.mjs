@@ -65,4 +65,41 @@ if (hits.length) {
   console.error("\nReport-only content must never appear in the deployed output. Build stopped.");
   process.exit(1);
 }
-console.log(`Report-only leak check passed: ${terms.length / 2} report-only apps, zero traces in dist/.`);
+
+// Example-block guard (owner ruling, 17 Jun 2026): a defined set of apps must
+// never render as worked examples on mechanic pages, even when they are
+// otherwise published. cleo and acorns ship as finance hero logos / case
+// studies, so the report-only scan above does not cover them — check the
+// mechanic pages directly for a case-study link to any barred app, which only
+// appears when that app is rendered as an example.
+const EXAMPLE_EXCLUDED_IDS = ["cleo", "dave", "acorns", "starling-bank", "orbit", "george-app-erste-serbia"];
+const mechDir = path.join(dist, "mechanics");
+const exampleHits = [];
+if (fs.existsSync(mechDir)) {
+  const walkMech = (dir) => {
+    for (const name of fs.readdirSync(dir)) {
+      const p = path.join(dir, name);
+      const st = fs.statSync(p);
+      if (st.isDirectory()) walkMech(p);
+      else if (path.extname(name) === ".html") {
+        const body = fs.readFileSync(p, "utf8");
+        for (const id of EXAMPLE_EXCLUDED_IDS) {
+          if (body.includes(`/case-studies/${id}/`))
+            exampleHits.push(`${path.relative(dist, p)} renders barred example app "${id}"`);
+        }
+      }
+    }
+  };
+  walkMech(mechDir);
+}
+if (exampleHits.length) {
+  console.error(`Example-block guard FAILED — ${exampleHits.length} hit(s):\n`);
+  for (const h of exampleHits) console.error("  ✗ " + h);
+  console.error("\nThese apps must not render as mechanic-page examples. Build stopped.");
+  process.exit(1);
+}
+
+console.log(
+  `Report-only leak check passed: ${terms.length / 2} report-only apps, zero traces in dist/; ` +
+    `example-block guard passed: ${EXAMPLE_EXCLUDED_IDS.length} barred apps, none rendered as examples.`
+);
