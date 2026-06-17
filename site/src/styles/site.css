@@ -1239,7 +1239,7 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
 
 /* Free report — landscape screenshot beside the download card */
 .catland-report { display: grid; grid-template-columns: 1fr; gap: clamp(28px, 4vw, 48px); align-items: start; }
-@media (min-width: 800px) { .catland-report { grid-template-columns: 340px 1fr; } }
+@media (min-width: 800px) { .catland-report { grid-template-columns: 380px 1fr; align-items: center; } }
 .catland-report__cover { width: 100%; }
 .catland-report__cover img { width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
 .catland-report__placeholder { width: 100%; aspect-ratio: 16 / 9;
