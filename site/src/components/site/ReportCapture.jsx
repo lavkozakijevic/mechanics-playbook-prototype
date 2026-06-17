@@ -81,7 +81,6 @@ export function ReportCapture({ category, source = "category-report" }) {
           {state === "sending" ? "Sending…" : "Get the free report"}
         </Button>
       </div>
-      <p className="capture__fine">One email, the report opens instantly. No list, no spam.</p>
     </form>
   );
 }
