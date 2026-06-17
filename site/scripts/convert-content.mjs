@@ -404,6 +404,32 @@ function headerName(file) {
   return md.match(/^# (.+)$/m)[1].trim();
 }
 
+// ------------------------------------------------ category hero logos
+// Category landing pages (e.g. /finance) can show a row of logo cards driven
+// by `heroApps` in their content JSON. Those logos load by id from /icons at
+// runtime, but many heroApps are not library apps (no analysis, no ALL_APPS
+// entry), so the loop above never collected their icons. Pick them up here so
+// the supplied logo files actually reach the deployed output. Report-only ids
+// are refused — nothing of theirs may ship, heroApps included.
+const reportOnlyIds = new Set(
+  ALL_APPS.filter((e) => e.visibility === "report-only").map((e) => e.id)
+);
+const categoriesDir = path.join(out, "categories");
+if (fs.existsSync(categoriesDir)) {
+  for (const f of fs.readdirSync(categoriesDir).filter((f) => f.endsWith(".json"))) {
+    const cat = JSON.parse(fs.readFileSync(path.join(categoriesDir, f), "utf8"));
+    for (const ha of cat.heroApps ?? []) {
+      if (reportOnlyIds.has(ha.id)) {
+        console.warn(`note: category ${cat.slug} heroApp ${ha.id} is report-only; icon not synced`);
+        continue;
+      }
+      for (const cand of [`icons/${ha.id}.webp`, `icons/${ha.id}.png`]) {
+        if (fs.existsSync(path.join(repo, cand))) publicAssets.add(cand);
+      }
+    }
+  }
+}
+
 // ------------------------------------------------------------ asset sync
 // public/icons and public/screenshots are fully managed by this script:
 // wiped and re-populated from the references collected above, so report-only
