@@ -246,7 +246,7 @@ a.gb-node:hover { border-color: var(--ink-900); box-shadow: var(--shadow-sm); }
   border-radius: var(--radius-md); transition: var(--transition-base);
 }
 .gb-input:hover { border-color: var(--border-strong); }
-.gb-input:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--red-wash); }
+.gb-input:focus-within { border-color: var(--border-strong); }
 .gb-input--sm { height: 32px; }
 .gb-input--lg { height: 48px; }
 .gb-input--error { border-color: var(--red-500); }
@@ -260,3 +260,6 @@ a.gb-node:hover { border-color: var(--ink-900); box-shadow: var(--shadow-sm); }
 }
 .gb-input input::placeholder { color: var(--text-faint); }
 .gb-input input:disabled { cursor: not-allowed; }
+/* The field's focus is shown by the container border; suppress the global
+   red focus-visible ring on the inner input so it never double-marks. */
+.gb-input input:focus-visible { box-shadow: none; }

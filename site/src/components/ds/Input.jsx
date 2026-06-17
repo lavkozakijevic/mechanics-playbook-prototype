@@ -21,7 +21,7 @@ injectOnce("gb-input-css", `
   border-radius: var(--radius-md); transition: var(--transition-base);
 }
 .gb-input:hover { border-color: var(--border-strong); }
-.gb-input:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--red-wash); }
+.gb-input:focus-within { border-color: var(--border-strong); }
 .gb-input--sm { height: 32px; }
 .gb-input--lg { height: 48px; }
 .gb-input--error { border-color: var(--red-500); }
@@ -35,10 +35,11 @@ injectOnce("gb-input-css", `
 }
 .gb-input input::placeholder { color: var(--text-faint); }
 .gb-input input:disabled { cursor: not-allowed; }
+.gb-input input:focus-visible { box-shadow: none; }
 `);
 
 /**
- * Input — a single-line text field on the sheet. Hairline border, red focus.
+ * Input — a single-line text field on the sheet. Hairline border, neutral focus.
  * Errors explain what went wrong, plainly, without apology.
  */
 export function Input({
