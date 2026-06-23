@@ -20,7 +20,7 @@ export function Hero({ carousel, eyebrow, headline, sub, ctas, className = "" })
   const items = carousel || [];
   const loop = items.concat(items);
   const buttons = ctas || [
-    { label: "Subscribe", href: "/mechanics/", variant: "primary" },
+    { label: "Subscribe", href: "/subscribe/", variant: "primary" },
     { label: "Gamify your app", href: "/work-with-us/", variant: "secondary" },
   ];
   const sectionClass = ["hero", className].filter(Boolean).join(" ");

@@ -1,32 +1,12 @@
 ---
 import Base from "../../layouts/Base.astro";
 import { SubscribePage } from "../../components/site/Subscribe.jsx";
-import { publishedApps, publishedMechanics, publishedCheatsheets, publishedGlossary, formatDate } from "../../lib/content";
-
-const apps = await publishedApps();
-const mechanics = await publishedMechanics();
-const cheatsheets = await publishedCheatsheets();
-const glossary = await publishedGlossary();
-
-// The design's "what's inside" counts, computed live (the design's sample
-// numbers were placeholders — stage-0 report).
-const inside = [
-  { count: String(apps.length), label: "App case studies", desc: "Full breakdowns, mechanic by mechanic, with annotated screenshots." },
-  { count: String(mechanics.length), label: "Mechanics", desc: "Every building block, with the psychology behind it and where it fits." },
-  { count: String(apps.filter((a) => a.data.system).length), label: "System maps", desc: "How each app's mechanics connect into the loops that bring players back." },
-  { count: String(cheatsheets.length), label: "Cheatsheets", desc: "Step-by-step guides your team can build straight from." },
-  { count: String(glossary.length), label: "Glossary terms", desc: "Plain-language definitions for every term the library uses." },
-];
-
-const newThisWeek = [...apps]
-  .sort((a, b) => (b.data.lastUpdated ?? "").localeCompare(a.data.lastUpdated ?? ""))
-  .slice(0, 3)
-  .map((a) => ({ title: `${a.data.name} case study`, date: formatDate(a.data.lastUpdated) }));
 ---
 
 <Base
   title="Subscribe — Mechanics Playbook"
-  description="Full access to every case study, mechanic, system map, and cheatsheet. New apps added every week."
+  description="Get weekly gamification case studies and examples. One subscription unlocks every mechanic, system, and case study in the library."
+  current="subscribe"
 >
-  <SubscribePage client:load inside={inside} newThisWeek={newThisWeek} />
+  <SubscribePage client:load />
 </Base>
