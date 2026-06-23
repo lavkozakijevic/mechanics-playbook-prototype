@@ -130,28 +130,25 @@ const ENGAGEMENT = [
   { h: "Gamification recommendations for your app", p: "An evidence-backed roadmap your team can ship." },
 ];
 
-/** Work with us bridge: short, what the engagement is, one action, with the
- *  three steps numbered on the right. */
+/** How we work: presented like the finance landing's "how we work" section —
+ *  kicker, heading, and the numbered steps in catland-steps layout. */
 function WorkWithUsBridge() {
   return (
-    <section className="band band--ink" id="work" aria-labelledby="work-h" style={{ borderTop: "none" }}>
+    <section className="band" id="work" aria-labelledby="work-h">
       <div className="container">
-        <div className="workbridge">
-          <div>
-            <div className="eyebrow">Work with us</div>
-            <h2 id="work-h">A practice you can hire, not just a library you can read</h2>
-            <p>We start from the features you already have, then find the mechanics that fit your app and your users.</p>
-            <Button variant="accent" size="lg" as="a" href="https://calendar.app.google/EvXYKKXGxJvKbxns5" target="_blank" rel="noopener noreferrer" trailingIcon={<i data-lucide="arrow-up-right" />}>Book a discovery call</Button>
-          </div>
-          <ol className="worklist" style={{ listStyle: "none", margin: 0, padding: 0 }}>
-            {ENGAGEMENT.map((t, i) => (
-              <li className="worklist__item" key={t.h}>
-                <span className="worklist__num" aria-hidden="true">{i + 1}</span>
-                <span className="worklist__text"><b>{t.h}</b><span>{t.p}</span></span>
-              </li>
-            ))}
-          </ol>
-        </div>
+        <div className="mech-section__kicker">How we work</div>
+        <h2 className="mech-section__title" id="work-h">A practice you can hire, not just a library you can read</h2>
+        <ol className="catland-steps">
+          {ENGAGEMENT.map((t, i) => (
+            <li className="catland-step" key={t.h}>
+              <span className="catland-step__n" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+              <div>
+                <h3 className="catland-step__title">{t.h}</h3>
+                <p className="catland-step__body">{t.p}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );

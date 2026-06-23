@@ -15,6 +15,7 @@ const { cat } = Astro.props;
   title={`Gamification for ${cat.name.toLowerCase()} — Mechanics Playbook`}
   description={cat.hero.sub.slice(0, 155)}
   current={cat.slug}
+  newsletter={false}
 >
   <CategoryLanding cat={cat} />
 </Base>

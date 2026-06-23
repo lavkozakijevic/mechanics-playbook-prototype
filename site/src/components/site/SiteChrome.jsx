@@ -75,8 +75,8 @@ export function SiteNav({ current }) {
         </nav>
 
         <div className="nav__actions">
-          <a className="nav__link" href="/login/">Log in</a>
-          <a className="nav__link" href="/subscribe/">Subscribe</a>
+          <Button variant="secondary" size="sm" as="a" href="/login/">Log in</Button>
+          <Button variant="accent" size="sm" as="a" href="/subscribe/">Subscribe</Button>
         </div>
 
         <button
@@ -110,8 +110,8 @@ export function SiteNav({ current }) {
           </div>
         ))}
         <div className="nav__drawer-actions">
-          <a className="nav__link" href="/login/" onClick={() => setOpen(false)}>Log in</a>
-          <a className="nav__link" href="/subscribe/" onClick={() => setOpen(false)}>Subscribe</a>
+          <Button variant="secondary" size="sm" as="a" href="/login/" onClick={() => setOpen(false)}>Log in</Button>
+          <Button variant="accent" size="sm" as="a" href="/subscribe/" onClick={() => setOpen(false)}>Subscribe</Button>
         </div>
       </div>
     </header>

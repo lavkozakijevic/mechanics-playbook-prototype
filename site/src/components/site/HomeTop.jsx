@@ -20,8 +20,8 @@ export function Hero({ carousel, eyebrow, headline, sub, ctas, className = "" })
   const items = carousel || [];
   const loop = items.concat(items);
   const buttons = ctas || [
-    { label: "Explore the library", href: "/mechanics/", variant: "primary" },
-    { label: "Work with us", href: "/work-with-us/", variant: "secondary" },
+    { label: "Subscribe", href: "/mechanics/", variant: "primary" },
+    { label: "Gamify your app", href: "/work-with-us/", variant: "secondary" },
   ];
   const sectionClass = ["hero", className].filter(Boolean).join(" ");
   return (
@@ -30,7 +30,7 @@ export function Hero({ carousel, eyebrow, headline, sub, ctas, className = "" })
         <div className="hero__body">
           <div className="eyebrow hero__eyebrow">{eyebrow ?? "Explore gamification options for your app"}</div>
           <h1 id="hero-h">{headline ?? "Power up your app with proven game mechanics"}</h1>
-          <p className="hero__sub">{sub ?? "See how the best apps and games turn everyday features into habits. We break down each mechanic, map how they fit together, and help your team apply the ones that suit your product."}</p>
+          <p className="hero__sub">{sub ?? "See how the best apps use gamification to turn everyday features into habits. We break down each mechanic, map how they fit together, and help your team apply the ones that suit your product."}</p>
           <div className="hero__cta">
             {buttons.map(({ label, variant, href, ...rest }) => (
               <Button key={label} variant={variant} size="lg" as="a" href={href} {...rest}>{label}</Button>
