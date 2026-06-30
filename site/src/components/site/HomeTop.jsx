@@ -45,15 +45,17 @@ export function Hero({ carousel, eyebrow, headline, sub, ctas, className = "" })
                   <article className="mcard mcard--logo" key={i} aria-hidden={i >= items.length ? "true" : undefined}>
                     <div className="mcard__shot mcard__logo-slot">
                       <span className="mcard__mark">{logoInitials(m.name)}</span>
-                      <picture>
-                        <source srcSet={`/icons/${m.id}.webp`} type="image/webp" />
-                        <img
-                          src={`/icons/${m.id}.png`}
-                          alt=""
-                          className="mcard__logo-img"
-                          onError={(e) => { const p = e.currentTarget.parentElement; if (p) p.style.display = "none"; }}
-                        />
-                      </picture>
+                      <img
+                        src={`/icons/${m.id}.webp`}
+                        alt=""
+                        className="mcard__logo-img"
+                        onError={(e) => {
+                          const img = e.currentTarget;
+                          if (img.src.match(/\.webp$/)) { img.src = img.src.replace(/\.webp$/, ".png"); }
+                          else if (img.src.match(/\.png$/)) { img.src = img.src.replace(/\.png$/, ".jpg"); }
+                          else { img.style.display = "none"; }
+                        }}
+                      />
                     </div>
                     <div className="mcard__body">
                       <p className="mcard__name">{m.name}</p>
@@ -63,15 +65,17 @@ export function Hero({ carousel, eyebrow, headline, sub, ctas, className = "" })
                   <article className="mcard mcard--logo" key={i} aria-hidden={i >= items.length ? "true" : undefined}>
                     <div className="mcard__shot mcard__logo-slot">
                       <span className="mcard__mark">{logoInitials(m.app)}</span>
-                      <picture>
-                        <source srcSet={`/icons/${m.appId}.webp`} type="image/webp" />
-                        <img
-                          src={`/icons/${m.appId}.png`}
-                          alt=""
-                          className="mcard__logo-img"
-                          onError={(e) => { const p = e.currentTarget.parentElement; if (p) p.style.display = "none"; }}
-                        />
-                      </picture>
+                      <img
+                        src={`/icons/${m.appId}.webp`}
+                        alt=""
+                        className="mcard__logo-img"
+                        onError={(e) => {
+                          const img = e.currentTarget;
+                          if (img.src.match(/\.webp$/)) { img.src = img.src.replace(/\.webp$/, ".png"); }
+                          else if (img.src.match(/\.png$/)) { img.src = img.src.replace(/\.png$/, ".jpg"); }
+                          else { img.style.display = "none"; }
+                        }}
+                      />
                     </div>
                     <div className="mcard__body">
                       <Tag category={m.cat} dot>{m.mechanic}</Tag>

@@ -38,7 +38,7 @@ function SystemCard({ sys }) {
 
       <div className="csc__foot">
         <span className="csc__count"><b>{mechanics.length}</b> mechanics linked</span>
-        <span className="csc__go">{sys.locked ? "Subscribe to read" : "Explore the map"} {ArrowIcon}</span>
+        <span className="csc__go">{sys.locked ? "Subscribe to explore" : "Explore the map"} {ArrowIcon}</span>
       </div>
     </a>
   );

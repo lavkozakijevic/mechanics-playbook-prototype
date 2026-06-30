@@ -4,9 +4,12 @@ import { CaseStudiesPage } from "../../components/site/CaseStudies.jsx";
 import { publishedApps, publishedMechanics } from "../../lib/content";
 import { appCard } from "../../lib/props";
 
-const apps = (await publishedApps()).sort(
-  (a, b) => (b.data.analysisDate ?? "").localeCompare(a.data.analysisDate ?? "")
-);
+const apps = (await publishedApps()).sort((a, b) => {
+  const aFree = a.data.visibility !== "subscriber" ? 0 : 1;
+  const bFree = b.data.visibility !== "subscriber" ? 0 : 1;
+  if (aFree !== bFree) return aFree - bFree;
+  return (b.data.analysisDate ?? "").localeCompare(a.data.analysisDate ?? "");
+});
 const byId = new Map((await publishedMechanics()).map((m) => [m.data.id, m.data]));
 ---
 

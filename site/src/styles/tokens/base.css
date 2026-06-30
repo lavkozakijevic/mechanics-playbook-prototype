@@ -75,6 +75,10 @@ img, svg {
   max-width: 100%;
 }
 
+/* Ensure the hidden attribute actually hides elements even when
+   an author stylesheet sets an explicit display value. */
+[hidden] { display: none !important; }
+
 hr {
   border: none;
   border-top: var(--rule-hairline);

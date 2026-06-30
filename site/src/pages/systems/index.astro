@@ -22,6 +22,10 @@ const systems = withSystems.map((a) => {
     type: a.data.type === "game" ? "Game" : "App",
     locked: a.data.visibility !== "public" && !freeSystems.has(a.data.id),
   };
+}).sort((a, b) => {
+  if (!a.locked && b.locked) return -1;
+  if (a.locked && !b.locked) return 1;
+  return 0;
 });
 ---
 
