@@ -35,11 +35,11 @@ const carousel = CAROUSEL_PAIRINGS
     const w = rel?.writeup;
     if (!w?.observed?.trim() || !w?.noting?.trim() || !w?.presented?.trim() || !w?.findings?.[0]?.trim()) return null;
     return {
+      appId,
       app: app.name,
       mechanic: mech.name,
       cat: mech.cat,
       title: `How ${app.name} uses ${mech.name}`,
-      href: `/case-studies/${appId}/`,
     };
   })
   .filter(Boolean);

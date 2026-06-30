@@ -147,8 +147,6 @@
     var(--paper-deep);
   border-bottom: 1px solid var(--border-subtle); }
 .mcard__body { padding: 14px 15px 16px; display: flex; flex-direction: column; gap: 8px; }
-a.mcard--link { text-decoration: none; cursor: pointer; transition: box-shadow var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard); }
-a.mcard--link:hover { border-color: var(--border-strong); box-shadow: var(--shadow-sm); }
 .mcard__title { font: var(--type-body); font-size: 15px; font-weight: var(--weight-semibold);
   color: var(--ink-900); line-height: 1.35; text-wrap: pretty; }
 

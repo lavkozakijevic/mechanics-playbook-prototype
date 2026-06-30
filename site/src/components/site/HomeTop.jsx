@@ -59,17 +59,20 @@ export function Hero({ carousel, eyebrow, headline, sub, ctas, className = "" })
                       <p className="mcard__name">{m.name}</p>
                     </div>
                   </article>
-                ) : m.href ? (
-                  <a className="mcard mcard--link" key={i} href={m.href} aria-hidden={i >= items.length ? "true" : undefined}>
-                    <div className="mcard__shot">{m.screen ? `${m.app} · ${m.screen}` : null}</div>
-                    <div className="mcard__body">
-                      <Tag category={m.cat} dot>{m.mechanic}</Tag>
-                      <p className="mcard__title">{m.title}</p>
-                    </div>
-                  </a>
                 ) : (
-                  <article className="mcard" key={i} aria-hidden={i >= items.length ? "true" : undefined}>
-                    <div className="mcard__shot">{m.screen ? `${m.app} · ${m.screen}` : null}</div>
+                  <article className="mcard mcard--logo" key={i} aria-hidden={i >= items.length ? "true" : undefined}>
+                    <div className="mcard__shot mcard__logo-slot">
+                      <span className="mcard__mark">{logoInitials(m.app)}</span>
+                      <picture>
+                        <source srcSet={`/icons/${m.appId}.webp`} type="image/webp" />
+                        <img
+                          src={`/icons/${m.appId}.png`}
+                          alt=""
+                          className="mcard__logo-img"
+                          onError={(e) => { const p = e.currentTarget.parentElement; if (p) p.style.display = "none"; }}
+                        />
+                      </picture>
+                    </div>
                     <div className="mcard__body">
                       <Tag category={m.cat} dot>{m.mechanic}</Tag>
                       <p className="mcard__title">{m.title}</p>
