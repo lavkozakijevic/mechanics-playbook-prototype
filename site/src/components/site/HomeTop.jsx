@@ -96,7 +96,7 @@ export function Hero({ carousel, eyebrow, headline, sub, ctas, className = "" })
 function LibraryContents({ stats }) {
   const lib = [
     { count: stats.caseStudies, h: "Case studies", p: "Full breakdowns of how real apps build engagement, mechanic by mechanic.", link: "Browse case studies", href: "/case-studies/" },
-    { count: stats.systems, h: "Systems", p: "How mechanics combine into the loops that keep players coming back.", link: "Explore systems", href: "/systems/" },
+    { count: stats.systems, h: "Systems", p: "How mechanics combine into the loops that keep users coming back.", link: "Explore systems", href: "/systems/" },
     { count: stats.cheatsheets, h: "Cheatsheets", p: "Practical implementation guides your team can build straight from.", link: "Open cheatsheets", href: "/cheatsheets/" },
   ];
   return (

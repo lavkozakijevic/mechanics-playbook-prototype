@@ -12,7 +12,7 @@ const NAV = [
     href: "/mechanics/",
     children: [
       { label: "Mechanics", href: "/mechanics/", key: "mechanics", desc: "The core building blocks, with the psychology behind each one." },
-      { label: "Systems", href: "/systems/", key: "systems", desc: "How mechanics combine into the loops that keep players coming back." },
+      { label: "Systems", href: "/systems/", key: "systems", desc: "How mechanics combine into the loops that keep users coming back." },
       { label: "Cheatsheets", href: "/cheatsheets/", key: "cheatsheets", desc: "Practical guides for putting mechanics into your product." },
       { label: "Glossary", href: "/glossary/", key: "glossary", desc: "Plain-language definitions for every term we use." },
     ],
@@ -189,7 +189,7 @@ export function SiteFooter({ lastUpdated, categories }) {
           </div>
         </div>
         <div className="footer__bottom">
-          <span className="footer__fresh"><span className="pip" />Updated weekly · last addition {lastUpdated}</span>
+          <span className="footer__fresh"><span className="pip" />Updated weekly</span>
           <span className="footer__meta">
             <a className="footer__email" href="mailto:lav@gamebizconsulting.com">lav@gamebizconsulting.com</a>
             <span className="footer__sep" aria-hidden="true">·</span>

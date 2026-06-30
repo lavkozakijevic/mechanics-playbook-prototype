@@ -13,7 +13,7 @@ function LibraryPreview({ featured }) {
       <div className="container">
         <div className="sec-head">
           <h2 className="sec-head__t" id="lib-h">Start with the mechanics</h2>
-          <span className="sec-head__aside">Each mechanic comes with the psychology behind it, the players it fits, and what your app needs in place to use it well.</span>
+          <span className="sec-head__aside">Each mechanic comes with the psychology behind it, the users it fits, and what your app needs in place to use it well.</span>
         </div>
         <div className="cardgrid">
           {featured.map((m) => (
@@ -66,23 +66,22 @@ const REPORT_ROWS = [
   { name: "Team leaderboards", state: "recommend", label: "Try first" },
 ];
 
-/** Value proposition 2 — a custom category report with recommendations for the
- *  visitor's own app. */
-function CategoryReport() {
+/** Work with us — maps the engagement to our consulting offer. */
+function WorkWithUsSection() {
   return (
     <section className="band" id="reports" aria-labelledby="report-h">
       <div className="container">
         <div className="showcase">
           <div className="showcase__body">
-            <div className="eyebrow">Custom report</div>
-            <h2 id="report-h">Get a report built for your category</h2>
-            <p>Tell us your app and your industry. We'll show you which mechanics your category already relies on, which ones are still open, and the few worth trying first, each with a recommendation for your product.</p>
-            <Button variant="primary" size="lg" as="a" href="/work-with-us/" trailingIcon={<i data-lucide="arrow-right" />}>Get your category report</Button>
+            <div className="eyebrow">Work with us</div>
+            <h2 id="report-h">We find the mechanics that fit your app</h2>
+            <p>We study the features you already ship, your users, and your category, then map where engagement is leaking and which mechanics would take root in your product. You walk away with three things: a map of what your app is already doing, a comparison of what your category relies on and leaves untapped, and a prioritized roadmap of the mechanics worth building, in order, each with what it asks of your product and why it earns its place.</p>
+            <Button variant="primary" size="lg" as="a" href="https://calendar.app.google/EvXYKKXGxJvKbxns5" trailingIcon={<i data-lucide="arrow-up-right" />}>Book a discovery call</Button>
           </div>
           <div className="showcase__map">
             <div className="report">
               <div className="report__head">
-                <span className="report__kicker">Category report</span>
+                <span className="report__kicker">Category comparison</span>
                 <span className="report__app">Fitness · your app</span>
               </div>
               <ul className="report__rows">
@@ -94,6 +93,7 @@ function CategoryReport() {
                 ))}
               </ul>
             </div>
+            <p className="report__caption">A category comparison, simplified.</p>
           </div>
         </div>
       </div>
@@ -103,11 +103,13 @@ function CategoryReport() {
 
 /** New this week: the latest case study entries, dated. Proves the cadence. */
 function NewThisWeek({ items }) {
+  const since = items[0]?.date;
   return (
     <section className="band" aria-labelledby="new-h">
       <div className="container">
         <div className="sec-head">
           <h2 className="sec-head__t" id="new-h">Latest entries</h2>
+          {since && <span className="sec-head__since">as of {since}</span>}
         </div>
         <div className="feed">
           {items.map((it) => (
@@ -160,7 +162,7 @@ export function HomeBottom({ featured, newThisWeek, showcase }) {
     <>
       {featured?.length > 0 && <LibraryPreview featured={featured} />}
       {showcase && <SystemShowcase showcase={showcase} />}
-      <CategoryReport />
+      <WorkWithUsSection />
       {newThisWeek?.length > 0 && <NewThisWeek items={newThisWeek} />}
       <WorkWithUsBridge />
     </>
