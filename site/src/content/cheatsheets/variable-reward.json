@@ -1,0 +1,63 @@
+{
+  "id": "variable-reward",
+  "n": 6,
+  "title": "Designing Variable Rewards That Feel Fair",
+  "desc": "How to implement variable reward systems that sustain engagement without eroding trust.",
+  "mechanics": [
+    "variable-reward",
+    "set-collection",
+    "piggy-bank"
+  ],
+  "apps": [
+    "capybara-go",
+    "solitaire-grand-harvest",
+    "royal-match",
+    "fc-mobile",
+    "fortune-city"
+  ],
+  "steps": [
+    {
+      "n": "01",
+      "heading": "Disclose probabilities proactively, not on request",
+      "body": "FC Mobile draft screens display guarantee counters ('Pool B guaranteed in 11 drafts, Pool A in 51') at the top of every pull surface, one of the few proactive probability disclosures in the library. The Easter Box within the same app had no probability disclosure, creating a visible inconsistency. Transparency builds trust; inconsistency in disclosure across the same product erodes it faster than consistent non-disclosure.",
+      "apps": [
+        "fc-mobile"
+      ]
+    },
+    {
+      "n": "02",
+      "heading": "Give variable rewards a negative possibility only when it's narratively justified",
+      "body": "Capybara Go!'s Forest Maiden spin wheel includes a loss segment (lose 15% HP), the only variable reward in the library with a genuinely negative possible outcome. The optional nature (spin or leave) and the narrative framing (the Forest Goddess punishes bad luck) make the loss feel coherent. Negative outcomes in variable rewards only work when the game world provides a reason for them.",
+      "apps": [
+        "capybara-go"
+      ]
+    },
+    {
+      "n": "03",
+      "heading": "Link variable reward quality to player investment decisions",
+      "body": "Solitaire Grand Harvest's card pack quality is determined by the bet multiplier chosen at level start, x1 yields common packs, x4 yields rare packs. The player who bets higher receives better variable rewards. The risk-reward relationship is explicit and chosen. Royal Match's card packs are tied to level completion, making progression the investment rather than a monetary stake.",
+      "apps": [
+        "solitaire-grand-harvest",
+        "royal-match"
+      ]
+    },
+    {
+      "n": "04",
+      "heading": "Convert duplicates into something useful immediately",
+      "body": "Royal Match converts duplicate collection cards automatically into crowns redeemable for credits and boosters, every drop has value, eliminating the primary negative experience of randomized collection. Fortune City's building merge produces a named new building from two identical buildings, the duplicate input becomes a new-type output rather than a wasted item.",
+      "apps": [
+        "royal-match",
+        "fortune-city"
+      ]
+    },
+    {
+      "n": "05",
+      "heading": "Use variable rewards inside the core loop, not only at spend surfaces",
+      "body": "Capybara Go! skill selection at level-up presents three random skills from a rarity-tiered pool, with the player seeing all options before committing, a visible random selection rather than a blind pull. The mechanic is embedded in every run rather than concentrated at a spending surface. Variable rewards embedded in core gameplay feel earned rather than purchased.",
+      "apps": [
+        "capybara-go"
+      ]
+    }
+  ],
+  "visibility": "subscriber"
+}

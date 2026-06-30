@@ -1,0 +1,22 @@
+---
+import Base from "../../layouts/Base.astro";
+import { CaseStudyDetailPage } from "../../components/site/CaseStudyDetail.jsx";
+import { publishedApps, publishedMechanics } from "../../lib/content";
+import { caseStudyProps } from "../../lib/props";
+
+export async function getStaticPaths() {
+  return (await publishedApps()).map((app) => ({ params: { id: app.data.id }, props: { app } }));
+}
+
+const { app } = Astro.props;
+const byId = new Map((await publishedMechanics()).map((m) => [m.data.id, m.data]));
+const props = caseStudyProps(app.data, byId);
+---
+
+<Base
+  title={`${app.data.name} — case study — Mechanics Playbook`}
+  description={app.data.summary.slice(0, 155)}
+  current="case-studies"
+>
+  <CaseStudyDetailPage client:load app={props} />
+</Base>

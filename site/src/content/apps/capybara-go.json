@@ -1,0 +1,398 @@
+{
+  "id": "capybara-go",
+  "name": "Capybara Go!",
+  "category": "Roguelite",
+  "type": "game",
+  "visibility": "subscriber",
+  "analysisDate": "2026-05-12",
+  "lastUpdated": "2026-05-15",
+  "summary": "Capybara Go! is a roguelite idle RPG where every run, even a failed one, contributes to multiple parallel progression tracks simultaneously. The energy overflow mechanic stores excess regenerated energy in an inbox for up to six days, inverting the standard energy model: absence rewards rather than punishes. Features are gated behind chapter progression in a long staggered sequence, keeping content discovery running for weeks after first install.",
+  "icon": "/icons/capybara-go.png",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "variable-reward",
+      "depth": "core",
+      "writeup": {
+        "observed": "Variable rewards appear across multiple surfaces simultaneously. In-run spin wheel: the Forest Maiden encounter triggers an optional wheel with five segments, four wins (skill, 30 XP, +100 attack, +10% health restore) and one loss (lose 15% HP). The player chooses to spin or leave. Equipment chests disclose probability tables: the Limited Secret Chest shows 0.65% S epic, 3% epic, 9% rare, 25% great, 62.35% common, at 320 gems per pull. Pet eggs hatch random pets. Skill choices at level-up present three random skills from a rarity-tiered pool, with the player seeing all three before committing.",
+        "presented": "The spin wheel appears as a narrative event during runs. Equipment chests open with an animation in the equipment shop. Pet eggs hatch in the pets section. Skill choices appear as full-screen overlays at level-up moments during runs.",
+        "noting": "The Forest Maiden spin wheel is the only variable reward in the library with a genuinely negative possible outcome, lose 15% HP, rather than just a low-value positive one. The optional nature and the narrative framing (the Forest Goddess punishes bad luck) make the loss feel coherent rather than punitive. Skill selection is 'choice from a visible random pool', the player can see all three options before committing, distinguishing it from blind pull mechanics.",
+        "findings": [
+          "The Forest Maiden spin wheel includes a loss segment (lose 15% HP), the only variable reward in the library with a genuinely negative possible outcome.",
+          "Skill selection at level-up presents all three options before commitment, the player chooses from a random pool rather than pulling blindly.",
+          "Equipment chest probabilities are disclosed via a tap-info button, transparency is available but not surfaced proactively at the moment of pull.",
+          "In-run treasure mini-games include a card-flip matching game where no loss segment exists, creating a different risk profile from the Forest Maiden wheel."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "In-run spin wheel showing five segments including the lose 15% HP segment, the forest maiden framing, and the spin/leave choice",
+        "Limited Secret Chest probability disclosure showing S epic 0.65%, Epic 3%, Rare 9%, Great 25%, Common 62.35% and the pity mechanic note"
+      ]
+    },
+    {
+      "id": "xp-leveling",
+      "depth": "core",
+      "writeup": {
+        "observed": "Multiple XP tracks run simultaneously: in-run XP powers skill selection during the run (level up → choose a skill from three random options); talent XP uses gold coins for permanent upgrades; equipment levels use enhancement stones. Each run starts fresh for skills but carries persistent stat boosts from talents and equipment. Every session produces measurable forward movement on at least one axis.",
+        "presented": "The talent tree is accessible from the home screen. In-run XP is displayed as a progress bar during runs. Level-up moments during runs trigger full-screen skill selection overlays.",
+        "noting": "The dual-loop design, fresh in-run skills plus persistent cross-run progression, means every session has a different skill composition, creating variety within a consistent progression framework. A failed run still contributes gold and experience to the talent tree and equipment tracks, making failure feel productive rather than wasted.",
+        "findings": [
+          "In-run skills are selected from a random pool at level-up and reset on run completion, every run has a different skill combination, creating variety within the consistent roguelite structure.",
+          "Talent upgrades persist across runs and compound over multiple sessions, ensuring long-term measurable progress independent of individual run outcomes.",
+          "Three parallel progression tracks ensure every session advances at least one axis, eliminating sessions that feel wasted.",
+          "Mythic-tier skills appear at elite enemy encounters on higher days, making combat milestones within a run reward the player with skill pool upgrades."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Talent screen showing the three talent categories (HP, Attack, Defense), the current rank bar (Apprentice, 6/10 points), and the 720-coin milestone reward",
+        "Evolution Tree preview showing the full rank ladder from Apprentice through Hero to Elite Legacy with point thresholds"
+      ]
+    },
+    {
+      "id": "energy-lives",
+      "depth": "core",
+      "writeup": {
+        "observed": "Each run costs 5 energy. The cap is 30 energy, regenerating over time. Multiple acquisition methods: rewarded video ads (up to 15 energy, twice daily), gem purchases (15 energy for 90 gems, four times daily), and a daily free pack of 10 energy on a 5-hour refresh. The energy overflow mechanic stores regenerated energy above the cap in an inbox as claimable messages for up to six days. On returning after a long absence, 249 energy units were waiting, equivalent to nearly 50 runs.",
+        "presented": "Energy is displayed as a counter in the home screen UI. The inbox stores overflow energy as messages claimable on return. Each energy acquisition method is a distinct interaction rather than a single button.",
+        "noting": "The overflow inbox inverts the standard energy mechanic: instead of punishing absence (missed regeneration above the cap is wasted), the game rewards it by storing everything. A returning player after a week away finds a full inbox of accumulated energy rather than a capped counter. Returning feels abundant rather than penalized.",
+        "findings": [
+          "Energy overflow above the 30-unit cap is stored in the inbox as claimable messages for up to six days, inverting the standard energy mechanic by rewarding absence rather than penalizing it.",
+          "249 energy units were waiting in the inbox after a long absence during analysis, equivalent to nearly 50 runs, ensuring no returning player is energy-starved.",
+          "Four separate energy acquisition methods (ads, gems, daily pack, natural regeneration) give players agency over session length without removing the underlying scarcity.",
+          "The full energy acquisition system is not available from the first session, features unlock with chapter progression."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Energy acquisition overlay showing all four paths: daily free (10 energy, 5hr refresh), watch ad (15 energy, 2 chances left), buy with gems (15 energy, 4 chances, 90 gems), and the refill option",
+        "Mail inbox showing multiple Capybara Protection Association parcels with overflow stamina (60, 17, 60, 60) with claim-all button and 6-day expiry"
+      ]
+    },
+    {
+      "id": "season-pass",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Seven 'funds' and one Battle Pass share the same free/paid dual-tier structure. Each fund is paired with a specific activity: Talent Fund (talent upgrades), Tower Challenge Fund (tower clears), Dungeon Fund (dungeon clears), Adventure Fund (quest completion), Guru Fund, Mythic Treasure Fund, and the Battle Pass. Fund milestones are activity-specific, purchasing a fund unlocks paid-tier rewards at all future milestones of that activity type. Most funds have no countdown timer, running for the chapter's duration rather than a fixed season.",
+        "presented": "Funds appear in the dedicated section of the home screen. Each fund shows the free-tier and paid-tier tracks side by side. The Battle Pass has a countdown timer; most funds do not.",
+        "noting": "Each fund is paired with an activity the player is already doing. Purchasing a fund doesn't create new behaviour; it monetizes existing behaviour at the point where the player is most engaged with that activity type. This makes each fund purchase feel proportionate relative to its $9.99–$29.99 price.",
+        "findings": [
+          "Seven funds plus one Battle Pass can all be active simultaneously, a player who purchases all eight has paid-tier multipliers on every major activity type in the game at once.",
+          "Most funds have no countdown timer, removing the standard season-pass urgency mechanic.",
+          "Fund rewards monetize activity already happening rather than creating new behaviour, making purchases feel like accelerators of existing goals.",
+          "Feature unlocks are gated behind chapter progression: Chapter 2 unlocks daily login and tasks; Chapter 3 unlocks guilds; Chapter 4 unlocks arena and mounts."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Battle Pass screen showing Season 1, the 15-day countdown, 30 reward steps with 1:2 free-to-paid ratio, and the \"inactive\" status with purchase prompt",
+        "Growth Fund featured tab showing all four funds — Battle Pass, Talent Fund, Tower Challenge Fund, Dungeon Fund — with timer on Battle Pass and \"inactive\" badges on all"
+      ]
+    },
+    {
+      "id": "daily-login-reward",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "The daily login reward system unlocks after Chapter 2 completion, appearing as a calendar-based popup at session start. A separate inbox system delivers overflow energy accumulated during absence. The daily free energy pack refreshes every five hours independently of the daily login calendar. Multiple distinct daily return touchpoints coexist: the login calendar, inbox overflow, the five-hour energy pack, and daily task resets.",
+        "presented": "The daily login popup appears as the first interaction after the home screen loads. The inbox stores both the daily reward and overflow energy.",
+        "noting": "Gating the daily login reward behind Chapter 2 completion means it arrives as a feature discovery moment after the player has invested time. The reward is received in a context where the player understands what the currencies mean and how they will be used.",
+        "findings": [
+          "Daily login reward unlocks after Chapter 2, a deliberate progression gate that introduces it as feature discovery rather than a day-one hook.",
+          "The daily login system coexists with an inbox overflow system, a five-hour energy pack refresh, and multiple other daily acquisition methods, multiple distinct daily return touchpoints.",
+          "The inbox stores accumulated energy from absence, ensuring the daily login reward coexists with the overflow mechanic rather than competing with it."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Seven Day Sign-In screen showing all 7 days with reward previews — Day 1 (50 gems, claimed), through Day 7 (Mythic Pet + Amethyst Chest)"
+      ]
+    },
+    {
+      "id": "ads",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Rewarded video ads are integrated as an energy acquisition method. Players can watch ads to receive 15 energy per watch, up to twice daily. Additional placements: watching three ads substitutes for 300 gems to hatch one pet egg batch. The Adventure Supply Crate can be opened by watching three ads (twice daily) in addition to its 80-gem paid option. A permanent 'ad-free card' upsell appears on every rewarded video, converting each ad interaction into a subscription awareness moment.",
+        "presented": "Ad placements appear at each spend point as an alternative to gem payment. The ad-free card upsell appears as a persistent overlay on the ad viewing confirmation screen.",
+        "noting": "Rewarded ads function as an energy source within the core economy rather than as an interruption between sessions. Each ad watch moves the player closer to the next run. The persistent ad-free card upsell turns every ad interaction into a conversion touchpoint for the premium subscription.",
+        "findings": [
+          "Rewarded ads provide 15 energy per watch (twice daily), integrated directly into the resource economy rather than offered as a separate bonus.",
+          "Three ads substitute for 300 gems to hatch a pet egg batch, the ad value is explicitly pegged against a gem equivalent, letting players evaluate the exchange themselves.",
+          "The ad-free card upsell appears on every rewarded ad, making each ad interaction a subscription conversion moment.",
+          "The Adventure Supply Crate is free on first open; subsequent opens cost 80 gems or watching three ads, an escalating cost structure around a recurring reward."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Adventure Supply Crate screen showing \"open for free\" (on cooldown) alongside \"80 gems\" and \"watch 3 ads\" options, with the Ad-Free Card banner below"
+      ]
+    },
+    {
+      "id": "leaderboards",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "A global player ranking is visible from the profile screen, showing position alongside chapter progress and longest run metrics. During analysis the account reached rank 3,092 after three sessions across four days. The ranking uses chapter progress and longest survival run as the displayed metrics, making it a proxy for skill and time investment simultaneously. A Tower Challenge leaderboard ranks players by tower floor cleared.",
+        "presented": "Global rank is visible on the player profile. Tower Challenge rankings show floor reached. Both leaderboards update in real time.",
+        "noting": "Using chapter progress and longest run as ranking metrics means rank reflects quality of play rather than raw time spent. A player who cleared Chapter 2 efficiently ranks higher than one who spent the same hours failing Chapter 1 repeatedly. This makes the comparison feel earned rather than arbitrary.",
+        "findings": [
+          "Rank 3,092 was reached after three sessions, early rank movement is fast, creating an immediate sense of competitive progress before the ranking stabilizes.",
+          "Chapter progress and longest run are the displayed ranking metrics, making rank a proxy for progression quality rather than raw time investment.",
+          "Tower Challenge provides a separate leaderboard axis, players who prioritize tower content have their own ranking context distinct from the main chapter leaderboard."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "limited-time-events",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "achievements",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Achievement milestones are tied to chapter completion and survival day records. Clearing Chapter 1 (survive 60 days) unlocks Chapter 2 content and is treated as a named milestone. Personal best run length is shown on every defeat screen, framing every run as a score-attack against the player's own record. The roguelite structure inherently milestones every improved personal best.",
+        "presented": "Chapter completion triggers a dedicated celebration sequence. The defeat screen shows personal best run length prominently. Chapter completion gates feature unlocks, each chapter milestone reveals new content systems.",
+        "noting": "The defeat screen personal best display converts every run-end moment into a progress marker, even a failed run sets a new context for the next attempt. This reframes failure as data about the next run rather than a pure loss.",
+        "findings": [
+          "Personal best run length is displayed on every defeat screen, reframing failure as a score-attack milestone rather than a pure loss.",
+          "Chapter completion is the primary milestone gate, Chapter 1 completion unlocks Chapter 2 content, which unlocks the next set of systems and milestones.",
+          "Feature unlocks are staged across chapters in a long sequence, features other games surface in the first session are held back for weeks of play here."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "daily-weekly-quests",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "A task system unlocks progressively through chapter progression. Basic tasks guide players through core mechanics; later tasks direct attention toward underexplored systems. Three task types: daily tasks (reset each day), one-time tasks (permanent completion markers), and chapter-specific tasks. Tasks award gold coins, gems, and activity-specific currencies. The task hub is accessible from the home screen with Go buttons navigating directly to the relevant game section.",
+        "presented": "Tasks are listed in the task hub with completion progress tracked. Chapter-gated tasks reveal new objectives as chapters are cleared. Go buttons link directly to the relevant section.",
+        "noting": "The progressive task unlock ensures players are introduced to each system at the moment it becomes available, guild mechanic, black market, dungeon, rather than being presented with all objectives simultaneously from the first session. Tasks function as a guided discovery layer that reveals the full game depth gradually.",
+        "findings": [
+          "Task unlocks are gated behind chapter progression, the full task library is only accessible after significant play investment.",
+          "Go buttons navigate directly to the relevant game section from within the task hub, reducing friction between seeing a task and acting on it.",
+          "The system serves as contextual onboarding, tasks introduce new features at the moment they unlock.",
+          "Daily tasks reset each day, creating a recurring return incentive separate from the run-based progression loop."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "clans-guilds",
+      "depth": "shallow",
+      "writeup": {
+        "observed": "Guilds unlock at Chapter 3 completion, gating access behind meaningful progression investment. Guild members share a quest system with collective contribution targets. The guild store offers items purchasable with guild points earned through contribution. Guild activity, dungeon participation, contribution to shared goals, feeds the collective standing.",
+        "presented": "The guild hub is accessible from the home screen after Chapter 3 completion. Guild quests show individual and collective contribution targets. The guild store displays purchasable items with their guild point costs.",
+        "noting": "The Chapter 3 gate ensures users who join guilds have invested enough play time to contribute rather than passively collect. A player who unlocks guilds has already cleared multiple chapters and understands the systems being contributed to, making guild participation contextually meaningful.",
+        "findings": [
+          "Guild access is gated behind Chapter 3 completion, a deliberate investment gate ensuring active rather than passive guild membership.",
+          "Guild dungeons provide pet food and other progression resources, directly tying guild participation to multiple progression tracks outside the run loop.",
+          "The high currency fragmentation in Capybara Go! (15+ named currencies) extends to guild-specific currencies, keeping guild economy separate from the main run economy."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "first-purchase-bonus",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "The first top-up doubles gem currency for every price tier, 120 gems for $0.99 becomes 240, 600 gems for $4.99 becomes 1,200. A separate first-purchase moment was observed at day 59 completion: a 3-day deluxe pack at $0.99, framed as offering a 5,000% rebate on time investment. The timing targets a specific progression moment, after Chapter 1 has been completed and the difficulty ceiling before Chapter 2 has been felt.",
+        "presented": "The doubled gem packs appear in the store's top-up section with a 2x label. The day-59 offer appears as a timed event at chapter completion. Both are positioned at the moment of first meaningful friction.",
+        "noting": "The day-59 offer targets the exact moment when progression slows enough that the player needs help, after investing enough time to feel ownership over the account, but before the difficulty ceiling causes churn. Framing a $0.99 purchase as a '5,000% return on time investment' anchors the value against the hours already spent rather than against the purchase price.",
+        "findings": [
+          "The day-59 rebate offer is timed at chapter completion, after significant investment but at the point where progression first becomes genuinely difficult.",
+          "First gem top-ups double for every price tier, from $0.99 to $99.99, the doubling applies universally, not just on the lowest tier.",
+          "Two separate currencies (gems and jade stones) have their own top-up sections, each with first-purchase doubling, creating two distinct first-purchase conversion opportunities."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "cosmetics",
+      "depth": "shallow",
+      "writeup": {
+        "observed": "Cosmetics in Capybara Go! function primarily as milestone markers rather than self-expression purchases. The yellow duck costume unlocks at the day-59 rebate pack. Mount cosmetics unlock at Chapter 4 completion. Character skins are available through event currency tracks. Homestead buildings are purchasable with homestead coins, a distinct currency from the main economy. All cosmetics are visible during runs and on the home screen character display.",
+        "presented": "Cosmetics are shown in the equipment and character sections. Event-specific cosmetics are surfaced through the event hub. Mount cosmetics require Chapter 4 progression to access.",
+        "noting": "Milestone-gated cosmetics signal progression to other players and to the player themselves, the duck costume communicates day 59, the mount communicates Chapter 4. Each cosmetic carries a built-in narrative of how it was earned, giving it meaning beyond pure appearance.",
+        "findings": [
+          "Cosmetics are primarily milestone markers, each visible item signals a specific progression achievement rather than a purchase decision.",
+          "Mount cosmetics gate behind Chapter 4, making the first mount a visible indicator of significant game investment.",
+          "Homestead buildings use a distinct currency (homestead coins) purchased via store pack, the only direct-purchase cosmetic category observed."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "soft-currency",
+      "depth": "supporting",
+      "provisionalDepth": true,
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "A layered progression system where every session adds to multiple tracks simultaneously.",
+    "overview": "Capybara Go!'s system is built around a single design principle: no session should feel wasted. Every run, even a failed one, contributes to at least three or four simultaneous progression tracks. This layering means the energy cost of a session feels justified by the accumulated progress across multiple systems, reducing the frustration of failure and increasing the pull of 'one more run.'",
+    "loop": "The core loop is: spend energy on a run → gather gear, gold, and XP during the run → survive as long as possible → fail or complete the run → collect offline rewards accumulated since last session → reinvest in talent upgrades, equipment levels, and guild contributions → unlock new content gates at chapter and survival-day milestones → run again. The offline reward system means returning to the app always feels rewarding, regardless of how the last session ended.",
+    "keyInsight": "The offline reward system is the mechanic that makes the energy cap feel generous rather than punishing. Every hour away from the game, resources accumulate passively. This means returning to the app is always rewarding, regardless of how long the player has been away. It reframes absence as productive rather than wasteful.",
+    "whatMakesItWork": "The system works because failure is productive. A run that ends at floor 12 instead of floor 30 still contributes gold, XP, and gear to multiple progression tracks. The player never feels like they wasted energy, they made progress, just less than they hoped. This makes the energy cost feel like an investment rather than a penalty.",
+    "roles": [
+      {
+        "id": "energy-lives",
+        "role": "The 30-energy cap structures session length and frequency. Multiple acquisition methods, rewarded ads, gem purchases, daily packs, give players agency over how much they play without removing the underlying scarcity that makes each run feel meaningful."
+      },
+      {
+        "id": "xp-leveling",
+        "role": "Three parallel XP tracks run simultaneously: run-level XP powers in-run skill selection, talent-level XP uses gold for permanent upgrades, and equipment rarity upgrades use enhancement stones. Progress is always visible across multiple dimensions."
+      },
+      {
+        "id": "variable-reward",
+        "role": "In-run equipment drops are randomised by rarity tier. Random event encounters during runs provide variable stat modifications. The unpredictability of each run's reward profile sustains engagement across hundreds of sessions."
+      },
+      {
+        "id": "daily-weekly-quests",
+        "role": "Task chains unlock progressively through chapter completion. Early tasks teach core mechanics; later tasks direct attention toward underexplored systems like guilds and the black market, ensuring players discover the full depth of the system."
+      },
+      {
+        "id": "ads",
+        "role": "Rewarded video ads are integrated as an energy acquisition method rather than an interruption. The permanent 'ad-free card' upsell converts ad engagement into subscription awareness, the ad system is also a subscription funnel."
+      },
+      {
+        "id": "clans-guilds",
+        "role": "Guilds unlock at Chapter 4, gating access behind meaningful progression investment. The gate ensures guild members are invested enough to contribute actively rather than passively collecting guild rewards."
+      },
+      {
+        "id": "leaderboards",
+        "role": "Rankings display chapter progress and longest run metrics alongside total rank, making the comparison a proxy for skill and investment rather than raw time spent. The ranking feels meaningful rather than arbitrary."
+      },
+      {
+        "id": "first-purchase-bonus",
+        "role": "The day 59 rebate offer, a $0.99 pack framed as a 5,000% return on time investment, targets the exact moment when the player's progression ceiling becomes frustrating. The timing makes the offer feel like a solution to a problem the player already has, not a purchase they are being pushed into."
+      },
+      {
+        "id": "cosmetics",
+        "role": "Cosmetics serve as milestone markers rather than pure self-expression. The duck cosmetic at the day 59 rebate, the Chapter 4 mount, each cosmetic signals a specific achievement in the progression system."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 6,
+      "label": "CAPYBARA GO"
+    },
+    "nodes": [
+      {
+        "id": "energy-lives",
+        "x": 50,
+        "y": 22
+      },
+      {
+        "id": "variable-reward",
+        "x": 20,
+        "y": 40
+      },
+      {
+        "id": "xp-leveling",
+        "x": 50,
+        "y": 40
+      },
+      {
+        "id": "ads",
+        "x": 80,
+        "y": 40
+      },
+      {
+        "id": "daily-weekly-quests",
+        "x": 20,
+        "y": 60
+      },
+      {
+        "id": "first-purchase-bonus",
+        "x": 50,
+        "y": 60
+      },
+      {
+        "id": "clans-guilds",
+        "x": 80,
+        "y": 60
+      },
+      {
+        "id": "cosmetics",
+        "x": 32,
+        "y": 82
+      },
+      {
+        "id": "leaderboards",
+        "x": 68,
+        "y": 82
+      }
+    ],
+    "connections": [
+      {
+        "from": "energy-lives",
+        "to": "ads",
+        "title": "Energy depletion drives ad engagement",
+        "desc": "When energy runs out, the rewarded video ad option surfaces as the primary free refill method. The ad is not an interruption, it is the solution to a problem the user has just experienced.",
+        "effect": "Ad engagement rates are dramatically higher when the ad is positioned as a resource acquisition tool rather than a monetisation interruption, and users feel agency in the choice."
+      },
+      {
+        "from": "energy-lives",
+        "to": "xp-leveling",
+        "title": "Energy cost makes XP feel earned",
+        "desc": "Each run costs energy, which means each XP gain has a real cost attached to it. This scarcity makes the XP accumulation feel meaningful rather than automatic.",
+        "effect": "Users who have invested energy in a run are more attentive to the XP and resource gains during it, increasing session engagement quality rather than just quantity."
+      },
+      {
+        "from": "xp-leveling",
+        "to": "daily-weekly-quests",
+        "title": "XP gates unlock quest layers",
+        "desc": "Later task chains only unlock after reaching specific XP and chapter milestones. The quest system reveals itself progressively, with deeper layers appearing as the player's investment grows.",
+        "effect": "Users who have progressed far enough to unlock advanced quests are already highly invested, which means the advanced quests have a captive, motivated audience."
+      },
+      {
+        "from": "variable-reward",
+        "to": "energy-lives",
+        "title": "Run unpredictability justifies energy cost",
+        "desc": "Each run's random equipment drops and event encounters mean no two runs are identical. The variable outcome makes spending energy feel like an investment with uncertain but potentially high upside.",
+        "effect": "Players who had a particularly good run are motivated to spend more energy immediately. Players who had a bad run are motivated to try again. Both outcomes drive continued play."
+      },
+      {
+        "from": "daily-weekly-quests",
+        "to": "clans-guilds",
+        "title": "Quests direct players toward guilds",
+        "desc": "Later quest chains specifically require guild participation, making guild contributions, participating in guild challenges. The quest system serves as a discovery and onboarding mechanism for the social layer.",
+        "effect": "Players who would never organically find or join a guild are directed there by the quest system at the moment when they have enough investment to find it rewarding."
+      },
+      {
+        "from": "clans-guilds",
+        "to": "leaderboards",
+        "title": "Guilds create collective leaderboard stakes",
+        "desc": "Guild leaderboards rank collective performance. Individual actions contribute to a group standing that other members can see. The collective ranking gives social meaning to personal performance.",
+        "effect": "Guild members who are not personally competitive still feel the pull of collective standing, their contribution to the guild's rank gives social meaning to what would otherwise be a solitary action."
+      },
+      {
+        "from": "first-purchase-bonus",
+        "to": "xp-leveling",
+        "title": "Day 59 offer targets the XP ceiling",
+        "desc": "The day 59 first-purchase bonus appears precisely when players hit a natural progression ceiling in the XP and talent systems. The offer is designed to feel like a solution to the specific frustration the player is experiencing at that moment.",
+        "effect": "Because the offer appears at a moment of genuine need rather than arbitrary timing, players experience it as helpful rather than manipulative, significantly increasing conversion rates."
+      },
+      {
+        "from": "cosmetics",
+        "to": "clans-guilds",
+        "title": "Cosmetics signal progression within guilds",
+        "desc": "Milestone cosmetics, the Chapter 4 mount, the day 59 duck, are visible to guild members. Cosmetics become social signals of how far along the progression system each member has reached.",
+        "effect": "Guild members who see high-milestone cosmetics on other members feel both aspiration toward those milestones and social pressure to progress at a comparable rate."
+      }
+    ]
+  }
+}

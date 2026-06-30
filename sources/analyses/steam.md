@@ -5,7 +5,7 @@
 **Type:** App
 **Platform analyzed:** iOS
 **Analysis date:** 11 May 2026
-**Last updated:** 15 May 2026
+**Last updated:** 15 Jun 2026
 **Session state:** Returning user — existing Steam account with library, wallet balance, friends, and purchase history
 
 ---
@@ -66,51 +66,31 @@ The Points Shop distinguishes between items that are perpetually available and i
 
 ---
 
-### Achievements (`achievements`) · Supporting
+### XP Leveling (`xp-leveling`) · Supporting
 
-**What was observed:**
-Player profiles display badges collected over the account's history. Badges are shown on the profile page, visible to any user who views the profile. Profile XP is mentioned in the context of seasonal badges: "badges contribute towards profile XP." The user's level is displayed on their profile alongside username and last-online time.
-
-A badges section is accessible from within the profile navigation ("If we go to badges, we can see the badges that we have that we have collected"). No specific badge names or earning conditions were described in the session beyond the seasonal badge mechanic in the Points Shop ("check back during the summer and winter sales for an all new seasonal badge").
-
-Showcase upgrades (purchased via Points Shop) expand the profile page to show more badges and artwork — indicating badges are a display-first system tied to profile expression.
-
-**How it is presented:**
-Badges appear on the public profile alongside games owned, friends count, recent activity, and playtime. The profile also shows inventory, videos, reviews, artwork, guides, workshop items, and screenshots. Aliases (previous usernames) are stored and visible to others via a dropdown on the username.
-
-**What is notable:**
-Profile XP from badges implies a leveling system exists, but the session did not describe how XP accumulates or what level thresholds unlock. The level is displayed on the profile, suggesting it is a permanent, visible progress marker — consistent with the achievements mechanic definition — but the accumulation mechanic was not fully described.
-
-**Screenshot suggestions:**
-
-`[User profile view showing level indicator, badge display, games count, friends count, and recent activity with playtime]`
-*Documents the full profile as the achievement display surface.*
+Write-up pending.
 
 ---
 
-### Variable Reward (`variable-reward`) · Shallow
+### Limited-Time Events (`limited-time-events`) · Supporting
 
-**What was observed:**
-The Discovery Queue is described as "a mix of products that are new, top-selling and similar to what you play and use on Steam." Users move through a queue of 12 games, each revealed sequentially. Controls on each product page allow: follow, add to wishlist, or mark as ignored, then jump to the next title. Queue activity is tracked (titles followed, titles on wishlist, titles ignored).
-
-This is a content discovery mechanism, not a reward system in the traditional variable-reward sense. Outcomes are unknown in advance (the player does not know which game will appear next), but no reward is granted for engaging with the queue — the games themselves are the variable "content" rather than a prize.
-
-Steam trading cards are referenced in the Points Shop copy: "Emoticons and backgrounds that were previously associated with trading cards can now be directly acquired using Steam Points. You can still use Steam card crafting to get those items if you wish." Trading card crafting was not described in session beyond this reference.
-
-**How it is presented:**
-The Discovery Queue is accessible from the hamburger Store menu under the Store Home section. A question-mark tap in the top right corner of the queue explains how it works.
-
-**What is notable:**
-The trading card crafting reference implies a variable reward mechanic (crafting badge items from game-earned cards) exists on the Steam platform, but it was not observed or described in this session. Insufficient evidence to log it as confirmed.
-
-**Screenshot suggestions:**
-
-`[Discovery Queue showing the current game card with follow/wishlist/ignore controls and the "12 games in queue" counter]`
-*Documents the sequential unknown-content discovery format.*
+Write-up pending.
 
 ---
 
-### Community Groups (`community-groups`) · Shallow
+### Social Feed (`social-feed`) · Supporting
+
+Write-up pending.
+
+---
+
+### Set Collection (`set-collection`) · Supporting · Thin
+
+Write-up pending.
+
+---
+
+### Community Groups (`community-groups`) · Supporting · Thin
 
 **What was observed:**
 Steam Groups are accessible from within the Friends & Groups section of the profile. The user had no group memberships at the time of the session. Groups can be searched by name. No further detail about group structure, membership criteria, shared identity features, or group activity was described beyond the existence of the search and join functionality.

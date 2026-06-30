@@ -1,0 +1,11 @@
+{
+  "id": "endowment-effect",
+  "term": "Endowment Effect",
+  "def": "The tendency to assign more value to things simply because we own them. Accumulated streak counts, XP, and rare items are all subject to the endowment effect, they feel more valuable because the user has them, not because of their intrinsic utility.",
+  "related": [
+    "streak",
+    "xp-leveling",
+    "set-collection"
+  ],
+  "visibility": "public"
+}

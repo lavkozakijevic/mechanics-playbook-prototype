@@ -1,0 +1,10 @@
+{
+  "id": "passive-construction-meta",
+  "n": "25",
+  "name": "Passive Construction Meta",
+  "cat": "retention",
+  "tagline": "A persistent construction or restoration layer where the output of the core activity — currency, completions, or time — is invested into visibly building something that accumulates across sessions: a village, a car, a city, a farm.",
+  "desc": "A persistent construction or restoration layer where the output of the core activity — currency, completions, or time — is invested into visibly building something that accumulates across sessions: a village, a car, a city, a farm. The constructed object is the long-term destination of play, and its progress may also advance in real time while the user is away (build timers, builders).",
+  "visibility": "subscriber",
+  "toWrite": true
+}

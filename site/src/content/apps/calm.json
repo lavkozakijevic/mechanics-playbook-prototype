@@ -1,0 +1,152 @@
+{
+  "id": "calm",
+  "name": "Calm",
+  "category": "Wellness",
+  "type": "app",
+  "visibility": "subscriber",
+  "analysisDate": "2026-04-20",
+  "lastUpdated": "2026-05-15",
+  "summary": "Calm presents two paywalls back to back before the user has seen a single piece of app content, then surfaces a third after sign-in. The free tier is built around a check-in suite, mood, sleep, gratitude, daily calm reflection, quick journal, each with its own reminder channel, creating five separate daily reasons to open the app without accessing any gated content. The 30-day guest pass is a referral mechanic framed as a gift, more generous than the standard new-user trial.",
+  "icon": "/icons/calm.png",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "streak",
+      "depth": "core",
+      "writeup": {
+        "observed": "Streaks are tracked on the profile page under 'My Streaks,' showing current streak, total streaks, and longest streak alongside a calendar marking practice days. Stats on the same screen show mindful days, total sessions, mindful minutes, and longest streak. Mood check-ins, the Daily Calm reflection, and gratitude check-ins all appear to contribute to the daily practice count. The streak counter is togglable in settings and shareable via pre-formatted Instagram Stories and messaging options.",
+        "presented": "The streak is on the profile tab, not the home screen, navigating to the profile is required to find it. Unlike Insight Timer, where the streak flower icon is immediately visible on the home screen, Calm does not surface the current streak number in primary navigation.",
+        "noting": "The streak sharing mechanic is distinctive: streak milestones generate formatted Instagram Stories and messaging options as separate formatted cards. Each streak milestone shared is a product impression in a social context. Multiple check-in types contribute to the daily practice count, giving the streak multiple completion paths beyond content playback.",
+        "findings": [
+          "The streak is located on the profile tab rather than the home screen, significantly lower prominence than Insight Timer's home screen flower icon or Strava's dashboard carousel placement.",
+          "Multiple check-in types (mood, gratitude, Daily Calm reflection) contribute to the daily practice count, giving the streak multiple completion paths beyond content playback.",
+          "Streak milestones generate pre-formatted Instagram Stories and messaging shares, the streak's social distribution is designed into the sharing UI.",
+          "The renewal reminder toggle is off by default on both the standard and limited-time trial paywalls, users who don't notice and enable it will not receive a renewal warning."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Profile page showing My Streaks with current streak, total streaks, longest streak, and the calendar marking practice days"
+      ]
+    },
+    {
+      "id": "daily-login-reward",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Today's Dailies is a curated set of daily content that refreshes each day: Daily Calm (an original meditation), Daily J (a journaling prompt), Daily Move (a movement practice), Daily Trip, Moment of Calm, and Slow Downtown. The Daily Calm Reflection is a daily check-in tied specifically to the day's Daily Calm content. On completing the first reflection, the app recommends setting a daily reminder at a chosen time. Each check-in type prompts its own separate reminder on first completion.",
+        "presented": "Today's Dailies appears on the home tab with current-day content displayed. The Daily Calm Reflection prompt appears after completing the Daily Calm listening. Reminder setup is suggested proactively after first completion of each check-in type.",
+        "noting": "Content freshness, a new Daily Calm every day, provides a pull reason distinct from the streak. The five separate reminder channels create multiple distinct daily return touchpoints, each anchored to a different time of day and a different habit type.",
+        "findings": [
+          "Today's Dailies refreshes daily but some content requires a subscription, the free tier access to daily content is partial.",
+          "The check-in suite creates five separate daily reminder channels, mood, sleep, gratitude, Daily Calm reflection, and quick journal, each with its own reminder time and first-completion prompt.",
+          "The sleep check-in allows multiple conflicting entries for the same night without a conflict warning, a data integrity issue observed during analysis.",
+          "Two paywalls appear back to back before the user has seen any app content, with a third after sign-in, three paywall interactions before the first content access."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Home screen showing Today's Dailies strip — Daily Calm, Daily J, Daily Move, Daily Trip, Moment of Calm, Slow Downtown — with the subscription banner above them"
+      ]
+    },
+    {
+      "id": "achievements",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": [
+        "Profile stats section showing mindful days, total sessions, mindful minutes, and longest streak with the share button"
+      ]
+    },
+    {
+      "id": "challenges",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "gifting",
+      "depth": "shallow",
+      "note": "Implementation targets non-users as a referral device (gift-framed guest pass), not in-app transfer between existing users.",
+      "writeup": {
+        "observed": "After sign-in, the app presents a 'Gift a free 30-day Calm guest pass' feature. The gift provides the recipient with 30 days of full Premium access at no cost to the sender. It is shareable via any messaging or social channel using a unique link. No stated limit on the number of guest passes that can be sent was described during analysis. The share sheet did not close automatically after sharing, suggesting multiple shares were possible from a single session.",
+        "presented": "The guest pass gift popup appears as the first thing shown after sign-in, a proactive presentation not triggered by any user action. The share sheet opens standard messaging and social options.",
+        "noting": "The gift-framed referral positions inviting someone as giving them a gift rather than recruiting them. The 30-day duration is more generous than the standard new-user free trial, making the referral path more valuable for recipients than organic discovery. The immediate post-sign-in placement captures the user at the moment of highest enthusiasm for the product.",
+        "findings": [
+          "The guest pass targets non-users rather than existing users, a referral mechanic with gift-framed UI rather than an in-app gifting system between existing users.",
+          "The 30-day guest pass is more generous than the standard 7-day free trial, making referral the highest-value acquisition path for recipients.",
+          "The share sheet did not close automatically, suggesting multiple shares could be initiated from a single popup interaction.",
+          "The popup appears immediately after sign-in with no trigger action required, a proactive referral prompt at the moment of highest new-user enthusiasm."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "A wellness app that builds five daily return reasons from a single free check-in suite.",
+    "overview": "Calm's retention layer is built around five separate check-in types, mood, sleep, gratitude, Daily Calm reflection, quick journal, each of which triggers its own reminder channel on first completion. Five independent daily return touchpoints, all free, all anchored to different times of day. The daily content layer (Today's Dailies) is partially paywalled, but the check-in suite that drives daily returns requires no subscription.",
+    "loop": "The core loop is: open app → complete Daily Calm → complete mood check-in → complete sleep check-in → set daily reminder for each → accumulate streak → reach milestone → share streak card to social. The check-in suite's five reminder channels create five separate daily entry moments, each anchored to a different context.",
+    "keyInsight": "The check-in suite creates five reminder channels from one feature set. A user who completes all five check-ins has installed five separate daily return triggers at different times of day. The free tier's retention infrastructure is more sophisticated than its content access.",
+    "whatMakesItWork": "The system works because the check-ins are genuinely useful without the content library. A user who cannot afford the subscription can still maintain a mood log, sleep log, gratitude journal, and daily reflection, all free, all with reminder support. The free tier is a complete daily wellness practice, not a teaser.",
+    "roles": [
+      {
+        "id": "streak",
+        "role": "Located on the profile tab rather than the home screen, the lowest-prominence streak placement in the library, but shareable as a pre-formatted Instagram Stories card at each milestone."
+      },
+      {
+        "id": "daily-login-reward",
+        "role": "Today's Dailies refreshes daily with five distinct content types, each with its own first-completion reminder channel, mood, sleep, gratitude, reflection, quick journal."
+      },
+      {
+        "id": "gifting",
+        "role": "The 30-day guest pass gift is more generous than the standard 7-day new-user trial, making referral the highest-value acquisition path for recipients."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 15,
+      "label": "CALM"
+    },
+    "nodes": [
+      {
+        "id": "daily-login-reward",
+        "x": 50,
+        "y": 40
+      },
+      {
+        "id": "streak",
+        "x": 26,
+        "y": 70
+      },
+      {
+        "id": "gifting",
+        "x": 74,
+        "y": 70
+      }
+    ],
+    "connections": [
+      {
+        "from": "daily-login-reward",
+        "to": "streak",
+        "title": "Daily content creates streak surface",
+        "desc": "Each Today's Dailies type contributes to the daily practice count the streak tracks. Completing daily content and maintaining the streak are the same action.",
+        "effect": "Users who engage with the daily content layer are simultaneously maintaining their streak without thinking about streak maintenance as a separate objective."
+      },
+      {
+        "from": "daily-login-reward",
+        "to": "gifting",
+        "title": "Daily engagement peak triggers referral",
+        "desc": "The guest pass gift popup appears immediately after sign-in, at the same session moment that Today's Dailies is surfaced. The referral prompt arrives when engagement is highest.",
+        "effect": "The gifting mechanic captures the user at the moment they are most enthusiastic about the product, maximizing the likelihood that the referral feels like sharing something valuable."
+      },
+      {
+        "from": "streak",
+        "to": "gifting",
+        "title": "Streak milestones generate shareable cards",
+        "desc": "Streak milestones generate pre-formatted Instagram Stories cards. Each milestone is a referral moment framed as personal achievement sharing rather than recruitment.",
+        "effect": "The streak milestone card is unsolicited and personal; the guest pass is solicited and generous. Together they cover different referral contexts."
+      }
+    ]
+  }
+}

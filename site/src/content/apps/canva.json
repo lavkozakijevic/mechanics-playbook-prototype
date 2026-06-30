@@ -1,0 +1,141 @@
+{
+  "id": "canva",
+  "name": "Canva",
+  "category": "Design",
+  "type": "app",
+  "visibility": "subscriber",
+  "analysisDate": "2026-04-25",
+  "lastUpdated": "2026-05-15",
+  "summary": "Canva's Design School certification system issues achievements with verifiable credential IDs designed to be shared on LinkedIn, the LinkedIn Official badge names its distribution target directly. The credit system runs as a parallel monetisation path alongside the subscription, with variable credit costs per AI tool signalling feature value before spending. The same completion action produces both an in-app badge and an externally shareable certificate with a credential ID.",
+  "icon": "/icons/canva.png",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "achievements",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Design School houses the achievement system. Named badge tiers: First Course / Three Courses / Five Courses, First Certificate / Three Certificates / Five Certificates, Sharing Superstar, and LinkedIn Official. Badges display as a grid, grayed out until earned, each with a 'Browse Courses' CTA. Completing a quiz triggers a two-step reveal: a confetti screen announcing the badge, followed by the certificate with credential ID, date, and shareable options.",
+        "presented": "Achievements are inside Design School, accessed via the sidebar. The section has four sub-tabs: Overview (aggregate stats), Badges, Certificates, and Skills. Completing the AI Skills for Students quiz during analysis triggered both the First Certificate badge and a downloadable certificate with a credential ID.",
+        "noting": "The certificate is designed to leave the app. A credential ID and shareable card make the completion artifact credible enough for LinkedIn or a portfolio. The LinkedIn Official badge names its distribution channel directly, a platform-specific instruction that signals exactly where the achievement should go without requiring the user to figure it out.",
+        "findings": [
+          "The LinkedIn Official badge names LinkedIn specifically as its sharing target, the most platform-specific social sharing incentive observed across the library.",
+          "Certificates include a credential ID and completion date, giving them verifiable legitimacy beyond a purely in-app marker.",
+          "The certification quiz was passable through 'common sense' during analysis, the barrier to earning the First Certificate badge is intentionally low to maximize early conversion into the achievement system.",
+          "The Sharing Superstar badge rewards social distribution, not learning, an acquisition driver embedded inside a retention feature."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Achievements section in Design School showing the badges grid — First Course, First Certificate, Sharing Superstar, LinkedIn Official — with grayed-out unearned badges and the Browse Courses CTA",
+        "Certificate of Completion popup showing confetti, \"You've hit a learning milestone\" message, and the \"You're Canva Certified\" follow-up with social share and download options"
+      ]
+    },
+    {
+      "id": "challenges",
+      "depth": "shallow",
+      "writeup": {
+        "observed": "Design School course activities function as opt-in structured objectives with defined completion states and rewards. The certification quiz, AI Skills for Students, has 14 questions, a 30-minute window, a pass/fail outcome, and a named reward (First Certificate badge plus a downloadable certificate). Entry is voluntary; during analysis the user chose to take the quiz without completing the full course first. Individual Design School courses are described with duration, difficulty level, lesson count, and whether they carry a shareable certificate.",
+        "presented": "Challenges sit within Design School's course catalogue, filterable by topic, difficulty, and certificate availability. Some courses are free, some are premium (marked with a crown). Each course page shows the prerequisite knowledge level and whether a certificate is awarded.",
+        "noting": "The challenge and achievement mechanics are inseparable at the point of completion, finishing a quiz always produces both a certificate (external credential) and a badge (in-app achievement). The same completion action serves both the internal achievement system and the professional social network.",
+        "findings": [
+          "Every Design School quiz that carries a certificate produces both a shareable certificate and an in-app badge, the same completion action serves both the internal achievement system and the external social network.",
+          "Some Design School content is premium (crown-marked), the achievement system partially sits behind the subscription paywall.",
+          "Course activities open live Canva templates for hands-on practice, directly connecting learning content to the product's core creation activity.",
+          "The paywall copy adapts to the user's entry point, when hitting it through brand kit, it describes brand kit features; through AI tools, it describes AI limits."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "variable-reward",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "credits-tokens",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Canva Credits are purchased with real money (1 credit for $1.99, scaling to 100 credits for $99.99) and spent on individual premium elements within designs. Each premium element costs 1 credit. Credits are positioned as an alternative to the subscription: 'don't pay for images, get Canva Business' appears next to the credit purchase option. A watermarked download is available as a free fallback for premium content.",
+        "presented": "Credit cost surfaces at the moment of use, when a premium element is selected, the cost appears alongside the subscription option. Both credits and subscription are presented at the same decision point. The subscription paywall copy adapts to the feature the user was accessing.",
+        "noting": "For a user who needs one premium image for one design, 1 credit at $1.99 is the low-friction alternative to an $18/month subscription. The credit system builds the subscription argument through accumulated small spends, each credit purchase makes the subscription math more obvious without anyone stating it.",
+        "findings": [
+          "Credits and subscription are presented at the same decision point, at the moment of highest purchase intent.",
+          "The watermarked download is a free fallback that delivers the functionality at reduced quality, preventing a hard stop that would cause abandonment.",
+          "The AI consent toggle is pre-enabled at onboarding, requiring active opt-out rather than opt-in.",
+          "8 pricing tiers from $1.99 to $99.99 with increasingly favorable per-credit rates at higher volumes create a natural progression from single-use to bulk purchase."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "A design platform where the achievement system distributes verifiable credentials designed for LinkedIn.",
+    "overview": "Canva's engagement system is built around Design School, a certification platform where the achievement and the credential are the same artifact. Completing a quiz produces both an in-app badge and a downloadable certificate with a verifiable credential ID. The same action serves the internal achievement system and the professional social network simultaneously. The credit system builds the subscription argument through accumulated small purchases without ever stating it directly.",
+    "loop": "The core loop is: create in Canva → encounter a premium element → decide between credits or subscription → buy credits → notice the subscription math → enter Design School → complete a quiz → earn a certificate with a credential ID → share on LinkedIn → LinkedIn audience discovers Canva. The Design School credential is the acquisition channel embedded in the achievement system.",
+    "keyInsight": "The LinkedIn Official badge names LinkedIn specifically as its sharing target, a platform-specific distribution instruction embedded in the achievement system. Every Design School completion is simultaneously an in-app achievement and a branded Canva advertisement on a professional network.",
+    "whatMakesItWork": "The credit system and the subscription are not alternatives, the credit system is how users discover the subscription is the rational choice. Each $1.99 credit purchase makes the $18/month subscription math more legible, without Canva having to say it. The comparison emerges from behaviour rather than from copy.",
+    "roles": [
+      {
+        "id": "achievements",
+        "role": "Each Design School completion produces an in-app badge and a shareable certificate with a credential ID, designed to leave the app and appear on LinkedIn, making each completion a potential acquisition moment."
+      },
+      {
+        "id": "challenges",
+        "role": "Design School quizzes function as opt-in challenges with pass/fail outcomes and dual rewards (badge + certificate), the challenge completion is the credential."
+      },
+      {
+        "id": "credits-tokens",
+        "role": "Credits and subscription are presented at the same decision point, the credit system builds the subscription case through accumulated small spends without stating the comparison."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 15,
+      "label": "CANVA"
+    },
+    "nodes": [
+      {
+        "id": "achievements",
+        "x": 50,
+        "y": 38
+      },
+      {
+        "id": "challenges",
+        "x": 26,
+        "y": 68
+      },
+      {
+        "id": "credits-tokens",
+        "x": 74,
+        "y": 68
+      }
+    ],
+    "connections": [
+      {
+        "from": "achievements",
+        "to": "challenges",
+        "title": "Badges and certificates are the same artifact",
+        "desc": "Completing a Design School quiz produces both an in-app badge and a downloadable certificate with a credential ID. The completion action serves both systems simultaneously.",
+        "effect": "Users who pursue certification for professional reasons accumulate achievement badges as a byproduct. Users who browse achievements discover that each badge corresponds to a completable course."
+      },
+      {
+        "from": "challenges",
+        "to": "achievements",
+        "title": "Course completion unlocks the LinkedIn badge",
+        "desc": "The LinkedIn Official badge, the achievement with the most specific external distribution target, is earned through Design School course completion.",
+        "effect": "Every course completion is simultaneously a learning moment and a Canva distribution event on LinkedIn. The challenge reward is the ad."
+      },
+      {
+        "from": "credits-tokens",
+        "to": "challenges",
+        "title": "Credit spending reveals subscription value",
+        "desc": "Each credit purchase makes the subscription math more legible. Users who have spent credits multiple times have implicitly calculated the subscription value through their own behavior.",
+        "effect": "The credit system converts the subscription decision from a cold evaluation to a conclusion the user reaches through their own spending. Engaged users are already invested in the platform."
+      }
+    ]
+  }
+}

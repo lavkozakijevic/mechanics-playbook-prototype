@@ -1,0 +1,10 @@
+{
+  "id": "reciprocity",
+  "term": "Reciprocity",
+  "def": "The social norm of responding to a positive action with another positive action. Gifting mechanics, daily login bonuses framed as gifts from the app, and free trial extensions all use reciprocity to create goodwill and a sense of obligation.",
+  "related": [
+    "gifting",
+    "daily-login-reward"
+  ],
+  "visibility": "public"
+}

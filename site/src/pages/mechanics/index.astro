@@ -1,0 +1,129 @@
+---
+import Base from "../../layouts/Base.astro";
+import { MechanicsFilters } from "../../components/site/MechanicsLibrary.jsx";
+import { publishedApps, publishedMechanics, titleCase } from "../../lib/content";
+import { mechanicCard } from "../../lib/props";
+
+const mechanics = await publishedMechanics();
+const apps = await publishedApps();
+const count = (id: string) => apps.filter((a) => a.data.mechanics.some((m) => m.id === id)).length;
+
+const cards = mechanics.map((m) => mechanicCard(m.data, count(m.data.id)));
+const contextOptions = [...new Set(mechanics.flatMap((m) => m.data.context ?? []))].map(titleCase);
+// Keep player options as lowercase keys so they match the lowercase values in data-players
+const playerOptions = [...new Set(mechanics.flatMap((m) => m.data.players ?? []))];
+
+const CATS: Record<string, { label: string; color: string }> = {
+  retention:    { label: "Retention",    color: "var(--cat-retention)" },
+  monetization: { label: "Monetization", color: "var(--cat-monetization)" },
+  social:       { label: "Social",       color: "var(--cat-social)" },
+};
+---
+
+<Base
+  title="Mechanics library — Mechanics Playbook"
+  description="The mechanics that drive retention, monetization, and social engagement — each defined plainly, with the psychology behind it and real apps that use it."
+  current="mechanics"
+>
+  <main id="main">
+    <section class="band--tight lib-head">
+      <div class="container">
+        <div class="eyebrow lib-head__eyebrow">The library</div>
+        <h1>Mechanics library</h1>
+        <p>The building blocks behind the apps and games people keep coming back to. Each mechanic comes with its psychology, the players it fits, and real examples from the library.</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="lib-layout">
+        <aside class="lib-filters">
+          <!-- React island: filter controls only — no card rendering -->
+          <MechanicsFilters
+            client:load
+            contextOptions={contextOptions}
+            playerOptions={playerOptions}
+            total={cards.length}
+          />
+        </aside>
+
+        <section aria-label="Mechanics">
+          <div class="lib-resultbar">
+            <span class="lib-resultbar__count">
+              <b id="lib-shown">{cards.length}</b> of {cards.length} mechanics
+            </span>
+            <span id="lib-hint" class="lib-resultbar__hint">Updated weekly</span>
+            <button type="button" id="lib-reset" class="filters__clear" hidden>Reset filters</button>
+          </div>
+
+          <!--
+            All cards are rendered here by Astro at build time — JavaScript
+            is layered on top only for show/hide filtering. The data-mechanic-card
+            attribute is the stable selector for both tests and the filter island.
+          -->
+          <div class="lib-grid" id="lib-grid">
+            {cards.map((m) => {
+              const cats: string[] = Array.isArray(m.category) ? m.category : [m.category];
+              const primary = cats[0];
+              const locked = m.locked;
+              const href = locked ? "/subscribe/" : `/mechanics/${m.id}/`;
+              return (
+                <a
+                  class:list={["mlc", locked && "mlc--locked"]}
+                  href={href}
+                  data-mechanic-card={m.id}
+                  data-cats={JSON.stringify(cats)}
+                  data-contexts={JSON.stringify(m.contextTags ?? [])}
+                  data-players={JSON.stringify(m.players ?? [])}
+                  data-name={m.name.toLowerCase()}
+                  data-def={m.definition.toLowerCase()}
+                >
+                  <div class="mlc__top">
+                    <span class="mlc__lead">
+                      <span class="mlc__num">{String(m.n).padStart(2, "0")}</span>
+                      <span class:list={["gb-tag", `gb-tag--${primary}`]}>
+                        {CATS[primary]?.label ?? primary}
+                      </span>
+                    </span>
+                    <span class="mlc__badge">
+                      {locked ? (
+                        <span class="gb-badge gb-badge--neutral gb-badge--outline">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:12px;height:12px;stroke-width:2.25;flex:none;margin-right:3px">
+                            <rect x="4" y="11" width="16" height="10" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" />
+                          </svg>
+                          For subscribers
+                        </span>
+                      ) : (
+                        <span class="gb-badge gb-badge--ok">Free</span>
+                      )}
+                    </span>
+                  </div>
+                  <h3 class="mlc__name">{m.name}</h3>
+                  <p class="mlc__desc">{m.definition}</p>
+                  <div class="mlc__tags">
+                    {(m.contextTags ?? []).map((t: string) => (
+                      <span class="pillchip">{t}</span>
+                    ))}
+                  </div>
+                  <div class="mlc__foot">
+                    <span class="mlc__dots">
+                      {cats.map((c: string) => (
+                        <span
+                          class="mlc__dot"
+                          style={`background:${CATS[c]?.color ?? "var(--ink-500)"}`}
+                          title={CATS[c]?.label ?? c}
+                        />
+                      ))}
+                    </span>
+                    <span class="mlc__examples">{m.exampleCount} examples</span>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+
+          <div class="lib-empty" id="lib-empty" hidden>No mechanics match those filters. Try removing one.</div>
+        </section>
+      </div>
+    </div>
+  </main>
+</Base>

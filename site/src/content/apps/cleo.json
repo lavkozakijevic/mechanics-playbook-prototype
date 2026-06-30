@@ -1,0 +1,61 @@
+{
+  "id": "cleo",
+  "name": "Cleo",
+  "category": "Finance / AI Budgeting",
+  "type": "app",
+  "visibility": "subscriber",
+  "analysisDate": "2026-06-04",
+  "lastUpdated": "2026-06-04",
+  "summary": "Cleo is an AI-powered budgeting and financial wellness app built around a conversational chat interface. A mascot AI character (\"Cleo\") delivers all financial insights, spending analysis, roast sessions, and emotional support through chat bubbles using Gen Z-coded language (emojis, GIFs, casual profanity). The app connects bank accounts via Plaid, tracks income and spending, surfaces budget limits, and gamifies the financial review process. Two paid tiers exist: Cleo Plus (cash advance, custom categories) and Cleo Builder (Plus + credit builder card). The session covered the full free tier including onboarding, the chat interface, budget section, and Habits (spending review) tab.",
+  "icon": "/icons/cleo.webp",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "streak",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "challenges",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": [
+        "Habits tab showing the spending challenge widget with category name (eating out limits), spending limit amount, progress bar, day counter (21 of 21, on track), and savings target ($85)"
+      ]
+    },
+    {
+      "id": "achievements",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "daily-weekly-quests",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": [
+        "Chat home screen showing the five interactive cards — today's money insights, can you afford that, upcoming bills, where it's going, need help — with green checkmarks on completed ones"
+      ]
+    },
+    {
+      "id": "variable-reward",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "gifting",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": null
+}

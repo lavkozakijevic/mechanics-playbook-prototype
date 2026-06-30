@@ -1,0 +1,72 @@
+{
+  "id": "launching-streak",
+  "n": 1,
+  "title": "Launching a Streak Mechanic",
+  "desc": "Practical guidance for implementing a streak system that converts early usage into habitual return.",
+  "mechanics": [
+    "streak",
+    "daily-login-reward",
+    "achievements"
+  ],
+  "apps": [
+    "wispr-flow",
+    "insight-timer",
+    "calm",
+    "strava",
+    "tiimo",
+    "uptime",
+    "ladder",
+    "fiton",
+    "liftoff",
+    "gymverse"
+  ],
+  "steps": [
+    {
+      "n": "01",
+      "heading": "Define the unit of use first",
+      "body": "The unit of use is the single action that counts as a completed day. Uptime uses one insight from any hack, not a complete hack, making it accessible even on the user's busiest day. Strava uses one activity per week rather than per day, appropriate for exercise where daily training can be inadvisable. Don't assume. Instrument your early cohorts to find what the most common completed action is, then build the streak around that.",
+      "apps": [
+        "uptime",
+        "strava"
+      ]
+    },
+    {
+      "n": "02",
+      "heading": "Frame positively until day 7",
+      "body": "Loss aversion only activates once the user feels the streak is worth something, typically around day 7. Before that, the streak has no emotional weight. Tiimo frames its streak as celebration rather than compliance: 'we will celebrate every step with you.' Wispr Flow frames it as product improvement: 'continue dictating so Flow can adapt to you.' Both outperform 'don't break your streak' for early-stage users.",
+      "apps": [
+        "tiimo",
+        "wispr-flow"
+      ]
+    },
+    {
+      "n": "03",
+      "heading": "Use a physical gesture for the streak's first moment",
+      "body": "Tiimo introduces the streak via a swipe-to-unlock gesture during onboarding rather than a button tap, creating a small ceremony around the streak's beginning before the user has completed a real session. The physical action creates psychological commitment. Insight Timer uses an 'I'm committed' button after the first session for the same purpose.",
+      "apps": [
+        "tiimo",
+        "insight-timer"
+      ]
+    },
+    {
+      "n": "04",
+      "heading": "Time the reminder setup after the first completion",
+      "body": "Insight Timer and Uptime both surface the reminder setup button after the first session completes, at peak motivation, rather than during onboarding. The user has just experienced the product's value. That is the moment to ask for the return permission, not before they have any reason to care.",
+      "apps": [
+        "insight-timer",
+        "uptime"
+      ]
+    },
+    {
+      "n": "05",
+      "heading": "Build a milestone moment at day 7, 30, 100",
+      "body": "Milestone screens at day 7, 30, 100, and 365 are the highest organic share moments in streak-based products. Tiimo uses marbles that change the background gradient of the stats screen. Calm generates pre-formatted Instagram Stories cards at milestones. Uptime generates shareable image cards. Design milestone moments as shareable social content, not just completion notifications.",
+      "apps": [
+        "tiimo",
+        "calm",
+        "uptime"
+      ]
+    }
+  ],
+  "visibility": "public"
+}

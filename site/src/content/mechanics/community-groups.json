@@ -1,0 +1,34 @@
+{
+  "id": "community-groups",
+  "n": "19",
+  "name": "Community / Groups",
+  "cat": "social",
+  "tagline": "Named groups with shared identity, shared history, and shared goals that users join and return to as members.",
+  "desc": "A named group with shared identity and history is the primary retention anchor for the Socializer. Members who might leave the app rarely leave their community. The group gives the user a reason to return that is interpersonal, not product-driven, they are showing up for people, not features.",
+  "principle": "Social obligation is a stronger retention force than product value. The group creates a reason to return that the app itself cannot manufacture.",
+  "players": [
+    "socializer"
+  ],
+  "warn": "Groups require active moderation and seeding to avoid becoming ghost towns. An empty or quiet group is worse than no group, it confirms the social experience is not worth having.",
+  "variants": [
+    "Public clubs",
+    "Private groups",
+    "Interest-based communities",
+    "Local groups"
+  ],
+  "lifecycle": "Long-term value. Groups become more valuable the longer the user is a member.",
+  "paired": [
+    "social-feed",
+    "challenges",
+    "leaderboards"
+  ],
+  "context": [
+    "retention"
+  ],
+  "sdt": [
+    "relatedness",
+    "purpose",
+    "autonomy"
+  ],
+  "visibility": "subscriber"
+}

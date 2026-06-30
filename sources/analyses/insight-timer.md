@@ -5,7 +5,7 @@
 **Type:** App
 **Platform analyzed:** iOS
 **Analysis date:** 20 Apr 2026
-**Last updated:** 15 May 2026
+**Last updated:** 15 Jun 2026
 **Session state:** First install — anonymous guest, then signed in mid-session with Apple
 
 ---
@@ -72,28 +72,6 @@ The app prompts widget installation twice in close succession — once for inten
 
 ---
 
-### Daily Login Reward (`daily-login-reward`) · Supporting
-
-**What was observed:**
-The home screen shows "Day 1 of 10" at the top upon first login, reflecting the consecutive-day goal set during onboarding. This is a calendar-based presence tracker tied to the streak, not a separate reward calendar with named prizes.
-
-A more direct daily reward mechanism is the Daily Intention feature: setting an intention each day contributes to the streak counter. On the first day, setting an intention and installing the widget triggered a popup: "Congratulations, you've unlocked a gift — claim your one month free trial for Plus. We've extended your one week free trial to four weeks." A "limited time offer ends in seven days" label was shown.
-
-The Daily Check-In is also a daily return mechanic: users log their mood on a slider from Awful to Great, optionally add tags and a journal entry, and this contributes to practice stats. The Reflect screen appears automatically after each completed meditation session, prompting mood logging.
-
-**How it is presented:**
-The daily return mechanic is embedded in the streak system rather than surfaced as a separate reward calendar. The intention widget on the home screen serves as the persistent external reminder. The check-in appears post-session rather than on app open.
-
-**What is notable:**
-The trial extension (7 days → 4 weeks) is triggered by the specific action of setting the first intention and installing the widget — it is a behavioral reward for completing an onboarding step, not a generic sign-up bonus. It is framed as a "gift" the user "unlocked" through their action.
-
-**Screenshot suggestions:**
-
-`["Congratulations, you've unlocked a gift — claim your one month free trial for Plus — we've extended your one week free trial to four weeks — limited time offer ends in 7 days" popup]`
-*Documents the trial extension as a behavioral reward tied to a specific first-day action.*
-
----
-
 ### Challenges (`challenges`) · Supporting
 
 **What was observed:**
@@ -116,7 +94,7 @@ The distinction between free live access (during the challenge's active window) 
 
 ---
 
-### Community Groups (`community-groups`) · Supporting
+### Community Groups (`community-groups`) · Core
 
 **What was observed:**
 Groups are accessible from the sidebar (not from any primary navigation tab). Users can browse, join, and create groups. Three tabs: Browse, My Groups, My Feed.
@@ -142,7 +120,7 @@ Groups are hidden from the primary navigation — a user who does not explore th
 
 ---
 
-### Achievements (`achievements`) · Supporting
+### Achievements (`achievements`) · Supporting · Thin
 
 **What was observed:**
 The Milestones system functions as named, permanent achievement markers. Milestones are earned when completing 7 consecutive days of practice or 50 non-consecutive days. The streak screen shows: 1 milestone, 5 milestones, 25 milestones, 100 milestones as the progression ladder. At time of observation: 0 milestones earned.
@@ -163,16 +141,7 @@ Milestones are shown on the streak detail screen. The profile surfaces aggregate
 
 ---
 
-### XP Leveling (`xp-leveling`) · Shallow
-
-**What was observed:**
-The stats system tracks cumulative practice activity — sessions completed, minutes accumulated — which feeds into the milestone thresholds. While the app does not use explicit "XP" language, the streak screen states "many moments make momentum" and lists activities that count toward progress: Timer, Check-In, Courses, Meditate, Sleep, Intentions, Journal. Each of these activities contributes to the cumulative stats that push users toward milestone thresholds.
-
-The evidence is insufficient to confirm the full leveling mechanic as defined (named levels with named unlocks at thresholds). The milestone system qualifies better as achievements. Logged at Shallow to note that a cumulative-action-to-threshold structure exists, without confirmed named level designations beyond the milestone tier names.
-
----
-
-### Social Feed (`social-feed`) · Shallow
+### Social Feed (`social-feed`) · Supporting
 
 **What was observed:**
 The home screen shows:

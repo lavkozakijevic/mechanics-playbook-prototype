@@ -1,0 +1,71 @@
+{
+  "id": "social-cold-start",
+  "n": 3,
+  "title": "Solving the Social Cold Start",
+  "desc": "How to build enough social density to make social mechanics feel worth engaging with from day one.",
+  "mechanics": [
+    "social-feed",
+    "community-groups",
+    "leaderboards"
+  ],
+  "apps": [
+    "strava",
+    "insight-timer",
+    "picsart",
+    "ladder",
+    "fiton",
+    "freeletics",
+    "liftoff"
+  ],
+  "steps": [
+    {
+      "n": "01",
+      "heading": "Seed the social graph during onboarding",
+      "body": "A user who finishes onboarding with no followers and following no one sees an empty feed. Strava suggests local clubs, local legends, and contact matches during setup. PicsArt's For You feed populates from day one with high-quality user content regardless of the user's social graph, the algorithmic feed substitutes for a personal graph in the early stages.",
+      "apps": [
+        "strava",
+        "picsart"
+      ]
+    },
+    {
+      "n": "02",
+      "heading": "Use local and segmented leaderboards first",
+      "body": "Global leaderboards showing the top 0.1% demotivate most users because the gap feels insurmountable. Strava's Local Legend mechanic solves this elegantly, you compete against everyone who runs the same segment as you, which is a naturally scoped competition. Capybara Go! uses chapter progress and longest run as ranking metrics rather than raw time spent, making rank reflect progression quality.",
+      "apps": [
+        "strava",
+        "capybara-go"
+      ]
+    },
+    {
+      "n": "03",
+      "heading": "Make the feed a product demo, not just a social stream",
+      "body": "PicsArt's Try button on every feed post converts content browsing into tool usage. Insight Timer's real-time counter ('594,622 people here today') frames the app as a live communal space rather than a content archive. Both use the social feed to communicate product value rather than purely social activity.",
+      "apps": [
+        "picsart",
+        "insight-timer"
+      ]
+    },
+    {
+      "n": "04",
+      "heading": "Surface social activity proactively",
+      "body": "Don't rely on users to navigate to a feed. Surface friend activity at natural moments: the home screen, post-session, and in push notifications. Strava's kudos notifications, Insight Timer's live event attendee counts, and PicsArt's challenge submission galleries all surface social activity without requiring navigation.",
+      "apps": [
+        "strava",
+        "insight-timer",
+        "picsart"
+      ]
+    },
+    {
+      "n": "05",
+      "heading": "Make sharing a natural exit",
+      "body": "Design session completion screens with sharing as a default path. Strava's post-activity screen, Calm's streak milestone cards, Uptime's achievement image cards, and Tiimo's swipe-unlock onboarding moment are all designed as shareable content outputs. The share is also acquisition, a branded story link is a more effective CTA than most paid ads.",
+      "apps": [
+        "strava",
+        "calm",
+        "uptime",
+        "tiimo"
+      ]
+    }
+  ],
+  "visibility": "subscriber"
+}

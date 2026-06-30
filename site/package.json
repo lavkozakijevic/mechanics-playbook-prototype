@@ -1,0 +1,25 @@
+{
+  "name": "mechanics-playbook",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "node scripts/convert-content.mjs && node scripts/validate-content.mjs && astro build && node scripts/check-report-leak.mjs",
+    "preview": "astro preview",
+    "convert": "node scripts/convert-content.mjs",
+    "validate": "node scripts/validate-content.mjs",
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "@astrojs/react": "^5.0.7",
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^6.4.6",
+    "js-yaml": "^4.2.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0"
+  }
+}

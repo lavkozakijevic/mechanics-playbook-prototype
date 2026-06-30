@@ -1,0 +1,9 @@
+{
+  "id": "variable-ratio-reinforcement",
+  "term": "Variable Ratio Reinforcement",
+  "def": "A schedule of reinforcement where rewards are delivered after an unpredictable number of responses. It produces the highest rate of response and the most resistance to extinction of any reinforcement schedule. The mechanism behind loot boxes, gacha pulls, and slot machines.",
+  "related": [
+    "variable-reward"
+  ],
+  "visibility": "public"
+}

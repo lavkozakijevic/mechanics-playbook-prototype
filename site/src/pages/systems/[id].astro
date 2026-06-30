@@ -1,0 +1,24 @@
+---
+import Base from "../../layouts/Base.astro";
+import { SystemDetailPage } from "../../components/site/SystemDetail.jsx";
+import { publishedApps, publishedMechanics } from "../../lib/content";
+import { systemProps } from "../../lib/props";
+
+export async function getStaticPaths() {
+  return (await publishedApps())
+    .filter((a) => a.data.system)
+    .map((app) => ({ params: { id: app.data.id }, props: { app } }));
+}
+
+const { app } = Astro.props;
+const byId = new Map((await publishedMechanics()).map((m) => [m.data.id, m.data]));
+const system = systemProps(app.data, byId);
+---
+
+<Base
+  title={`${app.data.name} system map — Mechanics Playbook`}
+  description={app.data.system!.tagline.slice(0, 155)}
+  current="systems"
+>
+  <SystemDetailPage client:load system={system} />
+</Base>

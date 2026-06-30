@@ -5,7 +5,7 @@
 **Type:** App
 **Platform analyzed:** iOS
 **Analysis date:** 15 May 2026
-**Last updated:** 15 May 2026
+**Last updated:** 15 Jun 2026
 **Session state:** First install (guest), then registered mid-session
 
 ---
@@ -140,27 +140,21 @@ The Coke Scans achievement tier (1 / 10 / 25 Coca-Cola scans) directly incentivi
 
 ---
 
-### Clans-Guilds (`clans-guilds`) · Shallow
+### Variable Reward (`variable-reward`) · Core
 
-**What was observed:**
-A Collector's Team feature allows groups of up to 10 friends to form a named team. The team has a name, password, slogan, and a team ID. Members can swap stickers with each other directly through private swap requests (bypassing the public swap pool). The team page shows member collection completion percentages.
+Write-up pending.
 
-The session showed the team creation flow: entering a team name (first attempt "Collectors" was taken; "Collectors 89" succeeded), adding a password, adding a slogan, and creating. The resulting team page showed the team ID, the slogan, a password field, options to leave the team, member collection completion status, and an invite friends button that sends a link via social media or messaging apps.
+---
 
-A private swap request type — "Request for Collector's Group" — exists in the swap area, described as "swap with your friends. You can also offer your full stack to friends." This is distinct from the public swap request visible to all players.
+### Energy-Lives (`energy-lives`) · Supporting
 
-The feature is framed as a race: "Race to complete your album and create private sticker swap requests with your friends."
+Write-up pending.
 
-**How it is presented:**
-Accessed via the My Team tab in the bottom navigation. Guest accounts see a registration prompt when tapping My Team. After registration, the feature is available. The invite mechanism is link-based (no in-app user search).
+---
 
-**What is notable:**
-No shared quest, shared reward track, or contribution consequence was described — only private swap access and collection completion visibility. This limits the mechanic to social coordination rather than structured cooperation with group rewards. A "collector's team swap request" type exists in the swap area, but the transcript describes no shared milestone or collective goal tied to the team beyond album completion visibility.
+### Community Groups (`community-groups`) · Supporting
 
-**Screenshot suggestions:**
-
-`[The Collector's Team homepage showing team name, team ID, slogan, member list with collection completion percentages, and invite friends button]`
-*Documents the team structure and the member completion visibility that constitutes the shared goal mechanic.*
+Write-up pending.
 
 ---
 

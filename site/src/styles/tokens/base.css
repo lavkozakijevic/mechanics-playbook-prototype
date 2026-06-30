@@ -1,0 +1,90 @@
+/* gameBiz base layer. Minimal, opinionated defaults that put the paper down
+   and set the reading voice. Consumers get this for free via styles.css. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--surface-page);
+  color: var(--text-primary);
+  font: var(--type-body);
+  letter-spacing: var(--tracking-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings default to Sora; sizes applied per role, not globally, so authors
+   choose the scale step deliberately. */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  letter-spacing: var(--tracking-heading);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+/* Links: ink with a red underline. The pen marks the path. */
+a {
+  color: var(--text-link);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1.5px;
+  transition: var(--transition-base);
+}
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Numbers and code default to mono. */
+code, kbd, samp, pre {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+/* Selection picks up the analyst's pen, lightly. */
+::selection {
+  background: var(--mark-wash);
+  color: var(--ink-900);
+}
+
+/* Keyboard focus is always visible. */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+  border-radius: var(--radius-sm);
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+hr {
+  border: none;
+  border-top: var(--rule-hairline);
+  margin: var(--space-6) 0;
+}
+
+/* Utility: the uppercased specimen label / overline. */
+.gb-label {
+  font: var(--type-label);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  color: var(--text-muted);
+}

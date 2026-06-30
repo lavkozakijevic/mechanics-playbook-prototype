@@ -1,0 +1,97 @@
+/* gameBiz colors: the analyst's archive.
+   The paper is the stage. Ink carries the words. Red is the analyst's pen,
+   used only to mean "this is the point." Category colors stay quiet next to it. */
+
+:root {
+  /* ---------- Paper & surfaces ---------- */
+  --paper: #f5f4f0;        /* the page. reads as paper, not pixels. */
+  --paper-deep: #efede7;   /* sunken wells, inset panels, table zebra */
+  --paper-edge: #e9e6df;   /* faint band, hover on paper */
+  --sheet: #ffffff;        /* a fresh specimen sheet: cards, modals, inputs */
+
+  /* ---------- Ink scale (warm near-blacks to faint greys on paper) ---------- */
+  --ink-900: #1a1a17;      /* primary text, near-black, warm */
+  --ink-800: #2b2a26;
+  --ink-700: #45433d;
+  --ink-600: #6a675f;      /* secondary text */
+  --ink-500: #8d897f;      /* muted text, captions */
+  --ink-400: #b1ac9f;      /* faint text, disabled */
+  --ink-300: #cfcabd;      /* default borders */
+  --ink-200: #e2ddd1;      /* hairlines, dividers */
+  --ink-100: #ece9e0;      /* subtle fills, chips on paper */
+
+  /* ---------- Accent: the analyst's pen ---------- */
+  --red-700: #9e2222;      /* deepest, rare */
+  --red-600: #c42b2b;      /* accessible red text on paper (passes AA) */
+  --red-500: #f03636;      /* THE accent. marks, underlines, connections. */
+  --red-400: #f45a5a;      /* hover lift */
+  --red-logo: #e83d36;     /* the exact red in the logo mark */
+  --red-wash: #fae6e3;     /* faint margin highlight behind annotated text */
+  --red-line: rgba(240, 54, 54, 0.28); /* connection line at rest in maps */
+
+  /* ---------- Category colors (Retention / Monetization / Social) ----------
+     Low chroma, deep, archival. Specimen-label classification, never loud.
+     Each has a solid (for the dot/rule/text) and a tint (for the chip ground). */
+  --cat-retention: #2f6b57;        /* pine. growing roots, staying. */
+  --cat-retention-tint: #e3ede9;
+  --cat-monetization: #8a6322;     /* ochre. quiet money. */
+  --cat-monetization-tint: #f1e9d9;
+  --cat-social: #3f5586;           /* slate indigo. people, connection. */
+  --cat-social-tint: #e6e9f1;
+
+  /* ---------- Status (utility only; quiet, never celebratory) ---------- */
+  --ok: #2f6b57;
+  --ok-tint: #e3ede9;
+  --warn: #8a6322;
+  --warn-tint: #f1e9d9;
+  --danger: #c42b2b;
+  --danger-tint: #fae6e3;
+  --info: #3f5586;
+  --info-tint: #e6e9f1;
+
+  /* ============================================================
+     SEMANTIC ALIASES — reach for these in components, not the raw scale.
+     ============================================================ */
+
+  /* Text */
+  --text-primary: var(--ink-900);
+  --text-secondary: var(--ink-600);
+  --text-muted: var(--ink-500);
+  --text-faint: var(--ink-400);
+  --text-inverse: var(--paper);
+  --text-on-accent: #ffffff;
+  --text-accent: var(--red-600);   /* red as readable text; sparing */
+  --text-link: var(--ink-900);     /* links: ink with a red underline */
+
+  /* Surfaces */
+  --surface-page: var(--paper);
+  --surface-card: var(--sheet);
+  --surface-sunken: var(--paper-deep);
+  --surface-hover: var(--paper-edge);
+  --surface-inverse: var(--ink-900);
+
+  /* Borders */
+  --border-subtle: var(--ink-200);
+  --border-default: var(--ink-300);
+  --border-strong: var(--ink-400);
+  --border-ink: var(--ink-900);    /* the deliberate hard rule */
+
+  /* Accent roles */
+  --accent: var(--red-500);
+  --accent-hover: var(--red-400);
+  --accent-press: var(--red-600);
+  --accent-text: var(--red-600);
+  --mark: var(--red-500);          /* annotation marks, the one underline */
+  --mark-wash: var(--red-wash);    /* highlight ground behind a marked phrase */
+
+  /* Focus */
+  --focus-ring: var(--red-500);
+  --focus-ring-offset: var(--paper);
+
+  /* Diagram language */
+  --node-fill: var(--sheet);
+  --node-border: var(--ink-400);
+  --node-label: var(--ink-700);
+  --map-line: var(--ink-300);          /* connection at rest */
+  --map-line-active: var(--red-500);   /* connection highlighted: "look here" */
+}

@@ -1,0 +1,14 @@
+{
+  "id": "george-app-erste-serbia",
+  "name": "George App (Erste Bank Serbia)",
+  "category": "Banking / Finance",
+  "type": "app",
+  "visibility": "report-only",
+  "analysisDate": "2026-05-13",
+  "lastUpdated": "2026-05-15",
+  "summary": "George is Erste Bank's mobile banking app, deployed in Serbia. It covers account management, card controls, spending categorization, loan applications, a travel information hub, and financial education content. The session reviewed the app as a returning user with existing bank products, exploring the full feature set from the home screen outward. This is a utility app, not a game — most of the 24-mechanic framework does not apply.",
+  "icon": null,
+  "heroImage": null,
+  "mechanics": [],
+  "system": null
+}

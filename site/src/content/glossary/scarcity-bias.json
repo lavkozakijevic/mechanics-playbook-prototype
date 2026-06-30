@@ -1,0 +1,11 @@
+{
+  "id": "scarcity-bias",
+  "term": "Scarcity Bias",
+  "def": "The tendency to place higher value on things that are rare or decreasing in availability. Energy systems, limited-time events, and first-purchase bonuses all create artificial scarcity to increase perceived value.",
+  "related": [
+    "energy-lives",
+    "limited-time-events",
+    "first-purchase-bonus"
+  ],
+  "visibility": "public"
+}

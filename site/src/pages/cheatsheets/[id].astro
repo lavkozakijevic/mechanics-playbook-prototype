@@ -1,0 +1,121 @@
+---
+// Cheatsheet detail — design bundle CheatsheetDetail.jsx (sheet-head title
+// block, numbered .steps with "Seen in" refchips, mech-aside sidebar).
+// Only public cheatsheets get detail pages; locked cards link to /subscribe/.
+// The category eyebrow derives from the first related mechanic (v44
+// cheatsheets carry no category of their own).
+import Base from "../../layouts/Base.astro";
+import { publishedCheatsheets, publishedMechanics, publishedApps, CAT_LABEL, numberWord } from "../../lib/content";
+
+export async function getStaticPaths() {
+  const all = await publishedCheatsheets();
+  return all
+    .filter((cs) => cs.data.visibility === "public")
+    .map((cs) => ({ params: { id: cs.data.id }, props: { cs } }));
+}
+
+const { cs } = Astro.props;
+const mechById = new Map((await publishedMechanics()).map((m) => [m.data.id, m.data]));
+const appById = new Map((await publishedApps()).map((a) => [a.data.id, a.data]));
+
+const relatedMechanics = cs.data.mechanics.map((id) => mechById.get(id)).filter(Boolean);
+const featuredApps = cs.data.apps.map((id) => appById.get(id)).filter(Boolean);
+const cat = relatedMechanics[0]?.cat;
+---
+
+<Base
+  title={`${cs.data.title} — Cheatsheet — Mechanics Playbook`}
+  description={cs.data.desc.slice(0, 155)}
+  current="cheatsheets"
+>
+  <main id="main">
+    <section class="cs-head sheet-head" aria-labelledby="sheet-h">
+      <div class="container">
+        <nav class="crumb" aria-label="Breadcrumb">
+          <a href="/mechanics/">Library</a>
+          <span class="crumb__sep" aria-hidden="true">/</span>
+          <a href="/cheatsheets/">Cheatsheets</a>
+          <span class="crumb__sep" aria-hidden="true">/</span>
+          <span>{cs.data.title}</span>
+        </nav>
+        <div class="sheet-head__slug">
+          <span class="eyebrow">Cheatsheet {String(cs.data.n).padStart(2, "0")}</span>
+          {cat && (
+            <>
+              <span class="sheet-head__dot" aria-hidden="true">·</span>
+              <span class="eyebrow eyebrow--muted">{CAT_LABEL[cat]}</span>
+            </>
+          )}
+        </div>
+        <h1 id="sheet-h">{cs.data.title}</h1>
+        <p class="cs-head__def">{cs.data.desc}</p>
+        <div class="sheet-head__meta">
+          <span class="gb-badge gb-badge--ok">Free guide</span>
+          <span class="sheet-head__count"><b>{cs.data.steps.length}</b> steps</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="mech-body">
+        <div class="mech-main">
+          <section aria-labelledby="steps-h">
+            <div class="mech-section__kicker">The guide</div>
+            <h2 class="mech-section__title" id="steps-h">{numberWord(cs.data.steps.length)} steps to get it right</h2>
+            <ol class="steps">
+              {cs.data.steps.map((step) => {
+                const stepApps = step.apps.map((id) => appById.get(id)).filter(Boolean);
+                return (
+                  <li class="step">
+                    <span class="step__n">{step.n}</span>
+                    <div class="step__main">
+                      <h3 class="step__title">{step.heading}</h3>
+                      <div class="step__body"><p>{step.body}</p></div>
+                      {stepApps.length > 0 && (
+                        <div class="step__refs">
+                          <span class="step__refs-label">Seen in</span>
+                          {stepApps.map((app) => (
+                            <a class="refchip" href={`/case-studies/${app.id}/`}>{app.name}</a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+          </section>
+        </div>
+
+        <aside class="mech-aside" aria-label="Related">
+          {relatedMechanics.length > 0 && (
+            <div class="amod">
+              <h3>Related mechanics</h3>
+              <div class="amod__list">
+                {relatedMechanics.map((m) => (
+                  <a class="amod__item" href={`/mechanics/${m.id}/`}>
+                    <span class="amod__dot" style={`background:var(--cat-${m.cat})`} />
+                    <span class="amod__name">{m.name}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+          {featuredApps.length > 0 && (
+            <div class="amod">
+              <h3>Apps in this cheatsheet</h3>
+              <div class="amod__list">
+                {featuredApps.map((app) => (
+                  <a class="amod__item" href={`/case-studies/${app.id}/`}>
+                    <span class="amod__name">{app.name}</span>
+                    <span class="amod__meta">{app.category}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+        </aside>
+      </div>
+    </div>
+  </main>
+</Base>

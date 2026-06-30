@@ -1,0 +1,323 @@
+{
+  "id": "royal-match",
+  "name": "Royal Match",
+  "category": "Casual Game",
+  "type": "game",
+  "visibility": "subscriber",
+  "analysisDate": "2026-04-03",
+  "lastUpdated": "2026-05-15",
+  "summary": "Royal Match layers five simultaneous limited-time events, a set collection system, a battle pass, and a team gifting mechanic on top of a match-3 core. Each system is introduced one at a time as the player advances through levels, preventing early-session overload. The team mechanic surfaces at the exact moment the energy system first becomes painful, level 19–21, making social joining feel like a natural solution rather than a feature to discover.",
+  "icon": "/icons/royal-match.png",
+  "heroImage": "/images/royal-match-pass-lives.webp",
+  "mechanics": [
+    {
+      "id": "energy-lives",
+      "depth": "core",
+      "writeup": {
+        "observed": "Players start with five hearts. Each failed level costs one heart. Hearts regenerate at one every approximately 25 minutes. When depleted, the lives screen shows: time to next life, a free lives request option (request from teammates), and a refill option costing 900 gold coins. The first heart depletion was timed to the difficulty spike around levels 19–21, the first genuinely challenging levels. The Easter Pass raises the heart cap from five to eight.",
+        "presented": "Hearts display as a row in the top bar from the start. When lives run low during a level, the King character visually expresses concern. The lives screen routes the depleted player to Ask Your Teammates first, the 900-coin refill is the secondary option. A 'hard level' label appears at level 39, signaling failure is by design rather than player error.",
+        "noting": "The mechanic is timed, not constant. The wall at the moment a player has failed twice reads as natural frustration with a clear solution. Both the spend prompt and the social team path arrive at the same moment of peak desire to continue, making the team mechanic feel like a natural remedy rather than a feature to discover.",
+        "findings": [
+          "The team join prompt appears at the precise moment the energy system first becomes painful, levels 19–21, the first difficulty spike, making the social mechanic feel like a solution to a problem the player already has.",
+          "The Free Lives screen routes to 'Ask Your Teammates' before the 900-coin refill option, the social path is the primary presented resolution, not the paid one.",
+          "The Easter Pass raises the heart cap from five to eight, framing expanded play capacity as a pass benefit rather than a paid lives purchase.",
+          "The 'hard level' label at level 39 signals difficulty is intentional, reducing churn by reframing repeated failure as designed challenge rather than player inadequacy."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Lives screen showing 3/5 hearts, \"time to next life: 7:30,\" the \"free lives\" request button, and the 900-coin refill option"
+      ]
+    },
+    {
+      "id": "limited-time-events",
+      "depth": "core",
+      "writeup": {
+        "observed": "Five distinct events were progressively introduced between levels 22 and 41. Propeller Madness (level 27–28, 2 days): collect propellers during normal levels to advance a multi-stage reward track toward 10,000 gold coins. King's Nightmare (recurring from level 9): a distinct mini-game appearing between levels. Easter Treasure (level 34): a chain of alternating free and paid reward claims, with a $2.99 offer sitting mid-chain. Egg Hunt (level 39): beat levels to smash eggs toward basket rewards. Team Tournament (level 22): runs within a defined window with team scores.",
+        "presented": "Events are introduced one at a time through popup interruptions between levels, never all at once. Each event has its own icon on the home screen. Events appear progressively at the moments when a player is most likely to experience engagement fatigue with the core loop.",
+        "noting": "The pacing of event introductions is deliberate, each one arrives as the previous mechanic starts to feel routine. Five simultaneous events at peak session depth create perpetual return pressure at different cadences (daily, 2-day, 27-day).",
+        "findings": [
+          "Events are introduced one at a time rather than all at once, preventing early-session overload and ensuring each event feels like a discovery.",
+          "King's Nightmare is an in-game recreation of Royal Match's own advertising format, the rescue puzzle gameplay shown in its ads is implemented as a recurring optional mini-game, making the advertised gameplay real within the actual product.",
+          "The Easter Treasure chain uses a free-paid-free structure, the $2.99 offer sits between free items, with remaining free rewards visible on the far side before the player decides whether to purchase.",
+          "The Bonus Bank at the bottom of the Easter Pass's 30 free-tier stages was never mentioned in the initial pass description, a late-session discovery reward for players who fully explore the free tier."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Propeller Madness event screen showing the multi-stage reward track with current progress, grand prize (10,000 gold coins), and the 2-day countdown",
+        "Easter Treasure chain showing free → free → free → $2.99 → free → free sequence, with claimed items lit and the paid offer mid-chain",
+        "King's Nightmare mini-game opening screen showing the rescue scenario, 50 gold coin reward, and the Play/Skip options"
+      ]
+    },
+    {
+      "id": "clans-guilds",
+      "depth": "core",
+      "writeup": {
+        "observed": "Teams unlock at level 21, aligned with the first difficulty spike, with free lives as the stated headline value. The join prompt appears at the moment hearts first run low, making the mechanic feel like a direct solution to the energy problem. Teams participate in weekly Team Tournaments, sharing a score track. The Easter Pass team gift makes individual pass purchases collectively visible.",
+        "presented": "The team join prompt appears between levels during the first energy depletion. The My Team screen shows active life requests and the weekly tournament standing. Tournament windows have defined deadlines.",
+        "noting": "Teams are introduced at the moment they solve the player's most acute problem, running out of lives. This makes joining feel motivated by immediate need rather than by a social feature the player sought out.",
+        "findings": [
+          "Teams unlock at level 21, timed precisely with the first energy depletion moment, the join prompt arrives as a solution to a problem the player is experiencing.",
+          "The weekly Team Tournament creates a collective competitive context, team score contributes to a shared standing, adding cooperative pressure to the individual match-3 loop.",
+          "The Easter Pass team gift makes individual subscription purchases visibly beneficial to the team, creating a social justification for spending.",
+          "Lives requesting is capped per member per time window, making each gift feel meaningful rather than unlimited."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Team tournament screen showing team position (9th), member contribution list with lance counts, armor color indicators, and the reward tiers for top positions",
+        "Team Gift Offers screen showing all three tiers (Bronze $9.99 / Silver $19.99 / Gold $39.99) with the split between personal rewards and team rewards for each"
+      ]
+    },
+    {
+      "id": "season-pass",
+      "depth": "core",
+      "writeup": {
+        "observed": "The Easter Pass ($9.99, 27 days) runs a dual-tier track with 30 stages of free rewards and 30 stages of larger paid rewards. Functional benefits at the paid tier: expanded heart cap (5 to 8), a golden username frame, and a golden profile frame. The paid tier also includes a team gift, providing infinite hearts to all team members for a defined duration. A Bonus Bank mechanic at the bottom of the 30-stage free tier was undescribed in the initial pass presentation and only discoverable by completing all free stages.",
+        "presented": "The Easter Pass is introduced around level 37. The dual track is visible on the pass screen. The 27-day countdown and remaining steps are shown throughout.",
+        "noting": "The Easter Pass raises the heart cap as one of its three stated functional benefits, making the subscription directly solve the game's primary friction point. The team gift makes the player's pass purchase visibly beneficial to their teammates, creating a social justification for spending that individual progression benefits cannot provide.",
+        "findings": [
+          "The Easter Pass raises the heart cap from 5 to 8, framing the subscription as removing the game's primary friction point rather than adding cosmetic value.",
+          "The team gift makes the pass purchase socially visible, teammates benefit directly from one member's purchase.",
+          "The Bonus Bank at the bottom of the 30 free-tier stages was never mentioned in the initial pass description, a discovery reward for engaged players, and a subtle reason to upgrade.",
+          "Golden username and profile frames give the pass a visible identity marker within the social game context."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Easter Pass free vs. paid tier comparison showing Step 1 (TNT vs. 8 lives + golden frame + golden username + team gift) and the 30-step track with 27-day countdown",
+        "Bonus Bank screen at the very bottom of the pass, with the note that it is accessible only after scrolling through all 30 free-tier stages"
+      ]
+    },
+    {
+      "id": "set-collection",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "The Culinary Collection contains 15 sets of 9 cards each (135 total) within a 27-day window. Cards are acquired through gameplay chests, event rewards, and a daily teammate card request capped at one specific card per 24 hours. Completing all 9 cards in a set unlocks a reward. Completing the full 135-card collection delivers 10,000 coins, a chef badge, and 10 boosters. Duplicates convert automatically to crowns redeemable for credits and boosters.",
+        "presented": "The collection grid shows all sets, owned cards are full color, missing cards greyed out with visible outlines. The grand prize is visible at the top throughout. The daily teammate card request is accessible from the My Team screen.",
+        "noting": "The request mechanic converts the final gap in a collection from a random drop problem into a daily cooperative task. A player who needs one specific card knows they can request it from a teammate tomorrow. Every drop produces something useful, duplicates convert to crowns, removing the primary negative experience of randomized acquisition.",
+        "findings": [
+          "15 sets of 9 cards, 135 total, within a 27-day window, a collection scope requiring sustained daily engagement to complete.",
+          "One named card request per teammate per 24 hours transforms final collection gaps from luck-dependent to action-dependent.",
+          "Duplicate cards convert automatically to crowns, every drop has value, eliminating the primary negative experience of randomized collection.",
+          "The collection unlocks at level 41, when team membership is already active and daily habits established."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Culinary Collection overview showing all 15 named food sets, the Chef badge grand prize, completion rewards per set, and the current 4 collected / 135 total status"
+      ]
+    },
+    {
+      "id": "achievements",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": [
+        "Trophy Case on profile showing earned milestones (First Activity) alongside future milestone markers",
+        "Butler's Gift overlay on a level with \"2/3\" active status showing the ongoing first-try streak and the power-up bonus it provides"
+      ]
+    },
+    {
+      "id": "variable-reward",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Variable rewards appear through level completion chests, event reward tracks (Propeller Madness prize stages), and the King's Nightmare mini-game prizes (50 gold coins per completion). Event prize tracks structure variable reward as a multi-stage achievement, each stage reveals a prize, and the full track leads toward a grand prize. The Easter Treasure chain delivers alternating free and paid items, a structured variable reveal with known outcomes at each stage.",
+        "presented": "Chests open with a reveal animation after level completion. Event prize tracks show the next reward at each stage. Mini-game prizes are disclosed before the mini-game begins.",
+        "noting": "Event prize tracks give variable reward a completion arc rather than a single moment, sustaining engagement across multiple sessions. The Propeller Madness structure integrates the reward track into the core gameplay loop, propellers collected during normal levels feed a visible track toward 10,000 coins.",
+        "findings": [
+          "The Propeller Madness event accumulates propeller power-ups from normal levels toward a 10,000-coin grand prize, variable reward integrated into the core gameplay loop.",
+          "King's Nightmare mini-game delivers a fixed 50 gold coins per completion but is skippable, an opt-in mechanic with a disclosed fixed reward.",
+          "The Easter Treasure chain delivers alternating free and paid items with outcomes visible at each stage, a structured reveal rather than random pull mechanics."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "daily-login-reward",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "leaderboards",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "cosmetics",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "gifting",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Three parallel gifting systems operate simultaneously. Lives gifting: members request lives from teammates via a one-tap button; the lives screen routes depleted players to Ask Your Teammates before the paid refill. Card request gifting: one specific named card per teammate per 24 hours through the Culinary Collection. Team gift through the Easter Pass: the paid pass delivers infinite hearts to all team members for a defined period. All three systems require team membership to access.",
+        "presented": "The lives gifting prompt is embedded in the energy depletion flow. The Free Lives screen appears before the paid refill option. The My Team screen shows active requests inline with a one-tap Help button. Card requests are accessible from the collection screen.",
+        "noting": "The mechanic converts the game's primary friction point into its primary social moment. A player who has run out of lives and has no teammates has a reason to join a team. A player who has run out of lives and has teammates has a reason to open the My Team screen and engage with the social layer they might otherwise ignore.",
+        "findings": [
+          "When lives reach zero, the Free Lives screen routes to Ask Your Teammates before the 900-coin refill, the social path is the primary resolution, the paid path is secondary.",
+          "One card request per teammate per 24 hours turns the final missing card from a random drop problem into a daily cooperative task.",
+          "The Easter Pass team gift makes the pass purchase socially visible, all teammates receive the benefit of one member's $9.99 purchase.",
+          "The lives request is available for four hours, a time limit that creates urgency without making the mechanic feel punitive for teammates who check later."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "passive-construction-meta",
+      "depth": "core",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "soft-currency",
+      "depth": "supporting",
+      "provisionalDepth": true,
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "hard-currency",
+      "depth": "supporting",
+      "provisionalDepth": true,
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "A casual system where the social mechanic surfaces exactly when the core friction becomes painful.",
+    "overview": "Royal Match's system is built around a single design insight: the moment the player runs out of lives is also the best moment to introduce the social layer. Every mechanic in the system is sequenced around that depletion moment. The match-3 loop creates the habit; the energy system creates the friction; the gifting mechanic converts that friction into a social event rather than a purchase prompt. Five simultaneous events, a set collection, and a season pass are all layered in one at a time, only after the habit is established.",
+    "loop": "The core loop is: complete match-3 levels → earn stars → spend stars on castle construction → run out of hearts at the first difficulty spike → get prompted to join a team → receive free lives from teammates → complete more levels → encounter limited-time events one by one → collect cards through gameplay → complete sets for bonus rewards → encounter the battle pass after 37 levels. Each layer arrives at the moment the previous one starts to feel routine.",
+    "keyInsight": "Royal Match sequences its mechanics to solve problems the player is already experiencing. The team mechanic doesn't ask players to be social, it offers free lives at the exact moment they've run out. The battle pass doesn't just add rewards, it increases the heart cap, addressing the specific constraint that has been limiting their play. Every new mechanic is positioned as a solution to a friction the player has already felt.",
+    "whatMakesItWork": "The system works because of timing, not breadth. A player who reaches level 41 has encountered the energy wall, joined a team to get free lives, started requesting cards from teammates, and unlocked a pass that solved the heart cap problem, each step in sequence, each at the right moment. The events layer on one at a time rather than all at once. Nothing is presented before the player has a reason to care about it.",
+    "roles": [
+      {
+        "id": "energy-lives",
+        "role": "The spine of the monetization system. Five hearts, depleting at the first difficulty spike around level 19. The depletion moment is the trigger for everything social in the game, it's designed to arrive exactly when frustration is highest and the desire to continue is strongest."
+      },
+      {
+        "id": "gifting",
+        "role": "Converts the energy depletion moment into a social interaction. Free lives from teammates arrive at the same screen as the 900-coin refill option, and the social path is listed first. The mechanic turns the game's primary friction point into its primary social hook."
+      },
+      {
+        "id": "clans-guilds",
+        "role": "Teams unlock at level 21, timed to the first difficulty spike. The join prompt leads with free lives as its headline value. Once in a team, the weekly tournament and card requests create ongoing cooperative reasons to stay engaged beyond lives gifting."
+      },
+      {
+        "id": "limited-time-events",
+        "role": "Five events introduced one at a time between levels 22 and 41, Propeller Madness, King's Nightmare, Easter Treasure, Egg Hunt, Team Tournament. Each arrives at the moment the previous mechanic starts to feel routine, preventing engagement fatigue without overwhelming the early session."
+      },
+      {
+        "id": "set-collection",
+        "role": "15 sets of 9 cards, unlocking at level 41. The daily teammate card request converts the final gap in any set from a random drop problem into a cooperative daily task, turning set completion from luck into social coordination."
+      },
+      {
+        "id": "season-pass",
+        "role": "The Easter Pass arrives at level 37 with a functional benefit, raising the heart cap from 5 to 8, that directly addresses the game's primary friction. The team gift makes one member's purchase visibly beneficial to the whole team, adding a social justification to the spend."
+      },
+      {
+        "id": "variable-reward",
+        "role": "Level completion chests and event reward tracks provide variable outcomes within the normal session. The Easter Treasure chain uses a free-paid-free structure where the remaining free rewards are visible before the player decides to purchase."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 8,
+      "label": "ROYAL MATCH"
+    },
+    "nodes": [
+      {
+        "id": "energy-lives",
+        "x": 50,
+        "y": 26
+      },
+      {
+        "id": "gifting",
+        "x": 22,
+        "y": 46
+      },
+      {
+        "id": "limited-time-events",
+        "x": 50,
+        "y": 46
+      },
+      {
+        "id": "clans-guilds",
+        "x": 78,
+        "y": 46
+      },
+      {
+        "id": "set-collection",
+        "x": 28,
+        "y": 70
+      },
+      {
+        "id": "season-pass",
+        "x": 72,
+        "y": 70
+      },
+      {
+        "id": "variable-reward",
+        "x": 50,
+        "y": 88
+      }
+    ],
+    "connections": [
+      {
+        "from": "energy-lives",
+        "to": "gifting",
+        "title": "Depletion triggers gifting",
+        "desc": "When hearts reach zero, the lives screen routes the player to Ask Your Teammates before showing the paid refill. The social path is the first offered resolution to the energy constraint.",
+        "effect": "The player experiences the energy system's most frustrating moment as a social opportunity rather than a paywall. Running out of lives becomes a reason to check the team screen, not a reason to quit."
+      },
+      {
+        "from": "energy-lives",
+        "to": "clans-guilds",
+        "title": "Energy wall introduces teams",
+        "desc": "The team join prompt surfaces at levels 19–21, precisely when the first genuine heart depletion occurs. Free lives is the headline value of joining a team.",
+        "effect": "Players who would never seek out a social mechanic are guided to it at the moment it solves a real problem they're experiencing. The team adoption rate is driven by the energy system, not by social interest."
+      },
+      {
+        "from": "gifting",
+        "to": "set-collection",
+        "title": "Teammates enable targeted card requests",
+        "desc": "One specific named card per teammate per 24 hours converts the final gap in any collection set from a random drop problem into a cooperative daily task.",
+        "effect": "Players who are close to completing a set have a daily reason to interact with their team that is distinct from lives gifting, extending cooperative engagement beyond the energy depletion moment."
+      },
+      {
+        "from": "clans-guilds",
+        "to": "season-pass",
+        "title": "Team gift makes pass purchase social",
+        "desc": "The Easter Pass team gift provides infinite hearts to all team members for a duration. One member's $9.99 purchase delivers a visible, immediate benefit to everyone in the team.",
+        "effect": "The season pass purchase gains a social justification. Players feel they are contributing to their team as much as helping themselves, reducing the psychological cost of the spend."
+      },
+      {
+        "from": "limited-time-events",
+        "to": "clans-guilds",
+        "title": "Team tournament creates collective stakes",
+        "desc": "The Team Tournament runs within a defined window with a shared score track. Team members' individual level completions contribute to the collective tournament standing.",
+        "effect": "Events that would otherwise feel solo gain a cooperative dimension. Team members feel pull from collective standing alongside their personal desire to clear levels."
+      },
+      {
+        "from": "set-collection",
+        "to": "variable-reward",
+        "title": "Collection gaps sustain pack opening",
+        "desc": "Card packs acquired through level completion chests have variable contents. Knowing which cards are missing makes each chest opening feel purposeful rather than arbitrary.",
+        "effect": "Variable reward engagement is sustained by set collection incompleteness, the player opens chests not just for random reward but with a specific gap in mind, making each pull feel targeted."
+      }
+    ]
+  }
+}

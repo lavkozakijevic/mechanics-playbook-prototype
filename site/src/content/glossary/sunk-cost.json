@@ -1,0 +1,10 @@
+{
+  "id": "sunk-cost",
+  "term": "Sunk Cost Fallacy",
+  "def": "The tendency to continue investing in something because of prior investment, regardless of future prospects. Long streaks and accumulated XP exploit sunk cost psychology: the longer a user has played, the more costly abandonment feels.",
+  "related": [
+    "streak",
+    "xp-leveling"
+  ],
+  "visibility": "public"
+}

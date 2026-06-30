@@ -1,0 +1,33 @@
+{
+  "id": "energy-lives",
+  "n": "02",
+  "name": "Energy / Lives",
+  "cat": "retention",
+  "tagline": "A system that limits how many attempts or sessions a user can have within a given time window.",
+  "desc": "Each action consumes one unit. When depleted, the session ends until units regenerate, are gifted by friends, or purchased. The mechanic functions as both a pacing tool and a monetisation surface, with depletion as the primary purchase trigger. Scarcity creates value, play that can continue indefinitely is taken for granted.",
+  "principle": "Scarcity creates perceived value. The moment of depletion is engineered to coincide with peak engagement desire.",
+  "players": [
+    "achiever"
+  ],
+  "warn": "Energy systems feel punishing in long-form apps. The regeneration timer must feel fair, too slow and users churn; too fast and scarcity loses meaning.",
+  "variants": [
+    "Fixed capacity with timed regen",
+    "Lives lost on failure",
+    "Energy gifting between users"
+  ],
+  "lifecycle": "Early-to-mid engagement before habitual use is established.",
+  "paired": [
+    "gifting",
+    "daily-login-reward",
+    "variable-reward"
+  ],
+  "context": [
+    "retention",
+    "monetization"
+  ],
+  "sdt": [
+    "scarcity",
+    "avoidance"
+  ],
+  "visibility": "subscriber"
+}

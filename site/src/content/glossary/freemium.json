@@ -1,0 +1,11 @@
+{
+  "id": "freemium",
+  "term": "Freemium",
+  "def": "A business model where the core product is free but enhanced features, content, or capabilities require payment. The design challenge is calibrating what is free, enough to create habit and demonstrate value, and what is paid, enough to justify the price without feeling punitive.",
+  "related": [
+    "credits-tokens",
+    "energy-lives",
+    "first-purchase-bonus"
+  ],
+  "visibility": "public"
+}

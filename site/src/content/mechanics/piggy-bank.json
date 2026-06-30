@@ -1,0 +1,33 @@
+{
+  "id": "piggy-bank",
+  "n": "12",
+  "name": "Piggy Bank",
+  "cat": "monetization",
+  "tagline": "A mechanic that accumulates in-game currency over time, but requires a small purchase to unlock and collect what has built up.",
+  "desc": "The piggy bank converts time played into a purchase prompt that feels earned rather than demanded. The user watches their bank fill through normal gameplay. When full, they are prompted to unlock it, typically for a small payment. The key psychological shift: the user is not buying currency, they are unlocking currency they have already earned.",
+  "principle": "Earned value awaiting release. The purchase feels like a harvest, not a transaction.",
+  "players": [
+    "achiever"
+  ],
+  "warn": "Piggy banks must fill at a rate that feels meaningful. Too slowly and users forget it exists. Too quickly and the unlock price feels arbitrary.",
+  "variants": [
+    "Currency bank",
+    "Resource accumulator",
+    "Reward chest accumulator"
+  ],
+  "lifecycle": "Mid-to-late lifecycle. Most effective once the user cares about the currency being accumulated.",
+  "paired": [
+    "credits-tokens",
+    "daily-login-reward",
+    "variable-reward"
+  ],
+  "context": [
+    "monetization"
+  ],
+  "sdt": [
+    "ownership",
+    "avoidance",
+    "scarcity"
+  ],
+  "visibility": "subscriber"
+}

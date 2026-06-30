@@ -1,0 +1,227 @@
+{
+  "id": "clash-of-clans",
+  "name": "Clash of Clans",
+  "category": "Strategy",
+  "type": "game",
+  "visibility": "subscriber",
+  "analysisDate": "2026-04-02",
+  "lastUpdated": "2026-05-20",
+  "summary": "Clash of Clans is a base-building strategy game by Supercell where construction timers are the primary return mechanic and Town Hall upgrades gate every other mechanic in the game. The season pass does not appear until Town Hall 7 — confirmed absent through Town Hall 6. The Builder Base is a fully separate village with its own currencies, troops, buildings, and progression track, discovered mid-game by most players.",
+  "icon": "/icons/clash-of-clans.png",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "passive-construction-meta",
+      "depth": "core",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": [
+        "Village map at Town Hall 4 showing multiple buildings under simultaneous construction by two builders, with the suggested upgrade indicator showing \"2 out of 2\" and the gem-to-finish option visible"
+      ]
+    },
+    {
+      "id": "clans-guilds",
+      "depth": "core",
+      "writeup": {
+        "observed": "Clans unlock after rebuilding the Clan Castle (10,000 elixir). Joining requires finding a clan through a filterable browser (language, location, war frequency, league, labels, minimum town hall) or searching by name. The session joined \"Cape Town Gangster\" with 2 of 15 members online. After joining: clan war participation (the session was assigned as a war spectator because they had not been selected by the clan leader), troop donations to and from members, clan chat, and clan war league participation requiring a minimum of 15 members. Creating a clan costs 40,000 gold and includes options for badge design, open or invite-only membership, war frequency, and up to six label categories.",
+        "findings": [
+          "The achievement system explicitly links to clan participation: \"request reinforcements\" is a named achievement task, creating a mechanic loop where achievements motivate clan joining, clan joining motivates troop donation behavior, and troop donation behavior motivates barracks upgrades.",
+          "The clan creation cost (40,000 gold) creates a sustained play incentive for players who want to own rather than join, and the creation options (badge design, labels, requirements) give clans genuine customization depth.",
+          "Being assigned as a war spectator on first joining an active clan is a common new-member experience in Clash. The game acknowledges this explicitly on screen, which softens the exclusion but does not resolve it."
+        ]
+      },
+      "screenshots": [
+        "/screenshots/clans-guilds/clash-of-clans/01.webp"
+      ],
+      "suggestedShots": [
+        "Clan browser showing filter options (language, location, war frequency, league, required town hall, labels) and a list of available clans with member counts and locations"
+      ]
+    },
+    {
+      "id": "achievements",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Achievements are organized by village (Home Village, Builder Base, Clan Capital) and by category. Each achievement has three stars with rewards scaling per star. The Supercell ID connection achievement awards 100 XP and 50 gems for three-star completion, 10x more than most standard achievements. \"Bigger and Better\" (upgrade Town Hall to level 3) awards 10 XP and 5 gems. Five achievements were completed during the first session before re-entering after ID setup.",
+        "findings": [
+          "The Supercell ID achievement paying 10x more than standard achievements is the highest single-achievement reward in the library tied to an account security action. The economics make account creation the single most rewarding thing a new player can do in the first session.",
+          "Organizing achievements by village (Home Village, Builder Base, Clan Capital) mirrors the game's three-parallel-progression structure, making the achievement system a map of the game's full content scope from the first session."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Achievement list showing the Supercell ID achievement (100 XP, 50 gems) alongside \"Bigger and Better\" (10 XP, 5 gems), with three-star indicators and claimed/unclaimed states visible"
+      ]
+    },
+    {
+      "id": "leaderboards",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "variable-reward",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "limited-time-events",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "daily-weekly-quests",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "xp-leveling",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "cosmetics",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "gifting",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "soft-currency",
+      "depth": "supporting",
+      "provisionalDepth": true,
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "hard-currency",
+      "depth": "supporting",
+      "provisionalDepth": true,
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "A base-building game where Town Hall level is the gate to every other mechanic in the game.",
+    "overview": "Clash of Clans is organized around build timers. Resources are spent on buildings, upgrades take real-world time, and the player attacks other villages to earn more resources while waiting. Town Hall upgrades gate every downstream mechanic: new buildings, new content, the season pass, and even participation in the ranked league system. The Builder Base is a fully separate village with its own currencies, troops, and progression track.",
+    "loop": "Spend gold and elixir on buildings and upgrades. Attack goblin camps or other players to earn more resources while timers run. Complete challenges for milestone rewards that feed back into construction. Upgrade the Town Hall to unlock new buildings and game modes. Join a clan for troop donations and war participation. Earn league medals through clan war leagues. Spend league medals in the League Shop.",
+    "keyInsight": "The season pass not appearing until Town Hall 7 means a new player can spend many hours in the game before the primary recurring monetization surface becomes available. This is a deliberate sequencing decision: establish the construction loop, the clan loop, and the challenge loop before introducing the pass. By Town Hall 7, the player already has a clan, an ongoing war, and a challenge track to accelerate with the pass.",
+    "whatMakesItWork": "The suggested upgrade system never leaves the player without a visible next action. As one upgrade completes, a new one appears. Combined with build timers that create known return windows and challenge rewards that fund the next construction task, the player is always in the middle of something rather than at a stopping point.",
+    "roles": [
+      {
+        "id": "clans-guilds",
+        "role": "Cooperative groups with war participation, troop donations, and clan XP. The achievement system explicitly rewards clan participation, creating a loop from solo progression into social engagement."
+      },
+      {
+        "id": "daily-weekly-quests",
+        "role": "Starter Challenges are the primary progression guidance system, organized by point values with milestone rewards. New challenges unlock per Town Hall level."
+      },
+      {
+        "id": "xp-leveling",
+        "role": "Player level (separate from Town Hall level) advances through XP earned from achievements and battles. The Supercell ID achievement pays 10x more XP than standard achievements."
+      },
+      {
+        "id": "achievements",
+        "role": "Organized by village and category. The Supercell ID achievement awards 100 XP and 50 gems vs. 10 XP and 5 gems for standard tasks, making account linking the single highest-rewarded action in the system."
+      },
+      {
+        "id": "limited-time-events",
+        "role": "Clan War Leagues (8-day cadence), Raid Weekend (weekly), and seasonal scenery events run simultaneously. The season pass unlocks only at Town Hall 7."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 6,
+      "label": "CLASH OF CLANS"
+    },
+    "nodes": [
+      {
+        "id": "clans-guilds",
+        "x": 50,
+        "y": 24
+      },
+      {
+        "id": "achievements",
+        "x": 18,
+        "y": 46
+      },
+      {
+        "id": "leaderboards",
+        "x": 50,
+        "y": 46
+      },
+      {
+        "id": "limited-time-events",
+        "x": 82,
+        "y": 46
+      },
+      {
+        "id": "daily-weekly-quests",
+        "x": 18,
+        "y": 70
+      },
+      {
+        "id": "variable-reward",
+        "x": 50,
+        "y": 70
+      },
+      {
+        "id": "xp-leveling",
+        "x": 82,
+        "y": 70
+      },
+      {
+        "id": "cosmetics",
+        "x": 50,
+        "y": 88
+      }
+    ],
+    "connections": [
+      {
+        "from": "clans-guilds",
+        "to": "achievements",
+        "title": "Clan participation is explicitly rewarded in the achievement system",
+        "desc": "Request Reinforcements is a named achievement. Donating troops, participating in war, and earning war stars all appear as achievement categories. The solo and social progression tracks converge at the achievement system.",
+        "effect": "Players who would not naturally seek out clan participation are pulled toward it by achievement targets that require it."
+      },
+      {
+        "from": "daily-weekly-quests",
+        "to": "xp-leveling",
+        "title": "Challenge completions award XP toward player level",
+        "desc": "Completing challenge milestones and achievements both award XP. Player level (separate from Town Hall) advances faster than Town Hall and provides visible progress during the long waits between Town Hall upgrades.",
+        "effect": "The player always has something crossing a threshold. While the 12-hour Town Hall timer runs, player level advances through challenges."
+      },
+      {
+        "from": "achievements",
+        "to": "clans-guilds",
+        "title": "Supercell ID achievement creates cross-session account investment",
+        "desc": "The Supercell ID achievement awards 100 XP and 50 gems, ten times more than standard achievements. Connecting the account anchors progress to a recoverable identity, which lowers the cost of returning after a long absence.",
+        "effect": "Players who connect Supercell ID are less likely to start fresh because their village, clan, and achievement progress are portable."
+      },
+      {
+        "from": "limited-time-events",
+        "to": "clans-guilds",
+        "title": "Clan War League sign-up window creates clan urgency",
+        "desc": "CWL requires the clan leader to sign up within a two-day window. The event deadline creates a coordination task that activates clan communication independently of any ongoing war.",
+        "effect": "The calendar-driven urgency makes clans feel active and purposeful even between wars. The sign-up window is a social trigger."
+      }
+    ]
+  }
+}

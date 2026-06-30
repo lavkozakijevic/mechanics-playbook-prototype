@@ -1,0 +1,36 @@
+{
+  "id": "challenges",
+  "n": "09",
+  "name": "Challenges",
+  "cat": "retention",
+  "tagline": "Structured, completable objectives with a visible endpoint that users opt into, typically with social or competitive dimensions.",
+  "desc": "Unlike quests, challenges often have optional opt-in and social visibility. For the Competitor, time-limited challenges with ranked outcomes are the natural habitat. The opt-in nature respects user autonomy while social visibility creates ambient competitive pressure for those who choose to participate.",
+  "principle": "Voluntary commitment with visible accountability. The user chose this goal, which makes completion more meaningful and abandonment more costly.",
+  "players": [
+    "achiever",
+    "competitor"
+  ],
+  "warn": "Challenges set too high alienate new users. The ideal challenge is achievable for the median user with meaningful effort. Challenges requiring subscription access before participation create resentment.",
+  "variants": [
+    "Solo challenges",
+    "Community challenges",
+    "Friend challenges",
+    "Branded / partner challenges"
+  ],
+  "lifecycle": "Mid-to-late lifecycle. Strongest once the user has formed a baseline habit.",
+  "paired": [
+    "leaderboards",
+    "achievements",
+    "limited-time-events"
+  ],
+  "context": [
+    "retention",
+    "referral"
+  ],
+  "sdt": [
+    "autonomy",
+    "competence",
+    "relatedness"
+  ],
+  "visibility": "subscriber"
+}

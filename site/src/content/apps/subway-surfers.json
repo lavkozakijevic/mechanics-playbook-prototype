@@ -1,0 +1,262 @@
+{
+  "id": "subway-surfers",
+  "name": "Subway Surfers",
+  "category": "Endless Runner",
+  "type": "game",
+  "visibility": "subscriber",
+  "analysisDate": "2026-05-07",
+  "lastUpdated": "2026-05-15",
+  "summary": "Subway Surfers runs rewarded video ads across more surfaces than any other app in this library, offering ad watching as an alternative to gameplay completion for missions, currency payment for items, and claiming missed daily login rewards. A secondary monetisation layer sells ad tickets, turning ad-watching behaviour itself into a purchasable state. Any purchase removes pop-up ads permanently and unlocks a cosmetic character, structuring the forced-ad experience as a paywall any payment exits.",
+  "icon": "/icons/subway-surfers.png",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "ads",
+      "depth": "core",
+      "writeup": {
+        "observed": "Rewarded video ads appear across more surfaces in Subway Surfers than in any other app in this library. Home screen: post-run prize popup (1,000 coins, watch ad to double to 2,000), persistent 500-coin banner, three-key reward banner, and a 'Coins Galore' exclusive deal (watch 3 ads for 20,000 coins, 7-hour 48-minute countdown). Store: daily gift, token box, three blue keys, hoverboard (300 coins or ad), score booster, head start. Daily rewards: five daily reward slots each requiring an ad, no free daily reward on this screen. Missions: complete by playing or skip by watching an ad.",
+        "presented": "Rewarded ads are positioned side-by-side with currency costs at every major spending point. The Mystery Box Mania event aggregates ad watches across the session toward a 10-watch reward milestone. The ad ticket system (ad bypass) sells instant rewards without watching, $2.99 for 10, $4.99 for 25, $9.99 for 60 tickets.",
+        "noting": "The ad ticket product inverts the typical rewarded ad model: players pay to receive ad rewards without watching. Any purchase removes pop-up interstitial ads permanently and unlocks Boombot, structuring the entire forced-ad experience as a paywall where any payment eliminates it.",
+        "findings": [
+          "Ad watching is offered as an alternative to gameplay completion for missions, watching an ad skips the jump-15-times mission entirely, making ads equivalent in value to actual play.",
+          "The daily rewards screen has no free option, all five slots require ad watching, making the entire daily rewards track an ad monetization surface.",
+          "Any purchase removes pop-up ads permanently and unlocks Boombot, structuring the forced-ad experience as a paywall with a $1.99 minimum to exit.",
+          "The ad ticket product creates a second monetization layer built entirely on top of the rewarded ad system."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Store tab showing the daily gift, token box, and three-key reward all with \"watch ad\" buttons side by side with coin/key costs",
+        "The \"coins galore\" exclusive deal showing 0/3 ads watched, the 20,000 coin reward, and the 7:48 countdown",
+        "Ad ticket pricing screen showing $2.99/10, $4.99/25, $9.99/60 with \"get instant rewards without watching ads\" copy"
+      ]
+    },
+    {
+      "id": "daily-login-reward",
+      "depth": "core",
+      "writeup": {
+        "observed": "Two distinct daily reward systems operate simultaneously. Daily Login Calendar: appears as a popup on app open, showing a multi-day calendar with a 20-login milestone reward of the Freebird hoverboard. Missed days can be claimed by paying 5 keys or watching an ad per missed day. Daily Rewards screen: five separate reward slots each requiring an ad watch, no free slot on this screen. The Bonus Keys Trail is a separate 10-day streak with daily key deliveries: Day 1 requires $7.99 to start, with nine subsequent daily key deliveries free.",
+        "presented": "The login calendar appears as a popup at app open before any other content. The daily rewards screen is a separate surface accessible from the home screen. Both run simultaneously and independently.",
+        "noting": "The two systems serve different motivations: the login calendar rewards consistent return with a hoverboard milestone; the daily rewards screen monetizes each day's ad engagement. The missed-day catch-up mechanic converts calendar gaps into additional monetization surfaces rather than dead ends.",
+        "findings": [
+          "Missed daily login rewards are claimable by watching an ad or spending 5 keys per missed day, converting gaps in the streak into monetization opportunities.",
+          "The daily rewards screen has no free slot, all five slots require ad watching, making the entire screen an ad monetization surface separate from the login calendar.",
+          "The 20-login milestone reward (Freebird hoverboard) creates a long-horizon goal requiring consistent daily return across 20 sessions.",
+          "The Bonus Keys Trail (Day 1: $7.99, Days 2–10: free key deliveries) converts a one-time purchase into a 10-day daily touchpoint."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Daily login calendar showing the 20-login structure with Freebird hoverboard as the milestone reward and a missed-day \"catch up\" bubble on one entry",
+        "Daily Rewards screen showing five ad-watch slots, the \"watch more ads to earn all rewards before time runs out\" message, and the Mystery Box Mania counter below"
+      ]
+    },
+    {
+      "id": "cosmetics",
+      "depth": "core",
+      "writeup": {
+        "observed": "The cosmetics catalogue covers characters and hoverboards with acquisition paths through coins, keys, event currencies, real money, bundles, event completion, and friend-adding bonuses. Boombot is unlocked by any purchase. Characters are also purchasable directly ($9.99 per character) or through event currency tracks. No single acquisition path dominates, the catalogue is accessible at multiple spend levels simultaneously.",
+        "presented": "The character and hoverboard catalogue is accessible from the home screen. Event-specific characters and boards are surfaced through the active events tab. The Boombot unlock on any purchase is communicated in the purchase confirmation context.",
+        "noting": "Multiple acquisition paths for the same items mean every player, free, light spender, and heavy spender, has a relevant path to any given cosmetic. Earnable characters create long-term goals for free players; direct purchase options serve players who want immediate access.",
+        "findings": [
+          "No single acquisition path dominates the cosmetics catalogue, characters and boards are earnable, purchasable, or lockable behind event completion.",
+          "Boombot is unlocked by any purchase at any price, a cosmetic character used as a universal conversion incentive across all purchase types.",
+          "Event coins are a time-limited event-specific currency that funds event-exclusive characters, making event participation the only path to those cosmetics.",
+          "Friend-adding bonuses include character unlocks, a referral reward directly tied to the cosmetics catalogue."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Characters tab showing a mix of coin-priced, key-priced, event-coin-priced, timed, and bundle characters in the catalogue with their distinct price badges"
+      ]
+    },
+    {
+      "id": "daily-weekly-quests",
+      "depth": "core",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": [
+        "Mission set screen showing three active missions each with their gameplay requirement, 1,700-coin skip option, and watch-ad skip option side by side"
+      ]
+    },
+    {
+      "id": "variable-reward",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "The post-run prize popup delivers 1,000 coins with a 2x ad offer, a disclosed-value reward at the highest-traffic moment in the session (appearing before the home screen loads after every run). Character and hoverboard token collection mechanics create a run-integrated variable reward loop, specific tokens for characters and boards appear randomly during runs and accumulate toward completion. Daily Gifts in the store contain variable contents. Token boxes are unlockable by watching an ad.",
+        "presented": "Variable rewards surface at natural pause points throughout the session. The post-run prize popup is the highest-traffic ad placement in the game, appearing before the home screen loads after a run.",
+        "noting": "Variable rewards are embedded in the session rhythm rather than concentrated at a single pull surface. The post-run moment captures the player at the transition between runs, when they are most engaged and ready to act on a prompt.",
+        "findings": [
+          "The post-run prize popup appears before the home screen loads after every run, the highest-traffic moment in the session, ensuring maximum exposure to the 2x ad offer.",
+          "Character and hoverboard token collection creates a long-horizon variable reward loop, specific tokens appear randomly in runs, making each run a potential collection advance.",
+          "The Mystery Box Mania event (watch 10 ads to earn a prize) aggregates ad watches from anywhere in the game into a single milestone counter, spreading engagement across the full session."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Store showing the Mystery Box (500 coins) and token box (ad or keys) side by side with their acquisition paths"
+      ]
+    },
+    {
+      "id": "achievements",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "The score multiplier is the primary progression axis, increasing permanently with mission completion. The multiplier also gates content: multiplier 4 unlocks quests, multiplier 7 unlocks collections. A $4.99 bundle instantly adds 5 levels. The 20-login calendar milestone (Freebird hoverboard) functions as a long-horizon achievement requiring consistent daily return.",
+        "presented": "The score multiplier displays on the home screen and on the pre-run screen. Mission progress is shown in the missions tab. The 20-login calendar milestone is visible on the login calendar at any time.",
+        "findings": [
+          "The score multiplier permanently increases with mission completion, a persistent account-level progression stat that compounds across every session.",
+          "Multiplier levels gate content: level 4 unlocks quests, level 7 unlocks collections, making multiplier progression a prerequisite for full game access.",
+          "A $4.99 bundle adds 5 multiplier levels instantly, creating a direct purchase path to content gated behind progression.",
+          "Top Run weekly leaderboard ranks players by highest run score, making multiplier level a competitive advantage in the weekly ranking."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "leaderboards",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": [
+        "Top Run screen showing the country leaderboard with ranked scores, the weekly reset timer, and the 25,000 minimum score entry requirement"
+      ]
+    },
+    {
+      "id": "limited-time-events",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "set-collection",
+      "depth": "shallow",
+      "writeup": {
+        "observed": "The collections system operates through character and hoverboard token accumulation during runs. Specific tokens for characters and boards appear randomly during runs and accumulate toward completion. Event coins earned through event participation fund event-exclusive character acquisition. The full collections tab was locked behind stars/level 4 and not accessible during either analysis session.",
+        "presented": "Character and hoverboard token collection operates through the run loop. Event-specific character collections use a separate event coin currency tied to event participation.",
+        "findings": [
+          "The Events tab, where the full set collection system likely resides, was locked behind stars/level 4 and not accessible during either analysis session.",
+          "Character and hoverboard tokens appear during runs and accumulate toward completion, the collection mechanic is integrated into the core run loop rather than a separate pull surface.",
+          "Event-specific character collections use a separate event coin currency, creating a parallel collection economy tied to event participation."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "hard-currency",
+      "depth": "supporting",
+      "provisionalDepth": true,
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "soft-currency",
+      "depth": "supporting",
+      "provisionalDepth": true,
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "An ad economy where every reward surface has a monetization path and every monetization path has a bypass.",
+    "overview": "Subway Surfers' system is built around ads as a parallel economy. Rewarded video ads appear at more surfaces than any other app in this library, as alternatives to coin payments, as daily reward slots, as mission completion substitutes, and as event participation triggers. The system is notable because it then monetizes the ad-watching behaviour itself: players can pay to receive ad rewards without watching. Any purchase removes interstitial ads permanently and unlocks a cosmetic, structuring the forced-ad experience as a paywall any payment exits.",
+    "loop": "The core loop is: run through the subway → collect coins and tokens → fail or complete → return to home screen for a prize popup with 2x ad offer → optionally watch ads across multiple home screen surfaces → check daily login calendar → complete missions to advance the score multiplier → use the multiplier to increase coin and card pack yields → build cosmetics through gameplay or purchase. The score multiplier is the long-term progression axis; ads are the short-term engagement layer.",
+    "keyInsight": "The ad ticket is the system's most revealing mechanic. Players who have learned to watch ads for rewards can purchase tickets to receive those same rewards without watching anything. This means Subway Surfers has trained a behavioural expectation (watch ad, get reward) and then monetized both sides of it: the watching (through ad revenue) and the not-watching (through ad ticket sales).",
+    "whatMakesItWork": "The system works because it treats ads as a feature rather than an interruption. Every ad placement is optional and positioned as a clear exchange: watch this, get that. Players who find the exchange fair engage repeatedly. Players who find it unfair pay to bypass it. Both outcomes generate revenue. The any-purchase interstitial removal creates a binary ad experience, free players see forced ads, paying players don't, giving any purchase a visible, immediate quality-of-life benefit.",
+    "roles": [
+      {
+        "id": "ads",
+        "role": "The central revenue mechanic, present at every major spending point as an alternative to currency. The post-run prize popup is the highest-traffic placement, it appears before the home screen loads. Five daily reward slots each require an ad. Ad tickets (pay to receive ad rewards without watching) create a second monetization layer built on top of the rewarded ad system."
+      },
+      {
+        "id": "daily-login-reward",
+        "role": "Two parallel daily systems: the login calendar (20-login milestone: Freebird hoverboard) and the five-slot daily rewards screen where every slot requires an ad. Missed calendar days are claimable by watching an ad or paying 5 keys, converting every gap in the streak into a monetization surface."
+      },
+      {
+        "id": "variable-reward",
+        "role": "Post-run prize popup, character and hoverboard token collection through runs, and the Mystery Box Mania event (10 ads = prize). Variable rewards are embedded in the session rhythm rather than concentrated at a single pull surface."
+      },
+      {
+        "id": "cosmetics",
+        "role": "Characters and hoverboards accessible through coins, keys, event currencies, direct purchase, or friend-adding bonuses. No single acquisition path dominates, the catalogue is accessible at multiple spend levels. Boombot unlocks on any purchase, making the cosmetics catalogue the first visible benefit of becoming a paying player."
+      },
+      {
+        "id": "achievements",
+        "role": "The score multiplier increases permanently with mission completion, gating content (multiplier 4: quests, multiplier 7: collections) and scaling all downstream rewards. It is the only long-horizon progression axis in a game without a character level or XP system."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 10,
+      "label": "SUBWAY SURFERS"
+    },
+    "nodes": [
+      {
+        "id": "ads",
+        "x": 50,
+        "y": 30
+      },
+      {
+        "id": "daily-login-reward",
+        "x": 22,
+        "y": 56
+      },
+      {
+        "id": "variable-reward",
+        "x": 78,
+        "y": 56
+      },
+      {
+        "id": "cosmetics",
+        "x": 30,
+        "y": 80
+      },
+      {
+        "id": "achievements",
+        "x": 70,
+        "y": 80
+      }
+    ],
+    "connections": [
+      {
+        "from": "ads",
+        "to": "daily-login-reward",
+        "title": "Ads monetize every missed day",
+        "desc": "Missed daily login calendar days can be claimed by watching an ad or spending 5 keys. The daily rewards screen has five slots, each requiring an ad watch to unlock.",
+        "effect": "The ad economy extends into the daily login system, every gap in the streak, and every slot in the daily rewards screen, becomes an ad placement. Return cadence and ad engagement are fully interlinked."
+      },
+      {
+        "from": "ads",
+        "to": "achievements",
+        "title": "Ad watching advances the score multiplier",
+        "desc": "Daily tasks including ad watching contribute to mission completion. Missions advance the score multiplier. The multiplier is the primary long-horizon progression axis in the game.",
+        "effect": "Ad engagement contributes to the game's only meaningful progression system, giving regular ad watchers a concrete advancement rationale that goes beyond the immediate reward."
+      },
+      {
+        "from": "daily-login-reward",
+        "to": "cosmetics",
+        "title": "Login milestone rewards cosmetics",
+        "desc": "The 20-login milestone on the login calendar rewards the Freebird hoverboard, a direct cosmetic reward for consistent daily return over 20 sessions.",
+        "effect": "The daily login system has a cosmetics endpoint rather than just currency rewards, giving players who are not motivated by coins a concrete item goal that requires sustained daily return."
+      },
+      {
+        "from": "cosmetics",
+        "to": "variable-reward",
+        "title": "Character tokens are run-variable rewards",
+        "desc": "Character and hoverboard tokens appear randomly during runs. Token accumulation toward specific cosmetics makes each run a potential collection advance, the variable reward outcome is filtered through a cosmetic goal.",
+        "effect": "Players who are motivated by cosmetics rather than scores have an intrinsic reason to keep running, each run might advance their target character's token count. Variable reward and cosmetics share the same delivery mechanism."
+      },
+      {
+        "from": "achievements",
+        "to": "variable-reward",
+        "title": "Multiplier scales card pack quality",
+        "desc": "The score multiplier increases gem yield, which funds card pack pulls. A higher multiplier means more and better variable reward outcomes per session.",
+        "effect": "Long-term progression through mission completion directly improves the quality of variable reward outcomes, giving players who invest in the multiplier tangibly better reward experiences."
+      }
+    ]
+  }
+}

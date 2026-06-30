@@ -1,0 +1,36 @@
+{
+  "id": "dave",
+  "name": "Dave",
+  "category": "Finance / Neo-bank + Cash Advance",
+  "type": "app",
+  "visibility": "report-only",
+  "analysisDate": "2026-06-03",
+  "lastUpdated": "2026-06-04",
+  "summary": "Dave is a US fintech app primarily positioned around interest-free cash advances (up to $500). It combines a checking account, a goals savings product, a cash advance feature (Extra Cash), and income-generating side features (surveys, side hustle job listings). A $1/month membership fee covers the core product. The session reviewed onboarding, the checking account, goals, Extra Cash, and the Grow section (surveys and side hustle).",
+  "icon": null,
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "piggy-bank",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "variable-reward",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "gifting",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": null
+}

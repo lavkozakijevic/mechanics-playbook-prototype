@@ -1,0 +1,104 @@
+{
+  "id": "gymverse",
+  "name": "Gymverse",
+  "category": "Fitness",
+  "type": "app",
+  "visibility": "subscriber",
+  "analysisDate": "2026-02-25",
+  "lastUpdated": "2026-05-20",
+  "summary": "Gymverse generates personalized strength training plans based on available equipment, training frequency, and experience level. Dismissing the paywall surfaces a full 7-day free pass with no credit card required, making the paywall a soft suggestion rather than a hard gate. The restore streak feature is locked behind a two-day streak, meaning a user who breaks their first streak cannot restore it until they have rebuilt to two consecutive days.",
+  "icon": "/icons/gymverse.png",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "streak",
+      "depth": "core",
+      "writeup": {
+        "observed": "The streak display appears in the Explore tab, showing active streak, longest streak, days completed, and a calendar of completed workout days across the current month. The home screen calendar shows scheduled workout days and which have been completed, forming the visual backbone of streak tracking. A restore streak feature is accessible in the Explore tab but requires a two-day streak before it can be used.",
+        "findings": [
+          "The restore streak feature creates an asymmetry: a user who breaks their very first streak cannot restore it because they have not yet reached the two-day threshold required to unlock the feature. The protection mechanic is unavailable exactly when it would be most valuable.",
+          "Co-locating streak stats, achievement badges, calorie graphs, and weight tracking in the Explore tab makes it a performance dashboard rather than just a streak counter, giving users multiple reasons to navigate there."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Explore tab showing active streak number, longest streak, days completed, and the calendar history of completed workout days across the current month"
+      ]
+    },
+    {
+      "id": "achievements",
+      "depth": "core",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": [
+        "Explore tab showing the achievement badge categories (streaks, weight loss, total calories, exercise categories, exercise time, login) with the 28-day login badge visible as a target"
+      ]
+    },
+    {
+      "id": "daily-weekly-quests",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "A gym planning app where the paywall is a soft suggestion and the streak protection mechanic is unavailable when it would be most useful.",
+    "overview": "Gymverse generates personalized strength training plans and tracks workout progression week over week. The paywall dismissal gives a full 7-day free pass with no credit card, making the paywall function as a speed bump rather than a gate. The streak restore feature requires a two-day streak before it becomes available, which means a user who breaks their first streak cannot use the recovery tool until they have already recovered on their own.",
+    "loop": "Complete 19-screen onboarding. Encounter paywall. Dismiss. Receive 7-day free pass automatically. Open to today's scheduled workout. Complete workout by logging sets, reps, and weights with auto-generated rest timers. View post-workout muscle map and next-week progression preview. Calendar on the home screen shows which days are completed and what is scheduled. Return for the next day's assigned workout.",
+    "keyInsight": "The restore streak feature that cannot be used when it is most needed is the most structurally counterintuitive design decision observed in the fitness app library. The mechanic is designed to retain users who break streaks, but it requires demonstrating a two-day streak before it activates, which means it only helps users who have already shown they can return. Users who needed it most, those who broke their very first streak, have no access to it.",
+    "whatMakesItWork": "The paywall-then-free-pass sequence is an unusual inversion. Showing the paywall first establishes the product as premium. Granting the full trial without requiring payment immediately afterward removes every friction barrier from the first session. The user who dismisses the paywall ends up in exactly the same position as the user who would have paid for a trial, with no credit card on file.",
+    "roles": [
+      {
+        "id": "streak",
+        "role": "Displayed in the Explore tab alongside longest streak and days completed. The streak restore feature requires a two-day streak to unlock, making it unavailable to users who break their first streak."
+      },
+      {
+        "id": "achievements",
+        "role": "Badges organized by category in the Explore tab: streak milestones, weight loss, total calories, exercise categories, exercise time, and login days. The 28-day login badge names an exact target."
+      },
+      {
+        "id": "daily-weekly-quests",
+        "role": "Weekly training calendar with day-locking: future workout days are inaccessible until the current day's workout is logged."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 18,
+      "label": "GYMVERSE"
+    },
+    "nodes": [
+      {
+        "id": "daily-weekly-quests",
+        "x": 32,
+        "y": 55
+      },
+      {
+        "id": "streak",
+        "x": 68,
+        "y": 55
+      },
+      {
+        "id": "achievements",
+        "x": 50,
+        "y": 84
+      }
+    ],
+    "connections": [
+      {
+        "from": "streak",
+        "to": "achievements",
+        "title": "Streak milestones are named achievement targets",
+        "desc": "Consecutive day badges appear in the Explore tab alongside the active streak display. The streak is both a counter and an achievement progression input.",
+        "effect": "Users see both how many days they have maintained and which badge that count is approaching. The streak has a dual display."
+      },
+      {
+        "from": "daily-weekly-quests",
+        "to": "streak",
+        "title": "Day-locked workout calendar enforces streak cadence",
+        "desc": "Future workout days are inaccessible until the current day is logged. The calendar structure prevents skipping ahead and enforces sequential completion.",
+        "effect": "The streak is not just a habit suggestion. The app's day-locking makes it the only way to progress through the plan."
+      }
+    ]
+  }
+}

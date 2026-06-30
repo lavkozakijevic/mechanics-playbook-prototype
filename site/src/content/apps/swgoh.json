@@ -1,0 +1,329 @@
+{
+  "id": "swgoh",
+  "name": "Star Wars: Galaxy of Heroes",
+  "category": "Collectible RPG",
+  "type": "game",
+  "visibility": "subscriber",
+  "analysisDate": "2026-04-05",
+  "lastUpdated": "2026-05-19",
+  "summary": "Star Wars: Galaxy of Heroes organizes 300+ characters into a fully visible collection where every locked character shows its acquisition path via a Find button. The shard unlock system, collecting N fragments from multiple sources over days or weeks, converts every battle and store interaction into micro-progress toward a character goal. The Era system (seasonal) unifies the quest system, store, collection, and competitive modes under a single named banner, with the Episode Pass monetizing engagement across all of them simultaneously.",
+  "icon": "/icons/swgoh.png",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "set-collection",
+      "depth": "core",
+      "writeup": {
+        "observed": "300+ characters organized into named factions (Galactic Republic, Rebel, 501st, Jedi, Bounty Hunter, Sith, First Order, Resistance) are visible in the Collection tab from the first session, both unlocked characters and locked character silhouettes. Each character has a Find button that shows every possible acquisition source: which specific campaign battles drop their shards, which store packs contain them, and which bundles are available. Characters progress through 7 star levels, each requiring additional shard acquisitions. Faction synergies between characters are displayed on each profile.",
+        "presented": "The collection inventory grid shows all characters simultaneously, owned at full color, unowned as silhouettes. Faction tags on character profiles are tappable filters. The Journey Guide system (unlocks at level 27) rewards completing faction-specific character collections. Notification badges on characters signal available upgrades or equippable gear.",
+        "noting": "The radical transparency of showing 300+ characters with full acquisition paths from the first session converts the collection into a permanent goal map. Unlike games that hide unearned content, SWGoH makes every character a visible target with a calculable acquisition plan, the player always knows what to do to get the next character they want.",
+        "findings": [
+          "The Find mechanic for any locked character shows every acquisition source including specific battle nodes, store packs, and bundles, complete transparency that converts the collection from a mystery into a project.",
+          "300+ characters visible from the first session creates an enormous goal horizon, the collection is never complete, making the game's engagement arc effectively unlimited.",
+          "Faction synergies displayed on character profiles create collection incentives beyond individual character desire, acquiring one character raises the value of others in the same faction.",
+          "The shard acquisition system (collect N shards from multiple sources over days or weeks) converts every battle and store interaction into micro-progress toward a character goal, making short sessions feel productive."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Character inventory grid showing unlocked characters (Anakin, Ahsoka, Obi Wan, Luke, Darth Vader) alongside locked character silhouettes, with star levels and gear levels visible",
+        "Character profile for Obi Wan Kenobi showing faction tags (Jedi, Galactic Republic, Rebel), star level 3, gear level 2, six gear slots with equipped and available items, and the Find button"
+      ]
+    },
+    {
+      "id": "variable-reward",
+      "depth": "core",
+      "writeup": {
+        "observed": "Three distinct variable reward surfaces: the Bronzium Data Card (free 10 times daily on a 10-minute refresh, 33+ characters and 200+ items in the pool, 250 ally points per additional pull), the Chromium Mega Pack (2,520 crystals for 8 cards with full probability disclosure: 20% character, 80% shard set, all shard quantity probabilities listed), and the Chromium Data Card (350 crystals, no guarantee, no probability disclosure). The Bronzium card's 10-minute refresh cycle is the most frequent variable reward surface in the library.",
+        "presented": "Bronzium card in the store's Featured tab with countdown timer showing next free claim. Chromium packs show full probability tables expandable in the card detail. The distinction between disclosed (Chromium Mega) and undisclosed (Chromium Data Card) probabilities exists within the same store in the same session.",
+        "noting": "The Bronzium card's 10-minute refresh creates a return incentive operating on a sub-hourly cadence, the most frequent engagement mechanic in the library. The Chromium Mega Pack's full probability disclosure is notable precisely because the lower-tier Chromium Data Card does not disclose the same information, creating a transparency inconsistency that benefits neither player trust nor purchase confidence for the cheaper product.",
+        "findings": [
+          "The Bronzium Data Card refreshing every 10 minutes (10 times daily) is the most frequent variable reward surface in the library, creating up to 10 return incentives per day from a single mechanic.",
+          "The Chromium Mega Pack provides full probability disclosure (all shard quantities and their percentages listed) while the cheaper Chromium Data Card provides no probability disclosure, an inconsistency within the same store session.",
+          "Ally Points earned from borrowing ally heroes fund Bronzium card purchases beyond the daily free limit, the social system (allies) feeds directly into the variable reward economy (Bronzium cards) through a currency chain."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Chromium Mega Pack store listing showing the full probability table — 20% character, 80% shard set, with all shard quantity probabilities listed — and the 2,520 crystal cost",
+        "Bronzium data card being opened showing the card reveal animation and the \"free in 10 minutes\" countdown on the free daily limit"
+      ]
+    },
+    {
+      "id": "daily-login-reward",
+      "depth": "core",
+      "writeup": {
+        "observed": "Three simultaneous daily login reward systems: the monthly April Login Rewards calendar (30 days, popup on second app open, missed days unrecoverable, resets each month, escalating from 20,000 credits on Day 1 to 120 crystals on Day 30), the Jump to 85 Hyper Calendar (30-day secondary calendar with training droids and character shards, free in the store's Featured tab), and a purchasable Ultimate Starter Calendar ($4.99, 30 days of enhanced rewards). A limited-time Phoenix Squad Calendar was also available with 7 days remaining.",
+        "presented": "Monthly calendar as a popup on second app open. Hyper Calendar as a store item. Purchasable calendars in the More Offers section. All three operate independently with separate claim interfaces.",
+        "noting": "The \"missed rewards cannot be reclaimed\" policy for the monthly calendar creates a daily return imperative without naming it a streak, the mechanic is loss aversion applied to a calendar rather than a counter. Three simultaneous calendars create up to three distinct daily claim moments operating on different content tracks.",
+        "findings": [
+          "The monthly calendar's \"missed rewards cannot be reclaimed\" policy is functionally identical to a streak mechanic, it creates daily return pressure through loss aversion, without displaying a streak counter that would make the mechanic visible.",
+          "Three simultaneous login calendars plus the 10-minute Bronzium refresh create up to four distinct daily reward collection moments for active players.",
+          "The purchasable calendar ($4.99 Ultimate Starter) extends the daily login system into a monetizable product category, a player can pay to receive better daily login rewards without changing the mechanic structure.",
+          "A player who starts mid-month can only collect a fraction of the monthly calendar's rewards, the calendar does not adjust for late starts, punishing new user acquisition that occurs after the first of the month."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "April Login Rewards calendar showing the 30-day strip with Day 1 (20,000 credits) claimed, Days 2–30 visible with escalating reward icons, and the \"rewards reset at beginning of each month\" notice"
+      ]
+    },
+    {
+      "id": "daily-weekly-quests",
+      "depth": "core",
+      "writeup": {
+        "observed": "Four parallel quest systems in one Quests tab: Journey Quests (sequential onboarding objectives from start, no reset), Daily Quests (7 tasks resetting at midnight, unlock at level 6, examples: use 100 energy, finish 3 Light Side battles, open 1 data card, buy 3 shipments, completing all 7 unlocks the Daily Activity Prize Box with variable contents), Episode Quests (daily tasks generating Episode Points for the battle pass, some pass-gated), and Character Quests (episode-specific tasks tied to the featured Marquee character). A fifth subtab, Achievements, surfaces through Apple Game Center.",
+        "presented": "All four quest types appear in subtabs within the Quests section. Episode quest notification badges appear even for pass-gated quests, the badge shows something to collect, but clicking reveals the quest requires the Episode Pass. The Quests tab is accessible from the cantina hub's main navigation.",
+        "noting": "Four parallel quest systems create overlapping daily engagement loops across different content areas, campaign battles (Journey), any battle type (Daily), era-specific battles (Episode), and Marquee character battles (Character). The episode quest badge behavior, showing a notification for pass-gated content, was identified in the session as a deliberate design choice: persistent notification pressure that resolves only with a purchase.",
+        "findings": [
+          "Episode quest notification badges appear for pass-gated quests that require the $19.99 Episode Pass to claim, the notification creates persistent \"something to collect\" pressure that reveals itself as purchase-gated only on clicking.",
+          "Seven daily quests all reset at midnight, creating a hard deadline that distributes engagement across the full daily cycle rather than allowing catch-up sessions.",
+          "Completing all 7 daily quests unlocks the Daily Activity Prize Box, a variable reward that makes the quest completion arc a variable reward session, not just a checklist."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Quests tab showing four subtabs — Daily, Journey, Episode, Character — with notification badges on multiple tabs and the daily quest list showing 7 tasks with progress counters (18/100 energy)"
+      ]
+    },
+    {
+      "id": "season-pass",
+      "depth": "core",
+      "writeup": {
+        "observed": "The Episode Track (battle pass) unlocks at player level 10, introduced with the Era of Andor. Free track: 50 milestone rewards available to all players. Episode Pass ($19.99): same milestones with enhanced rewards plus exclusive episode quests non-pass players cannot complete. Episode Pass+ ($49.99): all pass benefits plus 50,000 Episode Points immediately and 10 milestones unlocked instantly (24 rewards claimed at purchase). Episode Points are earned from episode quests, character quests, and Coliseum participation.",
+        "presented": "The Episode Track is accessible from a dedicated button adjacent to the Quests tab. The reward differential between free and paid tiers is visible on the track itself. The $49.99 option is positioned as instant progress, milestone count and rewards claimed immediately are stated explicitly at purchase.",
+        "noting": "The $49.99 Episode Pass+ is the most explicit pay-to-skip-to-milestone offer in the library, it grants 50,000 EP and unlocks 10 milestones at purchase, with the number of rewards claimed immediately stated in the purchase description. The pass-gated episode quests extend the pass's influence into the daily quest notification system, creating persistent upgrade pressure beyond the track itself.",
+        "findings": [
+          "The $49.99 Episode Pass+ grants 50,000 EP and 10 milestones instantly at purchase, the most explicit pay-for-instant-progress offer in the library, with the specific milestone and reward count stated in the purchase description.",
+          "Episode Pass-exclusive quests are not accessible to non-paying players, creating a daily engagement gap between pass holders and free players that compounds across the episode's duration.",
+          "The pass-gated quest notification badge (see Daily-Weekly Quests) extends the pass's conversion influence into the quest system's notification layer."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Episode Track showing free tier rewards alongside Episode Pass tier rewards for the first 10 milestones, with the $19.99 and $49.99 purchase buttons visible"
+      ]
+    },
+    {
+      "id": "energy-lives",
+      "depth": "core",
+      "writeup": {
+        "observed": "Three distinct energy pools govern three different battle types: Regular Energy (Lightning bolt, for Light Side and Dark Side campaigns, max 60 increasing with level, costs 6–8 per battle), Cantina Energy (for Cantina Battles, unlocks at level 8, regenerates 1 per 12 minutes, purchasable at 100 crystals per refill), and Ship Energy (for Fleet Battles, unlocks at level 60). Regular energy exceeded its maximum cap (observed at 158 vs. 61 max) due to level-up bonus energy grants, 20 bonus energy per level-up kept the player above cap throughout the first 16 levels.",
+        "presented": "Energy displayed in the top bar. Tapping opens a full currency explanation screen with the purchase option. The \"75 energy out of 61\" display (above maximum) confirms that bonus energy is not lost when it exceeds the cap.",
+        "findings": [
+          "Level-up bonus energy (20 per level) kept the player above the Regular Energy cap through the first 16 levels, the energy system was effectively disabled during the entire new-user experience, maximizing content exposure before monetization pressure begins.",
+          "Three separate energy pools for three game modes mean exhausting one pool does not block access to all content, different pools gate different modes independently, preventing full game lockout from any single pool depleting.",
+          "Cantina Energy regenerates at 1 per 12 minutes (5 per hour), a significantly slower rate than most energy systems in the library, creating a more persistent daily consumption constraint for Cantina Battle content specifically."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "achievements",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Achievements appear as a subtab in the Quests section unlocking at player level 5. Five achievements were claimable at first discovery. Each achievement provides specific rewards (gear, credits, items) with individual claim buttons. The session noted the achievements interface \"routes through Apple Game Center.\" The guide introduced achievements: \"you unlocked achievements, gain gear, credits and other valuable items each time you complete an achievement.\"",
+        "findings": [
+          "Achievements appear in the Quests tab as a native subtab (not requiring a separate navigation path), more visible than Match Creek Motors' Settings → Account → Achievements routing, though still Apple Game Center-backed.",
+          "Five achievements were claimable at first discovery (level 5), an early milestone designed to make the achievement reward feel immediately accessible.",
+          "Achievements provide functional rewards (gear, credits) rather than cosmetic markers, making them directly relevant to the core progression economy rather than purely symbolic."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "leaderboards",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Three distinct leaderboard systems, all locked behind level requirements significantly above the observed session's level 16–18: Squad Arena (PvP ranking by arena battles, unlocks at level 28), Fleet Arena (fleet PvP, unlocks at level 60), and Championships (competitive ranking, unlocks at level 85, the current maximum). The cantina characters next to each locked mode deliver character-specific dismissal lines (\"no autographs please, reach player level 28 to unlock this feature\"). Level unlock requirements are visible on tapping any locked icon.",
+        "findings": [
+          "All three competitive ranking modes were locked during the entire analysis period, SWGoH is the only game in the library where leaderboards are long-term content unlocks requiring dozens of hours of play investment rather than immediately available features.",
+          "The level 85 Championship leaderboard (the current maximum player level) means the highest-tier competitive mode is accessible only to players who have invested potentially hundreds of hours, a design that makes competitive ranking a long-term aspiration rather than an early motivator.",
+          "Character-delivered dismissal lines at each locked mode (\"no autographs please\") use NPC personality to soften the access restriction, maintaining the game's character-driven tone at content gates."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "clans-guilds",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Guilds unlock at player level 22, not reached during the observed sessions. The cantina character next to the guild table: \"you look like you just got here, when you're ready to commit to a guild, come back and see me.\" The Gifts tab in the store is explicitly pass-gated behind guild membership: \"feature locked, get to player level 22 and join a guild to access this feature.\" Guild Activities showed as a quest subtab with 0 out of 600 activity points, visible but locked throughout.",
+        "findings": [
+          "The Guild Gifts store tab is visible but locked behind level 22 and guild membership, a persistent visual teaser for the guild system throughout the entire pre-level-22 experience.",
+          "600 guild activity points as the visible quest count communicates the scale of the guild engagement system before the player has access to it, a long-horizon goal visible from the first session.",
+          "Guild access gated at level 22 requires significant play investment before the social layer is accessible, a deliberate progression gate ensuring only invested players enter the guild system."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "limited-time-events",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "The Era of Andor seasonal system is the most structurally integrated limited-time event observed in the library, not a parallel event running alongside the core game but a complete seasonal framework that modifies the quest system, store, collection, and competitive modes simultaneously. Era units are received automatically by logging in during the active era. The era collection shows 7 era-specific characters tracking \"Total Era Level\" with a dedicated era currency. Era-exclusive game modes (Coliseum, Major Partigaz) operate on their own countdowns. Multiple limited-time character bundles with 6–30 day expiry windows appeared across sessions, with a new starter bundle popup appearing every time the player returned to the cantina hub from any other screen.",
+        "presented": "Era introduced via popup at session start. Persistent presence throughout the cantina hub. New bundle popup on every cantina return, the session accumulated 7+ distinct bundle popups in a single play session.",
+        "findings": [
+          "The Era system unifies the quest system, store, collection, and competitive modes under a single named seasonal banner, the most integrated limited-time event framework in the library.",
+          "A new starter bundle popup appeared every time the player returned to the cantina from any other screen, 7+ distinct popups in one session, each with different factions and no price listed until the purchase button is tapped.",
+          "Multiple character bundles display character descriptions and a \"Go\" button with the price revealed only in the payment confirmation, a consistent price-concealment pattern across 7+ offers.",
+          "Era units are received automatically by logging in during the active era, creating a passive collection reward that requires no gameplay action beyond opening the app."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Era of Andor era collection screen showing total era level, era currency, 7 collectible era characters, and the Coliseum and Major Partigaz access points"
+      ]
+    },
+    {
+      "id": "social-feed",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "hard-currency",
+      "depth": "supporting",
+      "provisionalDepth": true,
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "soft-currency",
+      "depth": "supporting",
+      "provisionalDepth": true,
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "A collectible RPG where 300+ characters are visible from the first session, each with a Find button showing exactly how to acquire them.",
+    "overview": "SWGoH's system is organized around radical collection transparency: every character, including locked ones, is visible in the inventory with a Find button that shows all acquisition paths. The shard-unlock system converts every battle and store interaction into micro-progress toward a character goal. The Era system is the most integrated seasonal framework in the library, not a parallel event but a seasonal skin that modifies the quest system, store, collection, and competitive modes simultaneously.",
+    "loop": "The core loop is: battle in campaigns → earn character shards, credits, gear, and event currency → upgrade characters (level, gear, ability, stars) → complete daily quests → earn Episode Points → advance Episode Track → unlock era characters → use ally system to borrow characters → earn ally points → buy Bronzium data cards → earn more shards. The entire system feeds back into character collection, which improves battle performance, which unlocks harder content.",
+    "keyInsight": "The Find button on every locked character is the system's defining choice. Rather than hiding the collection from players who haven't unlocked it, SWGoH shows everything and explains exactly how to get it. This converts the 300-character roster from a discovery experience into a project management experience, the player always knows their next objective.",
+    "whatMakesItWork": "The shard-unlock system converts every battle into progress. Even a 30-second auto-battle produces character shards, gear, credits, and event currency simultaneously. No session is wasted, every interaction advances at least one character goal. This is the fundamental design principle of the gacha RPG genre made maximally visible.",
+    "roles": [
+      {
+        "id": "set-collection",
+        "role": "300+ characters visible from the first session, each with a Find button showing every acquisition source. Faction synergies create incentives to collect characters beyond individual desire."
+      },
+      {
+        "id": "variable-reward",
+        "role": "Bronzium Data Card refreshing every 10 minutes (10 times daily) is the most frequent variable reward surface in the library. Chromium Mega Packs provide full probability disclosure; the cheaper Chromium Data Card does not."
+      },
+      {
+        "id": "daily-login-reward",
+        "role": "Three simultaneous login calendars, monthly (missed days unrecoverable), Hyper Calendar (free), and purchasable variants, create up to three distinct daily claim moments on different content tracks."
+      },
+      {
+        "id": "daily-weekly-quests",
+        "role": "Four parallel quest systems (Journey, Daily, Episode, Character) with overlapping daily resets. Episode quest notification badges appear for pass-gated quests, creating persistent upgrade pressure."
+      },
+      {
+        "id": "season-pass",
+        "role": "Episode Pass ($19.99) and Episode Pass+ ($49.99, with 50,000 EP and 10 milestones granted instantly at purchase), the most explicit pay-for-instant-progress offer in the library."
+      },
+      {
+        "id": "energy-lives",
+        "role": "Three independent energy pools (Regular, Cantina, Ship) gate three different game modes. Level-up bonus energy (20 per level) kept the player above the Regular cap through all 16 observed levels, the energy constraint was absent during the entire new-user experience."
+      },
+      {
+        "id": "limited-time-events",
+        "role": "The Era of Andor seasonal framework modifies the quest system, store, collection, and competitive modes simultaneously, the most integrated seasonal system in the library."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 6,
+      "label": "SWGOH"
+    },
+    "nodes": [
+      {
+        "id": "set-collection",
+        "x": 50,
+        "y": 24
+      },
+      {
+        "id": "variable-reward",
+        "x": 18,
+        "y": 46
+      },
+      {
+        "id": "daily-login-reward",
+        "x": 50,
+        "y": 46
+      },
+      {
+        "id": "energy-lives",
+        "x": 82,
+        "y": 46
+      },
+      {
+        "id": "daily-weekly-quests",
+        "x": 18,
+        "y": 68
+      },
+      {
+        "id": "season-pass",
+        "x": 50,
+        "y": 68
+      },
+      {
+        "id": "limited-time-events",
+        "x": 82,
+        "y": 68
+      }
+    ],
+    "connections": [
+      {
+        "from": "set-collection",
+        "to": "variable-reward",
+        "title": "Character shards arrive through variable pulls",
+        "desc": "Every data card pull, campaign battle, and store purchase produces character shards as part of the variable reward output. The collection system is fed entirely by the variable reward surfaces.",
+        "effect": "Progress toward any character goal is visible in the collection inventory. Players who pull toward a specific character feel the variable reward's uncertainty as proximity to a concrete named outcome."
+      },
+      {
+        "from": "variable-reward",
+        "to": "daily-login-reward",
+        "title": "Bronzium card bridges daily return and variable reward",
+        "desc": "The Bronzium data card refreshes every 10 minutes, free up to 10 times per day. It is simultaneously the daily return mechanic and the most frequent variable reward surface.",
+        "effect": "The 10-minute refresh creates a return pressure operating at sub-hourly cadence. Players who exhaust their free pulls have a timed reason to return that is more frequent than any daily calendar."
+      },
+      {
+        "from": "daily-login-reward",
+        "to": "daily-weekly-quests",
+        "title": "Login calendars and daily quests share the same return window",
+        "desc": "Monthly login calendar, Hyper Calendar, and daily quests all reset or advance on a daily cadence. A player returning to claim their login reward is also in position to complete daily quests.",
+        "effect": "Each daily session captures multiple claim actions from a single return. The player's motivation to open the app for one reason encounters several other completion-ready systems."
+      },
+      {
+        "from": "daily-weekly-quests",
+        "to": "season-pass",
+        "title": "Episode quests are the primary Episode Point source",
+        "desc": "Daily episode quests generate Episode Points that advance the Episode Track. Non-episode-pass players see episode quest notifications, but clicking reveals the reward requires the pass.",
+        "effect": "The quest notification system extends the season pass's conversion influence beyond the track itself. A daily engagement moment becomes a recurring purchase prompt."
+      },
+      {
+        "from": "season-pass",
+        "to": "energy-lives",
+        "title": "Episode Pass+ removes milestone friction",
+        "desc": "The $49.99 Episode Pass+ grants 50,000 Episode Points and 10 milestones instantly at purchase. Players who buy this skip the energy-gated quest completion required to reach those milestones organically.",
+        "effect": "The pass monetizes the energy constraint indirectly. Players who find energy limiting their quest completion rate are also the most likely to value the instant-milestone offer."
+      },
+      {
+        "from": "energy-lives",
+        "to": "limited-time-events",
+        "title": "Energy pools gate access to era-exclusive modes",
+        "desc": "Cantina Energy gates Cantina Battles. The era's Coliseum mode requires reaching level 20 before its energy pool is accessible. The limited-time event can only be engaged once the corresponding energy gate is passed.",
+        "effect": "Time-limited events create urgency that compounds the energy constraint. Players aware of a countdown on an era event feel the energy gate more acutely than they would without it."
+      }
+    ]
+  }
+}

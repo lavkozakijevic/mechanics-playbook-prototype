@@ -1,0 +1,184 @@
+{
+  "id": "fortune-city",
+  "name": "Fortune City",
+  "category": "Finance",
+  "type": "app",
+  "visibility": "subscriber",
+  "analysisDate": "2026-05-13",
+  "lastUpdated": "2026-06-15",
+  "summary": "Fortune City turns expense recording into city building. Every transaction becomes a building on a floating island; citizens are recruited, assigned jobs, and generate passive coins. The gamification layer is entirely free, the subscription gates the actual financial analysis tools. The most structurally unusual element is the salesman character, a recurring city resident whose only function is to frame rewarded video ad watching as a civic relationship.",
+  "icon": "/icons/fortune-city.png",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "achievements",
+      "depth": "core",
+      "writeup": {
+        "observed": "Fortune City has 100 named achievements organized into themed groups, accessible via the hamburger menu under Your City. The groups cover behavioral milestones (consecutive tracking days), city progression (prosperity levels, population counts), expense category tracking (Foodie Paradise, Beverage Bay, Shopping Mecca, each scaling from 10 to 100 recorded expenses), ad engagement (Watch Ads to Help the Salesman, 5 to 1,000 watches), social behaviors (City Photographer, sharing photos 5 to 50 times), and cross-app installs (Best Apps, downloading Plant Nanny, To Do Adventure, and other Sparkful titles). Achievement popups appear automatically after triggering actions and can fire in quick succession after a single expense entry.",
+        "presented": "Achievement popups appear as overlay cards with the achievement name, badge, diamond reward, and a share button. The full list is browsable in the Achievements tab, organized by group, with earned badges visually distinct from locked ones. The diamond reward is visible on each card. Two achievements completed in the first session.",
+        "noting": "The achievement system does three jobs simultaneously: it rewards core behavior (expense logging), it rewards platform-beneficial behavior (ad watching, app downloads, social sharing), and it distributes the premium currency (diamonds) that funds citizen recruitment and city themes. The 100-achievement count makes this the most expansive achievement system in the library, large enough that no two users will complete the same subset in the same order.",
+        "findings": [
+          "The Watch Ads to Help the Salesman achievement track (5 to 1,000 watches, ending in Charitable Superstar) is the only achievement system in the library that makes ad watching a named, tiered progression goal.",
+          "The Best Apps achievement group directly rewards downloading other Sparkful titles with diamonds, using the achievement system to drive cross-app installs from the same developer.",
+          "Achievements are the primary free mechanism for earning diamonds, meaning the decision to engage with any achievement is also an economic decision about currency accumulation.",
+          "Multiple achievements can trigger in quick succession after a single expense entry, the first building, the first merge trigger, and the first Mayor Certificate can all fire from one action."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Achievements tab showing Great Habits group (1-day, 3-day, 7-day, 30-day, 90-day consecutive tracking badges) with earned badges lit and unearned grayed, diamond reward amounts visible",
+        "Achievement popup showing \"Making a Difference — Build your first building — reward 3 diamonds\" card with share button"
+      ]
+    },
+    {
+      "id": "ads",
+      "depth": "core",
+      "writeup": {
+        "observed": "Rewarded and interstitial ads appear across more surfaces than in most apps in the library. Rewarded placements: daily reward doubling (watch to convert 16 coins to 32), two free diamonds per day from the hamburger menu, the salesman character (a recurring city resident who asks for help and delivers diamonds with a personalized voiced story), and building merges (three free ad-watch merges per day, alternative is 50 coins each). Interstitials appeared mid-browse of the store and after completing a citizen classified quest, without user action and with no reward. Any in-app purchase permanently removes interstitials; rewarded ads remain available.",
+        "presented": "The salesman character is visible on the city map with an ad bubble above his head and voiced dialogue. The daily diamond ad button is in the hamburger menu. The daily reward doubling button appears on the daily reward popup. The merge ad option appears on the merge confirmation screen. The hamburger menu newspaper section contains an additional ad banner for free diamonds.",
+        "noting": "The salesman is the most narratively integrated ad placement in the library. Watching an ad triggers a voiced character interaction: the salesman thanks the user by name, references a personal story (grandma found diamonds in the backyard, he's giving them to his best friend), and hands over diamonds with a handoff framing. The ad is not presented as \"watch this ad\", it is presented as \"help the salesman,\" making ad watching an act of in-game civic virtue. The 1,000-watch achievement track turns what would be an abstract ad metric into a character relationship the user is the mayor managing.",
+        "findings": [
+          "The salesman character is the only rewarded ad placement in the library that creates a recurring named character relationship around the ad-watching action, the user is not watching an ad, they are helping their city's overworked salesman.",
+          "Any in-app purchase removes interstitials permanently, making the ad removal benefit visible and available at every price point, including $1.99 for 150 diamonds.",
+          "The Apple tracking permission dialog appeared specifically when the user tapped \"watch an ad to double your reward\", not during onboarding, but at the moment of first ad interaction.",
+          "The Watch Ads to Help the Salesman achievement track (5 to 1,000 watches) creates a 1,000-interaction engagement arc around a single ad surface, no other app in the library has turned an ad placement into a thousand-interaction progression ladder."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Salesman character on city map with ad bubble above his head and \"Working in sales is so stressful — can you help lighten my load?\" dialogue",
+        "Daily reward popup showing \"Day 1 — Coins ×16 — Watch an ad to double your reward\" alongside \"Don't double\" option"
+      ]
+    },
+    {
+      "id": "daily-login-reward",
+      "depth": "core",
+      "writeup": {
+        "observed": "A 7-day daily reward calendar appears automatically on first app open each day. Day 1 delivers 16 coins, accompanied by \"keep going, 6 more days to collect your special gift.\" Day 2 is shown as a question mark, the reward is deliberately concealed. Day 7 is framed as a \"special gift\" with no upfront disclosure. A \"watch an ad to double your reward\" button accompanies every daily reward popup, with \"Don't double\" as the alternative. In a returning session after several days of absence, the calendar reset to Day 1 rather than continuing the streak, suggesting the calendar is event-based rather than strictly cumulative.",
+        "presented": "The popup appears before any other interaction on app open. The 7-day strip is visible, showing all days, but Day 2 as a question mark and Day 7 as a gift icon, not disclosed rewards. The only way to see Day 2's reward is to return the next day.",
+        "noting": "Most daily login systems in the library show upcoming rewards in advance to create anticipation. Fortune City deliberately conceals Day 2's reward, adding variable-reward uncertainty to the return incentive. The hidden reward works differently from the standard calendar: instead of \"I know Day 3 gives me gems so I'll return for three days,\" the user returns not knowing what they will get, a different psychological structure that may drive stronger curiosity-based return on early days.",
+        "findings": [
+          "The Day 2 question mark is the only deliberately concealed upcoming reward in a daily login calendar observed in the library, most apps show all rewards upfront to create forward pull; Fortune City uses uncertainty instead.",
+          "The ad doubling button is integrated directly into the daily reward popup, making every daily login simultaneously a reward moment and an ad monetization moment.",
+          "The calendar resets to Day 1 after a multi-day absence, the reset was observed in Session 2, confirming that the calendar does not continue a cumulative streak, which removes the loss-aversion driver that makes streaks motivating in other apps.",
+          "\"Watch an ad to double your reward\" is paired with a \"Don't double\" option, the opt-out is explicit and named, framing the ad as a choice rather than a requirement."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Daily reward popup showing Day 1 coins reward, the 7-day strip with Day 2 as a question mark and Day 7 as a special gift, and the \"watch an ad to double\" / \"don't double\" split"
+      ]
+    },
+    {
+      "id": "streak",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "energy-lives",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "cosmetics",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "set-collection",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Five City Council Members (Kashi, Fisher, Audi, Yilty, Sir Fox) each have their own collection of items that unlock through specific behaviors: Fisher requires four consecutive days of expense tracking; Kashi's collection unlocks items weekly when the user checks categories. Each council member has a profile screen with collection slots. VIP Citizens are 40 named characters shown as silhouettes until earned through City Hall Livelihood upgrades. Building type galleries, vehicle galleries, and council member collection galleries are all viewable under Your City.",
+        "presented": "Your City → Characters tab shows council members and VIP citizens. Your City → Buildings and Vehicles tabs show their respective collections. Council member slots are visible with locked items shown as outlines.",
+        "findings": [
+          "Fisher's four-day consecutive tracking gate is the most behaviorally intentional content gate in the app, a council member character is withheld specifically until the user has demonstrated the core habit the app is designed to build.",
+          "Fisher's silhouette preview (\"don't you want to see how cute Fisher is?\") reveals the reward's existence while withholding its identity, a visual tease that creates desire for a thing that cannot yet be seen.",
+          "The building type gallery (level 1 through 8 versions of each building category) functions as a long-horizon completionist goal, visible in full from the start with locked slots throughout."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "A budgeting app where the gamification is entirely free and the actual financial tools are behind the paywall.",
+    "overview": "Fortune City's system is organized around a deliberate inversion: the gamification (city building, citizens, achievements, daily rewards, quests, merging) is entirely free, while the subscription ($69.99/year) gates the financial intelligence tools, budget categories, trend reports, expense review, and Fisher's analytical functions. Entertainment is free; usefulness is premium. The salesman character, a recurring city resident whose function is to frame ad watching as civic virtue, is the most narratively integrated ad placement in the library.",
+    "loop": "The core loop is: record a real expense → a building appears in the city → recruit citizens → assign jobs → citizens generate coins passively → collect coins → upgrade City Hall → visit bulletin board for quests (help the salesman = watch an ad) → earn diamonds → spend on citizens and themes → record the next expense. Every session starts with an expense record.",
+    "keyInsight": "Fisher's four-day consecutive tracking gate is the most behaviorally intentional content gate in the library. A financial advisor character is unlocked only after demonstrating four consecutive days of the core habit the app is designed to build. The character's silhouette is visible from day one, creating desire for a reward that requires habit repetition to access.",
+    "whatMakesItWork": "The system works because every expense record simultaneously advances five parallel systems: builds a city (immediate visual reward), generates coins (economic reward), advances achievements (milestone reward), contributes to Fisher's unlock gate (habit reward), and provides data for the subscription's analytics (utility reward). The single input, recording an expense, produces five outputs across five systems.",
+    "roles": [
+      {
+        "id": "achievements",
+        "role": "100 achievements including Watch Ads to Help the Salesman (5 to 1,000 ad watches) and Best Apps (install other Sparkful titles), the achievement system drives both platform-beneficial behavior and player progression simultaneously."
+      },
+      {
+        "id": "ads",
+        "role": "The salesman character frames rewarded ad watching as helping an overworked city resident with voiced personal stories, the only ad placement in the library that creates a recurring named character relationship around the ad-watching action."
+      },
+      {
+        "id": "set-collection",
+        "role": "Fisher unlocks after four consecutive days of expense tracking and is teased with a silhouette preview, the most behaviorally intentional content gate in the library."
+      },
+      {
+        "id": "daily-login-reward",
+        "role": "Day 2 reward hidden as a question mark, the only daily login calendar in the library that applies variable reward uncertainty to the return incentive. The ad doubling option is integrated into every daily claim."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 8,
+      "label": "FORTUNE CITY"
+    },
+    "nodes": [
+      {
+        "id": "achievements",
+        "x": 50,
+        "y": 30
+      },
+      {
+        "id": "ads",
+        "x": 26,
+        "y": 58
+      },
+      {
+        "id": "daily-login-reward",
+        "x": 26,
+        "y": 82
+      },
+      {
+        "id": "set-collection",
+        "x": 74,
+        "y": 70
+      }
+    ],
+    "connections": [
+      {
+        "from": "achievements",
+        "to": "ads",
+        "title": "Achievement track makes ad watching a progression goal",
+        "desc": "The Watch Ads to Help the Salesman track scales from 5 to 1,000 watches, ending in Charitable Superstar. Ad watching is the subject of a named, tiered achievement system.",
+        "effect": "Users who care about achievement completion have a 1,000-interaction engagement arc anchored to a single ad placement."
+      },
+      {
+        "from": "ads",
+        "to": "daily-login-reward",
+        "title": "Ad doubling is integrated into the daily claim",
+        "desc": "Every daily login reward popup includes a 'watch an ad to double your reward' option. The daily login moment and the ad monetization moment are the same interaction.",
+        "effect": "The daily reward claim is also a daily ad monetization surface at the user's highest-engagement daily moment."
+      },
+      {
+        "from": "set-collection",
+        "to": "daily-login-reward",
+        "title": "Fisher's gate requires four consecutive returns",
+        "desc": "Fisher requires four consecutive days of expense tracking to unlock, the most behaviorally intentional content gate in the library.",
+        "effect": "Users motivated by seeing Fisher return for four consecutive days without any separate streak system. The collection gate does the streak's job."
+      }
+    ]
+  }
+}

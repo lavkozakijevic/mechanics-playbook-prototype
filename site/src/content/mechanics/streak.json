@@ -1,0 +1,36 @@
+{
+  "id": "streak",
+  "n": "01",
+  "name": "Streak / Streak Bonus",
+  "cat": "retention",
+  "tagline": "A counter that increments each time a user completes a defined action within a set time window, typically once per day.",
+  "desc": "The streak counter resets to zero if the window is missed. Its power comes from what it accumulates over time: a number representing a visible, unbroken history of behaviour. The longer it runs, the more it is worth protecting. Loss aversion does the work here, users return not to gain a reward but to avoid losing what they have built.",
+  "principle": "Loss aversion. The streak converts passive interest into active retention pressure once the user has returned enough times to feel ownership over the number.",
+  "players": [
+    "achiever",
+    "competitor"
+  ],
+  "warn": "Streaks work best after day 3–7 when the user feels the number is worth protecting. Before that, frame them positively: show what maintaining the streak unlocks, not what breaking it costs.",
+  "variants": [
+    "Hard Streak, resets to zero on miss",
+    "Soft Streak, bonus without reset penalty",
+    "Streak Shield, consumable that absorbs one missed day",
+    "Goal-based Streak, tied to XP or time target"
+  ],
+  "lifecycle": "High value days 0–30. Identity marker from day 30+.",
+  "paired": [
+    "daily-login-reward",
+    "achievements",
+    "season-pass"
+  ],
+  "context": [
+    "activation",
+    "retention"
+  ],
+  "sdt": [
+    "mastery",
+    "ownership",
+    "avoidance"
+  ],
+  "visibility": "public"
+}

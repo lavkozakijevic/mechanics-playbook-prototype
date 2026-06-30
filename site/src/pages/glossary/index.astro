@@ -1,0 +1,71 @@
+---
+// Glossary index — design bundle Glossary.jsx (gcard grid, cs-head, cs-bar).
+// The design colours each card's letter marker by a term category; v44 terms
+// carry none, so the colour derives from the first related mechanic's
+// category (neutral ink when a term has no related mechanics).
+import Base from "../../layouts/Base.astro";
+import { publishedGlossary, publishedMechanics } from "../../lib/content";
+
+const glossary = await publishedGlossary();
+const mechById = new Map((await publishedMechanics()).map((m) => [m.data.id, m.data]));
+
+const letterColor = (related: string[]) => {
+  const cat = related.map((id) => mechById.get(id)?.cat).find(Boolean);
+  return cat ? `var(--cat-${cat})` : "var(--ink-500)";
+};
+---
+
+<Base
+  title="Glossary — Mechanics Playbook"
+  description="Plain-language definitions for the psychology behind the mechanics, each linked to the mechanics that put it to work."
+  current="glossary"
+>
+  <main id="main">
+    <section class="cs-head" aria-labelledby="gloss-h">
+      <div class="container">
+        <nav class="crumb" aria-label="Breadcrumb">
+          <a href="/mechanics/">Library</a>
+          <span class="crumb__sep" aria-hidden="true">/</span>
+          <span>Glossary</span>
+        </nav>
+        <div class="eyebrow cs-head__eyebrow">The library</div>
+        <h1 id="gloss-h">Glossary</h1>
+        <p class="cs-head__def">
+          Plain-language definitions for the psychology behind the mechanics. Every term is the
+          <i> why</i> under a pattern you'll meet across the library — the reason a streak holds or
+          a price reads as a deal — and links straight to the mechanics that put it to work.
+        </p>
+      </div>
+    </section>
+
+    <div class="container cs-wrap">
+      <div class="cs-bar">
+        <span class="cs-bar__count"><b>{glossary.length}</b> terms</span>
+        <span class="cs-bar__hint">Updated weekly</span>
+      </div>
+
+      <div class="glossgrid">
+        {glossary.map((g) => {
+          const mechs = g.data.related.map((id) => mechById.get(id)).filter(Boolean).slice(0, 2);
+          return (
+            <a class="gcard" href={`/glossary/${g.data.id}/`}>
+              <div class="gcard__top">
+                <span class="gcard__letter" style={`color:${letterColor(g.data.related)}`}>{g.data.term.charAt(0)}</span>
+                <span class="gcard__go" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" />
+                  </svg>
+                </span>
+              </div>
+              <h3 class="gcard__name">{g.data.term}</h3>
+              <p class="gcard__def">{g.data.def}</p>
+              <div class="gcard__tags">
+                {mechs.map((m) => <span class="pillchip">{m.name}</span>)}
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </main>
+</Base>

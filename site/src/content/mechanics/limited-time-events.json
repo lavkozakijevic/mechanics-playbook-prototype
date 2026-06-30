@@ -1,0 +1,37 @@
+{
+  "id": "limited-time-events",
+  "n": "07",
+  "name": "Limited-Time Events",
+  "cat": "retention",
+  "tagline": "Temporary content, challenges, or reward tracks that expire on a fixed deadline, creating urgency to engage now.",
+  "desc": "Missing a limited-time event means a permanent gap in collection or standing, for the Competitor, painful enough to override low-motivation days. Events create shared, simultaneous community experiences. The expiration date does psychological work that permanent content cannot.",
+  "principle": "Urgency created by scarcity of time. The event interrupts the user's default relationship with the app.",
+  "players": [
+    "competitor",
+    "socializer",
+    "explorer"
+  ],
+  "warn": "Overuse creates event fatigue where users stop treating events as special. The cadence matters as much as the content.",
+  "variants": [
+    "Seasonal events",
+    "Collaboration events",
+    "Anniversary events",
+    "Flash challenges"
+  ],
+  "lifecycle": "Effective across all lifecycle stages. Useful for re-engaging dormant users.",
+  "paired": [
+    "season-pass",
+    "daily-weekly-quests",
+    "leaderboards"
+  ],
+  "context": [
+    "retention",
+    "referral"
+  ],
+  "sdt": [
+    "scarcity",
+    "relatedness",
+    "purpose"
+  ],
+  "visibility": "subscriber"
+}

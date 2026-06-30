@@ -1,0 +1,36 @@
+{
+  "id": "set-collection",
+  "n": "06",
+  "name": "Set Collection / Completion",
+  "cat": "retention",
+  "tagline": "A mechanic that organises rewards into named sets, where completing a set unlocks an additional reward or status.",
+  "desc": "The incompleteness of a set frames the next session as a discovery mission. Individual items feel more meaningful when they belong to a collection, their value is partly relational, defined by what else exists and what completing it unlocks.",
+  "principle": "The visible gap in a collection is a pull toward the next session. Incompleteness motivates in a way empty progress bars do not.",
+  "players": [
+    "explorer",
+    "achiever",
+    "socializer"
+  ],
+  "warn": "Set collection fails when sets feel arbitrary or completion rewards are underwhelming. Partial visibility of the goal is better than none.",
+  "variants": [
+    "Card collections",
+    "Badge sets",
+    "Cosmetic sets",
+    "Album stickers"
+  ],
+  "lifecycle": "Mid-to-late engagement. Effective once the user is invested enough to care.",
+  "paired": [
+    "variable-reward",
+    "gifting",
+    "season-pass"
+  ],
+  "context": [
+    "retention"
+  ],
+  "sdt": [
+    "mastery",
+    "ownership",
+    "unpredictability"
+  ],
+  "visibility": "subscriber"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "credits-tokens",
+  "n": "15",
+  "name": "Credits / Tokens",
+  "cat": "monetization",
+  "tagline": "A virtual currency layer that mediates between real money and in-app spending.",
+  "desc": "Credits abstract the real cost of individual actions, making it easier to spend without feeling each transaction. The token layer also creates a second economy the product can influence through events, rewards, and bonuses, without touching core subscription pricing.",
+  "principle": "Currency abstraction reduces spending friction. The user spends tokens, not money, which makes the decision feel lighter.",
+  "players": [
+    "explorer",
+    "achiever"
+  ],
+  "warn": "Credit systems with opaque pricing erode trust over time. Transparency in the token-to-value relationship, even if it makes spending feel more expensive, builds long-term trust.",
+  "variants": [
+    "Weekly free allowance with paid top-up",
+    "Credits as premium currency",
+    "Non-transferable session credits"
+  ],
+  "lifecycle": "Effective across all lifecycle stages once established.",
+  "paired": [
+    "monthly-card",
+    "first-purchase-bonus",
+    "season-pass"
+  ],
+  "context": [
+    "monetization"
+  ],
+  "sdt": [
+    "autonomy",
+    "mastery"
+  ],
+  "visibility": "subscriber"
+}

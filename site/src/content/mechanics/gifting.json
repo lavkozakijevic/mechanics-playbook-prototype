@@ -1,0 +1,34 @@
+{
+  "id": "gifting",
+  "n": "22",
+  "name": "Gifting",
+  "cat": "social",
+  "tagline": "A mechanic that allows users to send items, currency, or resources to other users, creating cooperative social interactions.",
+  "desc": "Royal Match runs three parallel gifting systems. The mechanic works because it converts the game's primary friction point, running out of lives, into its primary social moment. A player who has run out of lives and has no teammates has a reason to join a team.",
+  "principle": "Friction becomes social glue. The resource limit creates the need; the gifting mechanic provides a social resolution to that need.",
+  "players": [
+    "socializer"
+  ],
+  "warn": "Gifting systems create social obligation that some users find stressful. The mechanic works best when giving is frictionless and receiving is not conditional on reciprocity.",
+  "variants": [
+    "Resource gifting",
+    "Lives gifting",
+    "Gift packs",
+    "Seasonal gifting"
+  ],
+  "lifecycle": "Mid-to-late lifecycle. Most effective once the user has an established social graph within the app.",
+  "paired": [
+    "energy-lives",
+    "community-groups",
+    "clans-guilds"
+  ],
+  "context": [
+    "retention",
+    "referral"
+  ],
+  "sdt": [
+    "relatedness",
+    "reciprocity"
+  ],
+  "visibility": "subscriber"
+}

@@ -5,7 +5,7 @@
 **Type:** App
 **Platform analyzed:** iOS
 **Analysis date:** 26 Apr 2026
-**Last updated:** 15 May 2026
+**Last updated:** 15 Jun 2026
 **Session state:** First install — new account, free tier, onboarding through full app exploration in a single session
 
 ---
@@ -109,36 +109,6 @@ Spaces are in the Explore section of the Discover tab, not in primary navigation
 
 **What is notable:**
 The dual challenge system (platform-wide and space-specific) means active creators may simultaneously participate in a platform challenge and multiple space challenges. Space owners can set their own challenge rules and rewards, creating a user-generated challenge infrastructure rather than a purely platform-administered one.
-
----
-
-### Achievements (`achievements`) · Shallow
-
-**What was observed:**
-The user profile shows a completion percentage ("50% complete") but does not specify what actions are required to reach 100%. The transcript noted: "it just says 50% complete but probably we need to upload the photo to make it complete." No named achievement badges, milestone markers, or explicit completion criteria were described.
-
-The challenge history tab shows ranked results (1st through 10th place) for past challenges, functioning as a permanent record of competitive performance. Winners are linked and browsable — a form of persistent achievement display for top performers.
-
-**How it is presented:**
-Profile completion percentage is visible on the profile/settings screen. Challenge winners are in the Challenge History tab.
-
-**What is notable:**
-The profile completion percentage without a description of what needs to be done is a UX gap — it creates awareness of incompleteness without providing a clear path to resolution.
-
----
-
-### Cosmetics (`cosmetics`) · Shallow
-
-**What was observed:**
-The AI Vibe content in the Explore section allows users to view, like, save to collections, and edit AI-generated images using prompts. Collections are described as public or private groupings of saved content — functioning as a curation and display layer on the profile. Users can create stickers that appear on their profile alongside posts.
-
-No avatar customization, profile frame, or in-app visual identity system was described beyond the basic profile photo and username.
-
-**How it is presented:**
-Collections are created from the folder tab in navigation. Stickers are created from the creation suite. AI Vibe content is curated in the Explore section.
-
-**What is notable:**
-The combination of collections and stickers on a public profile provides a lightweight portfolio-style display system, but it operates through creative output rather than purchasable cosmetic items. This is closer to a portfolio mechanic than a cosmetics mechanic as defined in the library.
 
 ---
 

@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import CategoryLanding from "../components/site/CategoryLanding.astro";
+
+export async function getStaticPaths() {
+  const cats = await getCollection("categories");
+  return cats.map((c) => ({ params: { category: c.data.slug }, props: { cat: c.data } }));
+}
+
+const { cat } = Astro.props;
+---
+
+<Base
+  title={`Gamification for ${cat.name.toLowerCase()} — Mechanics Playbook`}
+  description={cat.hero.sub.slice(0, 155)}
+  current={cat.slug}
+  newsletter={false}
+>
+  <CategoryLanding cat={cat} />
+</Base>

@@ -1,0 +1,95 @@
+---
+import { getEntry } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { HomeTop } from "../components/site/HomeTop.jsx";
+import { HomeBottom } from "../components/site/HomeBottom.jsx";
+import { publishedApps, publishedMechanics, formatDate } from "../lib/content";
+import { dominantCategory, systemProps } from "../lib/props";
+
+const apps = await publishedApps();
+const mechanics = await publishedMechanics();
+const byId = new Map(mechanics.map((m) => [m.data.id, m.data]));
+const settings = (await getEntry("settings", "homepage"))!.data;
+
+const spotlightApp = apps.find((a) => a.data.id === settings.spotlightApp)!.data;
+
+// Hero carousel: the spotlight app's core mechanics. Titles follow the v44
+// rich-description heading form ("How X uses Y"); the screen label is the
+// first clause of the analysis screenshot suggestion.
+const shortShot = (s?: string) => (s ? s.split(/ showing | with |,/)[0] : "Screen study");
+const carousel = spotlightApp.mechanics
+  .filter((r) => r.depth === "core")
+  .map((r) => ({
+    app: spotlightApp.name,
+    mechanic: byId.get(r.id)?.name ?? r.id,
+    cat: byId.get(r.id)?.cat ?? "retention",
+    screen: shortShot(r.suggestedShots[0]),
+    title: `How ${spotlightApp.name} uses ${byId.get(r.id)?.name ?? r.id}`,
+  }));
+
+const stats = {
+  caseStudies: apps.length,
+  systems: apps.filter((a) => a.data.system).length,
+  cheatsheets: settings.cheatsheetCount,
+};
+
+const spotlight = {
+  name: spotlightApp.name,
+  category: dominantCategory(spotlightApp, byId),
+  overview: spotlightApp.summary,
+  keyInsight: spotlightApp.system?.keyInsight ?? "",
+  href: `/case-studies/${spotlightApp.id}/`,
+  imageSrc: spotlightApp.heroImage,
+  imageAlt: `${spotlightApp.name} screenshots`,
+  screenLabel: shortShot(spotlightApp.mechanics.find((r) => r.depth === "core")?.suggestedShots[0]),
+  date: formatDate(spotlightApp.analysisDate),
+};
+
+// System map showcase: follows the rotating free slot (settings written by
+// the convert script, guarded by validation), so it never links into the
+// paywall.
+const showcaseApp = apps.find((a) => a.data.id === settings.showcaseSystem)?.data;
+const showcase = showcaseApp?.system
+  ? (() => {
+      const p = systemProps(showcaseApp, byId);
+      return {
+        name: showcaseApp.name,
+        tagline: showcaseApp.system.tagline,
+        href: `/systems/${showcaseApp.id}/`,
+        nodes: p.nodes,
+        connections: p.connections,
+      };
+    })()
+  : null;
+
+const featured = settings.featuredMechanics
+  .map((id) => byId.get(id))
+  .filter(Boolean)
+  .map((m) => ({
+    number: m!.n,
+    category: m!.cat,
+    name: m!.name,
+    definition: m!.tagline,
+    contextTags: (m!.context ?? []).map((c) => c.charAt(0).toUpperCase() + c.slice(1)),
+    locked: m!.visibility !== "public",
+    href: `/mechanics/${m!.id}/`,
+  }));
+
+const newThisWeek = [...apps]
+  .sort((a, b) => (b.data.lastUpdated ?? "").localeCompare(a.data.lastUpdated ?? ""))
+  .slice(0, 4)
+  .map((a) => ({
+    title: `${a.data.name} case study`,
+    date: formatDate(a.data.lastUpdated),
+    href: `/case-studies/${a.data.id}/`,
+  }));
+---
+
+<Base
+  title="Mechanics Playbook — game mechanics that keep users coming back"
+  description="A library of the mechanics behind the most engaging apps and games: what they are, why they work, and how to apply them to your product. Updated weekly."
+  current="home"
+>
+  <HomeTop client:load carousel={carousel} stats={stats} spotlight={spotlight} />
+  <HomeBottom featured={featured} newThisWeek={newThisWeek} showcase={showcase} />
+</Base>

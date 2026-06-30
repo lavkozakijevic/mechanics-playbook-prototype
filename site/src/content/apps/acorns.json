@@ -1,0 +1,60 @@
+{
+  "id": "acorns",
+  "name": "Acorns",
+  "category": "Finance / Micro-investing",
+  "type": "app",
+  "visibility": "subscriber",
+  "analysisDate": "2026-06-02",
+  "lastUpdated": "2026-06-04",
+  "summary": "Acorns is a micro-investing app for US users. It automatically invests spare change from purchases via a round-up mechanic, supports recurring investments into ETF portfolios, offers a Roth IRA product (Acorns Later), a checking account with a tungsten debit card (Acorns Checking), and a kids' investment account (Acorns Early). A learning section and an earning section (cashback investing rewards and surveys) complete the product. It operates on a tiered subscription model: Bronze ($3/month), Silver ($6/month), Gold ($12/month).",
+  "icon": "/icons/acorns.webp",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "piggy-bank",
+      "depth": "core",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": [
+        "Roundup setup screen showing the $2.60 coffee illustration with the $0.40 round-up arrow pointing to the acorn, and the multiplier settings (off / 2x / 3x / 10x) below"
+      ]
+    },
+    {
+      "id": "achievements",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "daily-weekly-quests",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "variable-reward",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "set-collection",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "soft-currency",
+      "depth": "supporting",
+      "provisionalDepth": true,
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": null
+}

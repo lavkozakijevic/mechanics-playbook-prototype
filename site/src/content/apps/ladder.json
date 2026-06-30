@@ -1,0 +1,195 @@
+{
+  "id": "ladder",
+  "name": "Ladder",
+  "category": "Fitness",
+  "type": "app",
+  "visibility": "subscriber",
+  "analysisDate": "2026-02-24",
+  "lastUpdated": "2026-05-19",
+  "summary": "Ladder organizes fitness around a coaching team — a named group of athletes working under a real coach with a defined training philosophy. The coach appears in a personal recruitment video before the user joins, delivering a direct pitch designed to make joining feel earned. Completing the welcome workout unlocks the full app simultaneously: the workout plan, the team chat, the Workout Wall showing 13,728 previous completions of the same workout, and the get-started challenge checklist. Every major feature reveal is timed to the same single event.",
+  "icon": "/icons/ladder.png",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "streak",
+      "depth": "core",
+      "writeup": {
+        "observed": "The streak threshold is three workouts per week, not a daily action. This was communicated at two distinct moments in the onboarding: on the welcome workout completion screen (\"complete two more workouts to get your weekly streak\") and on the plan unlock screen (\"complete three a week to earn a streak\"). The weekly streak is listed as one of five items in the get-started challenge checklist.",
+        "noting": "Three workouts per week aligns with standard fitness guidance on recovery days. A daily streak in a fitness app either encourages overtraining or requires the user to log trivial actions to maintain it. The weekly threshold removes that tension and is more defensible to a fitness-literate audience.",
+        "findings": [
+          "The same threshold (three workouts) that earns the streak also activates the coaching program's progression, meaning streak maintenance and plan adherence are the same action.",
+          "The weekly cadence matches Strava's approach to streaks in the fitness category, suggesting this is an established convention for apps where daily training would be harmful.",
+          "Embedding the streak goal in the get-started checklist means a new user encounters it as a completion item rather than a passive counter, giving it a sense of being earned rather than accumulated."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Welcome workout completion screen showing \"complete 2 more workouts to get your weekly streak\" alongside the earned badge, workout stats, and share button"
+      ]
+    },
+    {
+      "id": "challenges",
+      "depth": "core",
+      "writeup": {
+        "observed": "Two challenge structures coexist. The Baseline Strength Series is a time-bounded program running from March 2 to April 12, requiring 20 workout completions to finish. A log of days, an exercise list, a rewards section, and an invite friends mechanic are all visible from the challenge screen. The get-started challenge is a one-time onboarding checklist: complete a second workout, add a profile photo, add the Ladder widget, share Ladder with one person, earn the weekly streak. Each item is a checkbox.",
+        "findings": [
+          "The Baseline Strength Series provides a six-week goal that spans multiple weekly streak cycles, giving users a persistent motivation arc that outlasts any single week's momentum.",
+          "The get-started challenge embeds referral (share Ladder with one person) as an explicit onboarding completion step rather than a hidden option, making social sharing a named goal with a visible completion state.",
+          "Including the weekly streak as a get-started challenge item creates a concrete near-term target for users who might otherwise view the streak as an abstract ongoing obligation."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Get-started challenge card list showing checked \"complete welcome workout\" and unchecked items: second workout, photo, widget, share Ladder, weekly streak",
+        "Baseline Strength Series screen showing the March 2 to April 12 date range, 20-workout target, day log grid, and rewards/invite friends sections"
+      ]
+    },
+    {
+      "id": "community-groups",
+      "depth": "core",
+      "writeup": {
+        "observed": "The Chat tab contains four social surfaces: the coaching team's group chat (team-specific, with the coach as a participant), community topic channels with named membership counts (Healthy Parenting 12,300 members, Equipment and Accessories 32,400, Goodreads and Podcasts 22,900), city meetup groups (Denver, San Diego, Houston, Seattle, New York, Chicago, Philadelphia, plus country-level groups for Australia, UK, and Canada), and Ladder Live (a live event channel with 4,500 members). Chat was a locked tab until the welcome workout was completed.",
+        "findings": [
+          "Locking the Chat tab behind welcome workout completion means social access is earned rather than available immediately, concentrating the community's perceived value at the first meaningful engagement moment.",
+          "The four social surfaces organized by specificity create a community architecture where every user has an appropriate entry point: the introvert joins only the team chat, the engaged member also uses topic channels, the highly invested member joins meetup groups.",
+          "The coach participates in the team chat alongside members, making the team chat feel qualitatively different from a peer community and justifying team-based organization over interest-based organization."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Chat tab showing Maximus Team Chat, Ladder Updates, topic channels (Healthy Parenting 12.3K, Equipment 32.4K, Goodreads 22.9K), and meetup groups (Denver, New York, UK)",
+        "Workout Wall showing 13,728 completions of the welcome workout with video thumbnails from multiple members, each showing completion time and calories"
+      ]
+    },
+    {
+      "id": "achievements",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "A badge was awarded on completing the welcome workout. The badge is spinnable in 3D and reactive to touch. A five-star rating prompt appeared before the badge award, with the rating functioning as the badge-unlock trigger. Profile stats are permanently visible: workouts completed, minutes exercised, calories burned, and cheers given and received. The badge is shareable directly from the award screen.",
+        "findings": [
+          "The five-star rating prompt as a badge-unlock trigger is the only observed case in the library where an achievement reward is earned by rating the content rather than completing it. The design collects useful feedback data while rewarding the user for providing it.",
+          "The shareable badge from the first workout completion is a designed acquisition moment: sharing a workout badge is also a branded Ladder ad in the recipient's social feed."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "social-feed",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "daily-weekly-quests",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "gifting",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "A fitness app where the coaching team is the product, not the workout library.",
+    "overview": "Ladder's organizing unit is the coaching team. Every social mechanic, every accountability surface, and every piece of workout content flows through the same team structure. The coach delivers a personal recruitment video before the user joins. The welcome workout completion is the single most event-dense moment in the app: badge, Workout Wall, get-started challenge, and plan unlock all arrive at once.",
+    "loop": "Match to a coaching team through a preference filter. Watch the coach's recruitment video. Complete the welcome workout. Unlock: team chat, Workout Wall, nutrition module, full workout plan, get-started challenge checklist. Complete three workouts per week to maintain the streak. The get-started challenge drives early social actions: second workout, profile photo, widget install, referral, weekly streak.",
+    "keyInsight": "The welcome workout completion screen is the most information-dense single event in the onboarding observed across all fitness apps in the library. Five things happen at once: the badge award, the Workout Wall reveal, the get-started checklist, the plan unlock, and the nutrition module access. Everything the app wants the user to know about its value is timed to the moment they have just demonstrated they will actually use it.",
+    "whatMakesItWork": "The team structure makes social accountability automatic rather than optional. Cheers, chat, and workout wall entries are all team-specific, so social interaction happens within a bounded group of people working under the same coach. The coach's recruitment video, which includes deliberate commitment-triggering language, front-loads the psychological investment before the user has done a single workout.",
+    "roles": [
+      {
+        "id": "streak",
+        "role": "Week-based: three workouts per week constitutes a streak. Introduced on the welcome workout completion screen alongside the get-started challenge."
+      },
+      {
+        "id": "challenges",
+        "role": "Two layers: the get-started onboarding checklist (defined endpoint, sequential) and the Baseline Strength Series (20 workouts over six weeks, spanning multiple weekly streak cycles)."
+      },
+      {
+        "id": "community-groups",
+        "role": "Four social surfaces in one tab, organized from most specific (your team) to broadest (all Ladder) to real-world (city meetups and live events)."
+      },
+      {
+        "id": "social-feed",
+        "role": "Cheers sent via home screen double-tap. The Workout Wall as a post-workout screen embeds social proof at the moment of highest motivation."
+      },
+      {
+        "id": "gifting",
+        "role": "Share pass gives recipients trial access. Referrer earns $25 in Ladder Shop credit when the recipient subscribes. Embedded in the get-started onboarding checklist."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 8,
+      "label": "LADDER"
+    },
+    "nodes": [
+      {
+        "id": "streak",
+        "x": 50,
+        "y": 26
+      },
+      {
+        "id": "challenges",
+        "x": 22,
+        "y": 50
+      },
+      {
+        "id": "community-groups",
+        "x": 78,
+        "y": 50
+      },
+      {
+        "id": "achievements",
+        "x": 22,
+        "y": 76
+      },
+      {
+        "id": "social-feed",
+        "x": 78,
+        "y": 76
+      },
+      {
+        "id": "gifting",
+        "x": 50,
+        "y": 90
+      }
+    ],
+    "connections": [
+      {
+        "from": "streak",
+        "to": "challenges",
+        "title": "Weekly streak threshold matches challenge completion cadence",
+        "desc": "Three workouts per week earns the streak. The get-started challenge requires those same workouts as checkboxes. The streak and the onboarding challenge share the same behavioral unit.",
+        "effect": "Users who pursue the streak are simultaneously progressing the get-started challenge. One behavior completes two tracking systems."
+      },
+      {
+        "from": "challenges",
+        "to": "community-groups",
+        "title": "Get-started challenge drives social layer adoption",
+        "desc": "The get-started checklist includes adding a profile photo, joining team chat, and sharing Ladder with one person. The challenge mechanics explicitly push the user into every social surface.",
+        "effect": "The community layer is not discovered passively. The checklist makes it a completion step."
+      },
+      {
+        "from": "social-feed",
+        "to": "streak",
+        "title": "Workout Wall provides social proof at the streak introduction moment",
+        "desc": "The Workout Wall, showing 13,728 previous completions of the welcome workout, appears immediately before the streak is introduced on the completion screen.",
+        "effect": "The scale of community participation is visible at the exact moment the streak commitment begins. The streak starts in a context of demonstrated mass adoption."
+      },
+      {
+        "from": "gifting",
+        "to": "challenges",
+        "title": "Referral is a checklist item, not a hidden feature",
+        "desc": "Share Ladder with one person is an explicit checkbox in the get-started challenge. Referral is framed as an onboarding completion step rather than a settings option.",
+        "effect": "The referral rate is higher because completion of the checklist is the motivator, not the referral mechanic itself."
+      }
+    ]
+  }
+}

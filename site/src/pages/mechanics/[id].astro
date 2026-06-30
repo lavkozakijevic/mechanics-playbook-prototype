@@ -1,0 +1,32 @@
+---
+import Base from "../../layouts/Base.astro";
+import { MechanicDetailPage } from "../../components/site/MechanicDetail.jsx";
+import { publishedApps, publishedMechanics } from "../../lib/content";
+import { mechanicDetailProps, mechanicStudies } from "../../lib/props";
+
+export async function getStaticPaths() {
+  return (await publishedMechanics()).map((mech) => ({ params: { id: mech.data.id }, props: { mech } }));
+}
+
+const { mech } = Astro.props;
+const byId = new Map((await publishedMechanics()).map((m) => [m.data.id, m.data]));
+const apps = (await publishedApps()).map((a) => a.data);
+
+const props = mechanicDetailProps(mech.data);
+// resolve paired mechanic names from the library
+const pairedWith = props.pairedWith
+  .map(({ id, href }) => {
+    const p = byId.get(id);
+    return p ? { name: p.name, cat: p.cat, href } : null;
+  })
+  .filter(Boolean);
+const studies = mechanicStudies(mech.data.id, apps);
+---
+
+<Base
+  title={`${mech.data.name} — mechanic — Mechanics Playbook`}
+  description={mech.data.tagline.slice(0, 155)}
+  current="mechanics"
+>
+  <MechanicDetailPage mech={{ ...props, pairedWith }} studies={studies} />
+</Base>

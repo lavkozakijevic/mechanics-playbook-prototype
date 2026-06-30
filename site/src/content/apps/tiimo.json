@@ -1,0 +1,124 @@
+{
+  "id": "tiimo",
+  "name": "Tiimo",
+  "category": "Productivity",
+  "type": "app",
+  "visibility": "subscriber",
+  "analysisDate": "2026-05-18",
+  "lastUpdated": "2026-05-18",
+  "summary": "Tiimo is a visual planning app built specifically for neurodivergent users (ADHD, autism), winner of the Apple Design Award 2024. Its streak and achievement systems are unusually integrated: the same two metrics (consecutive days and tasks completed) power both, with marbles as milestone markers that dynamically change the background gradient of the stats screen when unlocked. The streak is introduced via a swipe-to-unlock gesture during onboarding, a physical commitment ceremony before the user has completed a single real session.",
+  "icon": "/icons/tiimo.png",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "streak",
+      "depth": "core",
+      "writeup": {
+        "observed": "The streak counter appears as a flame icon in the top-left corner of every screen, the most prominent persistent placement in the library. It is the first element described when the home screen loads. The streak is introduced during onboarding through a swipe-to-unlock physical gesture: \"Ignition ready to unlock, your first streak starts today, one small step at a time, we will celebrate every step with you.\" The swipe immediately awards the first marble (Ignition). The Stats tab shows the streak progress bar with the next milestone: \"1 out of 3 days,\" and the full marble ladder from current position to 1,600 days. Streak and Levels is a named notification category in settings, meaning alerts specifically around streak status are available as a distinct push channel.",
+        "presented": "The flame icon is visible on every tab without navigation. The Stats tab opens to the streak progress bar, next milestone label, and the full marble row. The onboarding frames the streak as a celebration system: \"we will celebrate every step with you\", not as a retention mechanism.",
+        "noting": "The swipe-to-unlock gesture creates a small physical ceremony around the streak's beginning that a button tap does not. The user has performed a deliberate action to initiate their streak before completing a single real session, a behavioral commitment made before there is anything to lose. The 1,600-day endpoint implies a 4+ year engagement arc, making it the longest stated streak progression in the library.",
+        "findings": [
+          "The streak is introduced via a swipe-to-unlock gesture during onboarding, a physical commitment ceremony that creates psychological investment before the first real session.",
+          "The 1,600-day streak ladder implies a 4+ year engagement arc, the longest stated streak progression in the library.",
+          "The flame icon appears in the top-left corner of every screen regardless of which tab is active, the highest persistent visibility of any streak counter in the library.",
+          "Streak and Levels is a dedicated push notification category in settings, allowing streak-specific alerts independent of other notification types."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Stats tab showing the flame streak counter, \"1 out of 3 days\" progress bar, and the marble row with Ignition earned and Spark earned, next milestone at 3 days",
+        "Onboarding swipe-to-unlock screen showing \"Ignition ready to unlock — your first streak starts today — one small step at a time\""
+      ]
+    },
+    {
+      "id": "achievements",
+      "depth": "core",
+      "writeup": {
+        "observed": "The marble collection system on the Stats tab is the primary achievement display. Marbles are collected in a horizontal scrollable row, each representing a named milestone on two tracks: task completion (Ignition at day 1, Spark at first task, then 7, 14, 30, 60, 110, 160, 250, 360 tasks, to 30,000) and streak days (1, 3, 7, 10, 14, 21, 30, to 1,600). Each marble has a distinct visual design. The distinctive behavior: unlocking a marble changes the background gradient of the Stats tab to reflect the new marble's color, the entire ambient visual environment of the screen shifts with each achievement.",
+        "presented": "The marble row is the first element on the Stats tab, above the streak bar and task counter. Marble unlocks trigger celebration animations. Locked future marbles are visible with countdown labels (\"unlocks in 3 days\"). The first two marbles (Ignition and Spark) were earned within a single onboarding session.",
+        "noting": "The background gradient color change is the most visually integrated achievement reward in the library. In every other app, achievements add a new badge or item to a static display. Tiimo's marbles change the ambient visual environment of the screen, the achievement does not just mark progress, it alters the space the user inhabits. This is consistent with Tiimo's design philosophy for neurodivergent users, where visual clarity and satisfying feedback are primary values.",
+        "findings": [
+          "Unlocking a marble dynamically changes the background gradient of the Stats screen to reflect the marble's color, the only achievement reward in the library that alters the ambient visual environment rather than adding an item.",
+          "Two tracks (task completion and consecutive days) both contribute to the same marble row, making every task completion and every returned day advance the visible progression ladder.",
+          "The first marble (Ignition) is awarded during onboarding via the swipe-to-unlock gesture, the achievement system begins before the first real session.",
+          "Locked future marbles are visible with countdown labels, showing the full progression ladder ahead and making the next milestone always visible and calculable."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Stats tab marble row showing earned Ignition and Spark marbles alongside locked upcoming marbles with \"unlocks in 3 days\" labels, with the gradient background reflecting the current marble's color"
+      ]
+    },
+    {
+      "id": "challenges",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "daily-login-reward",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "xp-leveling",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "A planning app for neurodivergent users where unlocking an achievement changes the ambient visual environment of the screen.",
+    "overview": "Tiimo's system is unusually integrated and unusually honest. The streak and the marble achievement system share the same two underlying metrics, consecutive days and tasks completed, and the app states their purpose clearly: not 'don't break your streak' but 'we will celebrate every step with you.' When a marble is unlocked, the background gradient of the stats screen shifts to reflect the marble's color, the achievement changes the environment the user inhabits.",
+    "loop": "The core loop is: use the AI co-planner to structure the day → complete morning tasks → afternoon tasks → evening tasks → log mood → streak increments → task count advances → marble unlocks → stats screen changes color → next marble becomes visible with countdown. The AI co-planner reduces planning friction specific to ADHD users, which increases task completion, which advances both the streak and the marble collection.",
+    "keyInsight": "The marble's color-reactive gradient is the most visually integrated achievement reward in the library. The achievement doesn't add a badge, it changes the ambient visual environment of the screen the user spends the most time on.",
+    "whatMakesItWork": "Transparency about the mechanism doesn't weaken the engagement, it produces trust. Tiimo tells users exactly what the streak minimum is, exactly when the next marble unlocks, and exactly what the streak is for. The honest framing and the genuine product benefit (AI planning quality) are both load-bearing.",
+    "roles": [
+      {
+        "id": "streak",
+        "role": "Introduced via a swipe-to-unlock gesture during onboarding, a physical commitment ceremony before the first real session. Displayed on every screen via the top-left flame icon."
+      },
+      {
+        "id": "achievements",
+        "role": "Marbles are milestone markers on two tracks (tasks completed, consecutive days) that dynamically change the background gradient of the stats screen when unlocked, the achievement reward is environmental, not just additive."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 18,
+      "label": "TIIMO"
+    },
+    "nodes": [
+      {
+        "id": "streak",
+        "x": 30,
+        "y": 60
+      },
+      {
+        "id": "achievements",
+        "x": 70,
+        "y": 60
+      }
+    ],
+    "connections": [
+      {
+        "from": "streak",
+        "to": "achievements",
+        "title": "Consecutive days unlock marbles",
+        "desc": "The marble collection tracks both consecutive days and tasks completed. Every streak day directly advances the marble ladder, the streak and achievement system share the same metric.",
+        "effect": "Users experience streak and achievement as a single integrated progression rather than two separate mechanics."
+      },
+      {
+        "from": "achievements",
+        "to": "streak",
+        "title": "Marble unlocks reinforce streak continuation",
+        "desc": "When a marble unlocks at day 3, 7, or 10, the background gradient changes. The achievement reward arrives precisely at the streak milestone, making the milestone feel significant.",
+        "effect": "The gradient shift makes streak maintenance feel cumulative. Each new marble changes the daily environment, reinforcing that the streak is building something permanent."
+      }
+    ]
+  }
+}

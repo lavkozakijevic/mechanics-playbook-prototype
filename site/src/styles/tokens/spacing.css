@@ -1,0 +1,35 @@
+/* gameBiz spacing, layout & radius.
+   4px base grid. Generous whitespace, but density with legibility wins here:
+   this is a reference tool optimized for the return visit. */
+
+:root {
+  /* ---------- Spacing scale (4px base) ---------- */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* ---------- Layout ---------- */
+  --content-max: 1100px;   /* max content width, per brief */
+  --gutter: 24px;          /* horizontal padding, per brief */
+  --content-narrow: 720px; /* long-form reading measure */
+  --rail-width: 248px;     /* filter sidebar / table-of-contents rail */
+
+  /* ---------- Radius (restrained; an archive is not glossy) ---------- */
+  --radius-none: 0;
+  --radius-sm: 3px;        /* tags, chips, inputs */
+  --radius-md: 6px;        /* cards, buttons */
+  --radius-lg: 10px;       /* modals, large panels */
+  --radius-pill: 999px;    /* filter pills only */
+
+  /* ---------- Border widths ---------- */
+  --border-hairline: 1px;
+  --border-thick: 2px;     /* the deliberate underline / marked rule */
+}

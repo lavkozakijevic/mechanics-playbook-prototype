@@ -1,0 +1,143 @@
+{
+  "id": "picsart",
+  "name": "PicsArt",
+  "category": "Creative",
+  "type": "app",
+  "visibility": "subscriber",
+  "analysisDate": "2026-04-26",
+  "lastUpdated": "2026-06-15",
+  "summary": "PicsArt embeds a creation entry point directly in every post in its For You feed, a Try button that opens the specific editing tool used to make that effect, converting content browsing into tool usage in a single tap. Challenge winners receive 50 credits, equivalent to the free tier's 10-week allocation, creating a direct economic incentive for community participation. The paywall at first sign-in has a close button camouflaged inside a red decorative image element, making the exit path deliberately hard to find.",
+  "icon": "/icons/picsart.png",
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "challenges",
+      "depth": "core",
+      "writeup": {
+        "observed": "Challenges are the central community engagement mechanic, accessible via the cup icon in the bottom navigation bar. Three active challenges ran simultaneously during analysis: Bring in the Animals (4 days, 50 credits prize), Leaf and Lady (active), and My Favorite View (4 days 12 hours, winner's gallery prize). Each challenge has a countdown timer, submission rules, a scrollable submissions gallery, and a voting tab. Individual community spaces can also create their own challenges, running a dual-scale system, platform-wide and community-specific simultaneously.",
+        "presented": "The Challenges tab uses the cup icon in the primary navigation. Challenge history shows past results by place (1st through 10th) with profile links to winners. Voting is possible on multiple submissions simultaneously, and vote counts are not visible to voters during the active window.",
+        "noting": "Two reward types ran simultaneously: credits for Bring in the Animals, and gallery feature for My Favorite View. The gallery placement is a social recognition reward rather than a currency reward, making participation motivating for users who wouldn't use credits but value visibility. The dual-scale challenge infrastructure, where any space owner can run their own competition, creates a long tail of community-specific challenges below the platform-level events.",
+        "findings": [
+          "92 submissions were visible for My Favorite View during analysis, the submission gallery functions as a browsable content feed, creating engagement beyond the creation and voting actions.",
+          "Two reward types coexist: credits (50 for Bring in the Animals) and gallery feature (My Favorite View), serving users motivated by currency and users motivated by recognition simultaneously.",
+          "Space-level challenges are separate from platform challenges, any space owner can create and administer their own competition with their own rules.",
+          "The challenge history tab shows results by place with profile links, past winners remain discoverable, creating a portfolio layer for creators who placed."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "Challenges tab showing three active challenges with countdown timers (4 days, 4 days 12hrs), prizes (50 credits, winner's gallery), and active submission counts",
+        "My Favorite View challenge page showing the About section, rules, and the 92-submission scrollable gallery with follow buttons on creator profiles"
+      ]
+    },
+    {
+      "id": "social-feed",
+      "depth": "core",
+      "writeup": {
+        "observed": "The Discover tab contains a For You feed of photos and videos created by other users, each with a Try button that opens the specific editing tool or AI feature that created the visible effect. Tapping Try launches that tool ready for the user to apply to their own photo, a direct conversion from content consumption to tool usage in a single tap. The Explore section curates content by type, and Spaces each have their own content feed visible to members.",
+        "presented": "Every post in the For You feed has a Try button beneath it, alongside the heart count and comment count. Some posts show before-and-after preview toggles. Following a creator or joining a space both route their activity into the main feed. Creator profiles are accessible from feed posts, challenge submissions, and space member lists.",
+        "noting": "The Try button converts passive browsing into active tool engagement using the feed's own content as real-time product demonstrations. A user who sees an appealing AI-generated background can start creating their own with one tap, without navigating to a tool catalogue. The feed functions simultaneously as inspiration and as a product tour.",
+        "findings": [
+          "Every feed post has a Try button that opens the specific tool, filter, or AI feature used to create that visible effect, a single-tap path from content discovery to feature usage.",
+          "Credit costs are not disclosed in the feed, a user who taps Try on an AI-generated post discovers the credit cost only after the tool opens, at the point of decision to generate.",
+          "Creator profiles show follower counts, creation history, and collections, accessible from anywhere in the feed, making the feed also a creator discovery surface.",
+          "Joining a space routes its content into the member's feed, creating a personalized layer on top of the algorithmic For You feed."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": [
+        "For You feed showing two posts with creator profile, creation thumbnail, heart/comment counts, and the \"Try\" button beneath each — with \"before and after\" toggle visible on one item"
+      ]
+    },
+    {
+      "id": "community-groups",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "credits-tokens",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "AI credits are the access token for all generative AI features. Free tier: 5 credits per week. Subscription tiers: Plus (200/week, $64.99/year) and Pro (500/week, $83.99/year). Credit costs per tool range from 1 credit (AI sticker generator) to 50 credits (AI avatar). Credits cannot be purchased individually, only through subscribing. The credit balance and weekly reset timer are visible from the profile section, not surfaced during onboarding.",
+        "presented": "Credit costs surface at the point of tool use. Using a tool that exceeds the remaining balance triggers an upgrade prompt. Winning a platform challenge awards 50 credits, more than the free tier's entire weekly allocation.",
+        "noting": "Variable tool credit costs signal feature value before spending, 1 credit for an AI sticker versus 50 credits for an AI avatar communicates that these are not equivalent features. The challenge reward (50 credits) creates a circulation loop: participation in community challenges earns enough to access premium tools, giving the community system a direct economic role in the product.",
+        "findings": [
+          "5 free credits per week covers 2–5 AI tool uses depending on the tool, enough to demonstrate the feature set but insufficient for sustained creative use.",
+          "The paywall at first sign-in has its close button camouflaged inside a red decorative image element, described during analysis as 'very hard to notice.' The Plus plan only appears after the paywall is dismissed.",
+          "The 3-day free trial is available on the annual plan but toggled off by default, users who don't notice commit to an immediate charge.",
+          "Winning a challenge awards 50 credits, equivalent to the free tier's 10-week allocation, creating a direct economic incentive for community participation."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "A creative platform where the content feed is also the product demo and the challenge is also the currency system.",
+    "overview": "PicsArt's system is built around a single structural insight: every post in the For You feed is a live demonstration of a tool the user can access in one tap. The Try button converts content discovery directly into tool usage, making the feed simultaneously an inspiration surface and a product tour. The challenge system distributes two distinct reward types, credits for one challenge, gallery placement for another, serving creators motivated by economic gain and those motivated by recognition at the same time.",
+    "loop": "The core loop is: browse For You feed → tap Try on an appealing post → use the tool or AI feature → create and post → enter a challenge → earn credits or gallery placement → use credits to access premium AI tools → post more → attract followers. The feed is both the input (inspiration) and the output (distribution) of the creation loop.",
+    "keyInsight": "The Try button is the system's most structurally efficient element. It makes every piece of user-generated content in the feed into a one-tap entry point for the specific tool that created it. The feed doesn't showcase the app's features, it runs them continuously, in context, at human scale.",
+    "whatMakesItWork": "The credit system creates a circulation loop: winning challenges earns enough credits to access premium AI tools, which enables more impressive creations, which win more challenges. Community participation and monetization are not separate, winning challenges is how free users access premium features.",
+    "roles": [
+      {
+        "id": "social-feed",
+        "role": "The Try button on every feed post converts browsing into tool usage in a single tap, the feed is simultaneously a discovery surface and a live product demo for every feature in the app."
+      },
+      {
+        "id": "challenges",
+        "role": "Two challenge types run simultaneously: credits challenges (economic reward) and gallery placement challenges (recognition reward), serving different creator motivations from the same mechanic."
+      },
+      {
+        "id": "credits-tokens",
+        "role": "Credits are earned through challenge wins and spent on AI tools ranging from 1 to 50 credits, the cost difference communicates relative feature value. Winning a challenge awards 50 credits, equal to 10 weeks of the free tier's allocation."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 15,
+      "label": "PICSART"
+    },
+    "nodes": [
+      {
+        "id": "social-feed",
+        "x": 50,
+        "y": 38
+      },
+      {
+        "id": "challenges",
+        "x": 26,
+        "y": 68
+      },
+      {
+        "id": "credits-tokens",
+        "x": 74,
+        "y": 68
+      }
+    ],
+    "connections": [
+      {
+        "from": "social-feed",
+        "to": "challenges",
+        "title": "Feed entries become challenge submissions",
+        "desc": "Every post in the For You feed is a potential challenge entry. Users who discover a challenge through the feed can submit directly from the creation flow they entered via the Try button.",
+        "effect": "The feed, the Try button, and the challenge system form a single funnel, browsing leads to creating, creating leads to competing."
+      },
+      {
+        "from": "social-feed",
+        "to": "credits-tokens",
+        "title": "Feed reveals credit costs at tool entry",
+        "desc": "Credit costs for AI tools are not disclosed in the feed, they surface only after the user taps Try and the tool opens. The feed creates desire; the tool reveals the cost at the moment of highest intent.",
+        "effect": "Users who tap Try from the feed are in a high-intent state when they encounter the credit cost, improving conversion compared to showing costs upfront."
+      },
+      {
+        "from": "challenges",
+        "to": "credits-tokens",
+        "title": "Challenge wins fund premium tool access",
+        "desc": "Winning a platform challenge awards 50 credits, equivalent to 10 weeks of the free tier's allocation. Community participation and the credit economy are directly linked.",
+        "effect": "Free users who win challenges can access premium AI tools they could not otherwise afford. Community participation becomes the primary free path to premium features."
+      }
+    ]
+  }
+}

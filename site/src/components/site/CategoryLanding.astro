@@ -1,0 +1,214 @@
+---
+// Shared template for every category landing page (/finance, /productivity, …).
+// Section order: hero → where we can help → why gamification matters → how we
+// work → what to expect → trust → get in touch.
+// The hero copy, the six problems, and the report card are category-specific
+// (supplied by the content file). All other sections are shared and hardcoded
+// here so a new category is still just one content file.
+import { getEntry, getCollection } from "astro:content";
+import { ReportCapture } from "./ReportCapture.jsx";
+import { Hero } from "./HomeTop.jsx";
+
+interface Props {
+  cat: {
+    slug: string;
+    name: string;
+    hero: { kicker: string; headline: string; sub: string };
+    problems: { kicker: string; title: string; items: { title: string; lead: string; body: string }[] };
+    report: {
+      eyebrow: string;
+      title: string;
+      body: string;
+      stats?: { n: string; l: string }[];
+      imageHref?: string;
+    };
+    heroApps?: { id: string; name: string }[];
+  };
+}
+const { cat } = Astro.props;
+
+// Carousel: logo cards for categories that supply heroApps, otherwise fall back
+// to the homepage spotlight app's core mechanics.
+const settings = (await getEntry("settings", "homepage"))!.data;
+const carousel = await (async () => {
+  if (cat.heroApps && cat.heroApps.length > 0) {
+    return cat.heroApps.map((a) => ({ logoOnly: true, id: a.id, name: a.name }));
+  }
+  const allApps = await getCollection("apps");
+  const allMechanics = await getCollection("mechanics");
+  const byMechId = new Map(allMechanics.map((m) => [m.data.id, m.data]));
+  const spotlightApp = allApps.find((a) => a.data.id === settings.spotlightApp)?.data;
+  const shortShot = (s?: string) => (s ? s.split(/ showing | with |,/)[0] : "Screen study");
+  return spotlightApp
+    ? spotlightApp.mechanics
+        .filter((r) => r.depth === "core")
+        .map((r) => ({
+          app: spotlightApp.name,
+          mechanic: byMechId.get(r.id)?.name ?? r.id,
+          cat: byMechId.get(r.id)?.cat ?? "retention",
+          screen: shortShot(r.suggestedShots[0]),
+          title: `How ${spotlightApp.name} uses ${byMechId.get(r.id)?.name ?? r.id}`,
+        }))
+    : [];
+})();
+
+const heroCtas = [
+  { label: "Book a call", href: "https://calendar.app.google/EvXYKKXGxJvKbxns5", variant: "secondary", target: "_blank", rel: "noopener noreferrer" },
+  { label: "Get the free report", href: "#get-report", variant: "accent" },
+];
+
+const STEPS = [
+  {
+    n: "01",
+    title: "A call to understand your goals",
+    body: "We start by listening. A short call to understand your product, your users, and the habits you want to build.",
+  },
+  {
+    n: "02",
+    title: "In-depth research of your category",
+    body: "We study the best apps in your space and map how they use game mechanics to keep people coming back.",
+  },
+  {
+    n: "03",
+    title: "Comparison with the best mobile games",
+    body: "We set your product beside the most engaging games in the world and identify the techniques worth borrowing.",
+  },
+  {
+    n: "04",
+    title: "A report with concrete next steps",
+    body: "You receive a written report with specific recommendations: which mechanics to try, how to apply them, and what to measure.",
+  },
+];
+---
+
+<main id="main">
+  {/* Hero — category-specific copy, shared carousel */}
+  <Hero
+    client:load
+    carousel={carousel}
+    eyebrow={cat.hero.kicker}
+    headline={cat.hero.headline}
+    sub={cat.hero.sub}
+    ctas={heroCtas}
+    className="catland-hero"
+  />
+
+  {/* Where gamification helps — category-specific problems */}
+  <section class="band band--sheet" aria-labelledby="prob-h">
+    <div class="container">
+      <div class="mech-section__kicker">{cat.problems.kicker}</div>
+      <h2 class="mech-section__title" id="prob-h">{cat.problems.title}</h2>
+      <ol class="catland-problems">
+        {cat.problems.items.map((p, i) => (
+          <li class="catland-problem">
+            <span class="catland-problem__n" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+            <div>
+              <h3>{p.title}</h3>
+              <p class="catland-problem__lead">{p.lead}</p>
+              <p>{p.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  {/* Why gamification matters — shared */}
+  <section class="band band--sheet" aria-labelledby="why-h">
+    <div class="container">
+      <div class="catland-why">
+        <div class="mech-section__kicker">Why gamification matters</div>
+        <h2 class="mech-section__title" id="why-h">The same ideas that keep a game open can keep your app open</h2>
+        <p class="catland-why__p">The apps that earn daily habits use the same ideas games have refined for decades: a clear goal to aim for, a way to see progress toward it, and a small, well-timed reward for reaching it. None of these ideas are complicated on their own. Put together with care, they turn something a person tries once into something they return to without being asked.</p>
+      </div>
+    </div>
+  </section>
+
+  {/* Gamifying your app — shared 4-step process */}
+  <section class="band" aria-labelledby="steps-h">
+    <div class="container">
+      <div class="mech-section__kicker">How we work</div>
+      <h2 class="mech-section__title" id="steps-h">Gamifying your app</h2>
+      <ol class="catland-steps">
+        {STEPS.map((s) => (
+          <li class="catland-step">
+            <span class="catland-step__n" aria-hidden="true">{s.n}</span>
+            <div>
+              <h3 class="catland-step__title">{s.title}</h3>
+              <p class="catland-step__body">{s.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  {/* Free report — category-specific, with email-gated download */}
+  <section class="band band--sunken" id="get-report" aria-labelledby="report-h">
+    <div class="container">
+      <div class="catland-report">
+        <div class="catland-report__cover" aria-hidden="true">
+          {cat.report.imageHref
+            ? (
+              <Fragment>
+                <img
+                  src={cat.report.imageHref}
+                  alt=""
+                  loading="lazy"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+                />
+                <div class="catland-report__placeholder" style="display:none"><span>Report&nbsp;preview</span></div>
+              </Fragment>
+            )
+            : <div class="catland-report__placeholder"><span>Report&nbsp;preview</span></div>
+          }
+        </div>
+        <div class="report-landing__card">
+          <div class="eyebrow" style="color:var(--text-accent);margin-bottom:12px">{cat.report.eyebrow}</div>
+          <h2 id="report-h">{cat.report.title}</h2>
+          <p style="font:var(--type-body-lg);color:var(--text-secondary);max-width:52ch;margin-bottom:24px">{cat.report.body}</p>
+          {cat.report.stats && cat.report.stats.length > 0 && (
+            <div class="report-landing__stats">
+              {cat.report.stats.map((s) => (
+                <div class="report-landing__stat">
+                  <span class="report-landing__n">{s.n}</span>
+                  <span class="report-landing__l">{s.l}</span>
+                </div>
+              ))}
+            </div>
+          )}
+          <div class="report-landing__capture">
+            <ReportCapture
+              client:load
+              category={cat.slug}
+              source="category-report"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Trust — shared */}
+  <section class="band" aria-labelledby="trust-h">
+    <div class="container">
+      <div class="catland-trust">
+        <h2 class="mech-section__title" id="trust-h">Engagement that respects the customer</h2>
+        <p class="catland-trust__p">The same mechanics that can trap a person can also genuinely help them. We care about which side of that line your product is built on. The habits worth creating are the ones that leave a customer better off, and those are the only ones we help you build.</p>
+      </div>
+    </div>
+  </section>
+
+  {/* Book a call — shared */}
+  <section class="band band--ink catland-call" aria-labelledby="call-h">
+    <div class="container">
+      <div class="catland-call__in">
+        <h2 id="call-h">Bring us your app and a problem</h2>
+        <p>Tell us what you are working on and where it stalls. In half an hour we can usually point to two or three places where game design would genuinely help, and how to approach each one.</p>
+        <div class="catland-call__cta">
+          <a class="gb-btn gb-btn--accent gb-btn--lg" href="https://calendar.app.google/EvXYKKXGxJvKbxns5" target="_blank" rel="noopener noreferrer">Book a call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

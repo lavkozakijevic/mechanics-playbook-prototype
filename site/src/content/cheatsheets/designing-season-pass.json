@@ -1,0 +1,58 @@
+{
+  "id": "designing-season-pass",
+  "n": 2,
+  "title": "Designing a Season Pass That Works",
+  "desc": "Considerations for launching a seasonal reward track without cannibalising existing monetisation.",
+  "mechanics": [
+    "season-pass",
+    "daily-weekly-quests",
+    "credits-tokens"
+  ],
+  "apps": [
+    "fc-mobile",
+    "capybara-go",
+    "royal-match"
+  ],
+  "steps": [
+    {
+      "n": "01",
+      "heading": "Expand the economy before the pass arrives",
+      "body": "Supercell added a new Town Hall level, new units, and a leagues system before the Gold Pass launched. The pass needs to land into an economy with enough demand to absorb it. Capybara Go! runs seven simultaneous fund systems, each tied to a specific activity, rather than one pass, because each activity type has its own engaged player segment with its own demand.",
+      "apps": [
+        "capybara-go"
+      ]
+    },
+    {
+      "n": "02",
+      "heading": "Front-load premium rewards, sustain with mid-tier",
+      "body": "The FC Mobile Star Pass puts its most visible reward gap at Step 3, 100,000 coins on the free tier versus 3,000,000 coins on the paid tier, making the paid tier's value immediately legible rather than spreading it evenly. Front-loading drives the purchase decision early; mid-tier rewards sustain engagement through the remainder of the season.",
+      "apps": [
+        "fc-mobile"
+      ]
+    },
+    {
+      "n": "03",
+      "heading": "Make the pass solve an existing friction point",
+      "body": "The Royal Match Easter Pass raises the heart cap from 5 to 8, directly addressing the energy system's most painful moment. The team gift makes one member's purchase visibly beneficial to teammates. When the pass removes a friction the player already feels, the purchase feels like a solution rather than an upgrade.",
+      "apps": [
+        "royal-match"
+      ]
+    },
+    {
+      "n": "04",
+      "heading": "Track cannibalization immediately",
+      "body": "AB test before full activation. Track ARPPU and conversion ratios of existing spenders immediately after launch, within the first two weeks. Revenue damage from cannibalization compounds quickly and is harder to reverse than it is to catch early.",
+      "apps": []
+    },
+    {
+      "n": "05",
+      "heading": "The pass should accelerate goals, not replace them",
+      "body": "When the economy is deep enough, players use the pass to move faster toward goals they already have. When it is not, the pass becomes a substitute for all other spending. Design the pass to complement existing progression, not to define it.",
+      "apps": [
+        "fc-mobile",
+        "capybara-go"
+      ]
+    }
+  ],
+  "visibility": "subscriber"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "homepage",
+  "spotlightApp": "strava",
+  "showcaseSystem": "uptime",
+  "featuredMechanics": [
+    "energy-lives",
+    "limited-time-events",
+    "clans-guilds",
+    "season-pass"
+  ],
+  "cheatsheetCount": 6,
+  "iconStripApps": [
+    "royal-match",
+    "clash-of-clans",
+    "strava",
+    "fc-mobile",
+    "capybara-go",
+    "canva",
+    "subway-surfers",
+    "insight-timer",
+    "swgoh",
+    "fiton",
+    "tiimo",
+    "ladder"
+  ],
+  "freeSystemApps": [
+    "strava",
+    "uptime"
+  ]
+}
