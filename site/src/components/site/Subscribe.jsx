@@ -1,12 +1,6 @@
-/* Website kit — Subscribe page (single-offer pricing). Integrated as-is from the
-   finished design export. Only the page CONTENT is taken from that export; its
-   bundled nav and footer are intentionally dropped so the page renders inside
-   the site's real Base layout (current SiteNav + footer). */
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Button } from "../ds/Button.jsx";
-
-// Placeholder destination for the Subscribe CTAs until checkout exists.
-const SUBSCRIBE_HREF = "#subscribe";
+import { Input } from "../ds/Input.jsx";
 
 const CheckIcon = (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -42,10 +36,89 @@ const VALUE = [
   },
 ];
 
+function WaitlistModal({ onClose }) {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("idle");
+  const titleRef = useRef(null);
+
+  useEffect(() => {
+    titleRef.current?.focus();
+    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ email, category: "subscribe", source: "subscribe-page" }),
+      });
+      setStatus(res.ok ? "success" : "error");
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  return (
+    <div className="wl-backdrop" onClick={onClose} role="presentation">
+      <div
+        className="wl-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="wl-h"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button className="wl-close" onClick={onClose} aria-label="Close">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+
+        {status === "success" ? (
+          <div className="wl-success">
+            <span className="wl-success__icon" aria-hidden="true">{CheckIcon}</span>
+            <p className="wl-success__msg">You're on the list. We'll be in touch.</p>
+          </div>
+        ) : (
+          <>
+            <h2 id="wl-h" className="wl-title" ref={titleRef} tabIndex={-1}>
+              We're wrapping up a few things, and you'll be the first to know when the library goes live
+            </h2>
+            <form className="wl-form" onSubmit={handleSubmit} noValidate>
+              <Input
+                label="Email address"
+                type="email"
+                placeholder="you@company.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <Button variant="accent" size="lg" type="submit" disabled={status === "loading"}>
+                {status === "loading" ? "Sending…" : "Notify me"}
+              </Button>
+              {status === "error" && (
+                <p className="wl-error" role="alert">Something went wrong — please try again.</p>
+              )}
+            </form>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
 /** Subscribe page body. */
 export function SubscribePage() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <main id="main">
+
+      {modalOpen && <WaitlistModal onClose={() => setModalOpen(false)} />}
 
       {/* 1. The offer */}
       <section className="band sp-offer" aria-labelledby="offer-h">
@@ -64,7 +137,7 @@ export function SubscribePage() {
                 <li key={u}><span className="sp-list__check" aria-hidden="true">{CheckIcon}</span>{u}</li>
               ))}
             </ul>
-            <Button variant="accent" size="lg" as="a" href={SUBSCRIBE_HREF}>Subscribe</Button>
+            <Button variant="accent" size="lg" onClick={() => setModalOpen(true)}>Subscribe</Button>
           </div>
         </div>
       </section>
@@ -86,7 +159,7 @@ export function SubscribePage() {
       <section className="band band--ink sp-close" aria-labelledby="close-h">
         <div className="container container--narrow">
           <h2 className="sp-close__h" id="close-h">Power up your app with proven game mechanics</h2>
-          <Button variant="accent" size="lg" as="a" href={SUBSCRIBE_HREF}>Subscribe</Button>
+          <Button variant="accent" size="lg" onClick={() => setModalOpen(true)}>Subscribe</Button>
         </div>
       </section>
 
