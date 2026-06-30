@@ -44,54 +44,56 @@ export function SiteNav({ current }) {
         : undefined;
 
   return (
-    <header className="nav">
-      <div className="container nav__in">
-        <a className="nav__brand" href="/" aria-label="GameBiz home">
-          <img className="nav__logo" src={LOGO} alt="GameBiz" width="100" height="22" />
-        </a>
+    <>
+      <header className="nav">
+        <div className="container nav__in">
+          <a className="nav__brand" href="/" aria-label="GameBiz home">
+            <img className="nav__logo" src={LOGO} alt="GameBiz" width="100" height="22" />
+          </a>
 
-        <div className="nav__spacer" />
+          <div className="nav__spacer" />
 
-        <nav className="nav__links" aria-label="Primary">
-          {nav.map((item) =>
-            item.children ? (
-              <div className="nav__item" key={item.label}>
-                <a className="nav__link nav__trigger" href={item.href} aria-haspopup="true" aria-current={isCurrentItem(item)}>
-                  {item.label}<Caret />
-                </a>
-                <div className="nav__menu" role="menu" aria-label={item.label}>
-                  {item.children.map((c) => (
-                    <a key={c.label} role="menuitem" href={c.href}>
-                      <span className="nav__menu-t">{c.label}</span>
-                      <span className="nav__menu-d">{c.desc}</span>
-                    </a>
-                  ))}
+          <nav className="nav__links" aria-label="Primary">
+            {nav.map((item) =>
+              item.children ? (
+                <div className="nav__item" key={item.label}>
+                  <a className="nav__link nav__trigger" href={item.href} aria-haspopup="true" aria-current={isCurrentItem(item)}>
+                    {item.label}<Caret />
+                  </a>
+                  <div className="nav__menu" role="menu" aria-label={item.label}>
+                    {item.children.map((c) => (
+                      <a key={c.label} role="menuitem" href={c.href}>
+                        <span className="nav__menu-t">{c.label}</span>
+                        <span className="nav__menu-d">{c.desc}</span>
+                      </a>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ) : (
-              <a key={item.label} className="nav__link" href={item.href} aria-current={isCurrent(item.key)}>{item.label}</a>
-            )
-          )}
-        </nav>
+              ) : (
+                <a key={item.label} className="nav__link" href={item.href} aria-current={isCurrent(item.key)}>{item.label}</a>
+              )
+            )}
+          </nav>
 
-        <div className="nav__actions">
-          <Button variant="secondary" size="sm" as="a" href="/login/">Log in</Button>
-          <Button variant="accent" size="sm" as="a" href="/subscribe/">Subscribe</Button>
+          <div className="nav__actions">
+            <Button variant="secondary" size="sm" as="a" href="/login/">Log in</Button>
+            <Button variant="accent" size="sm" as="a" href="/subscribe/">Subscribe</Button>
+          </div>
+
+          <button
+            className="nav__burger"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+              {open
+                ? <><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></>
+                : <><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" /></>}
+            </svg>
+          </button>
         </div>
-
-        <button
-          className="nav__burger"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-            {open
-              ? <><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></>
-              : <><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" /></>}
-          </svg>
-        </button>
-      </div>
+      </header>
 
       <div className="nav__drawer" data-open={open} role="dialog" aria-label="Menu" aria-hidden={!open}>
         {nav.map((item) => (
@@ -114,7 +116,7 @@ export function SiteNav({ current }) {
           <Button variant="accent" size="sm" as="a" href="/subscribe/" onClick={() => setOpen(false)}>Subscribe</Button>
         </div>
       </div>
-    </header>
+    </>
   );
 }
 
