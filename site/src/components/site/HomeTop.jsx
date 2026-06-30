@@ -59,9 +59,17 @@ export function Hero({ carousel, eyebrow, headline, sub, ctas, className = "" })
                       <p className="mcard__name">{m.name}</p>
                     </div>
                   </article>
+                ) : m.href ? (
+                  <a className="mcard mcard--link" key={i} href={m.href} aria-hidden={i >= items.length ? "true" : undefined}>
+                    <div className="mcard__shot">{m.screen ? `${m.app} · ${m.screen}` : null}</div>
+                    <div className="mcard__body">
+                      <Tag category={m.cat} dot>{m.mechanic}</Tag>
+                      <p className="mcard__title">{m.title}</p>
+                    </div>
+                  </a>
                 ) : (
                   <article className="mcard" key={i} aria-hidden={i >= items.length ? "true" : undefined}>
-                    <div className="mcard__shot">{m.app} · {m.screen}</div>
+                    <div className="mcard__shot">{m.screen ? `${m.app} · ${m.screen}` : null}</div>
                     <div className="mcard__body">
                       <Tag category={m.cat} dot>{m.mechanic}</Tag>
                       <p className="mcard__title">{m.title}</p>

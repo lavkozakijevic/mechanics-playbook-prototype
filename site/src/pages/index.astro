@@ -12,20 +12,37 @@ const byId = new Map(mechanics.map((m) => [m.data.id, m.data]));
 const settings = (await getEntry("settings", "homepage"))!.data;
 
 const spotlightApp = apps.find((a) => a.data.id === settings.spotlightApp)!.data;
+const appsById = new Map(apps.map((a) => [a.data.id, a.data]));
 
-// Hero carousel: the spotlight app's core mechanics. Titles follow the v44
-// rich-description heading form ("How X uses Y"); the screen label is the
-// first clause of the analysis screenshot suggestion.
+// Hero carousel: five fixed app-mechanic pairings, each verified to have a
+// complete write-up. Any pairing that fails the completeness check is skipped
+// silently rather than showing a broken card.
+const CAROUSEL_PAIRINGS = [
+  { appId: "strava",                  mechId: "leaderboards"      },
+  { appId: "fifa-panini-collection",  mechId: "set-collection"    },
+  { appId: "fortune-city",            mechId: "daily-login-reward"},
+  { appId: "insight-timer",           mechId: "streak"            },
+  { appId: "canva",                   mechId: "achievements"      },
+];
+
 const shortShot = (s?: string) => (s ? s.split(/ showing | with |,/)[0] : "Screen study");
-const carousel = spotlightApp.mechanics
-  .filter((r) => r.depth === "core")
-  .map((r) => ({
-    app: spotlightApp.name,
-    mechanic: byId.get(r.id)?.name ?? r.id,
-    cat: byId.get(r.id)?.cat ?? "retention",
-    screen: shortShot(r.suggestedShots[0]),
-    title: `How ${spotlightApp.name} uses ${byId.get(r.id)?.name ?? r.id}`,
-  }));
+const carousel = CAROUSEL_PAIRINGS
+  .map(({ appId, mechId }) => {
+    const app = appsById.get(appId);
+    const mech = byId.get(mechId);
+    if (!app || !mech) return null;
+    const rel = app.mechanics.find((r) => r.id === mechId);
+    const w = rel?.writeup;
+    if (!w?.observed?.trim() || !w?.noting?.trim() || !w?.presented?.trim() || !w?.findings?.[0]?.trim()) return null;
+    return {
+      app: app.name,
+      mechanic: mech.name,
+      cat: mech.cat,
+      title: `How ${app.name} uses ${mech.name}`,
+      href: `/case-studies/${appId}/`,
+    };
+  })
+  .filter(Boolean);
 
 const stats = {
   caseStudies: apps.length,
