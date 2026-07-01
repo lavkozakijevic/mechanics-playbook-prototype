@@ -1,0 +1,10 @@
+{
+  "id": "goodharts-law",
+  "term": "Goodhart's Law",
+  "def": "When a measure becomes a target, it stops being a good measure, because people optimize the number rather than the thing it stood for. A bounty on rat tails led people to breed rats for their tails.",
+  "related": [
+    "leaderboards",
+    "achievements"
+  ],
+  "visibility": "public"
+}

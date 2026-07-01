@@ -1,0 +1,10 @@
+{
+  "id": "liking",
+  "term": "Liking",
+  "def": "We say yes more readily to people we like, and liking is easily built through similarity, familiarity, praise, and cooperation toward a shared goal.",
+  "related": [
+    "social-feed",
+    "community-groups"
+  ],
+  "visibility": "public"
+}

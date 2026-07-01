@@ -1,0 +1,10 @@
+{
+  "id": "ikea-effect",
+  "term": "IKEA Effect",
+  "def": "We value things more when we've put our own effort into them. Partly assembling or customizing something makes people rate it higher and cling to it longer.",
+  "related": [
+    "achievements",
+    "cosmetics"
+  ],
+  "visibility": "public"
+}

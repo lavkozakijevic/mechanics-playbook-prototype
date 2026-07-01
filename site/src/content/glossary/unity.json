@@ -1,0 +1,10 @@
+{
+  "id": "unity",
+  "term": "Unity (Shared Identity)",
+  "def": "We favor people we consider 'one of us', same family, team, or group, more strongly than people who are merely similar to us. It's belonging, not resemblance.",
+  "related": [
+    "clans-guilds",
+    "community-groups"
+  ],
+  "visibility": "public"
+}

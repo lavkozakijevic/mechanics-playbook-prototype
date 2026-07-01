@@ -1,0 +1,7 @@
+{
+  "id": "heuristic",
+  "term": "Heuristic",
+  "def": "A mental shortcut that gives a fast, usually-good-enough answer without full analysis. Heuristics work well most of the time, which is exactly why the occasional misfire is hard to notice.",
+  "related": [],
+  "visibility": "public"
+}

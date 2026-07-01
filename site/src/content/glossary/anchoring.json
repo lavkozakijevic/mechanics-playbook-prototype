@@ -1,0 +1,10 @@
+{
+  "id": "anchoring",
+  "term": "Anchoring",
+  "def": "The first number we see biases our judgment of what follows, even when it's irrelevant. An initial price, quote, or estimate sets a reference point that later figures get pulled toward.",
+  "related": [
+    "first-purchase-bonus",
+    "season-pass"
+  ],
+  "visibility": "public"
+}

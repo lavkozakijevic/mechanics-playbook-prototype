@@ -1,0 +1,11 @@
+{
+  "id": "flow",
+  "term": "Flow",
+  "def": "Full absorption in a task pitched at just the right difficulty, hard enough not to bore, easy enough not to frustrate. As skill grows, the challenge has to rise to stay in the zone.",
+  "related": [
+    "energy-lives",
+    "daily-weekly-quests",
+    "xp-leveling"
+  ],
+  "visibility": "public"
+}

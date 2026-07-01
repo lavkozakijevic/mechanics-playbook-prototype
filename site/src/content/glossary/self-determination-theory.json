@@ -1,0 +1,11 @@
+{
+  "id": "self-determination-theory",
+  "term": "Self-Determination Theory",
+  "def": "A well-established account of motivation holding that people thrive when three basic needs are met: autonomy, competence, and relatedness. Support these and motivation becomes self-sustaining; thwart them and it stays fragile.",
+  "related": [
+    "achievements",
+    "xp-leveling",
+    "leaderboards"
+  ],
+  "visibility": "public"
+}

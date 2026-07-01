@@ -1,0 +1,7 @@
+{
+  "id": "survivorship-bias",
+  "term": "Survivorship Bias",
+  "def": "Drawing conclusions only from the cases that made it through, while the failures, which are invisible, quietly distort the picture. In WWII, engineers wanted to armor the bullet holes on returning planes until a statistician pointed out the holes to reinforce were the ones on the planes that never came back.",
+  "related": [],
+  "visibility": "public"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "keystone-habit",
+  "term": "Keystone Habit",
+  "def": "A single habit that sets off a chain reaction, reshaping other behaviors around it. When Alcoa's CEO made worker safety the one priority, the discipline it required cascaded into communication and quality improvements across the company.",
+  "related": [
+    "streak"
+  ],
+  "visibility": "public"
+}

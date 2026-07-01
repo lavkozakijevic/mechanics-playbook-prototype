@@ -1,0 +1,10 @@
+{
+  "id": "temptation-bundling",
+  "term": "Temptation Bundling",
+  "def": "Pairing something you should do but avoid with something you enjoy, so the enjoyable part pulls the useful part along. Only letting yourself watch a favorite show while exercising is temptation bundling.",
+  "related": [
+    "daily-weekly-quests",
+    "achievements"
+  ],
+  "visibility": "public"
+}

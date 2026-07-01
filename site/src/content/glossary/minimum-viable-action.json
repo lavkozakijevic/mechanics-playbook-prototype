@@ -1,0 +1,7 @@
+{
+  "id": "minimum-viable-action",
+  "term": "Minimum Viable Action",
+  "def": "The smallest, simplest version of a behavior you can ask for that still tests whether the design works. Rather than 'replace all your plates with smaller ones,' start with one.",
+  "related": [],
+  "visibility": "public"
+}

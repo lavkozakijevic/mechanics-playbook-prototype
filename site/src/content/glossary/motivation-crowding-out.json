@@ -1,0 +1,10 @@
+{
+  "id": "motivation-crowding-out",
+  "term": "Motivation Crowding Out",
+  "def": "Adding an external reward can weaken existing intrinsic motivation, so the behavior collapses once the reward stops. Pay people for something they used to enjoy and they may enjoy it less.",
+  "related": [
+    "daily-login-reward",
+    "achievements"
+  ],
+  "visibility": "public"
+}

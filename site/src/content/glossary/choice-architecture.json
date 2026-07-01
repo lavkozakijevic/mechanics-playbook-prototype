@@ -1,0 +1,7 @@
+{
+  "id": "choice-architecture",
+  "term": "Choice Architecture",
+  "def": "The design of the environment in which people choose. There is no neutral arrangement. A cafeteria, a form, or a signup flow always orders options somehow, and that order shapes what people pick.",
+  "related": [],
+  "visibility": "public"
+}

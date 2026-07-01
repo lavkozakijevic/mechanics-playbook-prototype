@@ -1,0 +1,11 @@
+{
+  "id": "autonomy-competence-relatedness",
+  "term": "Autonomy, Competence, Relatedness",
+  "def": "The three psychological needs from self-determination theory: a sense of meaningful choice and control (autonomy), a sense of getting better and making progress (competence), and a sense of connection and belonging (relatedness).",
+  "related": [
+    "achievements",
+    "xp-leveling",
+    "clans-guilds"
+  ],
+  "visibility": "public"
+}

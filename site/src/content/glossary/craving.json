@@ -1,0 +1,10 @@
+{
+  "id": "craving",
+  "term": "Craving",
+  "def": "The anticipation of a reward, triggered by the cue, that actually powers a habit. Once the brain learns to expect the reward on seeing the cue, the behavior pulls itself forward. Pepsodent toothpaste succeeded partly because users came to crave the minty tingle that signaled clean.",
+  "related": [
+    "variable-reward",
+    "streak"
+  ],
+  "visibility": "public"
+}

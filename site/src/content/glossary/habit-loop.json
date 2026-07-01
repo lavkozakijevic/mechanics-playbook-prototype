@@ -1,0 +1,11 @@
+{
+  "id": "habit-loop",
+  "term": "Habit Loop",
+  "def": "The structure of a habit: a cue triggers a routine, which delivers a reward. Repeated enough, the loop runs automatically and the brain stops fully attending to it.",
+  "related": [
+    "streak",
+    "daily-login-reward",
+    "daily-weekly-quests"
+  ],
+  "visibility": "public"
+}

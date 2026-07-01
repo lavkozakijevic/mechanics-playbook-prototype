@@ -1,0 +1,10 @@
+{
+  "id": "contrast-effect",
+  "term": "Contrast Effect",
+  "def": "We judge things relative to what we just saw, not on absolute terms. A mid-priced item looks like a bargain right after an expensive one; the same water feels hot or cold depending on what your hand touched before.",
+  "related": [
+    "first-purchase-bonus",
+    "season-pass"
+  ],
+  "visibility": "public"
+}

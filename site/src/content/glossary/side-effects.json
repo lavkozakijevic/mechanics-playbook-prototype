@@ -1,0 +1,7 @@
+{
+  "id": "side-effects",
+  "term": "Side Effects",
+  "def": "In any connected system, every action ripples outward and produces consequences beyond the one intended. Interventions that solve a problem in isolation routinely create new problems elsewhere.",
+  "related": [],
+  "visibility": "public"
+}

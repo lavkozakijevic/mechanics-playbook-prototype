@@ -1,0 +1,7 @@
+{
+  "id": "calibration",
+  "term": "Calibration",
+  "def": "How well a person's confidence matches reality: a well-calibrated person is right about 90% of the time when they say they're 90% sure. Most people are overconfident by default, and calibration is a trainable skill.",
+  "related": [],
+  "visibility": "public"
+}

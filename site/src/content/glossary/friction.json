@@ -1,0 +1,9 @@
+{
+  "id": "friction",
+  "term": "Friction (Hassle Cost)",
+  "def": "Small amounts of effort, an extra click, a form field, a short delay, that disproportionately determine whether a behavior happens. Removing friction encourages a behavior; adding it discourages one.",
+  "related": [
+    "energy-lives"
+  ],
+  "visibility": "public"
+}

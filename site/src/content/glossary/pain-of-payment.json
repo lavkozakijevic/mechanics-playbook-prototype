@@ -1,0 +1,11 @@
+{
+  "id": "pain-of-payment",
+  "term": "Pain of Payment",
+  "def": "The more tangible a payment feels, the more it hurts and the more it restrains spending. Cards, contactless, and app payments dull that pain, so people spend more and remember spending less than with cash.",
+  "related": [
+    "credits-tokens",
+    "hard-currency",
+    "soft-currency"
+  ],
+  "visibility": "public"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "feedback-loop",
+  "term": "Feedback Loop",
+  "def": "A cycle in which the output of a behavior feeds back to influence the next round. Good feedback is timely, specific, and actionable; without it, people can't tell whether they're improving.",
+  "related": [
+    "xp-leveling",
+    "streak",
+    "achievements"
+  ],
+  "visibility": "public"
+}

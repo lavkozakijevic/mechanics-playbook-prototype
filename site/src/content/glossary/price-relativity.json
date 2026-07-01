@@ -1,0 +1,11 @@
+{
+  "id": "price-relativity",
+  "term": "Price Relativity",
+  "def": "We can't judge value in the absolute, so we judge it against a comparison set. The same product looks cheaper next to a premium option and pricier next to a budget one; choosing the comparison changes the perception.",
+  "related": [
+    "monthly-card",
+    "season-pass",
+    "credits-tokens"
+  ],
+  "visibility": "public"
+}

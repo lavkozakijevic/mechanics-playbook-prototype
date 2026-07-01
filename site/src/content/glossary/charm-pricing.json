@@ -1,0 +1,10 @@
+{
+  "id": "charm-pricing",
+  "term": "Charm Pricing",
+  "def": "Prices ending in 9 (or just below a round number) that feel meaningfully cheaper than they are, partly because we read left-to-right and partly through learned bargain associations. $3.99 reads as closer to $3 than to $4.",
+  "related": [
+    "monthly-card",
+    "credits-tokens"
+  ],
+  "visibility": "public"
+}

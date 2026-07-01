@@ -1,0 +1,10 @@
+{
+  "id": "dunbars-number",
+  "term": "Dunbar's Number",
+  "def": "A rough cognitive limit, often cited as around 150, on the number of stable social relationships a person can maintain. A useful reminder that 'community' has a natural human scale.",
+  "related": [
+    "community-groups",
+    "clans-guilds"
+  ],
+  "visibility": "public"
+}

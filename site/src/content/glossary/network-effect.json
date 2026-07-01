@@ -1,0 +1,11 @@
+{
+  "id": "network-effect",
+  "term": "Network Effect",
+  "def": "A product or service becomes more valuable as more people use it. A phone, a social network, or a marketplace is worth more when your contacts are already there, which also makes such products hard to leave.",
+  "related": [
+    "social-feed",
+    "community-groups",
+    "clans-guilds"
+  ],
+  "visibility": "public"
+}

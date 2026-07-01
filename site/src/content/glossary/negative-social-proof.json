@@ -1,0 +1,9 @@
+{
+  "id": "negative-social-proof",
+  "term": "Negative Social Proof",
+  "def": "The common mistake of publicizing how widespread an unwanted behavior is, which normalizes it further. Telling people 'many visitors steal wood from this forest' increased theft; it broadcasts that everyone's doing it.",
+  "related": [
+    "social-feed"
+  ],
+  "visibility": "public"
+}

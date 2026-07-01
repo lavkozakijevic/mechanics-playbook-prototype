@@ -1,0 +1,10 @@
+{
+  "id": "commitment-device",
+  "term": "Commitment Device",
+  "def": "A voluntary arrangement that binds your future self, chosen now because you expect to be tempted later. Locking savings away, or letting an app forfeit your money if you skip the gym, are commitment devices.",
+  "related": [
+    "streak",
+    "challenges"
+  ],
+  "visibility": "public"
+}

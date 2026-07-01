@@ -1,0 +1,10 @@
+{
+  "id": "decoy-effect",
+  "term": "Decoy Effect",
+  "def": "Adding a third, deliberately inferior option can steer people toward a target choice. Offering a print-only magazine subscription at the same price as print-plus-digital makes the combined option look obviously better and shifts most buyers to it.",
+  "related": [
+    "monthly-card",
+    "season-pass"
+  ],
+  "visibility": "public"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "veblen-good",
+  "term": "Veblen Good",
+  "def": "A product for which a higher price can increase demand, because the price itself signals quality or status. Some luxury goods sell better when they cost more.",
+  "related": [
+    "cosmetics",
+    "hard-currency"
+  ],
+  "visibility": "public"
+}

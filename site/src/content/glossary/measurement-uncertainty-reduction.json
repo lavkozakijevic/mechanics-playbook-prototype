@@ -1,0 +1,7 @@
+{
+  "id": "measurement-uncertainty-reduction",
+  "term": "Measurement as Uncertainty Reduction",
+  "def": "A measurement is any observation that leaves you less uncertain than before, expressed as a quantity; it doesn't need to be exact to be useful. This reframing makes many supposedly unmeasurable things measurable.",
+  "related": [],
+  "visibility": "public"
+}

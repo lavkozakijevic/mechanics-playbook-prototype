@@ -1,0 +1,7 @@
+{
+  "id": "ab-test",
+  "term": "Randomized Controlled Trial (A/B Test)",
+  "def": "Splitting people at random into a group that gets the change and a group that doesn't, then comparing outcomes. It's the cleanest way to know whether an intervention actually caused a result rather than something else.",
+  "related": [],
+  "visibility": "public"
+}

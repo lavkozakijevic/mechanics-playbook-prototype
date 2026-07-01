@@ -1,0 +1,11 @@
+{
+  "id": "present-bias",
+  "term": "Present Bias (Hyperbolic Discounting)",
+  "def": "We overweight rewards available now and heavily discount future ones, which reverses our own plans. We choose salad for next week and cake today; the near reward looms larger simply because it's near.",
+  "related": [
+    "energy-lives",
+    "limited-time-events",
+    "daily-login-reward"
+  ],
+  "visibility": "public"
+}

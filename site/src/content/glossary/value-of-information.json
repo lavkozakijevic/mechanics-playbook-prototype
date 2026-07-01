@@ -1,0 +1,7 @@
+{
+  "id": "value-of-information",
+  "term": "Value of Information",
+  "def": "The idea that measuring something is only worth doing if reducing that uncertainty would actually change a decision, and by enough to justify the cost. Most variables aren't worth measuring; a few are worth a great deal.",
+  "related": [],
+  "visibility": "public"
+}

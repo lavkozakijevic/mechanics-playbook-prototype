@@ -1,0 +1,7 @@
+{
+  "id": "test-learn-adapt",
+  "term": "Test-Learn-Adapt",
+  "def": "Treating each design as a hypothesis: run a small, cheap experiment, learn from the result, and adjust. It replaces 'we're confident this works' with 'let's find out.'",
+  "related": [],
+  "visibility": "public"
+}

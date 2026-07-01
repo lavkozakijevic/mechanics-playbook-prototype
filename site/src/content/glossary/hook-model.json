@@ -1,0 +1,11 @@
+{
+  "id": "hook-model",
+  "term": "Hook Model",
+  "def": "A four-step cycle for building product habits: a trigger prompts an action, which delivers a variable reward, followed by an investment that makes the next trigger more likely. The investment also raises the cost of leaving.",
+  "related": [
+    "variable-reward",
+    "streak",
+    "daily-weekly-quests"
+  ],
+  "visibility": "public"
+}

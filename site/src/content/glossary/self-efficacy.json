@@ -1,0 +1,11 @@
+{
+  "id": "self-efficacy",
+  "term": "Self-Efficacy",
+  "def": "Your belief that you can actually do a specific thing. It's built by early, achievable wins, and without it people won't attempt a behavior even when they're motivated and able.",
+  "related": [
+    "achievements",
+    "xp-leveling",
+    "daily-weekly-quests"
+  ],
+  "visibility": "public"
+}
