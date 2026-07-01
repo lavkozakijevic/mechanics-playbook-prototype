@@ -93,7 +93,6 @@ function WorkWithUsSection() {
                 ))}
               </ul>
             </div>
-            <p className="report__caption">A category comparison, simplified.</p>
           </div>
         </div>
       </div>
