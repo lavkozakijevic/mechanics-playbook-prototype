@@ -251,8 +251,13 @@
 .newsletter { display: grid; grid-template-columns: 1fr; gap: clamp(20px, 3vw, 40px); align-items: end; }
 .newsletter h2 { font: var(--type-h2); font-size: clamp(22px, 2.6vw, 28px); letter-spacing: var(--tracking-heading); margin-bottom: 10px; }
 .newsletter p { font: var(--type-body); color: var(--text-secondary); max-width: 46ch; }
-.newsletter__form { display: flex; gap: 10px; align-items: flex-end; }
-.newsletter__form > :first-child { flex: 1; }
+.newsletter__form { display: flex; flex-direction: column; gap: 12px; }
+.newsletter__row { display: flex; gap: 10px; align-items: flex-end; }
+.newsletter__row > :first-child { flex: 1; }
+.newsletter__consent { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+.newsletter__check { flex: none; margin-top: 3px; width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; }
+.newsletter__consent span { font: var(--type-body-sm); color: var(--text-secondary); line-height: 1.5; }
+.newsletter__err { font: var(--type-body-sm); color: var(--red-600, #dc2626); margin: 0; }
 
 /* =================== FOOTER =================== */
 .footer { background: var(--paper); border-top: var(--rule-default); padding-block: clamp(40px, 5vw, 64px); }

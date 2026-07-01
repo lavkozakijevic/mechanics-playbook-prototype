@@ -122,17 +122,59 @@ export function SiteNav({ current }) {
 
 /** Newsletter signup: one field, one sentence on what subscribers get. */
 export function NewsletterBlock() {
+  const [email, setEmail] = useState("");
+  const [consent, setConsent] = useState(false);
+  const [status, setStatus] = useState("idle");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!consent) return;
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ email, category: "newsletter", source: "newsletter-block", consent: true }),
+      });
+      setStatus(res.ok ? "success" : "error");
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  if (status === "success") {
+    return (
+      <section className="band band--sheet" aria-labelledby="newsletter-h">
+        <div className="container">
+          <div className="newsletter">
+            <div>
+              <h2 id="newsletter-h">Playbook Newsletter</h2>
+              <p>You're on the list. We'll send the next batch your way.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="band band--sheet" aria-labelledby="newsletter-h">
       <div className="container">
         <div className="newsletter">
           <div>
-            <h2 id="newsletter-h">Three new case studies every week</h2>
-            <p>Each week we add three fresh app breakdowns to the library. We'll send them straight to your inbox, dated, with a line on what makes each one worth your time.</p>
+            <h2 id="newsletter-h">Playbook Newsletter</h2>
+            <p>Each week we add three fresh breakdowns of how successful apps implement game mechanics. Get the most interesting mechanics from each, straight into your inbox.</p>
           </div>
-          <form className="newsletter__form" onSubmit={(e) => e.preventDefault()}>
-            <Input label="Email" size="lg" type="email" placeholder="you@company.com" aria-label="Email address" />
-            <Button variant="primary" size="lg" type="submit">Subscribe</Button>
+          <form className="newsletter__form" onSubmit={handleSubmit}>
+            <div className="newsletter__row">
+              <Input label="Email" size="lg" type="email" placeholder="you@company.com" aria-label="Email address" value={email} onChange={(e) => setEmail(e.target.value)} required />
+              <Button variant="primary" size="lg" type="submit" disabled={!consent || status === "loading"}>Sign up</Button>
+            </div>
+            <label className="newsletter__consent">
+              <input type="checkbox" className="newsletter__check" checked={consent} onChange={(e) => setConsent(e.target.checked)} />
+              <span>I agree to receive occasional relevant emails from GameBiz Consulting about behavioral design and gamification.</span>
+            </label>
+            {status === "error" && <p className="newsletter__err">Something went wrong — please try again.</p>}
           </form>
         </div>
       </div>

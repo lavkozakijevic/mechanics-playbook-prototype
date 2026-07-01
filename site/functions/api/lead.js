@@ -48,6 +48,7 @@ export async function onRequestPost({ request, env }) {
 
   const category = clip(body.category, 60);
   const source = clip(body.source, 60);
+  const consent = body.consent === true;
 
   if (!env.RESEND_API_KEY) {
     return json({ error: "not_configured" }, 500);
@@ -61,6 +62,7 @@ export async function onRequestPost({ request, env }) {
     `Email: ${email}`,
     category && `Category: ${category}`,
     source && `Source: ${source}`,
+    `Consent given: ${consent ? "yes" : "no"}`,
     `Time: ${new Date().toISOString()}`,
   ]
     .filter(Boolean)
