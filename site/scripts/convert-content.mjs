@@ -367,13 +367,13 @@ for (const entry of ALL_APPS) {
     };
   }
 
-  const iconCandidates = [`icons/${entry.id}.png`, `icons/${entry.id}.webp`];
-  const icon = iconCandidates.find((p) => fs.existsSync(path.join(repo, p)));
+  const iconCandidates = [`icons/${entry.id}.png`, `icons/${entry.id}.webp`, `icons/${entry.id}.jpg`];
+  const icons = iconCandidates.filter((p) => fs.existsSync(path.join(repo, p)));
 
   // Collect assets to sync into public/ — but never for report-only apps:
   // nothing of theirs may reach the deployed output, including images.
   if (entry.visibility !== "report-only") {
-    if (icon) publicAssets.add(icon);
+    for (const icon of icons) publicAssets.add(icon);
     for (const r of relationships) for (const s of r.screenshots) publicAssets.add(s.slice(1));
   }
 
@@ -390,7 +390,7 @@ for (const entry of ALL_APPS) {
     analysisDate: isoDate(a.meta["Analysis date"]),
     lastUpdated: isoDate(a.meta["Last updated"]) ?? isoDate(a.meta["Analysis date"]),
     summary: v44?.summary ?? a.overview,
-    icon: icon ? "/" + icon : null,
+    icon: icons[0] ? "/" + icons[0] : null,
     heroImage: fs.existsSync(path.join(here, "../public/images", entry.id + "-pass-lives.webp"))
       ? "/images/" + entry.id + "-pass-lives.webp"
       : null,

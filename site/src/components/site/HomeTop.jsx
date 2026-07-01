@@ -46,13 +46,13 @@ export function Hero({ carousel, eyebrow, headline, sub, ctas, className = "" })
                     <div className="mcard__shot mcard__logo-slot">
                       <span className="mcard__mark">{logoInitials(m.name)}</span>
                       <img
-                        src={`/icons/${m.id}.webp`}
+                        src={`/icons/${m.id}.png`}
                         alt=""
                         className="mcard__logo-img"
                         onError={(e) => {
                           const img = e.currentTarget;
-                          if (img.src.match(/\.webp$/)) { img.src = img.src.replace(/\.webp$/, ".png"); }
-                          else if (img.src.match(/\.png$/)) { img.src = img.src.replace(/\.png$/, ".jpg"); }
+                          if (img.src.match(/\.png$/)) { img.src = img.src.replace(/\.png$/, ".webp"); }
+                          else if (img.src.match(/\.webp$/)) { img.src = img.src.replace(/\.webp$/, ".jpg"); }
                           else { img.style.display = "none"; }
                         }}
                       />
@@ -66,13 +66,13 @@ export function Hero({ carousel, eyebrow, headline, sub, ctas, className = "" })
                     <div className="mcard__shot mcard__logo-slot">
                       <span className="mcard__mark">{logoInitials(m.app)}</span>
                       <img
-                        src={`/icons/${m.appId}.webp`}
+                        src={`/icons/${m.appId}.png`}
                         alt=""
                         className="mcard__logo-img"
                         onError={(e) => {
                           const img = e.currentTarget;
-                          if (img.src.match(/\.webp$/)) { img.src = img.src.replace(/\.webp$/, ".png"); }
-                          else if (img.src.match(/\.png$/)) { img.src = img.src.replace(/\.png$/, ".jpg"); }
+                          if (img.src.match(/\.png$/)) { img.src = img.src.replace(/\.png$/, ".webp"); }
+                          else if (img.src.match(/\.webp$/)) { img.src = img.src.replace(/\.webp$/, ".jpg"); }
                           else { img.style.display = "none"; }
                         }}
                       />
