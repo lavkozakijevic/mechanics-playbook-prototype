@@ -391,9 +391,14 @@ for (const entry of ALL_APPS) {
     lastUpdated: isoDate(a.meta["Last updated"]) ?? isoDate(a.meta["Analysis date"]),
     summary: v44?.summary ?? a.overview,
     icon: icons[0] ? "/" + icons[0] : null,
-    heroImage: fs.existsSync(path.join(here, "../public/images", entry.id + "-pass-lives.webp"))
-      ? "/images/" + entry.id + "-pass-lives.webp"
-      : null,
+    heroImage: (() => {
+      const imageCandidates = [
+        entry.id + "-case-study.png", entry.id + "-case-study.webp", entry.id + "-case-study.jpg",
+        entry.id + "-pass-lives.webp", entry.id + "-pass-lives.png",
+      ];
+      const found = imageCandidates.find((f) => fs.existsSync(path.join(here, "../public/images", f)));
+      return found ? "/images/" + found : null;
+    })(),
     mechanics: relationships,
     system,
   });
