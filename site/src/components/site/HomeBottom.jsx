@@ -79,7 +79,7 @@ function WorkWithUsSection() {
             <Button variant="primary" size="lg" as="a" href="https://calendar.app.google/EvXYKKXGxJvKbxns5" trailingIcon={<i data-lucide="arrow-up-right" />}>Book a discovery call</Button>
           </div>
           <div className="showcase__map">
-            <div className="report">
+            <div className="report" style={{ marginLeft: "auto" }}>
               <div className="report__head">
                 <span className="report__kicker">Category comparison</span>
                 <span className="report__app">Fitness · your app</span>
@@ -103,13 +103,11 @@ function WorkWithUsSection() {
 
 /** New this week: the latest case study entries, dated. Proves the cadence. */
 function NewThisWeek({ items }) {
-  const since = items[0]?.date;
   return (
     <section className="band" aria-labelledby="new-h">
       <div className="container">
         <div className="sec-head">
           <h2 className="sec-head__t" id="new-h">Latest entries</h2>
-          {since && <span className="sec-head__since">as of {since}</span>}
         </div>
         <div className="feed">
           {items.map((it) => (

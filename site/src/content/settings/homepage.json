@@ -6,7 +6,9 @@
     "energy-lives",
     "limited-time-events",
     "clans-guilds",
-    "season-pass"
+    "season-pass",
+    "streak",
+    "leaderboards"
   ],
   "cheatsheetCount": 6,
   "iconStripApps": [

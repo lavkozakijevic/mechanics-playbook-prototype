@@ -465,7 +465,7 @@ fs.writeFileSync(
       // guarded by validate-content.mjs.
       spotlightApp: "strava",
       showcaseSystem: ROTATING_FREE_APP,
-      featuredMechanics: ["energy-lives", "limited-time-events", "clans-guilds", "season-pass"],
+      featuredMechanics: ["energy-lives", "limited-time-events", "clans-guilds", "season-pass", "streak", "leaderboards"],
       // Counted from v44 data.js at conversion time until cheatsheets migrate
       // in Stage 2 — computed, never hardcoded.
       cheatsheetCount: CHEATSHEETS.length,

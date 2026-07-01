@@ -5,7 +5,7 @@
 **Type:** App
 **Platform analyzed:** iOS
 **Analysis date:** 13 May 2026 (Session 1), 17 May 2026 (Session 2)
-**Last updated:** 15 Jun 2026
+**Last updated:** 29 Jun 2026
 **Session state:** Session 1 — first install, onboarding through full feature exploration. Session 2 — returning user after several days, second play session.
 
 ---

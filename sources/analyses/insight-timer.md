@@ -5,7 +5,7 @@
 **Type:** App
 **Platform analyzed:** iOS
 **Analysis date:** 20 Apr 2026
-**Last updated:** 15 Jun 2026
+**Last updated:** 29 Jun 2026
 **Session state:** First install — anonymous guest, then signed in mid-session with Apple
 
 ---

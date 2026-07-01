@@ -5,7 +5,7 @@
 **Type:** App
 **Platform analyzed:** iOS
 **Analysis date:** 11 May 2026
-**Last updated:** 15 Jun 2026
+**Last updated:** 29 Jun 2026
 **Session state:** Returning user — existing Steam account with library, wallet balance, friends, and purchase history
 
 ---

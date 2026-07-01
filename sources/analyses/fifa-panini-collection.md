@@ -5,7 +5,7 @@
 **Type:** App
 **Platform analyzed:** iOS
 **Analysis date:** 15 May 2026
-**Last updated:** 15 Jun 2026
+**Last updated:** 29 Jun 2026
 **Session state:** First install (guest), then registered mid-session
 
 ---

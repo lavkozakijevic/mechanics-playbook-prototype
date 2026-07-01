@@ -133,7 +133,7 @@ function CaseStudySpotlight({ spotlight }) {
             <div className="spotlight__meta">
               <Badge tone="accent" variant="solid">Free</Badge>
               <Tag category={spotlight.category} dot>{CAT_LABEL[spotlight.category]}</Tag>
-              <span style={{ font: "var(--type-data)", fontSize: 12, color: "var(--text-muted)" }}>{spotlight.name} · {spotlight.date}</span>
+              <span style={{ font: "var(--type-data)", fontSize: 12, color: "var(--text-muted)" }}>{spotlight.name}</span>
             </div>
             <p>{spotlight.overview}</p>
             <Button variant="primary" size="lg" as="a" href={spotlight.href} trailingIcon={<i data-lucide="arrow-up-right" />}>Read the {spotlight.name} breakdown</Button>
@@ -141,9 +141,6 @@ function CaseStudySpotlight({ spotlight }) {
           <div className="spotlight__evidence">
             <AnnotatedScreenshot
               src={spotlight.imageSrc || undefined}
-              appName={spotlight.name}
-              screenLabel={spotlight.screenLabel}
-              date={spotlight.date}
               alt={spotlight.imageAlt}
               caption={spotlight.keyInsight}
             />

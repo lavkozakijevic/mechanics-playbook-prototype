@@ -155,8 +155,7 @@
 .mcard--logo .mcard__logo-slot { background: var(--paper-deep); position: relative; }
 .mcard__mark { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: 32px;
   color: var(--ink-500); letter-spacing: -0.02em; position: relative; z-index: 0; }
-.mcard--logo picture { position: absolute; inset: 0; z-index: 1; display: flex; }
-.mcard--logo picture img { width: 100%; height: 100%; object-fit: contain; padding: 20px; }
+.mcard--logo .mcard__logo-img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: contain; padding: 20px; display: block; }
 .mcard__name { font: var(--type-body); font-size: 15px; font-weight: var(--weight-semibold);
   color: var(--ink-900); line-height: 1.35; }
 
