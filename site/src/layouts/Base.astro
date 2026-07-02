@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import { getCollection } from "astro:content";
 import { SiteNav, NewsletterBlock, SiteFooter } from "../components/site/SiteChrome.jsx";
+import { ExitIntentPopup } from "../components/site/ExitIntentPopup.jsx";
 import { lastUpdated, formatDate } from "../lib/content";
 
 interface Props {
@@ -41,5 +42,6 @@ const categories = (await getCollection("categories"))
     <slot />
     {chrome && newsletter && <NewsletterBlock client:visible />}
     {chrome && <SiteFooter lastUpdated={updated} categories={categories} />}
+    {chrome && <ExitIntentPopup client:load />}
   </body>
 </html>

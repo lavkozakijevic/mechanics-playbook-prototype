@@ -1357,3 +1357,32 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
 .wl-success__icon { display: inline-flex; color: var(--accent); }
 .wl-success__icon svg { width: 40px; height: 40px; stroke-width: 2; }
 .wl-success__msg { font: var(--type-body-lg); color: var(--ink-900); margin: 0; }
+
+/* Exit-intent popup */
+@keyframes ei-in {
+  from { opacity: 0; transform: translateY(-12px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.ei-backdrop {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0, 0, 0, 0.55);
+  display: grid; place-items: center;
+  padding: 20px;
+}
+.ei-modal {
+  position: relative; background: var(--paper);
+  border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
+  padding: clamp(28px, 4vw, 48px);
+  width: 100%; max-width: 520px;
+  animation: ei-in 0.22s ease;
+}
+.ei-title {
+  font: var(--type-h3); font-size: clamp(18px, 2.4vw, 24px);
+  color: var(--ink-900); line-height: 1.3; text-wrap: pretty;
+  margin: 0 0 12px; padding-right: 28px;
+}
+.ei-title:focus { outline: none; }
+.ei-body {
+  font: var(--type-body-md); color: var(--text-secondary);
+  margin: 0 0 clamp(20px, 2.5vw, 28px); line-height: 1.6;
+}
