@@ -262,6 +262,9 @@ const SCREENSHOTS = {
     "screenshots/clans-guilds/clash-of-clans/03.webp",
     "screenshots/clans-guilds/clash-of-clans/04.webp",
   ],
+  "streak_strava": [
+    "screenshots/streak/strava/01.jpeg",
+  ],
 };
 
 function getScreenshots(mechanicId, appId) {

@@ -24,7 +24,9 @@
           "No catch-up or freeze mechanic was observed, a missed week breaks the streak with no recovery path."
         ]
       },
-      "screenshots": [],
+      "screenshots": [
+        "/screenshots/streak/strava/01.jpeg"
+      ],
       "suggestedShots": [
         "Home screen carousel showing the streak card with flame icon, \"0 weeks,\" the View Calendar button, and the Record Now button below",
         "You tab streak calendar view showing the 12-week history grid, the current month calendar, and the \"unlock your full potential\" subscription prompt below"
