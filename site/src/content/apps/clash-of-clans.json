@@ -31,7 +31,10 @@
         ]
       },
       "screenshots": [
-        "/screenshots/clans-guilds/clash-of-clans/01.webp"
+        {
+          "src": "/screenshots/clans-guilds/clash-of-clans/01.webp",
+          "caption": null
+        }
       ],
       "suggestedShots": [
         "Clan browser showing filter options (language, location, war frequency, league, required town hall, labels) and a list of available clans with member counts and locations"

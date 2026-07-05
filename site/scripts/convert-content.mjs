@@ -318,16 +318,16 @@ for (const entry of ALL_APPS) {
     })
     .map((r) => {
       const writeup = splitWriteup(RICH_DESCRIPTIONS[r.id + "_" + entry.id] ?? null);
-      const registered = (SCREENSHOTS[r.id + "_" + entry.id] ?? []).filter((p) =>
-        fs.existsSync(path.join(repo, p))
-      );
+      const rawShots = (SCREENSHOTS[r.id + "_" + entry.id] ?? [])
+        .map((p) => (typeof p === "string" ? { src: p, caption: null } : { src: p.src, caption: p.caption ?? null }));
+      const registered = rawShots.filter((p) => fs.existsSync(path.join(repo, p.src)));
       return {
         id: r.id,
         depth: r.depth,
         ...(r.provisionalDepth ? { provisionalDepth: true } : {}),
         ...(r.note ? { note: r.note } : {}),
         writeup,
-        screenshots: registered.map((p) => "/" + p),
+        screenshots: registered.map((p) => ({ src: "/" + p.src, caption: p.caption })),
         suggestedShots: (a.shots[r.id] ?? []).slice(0, 3),
       };
     });
@@ -374,7 +374,7 @@ for (const entry of ALL_APPS) {
   // nothing of theirs may reach the deployed output, including images.
   if (entry.visibility !== "report-only") {
     for (const icon of icons) publicAssets.add(icon);
-    for (const r of relationships) for (const s of r.screenshots) publicAssets.add(s.slice(1));
+    for (const r of relationships) for (const s of r.screenshots) publicAssets.add(s.src.slice(1));
   }
 
   write("apps", entry.id, {

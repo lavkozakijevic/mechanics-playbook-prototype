@@ -263,7 +263,7 @@ const SCREENSHOTS = {
     "screenshots/clans-guilds/clash-of-clans/04.webp",
   ],
   "streak_strava": [
-    "screenshots/streak/strava/01.jpeg",
+    { src: "screenshots/streak/strava/01.jpeg", caption: "You tab streak calendar view showing the 12-week history grid, the current month calendar, and the “unlock your full potential” subscription prompt below" },
   ],
 };
 

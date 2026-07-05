@@ -48,7 +48,9 @@ export function caseStudyProps(app: App, byId: MechanicsById) {
         presented: r.writeup?.presented,
         noting: r.writeup?.noting,
         findings: r.writeup?.findings ?? [],
-        shots: r.screenshots.length ? r.screenshots : r.suggestedShots,
+        shots: r.screenshots.length
+          ? r.screenshots.map((s) => ({ image: s.src, label: s.caption ?? undefined }))
+          : r.suggestedShots.map((label) => ({ label })),
         shotsAreImages: r.screenshots.length > 0,
       };
     }),
@@ -135,8 +137,10 @@ export function mechanicStudies(mechanicId: string, apps: App[]) {
         // above two — the two-frame stack is a minimum, never a cap — with
         // blank placeholders padding examples where the analysis has neither.
         shots: (() => {
+          if (rel.screenshots.length > 0) {
+            return rel.screenshots.map((s) => ({ image: s.src, label: s.caption ?? undefined }));
+          }
           const slots: { image?: string; label?: string }[] = [
-            ...rel.screenshots.map((src) => ({ image: src })),
             ...rel.suggestedShots.map((label) => ({ label })),
           ];
           while (slots.length < 2) slots.push({});

@@ -814,7 +814,7 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
 .cs-findings li::before { content: ""; position: absolute; left: 2px; top: 9px; width: 6px; height: 6px;
   border-radius: 50%; background: var(--accent); }
 
-/* Screenshot gallery */
+/* Screenshot gallery — placeholders */
 .shotgallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: clamp(20px, 2.6vw, 28px); }
 @media (max-width: 560px) { .shotgallery { grid-template-columns: repeat(2, 1fr); } }
 .shot { margin: 0; }
@@ -824,7 +824,12 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
     color-mix(in srgb, var(--ink-400) 12%, transparent) 8px, color-mix(in srgb, var(--ink-400) 12%, transparent) 9px); }
 .shot__ph { font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.1em;
   color: var(--text-faint); background: var(--surface-card); padding: 3px 8px; border-radius: var(--radius-sm); }
-.shot__cap { margin-top: 9px; font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); text-align: center; }
+.shot__cap { margin-top: 9px; font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); text-align: center; line-height: 1.5; }
+
+/* Screenshot gallery — real images */
+.shotgallery--real { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 16px; }
+.shot--real { margin: 0; display: flex; flex-direction: column; align-items: center; }
+.shot__img { display: block; max-height: 450px; width: auto; border-radius: 10px; border: 1px solid var(--border-default); }
 
 /* How they connect */
 .cs-conns { display: flex; flex-direction: column; gap: 14px; margin-top: 18px; }

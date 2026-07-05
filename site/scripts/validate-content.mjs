@@ -83,8 +83,9 @@ for (const { file, data } of apps) {
     if (!DEPTHS.includes(m.depth))
       problem(file, `mechanic "${m.id}" has depth "${m.depth}" — it must be one of: ${DEPTHS.join(", ")}`);
     for (const shot of m.screenshots ?? []) {
-      if (!fs.existsSync(path.join(pub, shot)))
-        problem(file, `screenshot ${shot} does not exist under site/public — it would be a broken image on the live site`);
+      const shotSrc = typeof shot === "string" ? shot : shot.src;
+      if (!fs.existsSync(path.join(pub, shotSrc)))
+        problem(file, `screenshot ${shotSrc} does not exist under site/public — it would be a broken image on the live site`);
     }
   }
 

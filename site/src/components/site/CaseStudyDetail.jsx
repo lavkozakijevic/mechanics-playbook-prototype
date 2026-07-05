@@ -28,11 +28,19 @@ const PairIcon = (
 /* A mechanic gets its own full section only when a writeup exists for it. */
 const hasWriteup = (m) => !!(m.observed || m.presented || m.noting || (m.findings && m.findings.length));
 
-function Shot({ label }) {
+function Shot({ shot }) {
+  if (shot.image) {
+    return (
+      <figure className="shot shot--real">
+        <img src={shot.image} alt={shot.label || ""} className="shot__img" />
+        {shot.label && <figcaption className="shot__cap">{shot.label}</figcaption>}
+      </figure>
+    );
+  }
   return (
     <figure className="shot">
       <div className="shot__frame"><span className="shot__ph">screenshot</span></div>
-      <figcaption className="shot__cap">{label}</figcaption>
+      {shot.label && <figcaption className="shot__cap">{shot.label}</figcaption>}
     </figure>
   );
 }
@@ -98,8 +106,8 @@ function MechanicSection({ m }) {
       </div>
 
       {m.shots?.length > 0 && (
-        <div className="shotgallery">
-          {m.shots.map((s) => <Shot key={s} label={s} />)}
+        <div className={`shotgallery${m.shots.some((s) => s.image) ? " shotgallery--real" : ""}`}>
+          {m.shots.map((s, i) => <Shot key={i} shot={s} />)}
         </div>
       )}
     </section>

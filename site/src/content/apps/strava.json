@@ -25,7 +25,10 @@
         ]
       },
       "screenshots": [
-        "/screenshots/streak/strava/01.jpeg"
+        {
+          "src": "/screenshots/streak/strava/01.jpeg",
+          "caption": "You tab streak calendar view showing the 12-week history grid, the current month calendar, and the “unlock your full potential” subscription prompt below"
+        }
       ],
       "suggestedShots": [
         "Home screen carousel showing the streak card with flame icon, \"0 weeks,\" the View Calendar button, and the Record Now button below",

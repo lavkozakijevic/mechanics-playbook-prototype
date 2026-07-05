@@ -32,7 +32,7 @@ const apps = defineCollection({
         provisionalDepth: z.boolean().optional(),
         note: z.string().optional(),
         writeup,
-        screenshots: z.array(z.string()),
+        screenshots: z.array(z.object({ src: z.string(), caption: z.string().nullable() })),
         suggestedShots: z.array(z.string()),
       })
     ),

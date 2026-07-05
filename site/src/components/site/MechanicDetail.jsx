@@ -150,10 +150,13 @@ function CaseStudies({ studies }) {
                 ))}
               </div>
             )}
-            <div className="shotgallery">
+            <div className={`shotgallery${s.shots.some((sh) => sh.image) ? " shotgallery--real" : ""}`}>
               {s.shots.map((shot, i) => (
                 shot.image
-                  ? <figure className="shot" key={i}><div className="shot__frame" style={{ padding: 0, overflow: "hidden" }}><img src={shot.image} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} /></div></figure>
+                  ? <figure className="shot shot--real" key={i}>
+                      <img src={shot.image} alt={shot.label || ""} className="shot__img" />
+                      {shot.label && <figcaption className="shot__cap">{shot.label}</figcaption>}
+                    </figure>
                   : <ShotPlaceholder key={i} label={shot.label} />
               ))}
             </div>
