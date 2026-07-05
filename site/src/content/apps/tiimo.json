@@ -24,7 +24,12 @@
           "Streak and Levels is a dedicated push notification category in settings, allowing streak-specific alerts independent of other notification types."
         ]
       },
-      "screenshots": [],
+      "screenshots": [
+        {
+          "src": "/screenshots/streak/tiimo/01.jpeg",
+          "caption": null
+        }
+      ],
       "suggestedShots": [
         "Stats tab showing the flame streak counter, \"1 out of 3 days\" progress bar, and the marble row with Ignition earned and Spark earned, next milestone at 3 days",
         "Onboarding swipe-to-unlock screen showing \"Ignition ready to unlock — your first streak starts today — one small step at a time\""

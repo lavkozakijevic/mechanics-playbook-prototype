@@ -263,7 +263,22 @@ const SCREENSHOTS = {
     "screenshots/clans-guilds/clash-of-clans/04.webp",
   ],
   "streak_strava": [
-    { src: "screenshots/streak/strava/01.jpeg", caption: "You tab streak calendar view showing the 12-week history grid, the current month calendar, and the “unlock your full potential” subscription prompt below" },
+    { src: "screenshots/streak/strava/01.jpeg", caption: 'You tab streak calendar view showing the 12-week history grid, the current month calendar, and the "unlock your full potential" subscription prompt below' },
+  ],
+  "streak_calm": [
+    "screenshots/streak/calm/01.jpg",
+  ],
+  "streak_insight-timer": [
+    "screenshots/streak/insight-timer/01.jpg",
+  ],
+  "streak_tiimo": [
+    "screenshots/streak/tiimo/01.jpeg",
+  ],
+  "streak_uptime": [
+    "screenshots/streak/uptime/01.jpeg",
+  ],
+  "streak_wispr-flow": [
+    "screenshots/streak/wispr-flow/01.jpeg",
   ],
 };
 

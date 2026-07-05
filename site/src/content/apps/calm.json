@@ -24,7 +24,12 @@
           "The renewal reminder toggle is off by default on both the standard and limited-time trial paywalls, users who don't notice and enable it will not receive a renewal warning."
         ]
       },
-      "screenshots": [],
+      "screenshots": [
+        {
+          "src": "/screenshots/streak/calm/01.jpg",
+          "caption": null
+        }
+      ],
       "suggestedShots": [
         "Profile page showing My Streaks with current streak, total streaks, longest streak, and the calendar marking practice days"
       ]

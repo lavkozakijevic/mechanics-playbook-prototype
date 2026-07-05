@@ -24,7 +24,12 @@
           "Milestone thresholds: 7 consecutive days (first milestone), then 50 non-consecutive days, the first milestone is designed to be reachable in the first week."
         ]
       },
-      "screenshots": [],
+      "screenshots": [
+        {
+          "src": "/screenshots/streak/insight-timer/01.jpg",
+          "caption": null
+        }
+      ],
       "suggestedShots": [
         "Streak detail screen showing the flower icon, \"1 consecutive day — great work,\" the 10-day goal bar, and the April calendar with one day marked",
         "Post-session \"can you make it to a two day streak?\" screen with the \"I'm committed\" button"

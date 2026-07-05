@@ -24,7 +24,12 @@
           "The streak counter appears on the home screen alongside the premium trial countdown, connecting the streak display to the conversion pressure of an expiring trial."
         ]
       },
-      "screenshots": [],
+      "screenshots": [
+        {
+          "src": "/screenshots/streak/uptime/01.jpeg",
+          "caption": null
+        }
+      ],
       "suggestedShots": [
         "You tab My Stats view showing \"1 day complete — complete one insight a day from any hack to get your daily streak\" with the change reminder button and longest streak display",
         "Post-first-hack congratulations screen showing \"you've saved 11 hours — your streak: 1 day — you just got smarter\" with set up daily reminder button"

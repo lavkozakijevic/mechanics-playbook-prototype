@@ -24,7 +24,12 @@
           "The referral gift (one month Pro) is more generous than the standard new-user trial (two weeks Pro), making referral the highest-value acquisition path for recipients."
         ]
       },
-      "screenshots": [],
+      "screenshots": [
+        {
+          "src": "/screenshots/streak/wispr-flow/01.jpeg",
+          "caption": null
+        }
+      ],
       "suggestedShots": [
         "One-day streak celebration screen showing \"1 day streak — continue dictating for the next five days so Flow can adapt to you\" with the Continue button",
         "Home screen showing all four summary cards: streak (Day 1, momentum begins), word count (674 words, 13 postcards), speed (129 wpm, top 2%), and trial status"
