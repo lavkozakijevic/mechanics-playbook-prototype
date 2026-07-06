@@ -49,7 +49,12 @@
           "The Monday weekly stats reset makes the social feed show all users at zero for the current week, which was observed to make the app feel unused at the start of every week despite heavy actual use."
         ]
       },
-      "screenshots": [],
+      "screenshots": [
+        {
+          "src": "/screenshots/leaderboards/strava/01.jpg",
+          "caption": null
+        }
+      ],
       "suggestedShots": [
         "Segment explore page showing a named segment with its Local Legend holder, total effort count, and the ability to filter by length, elevation, and surface",
         "Challenge leaderboard for the 100,000 Steps Challenge showing ranked athletes with step counts and the metric-based ranking structure"
@@ -69,7 +74,20 @@
           "Activity-type filtering means challenge sets are automatically relevant without user configuration."
         ]
       },
-      "screenshots": [],
+      "screenshots": [
+        {
+          "src": "/screenshots/challenges/strava/01.jpg",
+          "caption": null
+        },
+        {
+          "src": "/screenshots/challenges/strava/02.jpg",
+          "caption": null
+        },
+        {
+          "src": "/screenshots/challenges/strava/03.jpg",
+          "caption": null
+        }
+      ],
       "suggestedShots": [
         "Home dashboard showing three simultaneous challenges with participant counts (1.1M, 431K, 1.175M) and reward labels (free Runna trial, digital trophy)",
         "Challenge detail page for one challenge showing days remaining, organizing club, requirements, and the challenge leaderboard"
@@ -89,7 +107,12 @@
           "The subscription paywall is embedded directly below the streak calendar in the You tab, placing the upgrade prompt immediately adjacent to the achievement display."
         ]
       },
-      "screenshots": [],
+      "screenshots": [
+        {
+          "src": "/screenshots/achievements/strava/01.jpg",
+          "caption": null
+        }
+      ],
       "suggestedShots": [
         "Trophy Case showing the First Activity trophy earned alongside the future milestone markers (3rd, 5th, 10th, 1000th activity) as a visible progression ladder",
         "First activity completion popup showing \"Welcome to the team — kudos on logging your first Strava activity\" with View Trophy Case button"
@@ -109,7 +132,12 @@
           "Pace range requirements on clubs create self-selection, users join clubs where the activity level matches their own, increasing the relevance of the club leaderboard."
         ]
       },
-      "screenshots": [],
+      "screenshots": [
+        {
+          "src": "/screenshots/community-groups/strava/01.jpg",
+          "caption": null
+        }
+      ],
       "suggestedShots": []
     },
     {
@@ -126,7 +154,16 @@
           "Club feeds are separate from the main feed, keeping club activity distinct from the main social stream."
         ]
       },
-      "screenshots": [],
+      "screenshots": [
+        {
+          "src": "/screenshots/social-feed/strava/01.jpg",
+          "caption": null
+        },
+        {
+          "src": "/screenshots/social-feed/strava/02.jpg",
+          "caption": null
+        }
+      ],
       "suggestedShots": [
         "Home feed showing two activity posts with maps, photos, achievement badges, kudos counts, and comment options — including a PR badge visible on one",
         "\"Add others\" screen appearing after activity save, showing the contextual framing for inviting participants who don't have Strava"

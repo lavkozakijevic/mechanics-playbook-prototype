@@ -280,6 +280,24 @@ const SCREENSHOTS = {
   "streak_wispr-flow": [
     "screenshots/streak/wispr-flow/01.jpeg",
   ],
+  "achievements_strava": [
+    "screenshots/achievements/strava/01.jpg",
+  ],
+  "challenges_strava": [
+    "screenshots/challenges/strava/01.jpg",
+    "screenshots/challenges/strava/02.jpg",
+    "screenshots/challenges/strava/03.jpg",
+  ],
+  "community-groups_strava": [
+    "screenshots/community-groups/strava/01.jpg",
+  ],
+  "leaderboards_strava": [
+    "screenshots/leaderboards/strava/01.jpg",
+  ],
+  "social-feed_strava": [
+    "screenshots/social-feed/strava/01.jpg",
+    "screenshots/social-feed/strava/02.jpg",
+  ],
 };
 
 function getScreenshots(mechanicId, appId) {

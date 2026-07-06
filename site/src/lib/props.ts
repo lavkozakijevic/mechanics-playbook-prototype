@@ -26,8 +26,12 @@ function firstSentence(s: string) {
 }
 
 // ------------------------------------------------------- case study detail
+function hasWriteup(w: App["mechanics"][number]["writeup"]) {
+  return !!(w && w.observed?.trim() && w.noting?.trim() && w.presented?.trim() && w.findings?.[0]?.trim());
+}
+
 export function caseStudyProps(app: App, byId: MechanicsById) {
-  const rels = sortedRelationships(app);
+  const rels = sortedRelationships(app).filter((r) => hasWriteup(r.writeup));
   const sys = app.system;
   return {
     name: app.name,
