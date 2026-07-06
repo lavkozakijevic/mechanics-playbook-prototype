@@ -89,7 +89,7 @@ const featured = settings.featuredMechanics
     definition: m!.tagline,
     contextTags: (m!.context ?? []).map((c) => c.charAt(0).toUpperCase() + c.slice(1)),
     locked: m!.visibility !== "public",
-    href: `/mechanics/${m!.id}/`,
+    href: m!.visibility !== "public" ? "/subscribe/" : `/mechanics/${m!.id}/`,
   }));
 
 const newThisWeek = [...apps]
