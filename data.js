@@ -280,6 +280,9 @@ const SCREENSHOTS = {
   "streak_wispr-flow": [
     "screenshots/streak/wispr-flow/01.jpeg",
   ],
+  "achievements_uptime": [
+    "screenshots/achievements/uptime/01.jpg",
+  ],
   "achievements_strava": [
     "screenshots/achievements/strava/01.jpg",
   ],

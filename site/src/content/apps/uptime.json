@@ -49,7 +49,12 @@
           "No locked future milestones are visible, the achievement system shows only earned cards, creating a pure record of past behavior rather than a visible progression ladder ahead."
         ]
       },
-      "screenshots": [],
+      "screenshots": [
+        {
+          "src": "/screenshots/achievements/uptime/01.jpg",
+          "caption": null
+        }
+      ],
       "suggestedShots": [
         "My Stats achievement card row showing the streak card (1 day), insights card (3 learned), hours saved card (10 hours), and arts and design expertise card — all shareable"
       ]
