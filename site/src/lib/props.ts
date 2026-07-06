@@ -46,7 +46,7 @@ export function caseStudyProps(app: App, byId: MechanicsById) {
         id: r.id,
         cat: m.cat,
         name: m.name,
-        href: `/mechanics/${r.id}/`,
+        href: m.visibility === "public" ? `/mechanics/${r.id}/` : "/subscribe/",
         depth: r.depth,
         observed: r.writeup?.observed,
         presented: r.writeup?.presented,
@@ -134,7 +134,7 @@ export function mechanicStudies(mechanicId: string, apps: App[]) {
       return {
         app: a.name,
         cat: a.category,
-        href: `/case-studies/${a.id}/`,
+        href: a.visibility === "public" ? `/case-studies/${a.id}/` : "/subscribe/",
         depth: rel.depth,
         // Every example shows a screenshot area (owner ruling, 11 Jun 2026):
         // real screenshots and suggested-shot captions both flex the count
