@@ -8,6 +8,29 @@ import { AnnotatedScreenshot } from "../ds/AnnotatedScreenshot.jsx";
 
 const CAT_LABEL = { retention: "Retention", monetization: "Monetization", social: "Social" };
 
+function imgFallback(img) {
+  if (img.src.match(/\.png$/)) img.src = img.src.replace(/\.png$/, ".webp");
+  else if (img.src.match(/\.webp$/)) img.src = img.src.replace(/\.webp$/, ".jpg");
+  else img.style.display = "none";
+}
+
+function LogoImg({ id }) {
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    const img = ref.current;
+    if (img && img.complete && img.naturalWidth === 0) imgFallback(img);
+  }, []);
+  return (
+    <img
+      ref={ref}
+      src={`/icons/${id}.png`}
+      alt=""
+      className="mcard__logo-img"
+      onError={(e) => imgFallback(e.currentTarget)}
+    />
+  );
+}
+
 function logoInitials(name) {
   const words = name.replace(/[^a-zA-Z ]/g, "").split(" ").filter(Boolean);
   return (words.length >= 2 ? words[0][0] + words[1][0] : (words[0] ?? "??").slice(0, 2)).toUpperCase();
@@ -45,17 +68,7 @@ export function Hero({ carousel, eyebrow, headline, sub, ctas, className = "" })
                   <article className="mcard mcard--logo" key={i} aria-hidden={i >= items.length ? "true" : undefined}>
                     <div className="mcard__shot mcard__logo-slot">
                       <span className="mcard__mark">{logoInitials(m.name)}</span>
-                      <img
-                        src={`/icons/${m.id}.png`}
-                        alt=""
-                        className="mcard__logo-img"
-                        onError={(e) => {
-                          const img = e.currentTarget;
-                          if (img.src.match(/\.png$/)) { img.src = img.src.replace(/\.png$/, ".webp"); }
-                          else if (img.src.match(/\.webp$/)) { img.src = img.src.replace(/\.webp$/, ".jpg"); }
-                          else { img.style.display = "none"; }
-                        }}
-                      />
+                      <LogoImg id={m.id} />
                     </div>
                     <div className="mcard__body">
                       <p className="mcard__name">{m.name}</p>
@@ -65,17 +78,7 @@ export function Hero({ carousel, eyebrow, headline, sub, ctas, className = "" })
                   <article className="mcard mcard--logo" key={i} aria-hidden={i >= items.length ? "true" : undefined}>
                     <div className="mcard__shot mcard__logo-slot">
                       <span className="mcard__mark">{logoInitials(m.app)}</span>
-                      <img
-                        src={`/icons/${m.appId}.png`}
-                        alt=""
-                        className="mcard__logo-img"
-                        onError={(e) => {
-                          const img = e.currentTarget;
-                          if (img.src.match(/\.png$/)) { img.src = img.src.replace(/\.png$/, ".webp"); }
-                          else if (img.src.match(/\.webp$/)) { img.src = img.src.replace(/\.webp$/, ".jpg"); }
-                          else { img.style.display = "none"; }
-                        }}
-                      />
+                      <LogoImg id={m.appId} />
                     </div>
                     <div className="mcard__body">
                       <Tag category={m.cat} dot>{m.mechanic}</Tag>

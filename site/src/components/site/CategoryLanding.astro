@@ -93,6 +93,26 @@ const STEPS = [
     className="catland-hero"
   />
 
+  {/* Where gamification helps — category-specific problems */}
+  <section class="band band--sheet" aria-labelledby="prob-h">
+    <div class="container">
+      <div class="mech-section__kicker">{cat.problems.kicker}</div>
+      <h2 class="mech-section__title" id="prob-h">{cat.problems.title}</h2>
+      <ol class="catland-problems">
+        {cat.problems.items.map((p, i) => (
+          <li class="catland-problem">
+            <span class="catland-problem__n" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+            <div>
+              <h3>{p.title}</h3>
+              <p class="catland-problem__lead">{p.lead}</p>
+              <p>{p.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
   {/* Why gamification matters — shared */}
   <section class="band band--sheet" aria-labelledby="why-h">
     <div class="container">
@@ -166,26 +186,6 @@ const STEPS = [
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  {/* Where gamification helps — category-specific problems */}
-  <section class="band band--sheet" aria-labelledby="prob-h">
-    <div class="container">
-      <div class="mech-section__kicker">{cat.problems.kicker}</div>
-      <h2 class="mech-section__title" id="prob-h">{cat.problems.title}</h2>
-      <ol class="catland-problems">
-        {cat.problems.items.map((p, i) => (
-          <li class="catland-problem">
-            <span class="catland-problem__n" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
-            <div>
-              <h3>{p.title}</h3>
-              <p class="catland-problem__lead">{p.lead}</p>
-              <p>{p.body}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
     </div>
   </section>
 
