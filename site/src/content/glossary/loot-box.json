@@ -1,0 +1,9 @@
+{
+  "id": "loot-box",
+  "term": "Loot Box",
+  "def": "A purchasable or earnable container that yields a randomised set of items when opened, with the specific contents unknown until the reveal. The value comes from the uncertainty of the reveal rather than the items themselves, which makes loot boxes a direct application of variable ratio reinforcement. They monetise the anticipation of a rare drop, and because outcomes are probabilistic, spend is decoupled from a guaranteed result. Several jurisdictions now regulate them as a form of gambling and require published drop-rate odds.",
+  "related": [
+    "variable-reward"
+  ],
+  "visibility": "public"
+}

@@ -128,7 +128,7 @@ export function SubscribePage() {
 
           <div className="sp-card">
             <div className="sp-price">
-              <span className="sp-price__amt">€25<span className="sp-price__per">/m</span></span>
+              <span className="sp-price__amt">$25<span className="sp-price__per">/m</span></span>
               <span className="sp-price__cycle">billed quarterly</span>
             </div>
             <div className="sp-card__rule" aria-hidden="true" />
