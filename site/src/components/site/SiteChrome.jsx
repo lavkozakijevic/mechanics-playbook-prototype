@@ -233,6 +233,12 @@ export function SiteFooter({ lastUpdated, categories }) {
         <div className="footer__bottom">
           <span className="footer__fresh"><span className="pip" />Updated weekly</span>
           <span className="footer__meta">
+            <a className="footer__legal" href="/privacy-policy/">Privacy Policy</a>
+            <span className="footer__sep" aria-hidden="true">·</span>
+            <a className="footer__legal" href="/terms-of-use/">Terms of Use</a>
+            <span className="footer__sep" aria-hidden="true">·</span>
+            <a className="footer__legal" href="/refund-policy/">Refund Policy</a>
+            <span className="footer__sep" aria-hidden="true">·</span>
             <a className="footer__email" href="mailto:lav@gamebizconsulting.com">lav@gamebizconsulting.com</a>
             <span className="footer__sep" aria-hidden="true">·</span>
             © 2026 GameBiz Consulting
