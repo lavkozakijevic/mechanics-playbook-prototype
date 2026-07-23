@@ -98,7 +98,7 @@ const newThisWeek = [...apps]
   .map((a) => ({
     title: `${a.data.name} case study`,
     date: formatDate(a.data.lastUpdated),
-    href: `/case-studies/${a.data.id}/`,
+    href: a.data.visibility === "public" ? `/case-studies/${a.data.id}/` : "/subscribe/",
   }));
 ---
 

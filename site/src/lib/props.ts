@@ -172,7 +172,7 @@ export function systemProps(app: App, byId: MechanicsById) {
   const wmw = sys.whatMakesItWork;
   return {
     appName: app.name,
-    appHref: `/case-studies/${app.id}/`,
+    appHref: app.visibility === "public" ? `/case-studies/${app.id}/` : "/subscribe/",
     typeLabel: titleCase(app.type),
     domain: { label: app.category, cat: dominantCategory(app, byId) },
     overview: sys.overview,
@@ -226,7 +226,7 @@ export function appCard(app: App, byId?: MechanicsById) {
     desc: app.summary,
     mechanicCount: app.mechanics.length,
     date: formatDate(app.analysisDate),
-    href: `/case-studies/${app.id}/`,
+    href: app.visibility === "public" ? `/case-studies/${app.id}/` : "/subscribe/",
     iconSrc: app.icon,
     iconInitials: initials(app.name),
     free: app.visibility === "public",

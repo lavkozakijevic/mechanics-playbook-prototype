@@ -75,7 +75,7 @@ const cat = relatedMechanics[0]?.cat;
                         <div class="step__refs">
                           <span class="step__refs-label">Seen in</span>
                           {stepApps.map((app) => (
-                            <a class="refchip" href={`/case-studies/${app.id}/`}>{app.name}</a>
+                            <a class="refchip" href={app.visibility === "public" ? `/case-studies/${app.id}/` : "/subscribe/"}>{app.name}</a>
                           ))}
                         </div>
                       )}
@@ -106,7 +106,7 @@ const cat = relatedMechanics[0]?.cat;
               <h3>Apps in this cheatsheet</h3>
               <div class="amod__list">
                 {featuredApps.map((app) => (
-                  <a class="amod__item" href={`/case-studies/${app.id}/`}>
+                  <a class="amod__item" href={app.visibility === "public" ? `/case-studies/${app.id}/` : "/subscribe/"}>
                     <span class="amod__name">{app.name}</span>
                     <span class="amod__meta">{app.category}</span>
                   </a>
