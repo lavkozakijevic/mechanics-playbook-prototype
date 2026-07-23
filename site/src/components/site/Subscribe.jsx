@@ -36,7 +36,27 @@ const VALUE = [
   },
 ];
 
-function WaitlistModal({ onClose }) {
+/** The offer card — price, unlocks list, and the Subscribe button. Reused on
+ *  the subscribe page and as the paywall on locked case study pages. */
+export function SubscribeCard({ onSubscribe }) {
+  return (
+    <div className="sp-card">
+      <div className="sp-price">
+        <span className="sp-price__amt">$25<span className="sp-price__per">/m</span></span>
+        <span className="sp-price__cycle">billed quarterly</span>
+      </div>
+      <div className="sp-card__rule" aria-hidden="true" />
+      <ul className="sp-list">
+        {UNLOCKS.map((u) => (
+          <li key={u}><span className="sp-list__check" aria-hidden="true">{CheckIcon}</span>{u}</li>
+        ))}
+      </ul>
+      <Button variant="accent" size="lg" onClick={onSubscribe}>Subscribe</Button>
+    </div>
+  );
+}
+
+export function WaitlistModal({ onClose }) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("idle");
   const titleRef = useRef(null);
@@ -126,19 +146,7 @@ export function SubscribePage() {
           <div className="eyebrow">Subscribe</div>
           <h1 className="sp-offer__h" id="offer-h">Get weekly gamification case studies and examples</h1>
 
-          <div className="sp-card">
-            <div className="sp-price">
-              <span className="sp-price__amt">$25<span className="sp-price__per">/m</span></span>
-              <span className="sp-price__cycle">billed quarterly</span>
-            </div>
-            <div className="sp-card__rule" aria-hidden="true" />
-            <ul className="sp-list">
-              {UNLOCKS.map((u) => (
-                <li key={u}><span className="sp-list__check" aria-hidden="true">{CheckIcon}</span>{u}</li>
-              ))}
-            </ul>
-            <Button variant="accent" size="lg" onClick={() => setModalOpen(true)}>Subscribe</Button>
-          </div>
+          <SubscribeCard onSubscribe={() => setModalOpen(true)} />
         </div>
       </section>
 

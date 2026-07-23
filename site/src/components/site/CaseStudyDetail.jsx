@@ -5,6 +5,7 @@
    table-of-contents sidebar with scroll-spy. */
 import React, { useState, useEffect, useMemo } from "react";
 import { Tag } from "../ds/Tag.jsx";
+import { SubscribeCard, WaitlistModal } from "./Subscribe.jsx";
 
 const CAT_COLOR = { retention: "var(--cat-retention)", monetization: "var(--cat-monetization)", social: "var(--cat-social)" };
 const CAT_LABEL = { retention: "Retention", monetization: "Monetization", social: "Social" };
@@ -114,8 +115,53 @@ function MechanicSection({ m }) {
   );
 }
 
+/** Locked case study: keep the title and opening introduction, then present
+ *  the subscribe offer in place of the full breakdown. */
+function LockedCaseStudy({ app }) {
+  const [modalOpen, setModalOpen] = useState(false);
+  return (
+    <main id="main">
+      {modalOpen && <WaitlistModal onClose={() => setModalOpen(false)} />}
+      <div className="container container--narrow">
+        <header className="cs-hd" id="overview">
+          <nav className="crumb" aria-label="Breadcrumb">
+            <a href="/case-studies/">Case studies</a>
+            <span className="crumb__sep" aria-hidden="true">/</span>
+            <span>{app.name}</span>
+            <span className="crumb__sep" aria-hidden="true">/</span>
+            <span>Full breakdown</span>
+          </nav>
+          <div className="cs-hd__row">
+            {app.iconSrc ? (
+              <div className="cs-hd__icon" aria-hidden="true">
+                <img src={app.iconSrc} alt="" style={{ width: "100%", height: "100%" }} />
+              </div>
+            ) : (
+              <div className="cs-hd__icon" aria-hidden="true">{app.iconInitials}</div>
+            )}
+            <div className="cs-hd__heads">
+              <Tag category="neutral" variant="outline">{app.category}</Tag>
+              <h1 className="cs-hd__title">{app.name} {"—"} Full Breakdown</h1>
+            </div>
+          </div>
+          <p className="cs-hd__overview">{app.overview}</p>
+        </header>
+
+        <div className="cs-gate">
+          <div className="cs-gate__lead">
+            <div className="eyebrow">Subscribers only</div>
+            <h2 className="cs-gate__h">Read the full {app.name} breakdown</h2>
+            <p className="cs-gate__p">The complete case study walks every mechanic in the loop with annotated screenshots and the takeaways a product team can use. Subscribe to unlock this and every other breakdown in the library.</p>
+          </div>
+          <SubscribeCard onSubscribe={() => setModalOpen(true)} />
+        </div>
+      </div>
+    </main>
+  );
+}
+
 /** Case study full-breakdown page body. */
-export function CaseStudyDetailPage({ app }) {
+function FullCaseStudy({ app }) {
   const [active, setActive] = useState("overview");
 
   const mechanics = app.mechanics || [];
@@ -270,4 +316,10 @@ export function CaseStudyDetailPage({ app }) {
       </div>
     </main>
   );
+}
+
+/** Case study page: the full breakdown for public apps, or the subscribe
+ *  gate (title + opening introduction + offer) for subscriber apps. */
+export function CaseStudyDetailPage({ app, locked = false }) {
+  return locked ? <LockedCaseStudy app={app} /> : <FullCaseStudy app={app} />;
 }

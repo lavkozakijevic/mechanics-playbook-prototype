@@ -11,6 +11,7 @@ export async function getStaticPaths() {
 const { app } = Astro.props;
 const byId = new Map((await publishedMechanics()).map((m) => [m.data.id, m.data]));
 const props = caseStudyProps(app.data, byId);
+const locked = app.data.visibility !== "public";
 ---
 
 <Base
@@ -18,5 +19,5 @@ const props = caseStudyProps(app.data, byId);
   description={app.data.summary.slice(0, 155)}
   current="case-studies"
 >
-  <CaseStudyDetailPage client:load app={props} />
+  <CaseStudyDetailPage client:load app={props} locked={locked} />
 </Base>
