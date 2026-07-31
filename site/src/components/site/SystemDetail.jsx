@@ -4,6 +4,7 @@
    list as the mobile fallback. */
 import React, { useState, useEffect } from "react";
 import { Tag } from "../ds/Tag.jsx";
+import { SubscribeCard, WaitlistModal } from "./Subscribe.jsx";
 
 const CAT_COLOR = {
   retention: "var(--cat-retention)", monetization: "var(--cat-monetization)", social: "var(--cat-social)",
@@ -170,7 +171,48 @@ function ConnectionModal({ conn, byId, onClose }) {
 
 /** App system detail page: overview, core loop, the interactive map, the key
  *  insight, what makes it work, and a link to the full case study. */
-export function SystemDetailPage({ system }) {
+/** Locked system: keep the title and opening introduction (the tagline), then
+ *  present the subscribe offer in place of the interactive map. */
+function LockedSystem({ system }) {
+  const [modalOpen, setModalOpen] = useState(false);
+  return (
+    <main id="main">
+      {modalOpen && <WaitlistModal onClose={() => setModalOpen(false)} />}
+      <section className="mech-head" aria-labelledby="sys-h">
+        <div className="container">
+          <nav className="crumb" aria-label="Breadcrumb">
+            <a href="/systems/">Systems</a>
+            <span className="crumb__sep" aria-hidden="true">›</span>
+            <span>{system.appName}</span>
+          </nav>
+          <div className="sys-meta">
+            <Tag category="neutral" variant="outline">{system.typeLabel || "App"}</Tag>
+            {system.domain && (
+              <span className="sys-cat"><span className="sys-cat__dot" style={{ background: CAT_COLOR[system.domain.cat] }} />{system.domain.label}</span>
+            )}
+          </div>
+          <h1 id="sys-h">The {system.appName} system</h1>
+          {system.tagline && <p className="mech-head__def">{system.tagline}</p>}
+        </div>
+      </section>
+
+      <section className="band--tight">
+        <div className="container container--narrow">
+          <div className="cs-gate">
+            <div className="cs-gate__lead">
+              <div className="eyebrow">Subscribers only</div>
+              <h2 className="cs-gate__h">Explore the {system.appName} system map</h2>
+              <p className="cs-gate__p">The full system map draws every mechanic in the loop and the connections that carry the most weight, with the design logic behind each one. Subscribe to unlock this and every other system in the library.</p>
+            </div>
+            <SubscribeCard onSubscribe={() => setModalOpen(true)} />
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+function FullSystem({ system }) {
   const [active, setActive] = useState(null);
 
   const nodes = system.nodes || [];
@@ -291,4 +333,10 @@ export function SystemDetailPage({ system }) {
       {active && <ConnectionModal conn={active} byId={byId} onClose={() => setActive(null)} />}
     </main>
   );
+}
+
+/** System page: the interactive map for public/free-slot apps, or the subscribe
+ *  gate (title + opening introduction + offer) for subscriber apps. */
+export function SystemDetailPage({ system, locked = false }) {
+  return locked ? <LockedSystem system={system} /> : <FullSystem system={system} />;
 }
