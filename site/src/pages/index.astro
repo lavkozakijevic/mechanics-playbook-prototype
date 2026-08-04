@@ -92,14 +92,13 @@ const featured = settings.featuredMechanics
     href: m!.visibility !== "public" ? "/subscribe/" : `/mechanics/${m!.id}/`,
   }));
 
-const newThisWeek = [...apps]
-  .sort((a, b) => (b.data.lastUpdated ?? "").localeCompare(a.data.lastUpdated ?? ""))
-  .slice(0, 4)
-  .map((a) => ({
-    title: `${a.data.name} case study`,
-    date: formatDate(a.data.lastUpdated),
-    href: a.data.visibility === "public" ? `/case-studies/${a.data.id}/` : "/subscribe/",
-  }));
+// Latest entries — curated (owner-set). These are the newest additions; each is
+// subscriber content, so all link to /subscribe/.
+const newThisWeek = [
+  { title: "DoorDash case study", date: "Aug 03, 2026", href: "/subscribe/" },
+  { title: "Wakeout case study", date: "Aug 03, 2026", href: "/subscribe/" },
+  { title: "Insight Timer case study", date: "Aug 03, 2026", href: "/subscribe/" },
+];
 ---
 
 <Base
