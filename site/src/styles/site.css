@@ -645,6 +645,59 @@ a.amod__item:hover .amod__name { text-decoration: underline; text-decoration-col
   .csgrid { grid-template-columns: repeat(3, 1fr); }
 }
 
+/* --------------------------------------------------------- shortcasts */
+.scast-list { display: grid; grid-template-columns: 1fr; gap: 18px; }
+@media (min-width: 720px) {
+  .scast-list { grid-template-columns: 1fr 1fr; }
+}
+.scast { display: flex; flex-direction: column; gap: 14px; background: var(--surface-card);
+  border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); box-shadow: var(--shadow-xs);
+  padding: clamp(20px, 2.2vw, 26px); height: 100%; }
+.scast__top { display: flex; align-items: center; justify-content: space-between; gap: 13px; }
+.scast__tags { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.scast__app { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); }
+.scast__badge { flex: none; }
+.scast__title { font-family: var(--font-display); font-weight: var(--weight-bold);
+  font-size: clamp(18px, 1.9vw, 21px); line-height: 1.2; letter-spacing: var(--tracking-heading);
+  color: var(--ink-900); margin: 0; text-wrap: balance; }
+.scast__summary { font: var(--type-body-sm); color: var(--text-secondary); line-height: 1.55;
+  margin: 0; text-wrap: pretty; }
+.scast__foot { display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  margin-top: auto; padding-top: 14px; border-top: var(--rule-hairline);
+  font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); }
+.scast__dur { display: inline-flex; align-items: center; gap: 6px; }
+.scast__dur-ico svg, .scast__gate-ico svg { width: 15px; height: 15px; }
+/* Locked episode: subscribe prompt in place of the player */
+.scast__gate { display: inline-flex; align-items: center; gap: 9px; align-self: flex-start;
+  padding: 12px 16px; border: 1px solid var(--border-default); border-radius: var(--radius-md);
+  background: var(--surface-sunken); color: var(--text-secondary); text-decoration: none;
+  font: var(--type-body-sm); font-weight: var(--weight-semibold);
+  transition: border-color var(--duration-base) var(--ease-standard), color var(--duration-base) var(--ease-standard); }
+.scast__gate:hover { border-color: var(--border-strong); color: var(--ink-900); }
+.scast__gate-ico svg { stroke-width: 2; }
+
+/* Audio player */
+.aplayer { display: flex; align-items: center; gap: 14px; padding: 12px 14px;
+  background: var(--surface-sunken); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); }
+.aplayer__btn { flex: none; width: 44px; height: 44px; border-radius: 999px; border: none; cursor: pointer;
+  display: grid; place-items: center; background: var(--accent); color: var(--accent-ink, #fff);
+  transition: transform var(--duration-base) var(--ease-standard), filter var(--duration-base) var(--ease-standard); }
+.aplayer__btn:hover { filter: brightness(1.05); transform: scale(1.04); }
+.aplayer__btn:focus-visible { outline: none; box-shadow: var(--ring); }
+.aplayer__btn-ico svg { width: 22px; height: 22px; display: block; }
+.aplayer__body { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 7px; }
+.aplayer__scrub { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 999px;
+  cursor: pointer; background: linear-gradient(to right, var(--accent) 0%, var(--accent) var(--aplayer-pct, 0%),
+    var(--border-default) var(--aplayer-pct, 0%), var(--border-default) 100%); }
+.aplayer__scrub:disabled { cursor: default; opacity: 0.6; }
+.aplayer__scrub::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 15px; height: 15px;
+  border-radius: 999px; background: var(--accent); border: 2px solid var(--surface-card); box-shadow: var(--shadow-xs); }
+.aplayer__scrub::-moz-range-thumb { width: 15px; height: 15px; border-radius: 999px; background: var(--accent);
+  border: 2px solid var(--surface-card); box-shadow: var(--shadow-xs); }
+.aplayer__scrub:focus-visible { outline: none; box-shadow: var(--ring); }
+.aplayer__times { display: flex; align-items: center; justify-content: space-between;
+  font-family: var(--font-mono); font-size: 11.5px; color: var(--text-muted); }
+
 /* =================== SYSTEM DETAIL =================== */
 .sys-read { max-width: 760px; }
 .sys-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 16px; }

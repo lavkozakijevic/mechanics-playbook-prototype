@@ -14,6 +14,7 @@ const NAV = [
       { label: "Mechanics", href: "/mechanics/", key: "mechanics", desc: "The core building blocks, with the psychology behind each one." },
       { label: "Systems", href: "/systems/", key: "systems", desc: "How mechanics combine into the loops that keep users coming back." },
       { label: "Cheatsheets", href: "/cheatsheets/", key: "cheatsheets", desc: "Practical guides for putting mechanics into your product." },
+      { label: "Shortcasts", href: "/shortcasts/", key: "shortcasts", desc: "Short audio breakdowns of one app at a time — up to ten minutes." },
       { label: "Glossary", href: "/glossary/", key: "glossary", desc: "Plain-language definitions for every term we use." },
     ],
   },
@@ -189,6 +190,7 @@ const FOOTER_LIBRARY = {
     { label: "Apps", href: "/case-studies/" },
     { label: "Systems", href: "/systems/" },
     { label: "Cheatsheets", href: "/cheatsheets/" },
+    { label: "Shortcasts", href: "/shortcasts/" },
     { label: "Glossary", href: "/glossary/" },
   ],
 };

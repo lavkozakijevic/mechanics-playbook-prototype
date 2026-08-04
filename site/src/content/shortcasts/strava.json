@@ -1,0 +1,12 @@
+{
+  "id": "strava",
+  "title": "How Strava turns a workout log into a social habit",
+  "app": "Strava",
+  "category": "Fitness",
+  "summary": "A ten-minute walk through the mechanics that keep Strava's runners and cyclists coming back: segment leaderboards, kudos, challenges, and the streak that quietly protects them all.",
+  "audioSrc": "/audio/strava.mp3",
+  "duration": "8:42",
+  "date": "2026-08-04",
+  "order": 1,
+  "visibility": "public"
+}

@@ -71,6 +71,18 @@ export async function publishedGlossary() {
     .sort((a, b) => a.data.term.localeCompare(b.data.term));
 }
 
+export async function publishedShortcasts() {
+  const all = await getCollection("shortcasts");
+  return all
+    .filter((s) => s.data.visibility !== "report-only")
+    .sort((a, b) => {
+      const ao = a.data.order ?? 0;
+      const bo = b.data.order ?? 0;
+      if (ao !== bo) return bo - ao;
+      return (b.data.date ?? "").localeCompare(a.data.date ?? "");
+    });
+}
+
 /** Latest content date across apps — powers "last updated" in chrome. */
 export async function lastUpdated(): Promise<string | null> {
   const apps = await publishedApps();

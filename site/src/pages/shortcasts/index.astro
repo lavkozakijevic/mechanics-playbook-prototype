@@ -1,0 +1,25 @@
+---
+import Base from "../../layouts/Base.astro";
+import { ShortcastsPage } from "../../components/site/Shortcasts.jsx";
+import { publishedShortcasts } from "../../lib/content";
+
+const shortcasts = (await publishedShortcasts()).map((s) => ({
+  id: s.data.id,
+  title: s.data.title,
+  app: s.data.app,
+  category: s.data.category,
+  summary: s.data.summary,
+  audioSrc: s.data.audioSrc,
+  duration: s.data.duration,
+  date: s.data.date,
+  locked: s.data.visibility !== "public",
+}));
+---
+
+<Base
+  title="Shortcasts — Mechanics Playbook"
+  description="Short audio analyses of how the best apps use game mechanics — up to ten minutes each, one app at a time."
+  current="shortcasts"
+>
+  <ShortcastsPage client:load shortcasts={shortcasts} />
+</Base>

@@ -126,6 +126,28 @@ const glossary = defineCollection({
   }),
 });
 
+// Shortcasts: short (up to ~10 min) audio analyses of a single app. Authored
+// directly as JSON (not generated from data.js). The mp3 lives under
+// public/audio/ and is referenced by `audioSrc` (e.g. "/audio/strava.mp3").
+const shortcasts = defineCollection({
+  loader: glob({ pattern: "*.json", base: "./src/content/shortcasts" }),
+  schema: z.object({
+    id: z.string(),
+    title: z.string(),
+    // The app this episode analyses — free text label (e.g. "Strava").
+    app: z.string().optional(),
+    category: z.string().optional(),
+    summary: z.string(),
+    audioSrc: z.string(),
+    // Human-readable running time shown before playback (e.g. "8:42").
+    duration: z.string().optional(),
+    date: z.string().nullable(),
+    // Optional ordering key; higher sorts first. Defaults to date order.
+    order: z.number().optional(),
+    visibility,
+  }),
+});
+
 // Category landing pages (/finance, /productivity, …). Each file supplies the
 // category-specific blocks; the shared blocks (the lens, the trust section, the
 // call) are optional here — a category may override them, and the template
@@ -169,4 +191,4 @@ const categories = defineCollection({
   }),
 });
 
-export const collections = { apps, mechanics, settings, cheatsheets, glossary, categories };
+export const collections = { apps, mechanics, settings, cheatsheets, glossary, categories, shortcasts };
