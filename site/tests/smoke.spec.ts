@@ -33,6 +33,17 @@ const visibleApps = apps.filter((a) => a.visibility !== "report-only");
 const reportOnlyApps = apps.filter((a) => a.visibility === "report-only");
 const appsWithSystems = visibleApps.filter((a) => a.system);
 
+// Access gating (owner ruling): every visible app is listed on the index as a
+// card, but only public apps link straight to their case study; subscriber apps
+// link to /subscribe/. Systems additionally open for the rotating free slot
+// named in settings.freeSystemApps.
+const publicApps = visibleApps.filter((a) => a.visibility === "public");
+const homepageSettings = collection("settings").find((s) => s.id === "homepage")!;
+const freeSystemApps = new Set<string>(homepageSettings.freeSystemApps ?? []);
+const freeSystemAppsWithMaps = appsWithSystems.filter(
+  (a) => a.visibility === "public" || freeSystemApps.has(a.id)
+);
+
 test.describe("case studies render with content", () => {
   test("Royal Match case study has real content", async ({ page }) => {
     await page.goto("/case-studies/royal-match/");
@@ -54,11 +65,15 @@ test.describe("case studies render with content", () => {
 test.describe("indexes show correct counts", () => {
   test("case studies index lists every visible app and nothing else", async ({ page }) => {
     await page.goto("/case-studies/");
-    const links = page.locator('a[href^="/case-studies/"]:not([href="/case-studies/"])');
+    // Every visible app gets a card. Subscriber apps are gated (their card links
+    // to /subscribe/), so count the cards themselves, not the case-study links.
+    await expect(page.locator("a.csc")).toHaveCount(visibleApps.length);
+    // Only public apps link straight through to a full case study.
+    const links = page.locator('a.csc[href^="/case-studies/"]:not([href="/case-studies/"])');
     const hrefs = await links.evaluateAll((els) =>
       [...new Set(els.map((e) => e.getAttribute("href")))]
     );
-    expect(hrefs.length).toBe(visibleApps.length);
+    expect(hrefs.length).toBe(publicApps.length);
   });
 
   test("mechanics library has all cards in static HTML before hydration", async ({ page }) => {
@@ -78,11 +93,14 @@ test.describe("indexes show correct counts", () => {
 
   test("systems index lists every visible app with a system map", async ({ page }) => {
     await page.goto("/systems/");
-    const links = page.locator('a[href^="/systems/"]:not([href="/systems/"])');
+    // Every app with a system map gets a card. Gated systems link to /subscribe/,
+    // so count the cards; only public + free-slot systems link straight through.
+    await expect(page.locator("a.csc")).toHaveCount(appsWithSystems.length);
+    const links = page.locator('a.csc[href^="/systems/"]:not([href="/systems/"])');
     const hrefs = await links.evaluateAll((els) =>
       [...new Set(els.map((e) => e.getAttribute("href")))]
     );
-    expect(hrefs.length).toBe(appsWithSystems.length);
+    expect(hrefs.length).toBe(freeSystemAppsWithMaps.length);
   });
 });
 
