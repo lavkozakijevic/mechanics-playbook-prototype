@@ -11,12 +11,6 @@ const LockIcon = (
     <rect x="4" y="11" width="16" height="10" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" />
   </svg>
 );
-const HeadphonesIcon = (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M3 14v-3a9 9 0 0 1 18 0v3" /><path d="M21 16a2 2 0 0 1-2 2h-1v-6h1a2 2 0 0 1 2 2zM3 16a2 2 0 0 0 2 2h1v-6H5a2 2 0 0 0-2 2z" />
-  </svg>
-);
-
 function ShortcastCard({ s }) {
   return (
     <article className={"scast" + (s.locked ? " scast--locked" : "")}>
@@ -38,16 +32,17 @@ function ShortcastCard({ s }) {
       {s.locked ? (
         <a className="scast__gate" href="/subscribe/">
           <span className="scast__gate-ico" aria-hidden="true">{LockIcon}</span>
-          <span className="scast__gate-txt">Subscribe to listen{s.duration ? ` · ${s.duration}` : ""}</span>
+          <span className="scast__gate-txt">Subscribe to listen</span>
         </a>
       ) : (
-        <AudioPlayer src={s.audioSrc} title={s.title} durationLabel={s.duration} />
+        <AudioPlayer src={s.audioSrc} title={s.title} />
       )}
 
-      <div className="scast__foot">
-        {s.date && <span className="scast__date">{s.date}</span>}
-        {s.duration && <span className="scast__dur"><span className="scast__dur-ico" aria-hidden="true">{HeadphonesIcon}</span>{s.duration}</span>}
-      </div>
+      {s.date && (
+        <div className="scast__foot">
+          <span className="scast__date">{s.date}</span>
+        </div>
+      )}
     </article>
   );
 }

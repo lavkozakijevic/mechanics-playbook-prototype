@@ -10,7 +10,6 @@ const shortcasts = (await publishedShortcasts()).map((s) => ({
   category: s.data.category,
   summary: s.data.summary,
   audioSrc: s.data.audioSrc,
-  duration: s.data.duration,
   date: s.data.date,
   locked: s.data.visibility !== "public",
 }));
