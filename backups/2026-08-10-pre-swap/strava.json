@@ -1,0 +1,308 @@
+{
+  "id": "strava",
+  "name": "Strava",
+  "category": "Fitness",
+  "type": "app",
+  "visibility": "public",
+  "analysisDate": "2026-04-16",
+  "lastUpdated": "2026-05-15",
+  "summary": "Strava's system adds social and competitive layers to behaviour the user already wants to do, finish a workout. The Local Legend mechanic reframes leaderboard competition from speed to consistency, making segment competition accessible to athletes who will never hold the fastest time. The post-activity 'Add others' mechanic is the smoothest referral prompt in the library: framing a friend invite as adding them to your activity record, timed at the moment of highest engagement.",
+  "icon": "/icons/strava.png",
+  "heroImage": "/images/strava-case-study.png",
+  "mechanics": [
+    {
+      "id": "streak",
+      "depth": "core",
+      "writeup": {
+        "observed": "Strava tracks consecutive weeks of activity rather than consecutive days. Any logged sport type counts toward the current week. The streak counter sits on the home screen dashboard carousel as the first of four sliding items, displaying a flame icon with the week count inside it. A calendar view in the You tab shows the past 12 weeks of activity frequency alongside the current month. A Record Now button is embedded directly on the streak card, creating a zero-friction path from seeing the streak count to starting an activity.",
+        "presented": "The streak card is front-loaded as the first item in the home screen carousel. The You tab holds the full calendar view. After completing any activity, a streak milestone triggers immediately. The subscription paywall is embedded directly below the streak calendar in the You tab, placing the upgrade prompt immediately adjacent to the achievement display.",
+        "noting": "The week-based unit is the meaningful difference from day-based streak apps. One activity anywhere in the seven-day window counts, which is appropriate for exercise where daily training can be inadvisable. The embedded Record Now button collapses the distance between the motivation prompt and the action, both are on the same card.",
+        "findings": [
+          "The streak is week-based, not day-based, one logged activity per week maintains it, appropriate for exercise cadences where daily training is not always advisable.",
+          "The Record Now button is embedded directly on the streak card, collapsing the distance between the motivation prompt and the action.",
+          "The streak is the first of four items in the home screen dashboard carousel, making it the first visible element after logging in.",
+          "No catch-up or freeze mechanic was observed, a missed week breaks the streak with no recovery path."
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "/screenshots/streak/strava/01.jpeg",
+          "caption": "You tab streak calendar view showing the 12-week history grid, the current month calendar, and the \"unlock your full potential\" subscription prompt below"
+        }
+      ],
+      "suggestedShots": [
+        "Home screen carousel showing the streak card with flame icon, \"0 weeks,\" the View Calendar button, and the Record Now button below",
+        "You tab streak calendar view showing the 12-week history grid, the current month calendar, and the \"unlock your full potential\" subscription prompt below"
+      ]
+    },
+    {
+      "id": "leaderboards",
+      "depth": "core",
+      "writeup": {
+        "observed": "Strava's leaderboard system is built around segments, named sections of road or trail that any user can ride or run. Each segment ranks all athletes by their best time. A Course Record is the all-time fastest time. A Local Legend is the athlete with the most efforts on a segment in the last 90 days, regardless of speed. Both title types display on the user's profile trophy case. Full segment leaderboard access is gated behind the subscription.",
+        "presented": "Segments appear on activity maps after a run or ride is posted. The Segments tab on the user profile shows which segments they appear in the top 10 of. Push notifications fire when a user loses a ranking. The Local Legend badge displays on the profile alongside Course Record badges.",
+        "noting": "Local Legend reframes competition from speed to consistency. An athlete who will never hold the fastest time on a segment can still hold Local Legend by running it most frequently. This opens competitive participation to athletes the Course Record system excludes entirely. Both titles are perpetually contestable, making the leaderboard feel live rather than settled.",
+        "findings": [
+          "Local Legend status requires the most efforts on a segment in the last 90 days, not the fastest time, making leaderboard competition accessible to athletes who prioritize consistency over speed.",
+          "Full segment leaderboard access is subscription-gated, free users can see their Top 10 segments but cannot access complete leaderboard data.",
+          "Segment leaderboard push notifications fire when a user loses a ranking, creating urgency to reclaim standing.",
+          "The Monday weekly stats reset makes the social feed show all users at zero for the current week, which was observed to make the app feel unused at the start of every week despite heavy actual use."
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "/screenshots/leaderboards/strava/01.jpg",
+          "caption": null
+        }
+      ],
+      "suggestedShots": [
+        "Segment explore page showing a named segment with its Local Legend holder, total effort count, and the ability to filter by length, elevation, and surface",
+        "Challenge leaderboard for the 100,000 Steps Challenge showing ranked athletes with step counts and the metric-based ranking structure"
+      ]
+    },
+    {
+      "id": "challenges",
+      "depth": "core",
+      "writeup": {
+        "observed": "Challenges are opt-in monthly or multi-week structured objectives visible to followers and the broader Strava community. Each challenge shows a target, a deadline, a participant count, and a join button. On completion, a digital trophy is awarded and displayed on the user's profile trophy case. Partner-branded challenges add external rewards, a completion trophy carrying a brand name, or an in-app reward like a free trial of a partner service.",
+        "presented": "Challenges live in the Groups tab under a dedicated Challenges sub-tab, filtered by the user's logged activity types. Joining requires one tap. After completing the first activity in a session, a challenge progress update appears. Group challenge creation is gated to subscribers, free users can join but cannot create club challenges.",
+        "noting": "The participant count is load-bearing. A challenge showing over one million athletes already joined communicates scale that makes opting in feel consequential without requiring the user to know any of the other participants. Activity-type filtering ensures a cyclist and a swimmer see separate relevant challenge sets from the same entry point.",
+        "findings": [
+          "Partner challenges function as paid distribution for sponsors, brands run branded challenges and completion rewards users with digital trophies carrying the brand name.",
+          "Cross-app rewards convert challenge completion into product trials, the April 400-minute challenge rewards completion with a two-week Runna trial.",
+          "The 'Add others' post-activity mechanic frames a non-Strava friend invite as adding them to the activity record, the smoothest referral prompt in the library, timed at peak engagement.",
+          "Activity-type filtering means challenge sets are automatically relevant without user configuration."
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "/screenshots/challenges/strava/01.jpg",
+          "caption": null
+        },
+        {
+          "src": "/screenshots/challenges/strava/02.jpg",
+          "caption": null
+        },
+        {
+          "src": "/screenshots/challenges/strava/03.jpg",
+          "caption": null
+        }
+      ],
+      "suggestedShots": [
+        "Home dashboard showing three simultaneous challenges with participant counts (1.1M, 431K, 1.175M) and reward labels (free Runna trial, digital trophy)",
+        "Challenge detail page for one challenge showing days remaining, organizing club, requirements, and the challenge leaderboard"
+      ]
+    },
+    {
+      "id": "achievements",
+      "depth": "core",
+      "writeup": {
+        "observed": "Strava's trophy case tracks two types: personal records (fastest, longest, highest) and activity count milestones (1st, 3rd, 5th, 10th activity in a sport, up to 1,000th). Local Legend and Course Record badges display on the profile when held. Each trophy is automatic, no opt-in required. The profile trophy case is public and visible to any Strava user who views the profile.",
+        "presented": "Trophies appear on the profile trophy case and on individual activity posts in the feed. A 'Nice work' animation fires at each badge unlock. The You tab shows current streak, milestones, and the 12-week activity calendar in a single view.",
+        "noting": "The automatic PR system means every activity has the potential to generate a new achievement without the user deciding to pursue one. A casual run could set a longest-run-ever personal record without any prior intent. This makes achievements ambient rather than goal-directed, they surprise rather than reward deliberate performance.",
+        "findings": [
+          "First Activity trophy triggered during a 44-second test ride during analysis, the bar for the first milestone is intentionally low to create an early reward moment regardless of effort level.",
+          "Personal record badges are automatically attached to activity posts in the feed, achievement status is visible in others' feeds without the user navigating to a profile.",
+          "Local Legend requires sustained volume over 90 days, a long-horizon goal distinct from the session-level PR system.",
+          "The subscription paywall is embedded directly below the streak calendar in the You tab, placing the upgrade prompt immediately adjacent to the achievement display."
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "/screenshots/achievements/strava/01.jpg",
+          "caption": null
+        }
+      ],
+      "suggestedShots": [
+        "Trophy Case showing the First Activity trophy earned alongside the future milestone markers (3rd, 5th, 10th, 1000th activity) as a visible progression ladder",
+        "First activity completion popup showing \"Welcome to the team — kudos on logging your first Strava activity\" with View Trophy Case button"
+      ]
+    },
+    {
+      "id": "community-groups",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "Clubs are named groups with their own activity feed, member list, club leaderboard, and event creation tools. Each club can set a pace range requirement, configure recurring events with attendance tracking, and see member activity in a shared feed separate from the main feed. Local club discovery shows proximity-based results. Club membership gives the user a collective identity, leaving Strava means leaving the running group, not just uninstalling software.",
+        "presented": "Clubs are accessible via the Groups tab alongside Challenges. The club feed is separate from the main activity feed. Club leaderboards show members ranked by activity within the current week. Club events can be added to external calendars.",
+        "noting": "The club leaderboard scopes competition to people the user actually knows, making the gap to the top positions feel closable. The separate club feed creates a distinct social context, activity from club members is in its own space rather than mixed into the global feed.",
+        "findings": [
+          "Group challenge creation is gated to subscribers, free members can join and participate in events but cannot create structured club challenges.",
+          "The club feed is separate from the main feed, keeping the social context distinct and preventing club activity from diluting the main activity stream.",
+          "Local club discovery surfaces 50+ clubs in geographic proximity, creating discoverability for users who don't arrive with a specific club in mind.",
+          "Pace range requirements on clubs create self-selection, users join clubs where the activity level matches their own, increasing the relevance of the club leaderboard."
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "/screenshots/community-groups/strava/01.jpg",
+          "caption": null
+        }
+      ],
+      "suggestedShots": []
+    },
+    {
+      "id": "social-feed",
+      "depth": "core",
+      "writeup": {
+        "observed": "The activity feed is Strava's default home screen. Each post shows the route map, activity stats, photos or video if added, achievement badges (PR labels, segment ranking changes), and a kudos count. Kudos, a single-tap clapping hands icon, is the primary social interaction unit. Giving kudos sends a push notification to the poster. Comments are inline. After an activity, Strava generates branded sharing cards with stats and PR labels for Instagram Stories and messaging.",
+        "presented": "Personal record labels appear automatically on posts, the user doesn't declare a PR, the system identifies and surfaces it in the feed. Kudos and comments are delivered as push notifications in a named category configurable independently. Club feeds are separate from the main feed, keeping club activity in its own space.",
+        "noting": "Every logged activity becomes a social artifact without the user deciding to make it one. PR badges appear, trophy counts update, kudos arrive. The feed doesn't ask users to perform their activity publicly, it does that for them, and surfaces the recognition in followers' feeds automatically. The kudos mechanic requires no text and creates no obligation to reciprocate, making social affirmation frictionless.",
+        "findings": [
+          "Kudos is a single-tap non-evaluative affirmation, lower commitment than a comment, more personal than a like count, designed for activities where completion deserves acknowledgment rather than evaluation.",
+          "The 'Add others' post-activity prompt frames inviting a non-Strava friend as adding them to the activity record, contextually appropriate and timed at peak engagement.",
+          "Personal records are labeled automatically before the post appears in others' feeds, the achievement is surfaced by the system, not declared by the user.",
+          "Club feeds are separate from the main feed, keeping club activity distinct from the main social stream."
+        ]
+      },
+      "screenshots": [
+        {
+          "src": "/screenshots/social-feed/strava/01.jpg",
+          "caption": null
+        },
+        {
+          "src": "/screenshots/social-feed/strava/02.jpg",
+          "caption": null
+        }
+      ],
+      "suggestedShots": [
+        "Home feed showing two activity posts with maps, photos, achievement badges, kudos counts, and comment options — including a PR badge visible on one",
+        "\"Add others\" screen appearing after activity save, showing the contextual framing for inviting participants who don't have Strava"
+      ]
+    },
+    {
+      "id": "daily-weekly-quests",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "xp-leveling",
+      "depth": "shallow",
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "A social fitness system where the activity is the content.",
+    "overview": "Strava's system is built on a simple insight: fitness activities are inherently shareable accomplishments. Every run, ride, or swim is already a completed achievement, Strava's job is to make that achievement visible, competitive, and socially meaningful. The system works because it adds social and competitive layers to behaviour the user already wants to do, rather than trying to manufacture the behaviour itself.",
+    "loop": "The core loop is: complete an activity → post to social feed → receive kudos → check segment rankings → join a challenge → complete more activities. Each activity fuels multiple parallel social and competitive loops simultaneously, which is why Strava drives some of the highest organic sharing rates of any fitness app.",
+    "keyInsight": "The segment leaderboard solves the cold-start problem for competitive mechanics. Instead of competing against all Strava users globally, which would demotivate most people immediately, you compete against everyone who has run the same route as you. The relevant competition is naturally scoped to a closable gap.",
+    "whatMakesItWork": "Strava's system works because the core behaviour, finishing a workout, is already intrinsically motivated. The system doesn't need to manufacture the desire to exercise; it needs to add enough social meaning to the activity that users choose Strava as the place to track it rather than a simpler alternative. Every mechanic amplifies the meaning of an activity the user was already going to complete.",
+    "roles": [
+      {
+        "id": "social-feed",
+        "role": "The feed is the primary reason to open Strava between activities. It converts every activity into content. Kudos received via the feed is the social reward that makes posting feel worthwhile."
+      },
+      {
+        "id": "leaderboards",
+        "role": "Segment leaderboards rank users by fastest time on specific routes. This is Strava's most distinctive mechanic, the competition is hyperlocal and closable, unlike global leaderboards where the gap to the leader feels insurmountable."
+      },
+      {
+        "id": "challenges",
+        "role": "Monthly opt-in challenges with branded partners and completion trophies. Challenges create a structured goal that runs parallel to personal training goals, giving users a reason to push further or more frequently than they otherwise would."
+      },
+      {
+        "id": "achievements",
+        "role": "Personal records, milestone badges, and segment rankings are automatically awarded. Each activity has the potential to generate a new achievement, making every run feel like it could be noteworthy."
+      },
+      {
+        "id": "community-groups",
+        "role": "Clubs with shared activity feeds, club leaderboards, and club events. Clubs convert individual training into collective membership, leaving Strava feels like leaving a running group, not uninstalling software."
+      },
+      {
+        "id": "streak",
+        "role": "Weekly activity streak tracks consecutive weeks with at least one logged activity. Lower-friction than a daily streak, which suits the realistic cadence of fitness rather than language learning."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 8,
+      "label": "STRAVA"
+    },
+    "nodes": [
+      {
+        "id": "social-feed",
+        "x": 50,
+        "y": 26
+      },
+      {
+        "id": "streak",
+        "x": 18,
+        "y": 48
+      },
+      {
+        "id": "leaderboards",
+        "x": 50,
+        "y": 48
+      },
+      {
+        "id": "challenges",
+        "x": 82,
+        "y": 48
+      },
+      {
+        "id": "achievements",
+        "x": 28,
+        "y": 72
+      },
+      {
+        "id": "community-groups",
+        "x": 72,
+        "y": 72
+      }
+    ],
+    "connections": [
+      {
+        "from": "social-feed",
+        "to": "achievements",
+        "title": "Achievements broadcast through the feed",
+        "desc": "Personal records, segment trophies, and challenge completions appear in the social feed automatically. The achievement creates content; the feed distributes it.",
+        "effect": "Every achievement becomes a social event. Users who might not check their own trophy case still see others' achievements, which creates ambient awareness of what is possible."
+      },
+      {
+        "from": "social-feed",
+        "to": "challenges",
+        "title": "Feed makes challenge participation visible",
+        "desc": "When a followed athlete joins or completes a challenge, it appears in the feed. This creates social pressure to participate, seeing others complete a challenge is the strongest recruitment mechanism Strava has.",
+        "effect": "Challenge participation compounds organically. Each completion makes more completions likely by surfacing the challenge to people who might not have discovered it."
+      },
+      {
+        "from": "leaderboards",
+        "to": "challenges",
+        "title": "Segments extend challenge motivation",
+        "desc": "Segment leaderboards create permanent competitive benchmarks on specific routes. Monthly challenges add a time-limited competitive layer on top of the permanent segment structure.",
+        "effect": "The combination gives Strava users two independent competitive reasons to push harder on any given route, their personal segment standing and the current challenge progress."
+      },
+      {
+        "from": "leaderboards",
+        "to": "social-feed",
+        "title": "Segment records surface in the feed",
+        "desc": "When a user claims a segment record, it appears in the feed of athletes who have also run that segment. The notification is contextually meaningful, the recipient knows exactly what the achievement required.",
+        "effect": "The segment record notification is far more motivating than a generic 'achievement unlocked' because the recipient understands the specific effort it represents."
+      },
+      {
+        "from": "community-groups",
+        "to": "challenges",
+        "title": "Clubs run their own challenges",
+        "desc": "Club subscribers can create custom challenges visible only to club members. The club challenge creates a sub-community competitive structure that sits inside the broader Strava challenge system.",
+        "effect": "Club-specific challenges give Socializers a reason to engage with the competitive mechanics they would otherwise ignore, because the competition is against people they know."
+      },
+      {
+        "from": "streak",
+        "to": "social-feed",
+        "title": "Weekly streak creates feed content",
+        "desc": "Weekly activity streaks generate milestone notifications at 4, 8, 12, and 26 weeks. These appear in the social feed, creating periodic social visibility for consistent behaviour.",
+        "effect": "The streak converts long-term consistency into shareable moments, rewarding users who are motivated by social recognition rather than competitive ranking."
+      },
+      {
+        "from": "achievements",
+        "to": "community-groups",
+        "title": "Club leaderboards track achievements",
+        "desc": "Club leaderboards rank members by activity distance, elevation, and time within the group. Achievements contribute to a member's club standing, connecting individual recognition to collective identity.",
+        "effect": "Club members who feel they are falling behind the group leaderboard have a social reason to push harder that personal motivation alone would not create."
+      }
+    ]
+  }
+}
