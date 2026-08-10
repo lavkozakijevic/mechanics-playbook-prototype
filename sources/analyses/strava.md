@@ -1,342 +1,276 @@
 # Strava
 
+*Reviewed gold-standard copy. Base: analysis-v2.md. Amendments applied per review of 29 July 2026.*
+
 **ID:** strava
 **Category:** Fitness / Activity Tracking
 **Type:** App
 **Platform analyzed:** iOS
-**Analysis date:** 16 Apr 2026 (Session 1), 20 Apr 2026 (Session 2)
-**Last updated:** 15 May 2026
-**Session state:** First install — new account, free tier throughout both sessions
-
----
+**Analysis date:** 16 April 2026 and 20 April 2026
+**Last updated:** 29 July 2026
+**Session state:** First install, new free account, through onboarding and the first recorded activity (free tier)
+**Sessions used:** App Mechanic: Strava I (16 April 2026); App Mechanics: Strava II (20 April 2026)
 
 ## Overview
 
-Strava is a fitness tracking and social platform supporting 30+ sport types. Users record activities via GPS, share them to a social feed, compete on segment leaderboards, join clubs, and participate in monthly challenges. The app operates on a freemium model — the free tier provides activity recording, social feed access, basic segment data, challenges, and clubs. A subscription unlocks routes, advanced training analysis, segment leaderboards, custom training plans, heat maps, and performance insights.
-
----
+Strava is a fitness and activity tracking app that records sports activities and presents them within a social environment of feeds, followers, clubs, challenges, and segment rankings. Across the two sessions the app primarily asks the user to record activities and to connect those activities to other people through following, kudos, comparison, and shared challenges. A large share of the deeper tracking and mapping features are placed behind a paid subscription.
 
 ## First impression
 
-Onboarding is a multi-screen flow covering: activity type preferences, use-case goals (compete, connect, habit-build, explore, train for event, health maintenance), fitness experience level (beginner to pro), privacy controls overview, data-sharing consent, and a subscription paywall. An interstitial screen mid-onboarding shows "You're in good company — 150+ million active people on Strava are excited to move with you" — an explicit retention prompt within the onboarding to reduce drop-off. The subscription screen appears before the user has seen the app, but can be skipped immediately. Notification opt-in uses a preview of what a notification looks like before the iOS permission dialog. The final onboarding screens prompt adding friends and offer an immediate activity recording prompt.
+Onboarding, as the transcripts show it, opens with an auto-scrolling carousel of four screens describing tracking your active life, making progress toward goals, getting motivation from your people, and route options. Two actions are offered immediately: "Join for free" and "log in." Account creation offers Google, Apple, or email; the email path sends a code and shows an "open email app" button on the code-entry screen.
 
-There is no back button throughout the onboarding — once a screen is advanced, it cannot be revisited.
+Before showing activity value, the app requests a sequence of inputs: a tracking-permission prompt ("allow Strava to track your activity across other companies, apps and websites"), first and last name (with a note that the profile is public by default), birthday ("we'll use this for performance analysis, filtering leaderboards and to keep younger users safe"), gender ("we'll use this to determine which leaderboards you appear on"), activity types from a list the transcript enumerates (run, ride, walk, hike, swim, CrossFit, elliptical, golf, club, kayak, rock climb, row, skate, ski, snowboard, stair stepper, stand up, paddle, surf, weight training, yoga, and other), intended use ("compete with others, connect with other active people, build an exercise habit, explore new places, train for an event or personal goal, or maintain my health"), and a self-rated fitness level (beginner, intermediate, advanced, pro). The narrator notes the onboarding cannot be navigated backward.
 
----
+An interstitial screen mid-onboarding states "you're in good company, 150+ million active people on Strava are excited to move with you." Onboarding also surfaces a subscription screen, a notifications-permission prompt, and a find-friends step before reaching the dashboard. The first mechanic moment after onboarding is the "record an activity" prompt offering "record now using Strava" or connecting a Garmin, Peloton, or other device.
 
 ## Core activity
 
-Users record physical activities (runs, rides, walks, swims, and 30+ other sport types) via the app's GPS tracking, then post them to a social feed where followers can give kudos and comments. Between activities, users explore maps, browse segment leaderboards, join challenges, and monitor their weekly stats and streaks. The social feed, challenges, and segment competition give repetitive physical activity a competitive and social context.
-
----
+The experience centers on recording sports activities and then viewing, sharing, and comparing them within a social layer. Inside the app the user records an activity (choosing from a large set of sport types, optionally adding a route, sensor, or safety beacon), saves it with a name, visibility setting, photos or videos, gear, and a subjective effort rating, and then sees stats, a map, achievements, and sharing options. Outside of recording, the user scrolls a home feed of other athletes' activities, follows people, browses and joins challenges, explores segments and their rankings, and can create or join clubs.
 
 ## Mechanics observed
 
-### Streak (`streak`) · Core
+### Streak · Core · confirmed (presence)
 
 **What was observed:**
-The streak is the first visible element on the dashboard after the onboarding, displayed as a flame icon with a number inside it. At time of first session: 0 weeks. Tapping "View Calendar" opens the full streak view, which is housed in the "You" tab (bottom navigation). This screen shows:
-
-- Current streak in weeks
-- A calendar view of April 2026 with practice days marked
-- Past 12 weeks of activity frequency
-- A "start your streak by logging an activity" prompt with a Record Now button
-
-After completing the first activity (a 44-second test ride), a streak milestone was immediately triggered. The streak mechanic is described as week-based, not day-based — tracking consecutive weeks of activity rather than consecutive days.
-
-The streak display on the home screen carousel has four sliding items: streak (with View Calendar button), instant workouts, suggested goals, and weekly snapshot. The streak is the first of these four.
+On the dashboard, directly under the upgrade button, is "your streak," shown as a flame icon containing a number, reading "0 weeks" in this session. Copy reads "start your streak by logging an activity," with a "View calendar" button and a "record" button beside it. The View calendar screen shows streak activities and the current streak for April 2026, plus performance across the past 12 weeks. The streak is described as measured in weeks.
 
 **How it is presented:**
-Front-loaded on the home screen as the first item in the dashboard carousel. The full calendar view is in the You tab. The streak counter uses a flame icon — a universally recognized streak symbol. The "Record Now" button is embedded directly on the streak card, creating a zero-friction path from seeing the streak to starting an activity.
+Placed at the top of the home dashboard as the first item in a four-item carousel, using a flame icon with an enclosed count.
+
+**Classification basis:**
+The product presents a continuity state ("your streak," weeks on a streak) whose qualifying event is logging an activity, satisfying the Streak core invariant that a maintained state depends on continuity. Presence is asserted from the product's own framing per the operating card's presence standard. The continuity rule (what a missed week does to the state, whether it resets, ends, or is protected) is not observed, because the account had no activity and a zero-week streak. Exclusion checks: this is not classified from the flame icon or the word "streak" alone, since the app also shows a distinct continuity count tied to logging.
 
 **What is notable:**
-The streak is week-based, not day-based. This is a meaningful difference from Insight Timer (consecutive days) and Duolingo-style apps — a week-based streak is more forgiving (one activity anywhere in the week counts) and more appropriate for an exercise app where daily training is not always advisable. No "catch-up" mechanic was described for missed weeks.
+The streak operates on a weekly rather than daily period, which the non-required conditions of the entry permit.
 
 **Screenshot suggestions:**
+The dashboard streak card showing the flame, "0 weeks," and "start your streak by logging an activity," which evidences the continuity state and its qualifying event.
 
-`[Home screen carousel showing the streak card with flame icon, "0 weeks," the View Calendar button, and the Record Now button below]`
-*Documents the streak as the first home screen element and the embedded Record Now CTA.*
-
-`[You tab streak calendar view showing the 12-week history grid, the current month calendar, and the "unlock your full potential" subscription prompt below]`
-*Documents the streak calendar surface and how the subscription paywall is embedded directly below it.*
-
----
-
-### Leaderboards (`leaderboards`) · Core
+### Challenge · Core · confirmed
 
 **What was observed:**
-Segments are named sections of road or trail that any Strava user can ride or run. Each segment has a leaderboard ranking all athletes by their best time on that segment. The following leaderboard types were observed:
-
-**Segment leaderboard (subscription-gated):** Accessing the segment leaderboard from a user's own profile (under the Segments tab → Top 10) shows which segments the user appears in the top 10 of. Tapping on "Best Efforts" opened the paywall — indicating that full segment leaderboard access requires a subscription.
-
-**Local Legend:** A specific leaderboard type described in detail: "where we hold the most overall efforts for the last 90 days." Local Legend status is awarded to the athlete who has completed the most efforts on a given segment in the last 90 days — not the fastest, but the most frequent. This is visible on the Segments tab and was also referenced as a suggestion category in the home screen follow recommendations ("Local Legend near you"). The notification settings include "Lost CR — Lost Rankings when we lose our top place on a leaderboard," confirming leaderboard position changes trigger push notifications.
-
-**Challenge leaderboard:** Within each challenge, a leaderboard shows participant rankings by the challenge metric (pace, distance, steps). The 100,000 Steps Challenge was used as an example — its leaderboard showed overall rankings with some participants listed as having nearly one billion steps logged.
-
-**Group Challenge leaderboard:** Described as a feature of custom group challenges ("active tab — design your own challenge — rally your crew with a custom group challenge"), which requires a subscription.
+Multiple named challenges appear under "suggested challenges" on the dashboard and in a dedicated Groups > Challenges area. Examples the transcript names: "April 400 minute run" ("log 400 minutes this April to unlock a free two week Runna trial," more than 1,128,000 athletes joined); a "Hoka Speedgoat 7 Vert" channel challenge (more than 431,000 joined, a reward stated but not listed); "April 5000x Brooks challenge" ("Complete the first 5km run from April 1st to April 30th, 2026," digital trophy, more than 1,175,000 joined); "April 10 days active challenge" ("get 10 days in a row," digital trophy, more than 1 million joined); "April 180 minute sweat challenge" (digital trophy, more than 837,000 joined); plus further challenges for 20 hours, swimming, flexibility, 100,000 steps, half a marathon, a 10,000 challenge, and elevation. Joining is one tap ("challenge join"). A challenge's own page shows days left, the organizing club, challenge details, what is earned, and a leaderboard. The transcript also notes "create a group challenge" and "design your own challenge," both of which open the paywall.
 
 **How it is presented:**
-Segment leaderboards are accessed from the Segments tab on the user's profile and from segment explore pages. Challenge leaderboards are on each challenge's detail page. Local Legend status is surfaced in the follow suggestions on the home feed and in the Segments tab. The notification system pushes alerts when a user loses their top ranking.
+Surfaced on the dashboard as a scrollable set and given a dedicated tab in the Groups area, filterable by activity type, elevation gain, moving time, and distance. Featured challenges show participant counts.
+
+**Classification basis:**
+Each named challenge defines a success condition (for example, complete a 5km run, log 400 minutes, 10 days active) and a boundary (April 1 to April 30, 2026), and the product maintains join and completion states with a differential outcome (a digital trophy or unlock on completion). This satisfies the Challenge core invariant of a bounded objective instance that can conclude completed or not completed. Exclusion checks: these are not mere targets without a bounded instance, and completion is tracked, so the "target without a bounded objective" exclusion does not apply. The "April 400 minute run" is a rewarded challenge whose reward is a partner-product trial; the promotion of that partner product is classified separately under Advertisement Exposure.
 
 **What is notable:**
-The Local Legend mechanic reframes leaderboard competition from "who is fastest" to "who is most consistent" — it is a frequency leaderboard rather than a performance leaderboard. This means a recreational athlete can hold Local Legend status on a segment that elite athletes hold the speed record on. It opens leaderboard competition to a much broader user population. The 90-day rolling window means Local Legend status is always contestable.
+Many challenges are organized with named commercial partners (Runna, Hoka, Brooks), and completion rewards are frequently "digital trophies."
 
 **Screenshot suggestions:**
+The "suggested challenges" dashboard section showing several challenges with participant counts, which evidences the bounded objective instances and their join state; a single challenge page showing days left and its leaderboard.
 
-`[Segment explore page showing a named segment with its Local Legend holder, total effort count, and the ability to filter by length, elevation, and surface]`
-*Documents the segment leaderboard structure and the Local Legend mechanic as a distinct leaderboard type.*
-
-`[Challenge leaderboard for the 100,000 Steps Challenge showing ranked athletes with step counts and the metric-based ranking structure]`
-*Documents the challenge leaderboard as a named metric / user position comparison mechanic.*
-
----
-
-### Challenges (`challenges`) · Core
+### Social Feed · Core · confirmed
 
 **What was observed:**
-Challenges are the primary opt-in competitive mechanic in Strava. They appear in multiple surfaces: as "suggested challenges" on the home dashboard with participant counts, and in the Groups tab under the Challenges section.
-
-**Challenges observed with details:**
-- April 400 Minute Run: "Log 400 minutes this April to unlock a free two-week Runna trial." 1,128,000+ athletes joined. Reward: free trial of a partner app (Runna).
-- Hoka Speedgoat 7 Vert Channel Challenge: 431,000+ athletes joined. Reward not listed.
-- April 5000x Brooks Challenge: 1,175,000+ athletes joined. Reward: digital trophy.
-- April 10 Days Active Challenge: 1,000,000+ athletes joined. Reward: digital trophy.
-- April 180 Minute Sweat Challenge: 837,000+ athletes joined. Reward: digital trophy.
-- 11 additional challenges described as offering digital trophies for various goals: 20 hours swimming, flexibility, 100,000 steps, half marathon, 10,000 steps challenge, elevation challenge, and others.
-- 100,000 Steps Challenge: described in detail, with its own leaderboard.
-
-Joining a challenge requires only tapping "Join" — no setup, no cost, no subscription. Challenges are filterable by activity type, elevation gain, moving time, and distance.
-
-**Partner challenges** were also observed: Hoka, Brooks, and Runna are named as challenge partners. The Runna challenge specifically delivers a partner app free trial as the completion reward rather than a Strava-native digital trophy.
-
-**Group challenge creation** requires a subscription ("design your own challenge — rally your crew with a custom group challenge — start a free trial").
+The lower portion of the home dashboard presents a stream headed "recommended for you, check out these popular Strava members to stay motivated," followed by other athletes' activities: a person's run with route and photos, distance (the transcript cites almost 34 kilometers by bicycle), elevation gain, time, and achievements; another athlete's shared activity including a video; and further activities from other users as the user scrolls. Each item allows giving kudos, leaving a comment, or sharing, and shows how many kudos and comments others left, and how many achievements each athlete holds. A separate "home or club feed" is referenced when muting an activity ("do not publish to home or club feed").
 
 **How it is presented:**
-The home dashboard surfaced three specific challenges with participant counts and reward descriptions before the user had navigated anywhere. The full Challenges area is in the Groups tab. Each challenge has a detail page with days remaining, organizing club, challenge requirements, leaderboard, and description.
+A vertically scrolling stream on the home dashboard mixing recommended members with followed and other users' activity items, each item carrying athlete identity, activity data, media, and kudos and comment counts.
+
+**Classification basis:**
+The stream aggregates activity items attributed to multiple identifiable social actors, selected and ordered for the viewer, and able to change as new activity arrives, satisfying the Social Feed core invariant. The "recommended for you" members place it partly in the social recommendation variant. Exclusion checks: it is not the viewer's own activity log alone (items from other actors enter the stream), and it is not a leaderboard (items are discrete actor-attributed activities, not ordered comparative positions).
 
 **What is notable:**
-Challenge participant counts in the millions (1,175,000 for the Brooks challenge three weeks into April) are displayed on the home dashboard before the user joins any challenge. This serves as social proof at scale. The Runna challenge reward (a free trial of a companion app) is a cross-promotional mechanic that uses the challenge completion as an acquisition channel for a separate product. Digital trophies are the standard reward for most challenges and feed directly into the user's trophy case.
+Feed items are automatically generated from recorded activities rather than composed as text posts, and the top of the feed recommends athletes the viewer does not yet follow.
 
 **Screenshot suggestions:**
+The dashboard feed showing an athlete's activity with route, photo, kudos and comment counts, which evidences multi-actor attributed items in an ordered stream.
 
-`[Home dashboard showing three simultaneous challenges with participant counts (1.1M, 431K, 1.175M) and reward labels (free Runna trial, digital trophy)]`
-*Documents the challenge discovery surface, participant scale framing, and the variety of reward types.*
-
-`[Challenge detail page for one challenge showing days remaining, organizing club, requirements, and the challenge leaderboard]`
-*Documents the challenge structure: opt-in, visible endpoint, named reward, and embedded leaderboard.*
-
----
-
-### Achievements (`achievements`) · Core
+### Leaderboard · Supporting · confirmed
 
 **What was observed:**
-The Trophy Case is a named, permanent achievement display accessible from the user's profile. Trophies are organized into two types:
-
-**Activity milestones:** Named trophies for cumulative activity counts — First Activity, Third Activity, Fifth Activity, Tenth Activity, scaling up to 1,000 Activity. After completing the first test activity (44 seconds), the "First Activity" trophy was immediately awarded. A popup appeared: "Welcome to the team — kudos on logging your first Strava activity." The user could "View Activity" or "View in Trophy Case." Entering the Trophy Case showed the first trophy earned alongside the future milestone markers.
-
-**Challenge digital trophies:** Each completed challenge earns a digital trophy that is added to the Trophy Case. These are named after the challenge (e.g., "April 5000x Brooks Challenge") and are permanent once earned.
-
-**Personal Records (PRs):** When completing an activity that sets a new personal record on a metric (longest ride, fastest pace, etc.), the activity is labeled with a "PR" badge. In the session: "Our longest ride ever. We can then share this activity" with a pre-branded visual including a "PR — Personal Record" badge.
-
-**Sharing:** Achievement shares produce pre-branded visuals with Strava's design system. The transcript noted these share visuals are designed to look good and carry Strava branding, making sharing achievements also a form of Strava marketing.
+Within segments, the transcript describes "local legends where we hold the most overall efforts for the last 90 days" and "we can see who is best there, who are the people who are doing great in these segments locally," plus a "top 10" view of segments where the user places in the top ten, and "CRs, here you'll find the segments where you hold the best overall time." Within challenges, "we can also see the leaderboard for any activity, we can see overall for those who are participating here, we can see their pace, the distance that they've covered," and for a 100,000 steps challenge, "the rank of any of these athletes, some of which have almost a billion steps." A push-notification setting references "Lost CR, Lost Ratings when we lose our top place on a leaderboard."
 
 **How it is presented:**
-Trophy Case is on the user's profile under the activities section. It is also linked from the home screen after completing an activity. The first trophy popup appears immediately on saving the first activity. The notification settings include "Lost CR — Lost Rankings" as a notification type, suggesting CRs (Course Records — the all-time best on a segment) are tracked as permanent named achievements.
+Ordered lists within segment views and within individual challenge pages, showing participants with a comparison measure (efforts, pace, distance, steps).
+
+**Classification basis:**
+The product orders at least two comparable entities by a defined measure and presents their relative positions within a defined scope (a segment locally, a challenge event), satisfying the Leaderboard core invariant. Observed variants include local, segment, and event leaderboards. Exclusion checks: these are ordered comparisons of multiple entities, not a single value, and not a relevance-ordered feed.
 
 **What is notable:**
-The Trophy Case explicitly scaffolds future achievement targets — showing milestone markers up to 1,000 activities when the user is at their first. This turns the trophy case into a long-term visible goal map. The PR badge on activities is an in-feed achievement signal visible to followers when they see the activity in their feed.
+Several leaderboard-adjacent views (for example, segment leaderboards and best efforts) open the paywall, so the full extent of leaderboard access on the free tier was not reached in this session.
 
 **Screenshot suggestions:**
+A challenge leaderboard showing ranked athletes with their measure; a segment "local legends" list, each evidencing multiple entities in comparative order.
 
-`[Trophy Case showing the First Activity trophy earned alongside the future milestone markers (3rd, 5th, 10th, 1000th activity) as a visible progression ladder]`
-*Documents the achievement ladder structure and how future targets are displayed alongside current trophies.*
-
-`[First activity completion popup showing "Welcome to the team — kudos on logging your first Strava activity" with View Trophy Case button]`
-*Documents the achievement reward moment at the point of completing a first action.*
-
----
-
-### Clans-Guilds (`clans-guilds`) · Supporting
+### Comparative Rank · Supporting · strongly supported
 
 **What was observed:**
-Clubs are groups with structured membership, events, and activity feeds. The session covered both joining existing clubs and creating a new one.
-
-**Club structure:** Each club has a sport type, tags (just for fun, brand, team, coach-led, creator, event/race, local community, fundraising, identity group), a name, description, cover photo, and privacy setting (public — anyone can join; private — admin-approved). Clubs have: an overview tab, activities tab, stats tab, posts tab, and events tab.
-
-**Creating a club:** The user created a club mid-session. After creation, a congratulations popup appeared with next steps: "invite your community, write a post, create an event — it's your club." Events can be created within a club, with settings for: sport type, recurrence, starting location, virtual or in-person, description, discoverability, event type (social, workout, competition), pace range, attendance permission, and route.
-
-**Club content:** Clubs have their own activity feed where members' activities appear. Members can share activities specifically to their club feed ("mute activity — do not publish to home or club feed" is a toggle when posting an activity). When sharing an activity, there is a specific "share to club" option.
-
-**Nearby clubs:** The clubs discovery section showed dozens of local running and cycling clubs with member counts and sport types.
+The app communicates the user's own position within comparison sets: "top 10, where we are top 10, in which of these segments are we the top 10," "local legends where we hold the most overall efforts for the last 90 days," and CRs as "segments where you hold the best overall time." The "Lost CR, Lost Ratings when we lose our top place on a leaderboard" notification communicates a change in the user's standing.
 
 **How it is presented:**
-Clubs are in the Groups tab alongside Challenges. Club creation is front-loaded at the top of the Clubs view. The Strava Club (the platform's official club) is shown with "almost 7 million athletes." Nearby clubs are surfaced based on location.
+As user-facing standings and titles (top 10, Local Legend, CR holder) tied to segments and 90-day windows.
 
-**What is notable:**
-The event creation feature within clubs is highly structured — pace range, event type (social vs. competition vs. workout), discoverability settings. This makes clubs a platform for organizing real-world group activities, not just an online community. The session noted: "Okay, and we have an upcoming event for this group that we've built." Club creation and the full challenge design feature both have subscription nudges, though basic club creation was completed for free.
+**Classification basis:**
+The product assigns the relevant entity a position relative to others within a defined comparison set and scope (a segment, the last 90 days), satisfying the Comparative Rank invariant, where the position can change due to others' results (the "lost CR" case). Leaderboard and Comparative Rank co-occur here as distinct observable behaviors: the challenge and segment views present full ordered lists (Leaderboard), while the top-10, Local Legend, and CR standings communicate the user's own position (Comparative Rank), which the entries treat as separable ("a rank may be shown without exposing the leaderboard"). Exclusion checks: these are relative positions dependent on other entities, not absolute tiers or personal-only comparisons.
 
 **Screenshot suggestions:**
+A segment "Local Legend" or "top 10" view communicating the user's own position, which evidences a rank derived by comparison with others.
 
-`[Club creation flow showing the tag selection screen (just for fun, brand, team, coach-led, local community, identity group) and the public/private toggle]`
-*Documents the club taxonomy and the setup options that define the club's identity.*
-
-`[Club event creation screen showing sport type, recurrence, in-person/virtual toggle, pace range, and event type (social/workout/competition)]`
-*Documents the structured event organization capability within clubs.*
-
----
-
-### Social Feed (`social-feed`) · Core
+### Milestone · Supporting · strongly supported
 
 **What was observed:**
-The home feed is a stream of activities from followed users, including: activity name and type, map of the route, photos and videos (up to 30 seconds for video), achievement badges (PR labels), statistics (distance, time, elevation), kudos count, and comments. The feed is visible without a subscription.
-
-**Activity post elements:** When posting an activity, the user can add photos and videos, tag others with @ mentions, add activity tags (race, workout, recovery, commute, with pet, with kid), select perceived effort (easy, moderate, max), and choose visibility (everyone, followers only, only me). Muting an activity prevents it from appearing in the home or club feed while keeping it on the profile.
-
-**Kudos and comments:** Followers can give kudos (a single-tap appreciation mechanic) and leave comments on activities. These generate push notifications. The notification settings include separate toggles for "Kudos and likes," "Comments," "Comments on others' activities," and "Mentions on activities."
-
-**Sharing:** Activities can be shared to Instagram, WhatsApp, iMessage, Strava message, or via copy link. Pre-branded share designs are generated automatically with the activity's key stats and Strava's visual identity. When sharing, if others participated in the activity but didn't record it themselves, the user can tag them via "Add others" — or invite them to Strava if they don't have the app.
-
-**Fan Favorites and follow suggestions:** The home screen surfaces recommended people to follow, categorized as "Fan Favorites on Strava" (with a checkmark badge) and "Local Legend near you." Fan Favorites appear to be notable or verified athletes.
+The profile contains a "trophy case" showing "first activity, third activity, fifth activity, tenth activity," and the transcript states the trophies "go up to a thousand activity" and describes them as "milestones that we might achieve with Strava." After saving the first activity, a pop-up reads "welcome to the team [name], kudos on logging your first Strava activity," with options to "view activity" or "view in trophy case," and the narrator describes receiving "this first trophy for completing this first achievement of ours, this first milestone."
 
 **How it is presented:**
-The social feed occupies the majority of the home screen below the dashboard carousel. The feed scrolls indefinitely. Activity posts from followed users include visual maps and photos making them visually distinctive from text-based social feeds.
+A dedicated trophy case at the bottom of the profile, with a "view all" listing thresholds up to one thousand activities.
 
-**What is notable:**
-The "Add others" mechanic on activity posts is the smoothest friend-invitation flow observed across the library. If a user ran with a friend who doesn't have Strava, completing the activity and tapping "Add others" triggers an invitation to that person — contextually, at the moment of activity completion, framed as including them in the activity record rather than a cold "invite a friend" prompt. The transcript described it: "it's not at all annoying, it's not at all pushy — the way relationship with friends is set in Strava is very, very, very nice and very respectful."
+**Classification basis:**
+The trophies mark defined points (1st, 3rd, 5th, 10th, up to 1,000th activity) within the broader ongoing measure of accumulated activity count, and reaching a point produces a recorded trophy state separate from ordinary counting, satisfying the Milestone core invariant (cumulative and recorded variants). Because each crossing is preserved as an attained trophy, the entries note Achievement may co-apply to the same crossings; Milestone is used here as the more precise label because the trophies are explicitly positions along one activity-count progression. Exclusion checks: the trophies are tied to positions within a broader progression rather than to unrelated standalone criteria.
 
 **Screenshot suggestions:**
+The trophy case showing "first activity, third activity, fifth activity, tenth activity," which evidences recognized thresholds within the activity-count progression.
 
-`[Home feed showing two activity posts with maps, photos, achievement badges, kudos counts, and comment options — including a PR badge visible on one]`
-*Documents the social feed format with maps, achievement signals, and interaction mechanics in a single view.*
-
-`["Add others" screen appearing after activity save, showing the contextual framing for inviting participants who don't have Strava]`
-*Documents the friend invitation mechanic embedded in the activity-posting flow.*
-
----
-
-### Daily-Weekly Quests (`daily-weekly-quests`) · Supporting
+### Achievement · Supporting · strongly supported
 
 **What was observed:**
-The weekly snapshot on the home dashboard shows: distance covered this week, time exercised this week, and elevation gain this week. These reset on Mondays. The transcript noted the Monday reset creates a misleading state: "everybody shows zero on Monday morning — this gives the feeling that nobody's active on this app while in fact they are."
-
-Suggested Goals on the home screen carousel allow users to set a target number of activities per week. This is a user-defined recurring weekly target, not a Strava-assigned quest. However, its structure — a defined target, a weekly cadence, and a progress display — maps to the quest mechanic pattern.
-
-Instant Workouts on the home carousel are suggested activity templates (e.g., "Brisk Walk — Keep your body moving with a brisk walk, maintain activity levels, 30 minutes"). These are not assigned tasks with rewards but are starting-point suggestions that could direct a user toward a specific activity.
+After the first saved activity, a "PR personal record" badge appears, described as "new best effort, your longest ride ever." The first-activity recognition ("kudos on logging your first Strava activity") and its trophy are recorded to the trophy case. Completing named challenges grants "digital trophies." The profile lists achievement counts on other athletes (for example "10 silver," "53 trophies, some gold, some bronze").
 
 **How it is presented:**
-Weekly snapshot and suggested goals are on the home screen carousel. Progress is tracked in the You tab. The Monday reset is the cadence marker for the weekly quest structure.
+A PR badge attached to the completed activity, a celebratory "nice work" animation and welcome pop-up on the first activity, and digital-trophy rewards attached to challenge completion.
+
+**Classification basis:**
+The PR "personal record / longest ride ever" is a discrete attained state recognized and marked separately from the underlying activity data, satisfying the Achievement invariant (personal-benchmark recognition). Challenge-completion digital trophies are recorded attainments the Challenge entry notes may also create an achievement. This entry is kept distinct from Milestone: the Milestone entry covers the activity-count trophy case, while Achievement covers the personal-record and challenge-completion recognitions. Exclusion checks: these are recorded recognitions of satisfied criteria, not mere progress displays or level states.
 
 **What is notable:**
-The weekly goal is user-set (not Strava-assigned), which means it functions as a self-directed quest rather than a platform-directed one. The evidence is sufficient to log this mechanic but the development level is shallow relative to apps like FC Mobile or Solitaire Grand Harvest where quests are system-assigned and reward-bearing.
+The personal record is recognized against the user's own prior results (a personal-benchmark form) rather than against other users.
 
----
+**Screenshot suggestions:**
+The saved activity showing the "PR personal record, your longest ride ever" badge, which evidences a recorded attained state distinct from the raw activity stats.
 
-### XP Leveling (`xp-leveling`) · Shallow
+### Group Membership · Supporting · strongly supported (presence)
 
 **What was observed:**
-Activity milestones in the Trophy Case function as a named level structure: First Activity → Third → Fifth → Tenth → (implied continuation toward 1,000 Activity). Each milestone unlocks a named trophy. The transcript described seeing the full ladder "up to a thousand activity" when entering the trophy case after the first trophy was earned.
+"Clubs" appear as a tab in search and as a dedicated area under Groups. The transcript describes "a list of clubs available in our vicinity," searchable by location and sport type, "dozens if not hundreds." The main "Strava Club" is shown with "almost 7 million athletes." Creating a club walks through five steps: choosing club sport, choosing up to three descriptive tags ("just for fun, brand, organization, team, employee group, coach led, creator, event or race, local community, fundraising, tips and talk, identity group, something else"), customizing name, photo, and description, setting the club private or public ("if it is private, people must request permission to join your club and only admins can approve new members"), and setting location. After creation the club page shows sport, member count, type, insights, events, overviews, activities, stats, and posts. The user can create club events with attendance controls.
 
-The "Your profile is 80% complete" progress indicator on the profile page also functions as a lightweight level-like display — a named percentage with a specific next action required to advance it.
+**How it is presented:**
+A browsable and searchable directory of persistent clubs plus a creation flow, with a member roster count, public or private state, and admin approval for private clubs.
 
-No XP accumulation counter with numeric accrual and threshold crossing was described. The milestone structure exists (named thresholds with named rewards) but the accumulation mechanic is implicit (count of activities logged) rather than explicitly displayed as an XP bar.
+**Classification basis:**
+The product maintains a persistent group with a membership relationship, and membership changes observable conditions (who can join, who can post to the club feed, admin approval for private clubs), satisfying the Group Membership core invariant. Sibling resolution: Community Space, Group Membership, and Clan / Guild are mutually exclusive. Applying the decision ladder, the transcript establishes maintained membership and governance (roster, public or private, admin approval) but does not clearly establish a collective group-owned state that member activity changes (the club page mentions "stats" and "activities," but whether these are a collective aggregate the members' activity alters, versus a list of members' individual activities, is not established). Absent an observed collective-owned state, the ladder selects Group Membership over Clan / Guild, and the presence of governance rules it out of Community Space. Exclusion checks per the Clan / Guild entry were applied: "maintained membership and governance alone selects Group Membership."
 
-Logged at Shallow because the trophy case milestone ladder confirms named thresholds and named rewards at those thresholds, but the explicit XP accumulation display is absent.
+**What is notable:**
+Clubs host events and posts and can be public or private with admin approval, and group challenge creation is placed behind the paywall.
 
----
+**Screenshot suggestions:**
+The club page showing member count, public or private state, and events, which evidences a maintained membership relationship and governance; the private-versus-public step in club creation.
 
-## Mechanics not observed
+### Advertisement Exposure · Supporting · strongly supported
 
-**Variable Reward:** No pull, spin, or pack-open mechanic with unknown outcome was described.
+**What was observed:**
+Strava presents several promotional units for offerings beyond the current activity. The "April 400 minute run" challenge cross-promotes Runna, an app the narrator notes "Strava is cross promoting," with completion unlocking a "free two week Runna trial." In settings under training plans, "Runna by Strava" is promoted with plans that, when tapped, take the user to the App Store listing for Runna, the button carrying Runna's logo. Also in settings, a promotion reads "Apple Fitness+, get up to two free months of Apple Fitness+," leading to a redeem flow ("up to two months free, then $9.99 per month"). Partner challenges name commercial partners (Hoka, Brooks). Strava's own subscription is promoted through a persistent orange "upgrade" button centered at the top of the dashboard, recurring subscription cards ("better habits, smarter training, steady progress"), and a settings banner ("up to 60% in savings, Strava Run up to 60% off, start with a free four week trial").
 
-**Set Collection:** No named sets with defined membership and completion rewards were described. The Trophy Case collects trophies but they are individual named achievements, not organized into named groups with a set-completion reward.
+**How it is presented:**
+As cross-promotion cards, settings entries with partner logos, partner-named challenges, and a persistent house upgrade button and recurring subscription cards.
 
-**Season Pass:** No dual-tier advancement track was described. Challenges are free-standing opt-in events, not a progression track with free and paid tiers.
+**Classification basis:**
+Each unit's primary function is to promote a separate offering (Runna, Apple Fitness+, partner brands) or the product's own paid tier, distinguishable from the surrounding activity, satisfying the Advertisement Exposure invariant. The Runna and Apple Fitness+ placements are partner or third-party house-adjacent promotions; the subscription promos are house advertisement and upsell. Exclusion checks: per the entry, a paywall is not classified as advertisement merely for containing a purchase offer, so the classification rests on the distinct promotional units (Runna, Apple Fitness+, partner-named challenges, and the "60% off" and recurring subscription promo cards) rather than on the access restriction itself. No reward here is conditioned on viewing an advertisement, so Rewarded Advertisement does not apply (the Runna trial is conditioned on completing a challenge, not on ad engagement).
 
-**Piggy Bank / Energy-Lives / Ads / Gifting / Daily Login Reward:** None observed.
+**What is notable:**
+The app cross-promotes both a related running app (Runna) and a competing platform's service (Apple Fitness+); the narrator explicitly asks why Strava promotes Apple Fitness+, and the transcript does not resolve it.
 
----
+**Screenshot suggestions:**
+The settings Apple Fitness+ promotion and the Runna training-plans entry, each evidencing a distinct promotional unit for a separate offering.
 
-## How mechanics connect
+## Observed behaviors without a library label
 
-**Challenges feed the Trophy Case.** Completing a challenge earns a digital trophy that is permanently added to the Trophy Case. This makes the challenges mechanic a direct input to the achievements mechanic — every challenge joined is a potential trophy, making the Trophy Case a history of all challenges completed.
-
-**The social feed amplifies achievement signals.** When a user sets a PR, the PR badge appears on the activity in the feed, making the achievement visible to all followers without any sharing action by the user. This passive achievement broadcasting makes the feed an achievement display surface as well as an activity stream.
-
-**Segments connect the social feed, leaderboards, and challenges.** Segment completion data appears in activity posts in the feed (showing achievement counts per activity). Segment leaderboards create local competition. Local Legend status appears in the follow suggestions. The notification system alerts users when they lose a segment ranking. Segments are thus the connective tissue between the social feed (showing achievements), leaderboards (ranking by segment performance), and the achievement system (CR badges).
-
-**Streaks drive weekly activity frequency, challenges drive variety.** The streak asks for activity each week. Challenges provide specific targets and variety within those weekly activities. A user maintaining a streak while participating in an April running challenge and an elevation challenge is simultaneously progressing three separate mechanic tracks with the same activities.
-
-**The "Add others" mechanic turns activity completion into a friend acquisition moment.** Posting an activity and using "Add others" to tag non-Strava participants converts activity completion into a Strava invitation, embedding growth mechanics into the core activity loop at its most natural moment.
-
----
-
-## Session rhythm
-
-**Session trigger:** Streak (weekly cadence), challenges (monthly deadlines, visible countdowns), social feed (activity from followed users, kudos notifications), segment ranking alerts (push notification when a ranking is lost).
-
-**Session structure during activity:** Open app → select sport type → optionally add route or beacon → start recording → GPS tracking runs in background → finish → save activity → add photos/tags/notes → post to feed → receive kudos notifications.
-
-**Session structure between activities:** Open app → check home feed for friend activity → give kudos → check challenge progress → browse segments → check weekly stats.
-
-**Monday reset effect:** The weekly stats hard-reset on Monday morning creates a moment where the app feels empty — "nobody's active" — which the transcript identified as a UX issue that could discourage Monday use. This is the opposite of the intended streak urgency effect.
-
----
-
-## Monetization observed
-
-| Product | Price | What it delivers |
-|---|---|---|
-| Strava subscription (annual, in-app) | $79.99/year | Routes, segment leaderboards, advanced training analysis, performance insights, heat maps (weekly/nightly/personal), 3D maps, custom training plans, training log, relative effort, group challenge creation, route building, best efforts, subscriber-only stat maps |
-| Strava subscription (annual, web) | €49.99/year | Same as above — significantly cheaper; the price difference was not communicated on any in-app paywall screen |
-| Strava + Runna (annual) | $149.99/year | Everything in Strava subscription + Runna training plan integration |
-| Apple Fitness+ (promoted in-app) | Free for up to 2 months via Strava promotion, then $9.99/month | Apple Fitness+ access — promoted within Strava settings as a partner offer |
-
-The web vs. in-app pricing discrepancy ($79.99 vs. €49.99) was noted as undisclosed: "this difference in pricing did not appear and was not communicated to us in any way on the paywall." The subscription CTA button on the routes paywall was labeled "Start Free Trial" and visually de-emphasized the "Pay in App" option, which processes through the App Store at the higher price.
-
----
-
-## What stood out
-
-1. **Local Legend reframes leaderboard competition from speed to consistency.** Holding Local Legend status requires the most efforts on a segment in the last 90 days — not the fastest time. This makes leaderboard competition accessible to athletes who will never be the fastest on a segment but can be the most dedicated. It also makes Local Legend status perpetually contestable and creates a distinct motivation type (volume) alongside the existing CR (speed) motivation.
-
-2. **The "Add others" post-activity mechanic is the smoothest referral prompt observed in the library.** Framing inviting a non-Strava friend as "adding them to your activity record" is contextually appropriate, non-pushy, and timed at the moment the user is most engaged (just completed an activity). The transcript noted it explicitly as "very, very, very nice and very respectful" compared to typical friend-addition mechanics.
-
-3. **The subscription pricing is materially cheaper on the web than in the app, and this is not disclosed in-app.** $79.99/year through the App Store vs. €49.99/year through the web represents a significant difference. The paywall's "Start Free Trial" button directed users to the web checkout (avoiding Apple's 30% fee), while "Pay in App" appeared as de-emphasized text. The pricing differential itself was invisible in the UI.
-
-4. **The Monday reset makes the social feed feel empty at the start of every week.** Weekly stats for all users reset to zero on Monday morning — meaning a user who opens the app Monday sees everyone at 0 km, 0 hours, 0 m elevation for "this week." The transcript identified this as making the app feel unused when it is in fact heavily used, noting it could undermine Monday engagement.
-
----
-
-## Analysis notes
-
-Two sessions. Session 1 covered onboarding in full (first install to home screen). Session 2 covered the full app: dashboard mechanics, user profile and trophy case, segments, maps, the recording flow, activity posting, and the Groups tab (Challenges and Clubs). One activity was recorded during the session (a 44-second test ride), which triggered the First Activity trophy and allowed the post-activity flow to be described in detail. The subscription paywall appeared across multiple surfaces: during onboarding, when accessing routes, when accessing best efforts, in the You tab, in the profile completion flow, and after completing the first activity. The Runna partnership (Strava owns or is closely affiliated with Runna based on the in-app integration depth) was not confirmed — the transcript noted "they might be owned by Strava, but I'm not sure."
-
----
-
-## Category context
-
-No explicit comparisons to other fitness apps were made in the transcripts. Duolingo's daily goal-setting prompt was referenced during onboarding analysis by the narrator.
-
----
+- Following and followers. The app maintains a directional follow relationship (follow suggestions, fan favorites, follower and following counts, "continue without adding anyone"). Following is a one-directional relationship rather than membership in a shared group entity, and matches no library entry after checking Group Membership (which excludes following).
+- Suggested weekly goal. The dashboard offers a "suggested goal" where the user sets "how many activities per week you want completed." The transcript does not show whether the system issues this as a tracked, refreshing weekly objective instance with a completion state, so it is not confidently classified. It would match Challenge or Daily / Weekly Quests only if the app were observed to track completion and refresh the instance each week; the session did not show this.
+- Weekly snapshot and Monday reset. The dashboard "weekly snapshot" (distance, time, elevation) and profile "this week" stats reset on Monday. This is a scheduled reset behavior rather than a distinct library mechanic; it is treated under the behavioral interpretation section.
+- Comments. Leaving and viewing comments on feed activities is standard social commentary and matches no library entry on its own.
 
 ## Unrecognized mechanics
 
-### `kudos`
-**What was observed:** Kudos is Strava's single-tap appreciation mechanic for activities posted to the feed. Followers tap a clapping hands icon on an activity post to give kudos. The activity shows a running kudos count. Giving kudos generates a push notification to the activity poster ("Kudos and likes" is a named notification category in settings). Kudos requires no text and no reciprocal action — it is a one-tap acknowledgment. It appears on every activity post in the feed and is described as the primary social interaction unit ("give and receive kudos, share encouragement and spark your motivation" in the onboarding).
-**Why it does not map to an existing mechanic:** Not `gifting` — no item or currency is transferred; kudos is a signal, not a resource. Not `social-feed` — kudos is an interaction mechanic that operates on top of the feed, not the feed itself. Not `achievements` — receiving kudos does not unlock a named badge. Kudos is a frictionless social affirmation mechanic: lower commitment than a comment, more personal than a like count, specifically designed for the fitness context where completing an activity deserves acknowledgment rather than evaluation. It creates a social reward for posting activities that is not available if activities are kept private.
-**Worth adding to library:** Yes — the kudos mechanic (frictionless, non-evaluative, activity-specific affirmation) is distinct from generic "likes" in social platforms and is a deliberate fitness social mechanic worth naming.
+- `Kudos`. A one-tap approval reaction on another athlete's activity, with visible kudos counts, and a "Lost your top place" style social loop separate from comments. It maps to no existing library entry: it is not Gifting (no product-defined benefit changes the recipient's product state). Worth adding to library: Possibly.
+- `Profile completion meter`. A "your profile is 80% complete" badge that prompts the user to finish steps such as adding a photo, persisting until steps are done ("the badge stays there because we didn't change anything"). It maps to no existing entry (it is not Set Collection, which excludes task checklists, and not Milestone). Worth adding to library: Possibly.
+- `Gear usage tracking with threshold alert`. Adding shoes or a bike and setting a distance ("notify me when I have reached, for example, 700 kilometers," selectable from 400 to 1,200) at which the app notifies the user. It maps to no existing entry. Worth adding to library: Possibly.
 
-### `gear-tracking`
-**What was observed:** Users can register physical gear (shoes or bikes) in Strava and associate it with recorded activities. For each gear item, the user specifies: type (bike or shoe), brand (hundreds of options for shoes), model, nickname, notes, and a distance notification threshold. The observed example: "notify me when I have reached 700 kilometers" with a selectable range of 400 to 1,200 km for shoes. When adding a new activity, existing gear can be selected or new gear added directly in the post-activity flow without leaving it. Gear tracks cumulative distance across all associated activities and alerts the user when the threshold is reached.
-**Why it does not map to an existing mechanic:** Not `achievements` — gear tracking is a maintenance alert system, not a named reward marker. Not `daily-weekly-quests` — the mileage threshold is user-set and open-ended, not a recurring reset task. This is a physical-equipment lifecycle management mechanic embedded in an activity tracking app: it turns the cumulative mileage data generated by activity recording into a practical utility (when to replace shoes/tires) with a personalized notification trigger.
-**Worth adding to library:** Possibly — gear lifecycle tracking with user-defined alert thresholds is a pattern in endurance sports apps (Garmin, TrainingPeaks) worth naming as a category-level mechanic for fitness platforms.
+## Locked or gated mechanics
 
-### `activity-privacy-layering`
-**What was observed:** Strava provides granular control over who can see each activity, with options set at the time of posting: Everyone, Followers Only, or Only Me. Additionally, "Mute Activity" prevents the activity from appearing in the home feed or club feeds while keeping it visible on the user's profile. "Hidden Details" within an activity allow specific stats (calories, speed, start time) to be hidden from viewers. The start and end points of activities are hidden by default for all users ("your safety on Strava — will hide the start and end of your activities by default" in onboarding). 12 privacy controls are described as customizable in settings. Private profiles prevent followers from seeing who that user follows. Activities can be tagged as a "race, workout, recovery, commute, with pet, with kid" without affecting visibility.
-**Why it does not map to an existing mechanic:** Privacy controls are a product feature, not an engagement mechanic. However, the granularity of privacy layering in Strava (activity-level, stat-level, location-level, identity-level) is a design pattern worth noting for fitness apps where personal safety, competitive intelligence, and social presentation all create distinct privacy needs. The default start/end hiding behavior is a notable safety-by-default choice not seen in other apps in this library.
-**Worth adding to library:** No — this is a product feature. Worth noting in the analysis but not a mechanic.
+Observed to exist but not reachable on the free tier this session, each opening the subscription paywall:
 
-### `hard-currency` (Strava subscription as feature-currency)
-**What was observed:** The subscription in Strava does not unlock content (like Calm) or cosmetics (like Steam) — it unlocks analytical features (training log, relative effort, performance predictions), mapping features (route building, heat maps, 3D maps), and competitive features (segment leaderboards, group challenge creation). The subscription gates tools, not content. This is structurally different from most subscription paywalls observed in the library.
-**Why it does not map to an existing mechanic:** Not `hard-currency` — the subscription is not purchased currency spent on items. Not `freemium-content-gating` — the free tier provides full access to activities, social feed, challenges, clubs, and basic segments. The subscription gates feature depth, not content access. This is a feature-tier subscription (pay for deeper analytical and competitive tools) rather than a content subscription (pay to access the library) or a cosmetics subscription (pay for visual customization). Worth noting as a distinct subscription model variant.
-**Worth adding to library:** Possibly — as a subscription model category, the feature-tier paywall (tools and analysis locked, content and community free) is distinct from the content paywall (Calm, Insight Timer Plus) and the cosmetics paywall (Steam Points Shop) and worth naming.
+- Route building ("build your own route," "get started" opens the paywall; creating a route requires subscription).
+- Segment leaderboards, advanced training analysis, and "best efforts" (tapping best efforts opens the paywall).
+- Personalized workouts in the "maintain, build, explore, recover" set (each card ends at "start free trial").
+- Group challenge creation and the "active" challenges tab ("design your own challenge" opens the paywall).
+- Map layers: "winter" map type, weekly, nightly, and personal heat maps, terrain, and 3D view are locked and cannot be previewed.
+- Personalized stat maps and additional map or stat options when saving an activity.
+- Bookmarking an activity (opens the subscription link).
+- Beacon for devices (Garmin or Apple Watch) requires subscription.
+
+Classification of these is unresolved pending subscribed access.
+
+## How mechanics connect
+
+Recording an activity is the hub that feeds the other mechanics: a saved activity generates a Social Feed item (with kudos and comments), can trigger a Milestone (trophy case) and an Achievement (PR badge, first-activity trophy), contributes toward joined Challenges, and can place the user on segment Leaderboards and Comparative Rank standings. The Streak is advanced by the same qualifying event (logging an activity), linking retention to the core action. Challenges are frequently tied to Advertisement Exposure through partner branding (Runna, Hoka, Brooks) and to Leaderboards on each challenge page. Clubs (Group Membership) organize and host many challenges and carry their own feed. Following relationships determine much of what enters the Social Feed and who appears in the user's comparison and recommendation surfaces. These are structural relationships observed in the transcript, not claims about outcomes.
+
+## Behavioral interpretation
+
+Interpretive only. Every claim is tagged and separated from the observational record above. The presence of a mechanic is not evidence that it affects any user.
+
+**Patterns instantiated:**
+
+- Continuity Stakes (plausible): the Streak represents logging activity as a maintained weekly continuity state. Because the account had a zero-week streak, the breaking or protection rule was not observed, so this is not stronger than plausible.
+- Visible Progress (strongly supported): the weekly snapshot, profile statistics, progress tab, streak count, and profile-completion badge convert activity into observable representations.
+- Bounded Completable Goals (confirmed): the April challenges define success conditions and a completion boundary (April 1 to April 30, 2026).
+- Milestone Recognition (strongly supported): the trophy case and the PR badge mark and recognize defined points and best efforts.
+- Social Visibility (confirmed): activities, profiles, kudos, comments, leaderboards, and segment standings expose one actor's activity to others.
+- Peer-Matched Comparison (strongly supported): segment "local legends," local rankings, and top-10 standings construct comparison sets scoped by locality and by 90-day windows.
+- Scheduled Return Triggers and Fresh-Start Framing (plausible): weekly stat resets on Monday and month-scoped April challenges attach opportunities and resets to recurring windows. Alternative reading: these may primarily reflect ordinary weekly and monthly reporting rather than a return-inducing design.
+- Limited-Time Opportunity (plausible): the April challenges and the free-trial "ending soon" framing carry defined time boundaries.
+- Collective Belonging (plausible): clubs place the user within persistent named groups; an alternative reading is that clubs function mainly as event and content directories rather than as belonging structures, which the session did not resolve.
+- Endowed Progress (plausible): the profile begins at "80% complete" before the user has uploaded a photo, presenting a partially filled state at entry. Alternative: this may simply reflect that most fields were already completed during onboarding.
+- Contextual Education (plausible): question-mark tooltips ("why upload a profile photo?") and inline explanations attach guidance to specific decisions.
+
+**Obstacles the design appears to address (hypotheses about apparent aims, not claims about users):**
+
+- No Reason to Return Today (plausible): the Streak, weekly snapshot reset, month-bounded challenges, and notification settings create current-period reasons to return. Alternative: Strava's use may be episodic and activity-driven, with returns tied to actually exercising rather than to these surfaces.
+- Isolation (plausible): the feed, kudos, following, clubs, and find-friends steps place solitary activity in a social context. Alternative: some users may prefer private, solo tracking, and the app supports extensive privacy controls, so the social layer is not decisive evidence of an isolation aim.
+- Progress Is Invisible (plausible): statistics, the progress tab, and the trophy case surface advancement. Alternative: these may serve informational reporting rather than address a perceived visibility gap.
+- The Goal Is Too Distant (plausible): month-bounded challenges and near-term trophy thresholds (first, third, fifth activity) provide nearer endpoints. Alternative: these may be ordinary content rather than a response to distance-to-goal.
+
+**Principles (calibrated language only):**
+
+- Social Comparison (plausible): the app creates conditions consistent with Social Comparison through segment leaderboards, local legends, and top-10 standings. A competing reading is informational benchmarking against local routes.
+- Social Proof (plausible): participant counts ("more than 1,175,000 athletes have already joined") and "150+ million active people" create conditions consistent with Social Proof. Alternative: these figures may function as scale or credibility information.
+- Loss Aversion (weakly supported): the Streak and the "lost CR" notification establish states that can be lost, creating conditions consistent with Loss Aversion; with a zero-week streak and no observed user response, this is weakly supported at most, and scarcity or simple status are alternatives.
+- Relatedness Need (plausible): kudos, clubs, and following create conditions consistent with Relatedness Need. Alternative: visibility, status, or comparison could explain the same surfaces without belonging.
+- Commitment and Consistency (plausible): user-set goals, joining challenges, and self-rated fitness level create conditions consistent with Commitment and Consistency. Alternative: these may be preference capture and personalization inputs.
+- Scarcity and Urgency (plausible): April challenge deadlines and free-trial expiry create conditions consistent with Scarcity and Urgency. Alternative: some deadlines merely organize monthly cycles.
+
+No effectiveness claims are made anywhere in this file.
+
+## Session rhythm
+
+The two sessions cover first install through onboarding (Session I) and a full walkthrough of the dashboard, profile, maps, segments, clubs, settings, recording, and the first saved activity (Session II). Session-end and return-trigger structures observed in the transcript include the weekly streak and weekly snapshot (a weekly return frame), the Monday reset of "this week" stats, month-bounded April challenges, and an extensive push-notification settings list (kudos, comments, "Lost CR / Lost Ratings when we lose our top place on a leaderboard," challenge progress and rewards, new followers, club activity, and marketing or subscription messages, some on by default). Recorded activity length in the session was very short (a "44 seconds" test ride). The transcripts do not establish natural session length for real use.
+
+## Monetization observed
+
+- Subscription presented during onboarding: annual at $79.99 per year; "Strava plus Runna" at $149.99 per year; "try it for 30 days free today," after which "in 30 days your annual subscription begins, you'll be charged $79.99."
+- A recurring subscription card ("better habits, smarter training, steady progress") appears at multiple points (onboarding, after profile-photo completion, entering the trophy case, tapping locked features).
+- A routes paywall: "try the very best of Strava, first month on us today," "free 30 day trial," "$80 per year, 79.99 per year after trial," with "44% [off]" cited on one screen.
+- Payment path differences: tapping "start a free trial" routes out of the app to a browser checkout on strava.com showing "bill today €0, annual subscription 49.99." Tapping "pay in app" shows "79.99 per year through the App Store." The narrator observes the in-app versus web price difference (49.99 euros on the website versus 79.99 per year in-app) "was not communicated on the paywall," and that the highlighted "start free trial" button routes out of the app while the "pay in app" text "does not really look like a button." Apple Pay is the only payment method offered on the web checkout in this session.
+- Settings promotions: "Strava Run up to 60% off, start with a free four week trial"; "Apple Fitness+, up to two months free, then $9.99 per month."
+- Numerous feature gates route to the subscription paywall (see Locked or gated mechanics).
+
+## What stood out
+
+- The profile stat "hard reset on Monday" makes every suggested athlete display zero distance, hours, and elevation early in the week, which the narrator states "makes you feel as if nobody's using the app" while their historical graphs show consistent prior activity. This is a restatement of the observed Monday-reset behavior and the narrator's noted impression.
+- The web-versus-app subscription price gap (49.99 euros on strava.com versus 79.99 per year in-app) was, per the transcript, not communicated on the paywall, and the interface highlighted the out-of-app "start free trial" path while leaving "pay in app" visually unmarked.
+- The profile is presented as "80% complete" before the user uploads a photo, and the completion badge persists when the user skips the remaining step.
+- The app cross-promotes both a related running app (Runna) and a competing service (Apple Fitness+); the transcript records the narrator asking why Strava promotes Apple Fitness+ and not resolving it.
+
+## Analysis notes
+
+- This is a first-install, free-tier account through the first recorded activity. Many tracking, mapping, leaderboard, and challenge-creation features are gated behind the subscription and were not exercised; their classification is unresolved pending subscribed access (see Locked or gated mechanics).
+- Streak: presence is asserted from the product's framing; the continuity rule (what a missed week does) is not observed because the streak was at zero weeks.
+- Clubs: classified as Group Membership via the mutually-exclusive sibling decision ladder. The transcript establishes maintained membership and governance but does not establish a collective group-owned state that member activity changes. If a club-level collective state (for example, an aggregate club stat or a group challenge total that members' activity feeds) were confirmed, the classification would move to Clan / Guild; the observation that would resolve this is whether the club page's "stats" are a collective aggregate altered by member activity rather than a list of members' individual activities.
+- Milestone and Achievement are kept as separate entries with distinct evidence (activity-count trophy case for Milestone; PR and challenge-completion recognitions for Achievement); the entries permit co-classification of the trophy-case crossings, and Milestone is used there as the more precise label.
+- The "suggested weekly goal" and "kudos," "profile completion," and "gear usage tracking" are recorded as an observed behavior and unrecognized mechanics respectively, because they match no library entry after checking; the suggested weekly goal in particular would need observed completion and refresh behavior to be classified as Challenge or Daily / Weekly Quests.
+- Interface copy throughout is treated as the narrator's spoken rendering of the screen unless explicitly read aloud.
+- Rule 7 exclusion: Appearance settings (light / dark / system default), default highlight image, and profile photo/bio fields were considered for Cosmetic Customization and excluded: these are product configuration and profile setup, not customization content, per the amended entry.
+- Many features are subscription-gated and could not be exercised on this free account, so their behavior is described only as far as the transcript shows.
