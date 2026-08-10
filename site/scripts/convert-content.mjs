@@ -60,6 +60,32 @@ const CONNECTIONS = mapCtx.__c;
 const POSITIONS = mapCtx.__p;
 
 // ------------------------------------------------------- analysis files
+// Reviewed analyses head each mechanic with the canonical library name and no
+// inline id ("### Streak · Core · confirmed"). These names are resolved onto
+// this library's mechanic ids. Where this library does not separate two
+// canonical names, both resolve onto the entry that covers them, and the
+// relationship is de-duplicated. A name mapped to null is classified in the
+// analysis but not published as a mechanic.
+const CANONICAL_MECHANIC_IDS = {
+  "Streak": "streak",
+  "Challenge": "challenges",
+  "Social Feed": "social-feed",
+  "Leaderboard": "leaderboards",
+  // This library carries one ranking entry; the analysis separates the ordered
+  // list from the user's own standing. Both are written up under leaderboards.
+  "Comparative Rank": "leaderboards",
+  // This library's entry is "Achievements / Milestones" and covers both.
+  "Milestone": "achievements",
+  "Achievement": "achievements",
+  "Group Membership": "community-groups",
+  // Partner cross-promotion (Runna, Apple Fitness+, partner-named challenges)
+  // and the app's own subscription upsell are not published as an advertising
+  // or monetization mechanic: the content rules limit advertising coverage to
+  // actual ad units (rewarded video, interstitial, banner, offerwall), and none
+  // were observed. The partnerships are described inside the challenge write-up.
+  "Advertisement Exposure": null,
+};
+
 function parseAnalysis(file) {
   const md = fs.readFileSync(path.join(repo, "sources/analyses", file), "utf8");
   const meta = {};
@@ -70,6 +96,21 @@ function parseAnalysis(file) {
     depth: m[2].toLowerCase(),
     ...(m[3] === "Thin" ? { provisionalDepth: true } : {}),
   }));
+  // Reviewed analyses carry no inline id and head sections with the canonical
+  // mechanic name instead. Resolve those through the map above. Only files that
+  // yield nothing from the id form take this path, so older analyses are
+  // untouched. An unknown canonical name stops the build rather than silently
+  // dropping a mechanic from the case study.
+  if (!observed.length) {
+    for (const m of md.matchAll(/^###\s+([^·\n]+?)\s*·\s*(Core|Supporting|Shallow|Unusual)\b/gm)) {
+      const name = m[1].trim();
+      if (!(name in CANONICAL_MECHANIC_IDS))
+        throw new Error(`${file}: mechanic heading "${name}" has no canonical mapping`);
+      const id = CANONICAL_MECHANIC_IDS[name];
+      if (!id) continue;
+      if (!observed.some((o) => o.id === id)) observed.push({ id, depth: m[2].toLowerCase() });
+    }
+  }
   // Unrecognized mechanics: "### `working-name`" (may carry a trailing note)
   const unrecognized = [...md.matchAll(/^### `([a-z0-9-]+)`/gm)].map((m) => m[1]);
   // Screenshot suggestions per mechanic section: bracketed capture descriptions
@@ -89,7 +130,9 @@ function isoDate(s) {
   // Compound strings — "12 May 2026 (Session 1), ..." or ranges like
   // "06 Apr 2026 – 15 May 2026" — yield the FIRST date (= the analysis start).
   if (!s) return null;
-  const first = s.match(/\d{1,2} [A-Z][a-z]{2} \d{4}/);
+  // Accepts both the short form ("03 Apr 2026") and the full month name
+  // ("16 April 2026") used by reviewed analyses.
+  const first = s.match(/\d{1,2} [A-Z][a-z]{2,8} \d{4}/);
   if (!first) return null;
   const d = new Date(first[0] + " UTC");
   return isNaN(d) ? null : d.toISOString().slice(0, 10);
@@ -200,12 +243,11 @@ const ADDITIONS = {
   // multiplier level 7, so analysis has no observed section for it)
   "subway-surfers": [{ id: "set-collection", depth: "shallow" }],
 };
-// Corrections ruling for Strava: its clubs are community-groups, not
-// clans-guilds. The analysis classifies them as clans-guilds; the ruling
-// overrides, keeping the existing community-groups write-up from v44.
-const REMAPS = {
-  "strava": { "clans-guilds": "community-groups" },
-};
+// Per-app id remaps from an analysis's own naming onto this library's ids.
+// Strava needed one while its clubs were classified as clans-guilds; the
+// reviewed analysis classifies them as Group Membership, which the canonical
+// name map resolves to community-groups directly, so no remap is needed.
+const REMAPS = {};
 // Strava's unrecognized "hard-currency" section is about the subscription
 // model and explicitly says it does NOT map to hard currency — exclude it
 // from the currency harvest. (Flagged in the content questions list.)
