@@ -32,7 +32,7 @@ The experience centers on recording sports activities and then viewing, sharing,
 ### Streak · Core · confirmed (presence)
 
 **What was observed:**
-On the dashboard, directly under the upgrade button, is "your streak," shown as a flame icon containing a number, reading "0 weeks" in this session. Copy reads "start your streak by logging an activity," with a "View calendar" button and a "record" button beside it. The View calendar screen shows streak activities and the current streak for April 2026, plus performance across the past 12 weeks. The streak is described as measured in weeks.
+On the dashboard, directly under the upgrade button, is "your streak," shown as a flame icon containing a number, reading "0 weeks" in this session. Copy reads "start your streak by logging an activity," with a "View calendar" button. The View calendar screen shows streak activities and the current streak for April 2026, plus performance across the past 12 weeks. The streak is described as measured in weeks. The streak calendar view includes a share button offering pre-set visuals for sharing the streak outside the app (added on re-inspection, 10 Aug 2026).
 
 **How it is presented:**
 Placed at the top of the home dashboard as the first item in a four-item carousel, using a flame icon with an enclosed count.
@@ -274,3 +274,4 @@ The two sessions cover first install through onboarding (Session I) and a full w
 - Interface copy throughout is treated as the narrator's spoken rendering of the screen unless explicitly read aloud.
 - Rule 7 exclusion: Appearance settings (light / dark / system default), default highlight image, and profile photo/bio fields were considered for Cosmetic Customization and excluded: these are product configuration and profile setup, not customization content, per the amended entry.
 - Many features are subscription-gated and could not be exercised on this free account, so their behavior is described only as far as the transcript shows.
+- Review amendment, 10 Aug 2026: the transcript-derived claim of a record button beside the View calendar button on the streak card was found incorrect on direct re-inspection of the app and removed. Added from the same re-inspection: the streak calendar view includes a share button offering a choice of pre-set visuals for sharing the streak outside the app.
