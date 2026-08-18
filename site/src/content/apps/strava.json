@@ -193,34 +193,34 @@
     },
     "nodes": [
       {
-        "id": "social-feed",
-        "x": 50,
-        "y": 26
-      },
-      {
         "id": "streak",
-        "x": 18,
-        "y": 48
+        "x": 17,
+        "y": 24
       },
       {
         "id": "leaderboards",
-        "x": 50,
-        "y": 48
+        "x": 83,
+        "y": 24
       },
       {
         "id": "challenges",
-        "x": 82,
-        "y": 48
+        "x": 50,
+        "y": 47
       },
       {
-        "id": "achievements",
-        "x": 28,
-        "y": 72
+        "id": "social-feed",
+        "x": 17,
+        "y": 78
       },
       {
         "id": "community-groups",
-        "x": 72,
-        "y": 72
+        "x": 50,
+        "y": 78
+      },
+      {
+        "id": "achievements",
+        "x": 83,
+        "y": 78
       }
     ],
     "connections": [
