@@ -38,12 +38,28 @@ const VALUE = [
 
 /** The offer card — price, unlocks list, and the Subscribe button. Reused on
  *  the subscribe page and as the paywall on locked case study pages. */
+/** The two plans. The tag is shown on any plan that carries one. */
+const PLANS = [
+  { id: "monthly", amount: "$25", per: "/m", cycle: "billed quarterly" },
+  { id: "annual", amount: "$250", per: "/y", cycle: "billed annually", tag: "15% off" },
+];
+
+/** The offer card: both plans side by side over the shared unlocks list. Reused
+ *  on the subscribe page and as the paywall on locked case study and system pages. */
 export function SubscribeCard({ onSubscribe }) {
   return (
     <div className="sp-card">
-      <div className="sp-price">
-        <span className="sp-price__amt">$25<span className="sp-price__per">/m</span></span>
-        <span className="sp-price__cycle">billed quarterly</span>
+      <div className="sp-plans">
+        {PLANS.map((p) => (
+          <div className="sp-plan" key={p.id}>
+            {p.tag && <span className="sp-plan__tag">{p.tag}</span>}
+            <div className="sp-price">
+              <span className="sp-price__amt">{p.amount}<span className="sp-price__per">{p.per}</span></span>
+              <span className="sp-price__cycle">{p.cycle}</span>
+            </div>
+            <Button variant="accent" size="lg" onClick={onSubscribe}>Subscribe</Button>
+          </div>
+        ))}
       </div>
       <div className="sp-card__rule" aria-hidden="true" />
       <ul className="sp-list">
@@ -51,7 +67,6 @@ export function SubscribeCard({ onSubscribe }) {
           <li key={u}><span className="sp-list__check" aria-hidden="true">{CheckIcon}</span>{u}</li>
         ))}
       </ul>
-      <Button variant="accent" size="lg" onClick={onSubscribe}>Subscribe</Button>
     </div>
   );
 }
