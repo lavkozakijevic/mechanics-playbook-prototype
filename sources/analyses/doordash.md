@@ -1,183 +1,279 @@
 # DoorDash
 
 **ID:** doordash
-**Category:** Food and Grocery Delivery / Marketplace
+**Category:** Food and grocery delivery marketplace
 **Type:** App
 **Platform analyzed:** iOS
-**Analysis date:** July 29, 2026
-**Last updated:** July 30, 2026
-**Session state:** First install, guest browsing, then signed in with Apple mid-session; not subscribed to DashPass (declined); free tier
-**Sessions used:** "DoorDash iOS app review" (Jul 29, 2026)
+**Analysis date:** July 29 (the transcript states "today is July 29th"; the Granola session is dated Jul 29, 2026)
+**Last updated:** 2026-08-21
+**Session state:** First install, signed out for most of the session, then signed in with Apple partway through
+**Sessions used:** "DoorDash iOS app review", Jul 29, 2026
 
 ## Overview
 
-DoorDash is a delivery marketplace for restaurant, grocery, convenience, drugstore, retail, and pet orders. The session shows the app trying to get the user to set a delivery address, browse merchants and deals, build a cart, and sign in to place an order. The primary observable goal is completing an order; a secondary layer surrounds ordering with deals, a DashPass subscription offer, reviews, and a reviewer profile system.
+DoorDash is a delivery and pickup marketplace for restaurants, groceries, convenience, drugstore, retail, pets and gifts. The session shows the app working to get the user to place an order: it lets the user browse and build carts before creating an account, then requires sign in or sign up at checkout. A second thread runs alongside the ordering flow, in which the app asks the user to contribute reviews and photos to store pages and presents a badge track for doing so.
 
 ## First impression
 
-Onboarding, as the transcript shows it, asks for a phone number first, with "use email instead" and "continue with Google / Facebook / Apple" or "search nearby" as alternatives. Before showing value, the app requests App Tracking Transparency permission ("see personalized offers by allowing activity tracking") and location permission. The user declined location because they are "not in a country that has DoorDash" and typed a Canadian address instead. The first substantive product moment is the address flow, which detects that a chosen location is a registered business and pre-marks the address type as "office," then asks for delivery preferences (lobby, office, suite, floor, or meet at location), a personal label (home, work, custom), and offers an "I'm sending a gift" option. A DashPass paywall and a notifications prompt appear before the home screen loads. The transcript does not show the app ever asking for the user's name during onboarding.
+The first screen asks for a phone number, with "use email instead" underneath, plus continue with Google, Facebook or Apple, and a "search nearby" button. The narrator taps "search nearby", which starts a loading state rather than an account flow.
+
+Four system-level prompts follow in sequence before any content appears:
+
+1. A DoorDash-authored screen about activity tracking, rendered in the transcript as "see personalized offers by allowing activity tracking. Activity tracking lets us personalize the offers and deals you'll see in DoorDash ads on your favorite websites and apps. Discover restaurants, dishes and stores you like. Get more relevant offers. You're in control. Turn off sharing anytime you want", with a continue button, followed by the iOS app tracking prompt.
+2. The iOS location prompt, framed as "DoorDash needs your location to show nearby stores". The narrator declines it because they are not in a country DoorDash serves, and types an address instead. A "sign in for saved address" option sits beside the address field.
+3. A DashPass pop-up after the address is saved, described below under Monetization observed.
+4. A notification prompt, rendered as "never miss an order update or great deal. Turn on notifications to get the latest on your order and discover deals from your favorite local businesses. You can configure these later in settings."
+
+The address flow is the first substantial piece of setup. After a Canadian address is chosen, the app asks for an address type (house, apartment, hotel, office, other). The narrator observes that when the pin lands on a registered business, the app preselects "office" on its own; otherwise it asks. The office selection then produces delivery preference fields specific to offices: leave it at a location (lobby, office, suite, floor), meet at a location (lobby, office, suite, floor, outside), free text delivery instructions, a suite or floor field tagged "recommended", a business name field tagged "recommended", a building entrance pin, and a personal label (home, work, custom). The same screen carries an "I'm sending a gift. Add a card and note at checkout" option with an info button.
+
+The first mechanic moment in the session is not a mechanic from the library. It is the DashPass benefit pop-up, which appears immediately after the address is saved and before any store has been seen.
+
+The narrator notes that the home screen greets the user with "Happy Wednesday" followed by a comma and an exclamation mark with no name in between, and that nothing in onboarding asked for a name. That observation is the narrator's, recorded here as an observation about the transcript rather than as a classification.
 
 ## Core activity
 
-The experience has the character of browsing a large marketplace feed and assembling a cart. Inside the app the user sets an address, scrolls a home feed of category shortcuts, deals, and merchant lists, opens store pages, adds items to carts (including via an AI "snap your grocery list" flow that built a shopping list from a photographed recipe), reviews cart summaries, and is then required to sign in or sign up to complete the order.
+The session is a browsing and cart-building walkthrough, not a completed order. The user sets an address, scrolls a long home screen of merchant carousels and offers, opens category tabs (deals, grocery, convenience, pickup, drugstore, gifts, retail, pets), opens a store page, uses an AI search feature that turns a photographed recipe into a shopping list, adds items to two carts, and then reaches a sign-in wall at checkout. After signing in with Apple, the user explores the profile, settings, saved stores, rewards and the contributor profile.
 
 ## Mechanics observed
 
-### Advertisement Exposure · Supporting · strongly supported
+### Achievement · Supporting · confirmed
 
 **What was observed:**
-The transcript repeatedly describes promotional units marked "sponsored." In the deals area: "additional offers, some of which are sponsored. It says that they're sponsored so they are showing up at the top." A "try something new" section is described as "sponsored options. It says that they are sponsored." One offer is "save $5 and select Revlon Lip items which is sponsored." Named-brand promotions appear, such as "25% off on a convenience order of $25 for Dr. Pepper and Doritos." These sponsored units are interleaved with ordinary merchant listings across the home feed and deal screens.
+
+Reached through the profile button, then settings, then "view profile", then an "Earn a profile badge" button beside the user's name. The screen is titled "profile badges" and the transcript renders its copy as "Earn badges and gain influence on DoorDash."
+
+The first badge is "emerging expert", shown at "0 out of 3", with the criterion rendered as "share high quality reviews or photos for 3 stores" and three stated benefits: "gain more visibility for your contributions", "be a reliable voice for other customers", "gather support for local business."
+
+Beneath it sits a second badge the narrator describes as fogged over, greyed out and locked: "local expert", with the criterion "share high quality reviews or photos for 10 plus stores" and the stated benefits "be top ranked and seen by the most people", "represent the most trusted voices", "make a real difference for local businesses."
+
+The user's contributor profile shows "0 contributions" and the copy "all contributions will appear once they're approved."
+
+No badge was attained during the session, so the attainment event, any record of an attained badge, and the effect of an attained badge on the profile were not observed. Whether the 0 out of 3 counter is fed by a separately maintained count of stores reviewed, or exists only inside the badge, is not established by the transcript.
 
 **How it is presented:**
-Sponsored items carry a "sponsored" label and, per the narrator, are positioned at the top of lists because they are sponsored. They appear as cards and banners within the same scroll as non-sponsored merchants.
+
+Three levels deep from the home screen, inside the profile settings rather than on any ordering surface. A pop-up on the contributor profile promotes the system, rendered as "find the voices you trust more easily. Find local experts, people on DoorDash that you can count on to provide great reviews and recommendations", with three scrollable panels: "share your thoughts. Become a trusted voice by sharing reviews and earning badges", "now you'll see all of your contributions in one place", and "what's visible on your profile. Your public contributions are visible on this page. You can make it restricted anytime with added profile."
 
 **Classification basis:**
-The required conditions are satisfied: an identifiable content unit promotes an offering (a merchant or a named brand's product), it is distinguishable from surrounding content through its "sponsored" labeling and placement, and the product controls where it appears. Exclusions were checked: this is not ordinary marketplace inventory classified as an ad "merely because it can lead to a purchase," because the units are explicitly labeled sponsored and placed by that status (the entry's "native sponsored card" borderline treats a labeled sponsored placement as advertisement exposure). Partner cross-promotion and self-subscription promotion were held separate (see Observed behaviors and Monetization).
+
+The entry's core invariant requires a defined criterion that moves from unattained to attained and is observably recognized. DoorDash defines two criteria (3 stores, 10 plus stores), evaluates contributions against them (the 0 out of 3 counter, the approval note), presents the attained state as a badge distinct from the underlying contribution count, and shows one criterion as locked and one as in progress. Presence is asserted under the operating card's presence standard: the product frames these as badges to be earned, with criteria and progress state visible. Exclusions checked: the surface is not a cumulative count alone, since a separate badge state is defined; it is not a subscription tier, role or account label; and it is not an automatic unlock tied to a current progression state. Milestone, Leveling and Experience Points were checked and excluded, with reasons recorded in Analysis notes.
 
 **What is notable:**
-The narrator also described an App Tracking Transparency prompt and a marketing setting for "personalized ads on third party platforms," but those concern DoorDash's ad targeting and data sharing rather than an ad unit served inside this session; they are recorded under Monetization and Analysis notes rather than counted here.
+
+The badge criteria are the only place in the session where DoorDash sets a numeric target for user behaviour of any kind. Everything else the app asks of the user is a transaction.
 
 **Screenshot suggestions:**
-The deals screen where offers are labeled "sponsored" at the top of the list, because it shows the promotional unit distinguished from ordinary listings. The "Revlon Lip items" sponsored offer card, because it evidences a named third-party brand promotion.
 
-### Gifting · Supporting · strongly supported
+- The profile badges screen showing "emerging expert" at 0 out of 3 above the greyed-out "local expert" tier. It evidences the criterion, the progress state and the locked second tier in one frame.
+- The contributor profile showing "0 contributions" with the "Earn a profile badge" button. It evidences the counter the badge criteria are evaluated against.
+
+### Comparative Rank · Supporting · plausible
 
 **What was observed:**
-At address setup the app offers "I'm sending a gift. Add a card and note at checkout." An info pop-up reads, per the narrator, "make sure you're using their address to shop gifts near them. Add their name and phone number so they can track the order. Include a digital card and message." Separately, a Gifts section offers "send a gift card": "DoorDash gift cards, featured gift cards, dash pass subscription. All of these can be gifted." A profile Gift card option lets the user "Customize and buy gift card" and separately "Redeem a gift card. Enter Gift Card pin."
+
+Store cards on the home screen can carry a black tag the narrator identifies as "customer favorite" (the example given is Booster Juice). Tapping that tag opens a dedicated screen whose copy the transcript renders as "customer favorites top ranked in your area based on customer ratings, popularity and reliability."
+
+The screen carries two filter tags, "open now" and "delivers to me", and lists six stores for the address used in the session. Each row shows the store name, its rating, the number of people who rated it, delivery time, distance, and quoted customer comments. The narrator notes that the quoted comments include negative ones ("no extra cheese on the pizza when I ordered it. Barely any pepperoni. Lots of sauce though soggy, no sauce on the wings") and that reviews are "not really sorted in any way". A second speaker adds that some reviews date from 2020, 2024 and 2023.
+
+Whether the six stores are displayed in rank order, and whether any position number is shown, is not stated in the transcript. The exact rule that selects the set is not stated beyond the three named measures.
 
 **How it is presented:**
-Gifting appears both as a per-order toggle at checkout (send this order as a gift to a recipient's address with a card and note) and as a dedicated Gifts shortcut and profile section for gift cards and a giftable DashPass subscription.
+
+As a tag on store cards inside ordinary browsing carousels, and as a filterable screen behind that tag. The narrator notes that other tags on the same cards (the red offer tags, and "in store prices") are not tappable, so "customer favorite" is one of the few tappable tags observed.
 
 **Classification basis:**
-The core invariant is satisfied: a sender identifies a recipient (recipient address, name, and phone) and initiates a non-reciprocal grant of a product-defined benefit (a delivered order, a gift card balance, or a DashPass subscription). Reciprocal transfer from the recipient is not required. Exclusions were checked: this is not content sharing (a product-defined benefit changes the recipient's state) and not a referral reward (the sender directs the benefit rather than the recipient earning it by completing an action). Variants present include purchased gift, currency gift (gift card), and access gift (giftable DashPass).
 
-**What is notable:**
-Nothing beyond ordinary implementation was distinctive; omitted.
+The entry requires a comparison set, at least one defined comparison measure, an ordering rule, a communicated position for the relevant entity, dependence on other entities' values, and a defined scope. The comparison set is stores, the measures are named on screen (customer ratings, popularity, reliability), the scope is stated ("in your area"), and the position is communicated as a bounded placement rather than an ordinal, matching the entry's bounded rank variant. Leaderboard was checked first and excluded: the session does not establish that the six listed stores are presented in relative order by those measures, and the Leaderboard entry directs that in the absence of an observed ordered presentation the observable position is classified as comparative rank. Confidence is held at plausible because the ordering rule and the dependence of a store's inclusion on other stores' values are inferred from the on-screen copy rather than observed, and the entry warns against classifying from words such as "top" alone.
+
+**Plausible alternative:** "customer favorite" may be an absolute quality status assigned from fixed thresholds (for example a rating floor plus an order-volume floor), which the entry excludes from comparative rank. Two observations would separate the readings: seeing position numbers or an explicit ordering on the customer favorites screen, and seeing the set change composition as other stores' ratings change while a given store's own values stay the same.
 
 **Screenshot suggestions:**
-The "I'm sending a gift" checkout option with its "how to send a gift" info pop-up, because it evidences the recipient-directed grant. The Gifts section showing giftable gift cards and DashPass, because it evidences the purchased-gift and access-gift variants.
 
-### Community Space · Supporting · strongly supported
+- The customer favorites screen with its heading copy, the two filter tags and the list of six stores. It evidences the named measures, the stated scope and the bounded set.
+- A home screen store card carrying the "customer favorite" tag beside untagged cards. It evidences where the placement is communicated during ordinary browsing.
+
+### Gifting · Shallow · strongly supported
 
 **What was observed:**
-Store pages display reviews and ratings contributed by multiple customers, with customer photos. On a "customer favorites" store the narrator reads comments such as "Hot and fresh, lots of cheese and toppings, crisp crust. 10 out of 10" alongside a negative one, "no extra cheese on the pizza when I ordered it. Barely any pepperoni... soggy." The narrator notes "Some of the reviews are from 2020, 2024, 2023" and that they are "not really sorted in any way." A contributions and profile system supports the review side: a settings screen shows "0 contributions. All contributions will appear once they're approved," with prompts to "Become a trusted voice by sharing reviews and earning badges," a "find the voices you trust... local experts, people on doordash" panel, and an editable public profile where "when your profile is public, anyone can see your profile ratings and public reviews, including people who are ordering in your neighborhood," and "your public contributions will display on the store page."
+
+The gifts tab opens a screen with a "search gifts" bar, filter tags (pickup, ratings, under 30 minute, price, DashPass), and a "send a gift card" section. The transcript renders the contents of that section as "DoorDash gift cards, featured gift cards, dash pass subscription. All of these can be gifted." Below it are a "kids top picks" section of featured toys and an all stores section.
+
+Elsewhere in the session the profile settings contain a gift card entry, rendered as "connect your favorite people with their favorites from noodles to nachos", with "customize and buy gift card", a design choice, a "buy gift card" button and a separate "redeem a gift card" flow with a gift card pin field.
+
+The sending flow itself was not entered. Recipient identification, delivery, the recipient's resulting state, and whether a gifted DashPass subscription is claimable or immediate were not observed.
 
 **How it is presented:**
-Reviews and photos are attached to individual store pages and persist over time. Contribution is mediated by a user profile that can be public or restricted, is moderated ("appear once they're approved"), and surfaces contributor identity to others in the neighborhood.
+
+As one item in a gift card list inside the gifts category, alongside currency-denominated gift cards. The gifts category is one of the shortcut tabs in the top slider on the home screen.
 
 **Classification basis:**
-The core invariant is satisfied: the store page is an identifiable shared context that persists across many contribution events, and more than one social actor (customers) can contribute reviews and photos associated with that context. The distinguishing-feature check selects Community Space among its mutually exclusive siblings: no maintained membership and governance (Group Membership) and no collective group-owned state (Clan / Guild) were observed, leaving an open persistent multi-actor context. This matches the entry's "public article comments" borderline (a content-attached comment or review context). Social Feed was checked and excluded: the transcript states the reviews are "not really sorted in any way," so the ordered-stream-by-a-feed-rule invariant is not established.
 
-**What is notable:**
-The narrator observed that the reviews under a "favorites" heading are unscreened, span multiple years, and include clearly negative comments, and that "they're not being screened by anyone." This is recorded as an observation, not an effectiveness or quality judgment.
+The entry's invariant requires a sender directing a non-reciprocal product-defined benefit to an identified recipient. A DashPass subscription is an access right, and the entry's exclusion clause names gifting a subscription as inside the mechanic's scope while placing gift delivery of physical goods and currency-denominated gift cards outside it. Presence is asserted from the product's own framing of the DashPass subscription as giftable. Two evidenced neighbouring surfaces were checked and excluded: the "I'm sending a gift. Add a card and note at checkout" option in the address flow is gift delivery of a physical order, and DoorDash gift cards are currency-denominated gift cards. Both are excluded by the entry and are described in plain language below instead. Confidence is strongly supported rather than confirmed because the giftable state of the subscription is taken from the narrator's rendering of the section rather than from an observed send.
 
 **Screenshot suggestions:**
-A store page review list showing dated customer comments and photos from multiple people, because it evidences multi-actor contributions attached to a persistent store context. The profile "0 contributions" and "trusted voice / earn badges" screen, because it evidences the contribution side of the shared context.
 
-### Spendable Credits and Tokens · Supporting · strongly supported (Soft Currency specialization: plausible)
-
-**What was observed:**
-A "DoorDash credits" balance appears in the payment area ("we also have doordash credits") with an adjacent "Redeem gift card" action, and in rewards the user "redeemed a total of $0." A "Redeem a gift card. Enter Gift Card pin" flow can add value. A DashPass benefit is stated as "5% back on eligible pickup orders. Earn 5% DoorDash credits on eligible orders," repeated on the map as "5% back on pickup orders with DashPass."
-
-**How it is presented:**
-Credits are surfaced as a payment-adjacent balance and a rewards line, toppable via gift-card redemption, and describable as earnable through a 5% back rule on eligible orders for DashPass members.
-
-**Classification basis:**
-The core invariant is satisfied: the product maintains a quantified credit balance and presents it as usable value toward orders (a payment source) that gift-card redemption can increase. Exclusions were checked: these are not progression-only units, not automatically consumed capacity (Energy), and not failure-continuation units (Lives). The Soft Currency specialization is noted rather than asserted strongly: the "earn 5% DoorDash credits on eligible orders" rule is a repeatable, transaction-earned non-paid acquisition path consistent with Soft Currency, and per the operating card's overlap rule the specialization is reported with its parent (Spendable Credits and Tokens). Behavior detail not observed: the session did not walk through spending credits against an order or show a balance decreasing (the user's balance was $0), so the earn-and-spend loop is asserted at the label level only.
-
-**What is notable:**
-Nothing beyond ordinary implementation; omitted.
-
-**Screenshot suggestions:**
-The payment screen showing "DoorDash credits" with "Redeem gift card," because it evidences the balance and a top-up path. The DashPass benefit line "5% back... Earn 5% DoorDash credits on eligible orders," because it evidences the earning rule.
-
-### Achievement · Shallow · strongly supported
-
-**What was observed:**
-Inside the profile, an "Earn a profile badge" flow opens a "profile badges. Earn badges and gain influence on doordash" screen. It shows "zero out of three for emerging expert. Share high quality reviews or photos for three stores." A second tier is grayed out and locked, "local expert," described as "share high quality reviews or photos for 10 plus stores. Be top ranked and seen by the most people." A one-time "you've saved your first store" message also appeared elsewhere (recorded under Observed behaviors, not here).
-
-**How it is presented:**
-The badges live several layers into the profile (profile, then view profile, then earn a profile badge). Each badge states a criterion and shows partial progress ("0 out of 3"), with the higher tier visibly locked.
-
-**Classification basis:**
-The core invariant is satisfied: the product defines criteria (review or photo three stores; ten-plus stores) that move from unattained to attained and preserves them as badges on the profile, distinct from the underlying review actions. This matches the tiered and progressive achievement variants. Leveling was checked and excluded: no current discrete level state is assigned or maintained; the entry's own exclusion routes threshold-recognition-without-a-current-level to Achievement or Milestone. Milestone was checked: the badges read as discrete criteria (review N stores) rather than recognition points along one continuous measure, and the tiered-achievement variant fits more directly. Presence is classified from the recognizable, defined badge implementation; behavior detail not observed: the user had 0 of 3 and no badge was actually attained in-session.
-
-**What is notable:**
-Nothing beyond ordinary implementation; omitted.
-
-**Screenshot suggestions:**
-The "profile badges" screen showing "Emerging expert 0/3" and the locked "Local expert" tier, because it evidences the defined criteria and their unattained-to-attained structure.
+- The "send a gift card" section of the gifts tab showing the DashPass subscription listed beside the gift cards. It evidences the one item in that section that satisfies the entry.
 
 ## Observed behaviors without a library label
 
-First-order discount. The app grants "40% off your first order... 40% off your first $15 plus delivery. Use surprise 40 for up to $13 off," and repeatedly shows "0 delivery fee for the first order." This reduces the price of the qualifying transaction rather than granting a separate benefit, so under the First-Purchase Bonus exclusion it is a first-purchase discount and receives no mechanic label. If a separate credit or item were granted on top of the discount, First-Purchase Bonus would need re-checking; no such separate grant was observed.
+**Store reviews, photos and the contributor profile.** Store pages carry ratings, a rating count, public reviews, customer photos and a store info panel. The user has a contributor profile with a first name, last initial, a shareable link, an edit screen, and a "restricted profile" toggle that is off by default. The transcript renders the toggle's explanation as "when your profile is public, anyone can see your profile ratings and public reviews, including people who are ordering in your neighborhood. When your profile is restricted, it will only display your first name, last, initial and number of public contributions, but not the contents of those contributions." Contributions are approved before appearing. The Community Space entry excludes reviews, ratings and photos attached to commerce listings and directs that they be described in plain language pending a dedicated entry, so no label is applied here. The badge track built on top of this system is classified above as Achievement.
 
-Partner points promotion (PC Optimum). "Get 2000 welcome points. When you order $20 plus... by linking your PC Optimum account," with a "link now" button opening a PC Optimum login. This is cross-promotion of a partner's loyalty program, described in plain language per the Advertisement Exposure exclusion for partnerships. It was not classified as First-Purchase Bonus: the transcript does not establish that the points are scoped to the first qualifying purchase rather than repeatable, and the benefit is a partner currency rather than a product-defined DoorDash benefit.
+**DashPass.** A subscription presented repeatedly through the session. Its stated benefits are CA$0 delivery fees and lower service fees on eligible orders, member exclusive deals, family sharing ("share your benefits with family sharing. Add a loved one for free"), 5% back in DoorDash credits on eligible pickup orders, and cancel anytime. It provides continuous fee and access benefits rather than recurring interval rewards, so Monthly Reward Card does not apply.
 
-Saved stores and favorites. A heart control saves a store, producing a one-time "you've saved your first store" message. This is bookmarking; it is not Set Collection (no defined set to complete). The "saved your first store" message was not classified as an Achievement: it reads as a one-time confirmation toast, and no preserved attained-criterion record was shown (the Achievement exclusion bars classifying from a celebratory message alone).
+**DoorDash credits.** Present as a line in the payment settings with a "redeem gift card" button beside it, and as the currency in which the DashPass pickup benefit is denominated. The my rewards screen shows "redeemed a total of $0". The balance is denominated in money rather than in product-defined units, which the currency entries exclude, so no currency label is applied.
 
-Ranked-looking discovery lists. "Customer favorites top ranked in your area based on customer ratings, popularity and reliability" presents a list of six stores; other feed sections include "fastest near you" and "under $2 delivery fee." These were checked against Leaderboard and Comparative Rank and not classified: the transcript does not establish that the displayed order represents relative comparative positions (no placement indicators were read out, and the narrator said other lists were "not really sorted in any way"), so the ordered-comparison invariant is not observably met. They are described as curated merchant-discovery lists.
+**PC Optimum partnership.** An animated card on the home screen, rendered as "get 2000 welcome points. When you order $20 plus you get by linking your PC Optimum account", with a "link now" button that opens a PC Optimum login. The same offer reappears as a card inside the deals screen and as "partner rewards" in the my rewards screen. The points are a partner's loyalty currency; no DoorDash balance, spend rule or tracked completion state was observed.
+
+**Promotional offers and codes.** Throughout the session: "$0 delivery fee for the first order", "$5 off on $40 plus order", "buy one get one free", "free item on 20 plus dollars spent" at McDonald's, "25% off up to $15", "get 30% off on an order of $55 from select pet stores" with a use code and a stated end, "get 25% off on a convenience order of $25", and after sign-in a code the transcript renders as "surprise40" for "40% off your first order for your first 30 days". These are price conditions attached to transactions. None showed a tracked active, completed or expired objective state, so Challenge was checked and not applied.
+
+**Group order.** A store page offers "start a group order", explained as "easily share order with friends and family so each person can add items, then pay once and get it all delivered together", with a per person spending limit (no limit, $10, $15, $20, other), a name and phone form for the initiator, a copyable invite link with email, message and other share routes, a "view group order" screen, and a persistent banner with an invite button. The group exists for one order, so Group Membership was checked and excluded as a temporary transaction grouping.
+
+**Saved stores.** Tapping the heart on a store page produced a pop-up rendered as "you've saved your first store", followed by a tag the narrator says "somehow just disappeared on its own". Saved stores appear as a section in the profile with a "new" tag. No preserved attained state, criterion, or defined set was observed, so neither Achievement nor Set Collection is applied to this surface, and the disappearing tag is recorded as ambiguous rather than resolved.
+
+**Search by Vibe.** A search entry point the transcript renders as "a better way to search. Just ask", which opens a beta AI feature labelled "search by Vibe" with the prompt "what are you in the mood for" and a note that it "is a beta AI feature making mistakes" and "may be used to personalize your experience". It has a chats button with a chat history, empty in this session, and a "snap your grocery list or recipe" camera option. The narrator photographed a Boeuf Bourguignon recipe; the feature returned "shopping at Sobeys for you", "found 11 out of 11 items", a swap or remove control per item, an add to cart button, three suggestion tags ("add bay leaves for bouquet garni", "serve with crusty bread", "make it a day ahead"), and a note that Sobeys does not carry a Burgundy style red wine so a cooking wine substitute was added.
+
+**Grocery item detail.** Items show stock state ("many in stock", "likely out of stock"), a "request" control in place of an add control for some items, an "add shopper instructions" field, and a substitutions setting (any similar item, substitute with specific items, contact, refund). A "freshness guaranteed or your money back" tag opens a pop-up rendered as "100% fresh or your money back", with refund instructions.
+
+**Payment settings.** Card, Apple Pay and PayPal options, a payment frequency setting ("combine orders into fewer payments" or "pay after each order") with a stated list of ineligible methods and order types, and a backup payments toggle described as "automatically use another saved payment method if there's an issue with your default payment method".
+
+**Business profile.** A separate profile for expensing meals with its own payment method, described as keeping business orders separate.
+
+**Marketing settings.** A privacy section with restricted profile, location access, microphone access and marketing choices, the last opening a disclosure about sharing identifiers and usage with advertising partners for personalized ads on third party platforms. The narrator states that it is turned on by default.
+
+**Map-based pickup.** The pickup tab opens a map, introduced by a pop-up rendered as "discover your neighborhood with the new map", with filter tags (open now, pickup, DashPass, ratings, price), price rating symbols, walking distance, opening state, and a tag reading "5% back on pickup orders with DashPass". The narrator notes that some store types, including a corner store and supermarkets, did not appear with a pickup option.
 
 ## Unrecognized mechanics
 
-`group order`. The app offers "start your group order easily share order with friends and family so each person can add items, then pay once and get it all delivered together," with a selectable "per person spending limit" ($10, $15, $20, or other) and an invite link. Observed behavior: multiple invited people contribute items to one shared cart that is paid for once. It maps to no existing library entry: it is not Gifting (no non-reciprocal grant directed to a recipient), and not Group Membership or Clan / Guild (the group is transient to one order, with no maintained persistent membership or group-owned state). It resembles the Shared Contribution pattern at Layer Three but has no Layer Four mechanic. Worth adding to library: Possibly.
+`merchant review and contributor reputation system`. Store-attached ratings, written reviews and customer photos, contributed by identified users whose contributions are moderated before publication, attached to a public contributor profile with a visibility setting and a shareable link, and tied to a badge track that describes the payoff as visibility and influence. This maps to no existing entry: Community Space explicitly excludes reviews attached to commerce listings and defers the case to a dedicated entry; Social Feed does not apply because no ordered stream of socially attributed items was observed. The badge layer is classified as Achievement, but the contribution and reputation layer beneath it carries no label. Worth adding to library: Possibly. The Community Space entry already names this as a pending gap, so the decision is whether to open the entry rather than whether the gap exists.
 
 ## Locked or gated mechanics
 
-DashPass member benefits. Benefits described in paywalls, including "$0 delivery fees," "lower service fees on eligible orders," "member exclusive deals," "5% back on eligible pickup orders," and "share your benefits with family sharing," are gated behind a DashPass subscription the user declined, so their in-product behavior was not reached. These are the product's subscription benefits rather than a distinct library mechanic (see Monetization).
+**DashPass family sharing.** Listed on the DashPass pop-up as "share your benefits with family sharing. Add a loved one for free". A persistent, benefit-conferring relationship between accounts is implied by the copy, which is the shape Group Membership describes, but the session never subscribed and never reached the sharing surface. Classification unresolved pending access. What would resolve it: subscribing and opening the family sharing screen to see whether a maintained member relationship exists and what it changes for the added account.
 
-Locked achievement tier. The "local expert" badge (review or photo ten-plus stores) was shown grayed out and locked as the tier above "emerging expert." Classified within the Achievement entry above; recorded here as the specific gated element not reachable in this session.
+**"Local expert" badge tier.** Observed on the profile badges screen in a locked, greyed-out state with its criterion stated. It is covered by the Achievement classification above as the locked tier of that system; its own attained state, benefits and any ranking of contributors implied by "be top ranked and seen by the most people" were not reachable.
+
+**Member exclusive deals.** Named as a DashPass benefit and as an offer card ("want exclusive offers? Try DashPass"). The deals themselves were never displayed.
+
+**PC Optimum points.** The link flow was opened but not completed, so no points balance, earning event or spend rule was observed.
 
 ## How mechanics connect
 
-Based only on what the transcript shows, the mechanics relate as follows. Community Space (customer reviews and photos on store pages) supplies the activity that the Achievement system rewards: badges are earned by contributing "high quality reviews or photos" for a threshold number of stores, and the reviewer profile is where both the contributions and the badges live. Spendable Credits and Tokens connects to Gifting and to the DashPass subscription: gift-card redemption tops up the credits balance, and the 5% back credits earning path is stated as a DashPass member benefit, tying credit accrual to the subscription. Advertisement Exposure pervades the same browse and deals surfaces where merchant discovery and cart-building happen, sitting alongside the ordinary listings rather than in a separate placement. These are structural relationships observed in the session, not claims about outcomes.
+Not applicable. The prompt reserves this section for apps with more than three mechanics, and three were classified. The one relationship worth recording is that Achievement and Comparative Rank draw on the same contribution stream: the badge criteria count high quality reviews and photos, and the customer favorites screen presents customer ratings as one of the measures behind a store's placement. The session shows both surfaces but shows no state passing between them.
 
 ## Behavioral interpretation
 
-This section interprets apparent design aims and is separate from the observational record above. No effectiveness is claimed anywhere.
+This section is separate from the observational record above. It interprets what the design appears to be doing. No claim here is a claim about users or about effect.
 
-Patterns instantiated.
-Contextual Education (strongly supported): the app attaches explanatory pop-ups to specific decision points, including "fees on DoorDash" opened from a "service fee applies" banner, "how to send a gift" at the gift toggle, and "100% fresh or your money back... Refunds made easy" on a grocery item. Each connects explanation to a current action or uncertainty rather than sitting only as reference material.
-Limited-Time Opportunity (strongly supported as observed structure): the first-order framing ("0 delivery fee for the first order"), the 40% off code "valid for 30 days from signup," and "Offer valid while supplies last" attach terms that change after a boundary.
-Social Visibility (plausible): public reviews, ratings, customer photos, and a profile whose "public contributions will display on the store page" and are visible to "people who are ordering in your neighborhood" expose one actor's contributions to others under a defined visibility rule. An alternative reading is that this is a one-directional review-display surface for discovery rather than a visibility mechanic aimed at the contributor; the session shows no inter-user replies.
-Identity Expression (plausible): the reviewer profile, badges, and "gain influence... trusted voice" framing maintain an actor-associated presentation state. Alternative: the badges may function mainly as a contribution incentive rather than an expressed identity.
+### Patterns instantiated
 
-Obstacles the design appears to address (hypotheses about apparent aims, not claims about users).
-Value Is Not Understood, at the fee and consequences level (plausible): the fee explainer, freshness-guarantee copy, and gift instructions appear aimed at uncertainty about what fees apply, what happens if groceries arrive spoiled, and how gifting works. A plausible alternative is that some of this copy exists to satisfy disclosure or trust requirements rather than to remove a behavioral obstacle.
-Spend Reluctance or first-order hesitation (plausible): the 40% off and $0-delivery first-order framing appears aimed at lowering the cost of a first order. A plausible alternative is ordinary customer-acquisition pricing unrelated to any diagnosed reluctance in this user.
-Isolation or trust in unfamiliar merchants (plausible): reviews, ratings, and "trusted voice" framing appear aimed at merchant-quality uncertainty at the point of choosing where to order. A plausible alternative is that reviews primarily serve discovery and ranking rather than addressing a social or trust obstacle.
+**Low-Friction Entry · confirmed.** The app postpones account creation until checkout. The user reaches the home screen through "search nearby" and a typed address, declines location and tracking permissions without being blocked, browses every category, opens an AI feature, and fills two carts before any sign in is required. The pattern's invariant, postponing an otherwise required entry step before the target behaviour begins, is directly observed.
 
-Principles (calibrated language only).
-The review counts, star ratings, and customer photos shown next to merchant choices create conditions consistent with Social Proof (plausible). The public reviewer profile and neighborhood visibility create conditions consistent with Social Comparison and, more weakly, status or recognition motives (plausible). The first-order discount with a 30-day window and "while supplies last" framing create conditions consistent with Scarcity and Urgency and, for the immediate discount versus later full price, with Hyperbolic Discounting (plausible). The fee and freshness explainers create conditions consistent with Default and Friction Sensitivity in the sense of reducing decision uncertainty (plausible). None of these establishes that any user responded through the named principle.
+**Contextual Education · confirmed.** Explanatory content is attached to specific decision states rather than parked in a help section: the "service fee applies. Tap for details" banner opens a full breakdown of every fee type; the "freshness guaranteed" tag on a grocery item opens the refund explanation; the pickup map opens with an explanation of what the map does; the gift option in the address flow has an info button explaining how to send a gift; the group order flow explains itself before it starts. Each attaches to a live decision.
+
+**Visible Progress · confirmed.** The "0 out of 3" counter on the emerging expert badge converts contribution activity into an observable position with a stated remainder. This is the only progress representation of user activity observed anywhere in the session.
+
+**Staged Disclosure and Unlocking · confirmed.** The local expert badge is withheld in a visible locked state with its eligibility rule stated (10 plus stores).
+
+**Social Visibility · confirmed.** Contributions are attributed to an identified contributor and displayed on store pages, the contributor profile is public by default with a restricted option, the profile is shareable, and the badge benefits are stated in terms of visibility to others ("gain more visibility for your contributions", "be top ranked and seen by the most people").
+
+**Limited-Time Opportunity · strongly supported.** The welcome offer's terms state "valid for 30 days from signup", and deal cards state when an offer ends. The boundary and the change in terms at that boundary are stated in the copy; no expiry was observed in the session.
+
+**Directed Generosity · strongly supported.** The DashPass subscription is presented as giftable, which is a sender directing an access right to a recipient. The send was not performed.
+
+**Peer-Matched Comparison · plausible.** The customer favorites set is partitioned by geography ("in your area") and by the filter "delivers to me". This inherits the confidence of the Comparative Rank classification it depends on; if that surface turns out to be an absolute quality status, the pattern does not apply.
+
+**Identity Expression · plausible.** The contributor profile maintains an actor-associated presentation state (name, initial, contribution count, badges, public or restricted setting) that differs across actors and is not determined solely by a current functional state. Held at plausible because no badge was held during the session, so the displayed identity state was empty throughout.
+
+Checked and not applied: Milestone Recognition, because no threshold crossing was observed and the "you've saved your first store" pop-up was not shown to leave a maintained state. Uncertain Reward, because the welcome offer's gift-opening animation resolved to a fixed, fully disclosed discount.
+
+### Obstacles the design appears to address
+
+These are hypotheses about apparent design aims, not claims about users. No user behaviour, drop-off or statement is available in this session, so none rises above plausible.
+
+**Starting Cost Is Too High · plausible.** The signed-out browsing path, the address alternative to the location permission, the auto-detection of address type from the pin, and the deferral of sign in to checkout all reduce what must be done before the first meaningful result. *Alternative reading:* the same design serves regulatory and platform constraints (declinable iOS permissions) and merchant-side discovery goals rather than an initiation obstacle. *What would separate them:* whether the signed-out state preserves cart and address across sessions, and where sign in is actually enforced relative to browsing depth.
+
+**Choice Overload · plausible.** The home screen is a long stack of carousels, and the app layers a category slider, a cuisine tag row, three filter drop-downs on the deals screen, filter tags on the map and gifts screens, and a natural-language AI search over the same inventory. *Alternative reading:* the filters exist to expose merchant supply and sponsored inventory rather than to narrow the user's decision. *What would separate them:* whether filtered results demote sponsored placements, and whether the default sort changes when a filter is applied.
+
+**Value Is Not Understood · plausible.** The fee explainer, the freshness guarantee, the map introduction, the group order explanation and the repeated DashPass benefit lists all state what a thing does at the point the user meets it. *Alternative reading:* the fee explainer in particular may exist to satisfy disclosure obligations rather than to address a comprehension obstacle. *What would separate them:* whether comparable disclosure appears in regions with different fee-disclosure rules.
+
+**Isolation · plausible, applied narrowly to the contributor system.** The badge benefits are framed entirely around being seen and trusted by other customers, and the contributor profile defaults to public. *Alternative reading:* the contributor system exists to generate review supply for store pages, with visibility as the incentive rather than the aim. *What would separate them:* whether contributors receive any recognition surface that is not attached to a store listing.
+
+Not diagnosed: No Reason to Return Today, Habit Not Yet Formed and Fatigue From Repetition. The session contains no daily surface, no return-triggered reward, no continuity state and no rotation rule, and the notification prompt alone does not establish a return-pressure design.
+
+### Principles
+
+Calibrated language only. None of the following claims that a mechanic motivates, drives or works through a principle.
+
+**Default and Friction Sensitivity · strongly supported as a relevant interpretation.** The session shows several decision structures where inaction preserves a preselected state: ad personalization is on by default (the narrator states this explicitly), the restricted profile toggle is off by default so the contributor profile is public unless changed, the DashPass free trial checkbox at checkout is preselected and must be actively declined through a "not now" button, and the address type is preselected when the pin lands on a registered business. The app creates conditions consistent with default and friction sensitivity. Whether any user's choice turned on that structure is outside this evidence.
+
+**Social Proof · plausible.** Ratings, rating counts, quoted customer comments, a "customer favorite" tag and a screen headed by popularity and reliability all place other customers' behaviour next to a merchant decision. The app creates conditions consistent with social proof. The narrator's own observation that some quoted comments are negative and that reviews are unsorted and years old is recorded as a limit on how cleanly that information is presented, not as a claim about effect.
+
+**Social Comparison · plausible, and only for the contributor system.** The badge copy positions the contributor relative to other contributors ("be top ranked and seen by the most people", "represent the most trusted voices"). The app creates conditions consistent with social comparison for contributors. It does not do so for orderers: nothing in the session compares one customer's ordering with another's.
+
+**Competence and Mastery Need · plausible.** The badge ladder makes contribution quality legible as a stated criterion with a counter and a next tier. The app creates conditions consistent with a competence interpretation. *Alternative:* the ladder may function purely as an external reward structure for review supply, which the principle's own boundaries name as a competing explanation.
+
+**Scarcity and Urgency · plausible.** Deal cards state when offers end and the welcome code states a 30-day validity, which ties a deadline to a stated change in terms. The app creates conditions consistent with urgency. No countdown, remaining-quantity indicator or capacity limit was observed.
 
 ## Session rhythm
 
-The transcript covers a single continuous session that moves from onboarding through browsing, cart-building, and a mid-session sign-in with Apple. Return pressure that the session surfaces is the first-order incentive with a stated 30-day validity, general deals, and a notifications prompt ("never miss an order update or great deal... turn on notifications"). No streak, daily-login, energy, or recurring-quest mechanic was observed. The clearest session-end gate is the requirement to sign in or sign up to complete an order; the cart persisted after closing it. No return-trigger tied to a recurring time window was observed beyond time-limited offer terms.
+One continuous walkthrough, ending when the narrator says "that is it for DoorDash". No session length is stated. No order was completed, so no post-order state, tracking screen or reorder surface was seen.
+
+The session shows two return-facing surfaces. The first is the notification prompt during onboarding, framed around order updates and deals. The second is a mid-scroll home screen card rendered as "you have deals waiting. Log in to see your deals", with a login button. After sign in, a notifications screen appears reading "hello, you're all caught up on notifications" with a "don't miss those deals" item beneath it, which the narrator interprets as notifications being off.
+
+Nothing in the session establishes a daily window, a continuity state, a refresh schedule, or any reason the app gives to return on a particular day. The 30-day validity on the welcome code is the only stated time boundary attached to the user's own account.
 
 ## Monetization observed
 
-DashPass subscription: presented as "one month free. Then 10 Canadian dollars per month," with benefits listed as "$0 delivery fees," "lower service fees on eligible orders," "member exclusive deals," "5% back on eligible pickup orders," "share your benefits with family sharing," and "cancel anytime." Promoted via multiple paywalls ("Want exclusive offers? Try DashPass. Sign up now") and a checkout upsell ("save 284 Canadian dollars on this order with a free trial of DashPass").
-Fees (read from a fee explainer): service fee is "percentage based... varies by merchant"; delivery fee is a "flat fee from $0.49 to $9.99, $0 for DashPass members on eligible orders"; long-distance fee is a "flat fee up to $4.99"; a weather impact fee applies "in extreme weather conditions." "All fees are avoidable by selecting Pickup."
-First-order offer: "40% off your first order... use code surprise40," "up to $13 off," minimum subtotal "greater than $15," "valid for 30 days from signup," "eligible only to new customers," "not valid on pickup orders," "not valid for the purchase of alcohol."
-Deals observed (Canadian dollars, as spoken): "$5 off on $40 plus order," "buy one, get one free" on "$20 plus spent" at McDonald's, "25% off up to $15," "30% off on an order of $55 from select pet stores," "25% off on a convenience order of $25."
-Gift cards and giftable DashPass are sold. A partner promotion offers "2000 welcome points" for linking PC Optimum on a "$20 plus" order.
-Data and ads: an App Tracking Transparency prompt and a marketing setting for "personalized ads on third party platforms" were shown; the narrator observed the ad-personalization data-sharing setting was "turned on by default."
+**DashPass.** Presented three times: a full-screen pop-up after the address is saved, a checkout checkbox, and a "try pass for free" entry in the profile. The checkout path is the most detailed: a checkbox rendered as "save 284 Canadian dollars on this order with a free trial of DashPass. Get zero delivery fees and lower services fees on eligible orders. Cancel anytime", which opens a pop-up offering "one month free. Then 10 Canadian dollars per month", with "start free DashPass trial", "learn more" and "not now". Declining through "not now" unchecks the box. The transcript renders the on-order saving as "284 Canadian dollars"; the decimal placement is not recoverable from the transcript.
+
+**Fees.** The home screen carries a dismissible banner reading "service fee applies. Tap for details", opening a breakdown the narrator reads aloud: a percentage-based service fee that applies to subtotal and varies by merchant, reduced for DashPass members on eligible orders, with minimums that vary by merchant; a delivery fee rendered as "flat fee from $049 to $999", $0 for DashPass members on eligible orders; a long distance fee rendered as "flat fee up to $499" for merchants furthest from the user, avoidable by selecting closer merchants; and a weather impact fee, a flat fee in extreme weather that funds additional dasher pay. The copy states that all fees are avoidable by selecting pickup and that exact amounts appear at checkout. The transcript renders the delivery fee range and the long distance fee without decimal points; the intended values are not recoverable from the transcript.
+
+**Welcome offer.** After signing in with Apple, the home screen changes: the background colour changes and an animated video of a present opening reveals 40% off tags. The offer is rendered as "get 40% off your first order. 40% off your first $15 plus delivery. Use surprise 40 for up to $13 off", with a "learn more" button opening a terms screen the narrator reads aloud: 40% off the first order and $0 delivery on the first order, new customers only, minimum subtotal greater than $15 excluding taxes and fees, maximum discount value of $13 per order, valid for 30 days from signup, while supplies last, other fees and gratuity still apply, not valid on pickup orders, not valid for alcohol, no cash value, non transferable, code entered at checkout for each order.
+
+**Merchant-funded offers.** Listed under Observed behaviors without a library label above, with amounts as spoken.
+
+**Gift cards.** Purchasable with a design choice, and redeemable through a gift card pin.
+
+**Sponsored placements.** Several sections are labelled sponsored: additional offers inside the deals screen ("some of which are sponsored. It says that they're sponsored so they are showing up at the top"), the "try something new" section, and an individual product offer ("save $5 and select Revlon Lip items which is sponsored").
+
+**Two recruitment surfaces** at the bottom of settings, "become a dasher" and "become a partner restaurant", both opening web forms.
+
+**App version** as stated in settings: 8.28.0, with a build number the transcript renders as "5 77050".
 
 ## What stood out
 
-The home screen greeted the user with "Happy Wednesday, [blank]" because onboarding never asked for a name; the narrator noted the personalization "was left hanging," and the name appeared only after signing in. This restates the observation that no name was collected during onboarding.
+**The only progress the app tracks for the user is contribution progress, and it is three levels deep in settings.** Nothing in the ordering flow counts, ranks or advances anything about the user. The one counter that exists (0 out of 3 toward a badge) sits behind profile, settings, view profile, earn a profile badge. This restates the placement and the counter recorded in the Achievement entry, at the same strength.
 
-The personalized-ads data-sharing setting ("disclosing data to our advertising partners") was described as "turned on by default," which the narrator flagged and questioned.
+**The app's own defaults consistently favour the more permissive option.** Ad personalization on, contributor profile public, DashPass trial checkbox preselected at checkout. Each is individually recorded above; the pattern across the three is the observation.
 
-Under a "customer favorites" heading the app showed unscreened reviews spanning 2020, 2023, and 2024, including clearly negative comments, which the narrator noted "are not being screened by anyone."
-
-A microphone-access prompt appeared without the user initiating any audio action: "allow doordash to access your microphone. I did not ask for audio recording... It just popped up."
+**"Customer favorite" is one of the few tappable tags.** The narrator tested the red offer tags and the black "in store prices" tag and found them inert, while "customer favorite" opened a dedicated screen. This restates the tap tests recorded in the Comparative Rank entry.
 
 ## Analysis notes
 
-This file is built from one Granola session, a single narrator's spoken walkthrough. Per the source rule, all interface copy is treated as the narrator's spoken rendering of the screen unless explicitly read aloud.
-Regional variant: the user is outside a DoorDash country and used a Canadian delivery address, so all pricing is in Canadian dollars and includes Canada-specific elements (the PC Optimum partner integration).
-Account state changed mid-session from guest to signed-in via Apple, which is when personalization and the credits, rewards, and profile surfaces became visible.
-Presence-versus-behavior gaps: DoorDash credits and the badge system are classified as present from their recognizable implementations, but the user's credit balance was $0 and badge progress was 0 of 3, so the earn-and-spend loop and any badge attainment were not demonstrated in-session. DashPass member benefits were described in paywalls but not accessed because the subscription was declined.
-Recorded ambiguities: whether the "customer favorites" list is ordered by rank (left unresolved, so it is not classified as Leaderboard or Comparative Rank); whether the PC Optimum "2000 welcome points" is scoped to the first qualifying order or repeatable (left unresolved, so it is not classified as First-Purchase Bonus). The app version was spoken as "8.28.0" with a build number rendered ambiguously as "577050" or "5 77050."
-No classification in this file required escalation: each candidate was decided by the library entries' own definitions and the operating card's overlap rule.
+**Single session, first install, signed out then signed in.** No order was placed, so checkout completion, order tracking, post-order review prompts, reorder surfaces and any returning-user home screen are entirely absent from this evidence. The contributor system was seen at zero state throughout: 0 contributions, 0 out of 3 on the first badge, no saved payment method, no order history.
+
+**Region.** The narrator is not in a country DoorDash serves, declined location, and typed a Canadian address, choosing a location that turned out to be a registered business, so the address flow shown is the office variant. Prices are in Canadian dollars and several offers are described by the narrator as Canada specific, including the PC Optimum partnership. Nothing in this file should be read as describing DoorDash in another market.
+
+**Transcript quality.** The recording has two speaker labels that alternate mid-sentence, and several passages are garbled beyond reconstruction, including a section name rendered as "the neighborhood ETF", a phrase rendered as "love to buy 1,000", a cuisine filter the narrator himself flags as "put in ears if I'm reading it correctly", and the disappearing tag after the first saved store. These are recorded as ambiguous and were not used as evidence for any classification. Currency amounts rendered without decimal points ("$049 to $999", "$499", "284 Canadian dollars") are reproduced as rendered rather than corrected.
+
+**Interface copy.** The narrator reads much of the copy aloud, and those passages are treated as the screen's wording. Where the narrator summarizes rather than reads, the text above says "rendered as" or "described as" to mark it as spoken rendering.
+
+**Stated exclusions.** The following evidenced surfaces were checked against library entries and deliberately not classified:
+
+- *Advertisement Exposure.* Not applied to the sponsored merchant and product placements ("some of which are sponsored", "try something new", the sponsored Revlon offer), which the entry excludes as retail media inside the product's own commerce lists; not applied to the PC Optimum card, which the entry excludes as partner cross-promotion; not applied to the DashPass pop-ups and banners, which the entry excludes as the product promoting its own subscription. The activity tracking prompt concerns DoorDash ads served on third party sites, not an ad unit served inside the app. No ad unit was observed in this session.
+- *Community Space.* Not applied to store reviews, customer photos and the contributor profile. The entry explicitly excludes reviews, ratings and photos attached to commerce listings and defers them to a future entry.
+- *Social Feed.* Not applied. No ordered stream of socially attributed items was observed; the home screen carousels are merchant recommendations without social attribution, which the entry excludes.
+- *Group Membership.* Not applied to group orders, which the entry excludes as a temporary transaction grouping that does not persist beyond one instance. DashPass family sharing is the surface that might satisfy the entry and it is recorded under Locked or gated mechanics.
+- *Milestone.* Checked against the badge system and not applied. The entry requires a broader measurable progression within which the recognized point sits, and the session does not establish that DoorDash maintains a count of stores reviewed separately from the badge criteria themselves. The 0 out of 3 counter exists inside the badge; the profile's "0 contributions" is a different measure.
+- *Leveling.* Checked against the badge system and not applied. The session shows two ordered badge states but no current level state assigned to the user, and the entry directs that threshold recognition without a maintained current state be classified as Achievement or Milestone instead.
+- *Experience Points.* Checked against the badge system and not applied. The counter records how many stores have been reviewed rather than assigning quantified progression value to those events, which the entry separates as a cumulative count.
+- *Leaderboard.* Checked against customer favorites and not applied. See the Comparative Rank classification basis.
+- *Spendable Credits and Tokens, Soft Currency, Hard Currency.* Checked against DoorDash credits and gift card balances and not applied. All three entries exclude balances denominated in real currency and stored monetary value held on the user's behalf. PC Optimum points are a partner's balance, and no DoorDash-side balance, spend rule or exchange was observed.
+- *Challenge.* Checked against the PC Optimum welcome points offer ("order $20 to earn 2,000 points") and the promotional codes, and not applied. No bounded objective instance with a tracked active, completed or expired state was observed; these are price and reward conditions attached to a transaction.
+- *First-Purchase Bonus.* Checked against "40% off your first order" and "$0 delivery fee for the first order" and not applied. Both reduce the price of the qualifying transaction, which the entry names as a first-purchase discount and explicitly excludes from the bonus mechanic. No separate benefit was observed to be granted after a first order completes.
+- *Monthly Reward Card.* Checked against DashPass and not applied. The entitlement provides continuous fee and access benefits rather than multiple interval-based reward opportunities, which the entry excludes.
+- *Cosmetic Customization.* Checked against the dark mode setting and the gift card design choice and not applied. The entry explicitly excludes appearance mode settings, and the gift card design was observed only as a choice inside a purchase flow with no maintained applied state.
+- *Set Collection.* Checked against saved stores and the two badges and not applied. No defined set with tracked member-level completeness was observed; the entry excludes progress toward a numerical badge target.
+- *Variable Reward Outcome.* Checked against the welcome offer's gift-opening animation and not applied. Only one result was observed and the result was fixed and fully disclosed in the terms, which the entry excludes.
+
+**Items to re-record.** A session that would materially improve this file would: place at least one order, subscribe to DashPass and open the family sharing screen, submit reviews or photos for one store to observe a contribution's approval and its effect on the badge counter, and re-open the customer favorites screen after a period to see whether the set and its order change.
