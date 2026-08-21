@@ -58,7 +58,9 @@ export function caseStudyProps(app: App, byId: MechanicsById) {
         shotsAreImages: r.screenshots.length > 0,
       };
     }),
-    loopParagraphs: sys ? [sys.loop] : [],
+    // A loop written as numbered steps carries one step per line, so each
+    // line renders as its own paragraph. Single-line loops are unaffected.
+    loopParagraphs: sys ? sys.loop.split(/\n+/).map((p) => p.trim()).filter(Boolean) : [],
     connections: (sys?.connections ?? []).map((c) => ({
       a: byId.get(c.from)?.name ?? c.from,
       b: byId.get(c.to)?.name ?? c.to,
@@ -200,7 +202,7 @@ export function systemProps(app: App, byId: MechanicsById) {
       name: c.title,
       effect: `${c.desc} ${c.effect}`.trim(),
     })),
-    walkthroughParagraphs: [sys.loop],
+    walkthroughParagraphs: sys.loop.split(/\n+/).map((p) => p.trim()).filter(Boolean),
     mechanicsList: sys.roles.map((r) => ({
       id: r.id,
       name: byId.get(r.id)?.name ?? r.id,
