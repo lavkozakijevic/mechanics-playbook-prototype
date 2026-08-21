@@ -356,6 +356,10 @@ const CONNECTIONS = {
     { from: "social-feed", to: "community-groups", title: "Real-time counter makes community feel live", desc: "The '594,622 people here today' counter converts the solo meditation experience into a perceived communal practice. It is the entry point to the community layer for users who have not yet found the groups section.", effect: "Users who engage with the counter are primed to discover that the community infrastructure exists. The number creates curiosity about who those people are, making the hidden groups section a discovery worth seeking." },
     { from: "achievements", to: "social-feed", title: "Milestone sharing distributes the achievement", desc: "Streak milestones generate pre-formatted Instagram Stories and messaging shares. The achievement's social distribution is designed into the sharing UI.", effect: "Every milestone is a potential acquisition moment. The share converts a private habit marker into a public product impression at the moment the user's satisfaction is highest." },
   ],
+  doordash: [
+    { from: "community-groups", to: "achievements", title: "Reviews are what the badges count", desc: "The badge criteria ask for high quality reviews or photos across a threshold number of stores.", effect: "The reviewer profile is where the contributions and the badges both live." },
+    { from: "credits-tokens", to: "gifting", title: "Gift cards top up the credits balance", desc: "Redeeming a gift card adds value to the DoorDash credits balance.", effect: "The gifting surface and the credits balance meet at the redeem action." },
+  ],
   strava: [
     { from: "challenges", to: "leaderboards", title: "Every challenge page carries its own leaderboard", desc: "Each challenge has a leaderboard of the users taking part, ordered by the measure that challenge is built on.", effect: "Joining a challenge places a participant in a ranked set for the length of that challenge." },
     { from: "community-groups", to: "challenges", title: "Clubs organise and host challenges", desc: "Many of the challenges are organised by clubs, and a challenge page names the club running it.", effect: "Club membership is one of the routes through which challenges reach a user." },
@@ -539,6 +543,14 @@ const POSITIONS = {
     "challenges":            { x: 78, y: 55 },
     "social-feed":           { x: 22, y: 80 },
     "community-groups":      { x: 78, y: 80 },
+  },
+  "doordash": {
+    center:                  { x: 50, y: 8,  label: "DOORDASH" },
+    "community-groups":      { x: 25, y: 30 },
+    "achievements":          { x: 75, y: 30 },
+    "ads":                   { x: 50, y: 51 },
+    "credits-tokens":        { x: 25, y: 72 },
+    "gifting":               { x: 75, y: 72 },
   },
   "strava": {
     center:                  { x: 50, y: 8,  label: "STRAVA" },

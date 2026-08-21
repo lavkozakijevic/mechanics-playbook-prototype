@@ -1,7 +1,7 @@
 {
   "id": "homepage",
   "spotlightApp": "strava",
-  "showcaseSystem": "uptime",
+  "showcaseSystem": "doordash",
   "featuredMechanics": [
     "energy-lives",
     "limited-time-events",
@@ -27,6 +27,6 @@
   ],
   "freeSystemApps": [
     "strava",
-    "uptime"
+    "doordash"
   ]
 }

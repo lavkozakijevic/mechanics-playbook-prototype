@@ -1,0 +1,175 @@
+{
+  "id": "doordash",
+  "name": "DoorDash",
+  "category": "Food Delivery",
+  "type": "app",
+  "visibility": "public",
+  "analysisDate": "2026-07-29",
+  "lastUpdated": "2026-07-30",
+  "summary": "DoorDash is a delivery marketplace for restaurant, grocery, convenience, drugstore, retail, and pet orders. The app moves a user from setting a delivery address to browsing merchants and deals, building a cart, and signing in to order. A second layer sits around that order: sponsored offers share the feed with ordinary listings, a credits balance sits beside the payment methods, and a review system gives users a profile whose badges are earned by contributing rather than by ordering.",
+  "icon": null,
+  "heroImage": null,
+  "mechanics": [
+    {
+      "id": "ads",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "DoorDash sells placement inside the same lists users are already scrolling, and separates it with a label rather than with a slot of its own. Sponsored offers carry a sponsored tag and sit at the top of the deals list. We saw brand funded offers next to ordinary merchant deals, including money off select Revlon lip items and a percentage off a convenience order for Dr Pepper and Doritos. A try something new row is made up of sponsored options and says so.",
+        "presented": "Sponsored units appear as cards and banners inside the ordinary feed rather than in a separate advertising area. Each carries a sponsored label, and the sponsored ones are placed at the top of the list.",
+        "noting": "The placement rule is the part worth noticing. DoorDash does not move paid offers into an advertising area of their own. They take the top of the same list a user opened to browse, and the label is the only thing that marks them apart. Merchant discovery and paid placement share one surface, which puts the paid offer at the point where a user is choosing where to order.",
+        "findings": [
+          "DoorDash places sponsored offers at the top of the deals list and marks each one with a sponsored label.",
+          "The sponsored units are cards and banners inside the ordinary feed rather than a separate advertising area.",
+          "Brand funded offers we saw include money off select Revlon lip items and a percentage off a convenience order for Dr Pepper and Doritos.",
+          "Merchant discovery and paid placement share the same scroll, separated only by the label."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "gifting",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "DoorDash treats a gift as a setting on an ordinary order rather than as a separate product. At the address step the app offers to send the order as a gift, with a card and note added at checkout. A short explainer covers what changes: the sender shops from merchants near the recipient's address, enters the recipient's name and phone number so the recipient can track the delivery, and can include a digital card and message. A Gifts section sells gift cards, and a DashPass subscription can be given as a gift as well. The profile carries both sides, one action to customise and buy a gift card and another to redeem one with a pin.",
+        "presented": "Gifting sits in two places. It is a toggle inside the ordinary order flow, offered at the address step and completed at checkout, and it is a dedicated Gifts shortcut with a matching profile section for buying and redeeming gift cards.",
+        "noting": "Offering the gift option at the address step is the choice worth noticing. The recipient's address is the field a gift order actually changes, so DoorDash asks the question at the moment the user is already entering an address rather than at checkout. The explainer states the practical consequence at the same point, that the address decides which merchants the sender can shop from. Three different things can be handed over: a delivered order, a gift card balance, and a DashPass subscription.",
+        "findings": [
+          "DoorDash offers the gift option at the address step, where the recipient's address is already the field in question.",
+          "The explainer states that the recipient's address decides which merchants the sender shops from.",
+          "DoorDash collects the recipient's name and phone number so the recipient can track the delivery.",
+          "An order, a gift card balance, and a DashPass subscription can each be given as a gift."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "community-groups",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "DoorDash attaches a named reviewer identity to store reviews and scopes that identity to the user's own neighbourhood. Store pages carry reviews, ratings, and photos from many different users, and they stay there: we saw comments dated 2020, 2023, and 2024 sitting together on one page, praise and complaints side by side, in no order we could see. The contribution side runs through a profile. It shows a contributions count, states that contributions appear once they are approved, and invites the user to become a trusted voice by sharing reviews and earning badges. A separate panel points to local experts worth following. When the profile is public, DoorDash states that the user's ratings and public reviews are visible to anyone, including other users ordering nearby, and that public contributions display on the store page.",
+        "presented": "Reviews and photos attach to individual store pages and stay there over time. Contribution runs through a profile the user can make public or keep restricted, and what is submitted is moderated before it appears.",
+        "noting": "The reviews sit oddly next to the heading above them, and that is the part worth noticing. Under a customer favorites heading, DoorDash shows reviews spanning several years, including plainly negative ones, in no order we could see. The reviewer profile is the other side of the same system. It carries a contributions count, a public or restricted setting, and the statement that public contributions appear on the store page, so the identity that writes a review is the same identity other users can look up.",
+        "findings": [
+          "Store page reviews persist for years and appear in no order we could see, with negative comments shown under a customer favorites heading.",
+          "Contributions run through a profile the user can make public or keep restricted.",
+          "Submitted contributions appear only after they are approved.",
+          "A public profile makes a user's ratings and reviews visible to other users ordering nearby."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "credits-tokens",
+      "depth": "supporting",
+      "writeup": {
+        "observed": "DoorDash keeps its credit balance beside the payment methods rather than in a rewards area of its own, so it reads as one more way to pay. The balance sits in the payment section with a redeem gift card action next to it, and appears again as a line in rewards. Redeeming a gift card tops it up through a pin entry. The earning rule belongs to the subscription: DoorDash states that DashPass members get 5% back on eligible pickup orders, paid as DoorDash credits. We did not see credits spent against an order.",
+        "presented": "The balance appears beside the payment methods with the redeem gift card action next to it, and again as a line in the rewards area.",
+        "noting": "Placing the balance beside the payment methods is the choice worth noticing. DoorDash presents credits as a payment source rather than as points waiting to be converted, so a user meets them at checkout rather than in a loyalty screen. The rule that earns them sits with the subscription rather than with ordinary ordering, which makes credit accrual one of the things a DashPass membership buys.",
+        "findings": [
+          "DoorDash presents credits beside the payment methods, so the balance reads as a way to pay rather than as points.",
+          "Redeeming a gift card with a pin is the top up path.",
+          "The 5% back earning rule is stated as a DashPass member benefit, so credit accrual is part of what the subscription provides."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "achievements",
+      "depth": "shallow",
+      "writeup": {
+        "observed": "DoorDash's badges reward contributing reviews, not ordering. The first tier, emerging expert, asks for high quality reviews or photos across 3 stores and shows progress toward it, 0 of 3 on a new account. The tier above it, local expert, asks for 10 or more stores and states that the holder ranks highly and is seen by the most users. That second tier is shown greyed out and locked. The screen frames the pair as a way to gain influence on DoorDash.",
+        "presented": "The badges sit several layers inside the profile, reached through the profile, then view profile, then earn a profile badge. Each badge states its criterion and shows partial progress, and the higher tier stays visible while locked.",
+        "noting": "Two things are worth noticing here. The criterion counts contribution rather than spending, so the ladder runs on reviews and photos rather than on orders or money. The reward is framed as reach, that a local expert is seen by the most users, which ties the badge to how far that user's reviews travel rather than to anything they receive. The ladder itself sits deep in the profile rather than beside the reviews it asks for.",
+        "findings": [
+          "DoorDash's badge criteria are contribution based, counting stores reviewed rather than orders placed.",
+          "The first tier asks for reviews or photos across 3 stores, and the account we saw stood at 0 of 3.",
+          "The locked higher tier states its reward as reach, ranking highly and being seen by the most users.",
+          "The badges sit several layers inside the profile rather than next to the review action they ask for."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    }
+  ],
+  "system": {
+    "tagline": "An ordering marketplace with a reviewer identity attached to it.",
+    "overview": "DoorDash's system is built around completing one order. The app moves a user from a delivery address to a feed of merchants and deals, into a cart, and then to signing in to order. A second layer sits around that. Sponsored offers share the feed with ordinary listings, a credits balance sits beside the payment methods, gifting turns an ordinary order into one addressed to someone else, and a review system gives users a profile whose badges are earned by writing reviews.",
+    "loop": "A user sets a delivery address, then scrolls a feed of category shortcuts, deals, and merchant lists. Sponsored offers sit in that same feed, labelled and placed at the top. The user opens a store page, where reviews and photos from other users are attached, and adds items to a cart. Completing the order requires signing in or signing up. Credits sit beside the payment methods as a way to pay, topped up by redeeming a gift card, and the rule that earns them is stated as a DashPass member benefit. After ordering, a user can review the store, and those reviews are what the profile badges count. The system is built around one transaction, and the surfaces around it either help fill the cart or record what the user says about the merchant afterwards.",
+    "keyInsight": "The parts of DoorDash that look like a game are attached to reviewing, not to ordering. The badge ladder counts stores reviewed rather than orders placed, and the tier above the first states its reward as reach, being seen by the most users. We saw no streak, daily reward, or recurring quest on the ordering side. What DoorDash asks a user to keep doing, beyond ordering, is to write reviews under a name other users can look up.",
+    "whatMakesItWork": "DoorDash keeps each incentive close to the action it is meant to move. The gift option appears at the address step, because the address is what a gift order changes. Credits sit beside the payment methods, because they are a way to pay. Badge criteria count reviewed stores, because reviews are what the profile is for. The one place this breaks is the badge ladder itself, which sits several layers inside the profile rather than next to the reviews it asks for.",
+    "roles": [
+      {
+        "id": "ads",
+        "role": "Sponsored offers labelled and placed at the top of the same deals and browse lists as ordinary merchant listings."
+      },
+      {
+        "id": "gifting",
+        "role": "A gift toggle offered at the address step, plus gift cards and a giftable DashPass subscription."
+      },
+      {
+        "id": "community-groups",
+        "role": "Store pages carrying reviews, ratings, and photos from many users, contributed through a public or restricted profile."
+      },
+      {
+        "id": "credits-tokens",
+        "role": "A DoorDash credits balance beside the payment methods, topped up by gift card and earned at 5% back for DashPass members."
+      },
+      {
+        "id": "achievements",
+        "role": "Profile badges earned by reviewing or photographing a threshold number of stores, with a higher tier locked."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 8,
+      "label": "DOORDASH"
+    },
+    "nodes": [
+      {
+        "id": "community-groups",
+        "x": 25,
+        "y": 30
+      },
+      {
+        "id": "achievements",
+        "x": 75,
+        "y": 30
+      },
+      {
+        "id": "ads",
+        "x": 50,
+        "y": 51
+      },
+      {
+        "id": "credits-tokens",
+        "x": 25,
+        "y": 72
+      },
+      {
+        "id": "gifting",
+        "x": 75,
+        "y": 72
+      }
+    ],
+    "connections": [
+      {
+        "from": "community-groups",
+        "to": "achievements",
+        "title": "Reviews are what the badges count",
+        "desc": "The badge criteria ask for high quality reviews or photos across a threshold number of stores.",
+        "effect": "The reviewer profile is where the contributions and the badges both live."
+      },
+      {
+        "from": "credits-tokens",
+        "to": "gifting",
+        "title": "Gift cards top up the credits balance",
+        "desc": "Redeeming a gift card adds value to the DoorDash credits balance.",
+        "effect": "The gifting surface and the credits balance meet at the redeem action."
+      }
+    ]
+  }
+}

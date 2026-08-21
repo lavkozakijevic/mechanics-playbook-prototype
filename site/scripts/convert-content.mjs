@@ -78,12 +78,17 @@ const CANONICAL_MECHANIC_IDS = {
   "Milestone": "achievements",
   "Achievement": "achievements",
   "Group Membership": "community-groups",
-  // Partner cross-promotion (Runna, Apple Fitness+, partner-named challenges)
-  // and the app's own subscription upsell are not published as an advertising
-  // or monetization mechanic: the content rules limit advertising coverage to
-  // actual ad units (rewarded video, interstitial, banner, offerwall), and none
-  // were observed. The partnerships are described inside the challenge write-up.
-  "Advertisement Exposure": null,
+  // This library has no review-context entry. Community Space is written up
+  // under community-groups, the nearest existing id. See the note in DROPS
+  // below for the one place the fit is imperfect.
+  "Community Space": "community-groups",
+  "Gifting": "gifting",
+  "Spendable Credits and Tokens": "credits-tokens",
+  // Published only where real ad units appear. Where an analysis's advertising
+  // section holds nothing but partner cross-promotion and the app's own
+  // subscription upsell, the relationship is dropped per-app below, because the
+  // content rules limit advertising coverage to actual ad units.
+  "Advertisement Exposure": "ads",
 };
 
 function parseAnalysis(file) {
@@ -130,9 +135,11 @@ function isoDate(s) {
   // Compound strings — "12 May 2026 (Session 1), ..." or ranges like
   // "06 Apr 2026 – 15 May 2026" — yield the FIRST date (= the analysis start).
   if (!s) return null;
-  // Accepts both the short form ("03 Apr 2026") and the full month name
-  // ("16 April 2026") used by reviewed analyses.
-  const first = s.match(/\d{1,2} [A-Z][a-z]{2,8} \d{4}/);
+  // Three forms appear across the analyses: the short day-first form
+  // ("03 Apr 2026"), the full month name day-first ("16 April 2026"), and the
+  // month-first form with a comma ("July 29, 2026").
+  const first =
+    s.match(/\d{1,2} [A-Z][a-z]{2,8} \d{4}/) ?? s.match(/[A-Z][a-z]{2,8} \d{1,2}, \d{4}/);
   if (!first) return null;
   const d = new Date(first[0] + " UTC");
   return isNaN(d) ? null : d.toISOString().slice(0, 10);
@@ -267,6 +274,11 @@ const DROPS = new Set([
   "credits-tokens|liftoff",
   "ads|chrome-valley-customs",
   "ads|match-creek-motors",
+  // Strava's advertising section records partner cross-promotion (Runna, Apple
+  // Fitness+, partner-named challenges) and Strava's own subscription upsell.
+  // No ad unit was observed, so it is not published as an advertising mechanic;
+  // the partnerships are described inside the challenge write-up instead.
+  "ads|strava",
   "gifting|swgoh",
   "soft-currency|fortune-city",
 ]);
@@ -277,7 +289,7 @@ const DROPS = new Set([
 // newly imported app; the previous holder flips back to subscriber simply by
 // no longer being named here. Validation enforces the exactly-two invariant.
 // Thin apps awaiting write-up backfill must not hold this slot.
-const ROTATING_FREE_APP = "uptime"; // newest addition (analyzed 18 May 2026)
+const ROTATING_FREE_APP = "doordash"; // newest addition (analyzed 29 Jul 2026)
 
 const ALL_APPS = [
   { file: "royal-match.md", id: "royal-match", visibility: "subscriber" },
@@ -309,6 +321,7 @@ const ALL_APPS = [
   // Permanent free case study (final owner ruling, 11 Jun 2026) — never flips.
   { file: "strava.md", id: "strava", visibility: "public" },
   // Batch 5
+  { file: "doordash.md", id: "doordash", visibility: "subscriber" },
   { file: "subway-surfers.md", id: "subway-surfers", visibility: "subscriber" },
   { file: "tiimo.md", id: "tiimo", visibility: "subscriber" },
   { file: "uptime.md", id: "uptime", visibility: "subscriber" },
