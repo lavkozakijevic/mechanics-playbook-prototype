@@ -39,6 +39,9 @@ These rules govern the move from analysis file to published copy. They come firs
 11. **Session references are not attribution.** Session references appear only where the temporal context itself informs the reader (a month-bounded challenge, a seasonal event). Never as attribution: no "in our session," "during the session," or similar bookkeeping phrases.
 12. **Categories come only from the index.** Mechanic categories come exclusively from the Category column in /library/_index.md. Never invent, rename, or regroup categories. If a mechanic in the analysis has no category in the index, flag it and leave the category blank rather than assigning one.
 13. **Screenshot blocks are internal and never published.** Each section's draft carries its screenshot capture list as an internal note for Lav, written fresh from the section's own claims. The block is clearly marked as an internal note, stripped before publishing, and never appears in published reader copy.
+14. The overview opens on the app's most distinctive design tension or insight, not on a category inventory. A reader should want to know how the app works after the first two sentences. Enticing stays within the calm analyst voice: sharp framing, no hype.
+15. The core loop is written as numbered steps. The loop itself is the numbered sequence; surfaces that sit around the loop rather than inside it are named separately after the steps, in one or two sentences, clearly marked as surrounding the loop rather than part of it.
+16. Observation-apparatus phrasing is banned from copy: "in no order we could see," "we could not see," "we could not tell," and similar. State the fact plainly or omit it.
 
 ## The rules, binding on every draft
 
