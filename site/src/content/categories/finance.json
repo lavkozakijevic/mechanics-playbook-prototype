@@ -7,7 +7,7 @@
   "hero": {
     "kicker": "For banks and finance apps",
     "headline": "Straightforward ways to gamify your finance app",
-    "sub": "The design that makes a game worth opening every day can make a finance app worth opening too. We help product teams understand which of those ideas fit their app, and how to use them in ways that earn a customer's loyalty instead of chasing it."
+    "sub": "We break down how the best apps turn opening the app into a habit, mechanic by mechanic, and publish what we find. Three new breakdowns every week."
   },
   "problems": {
     "kicker": "Where we can help",
@@ -46,20 +46,47 @@
     ]
   },
   "report": {
-    "eyebrow": "A sample of the report",
-    "title": "See exactly what to expect",
-    "body": "See how other finance apps already use game design, plus the full contents so you know what to expect from the complete report. Enter your email and the report opens instantly.",
+    "eyebrow": "Free sample report",
+    "title": "Get the sample finance report",
+    "body": "Enter your email and the sample finance report opens straight away. It shows how other finance apps already use game design, and what the full report covers. You also get the three breakdowns we publish every week.",
     "imageHref": "/images/finance-report-cover.webp"
   },
   "heroApps": [
-    { "id": "revolut", "name": "Revolut" },
-    { "id": "monzo", "name": "Monzo" },
-    { "id": "chase", "name": "Chase" },
-    { "id": "monefy", "name": "Monefy" },
-    { "id": "monarch", "name": "Monarch" },
-    { "id": "binance", "name": "Binance" },
-    { "id": "acorns", "name": "Acorns" },
-    { "id": "cash-app", "name": "Cash App" },
-    { "id": "cleo", "name": "Cleo" }
+    {
+      "id": "revolut",
+      "name": "Revolut"
+    },
+    {
+      "id": "monzo",
+      "name": "Monzo"
+    },
+    {
+      "id": "chase",
+      "name": "Chase"
+    },
+    {
+      "id": "monefy",
+      "name": "Monefy"
+    },
+    {
+      "id": "monarch",
+      "name": "Monarch"
+    },
+    {
+      "id": "binance",
+      "name": "Binance"
+    },
+    {
+      "id": "acorns",
+      "name": "Acorns"
+    },
+    {
+      "id": "cash-app",
+      "name": "Cash App"
+    },
+    {
+      "id": "cleo",
+      "name": "Cleo"
+    }
   ]
 }

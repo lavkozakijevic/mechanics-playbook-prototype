@@ -1365,6 +1365,36 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
 .capture__done-p { font: var(--type-body-sm); color: var(--text-secondary); margin: 0; }
 
 /* The trust section — a single values statement, prose column */
+/* What is in the library: three plain elements, no numbering */
+.catland-lib { display: grid; grid-template-columns: 1fr; gap: clamp(24px, 3vw, 36px);
+  margin-top: clamp(28px, 3.4vw, 44px); }
+@media (min-width: 900px) {
+  .catland-lib { grid-template-columns: repeat(3, 1fr); }
+}
+.catland-lib__item h3 { font: var(--type-h3); font-size: clamp(16px, 1.5vw, 18px);
+  color: var(--ink-900); margin: 0 0 8px; text-wrap: balance; }
+.catland-lib__item p { font: var(--type-body-sm); color: var(--text-secondary);
+  line-height: 1.6; margin: 0; text-wrap: pretty; }
+.catland-lib__link { display: inline-block; margin-top: 12px; font: var(--type-body-sm);
+  font-weight: var(--weight-semibold); color: var(--text-accent); text-decoration: none; }
+.catland-lib__link:hover { text-decoration: underline; text-underline-offset: 3px;
+  text-decoration-color: var(--accent); }
+
+/* Closing signup: the same ask as the report section, with the consulting path
+   kept to one quiet line beneath it */
+.catland-signup__in { max-width: 620px; margin: 0 auto; text-align: center; }
+.catland-signup__p { font: var(--type-body-lg); font-size: clamp(16px, 1.6vw, 19px);
+  color: var(--text-secondary); line-height: 1.6; margin: 16px 0 0; text-wrap: pretty; }
+.catland-signup__form { margin-top: clamp(24px, 3vw, 32px); text-align: left; }
+.catland-signup__form .capture__fine { text-align: center; }
+.catland-signup__alt { font: var(--type-body-sm); color: var(--text-muted);
+  margin: clamp(26px, 3.2vw, 36px) 0 0; padding-top: clamp(18px, 2.2vw, 24px);
+  border-top: var(--rule-hairline); }
+.catland-signup__alt a { color: var(--text-accent); font-weight: var(--weight-medium);
+  text-decoration: none; }
+.catland-signup__alt a:hover { text-decoration: underline; text-underline-offset: 3px;
+  text-decoration-color: var(--accent); }
+
 .catland-trust { max-width: 760px; }
 .catland-trust__p { font: var(--type-body-lg); font-size: clamp(16px, 1.6vw, 19px); color: var(--text-secondary);
   line-height: 1.6; margin: 16px 0 0; text-wrap: pretty; }

@@ -1,7 +1,10 @@
 ---
 // Shared template for every category landing page (/finance, /productivity, …).
-// Section order: hero → where we can help → why gamification matters → how we
-// work → what to expect → trust → get in touch.
+// The page has one ask, the email signup, which appears twice: in the hero as an
+// anchor and as a form in the report section and again at the close. Consulting
+// is still reachable, as one line above the footer, and nowhere else.
+// Section order: hero, where we can help, why gamification matters, what is in
+// the library, the free report, trust, closing signup.
 // The hero copy, the six problems, and the report card are category-specific
 // (supplied by the content file). All other sections are shared and hardcoded
 // here so a new category is still just one content file.
@@ -52,33 +55,16 @@ const carousel = await (async () => {
     : [];
 })();
 
+// The one ask on this page is the email signup. The sample breakdown sits
+// beside it as a text link, so a reader can see the work before giving an email.
+const SAMPLE_BREAKDOWN = "/case-studies/strava/";
 const heroCtas = [
-  { label: "Book a call", href: "https://calendar.app.google/EvXYKKXGxJvKbxns5", variant: "secondary", target: "_blank", rel: "noopener noreferrer" },
   { label: "Get the free report", href: "#get-report", variant: "accent" },
+  { label: "See a sample breakdown", href: SAMPLE_BREAKDOWN, variant: "link" },
 ];
 
-const STEPS = [
-  {
-    n: "01",
-    title: "A call to understand your goals",
-    body: "We start by listening. A short call to understand your product, your users, and the habits you want to build.",
-  },
-  {
-    n: "02",
-    title: "In-depth research of your category",
-    body: "We study the best apps in your space and map how they use game mechanics to keep people coming back.",
-  },
-  {
-    n: "03",
-    title: "Comparison with the best mobile games",
-    body: "We set your product beside the most engaging games in the world and identify the techniques worth borrowing.",
-  },
-  {
-    n: "04",
-    title: "A report with concrete next steps",
-    body: "You receive a written report with specific recommendations: which mechanics to try, how to apply them, and what to measure.",
-  },
-];
+// Shown under both email forms, so the newsletter is never implied silently.
+const CAPTURE_NOTE = "Three new breakdowns every week. Unsubscribe at any time.";
 ---
 
 <main id="main">
@@ -124,22 +110,26 @@ const STEPS = [
     </div>
   </section>
 
-  {/* Gamifying your app — shared 4-step process */}
-  <section class="band" aria-labelledby="steps-h">
+  {/* What's in the library — the sample, the cross-category argument, the cadence */}
+  <section class="band" aria-labelledby="lib-h">
     <div class="container">
-      <div class="mech-section__kicker">How we work</div>
-      <h2 class="mech-section__title" id="steps-h">Gamifying your app</h2>
-      <ol class="catland-steps">
-        {STEPS.map((s) => (
-          <li class="catland-step">
-            <span class="catland-step__n" aria-hidden="true">{s.n}</span>
-            <div>
-              <h3 class="catland-step__title">{s.title}</h3>
-              <p class="catland-step__body">{s.body}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
+      <div class="mech-section__kicker">The library</div>
+      <h2 class="mech-section__title" id="lib-h">What is in the library</h2>
+      <div class="catland-lib">
+        <div class="catland-lib__item">
+          <h3>A breakdown you can read right now</h3>
+          <p>The Strava breakdown is open in full, with no email needed. It walks each mechanic in the loop, what we observed, how the app presents it, and what a product team can take from it.</p>
+          <a class="catland-lib__link" href={SAMPLE_BREAKDOWN}>Read the Strava breakdown</a>
+        </div>
+        <div class="catland-lib__item">
+          <h3>Every category, not only {cat.name.toLowerCase()}</h3>
+          <p>A {cat.name.toLowerCase()} app competes with Duolingo and Strava for the same minutes on the same phone. So we study every category, and you take the parts that fit your product.</p>
+        </div>
+        <div class="catland-lib__item">
+          <h3>Three new breakdowns every week</h3>
+          <p>We publish three every week and send them in the newsletter. Each one covers a single app and the mechanics that keep people coming back to it.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -182,6 +172,8 @@ const STEPS = [
               client:load
               category={cat.slug}
               source="category-report"
+              submitLabel="Get the report"
+              note={CAPTURE_NOTE}
             />
           </div>
         </div>
@@ -199,15 +191,22 @@ const STEPS = [
     </div>
   </section>
 
-  {/* Book a call — shared */}
-  <section class="band band--ink catland-call" aria-labelledby="call-h">
+  {/* Closing — the same single ask, with the consulting path kept quiet below it */}
+  <section class="band band--sheet catland-signup" aria-labelledby="signup-h">
     <div class="container">
-      <div class="catland-call__in">
-        <h2 id="call-h">Bring us your app and a problem</h2>
-        <p>Tell us what you are working on and where it stalls. In half an hour we can usually point to two or three places where game design would genuinely help, and how to approach each one.</p>
-        <div class="catland-call__cta">
-          <a class="gb-btn gb-btn--accent gb-btn--lg" href="https://calendar.app.google/EvXYKKXGxJvKbxns5" target="_blank" rel="noopener noreferrer">Book a call</a>
+      <div class="catland-signup__in">
+        <h2 class="mech-section__title" id="signup-h">Three new breakdowns every week</h2>
+        <p class="catland-signup__p">Enter your email and the sample {cat.name.toLowerCase()} report opens straight away. After that we send the three breakdowns we publish each week.</p>
+        <div class="catland-signup__form">
+          <ReportCapture
+            client:load
+            category={cat.slug}
+            source="category-closing"
+            submitLabel="Get the report"
+            note={CAPTURE_NOTE}
+          />
         </div>
+        <p class="catland-signup__alt">Working on a specific problem in your app? <a href="/work-with-us/">Work with us</a></p>
       </div>
     </div>
   </section>
