@@ -6,7 +6,7 @@
   "visibility": "public",
   "analysisDate": "2026-07-29",
   "lastUpdated": "2026-08-21",
-  "summary": "DoorDash counts nothing about ordering. The only numeric target it sets for a user is a badge criterion for writing reviews, and that sits 3 levels inside the profile settings, away from every ordering surface. The rest is a delivery and pickup marketplace for restaurants, groceries, convenience, drugstore, retail, pets, and gifts, where a user browses and fills a cart while signed out and meets the sign-in wall only at checkout.",
+  "summary": "DoorDash puts its habit machinery on reviewing rather than on ordering. The badge ladder, the influence framing, and the public reviewer profile all reward writing reviews, while the ordering side carries no streak, no daily reward, and no recurring quest. Around the cart, sponsored offers share the feed with ordinary merchant listings, separated only by a label, and a credits balance sits beside the payment methods rather than in a rewards screen. The marketplace itself covers restaurant, grocery, convenience, drugstore, retail, and pet orders.",
   "icon": null,
   "heroImage": null,
   "mechanics": [
@@ -28,16 +28,16 @@
       "suggestedShots": []
     },
     {
-      "id": "leaderboards",
-      "depth": "supporting",
+      "id": "gifting",
+      "depth": "shallow",
       "writeup": {
-        "observed": "DoorDash marks some stores as a customer favorite and makes that mark the way into a screen of its own. The tag sits on store cards inside ordinary browsing carousels. Tapping it opens a list headed as customer favorites, top ranked in the user's area, based on customer ratings, popularity, and reliability. For the address used here the screen listed 6 stores, filterable by open now and delivers to me. Each row carries the store name, its rating, how many users rated it, delivery time, distance, and quoted comments from other users. DoorDash shows no position number on that screen, and states no selection rule beyond those 3 measures. The quoted comments are unsorted, span several years, and include plainly negative ones.",
-        "presented": "The mark travels with the store card during ordinary browsing, and the screen behind it opens only by tapping the mark. Of the tags those cards carry, the red offer tags and the in store prices tag do nothing when tapped, so customer favorite is one of the few that opens anything.",
-        "noting": "What the mark commits to, and what it leaves out, is the part worth noticing. DoorDash names the 3 measures on the screen and scopes the set to the user's area, so a user is told what the mark is based on and how far it reaches. It stops there. A user learns that a store belongs to a favoured set and nothing about how far ahead of the others it sits. The comments underneath run the other way, unsorted and years old, so the set is curated while the evidence shown beneath it is not.",
+        "observed": "DoorDash lists a DashPass subscription inside the gifts tab's send a gift card section, next to its own gift cards and featured gift cards. It is the one item in that list that hands over continued access to the service rather than a stored balance. We did not observe the send flow, so what a recipient sees, and whether the subscription starts right away or waits to be claimed, are not shown here.",
+        "presented": "The subscription sits inside the gifts tab, one of DoorDash's shortcut tabs on the home screen, listed in a send a gift card section next to the currency gift cards rather than in a screen of its own.",
+        "noting": "The distinction worth noting is what kind of gift each item in the list is. DoorDash's own gift cards and featured gift cards hand over a stored balance the recipient spends on their own account. The DashPass subscription hands over continued access instead, without asking anything back from the recipient. All three sit in the same row inside one section, a stored balance beside continued access, listed together rather than kept apart.",
         "findings": [
-          "DoorDash names the measures behind the customer favorite mark, customer ratings, popularity, and reliability, and scopes the set to the user's area.",
-          "The screen presents a favoured set without showing any store's position inside it.",
-          "The customer favorite tag is one of the few tags on a store card that opens anything when tapped."
+          "DoorDash lists a DashPass subscription as a gift item inside the same section as its own gift cards, the one entry there that hands over continued access rather than a stored balance.",
+          "The gift option for the subscription sits inside the gifts tab on the home screen rather than in a screen of its own.",
+          "We did not observe the send flow, so what happens for the recipient after a subscription is gifted is not shown here."
         ]
       },
       "screenshots": [],
@@ -46,8 +46,8 @@
   ],
   "system": {
     "tagline": "A marketplace that counts reviewing and nothing else.",
-    "overview": "DoorDash's only progress surface points at reviewing rather than at ordering. The app is built to get a first order placed and takes what it can out of the path: a user browses every category, uses the AI search, and fills carts while signed out, meeting the sign-in wall at checkout. Nothing along that path counts, ranks, or advances anything about the user. The one counter in the app sits 3 levels inside the profile settings, on a badge asking for reviews or photos across 3 stores.",
-    "loop": "1. The user sets a delivery address, which decides which merchants appear.\n2. The user scrolls a home screen of merchant carousels and offers, or opens one of the category tabs for deals, grocery, convenience, pickup, drugstore, gifts, retail, and pets.\n3. The user opens a store page and adds items to a cart, either directly or through the AI search that turns a photographed recipe into a shopping list.\n4. At checkout DoorDash requires a sign in or a sign up, with the DashPass free trial checkbox preselected and an explicit tap needed to decline it.\nTwo surfaces sit beside this loop rather than inside it. Store pages carry ratings, reviews, and photos from other users, which is the material the badge track counts, and the customer favorite mark opens a separate screen of favoured stores in the user's area. The principle underneath the loop is that DoorDash takes steps out of the path to a first order and adds none: the account waits until checkout, the permission prompts can be declined without blocking, and nothing along the way asks the user to build or maintain anything.",
+    "overview": "DoorDash's only progress surface points at reviewing rather than at ordering. A user browses every category, uses the AI search, and fills carts while signed out, meeting the sign-in wall only at checkout, and nothing along that path counts, ranks, or advances anything about the user. The one counter in the app sits 3 levels inside the profile settings, on a badge asking for reviews or photos across 3 stores, fed by a contributor system where store pages carry reviews and photos from many users and each contributor keeps a profile with a name, a shareable link, and a visibility setting that defaults to public, with contributions approved before they appear. Alongside that ordering path, DoorDash sells placement inside its own browse and deals lists instead of opening a separate ad slot, which keeps paid and ordinary listings in one familiar scroll: a handful of merchant and product offers carry a sponsored label, the only thing that marks them apart from ordinary listings in the same feed.",
+    "loop": "1. The user sets a delivery address, which decides which merchants appear.\n2. The user scrolls a home screen of merchant carousels and offers, or opens one of the category tabs for deals, grocery, convenience, pickup, drugstore, gifts, retail, and pets.\n3. The user opens a store page and adds items to a cart, either directly or through the AI search that turns a photographed recipe into a shopping list.\n4. At checkout DoorDash requires a sign in or a sign up, with the DashPass free trial checkbox preselected and an explicit tap needed to decline it.\nTwo surfaces sit beside this loop rather than inside it. Store pages carry ratings, reviews, and photos from other users, which is the material the badge track counts, and the gifts tab lists a DashPass subscription as something a user can hand to someone else rather than order for themselves. The principle underneath the loop is that DoorDash takes steps out of the path to a first order and adds none: the account waits until checkout, the permission prompts can be declined without blocking, and nothing along the way asks the user to build or maintain anything.",
     "keyInsight": "DoorDash tracks progress for exactly one behaviour, and it is not the one that brings in the money. Ordering counts nothing: no streak, no tier, no total, no rank. The single counter in the app reads 0 out of 3 toward a badge for reviewing 3 stores, and every benefit stated on that badge and on the locked one above it is about being seen, being trusted, or ranking at the top. DoorDash pays in audience for the contributions it wants, and asks for nothing repeatable from the transaction itself.",
     "whatMakesItWork": "The ordering path is built to be short. DoorDash lets a user browse every category, use the AI search, and fill carts while signed out, decline the location and tracking prompts without being blocked, and reach checkout before an account is required. What the app does ask a user to build sits outside that path entirely, in a badge track 3 levels inside the settings, so the two never compete for the same moment. The cost of that separation is that the ask is easy to never find.",
     "roles": [
@@ -56,8 +56,8 @@
         "role": "A 2 rung badge track asking for high quality reviews or photos across 3 stores, then 10 or more, with the higher rung visible and locked."
       },
       {
-        "id": "leaderboards",
-        "role": "A customer favorite mark on store cards, opening a screen of favoured stores in the user's area based on ratings, popularity, and reliability."
+        "id": "gifting",
+        "role": "A DashPass subscription listed as a gift alongside DoorDash's own gift cards, the one item in that list that hands over continued access rather than a stored balance."
       }
     ],
     "center": {
@@ -72,7 +72,7 @@
         "y": 46
       },
       {
-        "id": "leaderboards",
+        "id": "gifting",
         "x": 70,
         "y": 46
       }

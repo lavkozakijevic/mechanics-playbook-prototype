@@ -281,10 +281,13 @@ const DROPS = new Set([
   // No ad unit was observed, so it is not published as an advertising mechanic;
   // the partnerships are described inside the challenge write-up instead.
   "ads|strava",
-  // DoorDash gifting rests on one line item, a DashPass subscription listed as
-  // giftable, with the send flow never entered. It fails the publish gate, so it
-  // is not carried as a relationship and the case study shows no gifting section.
-  "gifting|doordash",
+  // Permanent rule: only mechanics an analysis classifies at confirmed or
+  // strongly supported get a write-up. Confidence tags are not in the parser's
+  // regex (only depth is), so this stays a manual per-app drop rather than an
+  // automated filter. DoorDash's Comparative Rank is plausible, mapped onto
+  // leaderboards by CANONICAL_MECHANIC_IDS; it fails the confidence bar, so it
+  // is dropped here rather than published under a different mechanic's name.
+  "leaderboards|doordash",
   "gifting|swgoh",
   "soft-currency|fortune-city",
 ]);
