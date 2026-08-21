@@ -138,6 +138,8 @@ function isoDate(s) {
   // Three forms appear across the analyses: the short day-first form
   // ("03 Apr 2026"), the full month name day-first ("16 April 2026"), and the
   // month-first form with a comma ("July 29, 2026").
+  const iso = s.match(/\d{4}-\d{2}-\d{2}/);
+  if (iso) return iso[0];
   const first =
     s.match(/\d{1,2} [A-Z][a-z]{2,8} \d{4}/) ?? s.match(/[A-Z][a-z]{2,8} \d{1,2}, \d{4}/);
   if (!first) return null;
@@ -279,6 +281,10 @@ const DROPS = new Set([
   // No ad unit was observed, so it is not published as an advertising mechanic;
   // the partnerships are described inside the challenge write-up instead.
   "ads|strava",
+  // DoorDash gifting rests on one line item, a DashPass subscription listed as
+  // giftable, with the send flow never entered. It fails the publish gate, so it
+  // is not carried as a relationship and the case study shows no gifting section.
+  "gifting|doordash",
   "gifting|swgoh",
   "soft-currency|fortune-city",
 ]);
