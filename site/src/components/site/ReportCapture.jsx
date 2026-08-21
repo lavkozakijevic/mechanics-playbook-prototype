@@ -12,7 +12,12 @@ import { Input } from "../ds/Input.jsx";
  * Reusable: `source`/`category` are passed through so the same endpoint can
  * back other capture points without change.
  */
-export function ReportCapture({ category, source = "category-report" }) {
+export function ReportCapture({
+  category,
+  source = "category-report",
+  submitLabel = "Get the free report",
+  note,
+}) {
   const [email, setEmail] = useState("");
   const [state, setState] = useState("idle"); // idle | sending | done | error
   const [error, setError] = useState("");
@@ -78,9 +83,10 @@ export function ReportCapture({ category, source = "category-report" }) {
           size="lg"
           disabled={!valid || state === "sending"}
         >
-          {state === "sending" ? "Sending…" : "Get the free report"}
+          {state === "sending" ? "Sending…" : submitLabel}
         </Button>
       </div>
+      {note && <p className="capture__fine">{note}</p>}
     </form>
   );
 }
