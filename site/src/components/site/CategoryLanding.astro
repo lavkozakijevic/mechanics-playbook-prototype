@@ -1,10 +1,12 @@
 ---
 // Shared template for every category landing page (/finance, /productivity, …).
-// The page has one ask, the email signup, which appears twice: in the hero as an
-// anchor and as a form in the report section and again at the close. Consulting
-// is still reachable, as one line above the footer, and nowhere else.
+// The hero opens two paths: into the free library to browse, or straight to a
+// sample case study. The email signup is the ask in the middle of the page and
+// again at the close; a final band below it points to the paid library.
+// Consulting is reachable as one quiet line above the footer, and nowhere else.
 // Section order: hero, where we can help, why gamification matters, what is in
-// the library, the free report, trust, closing signup.
+// the library, the free report, trust, closing signup, find inspiration (the
+// paid-library CTA).
 // The hero copy, the six problems, and the report card are category-specific
 // (supplied by the content file). All other sections are shared and hardcoded
 // here so a new category is still just one content file.
@@ -55,12 +57,12 @@ const carousel = await (async () => {
     : [];
 })();
 
-// The one ask on this page is the email signup. The sample breakdown sits
-// beside it as a text link, so a reader can see the work before giving an email.
+// The hero opens two paths into the library: browse it, or read one sample
+// case study first. The email signup is asked for further down the page.
 const SAMPLE_BREAKDOWN = "/case-studies/strava/";
 const heroCtas = [
-  { label: "Get the free report", href: "#get-report", variant: "accent" },
-  { label: "See a sample breakdown", href: SAMPLE_BREAKDOWN, variant: "link" },
+  { label: "Access the library", href: "/mechanics/", variant: "accent" },
+  { label: "Read a case study", href: SAMPLE_BREAKDOWN, variant: "link" },
 ];
 
 // Shown under both email forms, so the newsletter is never implied silently.
@@ -207,6 +209,20 @@ const CAPTURE_NOTE = "Three new breakdowns every week. Unsubscribe at any time."
           />
         </div>
         <p class="catland-signup__alt">Working on a specific problem in your app? <a href="/work-with-us/">Work with us</a></p>
+      </div>
+    </div>
+  </section>
+
+  {/* Find inspiration — the closing pitch for the paid library, reusing the
+      dark closing band the old Book a call section defined */}
+  <section class="band band--ink catland-call" aria-labelledby="inspire-h">
+    <div class="container">
+      <div class="catland-call__in">
+        <h2 id="inspire-h">Find inspiration for your app</h2>
+        <p>The breakdowns you can read for free cover one app at a time. The full library holds every mechanic we have mapped, across every category, with the systems and connections behind each one.</p>
+        <div class="catland-call__cta">
+          <a class="gb-btn gb-btn--accent gb-btn--lg" href="/subscribe/">Unlock the full library</a>
+        </div>
       </div>
     </div>
   </section>
