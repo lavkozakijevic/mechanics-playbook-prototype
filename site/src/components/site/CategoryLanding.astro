@@ -73,17 +73,12 @@ const heroCtas = [
   { label: "Get the free finance report", href: "#free-report", variant: "link" },
 ];
 
-// Section 3's "In the library" pairs, resolved to real names and a real href.
-const problemLinks = cat.problems.items.map((item) => {
-  const mech = mechById.get(item.mechanicId);
-  const app = appById.get(item.appId);
-  if (!mech) throw new Error(`${cat.slug}: problem "${item.title}" references unknown mechanic "${item.mechanicId}"`);
-  if (!app) throw new Error(`${cat.slug}: problem "${item.title}" references unknown app "${item.appId}"`);
-  return {
-    label: `In the library: ${mech.name}, as shipped by ${app.name}`,
-    href: `/mechanics/${mech.id}/`,
-  };
-});
+// Section 3's items each name one real mechanic and one real app; verify both
+// exist so a bad reference fails the build rather than shipping quietly.
+for (const item of cat.problems.items) {
+  if (!mechById.has(item.mechanicId)) throw new Error(`${cat.slug}: problem "${item.title}" references unknown mechanic "${item.mechanicId}"`);
+  if (!appById.has(item.appId)) throw new Error(`${cat.slug}: problem "${item.title}" references unknown app "${item.appId}"`);
+}
 
 // Section 5: the plan. Fully shared copy, not category-specific.
 const PLAN_STEPS = [
@@ -129,7 +124,6 @@ const PLAN_STEPS = [
               <h3>{p.title}</h3>
               <p class="catland-problem__lead">{p.lead}</p>
               <p>{p.body}</p>
-              <a class="catland-problem__link" href={problemLinks[i].href}>{problemLinks[i].label}</a>
             </div>
           </li>
         ))}
