@@ -128,6 +128,10 @@
 .hero__sub { font: var(--type-body-lg); font-size: clamp(16px, 1.6vw, 19px); color: var(--text-secondary); max-width: 54ch; margin-bottom: clamp(22px, 3vw, 32px); }
 .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; }
 .hero__evidence { position: relative; min-width: 0; }
+.hero__evidence-label { font: var(--type-label); font-size: 11px; text-transform: uppercase;
+  letter-spacing: var(--tracking-label); color: var(--text-muted); margin-bottom: 12px; }
+.hero__evidence-note { font: var(--type-body-sm); font-size: 12.5px; color: var(--text-muted);
+  margin-top: 12px; text-align: center; }
 
 /* Self-sliding mechanic carousel (the hero's evidence) */
 .carousel { position: relative; overflow: hidden;
@@ -1352,6 +1356,9 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
 .catland-problem h3 { font: var(--type-h3); font-size: clamp(16px, 1.5vw, 18px); color: var(--ink-900); margin: 0 0 6px; }
 .catland-problem p { font: var(--type-body-sm); color: var(--text-secondary); line-height: 1.55; margin: 0; }
 .catland-problem .catland-problem__lead { color: var(--ink-900); font-weight: var(--weight-semibold); margin: 0 0 8px; line-height: 1.45; }
+.catland-problem__link { display: inline-block; margin-top: 10px; font: var(--type-body-sm); font-size: 12.5px;
+  font-weight: var(--weight-semibold); color: var(--text-accent); text-decoration: none; }
+.catland-problem__link:hover { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--accent); }
 
 /* The report block — email capture under the existing report-landing card */
 .report-landing__capture { margin-top: clamp(24px, 3vw, 32px); padding-top: clamp(20px, 2.6vw, 28px);
@@ -1364,12 +1371,15 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
 .capture__done-h { font: var(--type-h3); font-size: 17px; color: var(--ink-900); margin: 0; }
 .capture__done-p { font: var(--type-body-sm); color: var(--text-secondary); margin: 0; }
 
-/* The trust section — a single values statement, prose column */
-/* What is in the library: three plain elements, no numbering */
+/* What access includes: four cards (2 up from 720px, 4 up from 1100px), plus
+   the "how teams use it" three steps sharing .catland-steps with the homepage */
 .catland-lib { display: grid; grid-template-columns: 1fr; gap: clamp(24px, 3vw, 36px);
   margin-top: clamp(28px, 3.4vw, 44px); }
-@media (min-width: 900px) {
-  .catland-lib { grid-template-columns: repeat(3, 1fr); }
+@media (min-width: 720px) {
+  .catland-lib { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1100px) {
+  .catland-lib { grid-template-columns: repeat(4, 1fr); }
 }
 .catland-lib__item h3 { font: var(--type-h3); font-size: clamp(16px, 1.5vw, 18px);
   color: var(--ink-900); margin: 0 0 8px; text-wrap: balance; }
@@ -1379,9 +1389,25 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
   font-weight: var(--weight-semibold); color: var(--text-accent); text-decoration: none; }
 .catland-lib__link:hover { text-decoration: underline; text-underline-offset: 3px;
   text-decoration-color: var(--accent); }
+.catland-lib__steps-h { font: var(--type-h3); font-size: clamp(16px, 1.5vw, 18px);
+  color: var(--ink-900); margin: clamp(36px, 4.4vw, 52px) 0 0; }
 
-/* Closing signup: the same ask as the report section, with the consulting path
-   kept to one quiet line beneath it */
+/* Access band (section 6): the offer, centered above the shared pricing card */
+.catland-access { text-align: center; }
+.catland-access__lead { font: var(--type-body-lg); font-size: clamp(16px, 1.6vw, 19px);
+  color: var(--text-secondary); line-height: 1.6; margin: 16px auto 0; max-width: 52ch; text-wrap: pretty; }
+.catland-access .sp-card { text-align: left; }
+
+/* Transitional line (section 9): the only consulting path on the page, one
+   quiet line between the newsletter band and the footer */
+.catland-transition { font: var(--type-body-sm); color: var(--text-muted); text-align: center;
+  margin: clamp(40px, 5vw, 56px) 0; }
+.catland-transition a { color: var(--text-accent); font-weight: var(--weight-medium); text-decoration: none; }
+.catland-transition a:hover { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--accent); }
+
+/* The old closing-signup card and its transitional line are unused since the
+   rewrite split them into the access band (6) and the transitional line (9)
+   above; left in place in case a future layout wants the same closing card. */
 .catland-signup__in { max-width: 620px; margin: 0 auto; text-align: center; }
 .catland-signup__p { font: var(--type-body-lg); font-size: clamp(16px, 1.6vw, 19px);
   color: var(--text-secondary); line-height: 1.6; margin: 16px 0 0; text-wrap: pretty; }

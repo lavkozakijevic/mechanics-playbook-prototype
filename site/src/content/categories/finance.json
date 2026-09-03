@@ -6,87 +6,83 @@
   "order": 1,
   "hero": {
     "kicker": "For banks and finance apps",
-    "headline": "Straightforward ways to gamify your finance app",
-    "sub": "We break down how the best apps turn opening the app into a habit, mechanic by mechanic, and publish what we find. Three new breakdowns every week."
+    "headline": "The engagement mechanics finance apps have already shipped, in one library",
+    "sub": "Most product teams design engagement from scratch. We document the mechanics real apps use to bring people back, in finance and in every category competing for the same phone, so you build on what exists instead of guessing."
+  },
+  "logoStrip": {
+    "label": "Finance apps already documented"
   },
   "problems": {
-    "kicker": "Where we can help",
-    "title": "Where gamification helps in finance apps",
+    "kicker": "What finance teams are working on",
+    "title": "Six problems, and the apps that have already built something for them",
     "items": [
       {
-        "title": "Top of wallet loyalty",
+        "title": "Top of wallet",
         "lead": "Your card competes with two others at every checkout.",
-        "body": "The question is never whether your card is good. It is whether it is the one a customer reaches for without thinking. Habits like that grow from a small, renewing reason to return, the kind a good game offers every single day."
+        "body": "The question is never whether the card is good. It is whether it is the one a customer reaches for without thinking. The apps that win that reach give people a small, renewing reason to open the app between purchases.",
+        "mechanicId": "streak",
+        "appId": "strava"
       },
       {
         "title": "Savings behaviour",
         "lead": "Customers want to save and mostly don't.",
-        "body": "Wanting to save and actually saving are separated by a gap that is old and stubborn. The way across it is something game design leans on constantly: break a distant goal into steps small enough to feel doable, and make each step visible enough to feel like progress."
+        "body": "The gap between wanting to save and saving is old and stubborn. The apps that narrow it break a distant goal into steps small enough to feel doable and make each step visible.",
+        "mechanicId": "set-collection",
+        "appId": "fifa-panini-collection"
       },
       {
         "title": "Financial literacy",
         "lead": "Education that feels like homework gets ignored.",
-        "body": "People rarely set aside time to learn about money, so the lesson has to come to them. The best games teach inside the activity itself, one small idea at the moment it is useful, with progress the learner can actually see."
+        "body": "People rarely set aside time to learn about money, so the lesson has to arrive inside the activity, one idea at the moment it is useful. Several apps outside finance have solved exactly this.",
+        "mechanicId": "daily-weekly-quests",
+        "appId": "fc-mobile"
       },
       {
         "title": "The salary account",
-        "lead": "Customers will change jobs more often than they'll change banks.",
-        "body": "The account a customer never bothers to leave is one they have quietly invested in: their history, their progress, a sense of standing they would lose by walking away. That kind of earned attachment is exactly what game design is built to create."
+        "lead": "Customers change jobs more often than they change banks.",
+        "body": "The account a customer never bothers to leave is one they have quietly invested in: history, progress, a standing they would lose by walking away. Finance apps rarely build that on purpose. Games always do.",
+        "mechanicId": "achievements",
+        "appId": "canva"
       },
       {
         "title": "Cashback that sticks",
-        "lead": "Flat rewards get noticed once and then forgotten.",
-        "body": "A reward changes behaviour only while a customer can feel it. Keep it visible and a little bit earned, a streak worth continuing or a milestone in sight, and the next purchase becomes something worth tracking rather than something to ignore."
+        "lead": "Flat rewards get noticed once and forgotten.",
+        "body": "A reward changes behaviour only while a customer can feel it. The apps that keep it felt make it visible and slightly earned: a streak worth continuing, a milestone in sight.",
+        "mechanicId": "credits-tokens",
+        "appId": "picsart"
       },
       {
         "title": "Onboarding and activation",
         "lead": "The first session decides who stays past day one.",
-        "body": "A nervous new user needs one clear thing to do, and one small win to feel it was worth doing. The opening minutes are where people quietly decide whether to return, which is why game design treats them with so much care."
+        "body": "A new user needs one clear thing to do and one small win for doing it. The opening minutes are where people quietly decide whether to return.",
+        "mechanicId": "daily-login-reward",
+        "appId": "calm"
       }
     ]
   },
-  "report": {
-    "eyebrow": "Free sample report",
-    "title": "Get the sample finance report",
-    "body": "Enter your email and the sample finance report opens straight away. It shows how other finance apps already use game design, and what the full report covers. You also get the three breakdowns we publish every week.",
+  "whyEveryCategory": {
+    "kicker": "Why not only finance",
+    "headline": "Your app competes with Duolingo and Strava for the same ten minutes",
+    "body": "Attention on a phone does not sort itself by industry. A banking app and a language app are fighting for the same idle moment on the same screen, and the apps that win it, whatever they sell, tend to use the same handful of ideas: a clear goal, visible progress toward it, and a small, well-timed reward for reaching it. That is why the library covers every category. You take the parts that fit a finance product and leave the rest."
+  },
+  "sample": {
+    "appId": "fortune-city"
+  },
+  "newsletter": {
+    "eyebrow": "Not ready to access yet",
+    "title": "Get the free finance report and three breakdowns a week",
+    "body": "Enter your email and the sample finance report opens straight away. It shows how finance apps already use these mechanics. After that, we send the three breakdowns we publish each week.",
     "imageHref": "/images/finance-report-cover.webp"
   },
   "heroApps": [
-    {
-      "id": "revolut",
-      "name": "Revolut"
-    },
-    {
-      "id": "monzo",
-      "name": "Monzo"
-    },
-    {
-      "id": "chase",
-      "name": "Chase"
-    },
-    {
-      "id": "monefy",
-      "name": "Monefy"
-    },
-    {
-      "id": "monarch",
-      "name": "Monarch"
-    },
-    {
-      "id": "binance",
-      "name": "Binance"
-    },
-    {
-      "id": "acorns",
-      "name": "Acorns"
-    },
-    {
-      "id": "cash-app",
-      "name": "Cash App"
-    },
-    {
-      "id": "cleo",
-      "name": "Cleo"
-    }
+    { "id": "revolut", "name": "Revolut" },
+    { "id": "monzo", "name": "Monzo" },
+    { "id": "chase", "name": "Chase" },
+    { "id": "monefy", "name": "Monefy" },
+    { "id": "monarch", "name": "Monarch" },
+    { "id": "binance", "name": "Binance" },
+    { "id": "acorns", "name": "Acorns" },
+    { "id": "cash-app", "name": "Cash App" },
+    { "id": "cleo", "name": "Cleo" }
   ]
 }

@@ -32,7 +32,7 @@ function Caret() {
 
 /** Primary site navigation. Sticky, paper, hairline rule. Three groups, two with
  *  dropdown menus (hover and keyboard-focus on desktop). Collapses to a drawer
- *  below 1024px. Subscribe is the one accent action. */
+ *  below 1024px. Access the library (→ /subscribe/) is the one accent action. */
 export function SiteNav({ current }) {
   const [open, setOpen] = useState(false);
   const nav = NAV;
@@ -78,7 +78,7 @@ export function SiteNav({ current }) {
 
           <div className="nav__actions">
             <Button variant="secondary" size="sm" as="a" href="/login/">Log in</Button>
-            <Button variant="accent" size="sm" as="a" href="/subscribe/">Subscribe</Button>
+            <Button variant="accent" size="sm" as="a" href="/subscribe/">Access the library</Button>
           </div>
 
           <button
@@ -114,7 +114,7 @@ export function SiteNav({ current }) {
         ))}
         <div className="nav__drawer-actions">
           <Button variant="secondary" size="sm" as="a" href="/login/" onClick={() => setOpen(false)}>Log in</Button>
-          <Button variant="accent" size="sm" as="a" href="/subscribe/" onClick={() => setOpen(false)}>Subscribe</Button>
+          <Button variant="accent" size="sm" as="a" href="/subscribe/" onClick={() => setOpen(false)}>Access the library</Button>
         </div>
       </div>
     </>
@@ -197,7 +197,7 @@ const FOOTER_LIBRARY = {
 const FOOTER_ACCOUNT = {
   h: "Account",
   links: [
-    { label: "Subscribe", href: "/subscribe/" },
+    { label: "Access the library", href: "/subscribe/" },
     { label: "Log in", href: "/login/" },
   ],
 };

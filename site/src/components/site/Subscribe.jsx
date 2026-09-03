@@ -45,8 +45,10 @@ const PLANS = [
 ];
 
 /** The offer card: both plans side by side over the shared unlocks list. Reused
- *  on the subscribe page and as the paywall on locked case study and system pages. */
-export function SubscribeCard({ onSubscribe }) {
+ *  on the subscribe page, as the paywall on locked case study and system pages,
+ *  and on category landing pages. submitLabel defaults to "Subscribe" so those
+ *  other call sites are unaffected. */
+export function SubscribeCard({ onSubscribe, submitLabel = "Subscribe" }) {
   return (
     <div className="sp-card">
       <div className="sp-plans">
@@ -57,7 +59,7 @@ export function SubscribeCard({ onSubscribe }) {
               <span className="sp-price__amt">{p.amount}<span className="sp-price__per">{p.per}</span></span>
               <span className="sp-price__cycle">{p.cycle}</span>
             </div>
-            <Button variant="accent" size="lg" onClick={onSubscribe}>Subscribe</Button>
+            <Button variant="accent" size="lg" onClick={onSubscribe}>{submitLabel}</Button>
           </div>
         ))}
       </div>
@@ -143,6 +145,19 @@ export function WaitlistModal({ onClose }) {
         )}
       </div>
     </div>
+  );
+}
+
+/** SubscribeCard plus the waitlist modal it opens, self-contained so a plain
+ *  .astro page (which cannot hold React state itself) can embed the whole
+ *  access offer as one client:load island. */
+export function SubscribeCardWithModal({ submitLabel }) {
+  const [modalOpen, setModalOpen] = useState(false);
+  return (
+    <>
+      {modalOpen && <WaitlistModal onClose={() => setModalOpen(false)} />}
+      <SubscribeCard onSubscribe={() => setModalOpen(true)} submitLabel={submitLabel} />
+    </>
   );
 }
 

@@ -38,8 +38,10 @@ function logoInitials(name) {
 
 /** Hero: the promise, in the visitor's language, beside a self-sliding carousel
  *  of real mechanics drawn from the library. Exported so category landing pages
- *  can reuse the same layout with their own copy and CTAs. */
-export function Hero({ carousel, eyebrow, headline, sub, ctas, className = "" }) {
+ *  can reuse the same layout with their own copy and CTAs. evidenceLabel and
+ *  evidenceNote are optional captions above and below the carousel; omitted by
+ *  default so the homepage's plain carousel is unaffected. */
+export function Hero({ carousel, eyebrow, headline, sub, ctas, className = "", evidenceLabel, evidenceNote }) {
   const items = carousel || [];
   const loop = items.concat(items);
   const buttons = ctas || [
@@ -61,6 +63,7 @@ export function Hero({ carousel, eyebrow, headline, sub, ctas, className = "" })
           </div>
         </div>
         <div className="hero__evidence">
+          {evidenceLabel && <div className="hero__evidence-label">{evidenceLabel}</div>}
           <div className="carousel" aria-label="Mechanics from the library">
             <div className="carousel__track">
               {loop.map((m, i) =>
@@ -89,6 +92,7 @@ export function Hero({ carousel, eyebrow, headline, sub, ctas, className = "" })
               )}
             </div>
           </div>
+          {evidenceNote && <p className="hero__evidence-note">{evidenceNote}</p>}
         </div>
       </div>
     </section>

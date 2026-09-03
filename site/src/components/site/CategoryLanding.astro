@@ -1,30 +1,36 @@
 ---
 // Shared template for every category landing page (/finance, /productivity, …).
-// The page has one ask, the email signup, which appears twice: in the hero as an
-// anchor and as a form in the report section and again at the close. Consulting
-// is still reachable, as one line above the footer, and nowhere else.
-// Section order: hero, where we can help, why gamification matters, what is in
-// the library, the free report, trust, closing signup.
-// The hero copy, the six problems, and the report card are category-specific
-// (supplied by the content file). All other sections are shared and hardcoded
-// here so a new category is still just one content file.
+// Fixed section order: hero, problems, why every category, what access
+// includes, sample, access, stance, newsletter, transitional line. Access the
+// library is the one paid ask, appearing three times with identical wording:
+// navigation, hero, and the access band (section 6). The newsletter capture is
+// the one free ask, appearing exactly once, in section 8. Consulting is
+// reachable as one quiet line at the very end, and nowhere else.
+// The hero copy, the six problems (each naming one real mechanic and one real
+// app with a complete write-up), why every category, the sample app, and the
+// newsletter block are category-specific (supplied by the content file). What
+// access includes, the access/pricing band, and the stance band are shared and
+// hardcoded here so a new category is still just one content file.
 import { getEntry, getCollection } from "astro:content";
 import { ReportCapture } from "./ReportCapture.jsx";
 import { Hero } from "./HomeTop.jsx";
+import { SubscribeCardWithModal } from "./Subscribe.jsx";
+import { publishedApps, publishedMechanics } from "../../lib/content";
 
 interface Props {
   cat: {
     slug: string;
     name: string;
     hero: { kicker: string; headline: string; sub: string };
-    problems: { kicker: string; title: string; items: { title: string; lead: string; body: string }[] };
-    report: {
-      eyebrow: string;
+    logoStrip?: { label: string };
+    problems: {
+      kicker: string;
       title: string;
-      body: string;
-      stats?: { n: string; l: string }[];
-      imageHref?: string;
+      items: { title: string; lead: string; body: string; mechanicId: string; appId: string }[];
     };
+    whyEveryCategory: { kicker: string; headline: string; body: string };
+    sample: { appId: string };
+    newsletter: { eyebrow: string; title: string; body: string; imageHref?: string };
     heroApps?: { id: string; name: string }[];
   };
 }
@@ -55,20 +61,69 @@ const carousel = await (async () => {
     : [];
 })();
 
-// The one ask on this page is the email signup. The sample breakdown sits
-// beside it as a text link, so a reader can see the work before giving an email.
-const SAMPLE_BREAKDOWN = "/case-studies/strava/";
+const apps = await publishedApps();
+const mechanics = await publishedMechanics();
+const appById = new Map(apps.map((a) => [a.data.id, a.data]));
+const mechById = new Map(mechanics.map((m) => [m.data.id, m.data]));
+
+// The one open, no-email sample. A missing or unpublished app fails the build
+// rather than shipping a link to nothing.
+const sampleApp = appById.get(cat.sample.appId);
+if (!sampleApp) throw new Error(`${cat.slug}: sample.appId "${cat.sample.appId}" is not a published app`);
+const SAMPLE_HREF = `/case-studies/${sampleApp.id}/`;
+
 const heroCtas = [
-  { label: "Get the free report", href: "#get-report", variant: "accent" },
-  { label: "See a sample breakdown", href: SAMPLE_BREAKDOWN, variant: "link" },
+  { label: "Access the library", href: "/subscribe/", variant: "accent" },
+  { label: `Read a ${cat.name.toLowerCase()} breakdown, no email needed`, href: SAMPLE_HREF, variant: "link" },
 ];
 
-// Shown under both email forms, so the newsletter is never implied silently.
-const CAPTURE_NOTE = "Three new breakdowns every week. Unsubscribe at any time.";
+// Live stats for the logo-strip footnote and the "what access includes" cards,
+// computed from the published collections so they cannot drift out of date.
+const categoryCount = new Set(apps.map((a) => a.data.category)).size;
+const BREAKDOWNS_PER_WEEK = 3;
+const evidenceNote = `${apps.length} apps across ${categoryCount} categories in the library. ${BREAKDOWNS_PER_WEEK} added every week.`;
+
+// Section 2's "In the library" pairs, resolved to real names and a real href.
+const problemLinks = cat.problems.items.map((item) => {
+  const mech = mechById.get(item.mechanicId);
+  const app = appById.get(item.appId);
+  if (!mech) throw new Error(`${cat.slug}: problem "${item.title}" references unknown mechanic "${item.mechanicId}"`);
+  if (!app) throw new Error(`${cat.slug}: problem "${item.title}" references unknown app "${item.appId}"`);
+  return {
+    label: `In the library: ${mech.name}, as shipped by ${app.name}`,
+    href: `/mechanics/${mech.id}/`,
+  };
+});
+
+// Section 4: what access includes. Fully shared copy, not category-specific;
+// the counts are the live numbers computed above.
+const ACCESS_CARDS = [
+  {
+    h: "App breakdowns",
+    p: `${apps.length} apps documented mechanic by mechanic: what we observed, how the app presents it, and what a product team can take from it. ${BREAKDOWNS_PER_WEEK} new breakdowns every week.`,
+  },
+  {
+    h: "Mechanics and systems",
+    p: `${mechanics.length} mechanics, each with the psychology behind it, and the systems that show how they combine into the loops that bring users back.`,
+  },
+  {
+    h: "Cheatsheets",
+    p: "Practical guides for putting a mechanic into a product, written for the team that has to ship it.",
+  },
+  {
+    h: "Shortcasts",
+    p: "One app per episode, under ten minutes, for the commute.",
+  },
+];
+const ACCESS_STEPS = [
+  { n: "01", title: "Access the library." },
+  { n: "02", title: "Find the mechanics that fit the problem in front of you." },
+  { n: "03", title: "Adapt them, on your own or with an audit." },
+];
 ---
 
 <main id="main">
-  {/* Hero — category-specific copy, shared carousel */}
+  {/* 1. Hero — category-specific copy, shared carousel, live footnote */}
   <Hero
     client:load
     carousel={carousel}
@@ -77,9 +132,11 @@ const CAPTURE_NOTE = "Three new breakdowns every week. Unsubscribe at any time."
     sub={cat.hero.sub}
     ctas={heroCtas}
     className="catland-hero"
+    evidenceLabel={cat.logoStrip?.label}
+    evidenceNote={evidenceNote}
   />
 
-  {/* Where gamification helps — category-specific problems */}
+  {/* 2. The problems — six real mechanic/app pairs from the library */}
   <section class="band band--sheet" aria-labelledby="prob-h">
     <div class="container">
       <div class="mech-section__kicker">{cat.problems.kicker}</div>
@@ -92,6 +149,7 @@ const CAPTURE_NOTE = "Three new breakdowns every week. Unsubscribe at any time."
               <h3>{p.title}</h3>
               <p class="catland-problem__lead">{p.lead}</p>
               <p>{p.body}</p>
+              <a class="catland-problem__link" href={problemLinks[i].href}>{problemLinks[i].label}</a>
             </div>
           </li>
         ))}
@@ -99,50 +157,85 @@ const CAPTURE_NOTE = "Three new breakdowns every week. Unsubscribe at any time."
     </div>
   </section>
 
-  {/* Why gamification matters — shared */}
+  {/* 3. Why every category — the cross-category argument, category-specific */}
   <section class="band band--sheet" aria-labelledby="why-h">
     <div class="container">
       <div class="catland-why">
-        <div class="mech-section__kicker">Why gamification matters</div>
-        <h2 class="mech-section__title" id="why-h">The same ideas that keep a game open can keep your app open</h2>
-        <p class="catland-why__p">The apps that earn daily habits use the same ideas games have refined for decades: a clear goal to aim for, a way to see progress toward it, and a small, well-timed reward for reaching it. None of these ideas are complicated on their own. Put together with care, they turn something a person tries once into something they return to without being asked.</p>
+        <div class="mech-section__kicker">{cat.whyEveryCategory.kicker}</div>
+        <h2 class="mech-section__title" id="why-h">{cat.whyEveryCategory.headline}</h2>
+        <p class="catland-why__p">{cat.whyEveryCategory.body}</p>
       </div>
     </div>
   </section>
 
-  {/* What's in the library — the sample, the cross-category argument, the cadence */}
-  <section class="band" aria-labelledby="lib-h">
+  {/* 4. What access includes — shared, four cards plus three steps */}
+  <section class="band" aria-labelledby="includes-h">
     <div class="container">
       <div class="mech-section__kicker">The library</div>
-      <h2 class="mech-section__title" id="lib-h">What is in the library</h2>
+      <h2 class="mech-section__title" id="includes-h">What you get when you access the library</h2>
       <div class="catland-lib">
-        <div class="catland-lib__item">
-          <h3>A breakdown you can read right now</h3>
-          <p>The Strava breakdown is open in full, with no email needed. It walks each mechanic in the loop, what we observed, how the app presents it, and what a product team can take from it.</p>
-          <a class="catland-lib__link" href={SAMPLE_BREAKDOWN}>Read the Strava breakdown</a>
-        </div>
-        <div class="catland-lib__item">
-          <h3>Every category, not only {cat.name.toLowerCase()}</h3>
-          <p>A {cat.name.toLowerCase()} app competes with Duolingo and Strava for the same minutes on the same phone. So we study every category, and you take the parts that fit your product.</p>
-        </div>
-        <div class="catland-lib__item">
-          <h3>Three new breakdowns every week</h3>
-          <p>We publish three every week and send them in the newsletter. Each one covers a single app and the mechanics that keep people coming back to it.</p>
-        </div>
+        {ACCESS_CARDS.map((c) => (
+          <div class="catland-lib__item">
+            <h3>{c.h}</h3>
+            <p>{c.p}</p>
+          </div>
+        ))}
+      </div>
+      <h3 class="catland-lib__steps-h">How teams use it</h3>
+      <ol class="catland-steps">
+        {ACCESS_STEPS.map((s) => (
+          <li class="catland-step">
+            <span class="catland-step__n" aria-hidden="true">{s.n}</span>
+            <div>
+              <h3 class="catland-step__title">{s.title}</h3>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  {/* 5. Sample — one breakdown, open in full, no email needed */}
+  <section class="band band--sheet" aria-labelledby="sample-h">
+    <div class="container">
+      <div class="mech-section__kicker">Read before you decide</div>
+      <h2 class="mech-section__title" id="sample-h">One {cat.name.toLowerCase()} breakdown, open in full</h2>
+      <p class="catland-why__p">
+        The {sampleApp.name} breakdown is open with no email needed. It walks every mechanic in the loop, what we observed, how the app presents it, and what a {cat.name.toLowerCase()} team can take from it. Every breakdown in the library follows the same format.
+      </p>
+      <a class="catland-lib__link" href={SAMPLE_HREF}>Read the {sampleApp.name} breakdown</a>
+    </div>
+  </section>
+
+  {/* 6. Access — the offer, shared pricing card */}
+  <section class="band band--sunken" aria-labelledby="access-h">
+    <div class="container container--narrow catland-access">
+      <h2 class="mech-section__title" id="access-h">Access the library</h2>
+      <p class="catland-access__lead">Everything above, plus every breakdown we publish from the day you join. Cancel any time.</p>
+      <SubscribeCardWithModal client:load submitLabel="Access the library" />
+    </div>
+  </section>
+
+  {/* 7. Stance — shared */}
+  <section class="band" aria-labelledby="stance-h">
+    <div class="container">
+      <div class="catland-trust">
+        <h2 class="mech-section__title" id="stance-h">Engagement that respects the customer</h2>
+        <p class="catland-trust__p">The same mechanics that can trap a person can also genuinely help them. We document both, and we say which is which. The habits worth building are the ones that leave a customer better off, and those are the ones we point product teams toward.</p>
       </div>
     </div>
   </section>
 
-  {/* Free report — category-specific, with email-gated download */}
-  <section class="band band--sunken" id="get-report" aria-labelledby="report-h">
+  {/* 8. Newsletter — the one form on the page */}
+  <section class="band band--sunken" id="get-report" aria-labelledby="newsletter-h">
     <div class="container">
       <div class="catland-report">
         <div class="catland-report__cover" aria-hidden="true">
-          {cat.report.imageHref
+          {cat.newsletter.imageHref
             ? (
               <Fragment>
                 <img
-                  src={cat.report.imageHref}
+                  src={cat.newsletter.imageHref}
                   alt=""
                   loading="lazy"
                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
@@ -154,26 +247,16 @@ const CAPTURE_NOTE = "Three new breakdowns every week. Unsubscribe at any time."
           }
         </div>
         <div class="report-landing__card">
-          <div class="eyebrow" style="color:var(--text-accent);margin-bottom:12px">{cat.report.eyebrow}</div>
-          <h2 id="report-h">{cat.report.title}</h2>
-          <p style="font:var(--type-body-lg);color:var(--text-secondary);max-width:52ch;margin-bottom:24px">{cat.report.body}</p>
-          {cat.report.stats && cat.report.stats.length > 0 && (
-            <div class="report-landing__stats">
-              {cat.report.stats.map((s) => (
-                <div class="report-landing__stat">
-                  <span class="report-landing__n">{s.n}</span>
-                  <span class="report-landing__l">{s.l}</span>
-                </div>
-              ))}
-            </div>
-          )}
+          <div class="eyebrow" style="color:var(--text-accent);margin-bottom:12px">{cat.newsletter.eyebrow}</div>
+          <h2 id="newsletter-h">{cat.newsletter.title}</h2>
+          <p style="font:var(--type-body-lg);color:var(--text-secondary);max-width:52ch;margin-bottom:24px">{cat.newsletter.body}</p>
           <div class="report-landing__capture">
             <ReportCapture
               client:load
               category={cat.slug}
               source="category-report"
               submitLabel="Get the report"
-              note={CAPTURE_NOTE}
+              note="Three breakdowns a week. Unsubscribe at any time."
             />
           </div>
         </div>
@@ -181,33 +264,8 @@ const CAPTURE_NOTE = "Three new breakdowns every week. Unsubscribe at any time."
     </div>
   </section>
 
-  {/* Trust — shared */}
-  <section class="band" aria-labelledby="trust-h">
-    <div class="container">
-      <div class="catland-trust">
-        <h2 class="mech-section__title" id="trust-h">Engagement that respects the customer</h2>
-        <p class="catland-trust__p">The same mechanics that can trap a person can also genuinely help them. We care about which side of that line your product is built on. The habits worth creating are the ones that leave a customer better off, and those are the only ones we help you build.</p>
-      </div>
-    </div>
-  </section>
-
-  {/* Closing — the same single ask, with the consulting path kept quiet below it */}
-  <section class="band band--sheet catland-signup" aria-labelledby="signup-h">
-    <div class="container">
-      <div class="catland-signup__in">
-        <h2 class="mech-section__title" id="signup-h">Three new breakdowns every week</h2>
-        <p class="catland-signup__p">Enter your email and the sample {cat.name.toLowerCase()} report opens straight away. After that we send the three breakdowns we publish each week.</p>
-        <div class="catland-signup__form">
-          <ReportCapture
-            client:load
-            category={cat.slug}
-            source="category-closing"
-            submitLabel="Get the report"
-            note={CAPTURE_NOTE}
-          />
-        </div>
-        <p class="catland-signup__alt">Working on a specific problem in your app? <a href="/work-with-us/">Work with us</a></p>
-      </div>
-    </div>
-  </section>
+  {/* 9. Transitional line — the only consulting path on the page */}
+  <div class="container">
+    <p class="catland-transition">Working on a specific problem in your app? <a href="/work-with-us/">Work with us</a></p>
+  </div>
 </main>

@@ -149,10 +149,10 @@ const shortcasts = defineCollection({
 });
 
 // Category landing pages (/finance, /productivity, …). Each file supplies the
-// category-specific blocks; the shared blocks (the lens, the trust section, the
-// call) are optional here — a category may override them, and the template
-// supplies a sensible default when it doesn't. A malformed block fails the
-// build here, before anything ships.
+// category-specific blocks; the shared blocks ("what access includes", the
+// access/pricing band, the stance band) are hardcoded in CategoryLanding.astro
+// so a new category is still just one content file. A malformed block fails
+// the build here, before anything ships.
 const categories = defineCollection({
   loader: glob({ pattern: "*.json", base: "./src/content/categories" }),
   schema: z.object({
@@ -167,24 +167,48 @@ const categories = defineCollection({
       headline: z.string(),
       sub: z.string(),
     }),
-    // "The six problems" — a section heading plus exactly six items, each with
-    // a short title, a one-line lead, and a paragraph.
+    // Small caption above the hero's logo carousel and a stats line below it.
+    // The stats themselves (app / category / weekly counts) are computed live
+    // in the template from the published collections, never hand-typed here.
+    logoStrip: z.object({ label: z.string() }).optional(),
+    // "The six problems" — a section heading plus exactly six items. Each
+    // names one real mechanic and one real app with a complete write-up, so
+    // the "In the library" link always lands on substantive content.
     problems: z.object({
       kicker: z.string(),
       title: z.string(),
       items: z
-        .array(z.object({ title: z.string(), lead: z.string(), body: z.string() }))
+        .array(
+          z.object({
+            title: z.string(),
+            lead: z.string(),
+            body: z.string(),
+            mechanicId: z.string(),
+            appId: z.string(),
+          })
+        )
         .length(6),
     }),
-    report: z.object({
+    // "Why every category" — the cross-category argument, in this category's
+    // own words (it names a specific rival category, e.g. "a banking app").
+    whyEveryCategory: z.object({
+      kicker: z.string(),
+      headline: z.string(),
+      body: z.string(),
+    }),
+    // The one open, no-email sample case study for this category. Must be a
+    // published app with a complete write-up; ideally public so the link
+    // never lands on the paywall, though the case study route gates cleanly
+    // either way.
+    sample: z.object({ appId: z.string() }),
+    // The newsletter / free-report capture (section 8, the only form on the
+    // page). The report URL is derived at runtime: /{slug}/report.
+    newsletter: z.object({
       eyebrow: z.string(),
       title: z.string(),
       body: z.string(),
-      // Optional headline stats above the capture form.
-      stats: z.array(z.object({ n: z.string(), l: z.string() })).optional(),
-      // Optional report cover image shown beside the download card.
+      // Optional report cover image shown beside the capture form.
       imageHref: z.string().optional(),
-      // Report URL is derived at runtime: /{slug}/report — no field needed here.
     }),
     // Optional logo cards for the hero carousel (finance, etc.)
     heroApps: z.array(z.object({ id: z.string(), name: z.string() })).optional(),
