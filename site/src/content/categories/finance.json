@@ -13,8 +13,6 @@
     "label": "Some of the apps documented in the library"
   },
   "problems": {
-    "kicker": "Sound familiar?",
-    "intro": "Users drop after onboarding and the retention curve flattens no matter what ships. Every engagement feature starts from scratch, and somewhere out there six apps have already solved the same problem in public, you just have no fast way to see how. And the fixes on offer feel wrong: you want users to return because the app became part of their routine, not because they were tricked into it.",
     "title": "The behavior problems every finance app carries",
     "items": [
       {

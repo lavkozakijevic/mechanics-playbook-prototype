@@ -25,8 +25,6 @@ interface Props {
     hero: { kicker: string; headline: string; sub: string };
     logoStrip?: { label: string };
     problems: {
-      kicker: string;
-      intro: string;
       title: string;
       items: { title: string; lead: string; body: string; mechanicId: string; appId: string }[];
     };
@@ -70,7 +68,7 @@ const mechById = new Map(mechanics.map((m) => [m.data.id, m.data]));
 
 const heroCtas = [
   { label: "Access the library", href: "/subscribe/", variant: "accent" },
-  { label: "Get the free finance report", href: "#free-report", variant: "link" },
+  { label: "Get the free report", href: "#free-report", variant: "link" },
 ];
 
 // Section 3's items each name one real mechanic and one real app; verify both
@@ -110,11 +108,9 @@ const PLAN_STEPS = [
     evidenceLabel={cat.logoStrip?.label}
   />
 
-  {/* 3. The problem — a lead-in paragraph, then six real mechanic/app pairs */}
+  {/* 3. The problem — six real mechanic/app pairs */}
   <section class="band band--sheet" aria-labelledby="prob-h">
     <div class="container">
-      <div class="mech-section__kicker">{cat.problems.kicker}</div>
-      <p class="catland-why__p">{cat.problems.intro}</p>
       <h2 class="mech-section__title" id="prob-h">{cat.problems.title}</h2>
       <ol class="catland-problems">
         {cat.problems.items.map((p, i) => (
@@ -157,7 +153,7 @@ const PLAN_STEPS = [
           </li>
         ))}
       </ol>
-      <a class="gb-btn gb-btn--accent gb-btn--lg" href="/subscribe/">Access the library</a>
+      <a class="gb-btn gb-btn--accent gb-btn--lg catland-plan__cta" href="/subscribe/">Access the library</a>
     </div>
   </section>
 

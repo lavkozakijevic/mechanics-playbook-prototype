@@ -1389,6 +1389,7 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
   font-weight: var(--weight-semibold); color: var(--text-accent); text-decoration: none; }
 .catland-lib__link:hover { text-decoration: underline; text-underline-offset: 3px;
   text-decoration-color: var(--accent); }
+.catland-plan__cta { display: inline-flex; margin-top: clamp(24px, 3.4vw, 40px); }
 .catland-lib__steps-h { font: var(--type-h3); font-size: clamp(16px, 1.5vw, 18px);
   color: var(--ink-900); margin: clamp(36px, 4.4vw, 52px) 0 0; }
 

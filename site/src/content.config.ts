@@ -169,12 +169,9 @@ const categories = defineCollection({
     }),
     // Caption above the hero's logo carousel.
     logoStrip: z.object({ label: z.string() }).optional(),
-    // "The problem" — a lead-in paragraph plus exactly six items, each naming
-    // one real mechanic and one real app with a complete write-up, so the
-    // "In the library" link always lands on substantive content.
+    // "The problem" — exactly six items, each naming one real mechanic and
+    // one real app with a complete write-up.
     problems: z.object({
-      kicker: z.string(),
-      intro: z.string(),
       title: z.string(),
       items: z
         .array(
