@@ -277,11 +277,7 @@ const DROPS = new Set([
 // newly imported app; the previous holder flips back to subscriber simply by
 // no longer being named here. Validation enforces the exactly-two invariant.
 // Thin apps awaiting write-up backfill must not hold this slot.
-// Deliberate override, not the newest import: the finance page rewrite needs an
-// open, no-email finance-app sample, and fortune-city is the only Finance-category
-// app with a complete write-up today. Revert to the actual newest import once a
-// better-fitting finance app is analyzed and written up.
-const ROTATING_FREE_APP = "fortune-city";
+const ROTATING_FREE_APP = "uptime";
 
 const ALL_APPS = [
   { file: "royal-match.md", id: "royal-match", visibility: "subscriber" },

@@ -1,7 +1,7 @@
 {
   "id": "homepage",
   "spotlightApp": "strava",
-  "showcaseSystem": "fortune-city",
+  "showcaseSystem": "uptime",
   "featuredMechanics": [
     "energy-lives",
     "limited-time-events",
@@ -27,6 +27,6 @@
   ],
   "freeSystemApps": [
     "strava",
-    "fortune-city"
+    "uptime"
   ]
 }

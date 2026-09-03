@@ -5,16 +5,17 @@
   "navDesc": "How the design that makes games worth opening can make a finance app worth opening too.",
   "order": 1,
   "hero": {
-    "kicker": "For banks and finance apps",
-    "headline": "The engagement mechanics finance apps have already shipped, in one library",
-    "sub": "Most product teams design engagement from scratch. We document the mechanics real apps use to bring people back, in finance and in every category competing for the same phone, so you build on what exists instead of guessing."
+    "kicker": "The Mechanics Playbook, for finance apps",
+    "headline": "Stop designing engagement from a blank page.",
+    "sub": "Most product teams guess. The Mechanics Playbook is a library of engagement mechanics documented from real apps across categories, so your team builds on what has already shipped: what it looks like, how it works, and the conditions that decide whether it would work in your app."
   },
   "logoStrip": {
-    "label": "Finance apps already documented"
+    "label": "Some of the apps documented in the library"
   },
   "problems": {
-    "kicker": "What finance teams are working on",
-    "title": "Six problems, and the apps that have already built something for them",
+    "kicker": "Sound familiar?",
+    "intro": "Users drop after onboarding and the retention curve flattens no matter what ships. Every engagement feature starts from scratch, and somewhere out there six apps have already solved the same problem in public, you just have no fast way to see how. And the fixes on offer feel wrong: you want users to return because the app became part of their routine, not because they were tricked into it.",
+    "title": "The behavior problems every finance app carries",
     "items": [
       {
         "title": "Top of wallet",
@@ -60,19 +61,20 @@
       }
     ]
   },
-  "whyEveryCategory": {
-    "kicker": "Why not only finance",
-    "headline": "Your app competes with Duolingo and Strava for the same ten minutes",
-    "body": "Attention on a phone does not sort itself by industry. A banking app and a language app are fighting for the same idle moment on the same screen, and the apps that win it, whatever they sell, tend to use the same handful of ideas: a clear goal, visible progress toward it, and a small, well-timed reward for reaching it. That is why the library covers every category. You take the parts that fit a finance product and leave the rest."
+  "guide": {
+    "kicker": "What The Mechanics Playbook is",
+    "body": "We have sat with the blank page too. \"What have other apps done here\" is the question every product team asks and nobody can answer quickly. So we made answering it our whole job. The Mechanics Playbook documents engagement mechanics from real apps: what shipped, in which products, how each piece is built, and how the pieces fit together into systems. Not a theory of what works. A record of what exists, organized so your team can find what fits.",
+    "crossCategoryBody": "Your users' sense of what an app should feel like is set by Duolingo, Strava, and Candy Crush, not by other banks. That is why the library covers every category. The standard is set outside finance; what fits your product is the question the breakdowns answer."
   },
-  "sample": {
-    "appId": "fortune-city"
-  },
-  "newsletter": {
-    "eyebrow": "Not ready to access yet",
-    "title": "Get the free finance report and three breakdowns a week",
-    "body": "Enter your email and the sample finance report opens straight away. It shows how finance apps already use these mechanics. After that, we send the three breakdowns we publish each week.",
+  "reportCapture": {
+    "eyebrow": "Start here",
+    "body": "See how finance apps use game design today. Enter your email and the finance report opens instantly, and the newest breakdowns arrive every week. A look at what your team would be working with.",
     "imageHref": "/images/finance-report-cover.webp"
+  },
+  "weeklyDigest": {
+    "kicker": "Every week, free",
+    "title": "Three new breakdowns in your inbox, every week",
+    "body": "One mechanic from each app we break down, what it does, and the takeaway your team can use. The fastest way to see how The Mechanics Playbook works before giving your team full access."
   },
   "heroApps": [
     { "id": "revolut", "name": "Revolut" },
