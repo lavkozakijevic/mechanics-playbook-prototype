@@ -8,9 +8,6 @@
     "headline": "See what the best apps know about keeping users.",
     "sub": "Appservatory breaks down the engagement mechanics of real apps, piece by piece, every week."
   },
-  "logoStrip": {
-    "caption": "Apps in the library."
-  },
   "problemCards": [
     { "text": "Retention flattens, and nobody knows which feature would fix it." },
     { "text": "Every engagement idea starts from a blank page." },

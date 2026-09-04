@@ -1,17 +1,17 @@
 ---
 // Shared template for every category landing page (/finance, /productivity, …).
-// Fixed section order: hero, logo strip, problem cards, all mechanics (the
-// breakdown visual), the systems map, what you get, cross-category, how it
-// works, email block, closing. The breakdown visual and the systems map are
-// two views of the same "what's in the library" idea: one app's full set of
-// mechanics, then how those mechanics connect. "Access the library" is the
-// one paid CTA (hero, how it works, closing), all pointing at /subscribe/.
-// The email block is the only form on the page. Consulting is reachable as
-// one quiet line at the very end, and nowhere else.
-// The hero copy, the logo strip caption, the three problem cards, and the
-// cross-category sentence are category-specific (supplied by the content
-// file). Everything else is shared and hardcoded here so a new category is
-// still just one content file.
+// Fixed section order: hero, what you get, problem cards, all mechanics (the
+// breakdown visual), the systems map, cross-category, how it works, email
+// block, closing. The breakdown visual and the systems map are two views of
+// the same "what's in the library" idea: one app's full set of mechanics,
+// then how those mechanics connect. "Access the library" is the one paid CTA
+// (hero, how it works, closing), all pointing at /subscribe/. The email
+// block is the only form on the page. Consulting is reachable as one quiet
+// line at the very end, and nowhere else.
+// The hero copy, the three problem cards, and the cross-category sentence
+// are category-specific (supplied by the content file). Everything else is
+// shared and hardcoded here so a new category is still just one content
+// file.
 import { getEntry, getCollection } from "astro:content";
 import { ReportCapture } from "./ReportCapture.jsx";
 import { Hero } from "./HomeTop.jsx";
@@ -25,7 +25,6 @@ interface Props {
     slug: string;
     name: string;
     hero: { headline: string; sub: string };
-    logoStrip?: { caption: string };
     problemCards: { text: string }[];
     crossCategory: { sentence: string };
     heroApps?: { id: string; name: string }[];
@@ -43,7 +42,15 @@ const heroCtas = [
   { label: "Get the free finance report", href: "#free-report", variant: "link" },
 ];
 
-// Section 4: the same Strava breakdown visual, now showing the range of
+// Section 2: four tiles, counts computed live so they never drift.
+const LIBRARY_TILES = [
+  { n: apps.length, label: "app breakdowns", body: "real apps, torn down mechanic by mechanic", href: "/case-studies/" },
+  { n: mechanics.length, label: "mechanics", body: "each defined: works when, backfires when", href: "/mechanics/" },
+  { n: null, label: "Systems and cheatsheets", body: "how the pieces combine", href: "/systems/" },
+  { n: 3, label: "new breakdowns every week", body: null, href: "/case-studies/" },
+];
+
+// Section 4a: the same Strava breakdown visual, now showing the range of
 // mechanics one app breakdown covers.
 const BREAKDOWN_IMAGE = {
   src: "/images/strava-case-study.png",
@@ -58,15 +65,7 @@ const mechById = new Map(mechanics.map((m) => [m.data.id, m.data]));
 const stravaSystem = stravaEntry?.system ? systemProps(stravaEntry, mechById) : null;
 const systemById = Object.fromEntries((stravaSystem?.nodes ?? []).map((n) => [n.id, n]));
 
-// Section 5: four tiles, counts computed live so they never drift.
-const LIBRARY_TILES = [
-  { n: apps.length, label: "app breakdowns", body: "real apps, torn down mechanic by mechanic", href: "/case-studies/" },
-  { n: mechanics.length, label: "mechanics", body: "each defined: works when, backfires when", href: "/mechanics/" },
-  { n: null, label: "Systems and cheatsheets", body: "how the pieces combine", href: "/systems/" },
-  { n: 3, label: "new breakdowns every week", body: null, href: "/case-studies/" },
-];
-
-// Section 6: real apps from our own library, not licensed brand icons. One
+// Section 5: real apps from our own library, not licensed brand icons. One
 // finance app, plus non-finance apps we already document.
 const CROSS_CATEGORY_APPS = [
   { id: cat.heroApps?.[0]?.id ?? "revolut", ext: "webp", label: cat.heroApps?.[0]?.name ?? "Finance app" },
@@ -75,7 +74,7 @@ const CROSS_CATEGORY_APPS = [
   { id: "canva", ext: "png", label: "Canva" },
 ];
 
-// Section 7: shared, not category-specific.
+// Section 6: shared, not category-specific.
 const HOW_IT_WORKS = [
   "Get your team access.",
   "Search by problem, mechanic, or app.",
@@ -106,19 +105,20 @@ const PROBLEM_ICONS = [
     className="catland-hero"
   />
 
-  {/* 2. Logo strip — existing logos, new caption */}
-  {cat.heroApps && cat.heroApps.length > 0 && (
-    <section class="band band--sheet catland-logostrip" aria-label={cat.logoStrip?.caption ?? "Apps in the library"}>
-      <div class="container">
-        <div class="catland-logostrip__row">
-          {cat.heroApps.map((a) => (
-            <img class="catland-logostrip__logo" src={`/icons/${a.id}.webp`} alt={a.name} loading="lazy" />
-          ))}
-        </div>
-        {cat.logoStrip?.caption && <p class="catland-logostrip__caption">{cat.logoStrip.caption}</p>}
+  {/* 2. What your team gets — four tiles, live counts */}
+  <section class="band" aria-labelledby="gets-h">
+    <div class="container">
+      <h2 class="mech-section__title" id="gets-h">What your team gets</h2>
+      <div class="catland-tiles">
+        {LIBRARY_TILES.map((t) => (
+          <a class="catland-tile" href={t.href}>
+            <h3>{t.n != null ? `${t.n} ${t.label}` : t.label}</h3>
+            {t.body && <p>{t.body}</p>}
+          </a>
+        ))}
       </div>
-    </section>
-  )}
+    </div>
+  </section>
 
   {/* 3. Problem cards — three cards, minimal icon, one line, no body copy */}
   <section class="band" aria-label="Problems this library solves">
@@ -170,22 +170,7 @@ const PROBLEM_ICONS = [
     </section>
   )}
 
-  {/* 5. What your team gets — four tiles, live counts */}
-  <section class="band" aria-labelledby="gets-h">
-    <div class="container">
-      <h2 class="mech-section__title" id="gets-h">What your team gets</h2>
-      <div class="catland-tiles">
-        {LIBRARY_TILES.map((t) => (
-          <a class="catland-tile" href={t.href}>
-            <h3>{t.n != null ? `${t.n} ${t.label}` : t.label}</h3>
-            {t.body && <p>{t.body}</p>}
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  {/* 6. Cross-category */}
+  {/* 5. Cross-category */}
   <section class="band band--sheet catland-crosscat" aria-label="Cross-category argument">
     <div class="container">
       <div class="catland-crosscat__grid">
@@ -204,7 +189,7 @@ const PROBLEM_ICONS = [
     </div>
   </section>
 
-  {/* 7. How it works */}
+  {/* 6. How it works */}
   <section class="band" aria-labelledby="how-h">
     <div class="container">
       <h2 class="mech-section__title" id="how-h">How it works</h2>
@@ -220,7 +205,7 @@ const PROBLEM_ICONS = [
     </div>
   </section>
 
-  {/* 8. Email block — the only form on the page */}
+  {/* 7. Email block — the only form on the page */}
   <section class="band band--sunken" id="free-report" aria-labelledby="email-h">
     <div class="container container--narrow">
       <h2 class="mech-section__title" id="email-h">Not ready? Start free.</h2>
@@ -236,7 +221,7 @@ const PROBLEM_ICONS = [
     </div>
   </section>
 
-  {/* 9. Closing */}
+  {/* 8. Closing */}
   <section class="band band--ink sp-close" aria-labelledby="close-h">
     <div class="container container--narrow">
       <h2 class="sp-close__h" id="close-h">Give your product team the observatory.</h2>

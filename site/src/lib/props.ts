@@ -187,7 +187,7 @@ export function systemProps(app: App, byId: MechanicsById) {
       category: byId.get(n.id)?.cat ?? "retention",
       x: n.x,
       y: n.y,
-      href: `/mechanics/${n.id}/`,
+      href: byId.get(n.id)?.visibility === "public" ? `/mechanics/${n.id}/` : "/subscribe/",
       description: roleById.get(n.id) ?? "",
     })),
     // v44 connections carry no line type; "mechanic" is the neutral dashed
@@ -206,7 +206,7 @@ export function systemProps(app: App, byId: MechanicsById) {
       name: byId.get(r.id)?.name ?? r.id,
       cat: byId.get(r.id)?.cat ?? "retention",
       description: r.role,
-      href: `/mechanics/${r.id}/`,
+      href: byId.get(r.id)?.visibility === "public" ? `/mechanics/${r.id}/` : "/subscribe/",
     })),
   };
 }

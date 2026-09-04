@@ -1407,12 +1407,6 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
 /* =================== FINANCE PAGE V2 =================== */
 .hero__shot { width: 100%; }
 
-.catland-logostrip__row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-  gap: clamp(20px, 3vw, 40px); }
-.catland-logostrip__logo { height: 32px; width: auto; max-width: 96px; object-fit: contain; }
-.catland-logostrip__caption { text-align: center; font: var(--type-body-sm); color: var(--text-muted);
-  margin: clamp(16px, 2vw, 22px) 0 0; }
-
 .catland-probcards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr;
   gap: clamp(20px, 2.6vw, 28px); }
 @media (min-width: 720px) { .catland-probcards { grid-template-columns: repeat(3, 1fr); } }

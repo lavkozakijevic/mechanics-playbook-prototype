@@ -149,11 +149,11 @@ const shortcasts = defineCollection({
 });
 
 // Category landing pages (/finance, /productivity, …). Each file supplies the
-// category-specific blocks (hero copy, logo strip caption, the three problem
-// cards, the cross-category sentence, the hero logo set). Every other section
-// (what you get, how it works, the email block, closing) is fixed copy shared
-// across categories and hardcoded in CategoryLanding.astro, so a new category
-// is still just one content file. A malformed block fails the build here,
+// category-specific blocks (hero copy, the three problem cards, the
+// cross-category sentence, the hero logo set). Every other section (what you
+// get, how it works, the email block, closing) is fixed copy shared across
+// categories and hardcoded in CategoryLanding.astro, so a new category is
+// still just one content file. A malformed block fails the build here,
 // before anything ships.
 const categories = defineCollection({
   loader: glob({ pattern: "*.json", base: "./src/content/categories" }),
@@ -168,8 +168,6 @@ const categories = defineCollection({
       headline: z.string(),
       sub: z.string(),
     }),
-    // Caption above the hero's logo carousel.
-    logoStrip: z.object({ caption: z.string() }).optional(),
     // Exactly three problem cards: minimal icon, one line of text, no body copy.
     problemCards: z.array(z.object({ text: z.string() })).length(3),
     // The cross-category argument, in this category's own words (it names a
