@@ -149,10 +149,12 @@ const shortcasts = defineCollection({
 });
 
 // Category landing pages (/finance, /productivity, …). Each file supplies the
-// category-specific blocks; the shared blocks (the lens, the trust section, the
-// call) are optional here — a category may override them, and the template
-// supplies a sensible default when it doesn't. A malformed block fails the
-// build here, before anything ships.
+// category-specific blocks (hero copy, logo strip caption, the three problem
+// cards, the cross-category sentence, the hero logo set). Every other section
+// (what you get, how it works, the email block, closing) is fixed copy shared
+// across categories and hardcoded in CategoryLanding.astro, so a new category
+// is still just one content file. A malformed block fails the build here,
+// before anything ships.
 const categories = defineCollection({
   loader: glob({ pattern: "*.json", base: "./src/content/categories" }),
   schema: z.object({
@@ -163,29 +165,16 @@ const categories = defineCollection({
     navDesc: z.string(),
     order: z.number().default(100),
     hero: z.object({
-      kicker: z.string(),
       headline: z.string(),
       sub: z.string(),
     }),
-    // "The six problems" — a section heading plus exactly six items, each with
-    // a short title, a one-line lead, and a paragraph.
-    problems: z.object({
-      kicker: z.string(),
-      title: z.string(),
-      items: z
-        .array(z.object({ title: z.string(), lead: z.string(), body: z.string() }))
-        .length(6),
-    }),
-    report: z.object({
-      eyebrow: z.string(),
-      title: z.string(),
-      body: z.string(),
-      // Optional headline stats above the capture form.
-      stats: z.array(z.object({ n: z.string(), l: z.string() })).optional(),
-      // Optional report cover image shown beside the download card.
-      imageHref: z.string().optional(),
-      // Report URL is derived at runtime: /{slug}/report — no field needed here.
-    }),
+    // Caption above the hero's logo carousel.
+    logoStrip: z.object({ caption: z.string() }).optional(),
+    // Exactly three problem cards: minimal icon, one line of text, no body copy.
+    problemCards: z.array(z.object({ text: z.string() })).length(3),
+    // The cross-category argument, in this category's own words (it names a
+    // specific rival category, e.g. "other banks").
+    crossCategory: z.object({ sentence: z.string() }),
     // Optional logo cards for the hero carousel (finance, etc.)
     heroApps: z.array(z.object({ id: z.string(), name: z.string() })).optional(),
   }),

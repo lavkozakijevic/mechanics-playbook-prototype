@@ -5,88 +5,29 @@
   "navDesc": "How the design that makes games worth opening can make a finance app worth opening too.",
   "order": 1,
   "hero": {
-    "kicker": "For banks and finance apps",
-    "headline": "Straightforward ways to gamify your finance app",
-    "sub": "We break down how the best apps turn opening the app into a habit, mechanic by mechanic, and publish what we find. Three new breakdowns every week."
+    "headline": "See what the best apps know about keeping users.",
+    "sub": "Appservatory breaks down the engagement mechanics of real apps, piece by piece, every week."
   },
-  "problems": {
-    "kicker": "Where we can help",
-    "title": "Where gamification helps in finance apps",
-    "items": [
-      {
-        "title": "Top of wallet loyalty",
-        "lead": "Your card competes with two others at every checkout.",
-        "body": "The question is never whether your card is good. It is whether it is the one a customer reaches for without thinking. Habits like that grow from a small, renewing reason to return, the kind a good game offers every single day."
-      },
-      {
-        "title": "Savings behaviour",
-        "lead": "Customers want to save and mostly don't.",
-        "body": "Wanting to save and actually saving are separated by a gap that is old and stubborn. The way across it is something game design leans on constantly: break a distant goal into steps small enough to feel doable, and make each step visible enough to feel like progress."
-      },
-      {
-        "title": "Financial literacy",
-        "lead": "Education that feels like homework gets ignored.",
-        "body": "People rarely set aside time to learn about money, so the lesson has to come to them. The best games teach inside the activity itself, one small idea at the moment it is useful, with progress the learner can actually see."
-      },
-      {
-        "title": "The salary account",
-        "lead": "Customers will change jobs more often than they'll change banks.",
-        "body": "The account a customer never bothers to leave is one they have quietly invested in: their history, their progress, a sense of standing they would lose by walking away. That kind of earned attachment is exactly what game design is built to create."
-      },
-      {
-        "title": "Cashback that sticks",
-        "lead": "Flat rewards get noticed once and then forgotten.",
-        "body": "A reward changes behaviour only while a customer can feel it. Keep it visible and a little bit earned, a streak worth continuing or a milestone in sight, and the next purchase becomes something worth tracking rather than something to ignore."
-      },
-      {
-        "title": "Onboarding and activation",
-        "lead": "The first session decides who stays past day one.",
-        "body": "A nervous new user needs one clear thing to do, and one small win to feel it was worth doing. The opening minutes are where people quietly decide whether to return, which is why game design treats them with so much care."
-      }
-    ]
+  "logoStrip": {
+    "caption": "Apps in the library."
   },
-  "report": {
-    "eyebrow": "Free sample report",
-    "title": "Get the sample finance report",
-    "body": "Enter your email and the sample finance report opens straight away. It shows how other finance apps already use game design, and what the full report covers. You also get the three breakdowns we publish every week.",
-    "imageHref": "/images/finance-report-cover.webp"
+  "problemCards": [
+    { "text": "Retention flattens, and nobody knows which feature would fix it." },
+    { "text": "Every engagement idea starts from a blank page." },
+    { "text": "Copying Duolingo's streak didn't work. Nobody knows why." }
+  ],
+  "crossCategory": {
+    "sentence": "Your users don't compare you to other banks. They compare you to everything on their phone."
   },
   "heroApps": [
-    {
-      "id": "revolut",
-      "name": "Revolut"
-    },
-    {
-      "id": "monzo",
-      "name": "Monzo"
-    },
-    {
-      "id": "chase",
-      "name": "Chase"
-    },
-    {
-      "id": "monefy",
-      "name": "Monefy"
-    },
-    {
-      "id": "monarch",
-      "name": "Monarch"
-    },
-    {
-      "id": "binance",
-      "name": "Binance"
-    },
-    {
-      "id": "acorns",
-      "name": "Acorns"
-    },
-    {
-      "id": "cash-app",
-      "name": "Cash App"
-    },
-    {
-      "id": "cleo",
-      "name": "Cleo"
-    }
+    { "id": "revolut", "name": "Revolut" },
+    { "id": "monzo", "name": "Monzo" },
+    { "id": "chase", "name": "Chase" },
+    { "id": "monefy", "name": "Monefy" },
+    { "id": "monarch", "name": "Monarch" },
+    { "id": "binance", "name": "Binance" },
+    { "id": "acorns", "name": "Acorns" },
+    { "id": "cash-app", "name": "Cash App" },
+    { "id": "cleo", "name": "Cleo" }
   ]
 }

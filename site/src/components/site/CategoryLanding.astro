@@ -1,213 +1,233 @@
 ---
 // Shared template for every category landing page (/finance, /productivity, …).
-// The page has one ask, the email signup, which appears twice: in the hero as an
-// anchor and as a form in the report section and again at the close. Consulting
-// is still reachable, as one line above the footer, and nowhere else.
-// Section order: hero, where we can help, why gamification matters, what is in
-// the library, the free report, trust, closing signup.
-// The hero copy, the six problems, and the report card are category-specific
-// (supplied by the content file). All other sections are shared and hardcoded
-// here so a new category is still just one content file.
+// Fixed section order: hero, logo strip, problem cards, show-don't-tell,
+// what you get, cross-category, how it works, email block, closing.
+// "Access the library" is the one paid CTA (hero, how it works, closing), all
+// pointing at /subscribe/. The email block (section 8) is the only form on
+// the page. Consulting is reachable as one quiet line at the very end, and
+// nowhere else.
+// The hero copy, the logo strip caption, the three problem cards, and the
+// cross-category sentence are category-specific (supplied by the content
+// file). Show-don't-tell, what you get, how it works, the email block, and
+// closing are shared and hardcoded here so a new category is still just one
+// content file.
 import { getEntry, getCollection } from "astro:content";
 import { ReportCapture } from "./ReportCapture.jsx";
 import { Hero } from "./HomeTop.jsx";
+import { AnnotatedScreenshot } from "../ds/AnnotatedScreenshot.jsx";
+import { publishedApps, publishedMechanics } from "../../lib/content";
 
 interface Props {
   cat: {
     slug: string;
     name: string;
-    hero: { kicker: string; headline: string; sub: string };
-    problems: { kicker: string; title: string; items: { title: string; lead: string; body: string }[] };
-    report: {
-      eyebrow: string;
-      title: string;
-      body: string;
-      stats?: { n: string; l: string }[];
-      imageHref?: string;
-    };
+    hero: { headline: string; sub: string };
+    logoStrip?: { caption: string };
+    problemCards: { text: string }[];
+    crossCategory: { sentence: string };
     heroApps?: { id: string; name: string }[];
   };
 }
 const { cat } = Astro.props;
 
-// Carousel: logo cards for categories that supply heroApps, otherwise fall back
-// to the homepage spotlight app's core mechanics.
-const settings = (await getEntry("settings", "homepage"))!.data;
-const carousel = await (async () => {
-  if (cat.heroApps && cat.heroApps.length > 0) {
-    return cat.heroApps.map((a) => ({ logoOnly: true, id: a.id, name: a.name }));
-  }
-  const allApps = await getCollection("apps");
-  const allMechanics = await getCollection("mechanics");
-  const byMechId = new Map(allMechanics.map((m) => [m.data.id, m.data]));
-  const spotlightApp = allApps.find((a) => a.data.id === settings.spotlightApp)?.data;
-  const shortShot = (s?: string) => (s ? s.split(/ showing | with |,/)[0] : "Screen study");
-  return spotlightApp
-    ? spotlightApp.mechanics
-        .filter((r) => r.depth === "core")
-        .map((r) => ({
-          app: spotlightApp.name,
-          mechanic: byMechId.get(r.id)?.name ?? r.id,
-          cat: byMechId.get(r.id)?.cat ?? "retention",
-          screen: shortShot(r.suggestedShots[0]),
-          title: `How ${spotlightApp.name} uses ${byMechId.get(r.id)?.name ?? r.id}`,
-        }))
-    : [];
-})();
+const apps = await publishedApps();
+const mechanics = await publishedMechanics();
 
-// The one ask on this page is the email signup. The sample breakdown sits
-// beside it as a text link, so a reader can see the work before giving an email.
-const SAMPLE_BREAKDOWN = "/case-studies/strava/";
+// Section 1: the hero visual is a real case-study visual, not category-specific.
+const HERO_IMAGE = {
+  src: "/images/strava-case-study.png",
+  alt: "The Strava breakdown page, showing its streak, achievements, leaderboards, and social feed screens",
+  appName: "Strava",
+  screenLabel: "Breakdown, in full",
+};
 const heroCtas = [
-  { label: "Get the free report", href: "#get-report", variant: "accent" },
-  { label: "See a sample breakdown", href: SAMPLE_BREAKDOWN, variant: "link" },
+  { label: "Access the library", href: "/subscribe/", variant: "accent" },
+  { label: "Get the free finance report", href: "#free-report", variant: "link" },
 ];
 
-// Shown under both email forms, so the newsletter is never implied silently.
-const CAPTURE_NOTE = "Three new breakdowns every week. Unsubscribe at any time.";
+// Section 4: three real pins on the same Strava visual, pointing at the parts
+// of the write-up format that back this page's claims.
+const SHOW_DONT_TELL_PINS = [
+  { n: 1, x: 24, y: 24, note: "What was observed: the concrete detail behind every claim." },
+  { n: 2, x: 50, y: 62, note: "Conditions: when the mechanic works, and when it would not." },
+  { n: 3, x: 78, y: 30, note: "How mechanics connect: the pairs that make the loop hold together." },
+];
+
+// Section 5: four tiles, counts computed live so they never drift.
+const LIBRARY_TILES = [
+  { n: apps.length, label: "app breakdowns", body: "real apps, torn down mechanic by mechanic", href: "/case-studies/" },
+  { n: mechanics.length, label: "mechanics", body: "each defined: works when, backfires when", href: "/mechanics/" },
+  { n: null, label: "Systems and cheatsheets", body: "how the pieces combine", href: "/systems/" },
+  { n: 3, label: "new breakdowns every week", body: null, href: "/case-studies/" },
+];
+
+// Section 6: generic stand-ins for Duolingo and Candy Crush — their brand
+// icons are not in this repo, and pulling them in raises a licensing
+// question, so this uses labeled placeholders instead of the real logos.
+const CROSS_CATEGORY_APPS = [
+  { kind: "icon", id: "strava", label: "Strava" },
+  { kind: "icon", id: cat.heroApps?.[0]?.id ?? "revolut", label: cat.heroApps?.[0]?.name ?? "Finance app" },
+  { kind: "stand-in", label: "Language app" },
+  { kind: "stand-in", label: "Puzzle game" },
+];
+
+// Section 7: shared, not category-specific.
+const HOW_IT_WORKS = [
+  "Get your team access.",
+  "Search by problem, mechanic, or app.",
+  "Build on what shipped, instead of guessing.",
+];
+
+// Section 3: one minimal line icon per problem card, matching the site's
+// existing stroke style. Index-matched to cat.problemCards.
+const PROBLEM_ICONS = [
+  // flattening line (retention curve)
+  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16c4 0 5-9 8-9s3 6 6 6 3-1 4-1"/></svg>`,
+  // blank page
+  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/></svg>`,
+  // broken chain link (a copied streak that didn't take)
+  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 15l-1.5 1.5a3 3 0 01-4.2-4.2L4 10.5"/><path d="M16 9l1.5-1.5a3 3 0 014.2 4.2L20 13.5"/><path d="M9.5 14.5l1-1"/><path d="M13.5 10.5l1-1"/></svg>`,
+];
 ---
 
 <main id="main">
-  {/* Hero — category-specific copy, shared carousel */}
+  {/* 1. Hero — category-specific copy, one real breakdown visual */}
   <Hero
     client:load
-    carousel={carousel}
-    eyebrow={cat.hero.kicker}
+    heroImage={HERO_IMAGE}
+    eyebrow=""
     headline={cat.hero.headline}
     sub={cat.hero.sub}
     ctas={heroCtas}
     className="catland-hero"
   />
 
-  {/* Where gamification helps — category-specific problems */}
-  <section class="band band--sheet" aria-labelledby="prob-h">
+  {/* 2. Logo strip — existing logos, new caption */}
+  {cat.heroApps && cat.heroApps.length > 0 && (
+    <section class="band band--sheet catland-logostrip" aria-label={cat.logoStrip?.caption ?? "Apps in the library"}>
+      <div class="container">
+        <div class="catland-logostrip__row">
+          {cat.heroApps.map((a) => (
+            <img class="catland-logostrip__logo" src={`/icons/${a.id}.webp`} alt={a.name} loading="lazy" />
+          ))}
+        </div>
+        {cat.logoStrip?.caption && <p class="catland-logostrip__caption">{cat.logoStrip.caption}</p>}
+      </div>
+    </section>
+  )}
+
+  {/* 3. Problem cards — three cards, minimal icon, one line, no body copy */}
+  <section class="band" aria-label="Problems this library solves">
     <div class="container">
-      <div class="mech-section__kicker">{cat.problems.kicker}</div>
-      <h2 class="mech-section__title" id="prob-h">{cat.problems.title}</h2>
-      <ol class="catland-problems">
-        {cat.problems.items.map((p, i) => (
-          <li class="catland-problem">
-            <span class="catland-problem__n" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
-            <div>
-              <h3>{p.title}</h3>
-              <p class="catland-problem__lead">{p.lead}</p>
-              <p>{p.body}</p>
-            </div>
+      <ul class="catland-probcards">
+        {cat.problemCards.map((p, i) => (
+          <li class="catland-probcard">
+            <span class="catland-probcard__icon" aria-hidden="true" set:html={PROBLEM_ICONS[i]} />
+            <p>{p.text}</p>
           </li>
         ))}
-      </ol>
+      </ul>
     </div>
   </section>
 
-  {/* Why gamification matters — shared */}
-  <section class="band band--sheet" aria-labelledby="why-h">
+  {/* 4. Show, don't tell — the Strava breakdown, annotated */}
+  <section class="band band--sheet" aria-labelledby="show-h">
+    <div class="container container--narrow">
+      <h2 class="mech-section__title" id="show-h">This is what a breakdown looks like.</h2>
+      <AnnotatedScreenshot
+        client:visible
+        src="/screenshots/achievements/strava/01.jpg"
+        alt="The Strava app's trophy case screen, showing achievement badges earned for activity milestones"
+        appName="Strava"
+        screenLabel="Trophy case"
+        annotations={SHOW_DONT_TELL_PINS}
+        caption="Every app, taken apart the same way: what it built, how it works, and when it would work in yours."
+      />
+    </div>
+  </section>
+
+  {/* 5. What your team gets — four tiles, live counts */}
+  <section class="band" aria-labelledby="gets-h">
     <div class="container">
-      <div class="catland-why">
-        <div class="mech-section__kicker">Why gamification matters</div>
-        <h2 class="mech-section__title" id="why-h">The same ideas that keep a game open can keep your app open</h2>
-        <p class="catland-why__p">The apps that earn daily habits use the same ideas games have refined for decades: a clear goal to aim for, a way to see progress toward it, and a small, well-timed reward for reaching it. None of these ideas are complicated on their own. Put together with care, they turn something a person tries once into something they return to without being asked.</p>
+      <h2 class="mech-section__title" id="gets-h">What your team gets</h2>
+      <div class="catland-tiles">
+        {LIBRARY_TILES.map((t) => (
+          <a class="catland-tile" href={t.href}>
+            <h3>{t.n != null ? `${t.n} ${t.label}` : t.label}</h3>
+            {t.body && <p>{t.body}</p>}
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
-  {/* What's in the library — the sample, the cross-category argument, the cadence */}
-  <section class="band" aria-labelledby="lib-h">
+  {/* 6. Cross-category */}
+  <section class="band band--sheet catland-crosscat" aria-label="Cross-category argument">
     <div class="container">
-      <div class="mech-section__kicker">The library</div>
-      <h2 class="mech-section__title" id="lib-h">What is in the library</h2>
-      <div class="catland-lib">
-        <div class="catland-lib__item">
-          <h3>A breakdown you can read right now</h3>
-          <p>The Strava breakdown is open in full, with no email needed. It walks each mechanic in the loop, what we observed, how the app presents it, and what a product team can take from it.</p>
-          <a class="catland-lib__link" href={SAMPLE_BREAKDOWN}>Read the Strava breakdown</a>
-        </div>
-        <div class="catland-lib__item">
-          <h3>Every category, not only {cat.name.toLowerCase()}</h3>
-          <p>A {cat.name.toLowerCase()} app competes with Duolingo and Strava for the same minutes on the same phone. So we study every category, and you take the parts that fit your product.</p>
-        </div>
-        <div class="catland-lib__item">
-          <h3>Three new breakdowns every week</h3>
-          <p>We publish three every week and send them in the newsletter. Each one covers a single app and the mechanics that keep people coming back to it.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {/* Free report — category-specific, with email-gated download */}
-  <section class="band band--sunken" id="get-report" aria-labelledby="report-h">
-    <div class="container">
-      <div class="catland-report">
-        <div class="catland-report__cover" aria-hidden="true">
-          {cat.report.imageHref
-            ? (
-              <Fragment>
-                <img
-                  src={cat.report.imageHref}
-                  alt=""
-                  loading="lazy"
-                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
-                />
-                <div class="catland-report__placeholder" style="display:none"><span>Report&nbsp;preview</span></div>
-              </Fragment>
-            )
-            : <div class="catland-report__placeholder"><span>Report&nbsp;preview</span></div>
-          }
-        </div>
-        <div class="report-landing__card">
-          <div class="eyebrow" style="color:var(--text-accent);margin-bottom:12px">{cat.report.eyebrow}</div>
-          <h2 id="report-h">{cat.report.title}</h2>
-          <p style="font:var(--type-body-lg);color:var(--text-secondary);max-width:52ch;margin-bottom:24px">{cat.report.body}</p>
-          {cat.report.stats && cat.report.stats.length > 0 && (
-            <div class="report-landing__stats">
-              {cat.report.stats.map((s) => (
-                <div class="report-landing__stat">
-                  <span class="report-landing__n">{s.n}</span>
-                  <span class="report-landing__l">{s.l}</span>
+      <div class="catland-crosscat__grid">
+        <p class="catland-crosscat__line">{cat.crossCategory.sentence}</p>
+        <div class="catland-phone" aria-hidden="true">
+          <div class="catland-phone__screen">
+            {CROSS_CATEGORY_APPS.map((a) => (
+              a.kind === "icon" ? (
+                <div class="catland-phone__app">
+                  <img src={`/icons/${a.id}.${a.id === "strava" ? "png" : "webp"}`} alt="" />
+                  <span>{a.label}</span>
                 </div>
-              ))}
-            </div>
-          )}
-          <div class="report-landing__capture">
-            <ReportCapture
-              client:load
-              category={cat.slug}
-              source="category-report"
-              submitLabel="Get the report"
-              note={CAPTURE_NOTE}
-            />
+              ) : (
+                <div class="catland-phone__app catland-phone__app--standin">
+                  <span class="catland-phone__standin-mark" aria-hidden="true">{a.label.slice(0, 1)}</span>
+                  <span>{a.label}</span>
+                </div>
+              )
+            ))}
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  {/* Trust — shared */}
-  <section class="band" aria-labelledby="trust-h">
+  {/* 7. How it works */}
+  <section class="band" aria-labelledby="how-h">
     <div class="container">
-      <div class="catland-trust">
-        <h2 class="mech-section__title" id="trust-h">Engagement that respects the customer</h2>
-        <p class="catland-trust__p">The same mechanics that can trap a person can also genuinely help them. We care about which side of that line your product is built on. The habits worth creating are the ones that leave a customer better off, and those are the only ones we help you build.</p>
+      <h2 class="mech-section__title" id="how-h">How it works</h2>
+      <ol class="catland-howsteps">
+        {HOW_IT_WORKS.map((s, i) => (
+          <li class="catland-howstep">
+            <span class="catland-howstep__n" aria-hidden="true">{i + 1}.</span>
+            <span>{s}</span>
+          </li>
+        ))}
+      </ol>
+      <a class="gb-btn gb-btn--accent gb-btn--lg catland-plan__cta" href="/subscribe/">Access the library</a>
+    </div>
+  </section>
+
+  {/* 8. Email block — the only form on the page */}
+  <section class="band band--sunken" id="free-report" aria-labelledby="email-h">
+    <div class="container container--narrow">
+      <h2 class="mech-section__title" id="email-h">Not ready? Start free.</h2>
+      <p class="catland-why__p">The finance report now, three new breakdowns in your inbox every week.</p>
+      <div class="catland-emailblock">
+        <ReportCapture
+          client:load
+          category={cat.slug}
+          source="finance-page-v2"
+          submitLabel="Get the report"
+        />
       </div>
     </div>
   </section>
 
-  {/* Closing — the same single ask, with the consulting path kept quiet below it */}
-  <section class="band band--sheet catland-signup" aria-labelledby="signup-h">
-    <div class="container">
-      <div class="catland-signup__in">
-        <h2 class="mech-section__title" id="signup-h">Three new breakdowns every week</h2>
-        <p class="catland-signup__p">Enter your email and the sample {cat.name.toLowerCase()} report opens straight away. After that we send the three breakdowns we publish each week.</p>
-        <div class="catland-signup__form">
-          <ReportCapture
-            client:load
-            category={cat.slug}
-            source="category-closing"
-            submitLabel="Get the report"
-            note={CAPTURE_NOTE}
-          />
-        </div>
-        <p class="catland-signup__alt">Working on a specific problem in your app? <a href="/work-with-us/">Work with us</a></p>
-      </div>
+  {/* 9. Closing */}
+  <section class="band band--ink sp-close" aria-labelledby="close-h">
+    <div class="container container--narrow">
+      <h2 class="sp-close__h" id="close-h">Give your product team the observatory.</h2>
+      <a class="gb-btn gb-btn--accent gb-btn--lg" href="/subscribe/">Access the library</a>
     </div>
   </section>
+
+  <div class="container">
+    <p class="catland-transition">Working on a specific problem? <a href="/work-with-us/">Book an audit</a></p>
+  </div>
 </main>

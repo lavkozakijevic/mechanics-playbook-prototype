@@ -1404,6 +1404,65 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
   gap: 16px; text-align: center; }
 .catland-call__cta { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 8px; }
 
+/* =================== FINANCE PAGE V2 =================== */
+.hero__shot { width: 100%; }
+
+.catland-logostrip__row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: clamp(20px, 3vw, 40px); }
+.catland-logostrip__logo { height: 32px; width: auto; max-width: 96px; object-fit: contain; }
+.catland-logostrip__caption { text-align: center; font: var(--type-body-sm); color: var(--text-muted);
+  margin: clamp(16px, 2vw, 22px) 0 0; }
+
+.catland-probcards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr;
+  gap: clamp(20px, 2.6vw, 28px); }
+@media (min-width: 720px) { .catland-probcards { grid-template-columns: repeat(3, 1fr); } }
+.catland-probcard { display: flex; flex-direction: column; gap: 14px; padding: clamp(22px, 2.6vw, 30px);
+  border: 1px solid var(--border-default); border-radius: var(--radius-lg); background: var(--surface-card); }
+.catland-probcard__icon { display: inline-flex; width: 28px; height: 28px; color: var(--text-accent); }
+.catland-probcard__icon svg { width: 100%; height: 100%; }
+.catland-probcard p { font: var(--type-h3); font-size: clamp(16px, 1.6vw, 19px); color: var(--ink-900);
+  line-height: 1.4; margin: 0; text-wrap: pretty; }
+
+.catland-tiles { display: grid; grid-template-columns: 1fr; gap: clamp(16px, 2vw, 24px);
+  margin-top: clamp(24px, 3vw, 36px); }
+@media (min-width: 620px) { .catland-tiles { grid-template-columns: repeat(2, 1fr); } }
+.catland-tile { display: block; padding: clamp(22px, 2.6vw, 28px); border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg); background: var(--surface-card); text-decoration: none;
+  transition: var(--transition-base); }
+.catland-tile:hover { border-color: var(--border-strong); box-shadow: var(--shadow-sm); }
+.catland-tile h3 { font: var(--type-h3); font-size: clamp(16px, 1.6vw, 19px); color: var(--ink-900); margin: 0; }
+.catland-tile p { font: var(--type-body-sm); color: var(--text-secondary); margin: 6px 0 0; }
+
+.catland-crosscat__grid { display: grid; grid-template-columns: 1fr; gap: clamp(28px, 4vw, 44px);
+  align-items: center; }
+@media (min-width: 800px) { .catland-crosscat__grid { grid-template-columns: 1fr 320px; } }
+.catland-crosscat__line { font: var(--type-h2); font-size: clamp(24px, 3.2vw, 36px); line-height: 1.3;
+  color: var(--ink-900); letter-spacing: var(--tracking-heading); margin: 0; text-wrap: balance; }
+.catland-phone { justify-self: center; width: 220px; border: 1px solid var(--border-default);
+  border-radius: 28px; padding: 14px; background: var(--surface-card); box-shadow: var(--shadow-md); }
+.catland-phone__screen { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+  background: var(--paper-deep); border-radius: 16px; padding: 16px; }
+.catland-phone__app { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; }
+.catland-phone__app img { width: 44px; height: 44px; border-radius: 12px; object-fit: cover; }
+.catland-phone__app span { font: var(--type-data); font-size: 10px; color: var(--text-secondary); }
+.catland-phone__standin-mark { display: grid; place-items: center; width: 44px; height: 44px;
+  border-radius: 12px; background: var(--ink-200); color: var(--ink-700); font-weight: var(--weight-semibold); }
+
+.catland-howsteps { list-style: none; margin: clamp(20px, 2.6vw, 28px) 0 0; padding: 0;
+  display: flex; flex-direction: column; gap: 14px; }
+.catland-howstep { display: flex; gap: 10px; align-items: baseline; font: var(--type-body-lg);
+  font-size: clamp(16px, 1.6vw, 19px); color: var(--ink-900); }
+.catland-howstep__n { font: var(--type-data); color: var(--text-accent); font-weight: var(--weight-semibold); }
+.catland-plan__cta { display: inline-flex; margin-top: clamp(24px, 3.4vw, 40px); }
+
+.catland-emailblock { max-width: 460px; margin-top: clamp(20px, 2.6vw, 28px); }
+
+.catland-transition { font: var(--type-body-sm); color: var(--text-muted); text-align: center;
+  padding: clamp(28px, 4vw, 44px) 0; }
+.catland-transition a { color: var(--text-accent); font-weight: var(--weight-medium); text-decoration: none; }
+.catland-transition a:hover { text-decoration: underline; text-underline-offset: 3px;
+  text-decoration-color: var(--accent); }
+
 /* =================== SUBSCRIBE PAGE (single-offer pricing) =================== */
 .sp-offer { text-align: center; }
 .sp-offer__h { font: var(--type-h1); font-size: clamp(30px, 4.8vw, 50px); line-height: 1.08;

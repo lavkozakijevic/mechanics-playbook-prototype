@@ -38,8 +38,10 @@ function logoInitials(name) {
 
 /** Hero: the promise, in the visitor's language, beside a self-sliding carousel
  *  of real mechanics drawn from the library. Exported so category landing pages
- *  can reuse the same layout with their own copy and CTAs. */
-export function Hero({ carousel, eyebrow, headline, sub, ctas, className = "" }) {
+ *  can reuse the same layout with their own copy and CTAs. Pass `heroImage`
+ *  instead of `carousel` to show one static, annotated case-study visual in
+ *  the evidence slot rather than the sliding carousel. */
+export function Hero({ carousel, heroImage, eyebrow, headline, sub, ctas, className = "" }) {
   const items = carousel || [];
   const loop = items.concat(items);
   const buttons = ctas || [
@@ -47,11 +49,14 @@ export function Hero({ carousel, eyebrow, headline, sub, ctas, className = "" })
     { label: "Gamify your app", href: "/work-with-us/", variant: "secondary" },
   ];
   const sectionClass = ["hero", className].filter(Boolean).join(" ");
+  // No eyebrow prop at all keeps the homepage's default kicker; an explicit
+  // empty string (category pages that want no kicker line) suppresses it.
+  const eyebrowText = eyebrow === undefined ? "Explore gamification options for your app" : eyebrow;
   return (
     <section className={sectionClass} id="top" aria-labelledby="hero-h">
       <div className="container hero__grid">
         <div className="hero__body">
-          <div className="eyebrow hero__eyebrow">{eyebrow ?? "Explore gamification options for your app"}</div>
+          {eyebrowText && <div className="eyebrow hero__eyebrow">{eyebrowText}</div>}
           <h1 id="hero-h">{headline ?? "Power up your app with proven game mechanics"}</h1>
           <p className="hero__sub">{sub ?? "See how the best apps use gamification to turn everyday features into habits. We break down each mechanic, map how they fit together, and help your team apply the ones that suit your product."}</p>
           <div className="hero__cta">
@@ -61,34 +66,44 @@ export function Hero({ carousel, eyebrow, headline, sub, ctas, className = "" })
           </div>
         </div>
         <div className="hero__evidence">
-          <div className="carousel" aria-label="Mechanics from the library">
-            <div className="carousel__track">
-              {loop.map((m, i) =>
-                m.logoOnly ? (
-                  <article className="mcard mcard--logo" key={i} aria-hidden={i >= items.length ? "true" : undefined}>
-                    <div className="mcard__shot mcard__logo-slot">
-                      <span className="mcard__mark">{logoInitials(m.name)}</span>
-                      <LogoImg id={m.id} />
-                    </div>
-                    <div className="mcard__body">
-                      <p className="mcard__name">{m.name}</p>
-                    </div>
-                  </article>
-                ) : (
-                  <article className="mcard mcard--logo" key={i} aria-hidden={i >= items.length ? "true" : undefined}>
-                    <div className="mcard__shot mcard__logo-slot">
-                      <span className="mcard__mark">{logoInitials(m.app)}</span>
-                      <LogoImg id={m.appId} />
-                    </div>
-                    <div className="mcard__body">
-                      <Tag category={m.cat} dot>{m.mechanic}</Tag>
-                      <p className="mcard__title">{m.title}</p>
-                    </div>
-                  </article>
-                )
-              )}
+          {heroImage ? (
+            <AnnotatedScreenshot
+              src={heroImage.src}
+              alt={heroImage.alt}
+              appName={heroImage.appName}
+              screenLabel={heroImage.screenLabel}
+              className="hero__shot"
+            />
+          ) : (
+            <div className="carousel" aria-label="Mechanics from the library">
+              <div className="carousel__track">
+                {loop.map((m, i) =>
+                  m.logoOnly ? (
+                    <article className="mcard mcard--logo" key={i} aria-hidden={i >= items.length ? "true" : undefined}>
+                      <div className="mcard__shot mcard__logo-slot">
+                        <span className="mcard__mark">{logoInitials(m.name)}</span>
+                        <LogoImg id={m.id} />
+                      </div>
+                      <div className="mcard__body">
+                        <p className="mcard__name">{m.name}</p>
+                      </div>
+                    </article>
+                  ) : (
+                    <article className="mcard mcard--logo" key={i} aria-hidden={i >= items.length ? "true" : undefined}>
+                      <div className="mcard__shot mcard__logo-slot">
+                        <span className="mcard__mark">{logoInitials(m.app)}</span>
+                        <LogoImg id={m.appId} />
+                      </div>
+                      <div className="mcard__body">
+                        <Tag category={m.cat} dot>{m.mechanic}</Tag>
+                        <p className="mcard__title">{m.title}</p>
+                      </div>
+                    </article>
+                  )
+                )}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </section>
