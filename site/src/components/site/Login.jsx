@@ -25,8 +25,8 @@ export function LoginPage() {
   return (
     <main className="login" id="main">
       <div className="login__card">
-        <a className="login__brand" href="/" aria-label="GameBiz home">
-          <img src={LOGO_INK} alt="GameBiz" width="124" height="25" />
+        <a className="login__brand" href="/" aria-label="Appservatory home">
+          <img src={LOGO_INK} alt="Appservatory" width="124" height="25" />
         </a>
 
         <form className="login__form" onSubmit={(e) => e.preventDefault()}>

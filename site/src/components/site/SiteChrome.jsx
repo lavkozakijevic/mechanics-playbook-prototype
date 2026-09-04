@@ -48,8 +48,8 @@ export function SiteNav({ current }) {
     <>
       <header className="nav">
         <div className="container nav__in">
-          <a className="nav__brand" href="/" aria-label="GameBiz home">
-            <img className="nav__logo" src={LOGO} alt="GameBiz" width="100" height="22" />
+          <a className="nav__brand" href="/" aria-label="Appservatory home">
+            <img className="nav__logo" src={LOGO} alt="Appservatory" width="100" height="22" />
           </a>
 
           <div className="nav__spacer" />
@@ -149,7 +149,7 @@ export function NewsletterBlock() {
         <div className="container">
           <div className="newsletter">
             <div>
-              <h2 id="newsletter-h">Playbook Newsletter</h2>
+              <h2 id="newsletter-h">Appservatory Newsletter</h2>
               <p>You're on the list. We'll send the next batch your way.</p>
             </div>
           </div>
@@ -163,7 +163,7 @@ export function NewsletterBlock() {
       <div className="container">
         <div className="newsletter">
           <div>
-            <h2 id="newsletter-h">Playbook Newsletter</h2>
+            <h2 id="newsletter-h">Appservatory Newsletter</h2>
             <p>Each week we add three fresh breakdowns of how successful apps implement game mechanics. Get the most interesting mechanics from each, straight into your inbox.</p>
           </div>
           <form className="newsletter__form" onSubmit={handleSubmit}>
@@ -173,7 +173,7 @@ export function NewsletterBlock() {
             </div>
             <label className="newsletter__consent">
               <input type="checkbox" className="newsletter__check" checked={consent} onChange={(e) => setConsent(e.target.checked)} />
-              <span>I agree to receive occasional relevant emails from GameBiz Consulting about behavioral design and gamification.</span>
+              <span>I agree to receive occasional relevant emails from Appservatory about behavioral design and gamification.</span>
             </label>
             {status === "error" && <p className="newsletter__err">Something went wrong — please try again.</p>}
           </form>
@@ -218,7 +218,7 @@ export function SiteFooter({ lastUpdated, categories }) {
       <div className="container">
         <div className="footer__top">
           <div>
-            <img className="footer__brand-logo" src={LOGO_INK} alt="GameBiz" width="120" height="24" />
+            <img className="footer__brand-logo" src={LOGO_INK} alt="Appservatory" width="120" height="24" />
             <p className="footer__desc">We study how the best apps and games keep their players, mechanic by mechanic, and help your team apply what fits your product, so your users stay, engage, and grow.</p>
           </div>
           <div className="footer__cols">

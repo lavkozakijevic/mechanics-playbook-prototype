@@ -101,7 +101,7 @@ export function ExitIntentPopup() {
               <Input label="Email" size="lg" type="email" placeholder="you@company.com" aria-label="Email address" value={email} onChange={(e) => setEmail(e.target.value)} required />
               <label className="newsletter__consent">
                 <input type="checkbox" className="newsletter__check" checked={consent} onChange={(e) => setConsent(e.target.checked)} />
-                <span>I agree to receive occasional relevant emails from GameBiz Consulting about behavioral design and gamification.</span>
+                <span>I agree to receive occasional relevant emails from Appservatory about behavioral design and gamification.</span>
               </label>
               {status === "error" && <p className="wl-error">Something went wrong — please try again.</p>}
               <Button variant="primary" size="lg" type="submit" disabled={!consent || status === "loading"}>Sign up</Button>
