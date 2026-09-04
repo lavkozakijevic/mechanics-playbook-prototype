@@ -1,21 +1,24 @@
 ---
 // Shared template for every category landing page (/finance, /productivity, …).
-// Fixed section order: hero, logo strip, problem cards, show-don't-tell,
-// what you get, cross-category, how it works, email block, closing.
-// "Access the library" is the one paid CTA (hero, how it works, closing), all
-// pointing at /subscribe/. The email block (section 8) is the only form on
-// the page. Consulting is reachable as one quiet line at the very end, and
-// nowhere else.
+// Fixed section order: hero, logo strip, problem cards, all mechanics (the
+// breakdown visual), the systems map, what you get, cross-category, how it
+// works, email block, closing. The breakdown visual and the systems map are
+// two views of the same "what's in the library" idea: one app's full set of
+// mechanics, then how those mechanics connect. "Access the library" is the
+// one paid CTA (hero, how it works, closing), all pointing at /subscribe/.
+// The email block is the only form on the page. Consulting is reachable as
+// one quiet line at the very end, and nowhere else.
 // The hero copy, the logo strip caption, the three problem cards, and the
 // cross-category sentence are category-specific (supplied by the content
-// file). Show-don't-tell, what you get, how it works, the email block, and
-// closing are shared and hardcoded here so a new category is still just one
-// content file.
+// file). Everything else is shared and hardcoded here so a new category is
+// still just one content file.
 import { getEntry, getCollection } from "astro:content";
 import { ReportCapture } from "./ReportCapture.jsx";
 import { Hero } from "./HomeTop.jsx";
 import { AnnotatedScreenshot } from "../ds/AnnotatedScreenshot.jsx";
+import { SystemMap } from "./SystemDetail.jsx";
 import { publishedApps, publishedMechanics } from "../../lib/content";
+import { systemProps } from "../../lib/props";
 
 interface Props {
   cat: {
@@ -33,25 +36,27 @@ const { cat } = Astro.props;
 const apps = await publishedApps();
 const mechanics = await publishedMechanics();
 
-// Section 1: the hero visual is a real case-study visual, not category-specific.
-const HERO_IMAGE = {
-  src: "/images/strava-case-study.png",
-  alt: "The Strava breakdown page, showing its streak, achievements, leaderboards, and social feed screens",
-  appName: "Strava",
-  screenLabel: "Breakdown, in full",
-};
+// Section 1: the hero carousel, drawn from this category's own app logos.
+const carousel = (cat.heroApps ?? []).map((a) => ({ logoOnly: true, id: a.id, name: a.name }));
 const heroCtas = [
   { label: "Access the library", href: "/subscribe/", variant: "accent" },
   { label: "Get the free finance report", href: "#free-report", variant: "link" },
 ];
 
-// Section 4: three real pins on the same Strava visual, pointing at the parts
-// of the write-up format that back this page's claims.
-const SHOW_DONT_TELL_PINS = [
-  { n: 1, x: 24, y: 24, note: "What was observed: the concrete detail behind every claim." },
-  { n: 2, x: 50, y: 62, note: "Conditions: when the mechanic works, and when it would not." },
-  { n: 3, x: 78, y: 30, note: "How mechanics connect: the pairs that make the loop hold together." },
-];
+// Section 4: the same Strava breakdown visual, now showing the range of
+// mechanics one app breakdown covers.
+const BREAKDOWN_IMAGE = {
+  src: "/images/strava-case-study.png",
+  alt: "The Strava breakdown, showing its streak, achievements, leaderboards, and social feed screens",
+  appName: "Strava",
+  screenLabel: "Full app breakdown",
+};
+
+// Section 4b: Strava's real system map, the same diagram the homepage shows.
+const stravaEntry = apps.find((a) => a.data.id === "strava")?.data;
+const mechById = new Map(mechanics.map((m) => [m.data.id, m.data]));
+const stravaSystem = stravaEntry?.system ? systemProps(stravaEntry, mechById) : null;
+const systemById = Object.fromEntries((stravaSystem?.nodes ?? []).map((n) => [n.id, n]));
 
 // Section 5: four tiles, counts computed live so they never drift.
 const LIBRARY_TILES = [
@@ -61,14 +66,13 @@ const LIBRARY_TILES = [
   { n: 3, label: "new breakdowns every week", body: null, href: "/case-studies/" },
 ];
 
-// Section 6: generic stand-ins for Duolingo and Candy Crush — their brand
-// icons are not in this repo, and pulling them in raises a licensing
-// question, so this uses labeled placeholders instead of the real logos.
+// Section 6: real apps from our own library, not licensed brand icons. One
+// finance app, plus non-finance apps we already document.
 const CROSS_CATEGORY_APPS = [
-  { kind: "icon", id: "strava", label: "Strava" },
-  { kind: "icon", id: cat.heroApps?.[0]?.id ?? "revolut", label: cat.heroApps?.[0]?.name ?? "Finance app" },
-  { kind: "stand-in", label: "Language app" },
-  { kind: "stand-in", label: "Puzzle game" },
+  { id: cat.heroApps?.[0]?.id ?? "revolut", ext: "webp", label: cat.heroApps?.[0]?.name ?? "Finance app" },
+  { id: "strava", ext: "png", label: "Strava" },
+  { id: "calm", ext: "png", label: "Calm" },
+  { id: "canva", ext: "png", label: "Canva" },
 ];
 
 // Section 7: shared, not category-specific.
@@ -91,10 +95,10 @@ const PROBLEM_ICONS = [
 ---
 
 <main id="main">
-  {/* 1. Hero — category-specific copy, one real breakdown visual */}
+  {/* 1. Hero — category-specific copy, the sliding logo carousel */}
   <Hero
     client:load
-    heroImage={HERO_IMAGE}
+    carousel={carousel}
     eyebrow=""
     headline={cat.hero.headline}
     sub={cat.hero.sub}
@@ -130,21 +134,41 @@ const PROBLEM_ICONS = [
     </div>
   </section>
 
-  {/* 4. Show, don't tell — the Strava breakdown, annotated */}
-  <section class="band band--sheet" aria-labelledby="show-h">
+  {/* 4a. All mechanics in the best apps — the full breakdown visual */}
+  <section class="band band--sheet" aria-labelledby="mechs-h">
     <div class="container container--narrow">
-      <h2 class="mech-section__title" id="show-h">This is what a breakdown looks like.</h2>
+      <h2 class="mech-section__title" id="mechs-h">All mechanics in the best apps</h2>
       <AnnotatedScreenshot
         client:visible
-        src="/screenshots/achievements/strava/01.jpg"
-        alt="The Strava app's trophy case screen, showing achievement badges earned for activity milestones"
-        appName="Strava"
-        screenLabel="Trophy case"
-        annotations={SHOW_DONT_TELL_PINS}
+        src={BREAKDOWN_IMAGE.src}
+        alt={BREAKDOWN_IMAGE.alt}
+        appName={BREAKDOWN_IMAGE.appName}
+        screenLabel={BREAKDOWN_IMAGE.screenLabel}
         caption="Every app, taken apart the same way: what it built, how it works, and when it would work in yours."
       />
     </div>
   </section>
+
+  {/* 4b. The systems map — how the mechanics connect, in the house diagram */}
+  {stravaSystem && (
+    <section class="band band--sunken" aria-labelledby="sysmap-h">
+      <div class="container">
+        <div class="showcase">
+          <div class="showcase__body">
+            <div class="eyebrow">The systems map</div>
+            <h2 id="sysmap-h">How the {stravaEntry.name} system holds together</h2>
+            <p>{stravaSystem.tagline}</p>
+            <a class="gb-btn gb-btn--secondary gb-btn--lg" href={`/systems/${stravaEntry.id}/`}>Explore the {stravaEntry.name} map</a>
+          </div>
+          <div class="showcase__map">
+            <div class="smap-stage">
+              <SystemMap client:visible nodes={stravaSystem.nodes} connections={stravaSystem.connections} byId={systemById} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
 
   {/* 5. What your team gets — four tiles, live counts */}
   <section class="band" aria-labelledby="gets-h">
@@ -169,17 +193,10 @@ const PROBLEM_ICONS = [
         <div class="catland-phone" aria-hidden="true">
           <div class="catland-phone__screen">
             {CROSS_CATEGORY_APPS.map((a) => (
-              a.kind === "icon" ? (
-                <div class="catland-phone__app">
-                  <img src={`/icons/${a.id}.${a.id === "strava" ? "png" : "webp"}`} alt="" />
-                  <span>{a.label}</span>
-                </div>
-              ) : (
-                <div class="catland-phone__app catland-phone__app--standin">
-                  <span class="catland-phone__standin-mark" aria-hidden="true">{a.label.slice(0, 1)}</span>
-                  <span>{a.label}</span>
-                </div>
-              )
+              <div class="catland-phone__app">
+                <img src={`/icons/${a.id}.${a.ext}`} alt="" />
+                <span>{a.label}</span>
+              </div>
             ))}
           </div>
         </div>

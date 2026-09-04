@@ -1426,6 +1426,7 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
 .catland-tiles { display: grid; grid-template-columns: 1fr; gap: clamp(16px, 2vw, 24px);
   margin-top: clamp(24px, 3vw, 36px); }
 @media (min-width: 620px) { .catland-tiles { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .catland-tiles { grid-template-columns: repeat(4, 1fr); } }
 .catland-tile { display: block; padding: clamp(22px, 2.6vw, 28px); border: 1px solid var(--border-default);
   border-radius: var(--radius-lg); background: var(--surface-card); text-decoration: none;
   transition: var(--transition-base); }
@@ -1445,8 +1446,6 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
 .catland-phone__app { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; }
 .catland-phone__app img { width: 44px; height: 44px; border-radius: 12px; object-fit: cover; }
 .catland-phone__app span { font: var(--type-data); font-size: 10px; color: var(--text-secondary); }
-.catland-phone__standin-mark { display: grid; place-items: center; width: 44px; height: 44px;
-  border-radius: 12px; background: var(--ink-200); color: var(--ink-700); font-weight: var(--weight-semibold); }
 
 .catland-howsteps { list-style: none; margin: clamp(20px, 2.6vw, 28px) 0 0; padding: 0;
   display: flex; flex-direction: column; gap: 14px; }
