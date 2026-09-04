@@ -38,8 +38,8 @@ const mechanics = await publishedMechanics();
 // Section 1: the hero carousel, drawn from this category's own app logos.
 const carousel = (cat.heroApps ?? []).map((a) => ({ logoOnly: true, id: a.id, name: a.name }));
 const heroCtas = [
-  { label: "Access the library", href: "/subscribe/", variant: "accent" },
-  { label: "Get the free finance report", href: "#free-report", variant: "link" },
+  { label: "Access the library", href: "/subscribe/", variant: "primary" },
+  { label: "Get the free finance report", href: "#free-report", variant: "secondary" },
 ];
 
 // Section 2: four tiles, counts computed live so they never drift.
