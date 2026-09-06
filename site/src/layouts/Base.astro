@@ -3,6 +3,7 @@ import "../styles/global.css";
 import { getCollection } from "astro:content";
 import { SiteNav, NewsletterBlock, SiteFooter } from "../components/site/SiteChrome.jsx";
 import { ExitIntentPopup } from "../components/site/ExitIntentPopup.jsx";
+import { ConsentBanner } from "../components/site/ConsentBanner.jsx";
 import { lastUpdated, formatDate } from "../lib/content";
 
 interface Props {
@@ -36,20 +37,13 @@ const categories = (await getCollection("categories"))
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="preload" href="/assets/fonts/sora-700.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin />
-    {/* Microsoft Clarity analytics */}
-    <script type="text/javascript" is:inline>
-      (function(c,l,a,r,i,t,y){
-          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "xqszl0dahe");
-    </script>
   </head>
   <body>
     {chrome && <SiteNav client:load current={current} />}
     <slot />
     {chrome && newsletter && <NewsletterBlock client:visible />}
-    {chrome && <SiteFooter lastUpdated={updated} categories={categories} />}
+    {chrome && <SiteFooter client:visible lastUpdated={updated} categories={categories} />}
     {chrome && <ExitIntentPopup client:load />}
+    {chrome && <ConsentBanner client:load />}
   </body>
 </html>

@@ -274,7 +274,17 @@
 .footer__meta { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; font: var(--type-data); font-size: 12px; color: var(--text-faint); }
 .footer__email, .footer__legal { color: var(--text-muted); text-decoration: none; }
 .footer__email:hover, .footer__legal:hover { color: var(--ink-900); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 2px; }
+.footer__legal--btn { background: none; border: none; padding: 0; font: inherit; cursor: pointer; }
 .footer__sep { color: var(--ink-300); }
+
+/* Cookie consent banner */
+.cookie-banner { position: fixed; left: 0; right: 0; bottom: 0; z-index: 200;
+  background: var(--surface-card); border-top: var(--rule-default); box-shadow: var(--shadow-md); }
+.cookie-banner__in { max-width: var(--site-max); margin: 0 auto; padding: 18px var(--site-gutter);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; }
+.cookie-banner__text { font: var(--type-body-sm); color: var(--text-secondary); margin: 0; max-width: 62ch; text-wrap: pretty; }
+.cookie-banner__text a { color: var(--text-accent); text-decoration: underline; text-underline-offset: 2px; }
+.cookie-banner__actions { display: flex; gap: 10px; flex: none; }
 .footer__fresh { display: inline-flex; align-items: center; gap: 6px; font: var(--type-label);
   text-transform: uppercase; letter-spacing: var(--tracking-label); color: var(--text-muted); }
 .footer__fresh .pip { width: 6px; height: 6px; border-radius: 50%; background: var(--ok); }
@@ -610,9 +620,15 @@ a.amod__item:hover .amod__name { text-decoration: underline; text-decoration-col
 .csc:hover { border-color: var(--border-strong); box-shadow: var(--shadow-md); transform: translateY(-2px); }
 .csc:focus-visible { outline: none; box-shadow: var(--ring); }
 .csc__top { display: flex; align-items: center; justify-content: space-between; gap: 13px; }
+.csc__head { display: flex; align-items: center; gap: 12px; }
+.csc__icon { flex: none; width: 40px; height: 40px; border-radius: 10px;
+  background: var(--ink-900); color: var(--paper); display: grid; place-items: center;
+  font-family: var(--font-display); font-weight: var(--weight-bold); font-size: 15px;
+  letter-spacing: 0.02em; overflow: hidden; }
+.csc__icon img { object-fit: cover; }
 .csc__name { font-family: var(--font-display); font-weight: var(--weight-bold);
   font-size: clamp(19px, 2vw, 22px); line-height: 1.18; letter-spacing: var(--tracking-heading);
-  color: var(--ink-900); margin: -4px 0 0; text-wrap: balance; }
+  color: var(--ink-900); margin: 0; text-wrap: balance; }
 .csc:hover .csc__name { text-decoration: underline; text-decoration-color: var(--accent);
   text-underline-offset: 3px; text-decoration-thickness: 2px; }
 .csc__badge { flex: none; }

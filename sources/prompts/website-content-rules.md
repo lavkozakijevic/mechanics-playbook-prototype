@@ -50,6 +50,7 @@ These rules govern the move from analysis file to published copy. They come firs
 22. App and feature names are spelled exactly as the app spells them.
 23. Sections may refer back to earlier sections ("as with the watts system above") so the case study reads as one piece, not isolated entries.
 24. Evidence-limit statements never appear in copy: no "this was not shown in the session", no counters standing at zero, no unreached states. What we did not see is simply absent.
+25. Introduce a concept before its numbers. A sentence never asks the reader to hold values whose source or meaning has not yet been given. Short declarative sentences over packed ones; one idea per sentence where the material allows (per Writing Without Bullshit).
 
 ## The rules, binding on every draft
 

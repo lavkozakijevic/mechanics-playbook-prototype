@@ -7,6 +7,7 @@
   "analysisDate": "2026-02-25",
   "lastUpdated": "2026-05-20",
   "summary": "Freeletics is an AI coaching fitness app that runs a paywall cascade across onboarding: three sequential discount offers, each better than the last, with the lowest price reserved for the moment after the first workout is completed. The week-based challenge structure and community feed are the primary retention surfaces. No daily streak was observed.",
+  "teaser": "Freeletics shows three descending prices across one onboarding, each pitched as a better deal than the last, with the cheapest one held back until right after the first workout.",
   "icon": "/icons/freeletics.png",
   "heroImage": null,
   "mechanics": [

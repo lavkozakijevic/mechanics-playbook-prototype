@@ -7,6 +7,7 @@
   "analysisDate": "2026-02-24",
   "lastUpdated": "2026-05-20",
   "summary": "Liftoff is a strength training app that applies the most explicit XP leveling system observed in the fitness category. Every logged set contributes volume points toward a rank, with named rank tiers visible ahead of the current position. A per-muscle rank system means the user tracks separate progression levels for each muscle group. The variable reward is tied to workout completion rather than spending.",
+  "teaser": "Liftoff tracks a separate rank for every muscle group, so two users training the same number of days can see completely different progress, shaped by what they actually trained.",
   "icon": "/icons/liftoff.png",
   "heroImage": null,
   "mechanics": [

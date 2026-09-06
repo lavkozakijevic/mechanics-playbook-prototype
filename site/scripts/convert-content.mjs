@@ -437,6 +437,7 @@ for (const entry of ALL_APPS) {
     analysisDate: isoDate(a.meta["Analysis date"]),
     lastUpdated: isoDate(a.meta["Last updated"]) ?? isoDate(a.meta["Analysis date"]),
     summary: v44?.summary ?? a.overview,
+    teaser: v44?.teaser ?? null,
     icon: icons[0] ? "/" + icons[0] : null,
     heroImage: (() => {
       const imageCandidates = [

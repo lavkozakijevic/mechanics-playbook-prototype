@@ -31,7 +31,16 @@ function SystemCard({ s }) {
         </span>
       </div>
 
-      <h3 className="csc__name">{s.name}</h3>
+      <div className="csc__head">
+        {s.iconSrc ? (
+          <div className="csc__icon" aria-hidden="true">
+            <img src={s.iconSrc} alt="" style={{ width: "100%", height: "100%" }} />
+          </div>
+        ) : (
+          <div className="csc__icon" aria-hidden="true">{s.iconInitials}</div>
+        )}
+        <h3 className="csc__name">{s.name}</h3>
+      </div>
 
       <p className="csc__desc">{s.desc}</p>
 

@@ -243,6 +243,14 @@ export function SiteFooter({ lastUpdated, categories }) {
             <span className="footer__sep" aria-hidden="true">·</span>
             <a className="footer__legal" href="/refund-policy/">Refund Policy</a>
             <span className="footer__sep" aria-hidden="true">·</span>
+            <button
+              type="button"
+              className="footer__legal footer__legal--btn"
+              onClick={() => window.dispatchEvent(new Event("open-cookie-preferences"))}
+            >
+              Cookie Preferences
+            </button>
+            <span className="footer__sep" aria-hidden="true">·</span>
             <a className="footer__email" href="mailto:lav@gamebizconsulting.com">lav@gamebizconsulting.com</a>
             <span className="footer__sep" aria-hidden="true">·</span>
             © 2026 GameBiz Consulting

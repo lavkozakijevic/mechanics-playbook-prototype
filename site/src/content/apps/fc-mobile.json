@@ -7,6 +7,7 @@
   "analysisDate": "2026-04-06",
   "lastUpdated": "2026-05-15",
   "summary": "FC Mobile runs a live-service calendar of overlapping events, daily quest systems, and league competition, all tied structurally to the real football calendar. Five simultaneous events were active during analysis, each with its own currency, quest line, and reward pool. The monthly card is the economic anchor: at $1.99, it creates a daily login reason that feeds quest completion, season pass progress, and league standing simultaneously.",
+  "teaser": "FC Mobile times its biggest events to real Champions League matches, so the game's urgency borrows directly from a calendar the player already follows.",
   "icon": "/icons/fc-mobile.png",
   "heroImage": null,
   "mechanics": [
