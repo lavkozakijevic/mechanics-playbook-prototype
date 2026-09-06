@@ -7,7 +7,7 @@
   "analysisDate": "2026-07-30",
   "lastUpdated": "2026-09-06",
   "summary": "Wakeout is built around one running measure, Wakeout Watts, that a completed movement break adds to and a daily goal converts into a recognized state. Reaching that goal triggers a celebration and advances a running streak in the same moment, so one action moves three parts of the system at once. There is no free tier: every mechanic described here sits behind the subscription, with no version of the app to try first.",
-  "teaser": null,
+  "teaser": "Wakeout can pause other apps on the phone until the user completes a movement break, a mechanic that sits in settings and is never surfaced during onboarding.",
   "icon": null,
   "heroImage": null,
   "mechanics": [

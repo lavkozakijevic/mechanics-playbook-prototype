@@ -56,7 +56,7 @@ const APPS = [
   // Only the teaser is authored here.
   { id:"cleo", teaser:"Cleo turns a spending review into a chat roast, complete with GIFs and a skull emoji for an overspent month, the same transaction data other finance apps show as a plain table." },
   { id:"acorns", teaser:"Acorns is the only finance app in the library to invent its own warning color: a tax warning on IRA withdrawals appears in brown, distinct from every red or green screen before it." },
-  { id:"wakeout", name:"Wakeout", cat:"Fitness", type:"app", mechanics:["xp-leveling","achievements","streak"], summary:"Wakeout is built around one running measure, Wakeout Watts, that a completed movement break adds to and a daily goal converts into a recognized state. Reaching that goal triggers a celebration and advances a running streak in the same moment, so one action moves three parts of the system at once. There is no free tier: every mechanic described here sits behind the subscription, with no version of the app to try first." },
+  { id:"wakeout", name:"Wakeout", cat:"Fitness", type:"app", mechanics:["xp-leveling","achievements","streak"], summary:"Wakeout is built around one running measure, Wakeout Watts, that a completed movement break adds to and a daily goal converts into a recognized state. Reaching that goal triggers a celebration and advances a running streak in the same moment, so one action moves three parts of the system at once. There is no free tier: every mechanic described here sits behind the subscription, with no version of the app to try first.", teaser:"Wakeout can pause other apps on the phone until the user completes a movement break, a mechanic that sits in settings and is never surfaced during onboarding." },
   ];
 
 const GLOSSARY = [
