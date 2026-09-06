@@ -43,6 +43,14 @@ These rules govern the move from analysis file to published copy. They come firs
 15. The core loop is written as numbered steps. The loop itself is the numbered sequence; surfaces that sit around the loop rather than inside it are named separately after the steps, in one or two sentences, clearly marked as surrounding the loop rather than part of it.
 16. Observation-apparatus phrasing is banned from copy: "in no order we could see," "we could not see," "we could not tell," and similar. State the fact plainly or omit it.
 17. Stance: we are analysts, not reviewers. The absence of expected mechanics is stated neutrally as a design choice, never as neglect or deficiency. When a design choice looks costly or odd, state the strongest plausible purpose it serves before any cost. Weary, dismissive, or disparaging tone is banned.
+18. Every app also gets a one- or two-sentence index teaser: a hook built from the app's most distinctive finding, written to make the reader open the breakdown. Not a description, not a summary, no category inventory. Sourced from the key insight or What Stood Out.
+19. The overview is two to four sentences about how the app combines its mechanics into a system. Any single mechanic's accounting details belong in that mechanic's section, never in the overview.
+20. Session events are narrated in first person plural, as our experience: "we already met the goal on the first screen; Wakeout had pulled our Apple Health history and our analyst had been on the move that day." Clinical third person is banned: "the account observed", "the user was shown", "shown to them". "Our analyst" may be referenced when a personal detail explains an observation. Editorial color ("Interestingly,") is allowed sparingly.
+21. Numbers serve a point. State the numbers that carry the design insight and summarize the rest ("the other levels scale both numbers together"). Never enumerate full value tables. Every paragraph must leave the reader a conclusion they can reuse.
+22. Do not spend sentences on what something is not, unless the absence is itself the insight. Fold such facts into the flow of what it is.
+23. App and feature names are spelled exactly as the app spells them.
+24. Sections may refer back to earlier sections ("as with the watts system above") so the case study reads as one piece, not isolated entries.
+25. Evidence-limit statements never appear in copy: no "this was not shown in the session", no counters standing at zero, no unreached states. What we did not see is simply absent.
 
 ## The rules, binding on every draft
 
