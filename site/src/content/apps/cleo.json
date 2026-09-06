@@ -1,62 +1,84 @@
 {
   "id": "cleo",
   "name": "Cleo",
-  "category": "Finance / AI Budgeting",
+  "category": "Finance",
   "type": "app",
   "visibility": "subscriber",
-  "analysisDate": "2026-06-04",
-  "lastUpdated": "2026-06-04",
-  "summary": "Cleo is an AI-powered budgeting and financial wellness app built around a conversational chat interface. A mascot AI character (\"Cleo\") delivers all financial insights, spending analysis, roast sessions, and emotional support through chat bubbles using Gen Z-coded language (emojis, GIFs, casual profanity). The app connects bank accounts via Plaid, tracks income and spending, surfaces budget limits, and gamifies the financial review process. Two paid tiers exist: Cleo Plus (cash advance, custom categories) and Cleo Builder (Plus + credit builder card). The session covered the full free tier including onboarding, the chat interface, budget section, and Habits (spending review) tab.",
-  "teaser": "Cleo turns a spending review into a chat roast, complete with GIFs and a skull emoji for an overspent month, the same transaction data other finance apps show as a plain table.",
+  "analysisDate": "2024-02-01",
+  "lastUpdated": "2026-09-06",
+  "summary": "Cleo turns personal finance into a quiz about a life the user already lived. Its in-chat game does not test a skill or reward a task performed inside the app; it scores the user on how well they remember their own spending, checked against the data Cleo already holds. Cleo's chat persona repeats that same pattern everywhere else, reporting a monthly spending limit back in jokes and gifs, and running scheduled reviews where the user swipes their own past purchases into loved or regretted. Nearly everything Cleo asks the user to do is a verdict on something the user already did.",
+  "teaser": "Cleo's in-chat game scores the user on how well they remember their own spending, not on any task performed inside the app, and marks an overspent month with a skull emoji under the words \"rip budget.\"",
   "icon": "/icons/cleo.webp",
   "heroImage": null,
   "mechanics": [
     {
+      "id": "challenges",
+      "depth": "core",
+      "writeup": {
+        "observed": "Two parts of Cleo set a goal for a defined period with a clear pass-or-fail outcome: the monthly spending limit and an in-chat game. The limit is set from onboarding, where chat cards introduce a daily spending limit and describe it as a safeguard against financial chaos, before handing off to the budget tab. That tab shows the current month, the days left in it, running totals for money in and money out, the limit, and what has been spent against it. We set our own limit from a sheet that let us turn on category limits, with per-category amounts suggested against our own average spending for categories such as groceries, eating out, and transport. While our spending stayed inside the limit, a thumbs-up emoji sat under the two totals; a past, overspent month instead carries a skull emoji, a red line under the month, and the words \"rip budget.\"\nThe game opens from a chat card inviting the user to test how well they know their own money. Playing runs through a short set of questions about recent spending, for example whether a bill was paid that week, with a wrong answer routing to add the missing bill. A stats screen tracks a knowledge score alongside how many times the game has been played and won. The habits tab also carries a preview screen for a third challenge built around cutting a spending habit, with a category, a savings target, and a progress bar; Cleo presents this as a sample of the feature rather than a challenge already running on our account.",
+        "presented": "The monthly limit lives in its own budget tab and is echoed inside the chat as a card stating an amount left against the total for the month, for example, $1,200 left of a $1,400 budget. Its on-track and overspent states are carried entirely by emoji and a single line of color and copy, not by a chart. The game arrives as one card inside the swipeable chat feed rather than as a separate destination, with its stats screen reached through that same card.",
+        "noting": "The game's pass-or-fail condition is not a skill or a task performed inside the app; it is how well the user remembers spending Cleo already recorded, checked against Cleo's own data. That keeps the format attached to information the user already produced rather than to something new the app is asking for. The monthly limit uses its own budget tab as a running record: a past, overspent month keeps its skull and \"rip budget\" label rather than resetting to a neutral state, so the tab works as a scorecard across months, not only a display of the current one.",
+        "findings": [
+          "The monthly limit and the in-chat game each keep a maintained outcome: an overspent month keeps its skull label, and the game keeps a running count of times won.",
+          "The game scores the user's memory of spending Cleo already recorded, not a task performed inside the app.",
+          "Category limits arrive with per-category amounts already suggested against the user's own average spending.",
+          "A third challenge, built around cutting a spending habit, appears only as a preview screen in the habits tab; our session had no active one running."
+        ]
+      },
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
       "id": "streak",
       "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
-    },
-    {
-      "id": "challenges",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": [
-        "Habits tab showing the spending challenge widget with category name (eating out limits), spending limit amount, progress bar, day counter (21 of 21, on track), and savings target ($85)"
-      ]
-    },
-    {
-      "id": "achievements",
-      "depth": "shallow",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
-    },
-    {
-      "id": "daily-weekly-quests",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": [
-        "Chat home screen showing the five interactive cards — today's money insights, can you afford that, upcoming bills, where it's going, need help — with green checkmarks on completed ones"
-      ]
-    },
-    {
-      "id": "variable-reward",
-      "depth": "shallow",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
-    },
-    {
-      "id": "gifting",
-      "depth": "shallow",
-      "writeup": null,
+      "writeup": {
+        "observed": "The habits tab tracks a review streak that reads 0 before the first spending review is completed. After we finished our first review, that same field read 1, next to a line of copy encouraging a return the next day to keep it going. A second, separate streak lives inside the game's stats screen, next to the knowledge score and the times-played and times-won counts; in our session it read 1 there too, while times won on that same screen read 0.",
+        "presented": "Both streaks are plain numeric fields rather than a calendar or a chain of icons. The review streak sits at the top of the habits list, next to the reviews it counts. The game streak sits inside the game's own stats screen, alongside its other three counters.",
+        "noting": "The review streak moves inside the same flow that completes the review: finishing the swipe-through of our own past purchases was the one action we saw change the number, which keeps the counter attached to the action that satisfies it rather than to a separate check-in. The copy that follows points the user back to the same habits tab the next day, right where the streak itself sits.",
+        "findings": [
+          "The review streak read 0 before our first completed review and 1 immediately after it.",
+          "Completing a spending review was the only action we saw move the review streak.",
+          "A second streak lives inside the game's stats screen, separate from the review streak.",
+          "That same game screen showed a streak of 1 next to a times-won count of 0."
+        ]
+      },
       "screenshots": [],
       "suggestedShots": []
     }
   ],
-  "system": null
+  "system": {
+    "tagline": "A finance app whose central mechanics are not new tasks but judgments on data the user already produced.",
+    "overview": "Cleo connects to the user's bank account and centers its engagement on reviewing that connection's own data back at the user, through a monthly spending limit, an in-chat game, and scheduled reviews of past purchases. Each of the two published mechanics, the monthly limit and the game, ties its pass-or-fail outcome to information Cleo already holds rather than to a new task, and a chat persona delivers the verdict in jokes, gifs, and emoji rather than a plain dashboard.",
+    "loop": "The core loop is: connect a bank account and set a monthly spending limit → Cleo's chat persona reports back against that limit daily, in jokes, emoji, and gifs rather than a plain dashboard → a scheduled spending review asks the user to swipe their own past purchases into loved, regretted, or don't know → completing that review advances a review streak and schedules the next review → a separate in-chat game quizzes the user on the same transaction history, scoring memory of one's own past spending rather than any task performed in the app. Two entertainment set pieces, a roast and a hype mode, sit outside that loop and restate the same monthly figures back as a joke with gifs, each ending on a prompt to leave an app store review.",
+    "keyInsight": "Nearly every interactive part of Cleo, the monthly limit, the in-chat game, and the scheduled spending reviews, asks the user to look at data the user already generated and pass judgment on it, rather than to complete a new task. The game does not test a skill; it tests memory of one's own spending, checked against Cleo's own record of it. The spending review does not introduce new information; it asks the user to rate purchases that already happened. The roast and hype-mode set pieces work the same way, restating the user's own monthly figures back as entertainment rather than adding anything the user did not already know.",
+    "whatMakesItWork": "The chat persona carries that repeated self-judgment. A skull and the words \"rip budget\" turn an overspent month into a joke rather than a plain warning, and the roast and hype-mode set pieces turn the same monthly figures into gifs and emoji before ending on a prompt to leave an app store review. Because the underlying activity is always a review of data Cleo already holds, the app can generate a new return moment, a scheduled review, another round of the game, a fresh month to rate, without asking the user to produce anything new.",
+    "roles": [
+      {
+        "id": "challenges",
+        "role": "Ties its pass-or-fail outcome, an on-track or overspent month, and a game scored on memory, to data Cleo already holds rather than to a new task."
+      },
+      {
+        "id": "streak",
+        "role": "Advances the moment a scheduled spending review is completed, and reappears a second time inside the game's own stats screen."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 18,
+      "label": "CLEO"
+    },
+    "nodes": [
+      {
+        "id": "challenges",
+        "x": 32,
+        "y": 58
+      },
+      {
+        "id": "streak",
+        "x": 68,
+        "y": 58
+      }
+    ],
+    "connections": []
+  }
 }

@@ -87,6 +87,11 @@ const CANONICAL_MECHANIC_IDS = {
   // actual ad units (rewarded video, interstitial, banner, offerwall), and none
   // were observed. The partnerships are described inside the challenge write-up.
   "Advertisement Exposure": null,
+  // Cleo's analysis classifies this heading as plausible, not confirmed or
+  // strongly supported; the case study publishes only the two mechanics that
+  // clear that bar (Challenge, Streak), so this relationship is dropped
+  // entirely rather than kept unwritten.
+  "Daily / Weekly Quests": null,
 };
 
 function parseAnalysis(file) {
@@ -135,10 +140,23 @@ function isoDate(s) {
   if (!s) return null;
   // Accepts both the short form ("03 Apr 2026") and the full month name
   // ("16 April 2026") used by reviewed analyses.
-  const first = s.match(/\d{1,2} [A-Z][a-z]{2,8} \d{4}/);
-  if (!first) return null;
-  const d = new Date(first[0] + " UTC");
-  return isNaN(d) ? null : d.toISOString().slice(0, 10);
+  const withDay = s.match(/\d{1,2} [A-Z][a-z]{2,8} \d{4}/);
+  if (withDay) {
+    const d = new Date(withDay[0] + " UTC");
+    return isNaN(d) ? null : d.toISOString().slice(0, 10);
+  }
+  // Some "Last updated" lines are already ISO ("2026-09-06").
+  const iso = s.match(/\d{4}-\d{2}-\d{2}/);
+  if (iso) return iso[0];
+  // Cleo's "Analysis date" line has no clean value (the narrator's stated
+  // walkthrough date is itself disputed in the transcript); it names a month
+  // and year with no day. Falls back to the 1st of that month.
+  const monthOnly = s.match(/[A-Z][a-z]{2,8} \d{4}/);
+  if (monthOnly) {
+    const d = new Date("1 " + monthOnly[0] + " UTC");
+    return isNaN(d) ? null : d.toISOString().slice(0, 10);
+  }
+  return null;
 }
 
 // ------------------------------------------------ analysis prompt (new mechanics)
