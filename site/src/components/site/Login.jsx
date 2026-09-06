@@ -7,7 +7,7 @@ import React from "react";
 import { Button } from "../ds/Button.jsx";
 import { Input } from "../ds/Input.jsx";
 
-const LOGO_INK = "/assets/logo/gamebiz-logo-ink.svg";
+const LOGO_INK = "/assets/logo/appservatory-logo.png";
 
 const MailIcon = (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -26,7 +26,7 @@ export function LoginPage() {
     <main className="login" id="main">
       <div className="login__card">
         <a className="login__brand" href="/" aria-label="Appservatory home">
-          <img src={LOGO_INK} alt="Appservatory" width="124" height="25" />
+          <img src={LOGO_INK} alt="Appservatory" width="123" height="25" />
         </a>
 
         <form className="login__form" onSubmit={(e) => e.preventDefault()}>

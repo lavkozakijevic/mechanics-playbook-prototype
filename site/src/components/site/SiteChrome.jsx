@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import { Button } from "../ds/Button.jsx";
 import { Input } from "../ds/Input.jsx";
 
-const LOGO = "/assets/logo/gamebiz-logo.svg";
-const LOGO_INK = "/assets/logo/gamebiz-logo-ink.svg";
+// Nav, footer, and login all sit on the same light paper background, so one
+// logo file covers every usage; no separate ink/reverse variant needed.
+const LOGO = "/assets/logo/appservatory-logo.png";
+const LOGO_INK = LOGO;
 
 const NAV = [
   {
@@ -49,7 +51,7 @@ export function SiteNav({ current }) {
       <header className="nav">
         <div className="container nav__in">
           <a className="nav__brand" href="/" aria-label="Appservatory home">
-            <img className="nav__logo" src={LOGO} alt="Appservatory" width="100" height="22" />
+            <img className="nav__logo" src={LOGO} alt="Appservatory" width="109" height="22" />
           </a>
 
           <div className="nav__spacer" />
@@ -218,7 +220,7 @@ export function SiteFooter({ lastUpdated, categories }) {
       <div className="container">
         <div className="footer__top">
           <div>
-            <img className="footer__brand-logo" src={LOGO_INK} alt="Appservatory" width="120" height="24" />
+            <img className="footer__brand-logo" src={LOGO_INK} alt="Appservatory" width="119" height="24" />
             <p className="footer__desc">We study how the best apps and games keep their players, mechanic by mechanic, and help your team apply what fits your product, so your users stay, engage, and grow.</p>
           </div>
           <div className="footer__cols">
