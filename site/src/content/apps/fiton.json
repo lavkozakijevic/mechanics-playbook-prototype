@@ -7,6 +7,7 @@
   "analysisDate": "2026-02-25",
   "lastUpdated": "2026-05-20",
   "summary": "FitOn positions itself as a social fitness platform before it positions itself as a workout app. The full community taxonomy is presented during onboarding — specific named groups including Intermittent Fasting Club, Single and Crushing It, and 30s Club — before the user has completed a single workout. Three paywalls appear in the first session. The mandatory workout rating after completion means no user can bypass the feedback gate.",
+  "teaser": "FitOn shows three separate paywalls in one session, with the third landing right after the first completed workout, the moment the app is hardest to say no to.",
   "icon": "/icons/fiton.png",
   "heroImage": null,
   "mechanics": [

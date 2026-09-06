@@ -7,6 +7,7 @@
   "analysisDate": "2026-03-05",
   "lastUpdated": "2026-05-19",
   "summary": "Match Creek Motors runs the same match-3-funds-restoration loop as Chrome Valley Customs, with a buyer negotiation mechanic at episode end: three buyers make sequential concealed offers and the player must accept or reject each without seeing the remaining offers. An interpersonal NPC subplot (Aaron, Brooke, Logan, the absent brother Mitch) runs across episodes, providing ongoing narrative investment separate from the car itself. Achievements and leaderboards are fully delegated to Apple Game Center and are invisible during normal play.",
+  "teaser": "Each episode ends with a blind negotiation: three sequential offers, and the player must accept or reject each one without seeing what comes next.",
   "icon": "/icons/match-creek-motors.png",
   "heroImage": null,
   "mechanics": [

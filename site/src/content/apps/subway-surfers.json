@@ -7,6 +7,7 @@
   "analysisDate": "2026-05-07",
   "lastUpdated": "2026-05-15",
   "summary": "Subway Surfers runs rewarded video ads across more surfaces than any other app in this library, offering ad watching as an alternative to gameplay completion for missions, currency payment for items, and claiming missed daily login rewards. A secondary monetisation layer sells ad tickets, turning ad-watching behaviour itself into a purchasable state. Any purchase removes pop-up ads permanently and unlocks a cosmetic character, structuring the forced-ad experience as a paywall any payment exits.",
+  "teaser": "Subway Surfers sells tickets that let players skip the ads they were trained to watch for rewards, monetizing both sides of the same habit.",
   "icon": "/icons/subway-surfers.png",
   "heroImage": null,
   "mechanics": [

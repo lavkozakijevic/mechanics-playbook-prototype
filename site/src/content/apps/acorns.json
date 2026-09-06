@@ -7,6 +7,7 @@
   "analysisDate": "2026-06-02",
   "lastUpdated": "2026-06-04",
   "summary": "Acorns is a micro-investing app for US users. It automatically invests spare change from purchases via a round-up mechanic, supports recurring investments into ETF portfolios, offers a Roth IRA product (Acorns Later), a checking account with a tungsten debit card (Acorns Checking), and a kids' investment account (Acorns Early). A learning section and an earning section (cashback investing rewards and surveys) complete the product. It operates on a tiered subscription model: Bronze ($3/month), Silver ($6/month), Gold ($12/month).",
+  "teaser": "Acorns is the only finance app in the library to invent its own warning color: a tax warning on IRA withdrawals appears in brown, distinct from every red or green screen before it.",
   "icon": "/icons/acorns.webp",
   "heroImage": null,
   "mechanics": [

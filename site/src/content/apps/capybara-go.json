@@ -7,6 +7,7 @@
   "analysisDate": "2026-05-12",
   "lastUpdated": "2026-05-15",
   "summary": "Capybara Go! is a roguelite idle RPG where every run, even a failed one, contributes to multiple parallel progression tracks simultaneously. The energy overflow mechanic stores excess regenerated energy in an inbox for up to six days, inverting the standard energy model: absence rewards rather than punishes. Features are gated behind chapter progression in a long staggered sequence, keeping content discovery running for weeks after first install.",
+  "teaser": "Capybara Go! keeps generating rewards while the app is closed, so walking away from the game is never a loss, only a delay.",
   "icon": "/icons/capybara-go.png",
   "heroImage": null,
   "mechanics": [

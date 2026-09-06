@@ -7,6 +7,7 @@
   "analysisDate": "2026-02-25",
   "lastUpdated": "2026-05-20",
   "summary": "Gymverse generates personalized strength training plans based on available equipment, training frequency, and experience level. Dismissing the paywall surfaces a full 7-day free pass with no credit card required, making the paywall a soft suggestion rather than a hard gate. The restore streak feature is locked behind a two-day streak, meaning a user who breaks their first streak cannot restore it until they have rebuilt to two consecutive days.",
+  "teaser": "The streak-restore feature only unlocks after rebuilding a two-day streak, so the one tool built to save a broken streak is unavailable exactly when it would be needed.",
   "icon": "/icons/gymverse.png",
   "heroImage": null,
   "mechanics": [

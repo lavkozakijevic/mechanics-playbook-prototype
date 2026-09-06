@@ -7,6 +7,7 @@
   "analysisDate": "2026-04-16",
   "lastUpdated": "2026-07-29",
   "summary": "Strava records sports activities and places them inside a social layer of feeds, followers, clubs, challenges, and segment rankings. The app asks a user to record an activity, then connects that activity to other users through following, kudos, comparison, and shared challenges. Its rankings are scoped to individual segments and to rolling 90-day windows rather than to the whole user base, and its streak is counted in weeks rather than days. A large share of the deeper tracking and mapping features is paywalled and becomes available after the user subscribes.",
+  "teaser": "One recorded activity feeds six mechanics at once, and every comparison is scoped so a beginner can win.",
   "icon": "/icons/strava.png",
   "heroImage": "/images/strava-case-study.png",
   "mechanics": [

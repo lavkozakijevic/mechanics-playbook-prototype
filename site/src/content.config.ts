@@ -23,6 +23,9 @@ const apps = defineCollection({
     analysisDate: z.string().nullable(),
     lastUpdated: z.string().nullable(),
     summary: z.string(),
+    // One or two sentence index-card hook, distinct from the summary above.
+    // Nullable: not every app (report-only, or awaiting a teaser) has one.
+    teaser: z.string().nullable(),
     icon: z.string().nullable(),
     heroImage: z.string().nullable(),
     mechanics: z.array(

@@ -7,6 +7,7 @@
   "analysisDate": "2026-05-18",
   "lastUpdated": "2026-05-18",
   "summary": "Tiimo is a visual planning app built specifically for neurodivergent users (ADHD, autism), winner of the Apple Design Award 2024. Its streak and achievement systems are unusually integrated: the same two metrics (consecutive days and tasks completed) power both, with marbles as milestone markers that dynamically change the background gradient of the stats screen when unlocked. The streak is introduced via a swipe-to-unlock gesture during onboarding, a physical commitment ceremony before the user has completed a single real session.",
+  "teaser": "Reaching a milestone in Tiimo doesn't add a badge. It changes the color of the screen the user already looks at the most.",
   "icon": "/icons/tiimo.png",
   "heroImage": null,
   "mechanics": [
