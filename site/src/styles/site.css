@@ -655,10 +655,10 @@ a.amod__item:hover .amod__name { text-decoration: underline; text-decoration-col
 .csc__go svg { width: 15px; height: 15px; stroke-width: 2; }
 
 @media (min-width: 600px) {
-  .csgrid { grid-template-columns: 1fr 1fr; }
+  .csgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (min-width: 900px) {
-  .csgrid { grid-template-columns: repeat(3, 1fr); }
+  .csgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 /* --------------------------------------------------------- shortcasts */
