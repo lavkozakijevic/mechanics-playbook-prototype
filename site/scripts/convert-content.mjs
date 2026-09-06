@@ -78,6 +78,9 @@ const CANONICAL_MECHANIC_IDS = {
   "Milestone": "achievements",
   "Achievement": "achievements",
   "Group Membership": "community-groups",
+  // Wakeout's analysis classifies Wake Out Watts as "Experience Points"; this
+  // library's equivalent entry is "XP / Leveling".
+  "Experience Points": "xp-leveling",
   // Partner cross-promotion (Runna, Apple Fitness+, partner-named challenges)
   // and the app's own subscription upsell are not published as an advertising
   // or monetization mechanic: the content rules limit advertising coverage to
@@ -313,6 +316,8 @@ const ALL_APPS = [
   { file: "tiimo.md", id: "tiimo", visibility: "subscriber" },
   { file: "uptime.md", id: "uptime", visibility: "subscriber" },
   { file: "wispr-flow.md", id: "wispr-flow", visibility: "subscriber" },
+  // Batch 6
+  { file: "wakeout.md", id: "wakeout", visibility: "subscriber" },
   // Report-only remainder (never appear in deployed output)
   { file: "orbit.md", id: "orbit", visibility: "report-only" },
   { file: "dave.md", id: "dave", visibility: "report-only" },
