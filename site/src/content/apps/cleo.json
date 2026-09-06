@@ -7,6 +7,7 @@
   "analysisDate": "2026-06-04",
   "lastUpdated": "2026-06-04",
   "summary": "Cleo is an AI-powered budgeting and financial wellness app built around a conversational chat interface. A mascot AI character (\"Cleo\") delivers all financial insights, spending analysis, roast sessions, and emotional support through chat bubbles using Gen Z-coded language (emojis, GIFs, casual profanity). The app connects bank accounts via Plaid, tracks income and spending, surfaces budget limits, and gamifies the financial review process. Two paid tiers exist: Cleo Plus (cash advance, custom categories) and Cleo Builder (Plus + credit builder card). The session covered the full free tier including onboarding, the chat interface, budget section, and Habits (spending review) tab.",
+  "teaser": "Cleo turns a spending review into a chat roast, complete with GIFs and a skull emoji for an overspent month, the same transaction data other finance apps show as a plain table.",
   "icon": "/icons/cleo.webp",
   "heroImage": null,
   "mechanics": [

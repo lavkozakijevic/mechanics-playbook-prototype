@@ -7,6 +7,7 @@
   "analysisDate": "2026-04-20",
   "lastUpdated": "2026-05-15",
   "summary": "Calm presents two paywalls back to back before the user has seen a single piece of app content, then surfaces a third after sign-in. The free tier is built around a check-in suite, mood, sleep, gratitude, daily calm reflection, quick journal, each with its own reminder channel, creating five separate daily reasons to open the app without accessing any gated content. The 30-day guest pass is a referral mechanic framed as a gift, more generous than the standard new-user trial.",
+  "teaser": "Calm's free tier hides five separate daily check-ins, each with its own reminder, making the retention machinery richer than the content behind the paywall.",
   "icon": "/icons/calm.png",
   "heroImage": null,
   "mechanics": [

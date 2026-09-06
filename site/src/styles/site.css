@@ -610,9 +610,15 @@ a.amod__item:hover .amod__name { text-decoration: underline; text-decoration-col
 .csc:hover { border-color: var(--border-strong); box-shadow: var(--shadow-md); transform: translateY(-2px); }
 .csc:focus-visible { outline: none; box-shadow: var(--ring); }
 .csc__top { display: flex; align-items: center; justify-content: space-between; gap: 13px; }
+.csc__head { display: flex; align-items: center; gap: 12px; }
+.csc__icon { flex: none; width: 40px; height: 40px; border-radius: 10px;
+  background: var(--ink-900); color: var(--paper); display: grid; place-items: center;
+  font-family: var(--font-display); font-weight: var(--weight-bold); font-size: 15px;
+  letter-spacing: 0.02em; overflow: hidden; }
+.csc__icon img { object-fit: cover; }
 .csc__name { font-family: var(--font-display); font-weight: var(--weight-bold);
   font-size: clamp(19px, 2vw, 22px); line-height: 1.18; letter-spacing: var(--tracking-heading);
-  color: var(--ink-900); margin: -4px 0 0; text-wrap: balance; }
+  color: var(--ink-900); margin: 0; text-wrap: balance; }
 .csc:hover .csc__name { text-decoration: underline; text-decoration-color: var(--accent);
   text-underline-offset: 3px; text-decoration-thickness: 2px; }
 .csc__badge { flex: none; }

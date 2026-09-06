@@ -7,6 +7,7 @@
   "analysisDate": "2026-05-11",
   "lastUpdated": "2026-06-29",
   "summary": "Steam's Points Shop is funded entirely by game purchases, 117 points per euro spent, meaning cosmetic spending is free at the point of redemption, retroactively funded by purchasing behaviour. Community Awards allow users to spend points to attach a visible recognition marker to another user's content, turning the cosmetics spend surface into a social quality-signaling system. Seasonal badges, available only during Summer and Winter Sales, are the sole mechanic creating urgency in the otherwise perpetually available cosmetics catalogue.",
+  "teaser": "Steam lets players spend their reward points on someone else's content instead of their own, turning a self-expression currency into a way to publicly praise other users.",
   "icon": "/icons/steam.png",
   "heroImage": null,
   "mechanics": [

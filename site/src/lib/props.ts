@@ -223,7 +223,9 @@ export function appCard(app: App, byId?: MechanicsById) {
     id: app.id,
     name: app.name,
     category: app.category,
-    desc: app.summary,
+    // The index card shows the hook, not the full summary; the case study
+    // page itself still reads app.summary directly, unchanged.
+    desc: app.teaser ?? app.summary,
     mechanicCount: app.mechanics.length,
     date: formatDate(app.analysisDate),
     href: app.visibility === "public" ? `/case-studies/${app.id}/` : "/subscribe/",

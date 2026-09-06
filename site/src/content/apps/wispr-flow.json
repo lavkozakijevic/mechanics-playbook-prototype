@@ -7,6 +7,7 @@
   "analysisDate": "2026-04-26",
   "lastUpdated": "2026-05-15",
   "summary": "Wispr Flow frames its streak as a product improvement mechanism rather than a retention mechanic: 'continue dictating for the next five days so Flow can adapt to you.' This is the only instance in the library where a streak is justified to the user on functional grounds. After crossing 500 words dictated, a speaking speed stat unlocks with a percentile ranking, a social comparison metric delivered passively through usage, not through any competitive entry.",
+  "teaser": "Wispr Flow never asks users to protect a streak. It asks them to keep dictating so the AI learns their voice, the same daily return dressed as product improvement instead of guilt.",
   "icon": "/icons/wispr-flow.png",
   "heroImage": null,
   "mechanics": [
