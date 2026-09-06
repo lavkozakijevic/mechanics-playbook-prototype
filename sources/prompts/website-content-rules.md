@@ -43,6 +43,7 @@ These rules govern the move from analysis file to published copy. They come firs
 15. The core loop is written as numbered steps. The loop itself is the numbered sequence; surfaces that sit around the loop rather than inside it are named separately after the steps, in one or two sentences, clearly marked as surrounding the loop rather than part of it.
 16. Observation-apparatus phrasing is banned from copy: "in no order we could see," "we could not see," "we could not tell," and similar. State the fact plainly or omit it.
 17. Stance: we are analysts, not reviewers. The absence of expected mechanics is stated neutrally as a design choice, never as neglect or deficiency. When a design choice looks costly or odd, state the strongest plausible purpose it serves before any cost. Weary, dismissive, or disparaging tone is banned.
+18. Every app also gets a one- or two-sentence index teaser: a hook built from the app's most distinctive finding, written to make the reader open the breakdown. Not a description, not a summary, no category inventory. Sourced from the key insight or What Stood Out.
 
 ## The rules, binding on every draft
 
