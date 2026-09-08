@@ -126,17 +126,20 @@ const PROBLEM_ICONS = [
   {cat.whyItMatters && (
     <section class="band band--sheet" aria-labelledby="why-h">
       <div class="container">
-        <div class="eyebrow">{cat.whyItMatters.kicker}</div>
+        <div class="mech-section__kicker">{cat.whyItMatters.kicker}</div>
         <h2 class="mech-section__title" id="why-h">{cat.whyItMatters.title}</h2>
-        <div class="catland-whygrid">
-          {cat.whyItMatters.items.map((item) => (
-            <div class="catland-whyblock">
-              <h3>{item.title}</h3>
-              <p class="catland-whyblock__lead">{item.lead}</p>
-              <p class="catland-whyblock__body">{item.body}</p>
-            </div>
+        <ol class="catland-problems">
+          {cat.whyItMatters.items.map((item, i) => (
+            <li class="catland-problem">
+              <span class="catland-problem__n" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+              <div>
+                <h3>{item.title}</h3>
+                <p class="catland-problem__lead">{item.lead}</p>
+                <p>{item.body}</p>
+              </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   )}
@@ -144,7 +147,7 @@ const PROBLEM_ICONS = [
   {/* 3. Problem cards — three cards, minimal icon, one line, no body copy */}
   <section class="band" aria-labelledby="probs-h">
     <div class="container">
-      <div class="eyebrow">Sound familiar?</div>
+      <div class="mech-section__kicker">Sound familiar?</div>
       <h2 class="mech-section__title" id="probs-h">The problems that bring teams here.</h2>
       <ul class="catland-probcards">
         {cat.problemCards.map((p, i) => (
@@ -178,7 +181,7 @@ const PROBLEM_ICONS = [
       <div class="container">
         <div class="showcase">
           <div class="showcase__body">
-            <div class="eyebrow">The systems map</div>
+            <div class="mech-section__kicker">The systems map</div>
             <h2 id="sysmap-h">Learn from your competition, and from the best apps outside your category.</h2>
             <p>This is how {stravaEntry.name}'s mechanics hold together as one system.</p>
             <p>{stravaSystem.tagline}</p>
