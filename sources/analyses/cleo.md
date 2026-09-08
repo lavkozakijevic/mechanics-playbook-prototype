@@ -4,8 +4,8 @@
 **Category:** Finance / Personal finance
 **Type:** App
 **Platform analyzed:** Not specified in the transcript
-**Analysis date:** The narrator states the walkthrough was done "in early 2024 in February 2024"
-**Last updated:** 2026-09-06
+**Analysis date:** 04 Jun 2026
+**Last updated:** 06 Sep 2026
 **Session state:** First install, new sign up, free tier, US state in which cash advances and the paid plans are restricted
 **Sessions used:** "Cleo app walkthrough: onboarding, budgeting, and spending habits" (Granola, June 4, 2026). This is the only Granola session on record for Cleo.
 

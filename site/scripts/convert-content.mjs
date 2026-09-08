@@ -87,7 +87,20 @@ const CANONICAL_MECHANIC_IDS = {
   // actual ad units (rewarded video, interstitial, banner, offerwall), and none
   // were observed. The partnerships are described inside the challenge write-up.
   "Advertisement Exposure": null,
+  "Daily / Weekly Quests": "daily-weekly-quests",
 };
+
+// A reviewed heading's confidence tag gates publication, independent of what
+// mechanic it maps to: "confirmed" and "strongly supported" (with whatever
+// qualifier trails them, e.g. "confirmed (presence)") publish; anything
+// weaker (plausible, weakly supported, ...) is parsed but held back, per app,
+// not hard-coded per mechanic — a mechanic confirmed in one app's analysis
+// and only plausible in another's is filtered independently in each.
+function publishesAtConfidence(confidence) {
+  if (!confidence) return true; // older analyses carry no confidence tag at all
+  const c = confidence.trim().toLowerCase();
+  return c.startsWith("confirmed") || c.startsWith("strongly supported");
+}
 
 function parseAnalysis(file) {
   const md = fs.readFileSync(path.join(repo, "sources/analyses", file), "utf8");
@@ -105,12 +118,13 @@ function parseAnalysis(file) {
   // untouched. An unknown canonical name stops the build rather than silently
   // dropping a mechanic from the case study.
   if (!observed.length) {
-    for (const m of md.matchAll(/^###\s+([^·\n]+?)\s*·\s*(Core|Supporting|Shallow|Unusual)\b/gm)) {
+    for (const m of md.matchAll(/^###\s+([^·\n]+?)\s*·\s*(Core|Supporting|Shallow|Unusual)\b(?:\s*·\s*([^\n]+))?/gm)) {
       const name = m[1].trim();
       if (!(name in CANONICAL_MECHANIC_IDS))
         throw new Error(`${file}: mechanic heading "${name}" has no canonical mapping`);
       const id = CANONICAL_MECHANIC_IDS[name];
       if (!id) continue;
+      if (!publishesAtConfidence(m[3])) continue;
       if (!observed.some((o) => o.id === id)) observed.push({ id, depth: m[2].toLowerCase() });
     }
   }
