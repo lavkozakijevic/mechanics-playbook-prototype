@@ -178,6 +178,16 @@ const categories = defineCollection({
     crossCategory: z.object({ sentence: z.string() }),
     // Optional logo cards for the hero carousel (finance, etc.)
     heroApps: z.array(z.object({ id: z.string(), name: z.string() })).optional(),
+    // Optional six-block "why it matters" grid (three columns by two rows),
+    // category-specific since each block speaks to that category's own
+    // product problems.
+    whyItMatters: z
+      .object({
+        kicker: z.string(),
+        title: z.string(),
+        items: z.array(z.object({ title: z.string(), lead: z.string(), body: z.string() })).length(6),
+      })
+      .optional(),
   }),
 });
 

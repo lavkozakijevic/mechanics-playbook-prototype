@@ -1,17 +1,18 @@
 ---
 // Shared template for every category landing page (/finance, /productivity, …).
-// Fixed section order: hero, what you get, problem cards, all mechanics (the
-// breakdown visual), the systems map, cross-category, how it works, email
-// block, closing. The breakdown visual and the systems map are two views of
-// the same "what's in the library" idea: one app's full set of mechanics,
-// then how those mechanics connect. "Access the library" is the one paid CTA
-// (hero, how it works, closing), all pointing at /subscribe/. The email
-// block is the only form on the page. Consulting is reachable as one quiet
-// line at the very end, and nowhere else.
-// The hero copy, the three problem cards, and the cross-category sentence
-// are category-specific (supplied by the content file). Everything else is
-// shared and hardcoded here so a new category is still just one content
-// file.
+// Fixed section order: hero, what you get, why it matters (the six-block
+// grid), problem cards, all mechanics (the breakdown visual), the systems
+// map, cross-category, how it works, email block, closing. The breakdown
+// visual and the systems map are two views of the same "what's in the
+// library" idea: one app's full set of mechanics, then how those mechanics
+// connect. "Access the library" is the one paid CTA (hero, how it works,
+// closing), all pointing at /subscribe/. The email block is the only form
+// on the page. Consulting is reachable as one quiet line at the very end,
+// and nowhere else.
+// The hero copy, the three problem cards, the why-it-matters grid, and the
+// cross-category sentence are category-specific (supplied by the content
+// file). Everything else is shared and hardcoded here so a new category is
+// still just one content file.
 import { getEntry, getCollection } from "astro:content";
 import { ReportCapture } from "./ReportCapture.jsx";
 import { Hero } from "./HomeTop.jsx";
@@ -28,6 +29,7 @@ interface Props {
     problemCards: { text: string }[];
     crossCategory: { sentence: string };
     heroApps?: { id: string; name: string }[];
+    whyItMatters?: { kicker: string; title: string; items: { title: string; lead: string; body: string }[] };
   };
 }
 const { cat } = Astro.props;
@@ -76,9 +78,9 @@ const CROSS_CATEGORY_APPS = [
 
 // Section 6: shared, not category-specific.
 const HOW_IT_WORKS = [
-  "Get your team access.",
-  "Search by problem, mechanic, or app.",
-  "Build on what shipped, instead of guessing.",
+  "Get your team access",
+  "Search by problem, mechanic, or app",
+  "Build on what shipped, instead of guessing",
 ];
 
 // Section 3: one minimal line icon per problem card, matching the site's
@@ -120,9 +122,30 @@ const PROBLEM_ICONS = [
     </div>
   </section>
 
+  {/* 2b. Why it matters — the recovered six-block grid, three columns by two rows */}
+  {cat.whyItMatters && (
+    <section class="band band--sheet" aria-labelledby="why-h">
+      <div class="container">
+        <div class="eyebrow">{cat.whyItMatters.kicker}</div>
+        <h2 class="mech-section__title" id="why-h">{cat.whyItMatters.title}</h2>
+        <div class="catland-whygrid">
+          {cat.whyItMatters.items.map((item) => (
+            <div class="catland-whyblock">
+              <h3>{item.title}</h3>
+              <p class="catland-whyblock__lead">{item.lead}</p>
+              <p class="catland-whyblock__body">{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
   {/* 3. Problem cards — three cards, minimal icon, one line, no body copy */}
-  <section class="band" aria-label="Problems this library solves">
+  <section class="band" aria-labelledby="probs-h">
     <div class="container">
+      <div class="eyebrow">Sound familiar?</div>
+      <h2 class="mech-section__title" id="probs-h">The problems that bring teams here.</h2>
       <ul class="catland-probcards">
         {cat.problemCards.map((p, i) => (
           <li class="catland-probcard">
@@ -156,7 +179,8 @@ const PROBLEM_ICONS = [
         <div class="showcase">
           <div class="showcase__body">
             <div class="eyebrow">The systems map</div>
-            <h2 id="sysmap-h">How the {stravaEntry.name} system holds together</h2>
+            <h2 id="sysmap-h">Learn from your competition, and from the best apps outside your category.</h2>
+            <p>This is how {stravaEntry.name}'s mechanics hold together as one system.</p>
             <p>{stravaSystem.tagline}</p>
             <a class="gb-btn gb-btn--secondary gb-btn--lg" href={`/systems/${stravaEntry.id}/`}>Explore the {stravaEntry.name} map</a>
           </div>
@@ -193,14 +217,14 @@ const PROBLEM_ICONS = [
   <section class="band" aria-labelledby="how-h">
     <div class="container">
       <h2 class="mech-section__title" id="how-h">How it works</h2>
-      <ol class="catland-howsteps">
+      <div class="catland-stepcards">
         {HOW_IT_WORKS.map((s, i) => (
-          <li class="catland-howstep">
-            <span class="catland-howstep__n" aria-hidden="true">{i + 1}.</span>
-            <span>{s}</span>
-          </li>
+          <div class="catland-stepcard">
+            <span class="catland-stepcard__n" aria-hidden="true">{i + 1}</span>
+            <p>{s}</p>
+          </div>
         ))}
-      </ol>
+      </div>
       <a class="gb-btn gb-btn--accent gb-btn--lg catland-plan__cta" href="/subscribe/">Access the library</a>
     </div>
   </section>
@@ -208,8 +232,8 @@ const PROBLEM_ICONS = [
   {/* 7. Email block — the only form on the page */}
   <section class="band band--sunken" id="free-report" aria-labelledby="email-h">
     <div class="container container--narrow">
-      <h2 class="mech-section__title" id="email-h">Not ready? Start free.</h2>
-      <p class="catland-why__p">The finance report now, three new breakdowns in your inbox every week.</p>
+      <h2 class="mech-section__title" id="email-h">Join our newsletter.</h2>
+      <p class="catland-why__p">Weekly updates with three new breakdowns, straight to your inbox. Subscribe and we will also send you our overview of the {cat.name.toLowerCase()} category and the apps leading it.</p>
       <div class="catland-emailblock">
         <ReportCapture
           client:load
@@ -224,7 +248,7 @@ const PROBLEM_ICONS = [
   {/* 8. Closing */}
   <section class="band band--ink sp-close" aria-labelledby="close-h">
     <div class="container container--narrow">
-      <h2 class="sp-close__h" id="close-h">Give your product team the observatory.</h2>
+      <h2 class="sp-close__h" id="close-h">Give your product team the Appservatory.</h2>
       <a class="gb-btn gb-btn--accent gb-btn--lg" href="/subscribe/">Access the library</a>
     </div>
   </section>
