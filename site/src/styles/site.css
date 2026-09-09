@@ -1329,17 +1329,6 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
 .catland-why__p { font: var(--type-body-lg); font-size: clamp(16px, 1.6vw, 19px); color: var(--text-secondary);
   line-height: 1.6; margin: 16px 0 0; text-wrap: pretty; }
 
-/* Gamifying your app — four numbered steps */
-.catland-steps { list-style: none; margin: clamp(28px, 3.4vw, 44px) 0 0; padding: 0;
-  display: grid; grid-template-columns: 1fr; gap: clamp(24px, 3vw, 36px); }
-@media (min-width: 720px) { .catland-steps { grid-template-columns: 1fr 1fr; } }
-.catland-step { display: grid; grid-template-columns: auto 1fr; gap: 16px; }
-.catland-step__n { font: var(--type-data); font-size: 13px; font-weight: var(--weight-semibold);
-  color: var(--text-accent); padding-top: 3px; }
-.catland-step__title { font: var(--type-h3); font-size: clamp(16px, 1.5vw, 18px); color: var(--ink-900);
-  margin: 0 0 8px; }
-.catland-step__body { font: var(--type-body-sm); color: var(--text-secondary); line-height: 1.6; margin: 0; }
-
 /* Free report — landscape screenshot beside the download card */
 .catland-report { display: grid; grid-template-columns: 1fr; gap: clamp(28px, 4vw, 48px); align-items: start; }
 @media (min-width: 800px) { .catland-report { grid-template-columns: 380px 1fr; align-items: center; } }
