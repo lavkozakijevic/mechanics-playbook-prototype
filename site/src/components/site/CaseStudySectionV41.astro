@@ -22,10 +22,9 @@ import { PREVIEW_UNLOCK } from "../../lib/preview";
 interface Props {
   app: any;
   section: string;
-  mechanicsById: Map<string, any>;
 }
 
-const { app, section, mechanicsById } = Astro.props as Props;
+const { app, section } = Astro.props as Props;
 const locked = app.visibility !== "public" && !PREVIEW_UNLOCK;
 
 const nonEmpty = nonEmptySections(app);
@@ -86,7 +85,7 @@ const allSections = locked ? [] : allSectionCounts(app);
         {leadIn && <p class="v41-section-leadin">{leadIn}</p>}
 
         {observations.map((o: any) => (
-          <ObservationCard observation={o} appId={app.id} crossRefLookup={observationLookup} mechanicsById={mechanicsById} />
+          <ObservationCard observation={o} appId={app.id} crossRefLookup={observationLookup} />
         ))}
 
         <div class="v41-section-pagination">

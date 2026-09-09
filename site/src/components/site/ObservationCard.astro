@@ -5,17 +5,23 @@
  * on the summary page (just the observations carrying that tag) — same
  * component, same output, deliberately appearing twice per spec §2.3.
  *
- * Styled entirely from existing design-system pieces: .cs-findings for the
- * detail list, .shotgallery/.shot for screenshots, .gb-tag for the tag
- * chips. Three server-computed modifiers carry the rhythm: tagged
- * observations get the tinted-box treatment (v41-observation--tagged, the
- * same visual weight a .callout gets), observations with screenshots switch
- * to a two-column layout (v41-observation--shots, same breakpoint as
- * .cs-msec__body), and short/long observations get tighter or looser
- * vertical spacing (v41-observation--short/--long) based on content length.
+ * No tag chips render here — the mechanic name is already the heading of
+ * its block, so repeating it on every observation inside that block was
+ * redundant, and it was the only thing under a mechanic's own observations
+ * saying "this one has a tag" when every observation there already has one
+ * by definition. Tags stay in the data; nothing here reads them for display,
+ * only `boxed` cares whether an observation is tagged at all.
+ *
+ * `boxed` (default true) controls whether an observation gets the
+ * tinted-box weight treatment: true on a section page, where tagged and
+ * untagged observations are mixed and the box is what tells a reader "this
+ * one connects to a named pattern"; false inside a mechanic block, where
+ * every observation is tagged by definition and boxing each one turned the
+ * block into a stack of tiles instead of one piece of writing. Screenshots
+ * still switch to a two-column layout regardless of context, and short/long
+ * observations still get tighter or looser vertical spacing — those are
+ * about density, not about flagging a tag.
  */
-import { kebabId } from "../../lib/v41";
-
 interface Props {
   observation: {
     id: string;
@@ -28,10 +34,10 @@ interface Props {
   };
   appId: string;
   crossRefLookup: Map<string, { name: string; section: string }>;
-  mechanicsById: Map<string, { id: string; name: string; cat: string }>;
+  boxed?: boolean;
 }
 
-const { observation, appId, crossRefLookup, mechanicsById } = Astro.props as Props;
+const { observation, appId, crossRefLookup, boxed = true } = Astro.props as Props;
 
 const resolvedCrossRefs = observation.crossRefs
   .map((id) => {
@@ -55,24 +61,14 @@ const density = wordCount < 30 && observation.detail.length <= 1 ? "short" : wor
 
 <article
   id={observation.id}
-  class:list={["v41-observation", `v41-observation--${density}`, hasTags && "v41-observation--tagged", hasShots && "v41-observation--shots"]}
+  class:list={[
+    "v41-observation",
+    `v41-observation--${density}`,
+    boxed && hasTags && "v41-observation--tagged",
+    hasShots && "v41-observation--shots",
+    !boxed && "v41-observation--flow",
+  ]}
 >
-  {hasTags && (
-    <div class="v41-observation__tags">
-      {observation.tags.map((t) => {
-        const mechanic = mechanicsById.get(kebabId(t.name));
-        return mechanic ? (
-          <a class={`gb-tag gb-tag--${mechanic.cat}`} href={`/mechanics/${mechanic.id}/`}>
-            <span class="gb-tag__dot" style={{ background: `var(--cat-${mechanic.cat})` }} />
-            {mechanic.name}
-          </a>
-        ) : (
-          <span class="gb-tag gb-tag--neutral">{t.name}</span>
-        );
-      })}
-    </div>
-  )}
-
   <div class="v41-observation__body">
     <div class="v41-observation__text">
       <h3 class="v41-observation__title">{observation.name}</h3>

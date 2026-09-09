@@ -956,27 +956,35 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
   line-height: 1.6; margin: 0; max-width: 66ch; text-wrap: pretty; }
 
 /* =================== V4.1 CASE STUDY =================== */
-/* Built entirely from the vocabulary above: .cs-hd, .cs-gate, .cs-insight,
-   .cs-msec, .cs-findings, .shotgallery/.shot, .gb-tag, .eyebrow, .pillchip,
-   .crumb. This section only adds what's specific to observations, the
-   full-record cards, and the section-page sidebar/pagination — nothing
-   here introduces a new color, font, spacing value, or radius outside the
-   tokens already in use above. */
+/* Built entirely from the vocabulary above: .cs-hd, .cs-gate, .cs-toc,
+   .cs-msec, .mech-prose, .cs-findings, .shotgallery/.shot, .gb-tag,
+   .eyebrow, .pillchip, .crumb, .cs-layout. This section only adds what's
+   specific to observations, the full-record cards, and the section-page
+   sidebar/pagination — nothing here introduces a new color, font, spacing
+   value, or radius outside the tokens already in use above. */
 
+/* The summary page reuses .cs-layout verbatim (sidebar column + main
+   column via grid-template-columns, sized by child order — no extra CSS
+   needed for the split itself) and .cs-toc verbatim for the sticky
+   in-page table of contents. */
 .v41-cs-body { display: flex; flex-direction: column; gap: clamp(48px, 6vw, 80px); padding-block: clamp(28px, 4vw, 48px); }
 
-/* ---- System view: .cs-insight already reads as "the frame for everything
-   under it" (dark ink panel), which is exactly the job spec gives this
-   section. Only the multi-paragraph spacing needs adding. */
-.v41-cs-systemview { display: flex; flex-direction: column; gap: clamp(22px, 2.8vw, 32px); }
-.v41-cs-systemview .cs-insight__part p + p { margin-top: 14px; }
-.v41-cs-diagram { padding-top: clamp(22px, 2.8vw, 32px); border-top: 1px solid color-mix(in srgb, var(--paper) 16%, transparent); }
+/* ---- System view: ordinary body copy on the page background, not a dark
+   panel — a dark, bold-display treatment can carry one short "the point"
+   passage, not several paragraphs of running prose. .mech-prose already
+   gives the right type size/color/measure; only the section's own spacing
+   needs adding. */
+.v41-cs-systemview .eyebrow { display: block; margin-bottom: clamp(14px, 2vw, 20px); }
+.v41-cs-diagram { margin-top: clamp(24px, 3vw, 36px); padding-top: clamp(24px, 3vw, 36px); border-top: var(--rule-hairline); }
 
-/* ---- Mechanics: each block is a .cs-msec section; only the vertical
-   rhythm between it and its observations needs setting. */
+/* ---- Mechanics: each block is a .cs-msec section. Its observations render
+   in "flow" mode (see .v41-observation--flow below) — continuous writing,
+   not a stack of boxed cards, since every observation in a mechanic block
+   is tagged by definition and boxing each one said nothing extra. */
 .v41-cs-mechanics { display: flex; flex-direction: column; gap: 0; }
 .v41-cs-mechanics > .eyebrow { margin-bottom: clamp(18px, 2.4vw, 26px); }
-.v41-cs-mechanics .cs-msec { display: flex; flex-direction: column; }
+.v41-cs-mechanics .cs-msec { display: flex; flex-direction: column; scroll-margin-top: calc(var(--nav-h) + 16px); }
+.v41-mechanic-flow { display: flex; flex-direction: column; }
 
 /* ---- The full record: nine cards, .csc's bordered-card language. */
 .v41-cs-record > .eyebrow { display: block; margin-bottom: clamp(18px, 2.4vw, 26px); }
@@ -1012,7 +1020,14 @@ a.v41-record-card:hover { border-color: var(--border-strong); box-shadow: var(--
 .v41-observation--short { padding-block: clamp(12px, 1.4vw, 16px); }
 .v41-observation--long { padding-block: clamp(26px, 3.4vw, 38px); }
 
-.v41-observation__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+/* Flow mode (inside a mechanic block): no divider, no box, just vertical
+   space before each one — reads as one piece of writing with subheadings,
+   the same way a mechanic's "what was observed / why it works" subsections
+   already read elsewhere on the site, rather than as a list of entries. */
+.v41-observation--flow { border-top: none; padding-block: 0; margin-top: clamp(22px, 2.8vw, 32px); }
+.v41-observation--flow:first-child { margin-top: 0; }
+.v41-observation--flow.v41-observation--short { margin-top: clamp(14px, 1.6vw, 18px); }
+.v41-observation--flow.v41-observation--long { margin-top: clamp(28px, 3.6vw, 40px); }
 
 .v41-observation__body { display: grid; grid-template-columns: 1fr; gap: clamp(16px, 2vw, 22px); }
 @media (min-width: 720px) {
