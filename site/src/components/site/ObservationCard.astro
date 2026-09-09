@@ -5,8 +5,14 @@
  * on the summary page (just the observations carrying that tag) — same
  * component, same output, deliberately appearing twice per spec §2.3.
  *
- * This step renders unstyled (build order step 2) — plain semantic HTML,
- * no design pass yet.
+ * Styled entirely from existing design-system pieces: .cs-findings for the
+ * detail list, .shotgallery/.shot for screenshots, .gb-tag for the tag
+ * chips. Three server-computed modifiers carry the rhythm: tagged
+ * observations get the tinted-box treatment (v41-observation--tagged, the
+ * same visual weight a .callout gets), observations with screenshots switch
+ * to a two-column layout (v41-observation--shots, same breakpoint as
+ * .cs-msec__body), and short/long observations get tighter or looser
+ * vertical spacing (v41-observation--short/--long) based on content length.
  */
 import { kebabId } from "../../lib/v41";
 
@@ -22,7 +28,7 @@ interface Props {
   };
   appId: string;
   crossRefLookup: Map<string, { name: string; section: string }>;
-  mechanicsById: Map<string, { id: string; name: string }>;
+  mechanicsById: Map<string, { id: string; name: string; cat: string }>;
 }
 
 const { observation, appId, crossRefLookup, mechanicsById } = Astro.props as Props;
@@ -33,51 +39,73 @@ const resolvedCrossRefs = observation.crossRefs
     return target ? { id, ...target } : null;
   })
   .filter((x): x is { id: string; name: string; section: string } => x !== null);
+
+const hasTags = observation.tags.length > 0;
+const hasShots = observation.screenshots.length > 0;
+
+// Rhythm: short observations (little prose, at most one supporting point)
+// sit tighter than long ones. Computed once per observation from its own
+// content, not styled by hand — this is what keeps a 26-observation page
+// from reading as one undifferentiated block.
+const wordCount =
+  observation.observed.split(/\s+/).filter(Boolean).length +
+  observation.detail.join(" ").split(/\s+/).filter(Boolean).length;
+const density = wordCount < 30 && observation.detail.length <= 1 ? "short" : wordCount > 90 || observation.detail.length >= 5 ? "long" : "regular";
 ---
 
-<article id={observation.id} class="v41-observation">
-  <h3 class="v41-observation__title">{observation.name}</h3>
-  <p class="v41-observation__observed">{observation.observed}</p>
-
-  {observation.detail.length > 0 && (
-    <ul class="v41-observation__detail">
-      {observation.detail.map((d) => <li>{d}</li>)}
-    </ul>
-  )}
-
-  {observation.tags.length > 0 && (
+<article
+  id={observation.id}
+  class:list={["v41-observation", `v41-observation--${density}`, hasTags && "v41-observation--tagged", hasShots && "v41-observation--shots"]}
+>
+  {hasTags && (
     <div class="v41-observation__tags">
       {observation.tags.map((t) => {
         const mechanic = mechanicsById.get(kebabId(t.name));
         return mechanic ? (
-          <a class="v41-chip" href={`/mechanics/${mechanic.id}/`}>{mechanic.name}</a>
+          <a class={`gb-tag gb-tag--${mechanic.cat}`} href={`/mechanics/${mechanic.id}/`}>
+            <span class="gb-tag__dot" style={{ background: `var(--cat-${mechanic.cat})` }} />
+            {mechanic.name}
+          </a>
         ) : (
-          <span class="v41-chip v41-chip--unlinked">{t.name}</span>
+          <span class="gb-tag gb-tag--neutral">{t.name}</span>
         );
       })}
     </div>
   )}
 
-  {observation.screenshots.length > 0 && (
-    <div class="v41-observation__shots">
-      {observation.screenshots.map((s) => (
-        <figure>
-          <img src={s.src} alt={s.caption ?? ""} />
-          {s.caption && <figcaption>{s.caption}</figcaption>}
-        </figure>
-      ))}
-    </div>
-  )}
+  <div class="v41-observation__body">
+    <div class="v41-observation__text">
+      <h3 class="v41-observation__title">{observation.name}</h3>
+      <p class="v41-observation__observed">{observation.observed}</p>
 
-  {resolvedCrossRefs.length > 0 && (
-    <p class="v41-observation__crossrefs">
-      Related:{" "}
-      {resolvedCrossRefs.map((r, i) => (
-        <>
-          <a href={`/case-studies/${appId}/${r.section}/#${r.id}`}>{r.name}</a>
-          {i < resolvedCrossRefs.length - 1 ? ", " : ""}
-        </>
-      ))}
-    </p>
-  )}
+      {observation.detail.length > 0 && (
+        <ul class="cs-findings v41-observation__detail">
+          {observation.detail.map((d) => <li>{d}</li>)}
+        </ul>
+      )}
+
+      {resolvedCrossRefs.length > 0 && (
+        <p class="v41-observation__crossrefs">
+          Related:{" "}
+          {resolvedCrossRefs.map((r, i) => (
+            <>
+              <a href={`/case-studies/${appId}/${r.section}/#${r.id}`}>{r.name}</a>
+              {i < resolvedCrossRefs.length - 1 ? ", " : ""}
+            </>
+          ))}
+        </p>
+      )}
+    </div>
+
+    {hasShots && (
+      <div class="shotgallery shotgallery--real v41-observation__shots">
+        {observation.screenshots.map((s) => (
+          <figure class="shot shot--real">
+            <img class="shot__img" src={s.src} alt={s.caption ?? ""} />
+            {s.caption && <figcaption class="shot__cap">{s.caption}</figcaption>}
+          </figure>
+        ))}
+      </div>
+    )}
+  </div>
 </article>

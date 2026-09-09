@@ -955,6 +955,131 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
 .cs-take p { font: var(--type-body-lg); font-size: clamp(16px, 1.5vw, 18px); color: var(--text-secondary);
   line-height: 1.6; margin: 0; max-width: 66ch; text-wrap: pretty; }
 
+/* =================== V4.1 CASE STUDY =================== */
+/* Built entirely from the vocabulary above: .cs-hd, .cs-gate, .cs-insight,
+   .cs-msec, .cs-findings, .shotgallery/.shot, .gb-tag, .eyebrow, .pillchip,
+   .crumb. This section only adds what's specific to observations, the
+   full-record cards, and the section-page sidebar/pagination — nothing
+   here introduces a new color, font, spacing value, or radius outside the
+   tokens already in use above. */
+
+.v41-cs-body { display: flex; flex-direction: column; gap: clamp(48px, 6vw, 80px); padding-block: clamp(28px, 4vw, 48px); }
+
+/* ---- System view: .cs-insight already reads as "the frame for everything
+   under it" (dark ink panel), which is exactly the job spec gives this
+   section. Only the multi-paragraph spacing needs adding. */
+.v41-cs-systemview { display: flex; flex-direction: column; gap: clamp(22px, 2.8vw, 32px); }
+.v41-cs-systemview .cs-insight__part p + p { margin-top: 14px; }
+.v41-cs-diagram { padding-top: clamp(22px, 2.8vw, 32px); border-top: 1px solid color-mix(in srgb, var(--paper) 16%, transparent); }
+
+/* ---- Mechanics: each block is a .cs-msec section; only the vertical
+   rhythm between it and its observations needs setting. */
+.v41-cs-mechanics { display: flex; flex-direction: column; gap: 0; }
+.v41-cs-mechanics > .eyebrow { margin-bottom: clamp(18px, 2.4vw, 26px); }
+.v41-cs-mechanics .cs-msec { display: flex; flex-direction: column; }
+
+/* ---- The full record: nine cards, .csc's bordered-card language. */
+.v41-cs-record > .eyebrow { display: block; margin-bottom: clamp(18px, 2.4vw, 26px); }
+.v41-record-cards { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 620px) { .v41-record-cards { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) { .v41-record-cards { grid-template-columns: repeat(3, 1fr); } }
+.v41-record-card { display: flex; flex-direction: column; gap: 10px; background: var(--surface-card);
+  border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: clamp(18px, 2.2vw, 22px);
+  text-decoration: none; color: inherit;
+  transition: border-color var(--duration-base) var(--ease-standard), box-shadow var(--duration-base) var(--ease-standard); }
+a.v41-record-card:hover { border-color: var(--border-strong); box-shadow: var(--shadow-sm); }
+.v41-record-card h3 { font: var(--type-h4); font-size: 16px; color: var(--ink-900); margin: 0; }
+.v41-record-card p { font: var(--type-body-sm); color: var(--text-secondary); line-height: 1.55; margin: 0; text-wrap: pretty; flex: 1; }
+.v41-record-card span { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; color: var(--text-faint); }
+/* Empty section (Social, for Dave): same diagonal-hatch language as an
+   unfilled screenshot frame — reusing that "nothing here yet" visual
+   rather than inventing a second one. */
+.v41-record-card--empty {
+  background-color: var(--surface-sunken);
+  background-image: repeating-linear-gradient(135deg, transparent 0, transparent 8px,
+    color-mix(in srgb, var(--ink-400) 12%, transparent) 8px, color-mix(in srgb, var(--ink-400) 12%, transparent) 9px);
+}
+.v41-record-card--empty h3, .v41-record-card--empty span { color: var(--text-faint); }
+.v41-record-card--empty p { color: var(--text-muted); }
+
+/* ---- Observation card: the rhythm system ----
+   Three independent, content-derived signals do the work: tagged vs plain
+   (visual weight), has-screenshots vs not (breaks the single column), and
+   short vs long (tighter or looser vertical space). No JS — every modifier
+   is a class computed once at build time from the observation's own data. */
+.v41-observation { padding-block: clamp(20px, 2.6vw, 28px); border-top: var(--rule-hairline); }
+.v41-observation:first-child { border-top: none; padding-top: 0; }
+.v41-observation--short { padding-block: clamp(12px, 1.4vw, 16px); }
+.v41-observation--long { padding-block: clamp(26px, 3.4vw, 38px); }
+
+.v41-observation__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+
+.v41-observation__body { display: grid; grid-template-columns: 1fr; gap: clamp(16px, 2vw, 22px); }
+@media (min-width: 720px) {
+  .v41-observation--shots .v41-observation__body { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+}
+
+.v41-observation__title { font: var(--type-h4); font-size: 17px; color: var(--ink-900); margin: 0 0 8px; }
+.v41-observation--short .v41-observation__title { font-size: 15.5px; }
+.v41-observation__observed { font: var(--type-body); color: var(--text-secondary); line-height: 1.6; margin: 0; text-wrap: pretty; }
+.v41-observation--short .v41-observation__observed { font: var(--type-body-sm); }
+.v41-observation__detail { margin-top: 12px; }
+.v41-observation__crossrefs { margin-top: 12px; font: var(--type-caption); color: var(--text-muted); }
+.v41-observation__crossrefs a { color: var(--text-muted); text-decoration-color: var(--border-strong); }
+.v41-observation__shots { margin: 0; }
+.v41-observation__shots .shot__img { max-height: 340px; }
+
+/* Tagged: the same tinted-ground, bordered treatment a .callout gets —
+   this is the single biggest weight difference on the page, deliberately,
+   since a tagged observation is the "what patterns does this app use"
+   answer readers come for. */
+.v41-observation--tagged { background: var(--surface-sunken); border: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--border-subtle); border-radius: var(--radius-lg);
+  padding: clamp(18px, 2.2vw, 24px); margin-block: clamp(18px, 2.4vw, 26px); }
+.v41-observation--tagged:first-child { margin-top: 0; }
+
+/* ---- Section pages: sidebar + pagination. Denser and more literal than
+   the summary page's .cs-insight/.cs-msec treatment — this is reference
+   material to scan, not an article to read. */
+.v41-section-layout { display: grid; grid-template-columns: 1fr; gap: clamp(28px, 4vw, 48px);
+  padding-block: clamp(28px, 4vw, 48px); align-items: start; }
+@media (min-width: 1000px) {
+  .v41-section-layout { grid-template-columns: 232px minmax(0, 1fr); gap: clamp(40px, 5vw, 72px); }
+}
+
+.v41-section-nav { display: none; }
+@media (min-width: 1000px) { .v41-section-nav { display: block; position: sticky; top: calc(var(--nav-h) + 20px); } }
+.v41-section-nav > a { display: inline-flex; align-items: center; font: var(--type-body-sm); font-weight: var(--weight-medium);
+  color: var(--text-muted); text-decoration: none; margin-bottom: 22px; }
+.v41-section-nav > a:hover { color: var(--ink-900); }
+.v41-section-nav__label { font: var(--type-label); text-transform: uppercase; letter-spacing: var(--tracking-label);
+  color: var(--text-faint); margin-bottom: 12px; }
+.v41-section-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column;
+  border-left: 2px solid var(--border-subtle); }
+.v41-section-nav li { margin-left: -2px; border-left: 2px solid transparent; }
+.v41-section-nav li[aria-current="page"] { border-left-color: var(--accent); }
+.v41-section-nav a, .v41-section-nav__empty {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+  padding: 7px 0 7px 16px; font: var(--type-body-sm); line-height: 1.4; text-decoration: none; color: var(--text-secondary); }
+.v41-section-nav a:hover { color: var(--ink-900); }
+.v41-section-nav li[aria-current="page"] a, .v41-section-nav li[aria-current="page"] .v41-section-nav__empty { color: var(--ink-900); font-weight: var(--weight-semibold); }
+.v41-section-nav__empty { color: var(--text-faint); }
+.v41-section-nav__count { font-family: var(--font-mono); font-size: 11px; color: var(--text-faint); flex: none; }
+.v41-section-nav li[aria-current="page"] .v41-section-nav__count { color: var(--accent); }
+
+.v41-section-main h1 { font: var(--type-h1); font-size: clamp(24px, 3vw, 34px); letter-spacing: var(--tracking-heading);
+  color: var(--ink-900); margin: 0 0 14px; text-wrap: balance; }
+.v41-section-leadin { font: var(--type-body); font-size: clamp(15px, 1.4vw, 16px); color: var(--text-secondary);
+  line-height: 1.6; max-width: 68ch; margin: 0 0 clamp(24px, 3.2vw, 36px); text-wrap: pretty; }
+
+.v41-section-pagination { display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  margin-top: clamp(28px, 3.6vw, 44px); padding-top: clamp(20px, 2.6vw, 28px); border-top: var(--rule-hairline); }
+.v41-section-pagination a { display: inline-flex; align-items: center; gap: 6px; font: var(--type-body-sm);
+  font-weight: var(--weight-semibold); color: var(--text-accent); text-decoration: none; }
+.v41-section-pagination a svg { width: 16px; height: 16px; }
+.v41-section-pagination a:hover { text-decoration: underline; text-underline-offset: 2px; }
+.v41-section-pagination__next { margin-left: auto; }
+
 /* Connection detail modal */
 .cmodal { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 24px; }
 .cmodal__backdrop { position: absolute; inset: 0; background: color-mix(in srgb, var(--ink-900) 40%, transparent); }

@@ -1,15 +1,22 @@
 ---
 /**
  * The v4.1 case study summary page body (spec §2.1). Plain Astro, no client
- * hydration for content — see the gating note below. Unstyled at this
- * stage (build order step 2); a design pass comes later, once there's a
- * second v4.1 app to design against.
+ * hydration for content — see the gating note below.
+ *
+ * Styled to read as an article: reuses .cs-hd for the header, .cs-gate for
+ * the locked state, .cs-insight (the dark "this is the frame" panel) for
+ * System View, .cs-msec for each mechanic block, and a .csc-style card grid
+ * for the full record. Deliberately more generous and editorial than the
+ * section pages, which are built to be scanned instead (see
+ * CaseStudySectionV41.astro).
  */
 import ObservationCard from "./ObservationCard.astro";
 import { GateWidget } from "./GateWidget.jsx";
 import { SystemMap } from "./SystemDetail.jsx";
 import { allSectionCounts, crossRefLookup, tagBlocks } from "../../lib/v41";
 import { PREVIEW_UNLOCK } from "../../lib/preview";
+import { initials } from "../../lib/props";
+import { CAT_LABEL } from "../../lib/content";
 
 interface Props {
   app: any;
@@ -57,68 +64,106 @@ const mechanicBlocks = tagBlocks(app, mechanicsById);
 const sections = allSectionCounts(app);
 ---
 
-<header class="v41-cs-header">
-  {app.icon && <img class="v41-cs-icon" src={app.icon} alt="" />}
-  <p class="v41-cs-category">{app.category}</p>
-  <h1 class="v41-cs-name">{app.name}</h1>
-  <p class="v41-cs-description">{app.summary}</p>
-</header>
-
-{locked ? (
-  <div class="v41-cs-gate">
-    <GateWidget client:load />
-  </div>
-) : (
-  <div class="v41-cs-body">
-    {/* 1. System view — narrative first, diagram only when one exists (Dave
-        has none yet: no system.html entry, and that's fine for now). */}
-    <section class="v41-cs-systemview" aria-label="System view">
-      <h2>System view</h2>
-      {(app.systemView ?? []).map((p: string) => <p>{p}</p>)}
-      {app.system && (
-        <div class="v41-cs-diagram">
-          <SystemMap client:visible nodes={systemNodes} connections={systemConnections} byId={systemById} />
-        </div>
+<div class="container container--narrow">
+  <header class="cs-hd" id="overview">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="/case-studies/">Case studies</a>
+      <span class="crumb__sep" aria-hidden="true">/</span>
+      <span>{app.name}</span>
+    </nav>
+    <div class="cs-hd__row">
+      {app.icon ? (
+        <div class="cs-hd__icon" aria-hidden="true"><img src={app.icon} alt="" style="width:100%;height:100%;object-fit:cover;" /></div>
+      ) : (
+        <div class="cs-hd__icon" aria-hidden="true">{initials(app.name)}</div>
       )}
-    </section>
+      <div class="cs-hd__heads">
+        <span class="pillchip">{app.category}</span>
+        <h1 class="cs-hd__title">{app.name}</h1>
+      </div>
+    </div>
+    <p class="cs-hd__overview">{app.summary}</p>
+  </header>
 
-    {/* 2. Mechanics — one block per applied tag. */}
-    <section class="v41-cs-mechanics" aria-label="Mechanics">
-      <h2>Mechanics</h2>
-      {mechanicBlocks.map((block) => (
-        <div class="v41-mechanic-block">
-          {block.mechanic ? (
-            <a class="v41-mechanic-block__name" href={`/mechanics/${block.mechanic.id}/`}>{block.mechanic.name}</a>
-          ) : (
-            <span class="v41-mechanic-block__name">{block.name}</span>
-          )}
-          {block.observations.map((o) => (
-            <ObservationCard observation={o} appId={app.id} crossRefLookup={observationLookup} mechanicsById={mechanicsById} />
+  {locked ? (
+    <div class="cs-gate">
+      <div class="cs-gate__lead">
+        <div class="eyebrow">Subscribers only</div>
+        <h2 class="cs-gate__h">Read the full {app.name} breakdown</h2>
+        <p class="cs-gate__p">The complete case study walks every observation behind each mechanic, with the system view and the full record of every section. Subscribe to unlock this and every other breakdown in the library.</p>
+      </div>
+      <GateWidget client:load />
+    </div>
+  ) : (
+    <div class="v41-cs-body">
+      {/* 1. System view — narrative first, diagram only when one exists (Dave
+          has none yet: no system.html entry, and that's fine for now). */}
+      <section class="cs-insight v41-cs-systemview" aria-label="System view">
+        <div class="cs-insight__part">
+          <h2 class="cs-insight__h">System view</h2>
+          {(app.systemView ?? []).map((p: string) => <p>{p}</p>)}
+        </div>
+        {app.system && (
+          <div class="v41-cs-diagram">
+            <SystemMap client:visible nodes={systemNodes} connections={systemConnections} byId={systemById} />
+          </div>
+        )}
+      </section>
+
+      {/* 2. Mechanics — one block per applied tag. */}
+      <section class="v41-cs-mechanics" aria-label="Mechanics">
+        <h2 class="eyebrow">Mechanics</h2>
+        {mechanicBlocks.map((block) => (
+          <div class="cs-msec">
+            <div class="cs-msec__head">
+              <div class="cs-msec__meta">
+                {block.mechanic ? (
+                  <span class={`gb-tag gb-tag--${block.mechanic.cat}`}>
+                    <span class="gb-tag__dot" style={{ background: `var(--cat-${block.mechanic.cat})` }} />
+                    {CAT_LABEL[block.mechanic.cat] ?? block.mechanic.cat}
+                  </span>
+                ) : (
+                  <span class="gb-tag gb-tag--neutral">Not yet in the library</span>
+                )}
+                <h3 class="cs-msec__name">{block.name}</h3>
+              </div>
+              {block.mechanic && (
+                <a class="cs-msec__link" href={`/mechanics/${block.mechanic.id}/`}>
+                  Full mechanic page
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </a>
+              )}
+            </div>
+            {block.observations.map((o) => (
+              <ObservationCard observation={o} appId={app.id} crossRefLookup={observationLookup} mechanicsById={mechanicsById} />
+            ))}
+          </div>
+        ))}
+      </section>
+
+      {/* 3. The full record — nine section cards, empty ones unlinked. */}
+      <section class="v41-cs-record" aria-label="The full record">
+        <h2 class="eyebrow">The full record</h2>
+        <div class="v41-record-cards">
+          {sections.map((s) => (
+            s.count > 0 ? (
+              <a class="v41-record-card" href={`/case-studies/${app.id}/${s.slug}/`}>
+                <h3>{s.name}</h3>
+                <p>{app.sectionCards?.[s.slug] ?? ""}</p>
+                <span>{s.count} observation{s.count === 1 ? "" : "s"}</span>
+              </a>
+            ) : (
+              <div class="v41-record-card v41-record-card--empty">
+                <h3>{s.name}</h3>
+                <p>{app.sectionCards?.[s.slug] ?? ""}</p>
+                <span>Nothing observed here</span>
+              </div>
+            )
           ))}
         </div>
-      ))}
-    </section>
-
-    {/* 3. The full record — nine section cards, empty ones unlinked. */}
-    <section class="v41-cs-record" aria-label="The full record">
-      <h2>The full record</h2>
-      <div class="v41-record-cards">
-        {sections.map((s) => (
-          s.count > 0 ? (
-            <a class="v41-record-card" href={`/case-studies/${app.id}/${s.slug}/`}>
-              <h3>{s.name}</h3>
-              <p>{app.sectionCards?.[s.slug] ?? ""}</p>
-              <span>{s.count} observation{s.count === 1 ? "" : "s"}</span>
-            </a>
-          ) : (
-            <div class="v41-record-card v41-record-card--empty">
-              <h3>{s.name}</h3>
-              <p>{app.sectionCards?.[s.slug] ?? ""}</p>
-              <span>0 observations</span>
-            </div>
-          )
-        ))}
-      </div>
-    </section>
-  </div>
-)}
+      </section>
+    </div>
+  )}
+</div>

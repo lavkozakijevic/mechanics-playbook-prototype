@@ -1,12 +1,22 @@
 ---
 /**
  * A single section page for a v4.1 case study (spec §2.2). Same gating
- * discipline as the summary page — see CaseStudySummaryV41.astro for the
- * reasoning: nothing gated is interpolated into the template when locked.
+ * discipline as the summary page — nothing gated is interpolated into the
+ * template when locked. A locked page renders only the app name, the
+ * section name, and the gate (spec's own words for what it shows), not the
+ * full section nav — that would expose every section's observation count,
+ * which is exactly the kind of thing the gate exists to hold back.
+ *
+ * Denser and more literal than the summary page on purpose: this is
+ * reference material to scan, not an article to read. Reuses .cs-toc's
+ * sticky-sidebar-with-active-state language (renamed v41-section-nav) since
+ * "make the current position unmistakable" is exactly what that pattern
+ * already does — no scroll-spy needed here, since "current" is just which
+ * page you're on, not a scroll position.
  */
 import ObservationCard from "./ObservationCard.astro";
 import { GateWidget } from "./GateWidget.jsx";
-import { V41_SECTIONS, nonEmptySections, crossRefLookup } from "../../lib/v41";
+import { allSectionCounts, nonEmptySections, crossRefLookup } from "../../lib/v41";
 import { PREVIEW_UNLOCK } from "../../lib/preview";
 
 interface Props {
@@ -27,44 +37,77 @@ const current = nonEmpty[currentIndex];
 const observations = locked ? [] : (app.observations ?? []).filter((o: any) => o.section === section);
 const leadIn = app.sectionLeadIns?.[section] ?? "";
 const observationLookup = locked ? new Map() : crossRefLookup(app);
+const allSections = locked ? [] : allSectionCounts(app);
 ---
 
-<nav class="v41-section-nav" aria-label="Sections">
-  <a href={`/case-studies/${app.id}/`}>{app.name}</a>
-  <ul>
-    {V41_SECTIONS.map((s) => {
-      const has = nonEmpty.some((n) => n.slug === s.slug);
-      return (
-        <li aria-current={s.slug === section ? "page" : undefined}>
-          {has ? <a href={`/case-studies/${app.id}/${s.slug}/`}>{s.name}</a> : <span>{s.name}</span>}
-        </li>
-      );
-    })}
-  </ul>
-</nav>
-
-<main class="v41-section-main">
-  {locked ? (
-    <>
-      <h1>{app.name}</h1>
-      <h2>{current?.name ?? section}</h2>
-      <div class="v41-cs-gate">
-        <GateWidget client:load />
+{locked ? (
+  <div class="container container--narrow">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href={`/case-studies/${app.id}/`}>{app.name}</a>
+      <span class="crumb__sep" aria-hidden="true">/</span>
+      <span>{current?.name ?? section}</span>
+    </nav>
+    <div class="cs-gate">
+      <div class="cs-gate__lead">
+        <div class="eyebrow">Subscribers only</div>
+        <h2 class="cs-gate__h">Read {current?.name ?? section}</h2>
+        <p class="cs-gate__p">This section is part of the full {app.name} breakdown. Subscribe to unlock it and every other section in the library.</p>
       </div>
-    </>
-  ) : (
-    <>
-      <h1>{current?.name ?? section}</h1>
-      {leadIn && <p class="v41-section-leadin">{leadIn}</p>}
+      <GateWidget client:load />
+    </div>
+  </div>
+) : (
+  <div class="container">
+    <div class="v41-section-layout">
+      <nav class="v41-section-nav" aria-label="Sections">
+        <a href={`/case-studies/${app.id}/`}>← {app.name}</a>
+        <div class="v41-section-nav__label">On this page</div>
+        <ul>
+          {allSections.map((s) => (
+            <li aria-current={s.slug === section ? "page" : undefined}>
+              {s.count > 0 ? (
+                <a href={`/case-studies/${app.id}/${s.slug}/`}>
+                  <span>{s.name}</span>
+                  <span class="v41-section-nav__count">{s.count}</span>
+                </a>
+              ) : (
+                <span class="v41-section-nav__empty">
+                  <span>{s.name}</span>
+                  <span class="v41-section-nav__count">—</span>
+                </span>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
 
-      {observations.map((o: any) => (
-        <ObservationCard observation={o} appId={app.id} crossRefLookup={observationLookup} mechanicsById={mechanicsById} />
-      ))}
+      <main class="v41-section-main">
+        <h1>{current?.name ?? section}</h1>
+        {leadIn && <p class="v41-section-leadin">{leadIn}</p>}
 
-      <div class="v41-section-pagination">
-        {prev ? <a href={`/case-studies/${app.id}/${prev.slug}/`}>← {prev.name}</a> : <span />}
-        {next ? <a href={`/case-studies/${app.id}/${next.slug}/`}>{next.name} →</a> : <span />}
-      </div>
-    </>
-  )}
-</main>
+        {observations.map((o: any) => (
+          <ObservationCard observation={o} appId={app.id} crossRefLookup={observationLookup} mechanicsById={mechanicsById} />
+        ))}
+
+        <div class="v41-section-pagination">
+          {prev ? (
+            <a href={`/case-studies/${app.id}/${prev.slug}/`}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="17" y1="12" x2="7" y2="12"></line><polyline points="12 6 6 12 12 18"></polyline>
+              </svg>
+              {prev.name}
+            </a>
+          ) : <span />}
+          {next ? (
+            <a class="v41-section-pagination__next" href={`/case-studies/${app.id}/${next.slug}/`}>
+              {next.name}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="7" y1="12" x2="17" y2="12"></line><polyline points="12 6 18 12 12 18"></polyline>
+              </svg>
+            </a>
+          ) : <span />}
+        </div>
+      </main>
+    </div>
+  </div>
+)}
