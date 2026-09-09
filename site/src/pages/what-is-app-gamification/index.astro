@@ -1,0 +1,391 @@
+---
+// Standalone SEO anchor page. Not linked from the site nav (Base is called
+// with no `current`), reachable only at /what-is-app-gamification/. Copy is
+// supplied verbatim by the brief; this file's job is layout and design-system
+// fit, not prose. "Gamification" appears throughout on purpose: this is the
+// one page built to be found by that search term, unlike the rest of the
+// site's copy.
+import Base from "../../layouts/Base.astro";
+import { Card } from "../../components/ds/Card.jsx";
+import { SystemMap } from "../../components/site/SystemDetail.jsx";
+import { publishedApps, publishedMechanics } from "../../lib/content";
+import { systemProps } from "../../lib/props";
+
+const apps = await publishedApps();
+const mechanics = await publishedMechanics();
+const mechById = new Map(mechanics.map((m) => [m.data.id, m.data]));
+
+const stravaEntry = apps.find((a) => a.data.id === "strava")?.data;
+const stravaSystem = stravaEntry?.system ? systemProps(stravaEntry, mechById) : null;
+const stravaSystemById = Object.fromEntries((stravaSystem?.nodes ?? []).map((n) => [n.id, n]));
+
+const cleoEntry = apps.find((a) => a.data.id === "cleo")?.data;
+
+// href for a real library mechanic, following the sitewide convention: public
+// mechanics link directly, everything else routes through the subscribe gate.
+function mechHref(id) {
+  const m = mechById.get(id);
+  if (!m) return null;
+  return m.visibility === "public" ? `/mechanics/${id}/` : "/subscribe/";
+}
+function caseStudyHref(app) {
+  if (!app) return null;
+  return app.visibility === "public" ? `/case-studies/${app.id}/` : "/subscribe/";
+}
+
+const SECTIONS = [
+  ["starters", "The mechanics most people start with"],
+  ["toolkit", "The rest of the toolkit"],
+  ["examples", "App gamification examples"],
+  ["conditions", "Why a mechanic that works elsewhere may not work in yours"],
+  ["choose", "How to choose what fits your app"],
+  ["tools", "Gamification tools and platforms"],
+  ["faq", "Common questions"],
+];
+
+const STARTERS = [
+  ["Points", "A running count of activity, usually convertible into status or access. Points make effort legible.", "They work when the thing being counted is something the user already considers worth doing, and when the total leads somewhere."],
+  ["Badges", "A marker awarded for a specific accomplishment. Badges are recognition, not reward.", "They work when the accomplishment is one the user is proud of, and they fall flat when they celebrate something nobody was aiming for."],
+  ["Achievements", "Named goals the user can work toward, often revealed in advance. Where badges look backward at what happened, achievements look forward and suggest what to do next.", "That makes them useful for surfacing features people have not discovered."],
+  ["Leaderboards", "Position relative to other users.", "Leaderboards work when your users see each other as a reference group and care about standing. In products where they do not, a ranking adds pressure without adding meaning, and most of the board sits at the bottom of it."],
+];
+
+const TOOLKIT = [
+  ["Streaks", "streak", "A count of unbroken repetition. Streaks turn a habit into something with continuity, and give a reason to return today rather than eventually.", "They suit behaviors that are already naturally frequent. Duolingo is the example everyone knows, and it works there because a lesson takes minutes and the goal belongs to the learner."],
+  ["Milestones", "achievements", "Markers along a path the user is already travelling, such as a hundredth workout or a first month completed. Unlike achievements, milestones require no extra behavior.", "They give meaning to progress that was happening anyway."],
+  ["Challenges and quests", "challenges", "Time bound goals, either set by the app or chosen by the user. A challenge creates a reason to act now instead of later.", "They work when the goal is achievable inside the window and worth achieving on its own terms."],
+  ["Variable rewards", "variable-reward", "Outcomes the user cannot fully predict, such as a surprise bonus or a random drop. This is the most powerful mechanic in the set and the one that most rewards care.", "It works when the underlying activity is worth doing even when the reward turns out to be small."],
+  ["Currencies", "credits-tokens", "Earned or purchased units spent inside the product. A currency lets users make choices about what their effort buys, which is often more motivating than the effort being counted.", "It needs something genuinely worth spending on."],
+  ["Progression and levels", "xp-leveling", "A structure that turns accumulated activity into a sense of advancement, often unlocking capability along the way.", "Levels work when what unlocks is something the user actually wanted."],
+  ["Seasons and passes", "season-pass", "Reward tracks that run for a fixed period and then reset. They create a rhythm and a reason to re engage at the start of each cycle.", "They suit products people already use regularly enough to make progress."],
+  ["Social recognition", "social-feed", "Mechanics that let users acknowledge each other, such as reactions, kudos, or shared feeds.", "Where leaderboards rank people against each other, recognition mechanics let them support each other, which fits far more products than ranking does."],
+];
+
+const CONDITION_QS = [
+  ["Does the mechanic's rhythm match the behavior's rhythm?", "Daily mechanics on occasional behaviors create pressure rather than motivation."],
+  ["Is the thing being counted the thing that matters?", "People optimize for whatever you measure, so measuring the wrong thing produces users who are very good at it."],
+  ["Do your users see each other as a group?", "Social and competitive mechanics need an audience that already exists. A ranking does not create one."],
+  ["Is the mechanic being asked to do the product's job?", "Mechanics amplify a loop that already works. They are not a substitute for one."],
+];
+
+const STEPS = [
+  ["Start with the behavior.", "Name the specific thing you want people to do more often, or more consistently. If it cannot be stated in a sentence without the word engagement, it is not specific enough yet to choose against."],
+  ["Understand what is in the way.", "People who are not doing the thing usually have a reason. They forget, they do not see the value, it takes longer than they have, they are not sure they did it right, or they would rather not be seen doing it. Different obstacles call for different mechanics, and this step is where most of the useful thinking happens."],
+  ["Check the conditions before you commit.", "Take the mechanic you have in mind and write down what has to be true of your users for it to work. If you cannot say those things hold, choose a different mechanic rather than hoping."],
+  ["Ship small and watch what people optimize.", "Whatever you count, some users will chase. That tells you quickly whether the mechanic is pointed at the behavior you meant."],
+];
+
+const TOOL_QS = [
+  ["Can you change the rule after launch?", "Your first version of a mechanic will be wrong in some detail. If the tool makes tuning expensive, you will live with the wrong version."],
+  ["Can you see what people actually did with it?", "Not just how many badges were awarded, but whether the behavior underneath moved. Some platforms report on their own activity rather than on yours."],
+  ["Does it fit the data you already have?", "A mechanic that requires events your app does not emit yet is a bigger project than it looks."],
+];
+
+const FAQS = [
+  ["What are the main gamification strategies for apps?", "They group into a handful of families: repetition mechanics such as streaks and daily rewards, progression mechanics such as levels, seasons and passes, social mechanics such as leaderboards and recognition, uncertainty mechanics such as variable rewards, and economies built on currencies. Most products need one or two, chosen against a specific behavior."],
+  ["How do I use gamification in my mobile app?", "Begin with the behavior you want to support and the obstacle in its way, then choose the mechanic whose conditions your product actually meets. Picking a mechanic first and finding a use for it afterwards is the most common source of disappointing results."],
+  ["Does gamification work for business and internal apps?", "The mechanics are the same, but the motivation around them is not. People use a consumer app by choice and a work app because their job requires it, so mechanics that add competition or public visibility land differently. Recognition, progress and clarity about what to do next tend to travel well into business apps. Rankings and streaks need much more care."],
+  ["Is gamification the same as game design?", "No. Game design creates an experience people choose for its own sake. Gamification borrows mechanics from that craft and applies them to products people use for another reason. The mechanics transfer readily. The player's motivation does not, which is why conditions matter so much."],
+  ["Do gamification platforms and tools handle this?", "Platforms ship the mechanics reliably. What they cannot tell you is whether a given mechanic suits your users, and that is the part that decides the outcome. A tool will give you a leaderboard whether or not your users want to be ranked."],
+  ["Is gamification manipulative?", "It can be, and the line is worth naming. A mechanic that helps someone do something they already wanted to do is support. A mechanic that manufactures pressure to serve the business at the user's expense is not, and users recognize the difference faster than most teams expect."],
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map(([q, a]) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: { "@type": "Answer", text: a },
+  })),
+};
+---
+
+<Base
+  title="What Is App Gamification? Mechanics, Examples, and How to Use Them — Appservatory"
+  description="App gamification explained: what it actually is, the mechanics it is built from, real examples of how the best apps combine them, and how to choose what fits your product."
+  newsletter={true}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <main id="main">
+    {/* Intro */}
+    <section class="band" style="padding-bottom: 0; border-bottom: none;">
+      <div class="container">
+        <div class="wag-stack">
+          <h1 class="wag-h1">What is app gamification?</h1>
+          <div class="wag-stack wag-read mech-prose">
+            <p>App gamification is the use of game mechanics inside a product that is not a game, to support a behavior that matters to the people using it and to the business behind it.</p>
+            <p>That is broader than the definition most people arrive with. Gamification often gets treated as a layer applied at the end: add points, add a badge, maybe a leaderboard. Those are real mechanics and they do real work. But they are a small part of a larger discipline, and treating them as the whole of it is what makes gamification look like a marketing gimmick.</p>
+            <p>What is happening underneath is behavior design. Every mechanic is a designed experience that points someone in a direction. A progress bar says you are nearly there. A badge says this was worth doing. A streak says come back tomorrow. Each one makes a claim about what a person wants and what will move them, and each one is only as good as that claim.</p>
+            <p>The apps that do this well rarely lean on a single mechanic. They combine several into a system, where each piece produces something the next piece can use. That is the difference between an app with a leaderboard and an app that is genuinely engaging.</p>
+            <p>This page is written for people building products. It covers the mechanics you have probably already considered, the wider set most teams have not, real examples of how they fit together, what to expect from the tools that ship them, and how to work out which ones suit the app you are building.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="cs-layout">
+        <aside class="cs-toc" aria-label="On this page">
+          <div class="cs-toc__label">On this page</div>
+          <nav class="cs-toc__nav" id="wag-toc-nav">
+            {SECTIONS.map(([id, label], i) => (
+              <a href={`#${id}`} class="cs-toc__link" data-toc-link data-target={id}>
+                <span class="cs-toc__n">{String(i + 1).padStart(2, "0")}</span>{label}
+              </a>
+            ))}
+          </nav>
+        </aside>
+
+        <div class="cs-main">
+          <details class="wag-mobiletoc">
+            <summary>Contents <span aria-hidden="true">&#9662;</span></summary>
+            <div class="wag-mobiletoc__list">
+              {SECTIONS.map(([id, label], i) => (
+                <a href={`#${id}`}><span class="cs-toc__n">{String(i + 1).padStart(2, "0")}</span>{label}</a>
+              ))}
+            </div>
+          </details>
+
+          {/* 1 — starter mechanics */}
+          <section class="wag-sec" id="starters">
+            <div class="wag-stack">
+              <h2 class="mech-section__title">The mechanics most people start with</h2>
+              <div class="mech-prose wag-read"><p>Most conversations about how to gamify an app begin with the same four mechanics. They are the visible ones, so they are the ones people picture. They are also genuinely useful, as long as you know what each is actually doing.</p></div>
+              <div class="wag-cards4">
+                {STARTERS.map(([name, def, works]) => (
+                  <Card>
+                    <div class="wag-startcard">
+                      <h3>{name}</h3>
+                      <p>{def}</p>
+                      <div class="wag-startcard__works">
+                        <span class="wag-lab">Works when</span>
+                        <p>{works}</p>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+              <div class="mech-prose wag-read"><p>These four are worth taking seriously. The limitation is not that they are shallow, it is that they are a narrow slice of what is available, and they tend to get chosen before anyone has asked what behavior needs support.</p></div>
+            </div>
+          </section>
+
+          {/* 2 — the rest of the toolkit */}
+          <section class="wag-sec" id="toolkit">
+            <div class="wag-stack">
+              <h2 class="mech-section__title">The rest of the toolkit</h2>
+              <div class="mech-prose wag-read"><p>Beyond those four sits a much larger set. These are the mechanics that tend to do the heavy lifting in apps people keep coming back to.</p></div>
+              <div class="wag-tablewrap">
+                <table class="wag-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Mechanic</th>
+                      <th scope="col">What it does</th>
+                      <th scope="col" class="wag-table__dep">Works well when</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {TOOLKIT.map(([name, id, does, works]) => {
+                      const href = mechHref(id);
+                      return (
+                        <tr>
+                          <th scope="row">{href ? <a href={href}>{name}</a> : name}</th>
+                          <td>{does}</td>
+                          <td class="wag-table__dep">{works}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          {/* 3 — examples */}
+          <section class="wag-sec" id="examples">
+            <div class="wag-stack">
+              <h2 class="mech-section__title">App gamification examples: how mechanics become systems</h2>
+              <div class="mech-prose wag-read"><p>A single mechanic on its own has a ceiling. What separates the best gamified apps from the rest is how the pieces connect.</p></div>
+
+              {stravaSystem && (
+                <div class="showcase">
+                  <div class="showcase__body">
+                    <div class="mech-section__kicker">The systems map</div>
+                    <h3>How the {stravaEntry.name} system holds together</h3>
+                    <p>{stravaSystem.tagline}</p>
+                    <a class="gb-btn gb-btn--secondary" href={`/systems/${stravaEntry.id}/`}>Explore the {stravaEntry.name} map</a>
+                  </div>
+                  <div class="showcase__map">
+                    <div class="smap-stage">
+                      <SystemMap client:visible nodes={stravaSystem.nodes} connections={stravaSystem.connections} byId={stravaSystemById} />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <div class="wag-stack wag-read mech-prose">
+                <p>Strava is the clearest example. Logging an activity produces something to share. Sharing it gives other people something to respond to. Those responses create the recognition that makes logging worth doing again. Clubs and challenges give that activity a shape, and the streak sits on top of a behavior, exercise, that people had already chosen before they installed anything. Remove any one piece and the others have less to work with.</p>
+                <p>Cleo shows the same principle in finance, a category where mechanics are often added on top rather than built in. Its most distinctive design is not a points system at all. It is a chat persona that will assess your spending if you ask it to, built entirely from the user's own transaction history. The mechanic and the product are the same thing.</p>
+                <p>This is why we document apps mechanic by mechanic and then map how those mechanics connect. Knowing that an app has streaks tells you very little. Knowing what feeds the streak, and what the streak feeds, tells you whether the idea can travel.</p>
+              </div>
+
+              <div class="wag-ex">
+                {[
+                  { app: stravaEntry, line: "Strava is the clearest example." },
+                  { app: cleoEntry, line: "Cleo shows the same principle in finance, a category where mechanics are often added on top rather than built in." },
+                ].filter((x) => x.app).map(({ app, line }) => (
+                  <Card>
+                    <a class="wag-excard" href={caseStudyHref(app)}>
+                      {app.icon && <img src={app.icon} alt="" class="wag-excard__icon" />}
+                      <div class="wag-excard__body">
+                        <span class="wag-excard__name">{app.name}</span>
+                        <p>{line}</p>
+                      </div>
+                    </a>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* 4 — conditions */}
+          <section class="wag-sec" id="conditions">
+            <div class="wag-stack">
+              <h2 class="mech-section__title">Why a mechanic that works elsewhere may not work in yours</h2>
+
+              <div class="wag-transplant">
+                <div class="wag-transplant__box">
+                  <span class="wag-lab">In the app it came from</span>
+                  <div class="wag-chip">Streak</div>
+                  <div class="wag-slots">
+                    {["Frequent behavior", "Short sessions", "Visible progress", "The user's own goal"].map((s) => (
+                      <div class="wag-slot wag-slot--filled">{s}</div>
+                    ))}
+                  </div>
+                </div>
+                <div class="wag-transplant__mid">
+                  <span class="wag-transplant__mid-line wag-transplant__mid-line--solid">What travels: the mechanic</span>
+                  <span class="wag-transplant__mid-line wag-transplant__mid-line--dashed">What does not: the conditions</span>
+                </div>
+                <div class="wag-transplant__box">
+                  <span class="wag-lab">In a different app</span>
+                  <div class="wag-chip">Streak</div>
+                  <div class="wag-slots">
+                    {[0, 1, 2, 3].map((i) => <div class="wag-slot" />)}
+                  </div>
+                </div>
+              </div>
+
+              <div class="wag-stack wag-read mech-prose">
+                <p>Teams copy mechanics because the mechanic is the part you can see. It is a reasonable instinct, and it is also where most gamification work goes sideways.</p>
+                <p>Duolingo's streak is the most copied mechanic in the industry. It works there because of conditions that are easy to miss: lessons take minutes, the behavior is naturally daily, progress is visible immediately, and the goal belongs to the learner rather than the app. The same counter placed on a product people use twice a month, for a task they find necessary rather than enjoyable, does something different. It counts down to zero and tells someone they failed at a goal they never set.</p>
+                <p>The mechanic is identical. The conditions underneath it are not, and those conditions were doing most of the work.</p>
+                <p>Four questions catch most of this before it is built:</p>
+              </div>
+
+              <div class="wag-q2">
+                {CONDITION_QS.map(([q, a], i) => (
+                  <div class="wag-qitem">
+                    <span class="cs-toc__n">{String(i + 1).padStart(2, "0")}</span>
+                    <div>
+                      <h3>{q}</h3>
+                      <p>{a}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div class="mech-prose wag-read"><p>None of this is an argument against these mechanics. It is an argument for taking the conditions with you when you borrow one.</p></div>
+            </div>
+          </section>
+
+          {/* 5 — how to choose */}
+          <section class="wag-sec" id="choose">
+            <div class="wag-stack">
+              <h2 class="mech-section__title">How to choose what fits your app</h2>
+              <div class="mech-prose wag-read"><p>This order is close to the reverse of how most gamification projects begin, and it saves a lot of rework.</p></div>
+              <div class="wag-steps">
+                {STEPS.map(([title, body], i) => (
+                  <div class={"wag-step" + (i === 2 ? " wag-step--marked" : "")}>
+                    <span class="wag-lab">{String(i + 1).padStart(2, "0")}</span>
+                    <h3>{title}</h3>
+                    <p>{body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* 6 — tools */}
+          <section class="wag-sec" id="tools">
+            <div class="wag-stack">
+              <h2 class="mech-section__title">Gamification tools and platforms</h2>
+              <div class="wag-stack wag-read mech-prose">
+                <p>There is a mature market of gamification platforms and SDKs, and for many teams buying rather than building makes sense. They handle the engineering dependably: points ledgers, badge logic, leaderboard infrastructure, streak tracking, reward delivery, notification timing. That is real work, and it is work you probably do not want to write twice.</p>
+                <p>What a platform cannot do is tell you which mechanic your product needs. It will give you a leaderboard whether or not your users want to be ranked, because that decision was never in its scope. The choice of mechanic, and the judgement about whether your users meet its conditions, stays with your team either way.</p>
+                <p>Three questions worth asking of any tool you are evaluating:</p>
+              </div>
+              <div class="wag-checklist">
+                {TOOL_QS.map(([q, a]) => (
+                  <div class="wag-checkitem">
+                    <span class="wag-checkitem__dot" aria-hidden="true"></span>
+                    <div>
+                      <span class="wag-checkitem__q">{q}</span>
+                      <p>{a}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* 7 — FAQ */}
+          <section class="wag-sec" id="faq">
+            <div class="wag-stack">
+              <h2 class="mech-section__title">Common questions</h2>
+              <div class="wag-faq">
+                {FAQS.map(([q, a]) => (
+                  <details>
+                    <summary>{q}<span class="wag-faq__sign" aria-hidden="true">+</span></summary>
+                    <p>{a}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    {/* Close */}
+    <section class="band band--sunken">
+      <div class="container container--narrow">
+        <div class="wag-stack">
+          <h2 class="mech-section__title">See how real apps put this together</h2>
+          <div class="mech-prose"><p>We take apps apart mechanic by mechanic and document what was built, how each piece works, and how the pieces connect. New breakdowns every week, across categories, so your team can build on what has already shipped.</p></div>
+          <a class="gb-btn gb-btn--accent gb-btn--lg" href="/subscribe/">Access the library</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Scroll-spy for the sticky TOC, same technique as the case-study page's
+    // TOC (plain scroll-position comparison, no IntersectionObserver).
+    const links = Array.from(document.querySelectorAll("[data-toc-link]"));
+    const targets = links.map((l) => l.dataset.target);
+    function onScroll() {
+      const line = window.innerHeight * 0.3;
+      let current = targets[0];
+      for (const id of targets) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top - line <= 0) current = id;
+      }
+      links.forEach((l) => l.classList.toggle("is-active", l.dataset.target === current));
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+  </script>
+</Base>
