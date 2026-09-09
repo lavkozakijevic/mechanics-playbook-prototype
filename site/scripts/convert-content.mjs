@@ -102,7 +102,7 @@ function publishesAtConfidence(confidence) {
   return c.startsWith("confirmed") || c.startsWith("strongly supported");
 }
 
-function parseAnalysis(file) {
+function parseAnalysisV3(file) {
   const md = fs.readFileSync(path.join(repo, "sources/analyses", file), "utf8");
   const meta = {};
   for (const [, k, v] of md.matchAll(/^\*\*([^:*]+):\*\*\s*(.+)$/gm)) meta[k.trim()] = v.trim();
@@ -140,6 +140,235 @@ function parseAnalysis(file) {
   }
   const overview = md.split(/^## Overview\s*$/m)[1]?.split(/^---$/m)[0]?.trim() ?? "";
   return { meta, observed, unrecognized, shots, overview };
+}
+
+// --------------------------------------------------- v4.1 analysis format
+// Nine fixed sections, observations with their own fields, tags applied per
+// observation with a confidence value, proposed (unapplied) tags, and a
+// narrative system view (appservatory spec §1). Detected per file — see
+// detectAnalysisFormat — so files still in the old format keep parsing
+// exactly as before, through parseAnalysisV3 above.
+const V41_SECTIONS = [
+  { name: "Onboarding and first run", slug: "onboarding" },
+  { name: "Core loop and automation", slug: "core-loop" },
+  { name: "Goals and progression", slug: "goals" },
+  { name: "Access and eligibility", slug: "access" },
+  { name: "Earning and utility", slug: "earning" },
+  { name: "Social", slug: "social" },
+  { name: "Growth", slug: "growth" },
+  { name: "Money", slug: "money" },
+  { name: "Return triggers", slug: "returns" },
+];
+const V41_SECTION_SLUG = new Map(V41_SECTIONS.map((s) => [s.name, s.slug]));
+
+function detectAnalysisFormat(file) {
+  const md = fs.readFileSync(path.join(repo, "sources/analyses", file), "utf8");
+  return /^# Pass one:/im.test(md) ? "v4.1" : "v3";
+}
+
+// Publishing bar (spec §1.3): tags publish only at confirmed or strongly
+// supported. A plausible tag stays in the analysis file and never enters the
+// parsed data — not even as a filtered-out record — so anything that reaches
+// an observation's `tags` array is already index-ready.
+//
+// "Directly observed" is included here even though it's not named in the
+// spec's publishing-bar wording: it's the observation-evidence vocabulary's
+// top tier, not the tag-confidence vocabulary's, and the two are used
+// interchangeably in this file (Earning Tasks is tagged at "directly
+// observed" rather than "confirmed"). Since directly observed is at least as
+// strong as confirmed, treating it as passing is the reading that doesn't
+// silently drop a tag over a labeling inconsistency — but the inconsistency
+// itself is real and is flagged separately, not papered over.
+const TAG_CONFIDENCE_RANK = { plausible: 0, "strongly supported": 1, confirmed: 2, "directly observed": 2 };
+function tagPublishes(confidence) {
+  const rank = TAG_CONFIDENCE_RANK[confidence.trim().toLowerCase()];
+  return rank !== undefined && rank >= 1;
+}
+
+// An observation's `evidence` is a single value, but the source annotates
+// tier per clause. This rolls a whole observation's Observed+Detail text up
+// to its weakest tier, defaulting to directly observed (the file's own
+// stated default for unannotated text) when no tier annotation is present
+// at all. Evidence never gates publication — observations always publish.
+const EVIDENCE_RANK = { unresolved: 0, plausible: 1, "strongly supported": 2, "directly observed": 3 };
+function rollupEvidence(text) {
+  let weakest = "directly observed";
+  for (const m of text.matchAll(/\(tier:\s*([^,)]+)/gi)) {
+    const key = m[1].trim().toLowerCase();
+    if (key in EVIDENCE_RANK && EVIDENCE_RANK[key] < EVIDENCE_RANK[weakest]) weakest = key;
+  }
+  return weakest;
+}
+
+// Evidence tiers and sequence caveats are analysis-internal bookkeeping —
+// removed here rather than carried into published data, per spec.
+function stripAnnotations(text) {
+  return text
+    .replace(/\s*\((?:tier|sequence caveat):[^)]*\)/gi, "")
+    .replace(/\s+([.,;:])/g, "$1")
+    .replace(/[ \t]{2,}/g, " ")
+    .trim();
+}
+
+// Splits text on a heading marker ("^## ", "^### ", ...) into {heading, body}
+// pairs, one per section at that level. Used at every level of the v4.1
+// heading hierarchy so no regex has to guess where one block ends and the
+// next begins — the split does that.
+function headingChunks(text, level) {
+  const marker = "^" + "#".repeat(level) + " ";
+  return text
+    .split(new RegExp(marker, "m"))
+    .slice(1)
+    .map((chunk) => {
+      const nl = chunk.indexOf("\n");
+      return { heading: chunk.slice(0, nl).trim(), body: chunk.slice(nl + 1) };
+    });
+}
+
+function h1Section(md, heading) {
+  const hit = headingChunks(md, 1).find((c) => c.heading.toLowerCase() === heading.toLowerCase());
+  return hit ? hit.body : null;
+}
+
+// Reads one labeled field out of a block, e.g. "**Rationale:** ...". Field
+// labels are inconsistently punctuated in the source ("Draft definition."
+// vs "Source observations:"), so both are accepted. Stops at the next
+// capitalised bold label or the end of the block.
+function field(block, label) {
+  const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const re = new RegExp("\\*\\*" + escaped + "[.:]\\*\\*\\s*([\\s\\S]*?)(?=\\n\\n\\*\\*[A-Z]|$)", "m");
+  const m = block.match(re);
+  return m ? m[1].trim() : "";
+}
+
+function idsIn(text) {
+  return [...text.matchAll(/O\d+/g)].map((m) => m[0]);
+}
+
+function parseAnalysisV41(file) {
+  const md = fs.readFileSync(path.join(repo, "sources/analyses", file), "utf8");
+
+  // ---- header: title line + four required labeled fields, before Pass one.
+  // Scoped to the preamble only, since bold "**Label:**" lines recur all
+  // through Pass Two and Three and would otherwise pollute this.
+  const preamble = md.split(/^# Pass one:/m)[0];
+  const header = {};
+  for (const [, k, v] of preamble.matchAll(/^\*\*([^:*]+):\*\*\s*(.+)$/gm)) header[k.trim()] = v.trim();
+  for (const required of ["Session date", "Additional sessions", "Analysis date", "Last updated"]) {
+    if (!header[required]) throw new Error(`${file}: v4.1 header is missing "${required}:"`);
+  }
+  const analysisDate = isoDate(header["Analysis date"]);
+  const lastUpdated = isoDate(header["Last updated"]);
+  if (!analysisDate) throw new Error(`${file}: "Analysis date" (${header["Analysis date"]}) is not a valid date`);
+  if (!lastUpdated) throw new Error(`${file}: "Last updated" (${header["Last updated"]}) is not a valid date`);
+
+  // ---- Pass one: observation record
+  const passOne = h1Section(md, "Pass one: observation record");
+  if (passOne === null) throw new Error(`${file}: "# Pass one: observation record" not found`);
+
+  const observations = [];
+  const obsById = new Map();
+  for (const { heading: sectionName, body: sectionBody } of headingChunks(passOne, 2)) {
+    const slug = V41_SECTION_SLUG.get(sectionName);
+    if (!slug) throw new Error(`${file}: unrecognized section "${sectionName}"`);
+
+    const parts = sectionBody.split(/^\*\*O(\d+)\.\s+/m).slice(1);
+    for (let i = 0; i < parts.length; i += 2) {
+      const id = "O" + parts[i];
+      if (obsById.has(id)) throw new Error(`${file}: duplicate observation id ${id}`);
+
+      const rest = parts[i + 1];
+      const titleMatch = rest.match(/^(.+?)\.\*\*\n([\s\S]*)$/);
+      if (!titleMatch) throw new Error(`${file}: ${id} heading is malformed`);
+      const [, title, body] = titleMatch;
+
+      const observedMatch = body.match(/\*\*Observed:\*\*\s*([\s\S]*?)\n\n\*\*Detail:\*\*/);
+      if (!observedMatch) throw new Error(`${file}: ${id} has no Observed paragraph`);
+      const detailMatch = body.match(/\*\*Detail:\*\*\s*([\s\S]*?)(?:\n\n\*Cross-reference:|$)/);
+      const crossRefMatch = body.match(/\*Cross-reference:\s*([^*]+)\*/);
+
+      const observedRaw = observedMatch[1].trim();
+      const detailRaw = detailMatch ? detailMatch[1].trim() : "";
+      const detail =
+        detailRaw && detailRaw !== "None."
+          ? [...detailRaw.matchAll(/^-\s+(.+)$/gm)].map((m) => stripAnnotations(m[1]))
+          : [];
+
+      const obs = {
+        id,
+        name: title.trim(),
+        section: slug,
+        observed: stripAnnotations(observedRaw),
+        detail,
+        evidence: rollupEvidence(observedRaw + " " + detailRaw),
+        tags: [],
+        crossRefs: crossRefMatch ? idsIn(crossRefMatch[1]) : [],
+        screenshots: [],
+      };
+      observations.push(obs);
+      obsById.set(id, obs);
+    }
+  }
+
+  // ---- Pass two: applied tags. The rejected-entries, unresolved and
+  // never-observed lists aren't part of the content model (spec §1) and are
+  // deliberately left unparsed — they stay in the source file only.
+  const passTwo = h1Section(md, "Pass two: tagging");
+  if (passTwo === null) throw new Error(`${file}: "# Pass two: tagging" not found`);
+  const appliedBlock = headingChunks(passTwo, 2).find((c) => c.heading === "Applied tags");
+  for (const chunk of (appliedBlock?.body ?? "").split(/^\*\*Tag:\*\*\s*/m).slice(1)) {
+    const nl = chunk.indexOf("\n");
+    const tagName = chunk.slice(0, nl).trim();
+    const block = chunk.slice(nl + 1);
+
+    const obsLine = block.match(/\*\*Observations:\*\*\s*(.+)/);
+    const confLine = block.match(/\*\*Confidence:\*\*\s*(.+)/);
+    if (!obsLine || !confLine) throw new Error(`${file}: tag "${tagName}" is missing Observations or Confidence`);
+
+    const confidence = confLine[1].trim();
+    if (!tagPublishes(confidence)) continue;
+
+    // Confidence is stated once per tag block, covering every observation it
+    // lists, not independently per observation — so the same value is
+    // copied onto each one. Rationale and Alternative considered are carried
+    // verbatim (tier annotations included) for future review; nothing
+    // renders them yet.
+    const tagEntry = {
+      name: tagName,
+      confidence,
+      rationale: field(block, "Rationale"),
+      alternativeConsidered: field(block, "Alternative considered"),
+    };
+    for (const id of idsIn(obsLine[1])) {
+      const obs = obsById.get(id);
+      if (!obs) throw new Error(`${file}: tag "${tagName}" references unknown observation ${id}`);
+      obs.tags.push(tagEntry);
+    }
+  }
+
+  // ---- Pass three: proposed tags — recorded per app, never rendered (§1.6)
+  const passThree = h1Section(md, "Pass three: proposed new tags") ?? "";
+  const proposedTags = headingChunks(passThree, 3).map(({ heading, body }) => ({
+    name: heading,
+    sourceObservations: idsIn(field(body, "Source observations")),
+    draftDefinition: field(body, "Draft definition"),
+    conditions: field(body, "Conditions it appears to depend on"),
+    whyNotCovered: field(body, "Why it is not covered"),
+    recurrenceElsewhere: field(body, "Recurrence elsewhere"),
+    caveat: field(body, "Caveat") || field(body, "Caveat on the third test"),
+  }));
+
+  // ---- Close: system view — narrative only; node positions and connections
+  // for the diagram still come from data.js SYSTEMS + system.html (§1.5).
+  // This section is plain paragraphs in the source, not subheadings, so it's
+  // stored as one string per paragraph rather than {heading, body} blocks.
+  const close = h1Section(md, "Close: system view") ?? "";
+  const systemView = close
+    .split(/\n{2,}/)
+    .map((p) => p.trim())
+    .filter(Boolean);
+
+  return { analysisDate, lastUpdated, observations, proposedTags, systemView };
 }
 
 function isoDate(s) {
@@ -349,10 +578,109 @@ const publicAssets = new Set();
 
 const knownMechanicIds = new Set([...MECHANICS.map((m) => m.id), ...NEW_MECHANICS.map((m) => m.id)]);
 
+// system map: nodes from POSITIONS (skip "center"), connections from
+// CONNECTIONS. Shared by both analysis formats — node positions and
+// connection pairs come from system.html regardless of format (spec §1.5).
+function buildSystemMap(appId) {
+  const sys = SYSTEMS.find((s) => s.app_id === appId) ?? null;
+  if (!sys) return null;
+  const pos = POSITIONS[appId] ?? {};
+  const nodes = Object.entries(pos)
+    .filter(([k]) => k !== "center")
+    .map(([id, p]) => ({ id, x: p.x, y: p.y }));
+  return {
+    tagline: sys.tagline,
+    overview: sys.overview,
+    loop: sys.loop_description,
+    keyInsight: sys.key_insight,
+    whatMakesItWork: sys.what_makes_it_work,
+    roles: sys.mechanics.map((m) => ({ id: m.id, role: m.role })),
+    center: pos.center ?? null,
+    nodes,
+    // The live v44 page skips connections whose endpoints have no position
+    // (`if (!fp || !tp) return;` in system.html), so they never render.
+    // Dropping them here matches what the live site actually shows.
+    connections: (CONNECTIONS[appId] ?? [])
+      .filter((c) => {
+        const ok = pos[c.from] && pos[c.to];
+        if (!ok) console.warn(`note: ${appId} connection ${c.from}->${c.to} has no position; skipped (matches live site)`);
+        return ok;
+      })
+      .map((c) => ({ from: c.from, to: c.to, title: c.title, desc: c.desc, effect: c.effect })),
+  };
+}
+
+function resolveIcons(appId) {
+  return [`icons/${appId}.png`, `icons/${appId}.webp`, `icons/${appId}.jpg`].filter((p) =>
+    fs.existsSync(path.join(repo, p))
+  );
+}
+
+function resolveHeroImage(appId) {
+  const candidates = [
+    appId + "-case-study.png", appId + "-case-study.webp", appId + "-case-study.jpg",
+    appId + "-pass-lives.webp", appId + "-pass-lives.png",
+  ];
+  const found = candidates.find((f) => fs.existsSync(path.join(here, "../public/images", f)));
+  return found ? "/images/" + found : null;
+}
+
+// Catalog metadata (name/category/type/summary/teaser) for v4.1 apps with no
+// v44 entry. v44 is the hand-maintained catalog; the analysis file itself
+// only records behavior, so a v4.1 app needs this registered somewhere until
+// it has a home of its own. Dave's values are carried over from its prior
+// write-up (a deeper re-analysis of the same app, not a different one), not
+// invented for this step — the previous summary and category still hold.
+const V41_APP_META = {
+  dave: {
+    name: "Dave",
+    category: "Finance / Neo-bank + Cash Advance",
+    type: "app",
+    summary:
+      "Dave is a US fintech app primarily positioned around interest-free cash advances (up to $500). It combines a checking account, a goals savings product, a cash advance feature (Extra Cash), and income-generating side features (surveys, side hustle job listings). A $1/month membership fee covers the core product.",
+    teaser: null,
+  },
+};
+
 for (const entry of ALL_APPS) {
-  const a = parseAnalysis(entry.file);
+  if (detectAnalysisFormat(entry.file) === "v4.1") {
+    const a = parseAnalysisV41(entry.file);
+    const meta = V41_APP_META[entry.id];
+    if (!meta) throw new Error(`${entry.id}: no catalog metadata registered in V41_APP_META for this v4.1 app`);
+
+    const icons = resolveIcons(entry.id);
+    // Collect assets to sync into public/ — but never for report-only apps.
+    if (entry.visibility !== "report-only") {
+      for (const icon of icons) publicAssets.add(icon);
+      // No screenshots yet under the new {appId}_{observationId} key scheme
+      // (spec §6.2) — re-keying existing screenshots is separate work.
+    }
+
+    write("apps", entry.id, {
+      id: entry.id,
+      name: meta.name,
+      category: meta.category,
+      type: meta.type,
+      // The rotating free slot overrides the declared visibility (standing
+      // rule: two open case studies — strava plus the newest addition).
+      visibility: entry.id === ROTATING_FREE_APP ? "public" : entry.visibility,
+      analysisDate: a.analysisDate,
+      lastUpdated: a.lastUpdated,
+      summary: meta.summary,
+      teaser: meta.teaser,
+      icon: icons[0] ? "/" + icons[0] : null,
+      heroImage: resolveHeroImage(entry.id),
+      contentFormat: "v4.1",
+      observations: a.observations,
+      proposedTags: a.proposedTags,
+      systemView: a.systemView,
+      system: buildSystemMap(entry.id),
+    });
+    continue;
+  }
+
+  const a = parseAnalysisV3(entry.file);
   const v44 = APPS.find((x) => x.id === entry.id) ?? null;
-  const sys = SYSTEMS.find((s) => s.app_id === entry.id) ?? null;
 
   // relationship set
   const rels = a.observed.map((r) => ({ ...r, id: REMAPS[entry.id]?.[r.id] ?? r.id }));
@@ -393,43 +721,7 @@ for (const entry of ALL_APPS) {
       };
     });
 
-  // system map: nodes from POSITIONS (skip "center"), connections from CONNECTIONS
-  let system = null;
-  if (sys) {
-    const pos = POSITIONS[entry.id] ?? {};
-    const nodes = Object.entries(pos)
-      .filter(([k]) => k !== "center")
-      .map(([id, p]) => ({ id, x: p.x, y: p.y }));
-    system = {
-      tagline: sys.tagline,
-      overview: sys.overview,
-      loop: sys.loop_description,
-      keyInsight: sys.key_insight,
-      whatMakesItWork: sys.what_makes_it_work,
-      roles: sys.mechanics.map((m) => ({ id: m.id, role: m.role })),
-      center: pos.center ?? null,
-      nodes,
-      // The live v44 page skips connections whose endpoints have no position
-      // (`if (!fp || !tp) return;` in system.html), so they never render.
-      // Dropping them here matches what the live site actually shows.
-      connections: (CONNECTIONS[entry.id] ?? [])
-        .filter((c) => {
-          const ok = pos[c.from] && pos[c.to];
-          if (!ok) console.warn(`note: ${entry.id} connection ${c.from}->${c.to} has no position; skipped (matches live site)`);
-          return ok;
-        })
-        .map((c) => ({
-          from: c.from,
-          to: c.to,
-          title: c.title,
-          desc: c.desc,
-          effect: c.effect,
-        })),
-    };
-  }
-
-  const iconCandidates = [`icons/${entry.id}.png`, `icons/${entry.id}.webp`, `icons/${entry.id}.jpg`];
-  const icons = iconCandidates.filter((p) => fs.existsSync(path.join(repo, p)));
+  const icons = resolveIcons(entry.id);
 
   // Collect assets to sync into public/ — but never for report-only apps:
   // nothing of theirs may reach the deployed output, including images.
@@ -453,16 +745,9 @@ for (const entry of ALL_APPS) {
     summary: v44?.summary ?? a.overview,
     teaser: v44?.teaser ?? null,
     icon: icons[0] ? "/" + icons[0] : null,
-    heroImage: (() => {
-      const imageCandidates = [
-        entry.id + "-case-study.png", entry.id + "-case-study.webp", entry.id + "-case-study.jpg",
-        entry.id + "-pass-lives.webp", entry.id + "-pass-lives.png",
-      ];
-      const found = imageCandidates.find((f) => fs.existsSync(path.join(here, "../public/images", f)));
-      return found ? "/images/" + found : null;
-    })(),
+    heroImage: resolveHeroImage(entry.id),
     mechanics: relationships,
-    system,
+    system: buildSystemMap(entry.id),
   });
 }
 

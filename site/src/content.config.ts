@@ -12,6 +12,60 @@ const writeup = z
   })
   .nullable();
 
+// v4.1 content model (appservatory spec §1). An app carries either the v3
+// shape (`mechanics`, depth-graded) or the v4.1 shape (`observations`,
+// `systemView`, `proposedTags`), selected by `contentFormat`. Both sets of
+// fields are optional so neither format is forced to populate the other's.
+const observationTag = z.object({
+  name: z.string(),
+  confidence: z.string(),
+  // Carried for future review even though nothing renders it yet (spec
+  // review, 9 Sep 2026): re-deriving this from 40 analysis files later would
+  // mean re-parsing all of them, so it comes along now.
+  rationale: z.string(),
+  alternativeConsidered: z.string(),
+});
+
+const V41_SECTION_SLUGS = [
+  "onboarding",
+  "core-loop",
+  "goals",
+  "access",
+  "earning",
+  "social",
+  "growth",
+  "money",
+  "returns",
+] as const;
+
+const observation = z.object({
+  id: z.string(),
+  name: z.string(),
+  section: z.enum(V41_SECTION_SLUGS),
+  observed: z.string(),
+  detail: z.array(z.string()),
+  evidence: z.enum(["directly observed", "strongly supported", "plausible", "unresolved"]),
+  // Publishing bar (spec §1.3) is enforced at parse time: a tag below
+  // strongly-supported/confirmed never reaches this array at all.
+  tags: z.array(observationTag),
+  // Other observations this one points to, by id. Rendered as the titles of
+  // the observations they point to at template time, never as codes.
+  crossRefs: z.array(z.string()),
+  screenshots: z.array(z.object({ src: z.string(), caption: z.string().nullable() })),
+});
+
+// Recorded per app, not rendered (spec §1.6) — input to library decisions,
+// not published content.
+const proposedTag = z.object({
+  name: z.string(),
+  sourceObservations: z.array(z.string()),
+  draftDefinition: z.string(),
+  conditions: z.string(),
+  whyNotCovered: z.string(),
+  recurrenceElsewhere: z.string(),
+  caveat: z.string(),
+});
+
 const apps = defineCollection({
   loader: glob({ pattern: "*.json", base: "./src/content/apps" }),
   schema: z.object({
@@ -28,17 +82,28 @@ const apps = defineCollection({
     teaser: z.string().nullable(),
     icon: z.string().nullable(),
     heroImage: z.string().nullable(),
-    mechanics: z.array(
-      z.object({
-        id: z.string(),
-        depth: z.enum(["core", "supporting", "shallow", "unusual"]),
-        provisionalDepth: z.boolean().optional(),
-        note: z.string().optional(),
-        writeup,
-        screenshots: z.array(z.object({ src: z.string(), caption: z.string().nullable() })),
-        suggestedShots: z.array(z.string()),
-      })
-    ),
+    // "v3" (default, unset in existing files) or "v4.1". Distinguishes which
+    // of the two field sets below is populated.
+    contentFormat: z.enum(["v3", "v4.1"]).default("v3"),
+    mechanics: z
+      .array(
+        z.object({
+          id: z.string(),
+          depth: z.enum(["core", "supporting", "shallow", "unusual"]),
+          provisionalDepth: z.boolean().optional(),
+          note: z.string().optional(),
+          writeup,
+          screenshots: z.array(z.object({ src: z.string(), caption: z.string().nullable() })),
+          suggestedShots: z.array(z.string()),
+        })
+      )
+      .optional(),
+    observations: z.array(observation).optional(),
+    // Narrative only, one string per paragraph — node positions and
+    // connection pairs for the diagram still come from `system` below,
+    // sourced from system.html (spec §1.5).
+    systemView: z.array(z.string()).optional(),
+    proposedTags: z.array(proposedTag).optional(),
     system: z
       .object({
         tagline: z.string(),
