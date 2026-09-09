@@ -123,36 +123,6 @@ function NewThisWeek({ items }) {
   );
 }
 
-const ENGAGEMENT = [
-  { h: "Discovery", p: "We learn your product, your users, and your goals." },
-  { h: "Analysis", p: "We review your app and your category to find the best openings." },
-  { h: "Gamification recommendations for your app", p: "An evidence-backed roadmap your team can ship." },
-];
-
-/** How we work: presented like the finance landing's "how we work" section —
- *  kicker, heading, and the numbered steps in catland-steps layout. */
-function WorkWithUsBridge() {
-  return (
-    <section className="band" id="work" aria-labelledby="work-h">
-      <div className="container">
-        <div className="mech-section__kicker">How we work</div>
-        <h2 className="mech-section__title" id="work-h">A practice you can hire, not just a library you can read</h2>
-        <ol className="catland-steps">
-          {ENGAGEMENT.map((t, i) => (
-            <li className="catland-step" key={t.h}>
-              <span className="catland-step__n" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
-              <div>
-                <h3 className="catland-step__title">{t.h}</h3>
-                <p className="catland-step__body">{t.p}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </section>
-  );
-}
-
 /** Bottom homepage sections, in page order. */
 export function HomeBottom({ featured, newThisWeek, showcase }) {
   return (
@@ -161,7 +131,6 @@ export function HomeBottom({ featured, newThisWeek, showcase }) {
       {showcase && <SystemShowcase showcase={showcase} />}
       <WorkWithUsSection />
       {newThisWeek?.length > 0 && <NewThisWeek items={newThisWeek} />}
-      <WorkWithUsBridge />
     </>
   );
 }
