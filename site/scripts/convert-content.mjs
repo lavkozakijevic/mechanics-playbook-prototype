@@ -15,6 +15,7 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import { V41_SECTIONS } from "../src/lib/v41-sections.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repo = path.resolve(here, "../..");
@@ -147,18 +148,8 @@ function parseAnalysisV3(file) {
 // observation with a confidence value, proposed (unapplied) tags, and a
 // narrative system view (appservatory spec §1). Detected per file — see
 // detectAnalysisFormat — so files still in the old format keep parsing
-// exactly as before, through parseAnalysisV3 above.
-const V41_SECTIONS = [
-  { name: "Onboarding and first run", slug: "onboarding" },
-  { name: "Core loop and automation", slug: "core-loop" },
-  { name: "Goals and progression", slug: "goals" },
-  { name: "Access and eligibility", slug: "access" },
-  { name: "Earning and utility", slug: "earning" },
-  { name: "Social", slug: "social" },
-  { name: "Growth", slug: "growth" },
-  { name: "Money", slug: "money" },
-  { name: "Return triggers", slug: "returns" },
-];
+// exactly as before, through parseAnalysisV3 above. The section list itself
+// lives in v41-sections.mjs, shared with the template layer.
 const V41_SECTION_SLUG = new Map(V41_SECTIONS.map((s) => [s.name, s.slug]));
 
 function detectAnalysisFormat(file) {
@@ -563,7 +554,7 @@ const ALL_APPS = [
   { file: "wakeout.md", id: "wakeout", visibility: "subscriber" },
   // Report-only remainder (never appear in deployed output)
   { file: "orbit.md", id: "orbit", visibility: "report-only" },
-  { file: "dave.md", id: "dave", visibility: "report-only" },
+  { file: "dave.md", id: "dave", visibility: "subscriber" },
   { file: "acorns.md", id: "acorns", visibility: "subscriber" },
   { file: "starling-bank.md", id: "starling-bank", visibility: "report-only" },
   { file: "george-erste-bank.md", id: "george-app-erste-serbia", visibility: "report-only" },
@@ -625,20 +616,54 @@ function resolveHeroImage(appId) {
   return found ? "/images/" + found : null;
 }
 
-// Catalog metadata (name/category/type/summary/teaser) for v4.1 apps with no
-// v44 entry. v44 is the hand-maintained catalog; the analysis file itself
-// only records behavior, so a v4.1 app needs this registered somewhere until
-// it has a home of its own. Dave's values are carried over from its prior
-// write-up (a deeper re-analysis of the same app, not a different one), not
-// invented for this step — the previous summary and category still hold.
+// Catalog metadata (name/category/type/summary/teaser/copy) for v4.1 apps
+// with no v44 entry. v44 is the hand-maintained catalog; the analysis file
+// itself only records behavior, so a v4.1 app needs this registered
+// somewhere until it has a home of its own.
+//
+// summary/teaser are the approved Stage 2 case-study copy (app description
+// and one-line teaser), reviewed and signed off — not the app's old v3
+// write-up, which was only ever a stopgap to unblock validation.
+//
+// sectionLeadIns and sectionCards are per-section authored copy: a 2-3
+// sentence orienting lead-in for each section's own page, and a one-line
+// blurb for that section's card on the summary page (spec §2.1/§2.2). Both
+// are keyed by section slug (see v41-sections.mjs) and both are optional —
+// sectionLeadIns is deliberately incomplete right now (only the two sections
+// reviewed so far are filled in; validate-content.mjs warns, not fails, on
+// the rest until all are written). sectionCards is complete for Dave.
 const V41_APP_META = {
   dave: {
     name: "Dave",
     category: "Finance / Neo-bank + Cash Advance",
     type: "app",
     summary:
-      "Dave is a US fintech app primarily positioned around interest-free cash advances (up to $500). It combines a checking account, a goals savings product, a cash advance feature (Extra Cash), and income-generating side features (surveys, side hustle job listings). A $1/month membership fee covers the core product.",
-    teaser: null,
+      "Dave is a banking app built around two things: a Dave Checking account and a small cash advance called Extra Cash, worth up to $500. Almost everything in the app is organized around one decision made early on, connecting the bank account a user is already paid into, since that connection is what Dave uses to decide advance eligibility, and it's also one of the things the $1 monthly membership pays for. Saving happens through round-ups on Dave's own debit card, which flow into a Goals account created automatically the first time round-ups are turned on. Getting paid faster by moving direct deposit to Dave does double duty: it's marketed as arriving up to 2 days early, and it's also how an advance eventually gets repaid.",
+    teaser:
+      "A cash advance and checking app where saving, borrowing, and getting referred all wait on the same bank connection to clear.",
+    sectionLeadIns: {
+      onboarding:
+        "This section covers everything between opening Dave for the first time and reaching the empty home screen. It runs through the pitch before signup, identity verification, and connecting a bank account and debit card.",
+      growth:
+        "This section covers Dave's referral program: where it sits in the app, what it pays, and the steps involved in earning it.",
+    },
+    sectionCards: {
+      onboarding:
+        "Dave walks new users through signup, identity checks, and connecting a bank and debit card before showing an empty home screen.",
+      "core-loop":
+        "Dave runs everything through the checking account once it exists: adding money, moving money, direct deposit, round-ups, checks, cash, and bill pay.",
+      goals: "Dave creates, personalizes, extends, and ends a user's savings goals.",
+      access: "Dave pitches, explains, and gates the Extra Cash advance behind eligibility.",
+      earning:
+        "Dave pays users for surveys and a profiling questionnaire, and points them to outside jobs through a board of its own.",
+      social:
+        "Dave has no feature that lets a user see, interact with, compare against, or team up with another identified person.",
+      growth: "Dave runs its referral program from settings and pays it out as a bigger future advance.",
+      money:
+        "Dave charges for membership, advance delivery, funding, cash and check handling, and pays interest on two of its accounts.",
+      returns:
+        "Dave brings users back through notifications, balance alerts, and a marketing consent gathered during signup.",
+    },
   },
 };
 
@@ -674,6 +699,8 @@ for (const entry of ALL_APPS) {
       observations: a.observations,
       proposedTags: a.proposedTags,
       systemView: a.systemView,
+      sectionLeadIns: meta.sectionLeadIns ?? {},
+      sectionCards: meta.sectionCards ?? {},
       system: buildSystemMap(entry.id),
     });
     continue;

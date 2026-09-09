@@ -1,0 +1,124 @@
+---
+/**
+ * The v4.1 case study summary page body (spec §2.1). Plain Astro, no client
+ * hydration for content — see the gating note below. Unstyled at this
+ * stage (build order step 2); a design pass comes later, once there's a
+ * second v4.1 app to design against.
+ */
+import ObservationCard from "./ObservationCard.astro";
+import { GateWidget } from "./GateWidget.jsx";
+import { SystemMap } from "./SystemDetail.jsx";
+import { allSectionCounts, crossRefLookup, tagBlocks } from "../../lib/v41";
+import { PREVIEW_UNLOCK } from "../../lib/preview";
+
+interface Props {
+  app: any;
+  mechanicsById: Map<string, any>;
+}
+
+const { app, mechanicsById } = Astro.props as Props;
+
+// Gating (spec §2.1): "not present in HTML at all." This page never reads
+// `app.observations`/`systemView`/`proposedTags` into the template below
+// this point when locked — there is nothing to strip client-side because
+// nothing gated is interpolated in the first place. PREVIEW_UNLOCK is a
+// build-time-only override (off by default, see lib/preview.ts) for reading
+// gated content locally before authentication exists.
+const locked = app.visibility !== "public" && !PREVIEW_UNLOCK;
+
+// Diagram mapping, computed here (not inline in the template) so the
+// client:visible directive below binds to a real, statically-analyzable
+// component reference. Best-effort and not yet exercised by any real v4.1
+// app — Dave has no system.html entry, so app.system is null and none of
+// this runs. Kept minimal and defensive rather than reusing systemProps(),
+// which assumes the v3 `mechanics` shape (dominantCategory() there iterates
+// app.mechanics, which v4.1 apps don't have).
+const systemNodes = app.system
+  ? app.system.nodes.map((n: any) => {
+      const mechanic = mechanicsById.get(n.id);
+      return {
+        id: n.id,
+        x: n.x,
+        y: n.y,
+        label: mechanic?.name ?? n.id,
+        category: mechanic?.cat ?? "retention",
+        href: mechanic ? `/mechanics/${mechanic.id}/` : "#",
+        spine: false,
+      };
+    })
+  : [];
+const systemById = Object.fromEntries(systemNodes.map((n: any) => [n.id, n]));
+const systemConnections = app.system
+  ? app.system.connections.map((c: any) => ({ from: c.from, to: c.to, type: "mechanic", label: c.title }))
+  : [];
+
+const observationLookup = crossRefLookup(app);
+const mechanicBlocks = tagBlocks(app, mechanicsById);
+const sections = allSectionCounts(app);
+---
+
+<header class="v41-cs-header">
+  {app.icon && <img class="v41-cs-icon" src={app.icon} alt="" />}
+  <p class="v41-cs-category">{app.category}</p>
+  <h1 class="v41-cs-name">{app.name}</h1>
+  <p class="v41-cs-description">{app.summary}</p>
+</header>
+
+{locked ? (
+  <div class="v41-cs-gate">
+    <GateWidget client:load />
+  </div>
+) : (
+  <div class="v41-cs-body">
+    {/* 1. System view — narrative first, diagram only when one exists (Dave
+        has none yet: no system.html entry, and that's fine for now). */}
+    <section class="v41-cs-systemview" aria-label="System view">
+      <h2>System view</h2>
+      {(app.systemView ?? []).map((p: string) => <p>{p}</p>)}
+      {app.system && (
+        <div class="v41-cs-diagram">
+          <SystemMap client:visible nodes={systemNodes} connections={systemConnections} byId={systemById} />
+        </div>
+      )}
+    </section>
+
+    {/* 2. Mechanics — one block per applied tag. */}
+    <section class="v41-cs-mechanics" aria-label="Mechanics">
+      <h2>Mechanics</h2>
+      {mechanicBlocks.map((block) => (
+        <div class="v41-mechanic-block">
+          {block.mechanic ? (
+            <a class="v41-mechanic-block__name" href={`/mechanics/${block.mechanic.id}/`}>{block.mechanic.name}</a>
+          ) : (
+            <span class="v41-mechanic-block__name">{block.name}</span>
+          )}
+          {block.observations.map((o) => (
+            <ObservationCard observation={o} appId={app.id} crossRefLookup={observationLookup} mechanicsById={mechanicsById} />
+          ))}
+        </div>
+      ))}
+    </section>
+
+    {/* 3. The full record — nine section cards, empty ones unlinked. */}
+    <section class="v41-cs-record" aria-label="The full record">
+      <h2>The full record</h2>
+      <div class="v41-record-cards">
+        {sections.map((s) => (
+          s.count > 0 ? (
+            <a class="v41-record-card" href={`/case-studies/${app.id}/${s.slug}/`}>
+              <h3>{s.name}</h3>
+              <p>{app.sectionCards?.[s.slug] ?? ""}</p>
+              <span>{s.count} observation{s.count === 1 ? "" : "s"}</span>
+            </a>
+          ) : (
+            <div class="v41-record-card v41-record-card--empty">
+              <h3>{s.name}</h3>
+              <p>{app.sectionCards?.[s.slug] ?? ""}</p>
+              <span>0 observations</span>
+            </div>
+          )
+        ))}
+      </div>
+    </section>
+  </div>
+)}

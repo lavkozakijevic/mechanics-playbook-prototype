@@ -15,10 +15,13 @@ export async function publishedMechanics(): Promise<CollectionEntry<"mechanics">
     .sort((a, b) => a.data.n.localeCompare(b.data.n));
 }
 
-/** Apps that use a mechanic — computed, never stored twice. */
+/** Apps that use a mechanic — computed, never stored twice. Not currently
+ *  called from anywhere (kept for the mechanics index rebuild, spec §3);
+ *  guarded the same as mechanics/index.astro's count() since v4.1 apps carry
+ *  no `mechanics` array. */
 export async function appsUsingMechanic(mechanicId: string) {
   const apps = await publishedApps();
-  return apps.filter((a) => a.data.mechanics.some((m) => m.id === mechanicId));
+  return apps.filter((a) => (a.data.mechanics ?? []).some((m) => m.id === mechanicId));
 }
 
 export const CAT_LABEL: Record<string, string> = {

@@ -1,0 +1,83 @@
+---
+/**
+ * One observation, rendered in full (spec §2.3). Used identically by a
+ * section page (every observation in that section) and by a mechanic block
+ * on the summary page (just the observations carrying that tag) — same
+ * component, same output, deliberately appearing twice per spec §2.3.
+ *
+ * This step renders unstyled (build order step 2) — plain semantic HTML,
+ * no design pass yet.
+ */
+import { kebabId } from "../../lib/v41";
+
+interface Props {
+  observation: {
+    id: string;
+    name: string;
+    observed: string;
+    detail: string[];
+    tags: { name: string; confidence: string }[];
+    crossRefs: string[];
+    screenshots: { src: string; caption: string | null }[];
+  };
+  appId: string;
+  crossRefLookup: Map<string, { name: string; section: string }>;
+  mechanicsById: Map<string, { id: string; name: string }>;
+}
+
+const { observation, appId, crossRefLookup, mechanicsById } = Astro.props as Props;
+
+const resolvedCrossRefs = observation.crossRefs
+  .map((id) => {
+    const target = crossRefLookup.get(id);
+    return target ? { id, ...target } : null;
+  })
+  .filter((x): x is { id: string; name: string; section: string } => x !== null);
+---
+
+<article id={observation.id} class="v41-observation">
+  <h3 class="v41-observation__title">{observation.name}</h3>
+  <p class="v41-observation__observed">{observation.observed}</p>
+
+  {observation.detail.length > 0 && (
+    <ul class="v41-observation__detail">
+      {observation.detail.map((d) => <li>{d}</li>)}
+    </ul>
+  )}
+
+  {observation.tags.length > 0 && (
+    <div class="v41-observation__tags">
+      {observation.tags.map((t) => {
+        const mechanic = mechanicsById.get(kebabId(t.name));
+        return mechanic ? (
+          <a class="v41-chip" href={`/mechanics/${mechanic.id}/`}>{mechanic.name}</a>
+        ) : (
+          <span class="v41-chip v41-chip--unlinked">{t.name}</span>
+        );
+      })}
+    </div>
+  )}
+
+  {observation.screenshots.length > 0 && (
+    <div class="v41-observation__shots">
+      {observation.screenshots.map((s) => (
+        <figure>
+          <img src={s.src} alt={s.caption ?? ""} />
+          {s.caption && <figcaption>{s.caption}</figcaption>}
+        </figure>
+      ))}
+    </div>
+  )}
+
+  {resolvedCrossRefs.length > 0 && (
+    <p class="v41-observation__crossrefs">
+      Related:{" "}
+      {resolvedCrossRefs.map((r, i) => (
+        <>
+          <a href={`/case-studies/${appId}/${r.section}/#${r.id}`}>{r.name}</a>
+          {i < resolvedCrossRefs.length - 1 ? ", " : ""}
+        </>
+      ))}
+    </p>
+  )}
+</article>

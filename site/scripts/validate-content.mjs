@@ -16,6 +16,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { V41_SECTIONS } from "../src/lib/v41-sections.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const content = path.resolve(here, "../src/content");
@@ -24,6 +25,13 @@ const pub = path.resolve(here, "../public");
 const problems = [];
 function problem(file, message) {
   problems.push(`${file}: ${message}`);
+}
+
+// Warnings never stop the build (unlike problems above) — for content that's
+// incomplete by design during build-out rather than broken.
+const warnings = [];
+function warn(file, message) {
+  warnings.push(`${file}: ${message}`);
 }
 
 function readCollection(name) {
@@ -117,6 +125,19 @@ for (const { file, data } of apps) {
     for (const m of data.mechanics ?? []) {
       if ((m.screenshots ?? []).length)
         problem(file, "report-only app has screenshots — report-only content must not ship any assets");
+    }
+  }
+
+  // v4.1 apps: every non-empty section should have an authored lead-in
+  // (spec §2.2). This is a warning, not a failure, while the remaining
+  // sections are still being written one sitting at a time — tighten to a
+  // hard fail once every non-empty section across every v4.1 app has one.
+  if (data.contentFormat === "v4.1") {
+    const leadIns = data.sectionLeadIns ?? {};
+    const nonEmptySlugs = new Set((data.observations ?? []).map((o) => o.section));
+    for (const { slug, name } of V41_SECTIONS) {
+      if (nonEmptySlugs.has(slug) && !leadIns[slug]?.trim())
+        warn(file, `section "${name}" (${slug}) has no lead-in yet`);
     }
   }
 }
@@ -235,6 +256,11 @@ for (const { file, base, data } of categories) {
 }
 
 // ---- result
+if (warnings.length) {
+  console.warn(`Content validation: ${warnings.length} warning(s) (build continues):\n`);
+  for (const w of warnings) console.warn("  ! " + w);
+  console.warn("");
+}
 if (problems.length) {
   console.error(`Content validation failed — ${problems.length} problem(s):\n`);
   for (const p of problems) console.error("  ✗ " + p);

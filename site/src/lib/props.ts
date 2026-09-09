@@ -5,6 +5,7 @@
  */
 import type { CollectionEntry } from "astro:content";
 import { CAT_LABEL, formatDate, numberWord, playerChip, titleCase } from "./content";
+import { kebabId } from "./v41";
 
 type App = CollectionEntry<"apps">["data"];
 type Mechanic = CollectionEntry<"mechanics">["data"];
@@ -213,6 +214,39 @@ export function systemProps(app: App, byId: MechanicsById) {
 
 // ------------------------------------------------------------- index cards
 export function appCard(app: App, byId?: MechanicsById) {
+  // v4.1 apps carry no `mechanics` array at all (observations + tags
+  // replace it) — this card needs its own reading of "which mechanics does
+  // this app use" rather than assuming the v3 shape.
+  if (app.contentFormat === "v4.1") {
+    const seen = new Set<string>();
+    const tagNames: string[] = [];
+    for (const o of app.observations ?? []) {
+      for (const t of o.tags) {
+        if (!seen.has(t.name)) {
+          seen.add(t.name);
+          tagNames.push(t.name);
+        }
+      }
+    }
+    return {
+      tags: byId ? tagNames.slice(0, 4).map((name) => byId.get(kebabId(name))?.name ?? name) : undefined,
+      id: app.id,
+      name: app.name,
+      category: app.category,
+      desc: app.teaser ?? app.summary,
+      mechanicCount: tagNames.length,
+      date: formatDate(app.analysisDate),
+      // The case study page itself renders the gate inline (spec §2.1), so
+      // the card always links straight there regardless of visibility —
+      // unlike the v3 pattern below, which redirects locked apps elsewhere.
+      href: `/case-studies/${app.id}/`,
+      iconSrc: app.icon,
+      iconInitials: initials(app.name),
+      free: app.visibility === "public",
+      locked: app.visibility === "subscriber",
+    };
+  }
+
   const tags = byId
     ? sortedRelationships(app)
         .slice(0, 4)

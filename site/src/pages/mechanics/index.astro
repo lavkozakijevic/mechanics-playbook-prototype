@@ -6,7 +6,10 @@ import { mechanicCard } from "../../lib/props";
 
 const mechanics = await publishedMechanics();
 const apps = await publishedApps();
-const count = (id: string) => apps.filter((a) => a.data.mechanics.some((m) => m.id === id)).length;
+// (a.data.mechanics ?? []) guards v4.1 apps, which carry no `mechanics`
+// array — they contribute nothing to this count until the mechanics index
+// itself is rebuilt on tags/implementations (spec §3), a later step.
+const count = (id: string) => apps.filter((a) => (a.data.mechanics ?? []).some((m) => m.id === id)).length;
 
 const cards = mechanics.map((m) => mechanicCard(m.data, count(m.data.id)));
 const contextOptions = [...new Set(mechanics.flatMap((m) => m.data.context ?? []))].map(titleCase);

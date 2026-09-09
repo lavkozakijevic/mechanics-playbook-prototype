@@ -1,6 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import { CaseStudyDetailPage } from "../../components/site/CaseStudyDetail.jsx";
+import CaseStudySummaryV41 from "../../components/site/CaseStudySummaryV41.astro";
 import { publishedApps, publishedMechanics } from "../../lib/content";
 import { caseStudyProps } from "../../lib/props";
 
@@ -9,9 +10,8 @@ export async function getStaticPaths() {
 }
 
 const { app } = Astro.props;
-const byId = new Map((await publishedMechanics()).map((m) => [m.data.id, m.data]));
-const props = caseStudyProps(app.data, byId);
-const locked = app.data.visibility !== "public";
+const mechanics = await publishedMechanics();
+const byId = new Map(mechanics.map((m) => [m.data.id, m.data]));
 ---
 
 <Base
@@ -19,5 +19,9 @@ const locked = app.data.visibility !== "public";
   description={app.data.summary.slice(0, 155)}
   current="case-studies"
 >
-  <CaseStudyDetailPage client:load app={props} locked={locked} />
+  {app.data.contentFormat === "v4.1" ? (
+    <CaseStudySummaryV41 app={app.data} mechanicsById={byId} />
+  ) : (
+    <CaseStudyDetailPage client:load app={caseStudyProps(app.data, byId)} locked={app.data.visibility !== "public"} />
+  )}
 </Base>

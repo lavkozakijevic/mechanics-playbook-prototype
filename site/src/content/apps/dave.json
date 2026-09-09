@@ -3,11 +3,11 @@
   "name": "Dave",
   "category": "Finance / Neo-bank + Cash Advance",
   "type": "app",
-  "visibility": "report-only",
+  "visibility": "subscriber",
   "analysisDate": "2026-06-03",
   "lastUpdated": "2026-09-09",
-  "summary": "Dave is a US fintech app primarily positioned around interest-free cash advances (up to $500). It combines a checking account, a goals savings product, a cash advance feature (Extra Cash), and income-generating side features (surveys, side hustle job listings). A $1/month membership fee covers the core product.",
-  "teaser": null,
+  "summary": "Dave is a banking app built around two things: a Dave Checking account and a small cash advance called Extra Cash, worth up to $500. Almost everything in the app is organized around one decision made early on, connecting the bank account a user is already paid into, since that connection is what Dave uses to decide advance eligibility, and it's also one of the things the $1 monthly membership pays for. Saving happens through round-ups on Dave's own debit card, which flow into a Goals account created automatically the first time round-ups are turned on. Getting paid faster by moving direct deposit to Dave does double duty: it's marketed as arriving up to 2 days early, and it's also how an advance eventually gets repaid.",
+  "teaser": "A cash advance and checking app where saving, borrowing, and getting referred all wait on the same bank connection to clear.",
   "icon": null,
   "heroImage": null,
   "contentFormat": "v4.1",
@@ -1060,7 +1060,7 @@
       "tags": [
         {
           "name": "Earning Tasks",
-          "confidence": "directly observed",
+          "confidence": "strongly supported",
           "rationale": "The product presents, inside its own Grow tab, a catalogue of discrete compensated tasks supplied by a named third party, inBrain AI, and directs payment into the product's own checking account (tier: directly observed). Each listed survey carries both a payout and an estimated completion time before the user begins it, which is the entry's per-task disclosure of compensation and effort; the payout figures for the longer recommended surveys are not legible in the session record, but the quick surveys are listed at $0.45 for about 8 minutes and $0.50 for about 10 minutes and the listing form is the same for every item (tier: directly observed). The catalogue is presented as a repeatable activity rather than a concluded one: a further list is offered after the intro questionnaire, and a disqualified survey is removed while the rest of the list remains (tier: directly observed). The tasks are separate from the product's own core activity of banking, advances and saving (tier: directly observed). The entry requires at least one continuation element layered over the individual tasks, and three are present: a monthly earnings total displayed above the list, an ordered division of the catalogue into recommended, other and quick-survey sections, and the stated progression that higher paying surveys unlock as the user continues (tier: directly observed). The entry's own borderline case describes this exact configuration and resolves in favour of the label. The commercial arrangement itself is excluded by the entry and carries no label here: the supplier relationship, the terms toggle, and the deposit into the checking account are commerce infrastructure and are described in Pass One in plain language (tier: directly observed).",
           "alternativeConsidered": "That the surveys are a payment arrangement rather than a designed earning loop, and therefore commerce infrastructure to be described in plain language under the entry's first exclusion. The separating evidence is whether a continuation element exists independently of the payment relationship. Here it does: the monthly total, the tiered sections and the stated unlock are product-side presentation that would remain if the payout amounts were unchanged, which is what the exclusion carves out as classifiable. Rewarded Advertisement was also considered and set aside, since compensation follows performance of the survey rather than engagement with a promotional unit."
         }
@@ -1088,7 +1088,7 @@
       "tags": [
         {
           "name": "Earning Tasks",
-          "confidence": "directly observed",
+          "confidence": "strongly supported",
           "rationale": "The product presents, inside its own Grow tab, a catalogue of discrete compensated tasks supplied by a named third party, inBrain AI, and directs payment into the product's own checking account (tier: directly observed). Each listed survey carries both a payout and an estimated completion time before the user begins it, which is the entry's per-task disclosure of compensation and effort; the payout figures for the longer recommended surveys are not legible in the session record, but the quick surveys are listed at $0.45 for about 8 minutes and $0.50 for about 10 minutes and the listing form is the same for every item (tier: directly observed). The catalogue is presented as a repeatable activity rather than a concluded one: a further list is offered after the intro questionnaire, and a disqualified survey is removed while the rest of the list remains (tier: directly observed). The tasks are separate from the product's own core activity of banking, advances and saving (tier: directly observed). The entry requires at least one continuation element layered over the individual tasks, and three are present: a monthly earnings total displayed above the list, an ordered division of the catalogue into recommended, other and quick-survey sections, and the stated progression that higher paying surveys unlock as the user continues (tier: directly observed). The entry's own borderline case describes this exact configuration and resolves in favour of the label. The commercial arrangement itself is excluded by the entry and carries no label here: the supplier relationship, the terms toggle, and the deposit into the checking account are commerce infrastructure and are described in Pass One in plain language (tier: directly observed).",
           "alternativeConsidered": "That the surveys are a payment arrangement rather than a designed earning loop, and therefore commerce infrastructure to be described in plain language under the entry's first exclusion. The separating evidence is whether a continuation element exists independently of the payment relationship. Here it does: the monthly total, the tiered sections and the stated unlock are product-side presentation that would remain if the payout amounts were unchanged, which is what the exclusion carves out as classifiable. Rewarded Advertisement was also considered and set aside, since compensation follows performance of the survey rather than engagement with a promotional unit."
         }
@@ -1133,7 +1133,7 @@
       "tags": [
         {
           "name": "Earning Tasks",
-          "confidence": "directly observed",
+          "confidence": "strongly supported",
           "rationale": "The product presents, inside its own Grow tab, a catalogue of discrete compensated tasks supplied by a named third party, inBrain AI, and directs payment into the product's own checking account (tier: directly observed). Each listed survey carries both a payout and an estimated completion time before the user begins it, which is the entry's per-task disclosure of compensation and effort; the payout figures for the longer recommended surveys are not legible in the session record, but the quick surveys are listed at $0.45 for about 8 minutes and $0.50 for about 10 minutes and the listing form is the same for every item (tier: directly observed). The catalogue is presented as a repeatable activity rather than a concluded one: a further list is offered after the intro questionnaire, and a disqualified survey is removed while the rest of the list remains (tier: directly observed). The tasks are separate from the product's own core activity of banking, advances and saving (tier: directly observed). The entry requires at least one continuation element layered over the individual tasks, and three are present: a monthly earnings total displayed above the list, an ordered division of the catalogue into recommended, other and quick-survey sections, and the stated progression that higher paying surveys unlock as the user continues (tier: directly observed). The entry's own borderline case describes this exact configuration and resolves in favour of the label. The commercial arrangement itself is excluded by the entry and carries no label here: the supplier relationship, the terms toggle, and the deposit into the checking account are commerce infrastructure and are described in Pass One in plain language (tier: directly observed).",
           "alternativeConsidered": "That the surveys are a payment arrangement rather than a designed earning loop, and therefore commerce infrastructure to be described in plain language under the entry's first exclusion. The separating evidence is whether a continuation element exists independently of the payment relationship. Here it does: the monthly total, the tiered sections and the stated unlock are product-side presentation that would remain if the payout amounts were unchanged, which is what the exclusion carves out as classifiable. Rewarded Advertisement was also considered and set aside, since compensation follows performance of the survey rather than engagement with a promotional unit."
         }
@@ -1571,19 +1571,6 @@
   ],
   "proposedTags": [
     {
-      "name": "Referral Boost",
-      "sourceObservations": [
-        "O71",
-        "O72",
-        "O73"
-      ],
-      "draftDefinition": "The product grants a referring user an enhancement to a future use of a core product action rather than cash or an immediate benefit, and conditions the grant on both the referrer and the referred user completing a defined product action rather than on sign-up alone.",
-      "conditions": "A core product action the referrer already uses and expects to use again; a defined completion event for that action performed by both parties; a stated enhancement expressed relative to the referrer's own next instance of the action; a ceiling on that enhancement; an expiry on the earned enhancement.",
-      "whyNotCovered": "Gifting excludes it explicitly, since the recipient earns the benefit by completing a referral action and the sender does not directly grant it. First-Purchase Bonus does not apply because the trigger is not a purchase. No approved entry describes a reward whose value is realised only through further use of the product rather than as a transferable or spendable benefit.",
-      "recurrenceElsewhere": "Lending, banking, telecoms, delivery and subscription products commonly reward introductions with credit toward the referrer's own next use. The structure is describable without reference to this product: reward the introducer with a better version of the thing they already do.",
-      "caveat": "Nothing in the session shows the boost being earned, sized, applied or expiring; the entire structure is known from product copy on one screen and its FAQ titles. A definition drafted from this evidence describes what the product says the rule is, not observed behaviour."
-    },
-    {
       "name": "Scheduled eligibility re-check",
       "sourceObservations": [
         "O54",
@@ -1608,19 +1595,6 @@
       "whyNotCovered": "No approved entry addresses the product assisting an action performed in another system. The behaviour is not a quest, a challenge or an achievement, because the product neither issues an objective nor records a completion state; it reduces the cost of a step it cannot perform.",
       "recurrenceElsewhere": "Payroll redirection, utility and insurance switching, subscription migration, number porting and pension transfer flows all take this shape. The structure is describable without reference to this product.",
       "caveat": "The session shows the routes and the partial option but no completed redirection, and it does not show how the partial amount is specified. Whether the pre-signature checkbox is on by default is also not established, and that default bears on any definition of the assisted route."
-    },
-    {
-      "name": "Earning Tasks",
-      "sourceObservations": [
-        "O58",
-        "O59",
-        "O61"
-      ],
-      "draftDefinition": "The product embeds a catalogue of compensated tasks supplied by a third party, lists each with its payout and expected duration, pays into the product's own balance, and presents the catalogue as a repeatable activity with a running period total and a stated progression toward better-paying tasks.",
-      "conditions": "A third-party task supplier; a payout destination inside the product; per-task disclosure of payout and duration; a period total that accumulates across tasks; a stated progression that makes continued participation worth more than isolated participation; a screening step that can end a task without completion.",
-      "whyNotCovered": "Rewarded Advertisement requires an advertisement-engagement condition, and the library separates a sponsored task from a rewarded advertisement. Challenge requires a bounded objective instance, which the listed tasks do not establish. No approved entry describes a task marketplace inside a product.",
-      "recurrenceElsewhere": "Rewards apps, fintech apps and mobile games embed survey panels and offer walls with the same structure. The structure is describable without reference to this product.",
-      "caveat": "This proposal sits closest to the boundary that excludes commercial arrangements. The payment relationship between the user, the panel provider and the product is not the proposed tag; what is proposed is the designed earning loop layered over it, namely the period total, the two task tiers and the stated unlock. If the reviewing judgement is that the loop is inseparable from the commercial arrangement, the proposal should be rejected rather than narrowed."
     }
   ],
   "systemView": [
@@ -1632,5 +1606,20 @@
     "Dependencies worth stating plainly. O54 depends on O9, O13 and O56. O71, O72 and O73 depend on O54. O31 depends on O17 through O23 and on O28. O43, O45, O46, O47 and O48 depend on O32. O49 and O50 depend on O31 and O34. O82 depends on O12 and O13. O59 and O61 depend on O23. O35, O36 and O37 depend on O23 and feed O52.",
     "What the session cannot say. It observed no advance, no repayment, no referral boost, no goal reaching its target, no survey completing and no notification arriving. Six of the nine dependency chains above terminate in behaviour that was never seen, and every one of them terminates at the same place: the eligibility decision the product deferred to tomorrow."
   ],
+  "sectionLeadIns": {
+    "onboarding": "This section covers everything between opening Dave for the first time and reaching the empty home screen. It runs through the pitch before signup, identity verification, and connecting a bank account and debit card.",
+    "growth": "This section covers Dave's referral program: where it sits in the app, what it pays, and the steps involved in earning it."
+  },
+  "sectionCards": {
+    "onboarding": "Dave walks new users through signup, identity checks, and connecting a bank and debit card before showing an empty home screen.",
+    "core-loop": "Dave runs everything through the checking account once it exists: adding money, moving money, direct deposit, round-ups, checks, cash, and bill pay.",
+    "goals": "Dave creates, personalizes, extends, and ends a user's savings goals.",
+    "access": "Dave pitches, explains, and gates the Extra Cash advance behind eligibility.",
+    "earning": "Dave pays users for surveys and a profiling questionnaire, and points them to outside jobs through a board of its own.",
+    "social": "Dave has no feature that lets a user see, interact with, compare against, or team up with another identified person.",
+    "growth": "Dave runs its referral program from settings and pays it out as a bigger future advance.",
+    "money": "Dave charges for membership, advance delivery, funding, cash and check handling, and pays interest on two of its accounts.",
+    "returns": "Dave brings users back through notifications, balance alerts, and a marketing consent gathered during signup."
+  },
   "system": null
 }

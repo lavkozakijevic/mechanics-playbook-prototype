@@ -104,6 +104,17 @@ const apps = defineCollection({
     // sourced from system.html (spec §1.5).
     systemView: z.array(z.string()).optional(),
     proposedTags: z.array(proposedTag).optional(),
+    // Per-section authored copy (spec §2.1/§2.2), keyed by section slug.
+    // sectionLeadIns may be incomplete while it's being written section by
+    // section — validate-content.mjs warns rather than fails on a gap until
+    // every non-empty section has one. sectionCards is the shorter one-line
+    // blurb used on the summary page's section cards.
+    // Plain string-keyed (not the section-slug enum): z.record with an enum
+    // key type requires every enum member as a key, which defeats the point
+    // of these being allowed to be partial while lead-ins are still being
+    // written. Keys are validated against the slug list at render time.
+    sectionLeadIns: z.record(z.string(), z.string()).optional(),
+    sectionCards: z.record(z.string(), z.string()).optional(),
     system: z
       .object({
         tagline: z.string(),
