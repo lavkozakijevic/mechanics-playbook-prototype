@@ -14,516 +14,412 @@
   "observations": [
     {
       "id": "O1",
-      "name": "Pre-account screen leads with an amount and two removals",
+      "name": "Pre-account pitch",
       "section": "onboarding",
-      "observed": "The first screen presents the brand mark and then loads a headline offering up to $500 when the user needs it, qualified by \"No interest, no credit check\". The same screen shows a rendering of the product's card and two buttons, Login and Sign up for Dave.",
+      "observed": "Dave opens, before anyone signs up, with its brand mark and a headline offering up to $500 when needed, promising no interest and no credit check. It shows the card and 2 buttons for logging in or signing up.",
       "detail": [
         "The headline amount is $500.",
-        "The two qualifiers are stated as no interest and no credit check.",
-        "An asterisk on the headline links to a \"See terms\" control.",
-        "No third option, guest mode, or demonstration path is shown on this screen."
+        "The 2 qualifiers are no interest and no credit check.",
+        "An asterisk on the headline links out to the terms.",
+        "There's no guest mode or demo path on this screen."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O51"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O2",
-      "name": "The headline's terms sit behind an asterisk",
+      "name": "Terms behind an asterisk",
       "section": "onboarding",
-      "observed": "Tapping \"See terms\" opens a pop-up restating the $500 headline and then describing the product underneath it: Extra Cash is a demand deposit account with overdraft utility, an advance results in a negative balance, the advance is subject to eligibility, and delivery fees may apply. The pop-up refers the user to the account agreement for details and closes with a \"Got it\" acknowledgement.",
+      "observed": "Tapping through to the terms opens a pop-up where Dave explains what's underneath the headline: Extra Cash is a demand deposit account with overdraft utility, taking an advance puts the balance negative, the advance is subject to eligibility, and delivery fees may apply. Dave closes the pop-up with a simple acknowledgement rather than a formal acceptance.",
       "detail": [
-        "The negative-balance consequence of an advance is disclosed here and not in the headline.",
-        "Eligibility is named as a condition here and not in the headline.",
-        "Delivery fees are named as possible here and not in the headline.",
-        "The pop-up is dismissed by acknowledgement rather than by acceptance."
+        "The negative-balance consequence of an advance is disclosed here, not in the headline.",
+        "Eligibility is named as a condition here, not in the headline.",
+        "Delivery fees are named as possible here, not in the headline."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O52",
-        "O54",
-        "O75"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O3",
-      "name": "One sign-up path, with consent bundled into the continue action",
+      "name": "Bundled signup consent",
       "section": "onboarding",
-      "observed": "Sign-up opens with \"First create a sign in ID\", requiring an email address and a password, and no alternative registration method is offered at this point in the session. Below the fields, text states agreement to the privacy policy, terms of use and electronic communication consent, and the user proceeds with a single \"Agree and continue\" button.",
+      "observed": "Dave opens signup asking only for an email address and a password, with no alternative registration method offered. Agreement to the privacy policy, terms of use, and electronic communication consent are all carried by a single continue button.",
       "detail": [
         "Email and password are the only credentials collected at this step.",
-        "Consent to three separate documents is carried by one button.",
-        "No separate checkbox is shown for these three consents.",
-        "The absence of a social or third-party sign-in option is stated by the analyst as applying at least at this moment."
+        "3 separate documents are agreed to through a single button.",
+        "There's no separate checkbox for any of them."
       ],
-      "evidence": "plausible",
       "tags": [],
       "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O4",
-      "name": "Legal name is requested as a distinct step",
+      "name": "Legal name step",
       "section": "onboarding",
-      "observed": "The next screen reads \"Let's get started. What's your legal name?\" and collects first name and last name.",
+      "observed": "Dave asks for a user's legal name and collects first and last name as separate fields.",
       "detail": [
-        "The word \"legal\" is used at this stage, before identity documents are mentioned.",
-        "First and last name are separate fields."
+        "Dave uses the word \"legal\" here, before any identity document is mentioned.",
+        "First and last name are 2 separate fields."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O21"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O5",
-      "name": "Phone number is requested with a security justification",
+      "name": "Phone number step",
       "section": "onboarding",
-      "observed": "The following screen reads \"Nice to meet you. What's your mobile phone number?\" and explains that the number is used to protect the account with two-factor verification.",
+      "observed": "Dave asks for a mobile phone number and explains it's used to protect the account with two-factor verification.",
       "detail": [
-        "The stated purpose of the number is account protection.",
-        "A \"Next\" action advances from the field."
+        "The stated purpose of collecting the number is account protection."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O6",
-        "O83"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O6",
-      "name": "A marketing consent is placed on the verification-code screen",
+      "name": "Marketing consent at verification",
       "section": "onboarding",
-      "observed": "The verification screen states that a six-digit code has been sent to the provided number and offers a resend control and a code entry area. Below the code field, the screen carries an agreement to receive special offers and promotions by SMS at the same number, with the standard qualifiers that consent is not a condition of purchase, rates may apply, frequency varies, and STOP unsubscribes.",
+      "observed": "Dave sends a verification code to that number, and on the same screen asks the user to agree to receive special offers and promotions by text at that same number.",
       "detail": [
-        "The marketing consent appears on the same screen as the security step it is separate from.",
-        "The number used for verification is the number the marketing consent applies to.",
-        "The consent text links to terms of use and privacy policy.",
-        "Whether the consent is a checkbox, a toggle, or carried by the continue action is not established in the session."
+        "The marketing consent sits on the same screen as the security step it's otherwise unrelated to.",
+        "It applies to the same number just used for verification."
       ],
-      "evidence": "unresolved",
       "tags": [],
-      "crossRefs": [
-        "O5",
-        "O80",
-        "O83"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O7",
-      "name": "Biometric login is offered with an explicit skip",
+      "name": "Face ID with a skip",
       "section": "onboarding",
-      "observed": "The next screen asks whether the user wants to use Face ID to log in, offering \"Yes, sign in with Face ID\" or \"Skip for now\". Choosing the biometric option raises the operating system permission prompt.",
+      "observed": "Dave asks whether the user wants to sign in with Face ID, with an option to accept or skip for now.",
       "detail": [
-        "A skip is offered on the same screen as the acceptance.",
-        "The skip is worded as deferral rather than refusal."
+        "A skip is offered on the same screen as the option to accept.",
+        "The skip is worded as putting it off, not turning it down."
       ],
-      "evidence": "directly observed",
       "tags": [],
       "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O8",
-      "name": "An app passcode is created regardless of the biometric choice",
+      "name": "App passcode required",
       "section": "onboarding",
-      "observed": "The user is then asked to create a four-digit app passcode and to re-enter it on the following screen.",
+      "observed": "Dave has the user create a 4-digit app passcode and re-enter it on a second screen, regardless of the Face ID choice.",
       "detail": [
-        "The passcode is four digits.",
-        "Confirmation is a separate screen rather than a second field.",
-        "Whether the passcode step can be skipped is not shown."
+        "The passcode is 4 digits.",
+        "Confirming it is a separate screen, not a second field on the same one."
       ],
-      "evidence": "unresolved",
       "tags": [],
       "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O9",
-      "name": "The bank connection request is justified by the size of the approval",
+      "name": "Bank connection request",
       "section": "onboarding",
-      "observed": "The next screen reads \"Connect your primary bank\" and asks the user to connect the account they are paid into so the product can determine their best approval amount. The same screen states that advances can be received instantly for a small fee.",
+      "observed": "Dave asks the user to connect the bank account they're paid into, framing the request as how it determines their best approval amount, and mentions that advances can be received instantly for a small fee.",
       "detail": [
-        "The requested account is specified as the one the user is paid into.",
+        "The account requested is specifically the one the user is paid into.",
         "The stated benefit of connecting is a better approval amount.",
-        "Instant delivery is introduced as a paid option at the moment of connection."
+        "Instant delivery is introduced here as a paid option, right at the moment of connecting."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O56",
-        "O75"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O10",
-      "name": "The membership charge is authorised on the bank connection screen",
+      "name": "Fee authorized with connection",
       "section": "onboarding",
-      "observed": "Below the connection request, the same screen carries an agreement to the recurring payment authorisation for the $1 monthly membership fee.",
+      "observed": "Dave bundles agreement to a recurring $1 monthly membership charge into the same screen and continue action used to connect the bank account.",
       "detail": [
-        "The recurring charge is $1 per month.",
-        "The authorisation shares a screen and a continue action with the bank connection."
+        "The recurring charge is $1 a month.",
+        "The membership authorization shares both the screen and the continue button with the bank connection request."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O12",
-        "O74"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O11",
-      "name": "The bank connection step has three exits",
+      "name": "3 exits from connection",
       "section": "onboarding",
-      "observed": "The screen offers \"Agree and continue\", a separate \"I don't have a bank account\" path, and a dismissal control in the top right corner. The analyst records that the step is therefore not required.",
+      "observed": "Dave offers 3 ways out of the bank connection step: agree and continue, a path for not having a bank account, or a dismissal control in the corner. The step isn't actually required to move forward.",
       "detail": [
-        "Two of the three exits leave the account unconnected.",
-        "What the product does after either non-connecting exit is not shown."
+        "2 of the 3 exits leave the bank account unconnected."
       ],
-      "evidence": "unresolved",
       "tags": [],
-      "crossRefs": [
-        "O54",
-        "O56"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O12",
-      "name": "A second screen restates the fee alongside what it buys",
+      "name": "Fee restated with benefits",
       "section": "onboarding",
-      "observed": "After continuing, a screen headed \"Connect your bank and debit card\" states that the $1 monthly membership fee keeps the bank account connected, sends low balance alerts and provides budgeting tools. Below this, the screen numbers the remaining work as connecting the bank account and linking that account's debit card.",
+      "observed": "Dave shows a second screen restating that the $1 monthly membership keeps the bank account connected, sends low balance alerts, and provides budgeting tools, then lays out the remaining setup as 2 steps: connecting the account and linking its debit card.",
       "detail": [
-        "Three named benefits are attached to the fee: connection, low balance alerts, budgeting tools.",
-        "The fee is restated on a second consecutive screen.",
-        "The remaining work is presented as two numbered steps."
+        "3 benefits are attached to the fee: the connection itself, low balance alerts, and budgeting tools.",
+        "The fee is restated here, on the second screen in a row to mention it."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O10",
-        "O74",
-        "O82"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O13",
-      "name": "Bank connection is handed to a third party with trust framing",
+      "name": "Connecting through Plaid",
       "section": "onboarding",
-      "observed": "The connection is performed by Plaid, introduced on a screen stating that 8,000 apps trust Plaid, that connection takes seconds, and that best-in-class encryption protects the data. Within that flow the user enters a phone number or continues as a guest, verifies the number by code, selects the account to share, and logs in to their bank.",
+      "observed": "Dave hands the bank connection to Plaid, introduced with the claim that 8,000 apps trust it and that best-in-class encryption protects the data. Within that flow, the user enters a phone number or continues as a guest, verifies by code, chooses an account to share, and logs in to their bank.",
       "detail": [
-        "The count stated is 8,000 apps.",
-        "A guest path avoids giving the phone number to the connection provider.",
-        "Before the bank login, the screen lists the boxes to check at the bank: the checking or prepaid account, bank account numbers, and account holder information.",
-        "The data listed is what the bank will be asked to share onward."
+        "The trust figure quoted is 8,000 apps.",
+        "A guest path lets the user skip giving their phone number to Plaid.",
+        "Before logging in, Dave lists what the bank will be asked to share: the account, account numbers, and account holder information."
       ],
-      "evidence": "strongly supported",
       "tags": [],
       "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O14",
-      "name": "The linking wait carries product claims",
+      "name": "Claims during the wait",
       "section": "onboarding",
-      "observed": "While the account links, a progress screen presents claims rather than status detail: that paying members lowered their overdraft fees by nearly 70%, and that the product helps over 11 million members stay on top of their finances. The screen also states that transactions are being analysed.",
+      "observed": "While the account links, Dave fills the wait with marketing claims instead of status: that paying members have lowered their overdraft fees by nearly 70%, and that it helps over 11 million members stay on top of their finances.",
       "detail": [
-        "The overdraft claim is attached specifically to paying members.",
-        "The membership figure stated is over 11 million.",
-        "These claims appear at a point where the user cannot act."
+        "The overdraft claim is attributed specifically to paying members.",
+        "The membership figure quoted is over 11 million.",
+        "These claims appear at a moment when there's nothing else for the user to do."
       ],
-      "evidence": "directly observed",
       "tags": [],
       "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O15",
-      "name": "The debit card is linked with its settlement purpose stated",
+      "name": "Linking the debit card",
       "section": "onboarding",
-      "observed": "The next step asks the user to add and link the debit card associated with the connected bank account, stating that this card may be used to settle any advances taken. The completed state shows the linked bank and the linked card together.",
+      "observed": "Dave asks the user to add and link the debit card tied to the connected bank account, stating this card may be used to settle any advances taken.",
       "detail": [
-        "The card must be associated with the connected bank account.",
-        "The stated function of the card is settlement of advances."
+        "The card has to be tied to the already-connected bank account.",
+        "Its stated purpose is settling advances."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O52",
-        "O57"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O16",
-      "name": "The first dashboard is empty except for one prominent action",
+      "name": "An empty first dashboard",
       "section": "onboarding",
-      "observed": "After connection, the home screen greets the user with \"start building your financial future\" and presents an \"Open checking account\" button, with further options below. The bottom navigation carries four destinations, Home, Account, Extra cash and Grow, and a settings control sits in the top right corner.",
+      "observed": "Dave greets the user after connecting with a welcoming message and a single button to open a checking account, alongside 4 tabs in the bottom navigation: Home, Account, Extra Cash, and Grow.",
       "detail": [
-        "The primary call to action on first entry is opening a second account rather than using the connected one.",
-        "The navigation has four tabs.",
-        "The analyst records difficulty reading what sits under the primary button on this screen."
+        "The main call to action on first entry is opening a second account, not using the one just connected.",
+        "The navigation has 4 tabs."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O17",
-        "O30"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O17",
-      "name": "The checking account is pitched twice before any identity request",
+      "name": "Checking account pitch",
       "section": "core-loop",
-      "observed": "Tapping \"Open checking account\" opens a screen headed \"Get more with Dave\" describing a checking account with no minimum and no overdraft fees, no monthly fees and no balance requirements, phrased as \"Ditch fees for good\". A \"Get started\" action advances to a second pitch screen.",
+      "observed": "Dave pitches its checking account first as a set of removals, no minimum, no overdraft fees, no monthly fees, and no balance requirements, before asking for any identity information.",
       "detail": [
-        "The pitch leads with removals rather than additions.",
-        "Three fee-related claims appear on this screen: no minimum, no overdraft fees, no monthly fees or balance requirements.",
-        "No identity information is requested before this point in the flow."
+        "The pitch leads with what's removed rather than what's added.",
+        "3 separate fee claims appear here: no minimum, no overdraft fees, no monthly fees or balance requirements.",
+        "No identity information has been requested up to this point."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O18",
-        "O19"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O18",
-      "name": "The second pitch screen introduces saving, funding and access",
+      "name": "Saving, funding, and access pitch",
       "section": "core-loop",
-      "observed": "The next screen, headed \"Save with Dave in every way\", describes rounding up spare change on purchases toward financial goals, transferring money between external accounts at any time, and depositing cash at over 90,000 locations with fee-free deposits at two named retailers. Listed below as other benefits are instant advances, fee-free withdrawal at over 37,000 ATMs, sending cash and checks, digital and physical debit cards, 24/7 real-time support, and FDIC insurance through the partner bank.",
+      "observed": "Dave's second pitch screen describes rounding up purchases toward savings goals, transferring money between external accounts at any time, and depositing cash at over 90,000 locations, fee-free at 2 named retailers. It lists further benefits below: instant advances, fee-free withdrawal at over 37,000 ATMs, sending cash and checks, digital and physical debit cards, 24/7 support, and FDIC insurance through its partner bank.",
       "detail": [
-        "Round-ups are introduced here, before the account exists.",
-        "The deposit network is stated as over 90,000 locations, with fee-free deposits named at Walgreens and CVS.",
-        "The ATM network is stated as over 37,000.",
-        "The partner bank is named as Evolve Bank and Trust, member FDIC.",
-        "The FDIC coverage figure is not legible in the session record."
+        "Round-ups are introduced here, before the checking account even exists.",
+        "The deposit network is described as over 90,000 locations, with fee-free deposits named at Walgreens and CVS.",
+        "The ATM network is described as over 37,000 machines.",
+        "The partner bank is named as Evolve Bank and Trust, member FDIC."
       ],
-      "evidence": "unresolved",
       "tags": [],
-      "crossRefs": [
-        "O31",
-        "O77",
-        "O79"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O19",
-      "name": "Date of birth is the first identity field",
+      "name": "Date of birth first",
       "section": "core-loop",
-      "observed": "After \"Get started\", the first identity screen reads \"Confirm your identity. When were you born?\" and collects a date.",
+      "observed": "Dave's first identity screen asks for the user's date of birth.",
       "detail": [],
-      "evidence": "directly observed",
       "tags": [],
       "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O20",
-      "name": "The tax identifier is requested with a legal reason and a security reassurance",
+      "name": "Tax ID with reassurance",
       "section": "core-loop",
-      "observed": "The next screen requests the Social Security number, states that US federal law requires this information to verify identity, and collects the number twice. Beneath the fields, the screen states that the entry is protected by bank-level security.",
+      "observed": "Dave asks for a Social Security number, states that federal law requires it to verify identity, and collects it twice. Underneath the fields, it reassures users the entry is protected by bank-level security.",
       "detail": [
-        "The requirement is attributed to federal law rather than to the product.",
+        "The requirement is attributed to federal law, not to Dave's own policy.",
         "The number is entered twice.",
-        "A security reassurance sits directly under the most sensitive field in the flow."
+        "A security reassurance sits directly beneath the most sensitive field in the flow."
       ],
-      "evidence": "directly observed",
       "tags": [],
       "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O21",
-      "name": "A review screen precedes submission",
+      "name": "Review before submitting",
       "section": "core-loop",
-      "observed": "A \"Review your info\" screen restates legal name, date of birth, Social Security number and residential address, prefaced by a warning that the information must match the user's identity documents. The user confirms from this screen.",
+      "observed": "Dave shows a review screen restating legal name, date of birth, Social Security number, and residential address, prefaced by a warning that this information has to match the user's identity documents. Users confirm from this screen.",
       "detail": [
-        "Residential address appears on the review screen although its collection is not shown in the session.",
-        "The warning is marked as important."
+        "Residential address appears on the review screen, though there's no visible step where the user enters it.",
+        "The matching warning is presented as important."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O4"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O22",
-      "name": "Identity confirmation runs as a timed wait",
+      "name": "Identity confirmation wait",
       "section": "core-loop",
-      "observed": "After confirmation the product displays \"Confirming your identity. This may take a couple minutes. Hang tight.\".",
+      "observed": "Dave runs identity confirmation as a timed wait, telling the user it may take a couple of minutes.",
       "detail": [
-        "The wait is described in minutes rather than seconds.",
-        "No alternative action is offered during the wait."
+        "The wait is described in minutes, not seconds.",
+        "There's no alternative action offered while it runs."
       ],
-      "evidence": "directly observed",
       "tags": [],
       "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O23",
-      "name": "Account opening carries a credit reassurance and a single checkbox",
+      "name": "Account opening reassurance",
       "section": "core-loop",
-      "observed": "The next screen, \"Let's open your account\", states that this will not affect the user's credit. It presents a Dave Checking account option described as spending instantly with no hidden fees, and a checkbox by which the user agrees to the checking deposit agreement, its disclosures and the partner bank's privacy policy, before the \"Open Dave Checking Account\" action.",
+      "observed": "Dave states that opening a checking account won't affect the user's credit, right after the tax ID and identity check. It presents Dave Checking as an account for spending instantly with no hidden fees, with a single checkbox covering the checking deposit agreement, its disclosures, and the partner bank's privacy policy.",
       "detail": [
-        "The credit reassurance is placed immediately after the tax identifier and identity check.",
-        "One checkbox carries agreement to three documents.",
-        "A \"See terms and conditions\" link is present."
+        "The credit reassurance comes right after the tax ID and identity check.",
+        "A single checkbox covers agreement to 3 separate documents."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O3",
-        "O20"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O24",
-      "name": "The opening wait is filled with value propositions",
+      "name": "Value propositions during opening",
       "section": "core-loop",
-      "observed": "While the account opens, the screen displays \"Opening your account\" and cycles value propositions as content loads, including spending instantly with the digital card and making purchases and paying bills with the digital debit card. The sequence ends with confirmation that the checking account is set up.",
+      "observed": "While the account opens, Dave cycles value propositions about the card, spending instantly and paying bills with it, rather than showing account terms.",
       "detail": [
-        "The propositions appear during an unavoidable wait.",
-        "The propositions concern the card rather than the account terms."
+        "These propositions appear during a wait users can't skip.",
+        "They're about the card, not about the account's terms."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O14"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O25",
-      "name": "Funding is requested immediately after the account exists",
+      "name": "Funding prompted immediately",
       "section": "core-loop",
-      "observed": "The next screen, \"Add money to your Dave checking account\", offers setting up direct deposit with the claim of being paid up to two days early, transferring from another bank in four to five business days, and depositing cash fee-free at two named retailers with a barcode. A \"Not now\" option is available.",
+      "observed": "As soon as the checking account exists, Dave offers setting up direct deposit with the promise of getting paid up to 2 days early, transferring from another bank taking 4 to 5 business days, or depositing cash fee-free at 2 named retailers using a barcode. Users can defer.",
       "detail": [
-        "Three funding routes are presented together with their speeds.",
-        "Direct deposit is the only route carrying a speed advantage claim.",
-        "The deferral option is present on the same screen."
+        "3 funding routes are presented together with their relative speeds.",
+        "Direct deposit is the only route pitched with a speed advantage.",
+        "The option to defer is on the same screen."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O33",
-        "O35",
-        "O77"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O26",
-      "name": "The account home is a balance widget with immediate actions",
+      "name": "Balance widget with actions",
       "section": "core-loop",
-      "observed": "The Dave Checking screen shows a widget with the available balance, a control to view the debit card, and Add money and Withdraw actions, with an \"Add to Apple Wallet\" button below.",
+      "observed": "Dave's checking screen shows a widget with the available balance, a control to view the debit card, and buttons to add or withdraw money, plus wallet provisioning below.",
       "detail": [
-        "Balance, card access and money movement occupy the same widget.",
-        "Wallet provisioning is offered at the top level rather than inside card settings."
+        "Balance, card access, and money movement all live in the same widget.",
+        "Wallet provisioning sits at the top level rather than tucked inside card settings."
       ],
-      "evidence": "directly observed",
       "tags": [],
       "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O27",
-      "name": "The physical card delay is bridged by a digital card",
+      "name": "Digital card bridges the wait",
       "section": "core-loop",
-      "observed": "A notification states that the physical debit card should arrive by a stated date and instructs the user to use the digital card while waiting, with a \"View digital card\" control.",
+      "observed": "While the physical debit card is in transit, Dave tells the user its expected arrival date and points them to a digital card to use in the meantime.",
       "detail": [
-        "The arrival date is presented as a specific date.",
-        "The exact date is not legible in the session record.",
-        "The waiting period is given a usable substitute rather than only an explanation."
+        "The arrival is given as a specific date.",
+        "The waiting period is bridged with something usable, not just an explanation."
       ],
-      "evidence": "unresolved",
       "tags": [],
       "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O28",
-      "name": "Digital card controls include a freeze that is off by default",
+      "name": "Freeze off by default",
       "section": "core-loop",
-      "observed": "The digital card screen displays the card and offers a toggle to show card information and a toggle to freeze the card, which is off by default, with controls below to set the PIN and replace the digital card, and an \"Add to Apple Wallet\" action at the bottom. Wallet provisioning offers a choice of phone or watch and requires accepting terms and confirming.",
+      "observed": "Dave's digital card screen offers a toggle to reveal card details and a toggle to freeze the card, off by default, plus controls to set the PIN and replace the digital card.",
       "detail": [
-        "Freeze is present as a user-operated control.",
-        "Freeze defaults to off.",
-        "Replacing the digital card is available without a support contact."
+        "Freeze is a user-operated control.",
+        "It's off by default.",
+        "Replacing the digital card doesn't require contacting support."
       ],
-      "evidence": "directly observed",
       "tags": [],
       "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O29",
-      "name": "The empty activity state instructs rather than describes",
+      "name": "Empty activity instructs",
       "section": "core-loop",
-      "observed": "Recent activity reads \"No activity yet\" followed by \"Get started by using your Dave Checking account\" and a statement that all activity will appear there.",
+      "observed": "Dave's empty activity screen tells the user how to fill it, by using the checking account, rather than just stating there's nothing there yet.",
       "detail": [
-        "The empty state names the action that would fill it."
+        "The empty state names the action that would fill it, rather than just describing what's missing."
       ],
-      "evidence": "directly observed",
       "tags": [],
       "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O30",
-      "name": "A hub groups six banking utilities under one entry point",
+      "name": "Banking utilities hub",
       "section": "core-loop",
-      "observed": "Scrolling the checking screen reveals \"Do more with Dave Checking\" listing direct deposit, recurring transfer, scan or send a check, deposit cash, withdraw cash and pay bills. Below it sit two further prompts, setting up direct deposit to be paid up to two days early, and starting a budget with the product's budgeting tool.",
+      "observed": "Dave groups direct deposit, recurring transfer, scanning or sending a check, depositing cash, withdrawing cash, and paying bills into a single hub, with prompts for direct deposit and budgeting below it.",
       "detail": [
-        "Six utilities are grouped in one hub.",
-        "Direct deposit appears both inside the hub and as a separate prompt below it.",
-        "The budgeting tool is surfaced here as a prompt; its own screens are not entered in the session."
+        "6 utilities are grouped under a single hub.",
+        "Direct deposit appears both inside the hub and again as its own prompt below it."
       ],
-      "evidence": "unresolved",
       "tags": [],
-      "crossRefs": [
-        "O35",
-        "O39",
-        "O40",
-        "O41",
-        "O42"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O31",
-      "name": "Round-ups are introduced as a setup flow with reversibility stated up front",
+      "name": "Setting up round-ups",
       "section": "core-loop",
-      "observed": "A section headed \"Save every time you spend with Roundup\" states that purchases are rounded up to the nearest dollar every time the product's debit card is used, that round-ups automatically roll into a Goals account, that the user can contribute additional money at their own pace, and that they can take their savings out or pause at any time. Links to learn more and to the goals deposit agreement sit below, before a \"Get started\" action.",
+      "observed": "Dave explains that every purchase made with the Dave debit card rounds up to the nearest dollar and rolls automatically into a Goals account. It tells users, before they turn the feature on, that they can add extra money whenever they like and withdraw or pause the whole thing at any time.",
       "detail": [
-        "The trigger is any purchase on the product's own debit card.",
-        "The rounding rule is to the nearest dollar.",
-        "The destination is a separate Goals account rather than the checking balance.",
-        "Withdrawal and pausing are stated on the introduction screen, before opt-in.",
-        "The analyst records uncertainty about how this section is reached from the preceding screen."
+        "Round-ups trigger on any purchase made with the Dave debit card.",
+        "Purchases round up to the nearest dollar.",
+        "The rounded-up amount goes into a separate Goals account, not the checking balance.",
+        "Withdrawing savings and pausing round-ups are both mentioned before the user turns the feature on."
       ],
-      "evidence": "directly observed",
       "tags": [
         {
           "name": "Piggy Bank",
@@ -532,25 +428,18 @@
           "alternativeConsidered": "That the Goals account is an ordinary savings sub-account and therefore commerce infrastructure carrying no mechanic label. The separating evidence would be whether the Goals balance can be spent directly, for example by card or bill payment, without a transfer back to checking. If it can, the reserve is not restricted and the entry does not apply. The session does not test this, which is why the restriction sits at strongly supported rather than directly observed."
         }
       ],
-      "crossRefs": [
-        "O18",
-        "O32",
-        "O43",
-        "O49"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O32",
-      "name": "Round-ups cannot exist without a Goals account",
+      "name": "Round-ups require Goals",
       "section": "core-loop",
-      "observed": "Continuing opens \"Open your goals account to start using Roundup\", stating that a goal will be created for the user's debit card purchases to round up into. The user selects a Dave Goals account, described as personal savings for financial milestones, and agrees to the goals deposit agreement and disclosures before creating the account.",
+      "observed": "Dave doesn't let a user turn on round-ups without a Goals account, and creates one automatically to hold the money before round-ups can start.",
       "detail": [
-        "The savings container is created as a precondition of the automation, not the reverse.",
-        "A goal is created by the product rather than by the user at this step.",
-        "One checkbox carries the deposit agreement and its disclosures."
+        "The Goals account exists to make round-ups possible, not the other way around.",
+        "Dave creates the goal itself at this step, not the user."
       ],
-      "evidence": "directly observed",
       "tags": [
         {
           "name": "Piggy Bank",
@@ -559,214 +448,158 @@
           "alternativeConsidered": "That the Goals account is an ordinary savings sub-account and therefore commerce infrastructure carrying no mechanic label. The separating evidence would be whether the Goals balance can be spent directly, for example by card or bill payment, without a transfer back to checking. If it can, the reserve is not restricted and the entry does not apply. The session does not test this, which is why the restriction sits at strongly supported rather than directly observed."
         }
       ],
-      "crossRefs": [
-        "O31",
-        "O43"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O33",
-      "name": "Adding money prices the funding source and confirms by swipe",
+      "name": "Adding money by swipe",
       "section": "core-loop",
-      "observed": "From the widget, \"Add money\" collects an amount and then presents a source choice: a bank account with no fee, or Apple Pay with a 1% fee. The transfer screen carries a recurring toggle, and the transfer is committed by swiping a control from left to right, after which the product confirms and states arrival in four to five business days.",
+      "observed": "Dave's add-money flow prices the source, a bank account is free, Apple Pay costs 1%, and confirms the transfer with a swipe rather than a tap, arriving in 4 to 5 business days.",
       "detail": [
-        "The fee difference between sources is stated at the point of choice.",
-        "The confirming action is a swipe rather than a tap.",
-        "The arrival window for the transfer is four to five business days.",
-        "The completion screen carries a prompt asking whether the user wants to be paid up to two days early by setting up direct deposit."
+        "The fee difference between sources is shown right at the point of choosing.",
+        "Confirming is a swipe, not a tap.",
+        "The transfer window quoted is 4 to 5 business days.",
+        "The confirmation screen prompts users to set up direct deposit for the 2-days-early benefit."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O25",
-        "O34",
-        "O35",
-        "O76"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O34",
-      "name": "The recurring transfer toggle is on by default within the recurring flow",
+      "name": "Recurring transfer defaults on",
       "section": "core-loop",
-      "observed": "Choosing \"Recurring transfer\" from the hub collects an amount and a source, and the recurring toggle is already on rather than requiring the user to enable it. The user then selects a frequency, weekly or other, and a day, and agrees by checkbox to a recurring transfer of the stated amount on the stated day, referencing the recurring payment authorisation agreement. The transfer is committed by swipe and the product reports it as set up.",
+      "observed": "Dave's recurring transfer flow has its own toggle already switched on rather than something users turn on themselves, then asks for a frequency and a day.",
       "detail": [
-        "The toggle state is on by default when the flow is entered from the recurring-transfer entry point.",
-        "Frequency options observed are weekly and a further unspecified option.",
-        "The full set of frequency options is not established.",
-        "Cancellation is performed by turning the same toggle off, and the analyst records that this cancels it."
+        "The toggle defaults to on when entered from the recurring-transfer entry point.",
+        "Weekly is one of the frequency options offered; others exist but aren't detailed here.",
+        "Turning the same toggle back off cancels the recurring transfer."
       ],
-      "evidence": "unresolved",
       "tags": [],
-      "crossRefs": [
-        "O33",
-        "O49"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O35",
-      "name": "Direct deposit offers three routes, one of them tagged as fastest",
+      "name": "Direct deposit routes",
       "section": "core-loop",
-      "observed": "The direct deposit screen is headed \"Earlier paydays are easy with Dave\" and repeats the up-to-two-days-early claim, then presents three routes: finding the employer, which carries a \"fastest\" tag and signs the user into their company's pay portal; copying and pasting the account details into the employer's portal manually; and sending HR a form that the product generates from a few questions. A footnote states that early access depends on the timing and availability of payroll files from the payer and that funds can be available up to two business days in advance of the scheduled payment date.",
+      "observed": "Dave offers 3 routes to direct deposit: finding the employer, tagged as fastest and signing the user into their company's pay portal; copying and pasting account details manually; or sending HR a form Dave generates from a few questions. Dave notes that early access depends on the timing and availability of payroll files from the employer.",
       "detail": [
-        "Three routes are offered for the same outcome.",
+        "3 routes lead to the same outcome.",
         "Only one route carries a speed tag.",
-        "The employer-search route is handled by a third party, Pinwheel, introduced with encryption, credential-privacy and speed claims.",
-        "The copy-and-paste route surfaces the account details for manual entry elsewhere.",
-        "The early-access claim is qualified by a dependency the product does not control."
+        "The employer-search route runs through a third party, Pinwheel, introduced with its own encryption, credential-privacy, and speed claims.",
+        "The copy-and-paste route surfaces the account details for the user to enter elsewhere.",
+        "The early-access claim depends on something Dave doesn't control: the employer's payroll timing."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O25",
-        "O30",
-        "O36",
-        "O37"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O36",
-      "name": "The form route asks how much of the paycheck to move",
+      "name": "Paycheck split question",
       "section": "core-loop",
-      "observed": "The send-HR-a-form route collects the employer name and then asks how much of each paycheck the user would like to deposit, stating that this can always be changed later, with two options: deposit full paycheck or deposit part of paycheck.",
+      "observed": "Dave's form route collects the employer name, then asks how much of each paycheck the user would like deposited, noting this can always be changed later, with options for the full paycheck or part of it.",
       "detail": [
-        "A partial option is presented alongside the full option rather than only as a later adjustment.",
-        "Reversibility is stated in the same sentence as the question.",
-        "The mechanism for specifying the partial amount is not shown."
+        "A partial option is offered right alongside the full one, not just as a later adjustment.",
+        "Reversibility is stated in the same sentence as the question itself."
       ],
-      "evidence": "unresolved",
       "tags": [],
-      "crossRefs": [
-        "O35",
-        "O37"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O37",
-      "name": "The generated form is pre-signed by default option and can be routed two ways",
+      "name": "Pre-signed form, 2 routes",
       "section": "core-loop",
-      "observed": "The next screen states that the form is filled out and can be sent by the user or straight to the employer, with a checkbox offering to pre-sign the form, and two buttons, send to my employer or send it to myself. After sending, the product confirms that the direct deposit form has been emailed to the user's address and offers to resend or finish.",
+      "observed": "Dave fills out the direct deposit form and offers to pre-sign it, then lets the user send it to their employer or to themselves.",
       "detail": [
         "Pre-signing is offered as a checkbox rather than a separate signing step.",
-        "Whether the pre-sign checkbox is checked by default is not established.",
-        "Both routes end with an email confirmation to the user."
+        "Both routes end the same way: an email confirmation to the user."
       ],
-      "evidence": "unresolved",
       "tags": [],
-      "crossRefs": [
-        "O35",
-        "O36"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O38",
-      "name": "The accounts tab separates the product's accounts from the connected one",
+      "name": "Accounts tab separation",
       "section": "core-loop",
-      "observed": "The Accounts tab lists the product's own accounts, Dave Checking, Goals and Extra Cash, and lists the external checking account separately below them.",
+      "observed": "Dave's Accounts tab lists its own accounts, Dave Checking, Goals, and Extra Cash, with the connected external checking account listed separately below them.",
       "detail": [
-        "Three internal accounts exist by this point in the session.",
-        "The external account is presented in its own group.",
-        "Opening the external account shows its available balance, the linked debit card, a prompt to start a budget, and recent transactions."
+        "By this point, 3 Dave accounts exist.",
+        "The external account gets its own group.",
+        "Opening it shows its available balance, the linked debit card, a prompt to start a budget, and recent transactions."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O13",
-        "O32",
-        "O53",
-        "O79"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O39",
-      "name": "Check handling is split into scan and send, each with its own speed and fee",
+      "name": "Check handling routes",
       "section": "core-loop",
-      "observed": "The scan-or-send-a-check entry opens a chooser: scanning a check takes ten days with no fee or is instant for a fee, and sending a check arrives within five business days with no fee. The scanning route hands over to a partner, Ingo Money, described as processing the checks the product cashes, with options to cash a check or learn more. The sending route asks who the check should go to and maintains recipients.",
+      "observed": "Dave splits check handling into scanning, free at 10 days or paid for instant processing, and sending, free and arriving within 5 business days. Scanning hands off to a partner, Ingo Money, for the actual cashing.",
       "detail": [
-        "Scanning offers a free slow path and a paid instant path.",
-        "Sending has one speed and no fee.",
-        "The check-cashing partner is named in a dedicated introduction screen.",
-        "Recipients can be added within the send flow."
+        "Scanning has a free slow path and a paid instant path.",
+        "Sending has a single speed and no fee.",
+        "Recipients can be added directly within the send flow."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O78"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O40",
-      "name": "Cash deposit is free at two named retailers and priced elsewhere",
+      "name": "Cash deposit pricing",
       "section": "core-loop",
-      "observed": "The deposit-cash flow begins with location selection, stating that fee-free deposits are at CVS and Walgreens using a barcode scan and that other locations may charge a service fee. The next steps describe following on-screen prompts and scanning an in-app barcode or swiping the card, keeping the receipt, and expecting the deposit to post typically within ten minutes and up to thirty at some locations. A \"See locations\" control opens a map of the nearest cash deposit places.",
+      "observed": "Dave prices cash deposits by location: free at 2 named retailers using a barcode scan, with a service fee possible elsewhere. Deposits typically post within 10 minutes, up to 30 at some locations.",
       "detail": [
-        "Two retailers are named as fee-free.",
-        "A service fee ceiling is stated for other locations.",
-        "The stated fee amount is not legible in the session record.",
-        "Posting time is stated as typically ten minutes and up to thirty at some locations."
+        "2 retailers are named as fee-free.",
+        "Posting time is typically 10 minutes, up to 30 at some locations."
       ],
-      "evidence": "unresolved",
       "tags": [],
-      "crossRefs": [
-        "O18",
-        "O77"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O41",
-      "name": "Cash withdrawal is presented as a map with per-location instructions",
+      "name": "Cash withdrawal map",
       "section": "core-loop",
-      "observed": "The withdraw-cash entry opens a map listing nearby ATM and cash withdrawal locations. Selecting one shows the full address and opening hours with two actions, get directions and how to withdraw cash. The instruction screen describes inserting the card, entering the four-digit card PIN, and following the ATM prompts.",
+      "observed": "Dave presents cash withdrawal as a map of nearby ATMs, with directions and instructions, including entering the 4-digit debit card PIN, on the same screen.",
       "detail": [
-        "Location data and procedural instruction are placed on the same surface.",
-        "The PIN referred to is the debit card PIN of four digits."
+        "Location data and step-by-step instructions live on the same screen.",
+        "The PIN referred to is the 4-digit debit card PIN."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O28",
-        "O66"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O42",
-      "name": "Bill payment offers three routes without leaving the account",
+      "name": "Bill payment routes",
       "section": "core-loop",
-      "observed": "The pay-bills screen offers paying with the debit card by copying its details for online payment, paying from the checking account by copying the routing number, account number and partner bank details, or sending a check from the checking account for no fee arriving within five business days.",
+      "observed": "Dave offers 3 ways to pay bills: copying debit card details for online payment, copying checking account and routing numbers, or sending a check at no fee within 5 business days.",
       "detail": [
-        "Three payment routes are offered for the same outcome.",
-        "Each identifier can be copied individually.",
-        "The check route restates the no-fee and five-business-day terms."
+        "3 payment routes lead to the same outcome.",
+        "Each identifier can be copied on its own."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O39"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O43",
-      "name": "The product creates the user's first goal and gives it a target",
+      "name": "Dave suggests the first goal",
       "section": "goals",
-      "observed": "After the goals account is created, the screen reads \"Your goals account is ready for roundups\", states that round-ups are set up for the new goal, and invites the user to personalise it by editing title, goal amount and end date. Opening the goal shows the goal detail, with the savings target set by default at $75 and round-up switched on.",
+      "observed": "Once the Goals account is open, Dave hands the user a goal that's already running, round-ups switched on and a savings target of $75 set by default. It invites the user to personalize the title, amount, and end date afterward, and offers a recurring deposit as a way to reach it faster.",
       "detail": [
         "The goal exists before the user has defined anything about it.",
-        "The default target amount is $75.",
-        "Round-up is already on for this goal.",
-        "Three attributes are named as editable: title, goal amount, end date.",
-        "A \"Set a recurring deposit\" control sits below, framed as reaching goals faster."
+        "The default target is $75.",
+        "Round-up is already switched on for this goal.",
+        "Title, amount, and end date are editable."
       ],
-      "evidence": "directly observed",
       "tags": [
         {
           "name": "Piggy Bank",
@@ -775,42 +608,32 @@
           "alternativeConsidered": "That the Goals account is an ordinary savings sub-account and therefore commerce infrastructure carrying no mechanic label. The separating evidence would be whether the Goals balance can be spent directly, for example by card or bill payment, without a transfer back to checking. If it can, the reserve is not restricted and the entry does not apply. The session does not test this, which is why the restriction sits at strongly supported rather than directly observed."
         }
       ],
-      "crossRefs": [
-        "O32",
-        "O44",
-        "O46",
-        "O49"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O44",
-      "name": "Personalisation is offered before any money is in the goal",
+      "name": "Personalizing an empty goal",
       "section": "goals",
-      "observed": "The goal detail screen allows editing the title and the goal amount, changing the appearance of the banner image, and viewing the savings figure.",
+      "observed": "Dave lets users edit the title, amount, and banner image of a goal from its detail screen, before any money has been added to it.",
       "detail": [
-        "The banner image is editable from the goal detail screen.",
-        "Personalisation is invited at a point when the goal balance is zero."
+        "The banner image is editable right from the goal detail screen.",
+        "Personalization is offered while the goal balance still sits at zero."
       ],
-      "evidence": "strongly supported",
       "tags": [],
-      "crossRefs": [
-        "O43",
-        "O47"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O45",
-      "name": "The goals surface shows a balance, a yield and a progress bar",
+      "name": "Goals balance and progress",
       "section": "goals",
-      "observed": "The Goals entry in the accounts list opens a screen showing the available balance for goals, a 4% APY figure, and a progress bar for savings. A \"Get started, add some money\" prompt and an \"Add money\" control appear, with \"Create a new goal\" below.",
+      "observed": "Dave shows the Goals balance alongside a 4% APY figure and a progress bar tracking how close the user is to their target.",
       "detail": [
-        "The yield stated is 4% APY.",
-        "A progress bar represents position against the goal amount.",
-        "Whether reaching the goal amount produces any recognition, message or state change is not shown."
+        "The rate shown is 4% APY.",
+        "A progress bar tracks position against the goal amount.",
+        "Dave doesn't say what happens when a goal actually reaches its target."
       ],
-      "evidence": "unresolved",
       "tags": [
         {
           "name": "Piggy Bank",
@@ -819,244 +642,183 @@
           "alternativeConsidered": "That the Goals account is an ordinary savings sub-account and therefore commerce infrastructure carrying no mechanic label. The separating evidence would be whether the Goals balance can be spent directly, for example by card or bill payment, without a transfer back to checking. If it can, the reserve is not restricted and the entry does not apply. The session does not test this, which is why the restriction sits at strongly supported rather than directly observed."
         }
       ],
-      "crossRefs": [
-        "O38",
-        "O43",
-        "O79"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O46",
-      "name": "Additional goals share a single ceiling with existing ones",
+      "name": "Shared ceiling across goals",
       "section": "goals",
-      "observed": "Creating a new goal asks for a name and then a goal amount, stating that the amount can be set up to $24,925. The session records that the ceiling is the $25,000 limit less the $75 already held in another goal.",
+      "observed": "Dave caps a second goal's amount based on what's already committed elsewhere: an overall $25,000 limit across goals, reduced by whatever's already set aside.",
       "detail": [
-        "The stated overall limit is $25,000.",
-        "The offered maximum for the new goal is reduced by the existing goal's amount.",
-        "The limit is expressed only through the reduced maximum, not as a separate statement of remaining capacity."
+        "The overall limit across goals is $25,000.",
+        "The maximum offered for a new goal is reduced by whatever's already committed to existing goals."
       ],
-      "evidence": "strongly supported",
       "tags": [],
-      "crossRefs": [
-        "O43",
-        "O45"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O47",
-      "name": "Goal appearance is chosen from an external image library",
+      "name": "Goal image from a photo library",
       "section": "goals",
-      "observed": "The goal creation flow offers \"Add a photo to represent your goal\", and selecting it opens Unsplash, from which the user chooses an image before creating the goal.",
+      "observed": "Dave lets users choose a goal's banner image from an external photo library, Unsplash, rather than a built-in set.",
       "detail": [
-        "The image source is a third-party image library rather than a built-in set.",
-        "The stated purpose of the image is to represent the goal.",
-        "The image is attached to the goal, not to the account or the user profile.",
-        "The image does not alter any stated goal rule, limit or rate in the session."
+        "The image comes from a third-party library, not a built-in set.",
+        "It's attached to the individual goal, not to the account or the profile.",
+        "Choosing an image doesn't change any goal rule, limit, or rate."
       ],
-      "evidence": "strongly supported",
       "tags": [],
-      "crossRefs": [
-        "O44"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O48",
-      "name": "The first deposit prompt uses small presets and minimising language",
+      "name": "Small first-deposit presets",
       "section": "goals",
-      "observed": "After the goal is created, the screen reads \"Start achieving your goal\" and states that tiny amounts will quickly add up, so the user should not be afraid to kick things off with just a few bucks. It offers three preset first deposits of $5, $25 and $50, a custom amount, and \"Maybe later\" at the bottom.",
+      "observed": "Dave's first deposit prompt encourages starting small, offering presets of $5, $25, and $50, a custom amount, and the option to defer.",
       "detail": [
         "The lowest preset is $5.",
-        "The copy addresses reluctance rather than benefit.",
-        "The deferral option is present and is placed last.",
-        "Choosing \"Maybe later\" still completes goal creation."
+        "The copy addresses hesitation rather than pitching a benefit.",
+        "Choosing to defer still leaves the goal created."
       ],
-      "evidence": "directly observed",
       "tags": [],
       "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O49",
-      "name": "Ending a goal is permanent and cascades into the automation",
+      "name": "Ending a goal is permanent",
       "section": "goals",
-      "observed": "Each goal carries an \"End goal\" control at the bottom, and confirming raises a screen stating that ending the goal will deactivate it permanently, pause automatic round-ups, and cancel any active recurring transfers, and that once ended the goal cannot be reactivated. The choices are \"Keep it\" or \"End goal\".",
+      "observed": "Dave's end-goal control warns that ending a goal deactivates it permanently, pauses round-ups, and cancels any recurring transfers into it, and that it can't be undone. Users choose to keep it or end it.",
       "detail": [
-        "Three consequences are stated together: permanent deactivation, round-ups paused, recurring transfers cancelled.",
-        "Irreversibility is stated explicitly.",
-        "The retain option is presented alongside the destructive one.",
-        "Whether \"pause automatic roundups\" affects round-ups across all goals or only this one is not established."
+        "3 consequences are stated together: permanent deactivation, round-ups paused, recurring transfers cancelled.",
+        "Dave states plainly that this can't be undone."
       ],
-      "evidence": "unresolved",
       "tags": [],
-      "crossRefs": [
-        "O31",
-        "O34",
-        "O50"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O50",
-      "name": "Ending a goal is immediately followed by an offer to restart the automation",
+      "name": "Restart offer after ending",
       "section": "goals",
-      "observed": "After ending, the product states that the goal has ended and remains accessible in a past goals section, then presents \"Resume roundup with a new goal\", explaining that creating a new goal restarts automatic savings with round-up, with \"Resume roundup\" and \"Not now\".",
+      "observed": "Dave confirms an ended goal stays visible in a past goals list, then immediately offers to restart round-ups by creating a new goal.",
       "detail": [
-        "The ended goal is retained in a past goals section.",
-        "The restart offer appears on the confirmation screen rather than later.",
-        "The restart is framed as resuming round-up rather than as creating a goal."
+        "The ended goal stays accessible in a past goals list.",
+        "The restart offer appears right on the confirmation screen, not later.",
+        "It's framed as resuming round-ups, not as creating a fresh goal."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O49"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O51",
-      "name": "The advance is the headline of the product and of its own tab",
+      "name": "Advance tab headline",
       "section": "access",
-      "observed": "The Extra cash tab opens with \"Get an extra cash advance up to $500\" and instructs the user to open their extra cash and spending accounts to get started, with a control to see how extra cash works and a \"Get started\" action.",
+      "observed": "Dave's Extra Cash tab opens with the same $500 advance headline as the pre-account screen, asking users to open 2 accounts to get started.",
       "detail": [
-        "The same $500 figure that opens the unauthenticated app opens this tab.",
-        "Access is conditioned on opening two accounts."
+        "The same $500 figure that opens the unauthenticated app opens this tab too.",
+        "Getting access is conditioned on opening 2 accounts."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O1",
-        "O53"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O52",
-      "name": "The mechanics of the advance are explained before the account is opened",
+      "name": "How the advance works",
       "section": "access",
-      "observed": "The explanation screen states that advances arrive in two to three days for no fee or instantly for a small fee, that taking an advance makes the extra cash account balance go negative and that it settles on the next paycheck, and that money can also be stored in the account.",
+      "observed": "Dave explains that advances arrive in 2 to 3 days for no fee or instantly for a small fee, that taking one puts the extra cash balance negative, and that it settles against the next paycheck. The account can also just hold money.",
       "detail": [
-        "The negative balance is stated as the mechanism rather than as a warning.",
+        "The negative balance is described as the mechanism, not as a warning.",
         "Settlement is tied to the next paycheck.",
-        "Two delivery speeds are priced differently.",
-        "The storage function of the account is introduced alongside the borrowing function."
+        "2 delivery speeds carry 2 different prices.",
+        "The account can hold money as well as extend an advance."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O2",
-        "O15",
-        "O55",
-        "O75"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O53",
-      "name": "Opening the extra cash account is a checkbox and a wait",
+      "name": "Opening extra cash",
       "section": "access",
-      "observed": "The opening screen presents the extra cash account with a note that express fees apply to instant transfers, and a checkbox agreeing to the extra cash deposit agreement, its disclosures and the partner bank's privacy policy. After the action, the screen loads and cycles value propositions, including using advances instantly with the product's checking account and Apple Pay, before confirming that the extra cash and checking accounts are set up.",
+      "observed": "Dave's extra cash account opens with a single checkbox and then a wait filled with more value propositions, before confirming the account is set up.",
       "detail": [
-        "One checkbox carries three documents, matching the pattern used for the checking account.",
-        "The wait again carries propositions rather than status."
+        "A single checkbox covers 3 documents, the same pattern used for opening checking.",
+        "The wait shows propositions again rather than status detail."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O23",
-        "O24",
-        "O38"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O54",
-      "name": "Eligibility is withheld after the account is opened, with a dated retry",
+      "name": "Not eligible yet",
       "section": "access",
-      "observed": "Immediately after the account is created, the product states \"You're not eligible for an advance yet. Check back tomorrow to see if you're eligible.\" and offers \"Get notified if you're eligible\". A parallel screen states that the product is working on getting the user approved for an advance, tells them to check back tomorrow, and offers \"Notify me when I'm eligible\".",
+      "observed": "Dave declines the advance right after the account is created, telling users they're \"not yet\" eligible and to check back the next day, offering a notification instead.",
       "detail": [
-        "The refusal is worded as \"not yet\" rather than as a decline.",
-        "A specific return interval is named: tomorrow.",
-        "A notification opt-in is offered in place of the benefit.",
-        "The message appears in more than one position in the tab.",
-        "The analyst records that no reason for tomorrow's difference is given on these screens.",
-        "Whether eligibility is in fact re-evaluated daily is not shown."
+        "The refusal is worded as \"not yet,\" not as a decline.",
+        "A specific return window is named: the next day.",
+        "A notification opt-in is offered in place of the benefit itself.",
+        "This message shows up in more than one place in the tab."
       ],
-      "evidence": "unresolved",
       "tags": [],
-      "crossRefs": [
-        "O56",
-        "O80"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O55",
-      "name": "Funding the extra cash account is explicitly decoupled from eligibility",
+      "name": "Funding doesn't help eligibility",
       "section": "access",
-      "observed": "Opening the extra cash account balance shows the balance and states that adding money to the account does not increase the advance amount and will not affect advance eligibility. A deposit control is nonetheless present.",
+      "observed": "Dave tells users that adding money to the extra cash account doesn't increase the advance amount and won't affect eligibility, though a deposit option stays available anyway.",
       "detail": [
-        "The decoupling is stated pre-emptively at the deposit surface.",
-        "Deposit remains available despite the stated absence of effect."
+        "This decoupling is stated up front, right at the deposit screen.",
+        "Deposits remain available even though Dave says they won't help."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O52"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O56",
-      "name": "Eligibility is tied to the account the user is paid into",
+      "name": "Eligibility tied to salary account",
       "section": "access",
-      "observed": "Below the balance, the screen shows the linked bank and debit cards and states that the bank is used to determine advance eligibility, then asks \"Getting paid in a different bank? Connect your primary bank account.\".",
+      "observed": "Dave ties advance eligibility to the connected bank account and asks again, at the point of refusal, whether the user is paid into a different bank.",
       "detail": [
-        "The determinant of eligibility is named as the connected bank.",
-        "The prompt targets specifically the account salary arrives in.",
-        "This restates at the point of refusal the same request made during onboarding."
+        "The determining factor for eligibility is named as the connected bank.",
+        "This prompt specifically targets the account the user's salary lands in.",
+        "It's the same request made during onboarding, resurfacing at the point of refusal."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O9",
-        "O11",
-        "O54"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O57",
-      "name": "Eligibility rules are published as questions rather than as state",
+      "name": "Eligibility answered as FAQ",
       "section": "access",
-      "observed": "An extra cash FAQ lists what extra cash is, what affects eligibility for an advance, how an advance is received, how it is repaid, what the extra cash balance is, why the balance is negative, why another advance cannot be taken immediately, why the advance amount changed, what fees extra cash has, and what happens if settlement is late.",
+      "observed": "Dave publishes 10 FAQ questions about Extra Cash covering eligibility, receiving and repaying an advance, and fees, rather than showing these rules directly in the interface.",
       "detail": [
-        "Ten questions are listed.",
-        "The questions name rules the interface does not otherwise display, including limits on taking a further advance and changes to the advance amount.",
-        "The answers are not opened in the session."
+        "10 questions are listed.",
+        "The questions name rules the interface doesn't otherwise show, including limits on taking another advance and changes to the advance amount."
       ],
-      "evidence": "unresolved",
       "tags": [],
-      "crossRefs": [
-        "O52",
-        "O54",
-        "O75"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O58",
-      "name": "The Grow tab leads with earning and closes with work",
+      "name": "Grow tab overview",
       "section": "earning",
-      "observed": "The Grow tab presents, at the top, \"Earn cash instantly\" tagged as new, described as taking surveys and getting cash in the product's checking account. Below it the user's goals appear, and below those a large tappable section, \"Try a side hustle\", framed as putting more money in your pocket with a side job.",
+      "observed": "The Grow tab leads with Dave's survey feature, tagged as new and pitched as earning cash instantly, with the user's goals below it and a larger side hustle section beneath those.",
       "detail": [
-        "Three surfaces share the tab: surveys, goals, side hustle.",
-        "The survey surface carries a \"new\" tag.",
-        "Earnings from both surfaces are directed to or framed around the product's own checking account."
+        "3 features share the tab: surveys, goals, and side hustle.",
+        "The survey feature carries a new tag.",
+        "Dave frames earnings from both surveys and side hustle work as landing in its own checking account."
       ],
-      "evidence": "strongly supported",
       "tags": [
         {
           "name": "Earning Tasks",
@@ -1065,26 +827,19 @@
           "alternativeConsidered": "That the surveys are a payment arrangement rather than a designed earning loop, and therefore commerce infrastructure to be described in plain language under the entry's first exclusion. The separating evidence is whether a continuation element exists independently of the payment relationship. Here it does: the monthly total, the tiered sections and the stated unlock are product-side presentation that would remain if the payout amounts were unchanged, which is what the exclusion carves out as classifiable. Rewarded Advertisement was also considered and set aside, since compensation follows performance of the survey rather than engagement with a promotional unit."
         }
       ],
-      "crossRefs": [
-        "O45",
-        "O59",
-        "O66"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O59",
-      "name": "Survey earning is framed as three steps with an unlock and a partial-reward rule",
+      "name": "How survey earning works",
       "section": "earning",
-      "observed": "The survey introduction reads \"Start earning with surveys. Get paid instantly to your Dave Checking account\", states that when the user does not qualify for a survey they are taking it will end early and they will receive a partial reward, and numbers three steps: get started with an intro survey, unlock higher paying surveys as you go, see earnings in the checking account. The screen attributes the surveys to a third party, inBrain AI, and links to terms of use.",
+      "observed": "Dave frames surveys as 3 steps: start with an intro survey, unlock higher paying surveys by continuing, and see earnings land in checking. It tells users up front that not qualifying for a survey ends it early with a partial reward. The surveys themselves come from a named third party, inBrain AI.",
       "detail": [
-        "Progression is promised in the second step: higher paying surveys unlock as the user continues.",
-        "The mechanism, threshold or condition for that unlock is not stated on this screen.",
-        "Disqualification is disclosed before the first survey rather than at the point of failure.",
-        "A partial reward is promised for disqualification, with no amount or rule stated.",
-        "The provider of the surveys is a named third party."
+        "Continuing is said to unlock higher paying surveys, though Dave doesn't say what triggers the unlock.",
+        "Disqualification is disclosed before the first survey, not just when it happens.",
+        "A partial reward is promised for disqualification, without an amount attached."
       ],
-      "evidence": "directly observed",
       "tags": [
         {
           "name": "Earning Tasks",
@@ -1093,43 +848,33 @@
           "alternativeConsidered": "That the surveys are a payment arrangement rather than a designed earning loop, and therefore commerce infrastructure to be described in plain language under the entry's first exclusion. The separating evidence is whether a continuation element exists independently of the payment relationship. Here it does: the monthly total, the tiered sections and the stated unlock are product-side presentation that would remain if the payout amounts were unchanged, which is what the exclusion carves out as classifiable. Rewarded Advertisement was also considered and set aside, since compensation follows performance of the survey rather than engagement with a promotional unit."
         }
       ],
-      "crossRefs": [
-        "O61",
-        "O64"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O60",
-      "name": "Dismissing the introduction reveals the list directly",
+      "name": "Closing the survey intro",
       "section": "earning",
-      "observed": "Closing the introduction with the control in the top right corner reveals the survey list rather than returning the user to the previous tab.",
+      "observed": "Dismissing the survey introduction from the corner control takes the user straight to the survey list rather than back to the previous tab.",
       "detail": [
-        "The dismiss control leads forward rather than back.",
-        "Taking the intro survey and dismissing the introduction both arrive at survey content."
+        "The dismiss control moves forward, not back.",
+        "Taking the intro survey and dismissing the intro both land on survey content."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O59",
-        "O61"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O61",
-      "name": "The survey list shows payout, duration, a period total and two tiers",
+      "name": "The survey list",
       "section": "earning",
-      "observed": "The list screen shows the surveys available and the user's earnings for the month, with a section of surveys recommended for the user carrying a payout and an estimated completion time each, a further section of other listed surveys, and a \"quick surveys\" section. A survey FAQ sits at the bottom, and the side hustle section is featured below the list.",
+      "observed": "Dave's survey list shows a payout and estimated time for each survey, a running total of the month's earnings, and splits surveys into a recommended set and a quick set.",
       "detail": [
-        "Each survey is listed with both a payout and a duration.",
-        "A monthly earnings total is displayed above the list.",
-        "Three recommended surveys are shown at this moment, with estimated times of about 40, 14 and 20 minutes.",
-        "Two quick surveys are shown, one of about 8 minutes paying $0.45 and one of about 10 minutes paying $0.50.",
-        "The payout figures for the longer surveys are not legible in the session record.",
-        "Recommendation is applied to a subset of the list."
+        "Every survey lists a payout and a duration.",
+        "A monthly earnings total sits above the list.",
+        "3 recommended surveys ran about 40, 14, and 20 minutes. 2 quick surveys paid $0.45 for about 8 minutes and $0.50 for about 10.",
+        "Recommendation applies to only part of the list."
       ],
-      "evidence": "unresolved",
       "tags": [
         {
           "name": "Earning Tasks",
@@ -1138,183 +883,142 @@
           "alternativeConsidered": "That the surveys are a payment arrangement rather than a designed earning loop, and therefore commerce infrastructure to be described in plain language under the entry's first exclusion. The separating evidence is whether a continuation element exists independently of the payment relationship. Here it does: the monthly total, the tiered sections and the stated unlock are product-side presentation that would remain if the payout amounts were unchanged, which is what the exclusion carves out as classifiable. Rewarded Advertisement was also considered and set aside, since compensation follows performance of the survey rather than engagement with a promotional unit."
         }
       ],
-      "crossRefs": [
-        "O59",
-        "O64"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O62",
-      "name": "The intro survey is a profiling questionnaire",
+      "name": "The profiling questionnaire",
       "section": "earning",
-      "observed": "Taking the intro survey opens \"Take surveys, earn rewards\" with a close control and a toggle by which the user accepts the provider's terms and privacy policy before a \"Get started\" action. The questions that follow ask gender, postal code, marital status, highest level of education completed, current employment status with a drop-down for further detail, race, and birth date, after which a celebratory confetti animation appears and the user continues to the recommended surveys.",
+      "observed": "Before any paid survey, Dave runs the user through a profiling questionnaire covering gender, postal code, marital status, education, employment status, race, and birth date, then marks the finish with a confetti animation.",
       "detail": [
-        "The provider's consent is a toggle the user must turn on.",
-        "Seven attributes are collected before any paid survey is taken.",
-        "Several questions offer a \"prefer not to answer\" option, including marital status and race.",
-        "The completion of the profile is marked with a celebration rather than a stated reward.",
-        "Whether the intro survey itself pays is not established."
+        "7 attributes are collected before any paid survey is taken.",
+        "Several questions, including marital status and race, offer an option to skip.",
+        "Finishing the profile is marked with a celebration animation rather than a stated reward.",
+        "Dave doesn't say whether the intro questionnaire itself pays anything."
       ],
-      "evidence": "unresolved",
       "tags": [],
-      "crossRefs": [
-        "O59",
-        "O61"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O63",
-      "name": "A survey opens with an accuracy warning",
+      "name": "An accuracy warning",
       "section": "earning",
-      "observed": "Starting a survey shows \"Answer carefully to ensure you get the full reward\", then a screen naming the topic and stating the approximate length before a \"Begin survey\" action.",
+      "observed": "Starting a survey, Dave warns that answering carefully secures the full reward, then names the topic and approximate length before beginning.",
       "detail": [
-        "The warning ties answer quality to the size of the reward.",
-        "The topic and approximate length are restated immediately before starting.",
-        "The survey observed was on food and beverage with a stated length of about ten minutes."
+        "The warning ties answer quality directly to reward size.",
+        "Topic and length are restated right before starting.",
+        "The survey observed here covered food and beverage, about 10 minutes."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O59",
-        "O64"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O64",
-      "name": "Disqualification ends the instance mid-way and removes it from the list",
+      "name": "Disqualified mid-survey",
       "section": "earning",
-      "observed": "Partway through the survey a message states that one of the user's answers indicated they are not the person the survey was intended for. On returning to the list, the ten-minute survey is no longer shown.",
+      "observed": "Partway through a survey, Dave can end it early, telling the user one of their answers indicated they weren't the intended respondent, and the survey disappears from the list afterward.",
       "detail": [
         "The instance ends before completion.",
-        "The reason given attributes the outcome to the user's answers.",
-        "The disqualified survey is removed from the available list.",
-        "Whether a partial reward was granted for this instance is not shown."
+        "Dave attributes the outcome to the user's own answers.",
+        "The disqualified survey no longer appears in the available list."
       ],
-      "evidence": "unresolved",
       "tags": [],
-      "crossRefs": [
-        "O59",
-        "O61",
-        "O63"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O65",
-      "name": "Survey rules are published as questions",
+      "name": "Survey FAQ",
       "section": "earning",
-      "observed": "A survey FAQ is available covering how the surveys work and why the user is getting disqualified.",
+      "observed": "Dave publishes a survey FAQ covering how surveys work and why users get disqualified.",
       "detail": [
-        "Disqualification is common enough to have its own published question.",
-        "The answers are not opened in the session."
+        "Disqualification comes up often enough to have its own FAQ entry."
       ],
-      "evidence": "unresolved",
       "tags": [],
-      "crossRefs": [
-        "O57",
-        "O64"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O66",
-      "name": "The side hustle entry requests location permission",
+      "name": "Location permission request",
       "section": "earning",
-      "observed": "Tapping \"Try a side hustle\" first raises a permission prompt stating that the product uses the user's location to find ATMs and protect them from fraud.",
+      "observed": "Tapping into the side hustle section first raises a permission prompt where Dave says it uses location to find ATMs and protect users from fraud.",
       "detail": [
-        "The stated reasons for the permission are ATMs and fraud protection, neither of which is the surface being opened.",
-        "The prompt appears at the entry to the job surface rather than at the ATM surface."
+        "The stated reasons for the permission, ATMs and fraud protection, aren't what this surface is actually for.",
+        "The prompt appears at the entrance to the job feature, not the ATM feature."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O41",
-        "O68"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O67",
-      "name": "Side hustle is introduced and then reduced to categories",
+      "name": "Side hustle categories",
       "section": "earning",
-      "observed": "The introduction reads \"Welcome to Side Hustle\" and asks whether the user wants to earn quick cash with a side gig or find a new job, promising a search across thousands of jobs from top employers, flexible work fitting their schedule, and more money in their pocket. After \"Get started\", the categories offered are flexible hours, part time jobs, gig jobs, work from home, seasonal jobs and temp jobs.",
+      "observed": "Dave introduces Side Hustle by asking whether the user wants quick cash from a gig or a new job, then narrows straight to 6 categories: flexible hours, part time, gig jobs, work from home, seasonal, and temp jobs.",
       "detail": [
-        "Six categories are offered.",
-        "The framing covers both supplementary and replacement work."
+        "6 categories are offered.",
+        "The framing covers both supplementary income and full replacement work."
       ],
-      "evidence": "directly observed",
       "tags": [],
       "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O68",
-      "name": "The job list is sortable and filterable, and the product's own surface is featured first",
+      "name": "The job list",
       "section": "earning",
-      "observed": "Selecting a category opens a job list with a sort control offering newest to oldest and oldest to newest, and a filter on distance from the user. The first, featured item in the list is the product's own surveys, presented as taking surveys and earning cash instantly, anywhere, followed by third-party listings including delivery, therapy, security, seasonal retail and event work.",
+      "observed": "Selecting a category opens a job list with sorting and a distance filter, and Dave features its own survey feature at the top, ahead of third-party listings for delivery, therapy, security, seasonal retail, and event work.",
       "detail": [
-        "The featured position in a third-party job list is occupied by the product's own earning surface.",
-        "The distance filter is what the location permission enables.",
-        "The listings observed are for the United States market."
+        "Dave's own earning surface occupies the featured spot in what's otherwise a third-party job list.",
+        "The distance filter is likely what the earlier location permission enables, though Dave doesn't show the two connected directly.",
+        "The listings shown are for the US market."
       ],
-      "evidence": "plausible",
       "tags": [],
-      "crossRefs": [
-        "O59",
-        "O66"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O69",
-      "name": "Applications leave the product entirely",
+      "name": "Applications leave Dave",
       "section": "earning",
-      "observed": "Opening a listing shows the employer, the locations and details provided by that employer, with an \"Apply now\" action at the bottom that takes the user out to the employer's own website. The analyst records that the product does not process the application.",
+      "observed": "Opening a listing shows the employer's own details, and applying takes the user out to the employer's website. Dave doesn't process the application itself.",
       "detail": [
-        "The application is completed outside the product.",
-        "No return path into the product after applying is shown."
+        "The application is completed entirely outside Dave.",
+        "Dave doesn't show a path back in after applying."
       ],
-      "evidence": "unresolved",
       "tags": [],
-      "crossRefs": [
-        "O68"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O70",
-      "name": "Referral is the first item in settings",
+      "name": "Referral leads settings",
       "section": "growth",
-      "observed": "The settings screen places a \"Refer friends\" button at the very top, described by the analyst as large and prominent, ahead of the accounts group listing extra cash, checking and goals, an info group listing membership, linked banks and cards, edit profile and statements, an app settings group listing notifications, security settings and language, and a support group with FAQ and chat.",
+      "observed": "Dave places a prominent referral button at the very top of settings, ahead of an accounts group, an info group, an app settings group, and a support group.",
       "detail": [
-        "Referral outranks account, profile, security and support entries in the settings hierarchy.",
-        "Four groups follow it."
+        "Referral outranks account, profile, security, and support entries in the settings hierarchy.",
+        "4 groups follow it."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O71",
-        "O74",
-        "O81"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O71",
-      "name": "The referral reward is a larger future advance rather than cash",
+      "name": "A bigger next advance",
       "section": "growth",
-      "observed": "The referral screen reads \"Earn up to $100 more on your second extra cash advance\" and states that when the user and their friend repay an advance, the user will get 20% more next time. Controls are offered to share or copy a referral link.",
+      "observed": "Dave pitches referral as a way to earn up to $100 more on a second advance, paying out once the user and their friend have both repaid an advance.",
       "detail": [
-        "The reward is an increase to the advance amount, not a payment.",
+        "The reward increases a future advance amount rather than paying cash.",
         "The stated increase is 20%.",
         "The stated ceiling is $100 more.",
-        "The reward is attached specifically to the second advance.",
-        "The reward requires repayment by both parties, not only sign-up."
+        "It's tied specifically to the user's second advance.",
+        "It requires repayment by both parties, not just a friend signing up."
       ],
-      "evidence": "directly observed",
       "tags": [
         {
           "name": "Referral Boost",
@@ -1323,24 +1027,19 @@
           "alternativeConsidered": "That the boost is a held credit the user could apply elsewhere, in which case the entry's second exclusion sends it to the applicable currency or credit entry instead. The separating evidence is a session in which a boost is earned and the referring user then takes an advance: if the enhancement appears as a credited balance or as a payment separable from the advance, this tag should be withdrawn. Gifting was also considered and set aside, since the sender directs no benefit to the recipient and neither party's balance changes by an act of the sender."
         }
       ],
-      "crossRefs": [
-        "O52",
-        "O72",
-        "O73"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O72",
-      "name": "The boost is conditional, variable and expiring",
+      "name": "Conditions on the boost",
       "section": "growth",
-      "observed": "Below the offer, the screen states that the boost amount is subject to change based on extra cash eligibility and approval amount, and that an earned boost expires after 60 days.",
+      "observed": "Dave qualifies the offer directly below it: the boost amount can change based on eligibility and approval amount, and an earned boost expires after 60 days.",
       "detail": [
-        "The stated 20% and $100 figures are qualified by eligibility and approval amount.",
-        "The earned boost has a 60-day expiry.",
-        "The expiry applies after the boost is earned, not to the referral offer itself."
+        "The 20% and $100 figures are both qualified by eligibility and approval amount.",
+        "Once earned, the boost expires after 60 days.",
+        "The expiry applies to the boost after it's earned, not to the offer itself."
       ],
-      "evidence": "strongly supported",
       "tags": [
         {
           "name": "Referral Boost",
@@ -1349,24 +1048,20 @@
           "alternativeConsidered": "That the boost is a held credit the user could apply elsewhere, in which case the entry's second exclusion sends it to the applicable currency or credit entry instead. The separating evidence is a session in which a boost is earned and the referring user then takes an advance: if the enhancement appears as a credited balance or as a payment separable from the advance, this tag should be withdrawn. Gifting was also considered and set aside, since the sender directs no benefit to the recipient and neither party's balance changes by an act of the sender."
         }
       ],
-      "crossRefs": [
-        "O71"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O73",
-      "name": "The referral steps are framed as helping, with repayment as the qualifying event",
+      "name": "How to earn the boost",
       "section": "growth",
-      "observed": "A \"How to earn\" sequence lists four steps: take an extra cash advance and spend instantly on gas, bills or groceries; share a referral link to help out your friends and family; your friend repays an extra cash advance, and they will know as soon as they are approved; you get 20% more on your next advance, up to $100 more. Referral FAQs cover what an extra cash boost is, when the boost arrives after a friend signs up, and whether the boost has to be paid back.",
+      "observed": "Dave lays out 4 steps: take an advance and spend it on gas, bills, or groceries; share a referral link; wait for the friend to repay an advance; then collect 20% more on the next advance. Referral FAQs answer what the boost is, when it lands after a friend signs up, and whether it has to be repaid.",
       "detail": [
-        "Step one requires the referrer to have taken an advance before the referral can pay.",
-        "The sharing step is worded as helping rather than as earning.",
-        "The qualifying event is the friend's repayment, not their sign-up.",
-        "One of the published questions asks whether the boost must be repaid, which the interface does not otherwise answer.",
-        "The answers are not opened in the session."
+        "The referrer has to have already taken an advance before a referral can pay off.",
+        "Sharing is framed as helping a friend, not as earning a reward.",
+        "The event that qualifies the reward is the friend's repayment, not their sign-up.",
+        "A published question asks whether the boost itself has to be repaid, something the referral screen doesn't otherwise answer."
       ],
-      "evidence": "unresolved",
       "tags": [
         {
           "name": "Referral Boost",
@@ -1375,240 +1070,163 @@
           "alternativeConsidered": "That the boost is a held credit the user could apply elsewhere, in which case the entry's second exclusion sends it to the applicable currency or credit entry instead. The separating evidence is a session in which a boost is earned and the referring user then takes an advance: if the enhancement appears as a credited balance or as a payment separable from the advance, this tag should be withdrawn. Gifting was also considered and set aside, since the sender directs no benefit to the recipient and neither party's balance changes by an act of the sender."
         }
       ],
-      "crossRefs": [
-        "O57",
-        "O71",
-        "O72"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O74",
-      "name": "Membership is a small recurring charge that can be paused and resumed",
+      "name": "Membership fee, pause anytime",
       "section": "money",
-      "observed": "The membership entry in settings shows the next bill date, the bill amount of $1, a monthly schedule, and the payment method. The analyst records that the membership can be paused and then resumed easily.",
+      "observed": "Dave's membership entry in settings shows the next bill date, a $1 monthly charge, and the payment method, with an easy pause and resume.",
       "detail": [
-        "The amount is $1 and the schedule is monthly.",
-        "Pause is offered rather than only cancellation.",
-        "Resuming is available from the same surface.",
-        "What happens to the connected bank, alerts and budgeting tools during a pause is not shown."
+        "The amount is $1, billed monthly.",
+        "Pausing is offered, not just cancelling outright.",
+        "Resuming is available from the same screen."
       ],
-      "evidence": "unresolved",
       "tags": [],
-      "crossRefs": [
-        "O10",
-        "O12",
-        "O70"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O75",
-      "name": "Advance delivery is the priced dimension, not the advance",
+      "name": "Speed is what costs money",
       "section": "money",
-      "observed": "Across the pre-account terms, the onboarding screen and the extra cash explanation, the advance itself is described without interest and the fee is attached to speed: two to three days for no fee, or instantly for a small fee, with express fees named for instant transfers.",
+      "observed": "Across the app, Dave describes the advance itself without interest, pricing speed instead: 2 to 3 days for no fee, or instant for a small fee.",
       "detail": [
-        "The free path exists and is slower.",
+        "The free path exists, and it's the slower one.",
         "The paid path is instant.",
-        "No fee amount for instant delivery is stated on any screen observed."
+        "No specific fee amount for instant delivery is stated anywhere."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O1",
-        "O9",
-        "O52",
-        "O53",
-        "O57"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O76",
-      "name": "Funding the account is priced by source",
+      "name": "Funding priced by source",
       "section": "money",
-      "observed": "In the add-money flow, a transfer from a bank account carries no fee while Apple Pay carries a 1% fee.",
+      "observed": "Dave charges nothing to add money from a bank account, but takes 1% through Apple Pay.",
       "detail": [
-        "The free source is the slower one, arriving in four to five business days.",
-        "The priced source is the immediate wallet route."
+        "The free source is also the slower one, arriving in 4 to 5 business days.",
+        "The priced source is the instant wallet route."
       ],
-      "evidence": "strongly supported",
       "tags": [],
-      "crossRefs": [
-        "O33"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O77",
-      "name": "Cash deposits are priced by where they are made",
+      "name": "Cash deposits priced by location",
       "section": "money",
-      "observed": "Deposits at the two named retailers using a barcode scan are fee-free, while other locations may charge a service fee.",
+      "observed": "Dave makes cash deposits free at 2 named retailers using its barcode, with a possible fee elsewhere.",
       "detail": [
-        "The free route requires both a specific retailer and the in-app barcode.",
-        "The fee ceiling stated for other locations is not legible in the session record."
+        "The free route requires both a specific retailer and the in-app barcode."
       ],
-      "evidence": "unresolved",
       "tags": [],
-      "crossRefs": [
-        "O18",
-        "O40"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O78",
-      "name": "Check handling is priced by speed and delegated to a partner",
+      "name": "Check handling priced by speed",
       "section": "money",
-      "observed": "Scanning a check is free at ten days or paid for instantly, sending a check is free and arrives within five business days, and the check-cashing itself is performed by a named partner.",
+      "observed": "Dave prices checks the same way as advances: scanning is free and slow or paid and instant, sending is free and takes 5 business days, and the actual cashing is handled by a named partner.",
       "detail": [
-        "The pricing pattern matches the advance: the free path is slow, the paid path is instant.",
-        "The fee amount for instant check cashing is not stated."
+        "The pricing pattern matches the advance: free is slow, paid is instant.",
+        "No specific fee is stated for instant check cashing."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O39",
-        "O75"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O79",
-      "name": "Interest appears on the accounts without an application",
+      "name": "Interest without applying",
       "section": "money",
-      "observed": "The Accounts tab carries a banner reading \"Congrats, you're now earning interest on your checking and goals account\" with a \"Learn more\" control, and the analyst records that nothing was applied for. Both the Dave Checking card and the Goals screen display 4% APY.",
+      "observed": "Dave announces interest on checking and Goals as already active, without an application, showing 4% APY on both.",
       "detail": [
         "The rate shown on both accounts is 4% APY.",
-        "The benefit is announced as already active rather than offered.",
-        "The conditions attached to the rate are not shown; the explanation sits behind \"Learn more\", which is not opened."
+        "The benefit is announced as already active, not offered as something to opt into.",
+        "The conditions behind that rate aren't shown up front."
       ],
-      "evidence": "unresolved",
       "tags": [],
-      "crossRefs": [
-        "O38",
-        "O45"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O80",
-      "name": "The notification prompt bundles account alerts with offers",
+      "name": "Notifications bundle offers with alerts",
       "section": "returns",
-      "observed": "Choosing to be notified about eligibility raises a prompt reading \"Turn on notifications. This helps Dave share real time account changes with you along with a few offers.\" with \"Not now\" and \"Turn on\".",
+      "observed": "Dave's notification prompt, raised right after refusing the advance, bundles account-change alerts together with promotional offers in a single request.",
       "detail": [
-        "Two different message types are named in one permission request: account changes and offers.",
-        "The account-change purpose is stated first and the offers second.",
-        "The permission is requested at the moment the user has been refused a benefit and asked to come back tomorrow."
+        "2 different message types get bundled into a single permission request: account changes and offers.",
+        "The account-change purpose is listed first, offers second.",
+        "This permission is requested right at the moment a user has just been turned down and told to come back tomorrow."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O54",
-        "O81"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O81",
-      "name": "Notification categories are granular and mostly push-only",
+      "name": "Granular, mostly push notifications",
       "section": "returns",
-      "observed": "The notification settings allow setting a low balance alert to notify if the balance is predicted to fall below a threshold, and list categories for low balance alerts, daily balance alerts for the checking account, extra cash, special offers, product announcements and newsletter, each as push, with email named only in relation to the newsletter.",
+      "observed": "Dave lets users set a low balance alert on a predicted, not just actual, shortfall, and lists 6 notification categories, mostly push, mixing account alerts with promotional ones.",
       "detail": [
-        "Six notification categories are listed.",
-        "The low balance alert has a user-set threshold, shown at $40 in the session.",
-        "The threshold is predictive rather than actual, worded as \"notify if predicted below\".",
-        "A daily balance alert exists as a separate category from the low balance alert.",
-        "Promotional categories sit in the same list as account alerts.",
-        "The default on or off state of each category is not shown."
+        "6 notification categories are listed.",
+        "The low balance alert threshold seen here is $40.",
+        "It's predictive, worded around a predicted shortfall rather than an actual one.",
+        "A daily balance alert exists as its own category, separate from the low balance alert.",
+        "Promotional categories sit in the same list as account alerts."
       ],
-      "evidence": "unresolved",
       "tags": [],
-      "crossRefs": [
-        "O12",
-        "O80",
-        "O82"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O82",
-      "name": "The low balance alert is one of the three things the membership fee buys",
+      "name": "Alerts sold as membership",
       "section": "returns",
-      "observed": "The bank connection screen names low balance alerts as one of the three things the $1 monthly membership fee provides, alongside keeping the bank account connected and providing budgeting tools.",
+      "observed": "Dave names low balance alerts as one of three things the $1 membership buys, alongside keeping the bank connected and providing budgeting tools.",
       "detail": [
-        "A return trigger is sold as a membership benefit rather than presented as a default service.",
+        "A return trigger here is sold as a membership benefit rather than offered as a default service.",
         "The alert depends on the connected external account."
       ],
-      "evidence": "strongly supported",
       "tags": [],
-      "crossRefs": [
-        "O12",
-        "O74",
-        "O81"
-      ],
+      "crossRefs": [],
       "screenshots": []
     },
     {
       "id": "O83",
-      "name": "Marketing SMS is consented to at the verification step",
+      "name": "Marketing SMS at verification",
       "section": "returns",
-      "observed": "The consent to receive special offers and promotions by SMS is placed on the verification-code screen, using the number the user has just supplied for two-factor verification.",
+      "observed": "Dave asks for consent to receive promotional texts on the same screen and the same number used for two-factor verification.",
       "detail": [
-        "A second messaging channel is opened at a security step.",
-        "The consent states it is not a condition of purchase.",
-        "No promotional message is presented in the session."
+        "A second messaging channel opens up at what's otherwise a security step.",
+        "The consent states it isn't a condition of purchase."
       ],
-      "evidence": "directly observed",
       "tags": [],
-      "crossRefs": [
-        "O5",
-        "O6",
-        "O81"
-      ],
+      "crossRefs": [],
       "screenshots": []
     }
   ],
-  "proposedTags": [
-    {
-      "name": "Scheduled eligibility re-check",
-      "sourceObservations": [
-        "O54",
-        "O56",
-        "O80"
-      ],
-      "draftDefinition": "When a user requests a gated benefit and does not qualify, the product declines without closing the request, names a recurring interval at which the decision will be reconsidered, and offers a notification for the moment eligibility changes.",
-      "conditions": "A benefit gated by a system-evaluated eligibility rule; a decision the product will re-evaluate rather than treat as final; a named interval short enough to be actionable; a notification opt-in offered in place of the withheld benefit; a stated or implied route by which the user can change the input the decision depends on.",
-      "whyNotCovered": "No approved entry describes a refusal that carries a return date. Daily Login Rewards requires a benefit granted for access rather than a re-evaluated decision. Daily / Weekly Quests requires an objective instance with a completion state, and no objective is issued here. The behaviour is a return trigger built on a pending decision rather than on a reward or a task.",
-      "recurrenceElsewhere": "Lending, credit-limit increases, insurance underwriting, marketplace seller eligibility, waitlists and account-upgrade flows all decline provisionally and invite a return. The structure is describable without reference to this product.",
-      "caveat": "The session observes the refusal, the named interval and the notification offer, but not a single re-evaluation. Whether the decision is genuinely reconsidered daily, and whether the interval is a real cadence or a phrase, is not established."
-    },
-    {
-      "name": "Assisted external redirection",
-      "sourceObservations": [
-        "O35",
-        "O36",
-        "O37"
-      ],
-      "draftDefinition": "The product provides several parallel routes for completing a required action inside a third-party system it does not control, including at least one route in which the product generates the paperwork on the user's behalf, and offers a partial-commitment option so the user need not move the whole of the thing being redirected.",
-      "conditions": "An action outside the product's control that materially changes the product's value to the user; more than one route to that action, differentiated by effort or speed; a route in which the product does the work and the user only supplies identifying details; an option to commit part rather than all; a statement that the choice can be changed later.",
-      "whyNotCovered": "No approved entry addresses the product assisting an action performed in another system. The behaviour is not a quest, a challenge or an achievement, because the product neither issues an objective nor records a completion state; it reduces the cost of a step it cannot perform.",
-      "recurrenceElsewhere": "Payroll redirection, utility and insurance switching, subscription migration, number porting and pension transfer flows all take this shape. The structure is describable without reference to this product.",
-      "caveat": "The session shows the routes and the partial option but no completed redirection, and it does not show how the partial amount is specified. Whether the pre-signature checkbox is on by default is also not established, and that default bears on any definition of the assisted route."
-    }
-  ],
   "systemView": [
-    "The product is organised so that one connection decision made during onboarding governs almost everything that follows.",
-    "Connecting the account the user is paid into (O9, O13) is the input to the eligibility determination for the advance (O56), which is the product's headline offer on its first unauthenticated screen (O1) and again on its own tab (O51). That same connection is one of the three things the $1 monthly membership is said to pay for (O12), and the membership also pays for the low balance alert (O82), which is the product's most frequent reason to reopen the app (O81). The membership charge is authorised on the connection screen itself (O10), so the fee, the connection and the eligibility path are agreed in one action.",
-    "The advance sits behind a gate the session never passed (O54). Everything downstream of it therefore also sits behind that gate. The referral reward is not cash but a larger next advance (O71), and its first qualifying step is that the referrer has taken an advance (O73), so the growth loop cannot start until the eligibility loop resolves. The settlement mechanism for an advance is the next paycheck (O52) and the linked debit card (O15), which gives the direct deposit flow (O35, O36, O37) a second function beyond the two-days-early claim it advertises: it makes the paycheck arrive where settlement happens.",
-    "The savings side runs on a different dependency. Round-ups are triggered only by purchases on the product's own debit card (O31), which requires the checking account (O17 to O23), which requires the identity verification sequence (O19, O20, O21). Round-ups in turn require a Goals account (O32), so the savings container exists as a precondition of the automation rather than as something the user asked for, and the first goal arrives already created with a $75 target and round-up switched on (O43). Ending a goal cascades back into that automation, pausing round-ups and cancelling recurring transfers (O49), and the product answers the cascade immediately with an offer to restart it by creating another goal (O50). The savings surface and the spending surface are therefore coupled in both directions: spending feeds saving, and removing the savings target switches the feeding off.",
-    "The Grow tab connects the two halves. Survey earnings are paid into the checking account (O59), which is also the settlement point for advances and the source of round-ups, so a user who earns in Grow is funding the same account that both the saving automation and the borrowing settlement depend on. The job board within Grow points outward (O69), but its featured position is occupied by the product's own survey surface (O68), which points back in.",
-    "Dependencies worth stating plainly. O54 depends on O9, O13 and O56. O71, O72 and O73 depend on O54. O31 depends on O17 through O23 and on O28. O43, O45, O46, O47 and O48 depend on O32. O49 and O50 depend on O31 and O34. O82 depends on O12 and O13. O59 and O61 depend on O23. O35, O36 and O37 depend on O23 and feed O52.",
-    "What the session cannot say. It observed no advance, no repayment, no referral boost, no goal reaching its target, no survey completing and no notification arriving. Six of the nine dependency chains above terminate in behaviour that was never seen, and every one of them terminates at the same place: the eligibility decision the product deferred to tomorrow."
+    "Dave is a medium complexity system.",
+    "It's built around a single early decision: connecting the bank account the user is already paid into. Dave asks for this account by name during onboarding, and treats it as the one input nearly everything downstream depends on.",
+    "Advance eligibility runs on that connection. Dave decides whether a user can take an Extra Cash advance based on the connected account, and says an advance settles against the user's next paycheck through the linked debit card. Setting up direct deposit into Dave also decides where that repayment lands.",
+    "Savings runs on a separate chain from the same checking account. Dave rounds up purchases made on its own debit card into a Goals account it creates automatically the first time round-ups are turned on, arriving already set up with a starting goal and a target. Ending a goal pauses its round-ups and cancels any recurring transfers feeding it, and Dave immediately offers to restart the automation with a new goal.",
+    "Growth sits downstream of the other two. The referral reward is a bigger next advance rather than cash, and Dave pays it out only once the referrer has taken an advance and both the referrer and their friend have repaid one.",
+    "These three chains meet in the Grow tab. Survey earnings land in the same checking account that feeds round-ups and settles advances, and the tab features Dave's own survey option inside the same job list it uses to point users toward other employers."
   ],
   "sectionLeadIns": {
     "onboarding": "This section covers everything between opening Dave for the first time and reaching the empty home screen. It runs through the pitch before signup, identity verification, and connecting a bank account and debit card.",
-    "growth": "This section covers Dave's referral program: where it sits in the app, what it pays, and the steps involved in earning it."
+    "core-loop": "This section covers everything that runs through Dave once the checking account exists: opening it, verifying identity, and then moving money in, out, and between accounts through direct deposit, round-ups, checks, cash, and bill pay.",
+    "goals": "This section covers what happens once round-ups are turned on: how the first goal gets created, personalized, extended with a second goal, and ended.",
+    "access": "This section covers the Extra Cash advance: how Dave pitches it, explains how it works, and gates it behind eligibility.",
+    "earning": "This section covers the Grow tab: paid surveys, a profiling questionnaire, and a job board. It's where Dave lets users add money to their checking account without borrowing or saving.",
+    "growth": "This section covers Dave's referral program: where it sits in the app, what it pays, and the steps involved in earning it.",
+    "money": "This section covers everything Dave charges for or pays interest on: membership, advance delivery, funding, cash and check handling, and the rate on 2 of its accounts.",
+    "returns": "This section covers what brings users back to Dave: notifications, balance alerts, and the marketing consent gathered during signup."
   },
   "sectionCards": {
     "onboarding": "Dave walks new users through signup, identity checks, and connecting a bank and debit card before showing an empty home screen.",

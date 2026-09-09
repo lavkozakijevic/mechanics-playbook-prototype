@@ -186,31 +186,6 @@ function tagPublishes(confidence) {
   return rank !== undefined && rank >= 1;
 }
 
-// An observation's `evidence` is a single value, but the source annotates
-// tier per clause. This rolls a whole observation's Observed+Detail text up
-// to its weakest tier, defaulting to directly observed (the file's own
-// stated default for unannotated text) when no tier annotation is present
-// at all. Evidence never gates publication — observations always publish.
-const EVIDENCE_RANK = { unresolved: 0, plausible: 1, "strongly supported": 2, "directly observed": 3 };
-function rollupEvidence(text) {
-  let weakest = "directly observed";
-  for (const m of text.matchAll(/\(tier:\s*([^,)]+)/gi)) {
-    const key = m[1].trim().toLowerCase();
-    if (key in EVIDENCE_RANK && EVIDENCE_RANK[key] < EVIDENCE_RANK[weakest]) weakest = key;
-  }
-  return weakest;
-}
-
-// Evidence tiers and sequence caveats are analysis-internal bookkeeping —
-// removed here rather than carried into published data, per spec.
-function stripAnnotations(text) {
-  return text
-    .replace(/\s*\((?:tier|sequence caveat):[^)]*\)/gi, "")
-    .replace(/\s+([.,;:])/g, "$1")
-    .replace(/[ \t]{2,}/g, " ")
-    .trim();
-}
-
 // Splits text on a heading marker ("^## ", "^### ", ...) into {heading, body}
 // pairs, one per section at that level. Used at every level of the v4.1
 // heading hierarchy so no regex has to guess where one block ends and the
@@ -246,6 +221,11 @@ function idsIn(text) {
   return [...text.matchAll(/O\d+/g)].map((m) => m[0]);
 }
 
+// Reads the analysis file for exactly what spec §1.7 says it still supplies:
+// the header dates, and the applied tags with their confidence. Everything
+// else that used to come from Pass one/three and the Close section (observed
+// prose, detail, system view narrative, cross-references) now comes from the
+// content file instead, via parseContentV41 below.
 function parseAnalysisV41(file) {
   const md = fs.readFileSync(path.join(repo, "sources/analyses", file), "utf8");
 
@@ -263,60 +243,16 @@ function parseAnalysisV41(file) {
   if (!analysisDate) throw new Error(`${file}: "Analysis date" (${header["Analysis date"]}) is not a valid date`);
   if (!lastUpdated) throw new Error(`${file}: "Last updated" (${header["Last updated"]}) is not a valid date`);
 
-  // ---- Pass one: observation record
-  const passOne = h1Section(md, "Pass one: observation record");
-  if (passOne === null) throw new Error(`${file}: "# Pass one: observation record" not found`);
-
-  const observations = [];
-  const obsById = new Map();
-  for (const { heading: sectionName, body: sectionBody } of headingChunks(passOne, 2)) {
-    const slug = V41_SECTION_SLUG.get(sectionName);
-    if (!slug) throw new Error(`${file}: unrecognized section "${sectionName}"`);
-
-    const parts = sectionBody.split(/^\*\*O(\d+)\.\s+/m).slice(1);
-    for (let i = 0; i < parts.length; i += 2) {
-      const id = "O" + parts[i];
-      if (obsById.has(id)) throw new Error(`${file}: duplicate observation id ${id}`);
-
-      const rest = parts[i + 1];
-      const titleMatch = rest.match(/^(.+?)\.\*\*\n([\s\S]*)$/);
-      if (!titleMatch) throw new Error(`${file}: ${id} heading is malformed`);
-      const [, title, body] = titleMatch;
-
-      const observedMatch = body.match(/\*\*Observed:\*\*\s*([\s\S]*?)\n\n\*\*Detail:\*\*/);
-      if (!observedMatch) throw new Error(`${file}: ${id} has no Observed paragraph`);
-      const detailMatch = body.match(/\*\*Detail:\*\*\s*([\s\S]*?)(?:\n\n\*Cross-reference:|$)/);
-      const crossRefMatch = body.match(/\*Cross-reference:\s*([^*]+)\*/);
-
-      const observedRaw = observedMatch[1].trim();
-      const detailRaw = detailMatch ? detailMatch[1].trim() : "";
-      const detail =
-        detailRaw && detailRaw !== "None."
-          ? [...detailRaw.matchAll(/^-\s+(.+)$/gm)].map((m) => stripAnnotations(m[1]))
-          : [];
-
-      const obs = {
-        id,
-        name: title.trim(),
-        section: slug,
-        observed: stripAnnotations(observedRaw),
-        detail,
-        evidence: rollupEvidence(observedRaw + " " + detailRaw),
-        tags: [],
-        crossRefs: crossRefMatch ? idsIn(crossRefMatch[1]) : [],
-        screenshots: [],
-      };
-      observations.push(obs);
-      obsById.set(id, obs);
-    }
-  }
-
-  // ---- Pass two: applied tags. The rejected-entries, unresolved and
-  // never-observed lists aren't part of the content model (spec §1) and are
-  // deliberately left unparsed — they stay in the source file only.
+  // ---- Pass two: applied tags, keyed by the observation ids they cover —
+  // the join back onto the content file's observations happens at the call
+  // site. The rejected-entries, unresolved, never-observed and proposed-tag
+  // lists aren't part of the published content model (spec §1.6/§1.7) and
+  // are deliberately left unparsed — they stay in the source file only.
   const passTwo = h1Section(md, "Pass two: tagging");
   if (passTwo === null) throw new Error(`${file}: "# Pass two: tagging" not found`);
   const appliedBlock = headingChunks(passTwo, 2).find((c) => c.heading === "Applied tags");
+
+  const tagsById = new Map();
   for (const chunk of (appliedBlock?.body ?? "").split(/^\*\*Tag:\*\*\s*/m).slice(1)) {
     const nl = chunk.indexOf("\n");
     const tagName = chunk.slice(0, nl).trim();
@@ -341,35 +277,111 @@ function parseAnalysisV41(file) {
       alternativeConsidered: field(block, "Alternative considered"),
     };
     for (const id of idsIn(obsLine[1])) {
-      const obs = obsById.get(id);
-      if (!obs) throw new Error(`${file}: tag "${tagName}" references unknown observation ${id}`);
-      obs.tags.push(tagEntry);
+      if (!tagsById.has(id)) tagsById.set(id, []);
+      tagsById.get(id).push(tagEntry);
     }
   }
 
-  // ---- Pass three: proposed tags — recorded per app, never rendered (§1.6)
-  const passThree = h1Section(md, "Pass three: proposed new tags") ?? "";
-  const proposedTags = headingChunks(passThree, 3).map(({ heading, body }) => ({
-    name: heading,
-    sourceObservations: idsIn(field(body, "Source observations")),
-    draftDefinition: field(body, "Draft definition"),
-    conditions: field(body, "Conditions it appears to depend on"),
-    whyNotCovered: field(body, "Why it is not covered"),
-    recurrenceElsewhere: field(body, "Recurrence elsewhere"),
-    caveat: field(body, "Caveat") || field(body, "Caveat on the third test"),
-  }));
+  return { analysisDate, lastUpdated, tagsById };
+}
 
-  // ---- Close: system view — narrative only; node positions and connections
-  // for the diagram still come from data.js SYSTEMS + system.html (§1.5).
-  // This section is plain paragraphs in the source, not subheadings, so it's
-  // stored as one string per paragraph rather than {heading, body} blocks.
-  const close = h1Section(md, "Close: system view") ?? "";
-  const systemView = close
+// Reads the content file (spec §1.7) for everything that renders: the app
+// description and teaser, the system view narrative, and every section's
+// lead-in and observations (label, prose, detail). Observation ids are
+// parsed here too, since they're the join key back onto the analysis file's
+// tags — but they never appear in the prose fields themselves. Returns null
+// when the file doesn't exist, which the caller treats as "this app does not
+// render" (spec §1.7: no fallback to the analysis).
+function parseContentV41(file) {
+  const filePath = path.join(repo, "sources/content", file);
+  if (!fs.existsSync(filePath)) return null;
+  const md = fs.readFileSync(filePath, "utf8");
+
+  const norm = (s) => s.replace(/\s+/g, " ").trim();
+
+  // ---- title block: "# Name", "**Teaser:** ...", then the app description
+  // paragraph(s), all before the first "## " heading.
+  const preamble = md.split(/^## /m)[0];
+  const teaserMatch = preamble.match(/^\*\*Teaser:\*\*\s*(.+)$/m);
+  if (!teaserMatch) throw new Error(`${file}: no "**Teaser:**" line found`);
+  const description = norm(
+    preamble
+      .replace(/^#.*$/m, "")
+      .replace(/^\*\*Teaser:\*\*.*$/m, "")
+      .replace(/^---\s*$/gm, "")
+  );
+  if (!description) throw new Error(`${file}: no app description paragraph found`);
+
+  const h2s = headingChunks(md, 2);
+  if (!h2s.length || h2s[0].heading.toLowerCase() !== "system view")
+    throw new Error(`${file}: expected "## System view" as the first section`);
+
+  // ---- system view: narrative only, one string per paragraph — node
+  // positions and connections for the diagram still come from data.js
+  // SYSTEMS + system.html (spec §1.5).
+  const systemView = h2s[0].body
+    .replace(/^---\s*$/gm, "")
     .split(/\n{2,}/)
-    .map((p) => p.trim())
+    .map(norm)
     .filter(Boolean);
 
-  return { analysisDate, lastUpdated, observations, proposedTags, systemView };
+  // ---- the nine fixed sections: a lead-in paragraph, then "### O<n>. Label"
+  // observation blocks. An empty section carries only the fixed placeholder
+  // line and has neither a lead-in nor observations.
+  const sectionLeadIns = {};
+  const observations = [];
+  const obsById = new Map();
+  const seenSlugs = new Set();
+
+  for (const { heading, body } of h2s.slice(1)) {
+    const slug = V41_SECTION_SLUG.get(heading);
+    if (!slug) throw new Error(`${file}: unrecognized section "${heading}"`);
+    if (seenSlugs.has(slug)) throw new Error(`${file}: duplicate section "${heading}"`);
+    seenSlugs.add(slug);
+
+    const cleaned = body.replace(/\n{1,2}---\s*$/, "").trim();
+    if (/^\(no observations in this app\.?\)$/i.test(cleaned)) continue;
+
+    const parts = cleaned.split(/^### O(\d+)\.\s+/m);
+    const leadIn = norm(parts[0]);
+    if (!leadIn) throw new Error(`${file}: section "${heading}" has no lead-in`);
+    sectionLeadIns[slug] = leadIn;
+
+    for (let i = 1; i < parts.length; i += 2) {
+      const id = "O" + parts[i];
+      if (obsById.has(id)) throw new Error(`${file}: duplicate observation id ${id}`);
+
+      const rest = parts[i + 1];
+      const titleMatch = rest.match(/^(.+?)\n\n([\s\S]*)$/);
+      if (!titleMatch) throw new Error(`${file}: ${id} is malformed`);
+      const [, title, rawBody] = titleMatch;
+      const obsBody = rawBody.replace(/\n{1,2}---\s*$/, "").trim();
+
+      const bulletIdx = obsBody.search(/\n\n- /);
+      const observed = norm(bulletIdx === -1 ? obsBody : obsBody.slice(0, bulletIdx));
+      const detail =
+        bulletIdx === -1 ? [] : [...obsBody.slice(bulletIdx).matchAll(/^- (.+)$/gm)].map((m) => m[1].trim());
+      if (!observed) throw new Error(`${file}: ${id} has no observed prose`);
+
+      const obs = {
+        id,
+        name: title.trim(),
+        section: slug,
+        observed,
+        detail,
+        tags: [],
+        crossRefs: [],
+        screenshots: [],
+      };
+      observations.push(obs);
+      obsById.set(id, obs);
+    }
+  }
+
+  if (seenSlugs.size !== V41_SECTIONS.length)
+    throw new Error(`${file}: expected all 9 sections, found ${seenSlugs.size}`);
+
+  return { teaser: teaserMatch[1].trim(), description, systemView, sectionLeadIns, observations, obsById };
 }
 
 function isoDate(s) {
@@ -626,37 +638,24 @@ function resolveHeroImage(appId) {
   return found ? "/images/" + found : null;
 }
 
-// Catalog metadata (name/category/type/summary/teaser/copy) for v4.1 apps
-// with no v44 entry. v44 is the hand-maintained catalog; the analysis file
-// itself only records behavior, so a v4.1 app needs this registered
-// somewhere until it has a home of its own.
+// Catalog metadata (name/category/type/sectionCards) for v4.1 apps with no
+// v44 entry. v44 is the hand-maintained catalog; the analysis file itself
+// only records behavior, so a v4.1 app needs this registered somewhere until
+// it has a home of its own.
 //
-// summary/teaser are the approved Stage 2 case-study copy (app description
-// and one-line teaser), reviewed and signed off — not the app's old v3
-// write-up, which was only ever a stopgap to unblock validation.
+// summary/teaser/sectionLeadIns used to live here too, but spec §1.7 moved
+// them into the content file (they're written prose and belong with the
+// rest of the written prose) — parseContentV41 supplies them now.
 //
-// sectionLeadIns and sectionCards are per-section authored copy: a 2-3
-// sentence orienting lead-in for each section's own page, and a one-line
-// blurb for that section's card on the summary page (spec §2.1/§2.2). Both
-// are keyed by section slug (see v41-sections.mjs) and both are optional —
-// sectionLeadIns is deliberately incomplete right now (only the two sections
-// reviewed so far are filled in; validate-content.mjs warns, not fails, on
-// the rest until all are written). sectionCards is complete for Dave.
+// sectionCards is per-section authored copy: a one-line blurb for that
+// section's card on the summary page (spec §2.1), keyed by section slug (see
+// v41-sections.mjs). Not part of spec §1.7's content-file list, so it stays
+// here for now. Optional — complete for Dave.
 const V41_APP_META = {
   dave: {
     name: "Dave",
     category: "Finance / Neo-bank + Cash Advance",
     type: "app",
-    summary:
-      "Dave is a banking app built around two things: a Dave Checking account and a small cash advance called Extra Cash, worth up to $500. Almost everything in the app is organized around one decision made early on, connecting the bank account a user is already paid into, since that connection is what Dave uses to decide advance eligibility, and it's also one of the things the $1 monthly membership pays for. Saving happens through round-ups on Dave's own debit card, which flow into a Goals account created automatically the first time round-ups are turned on. Getting paid faster by moving direct deposit to Dave does double duty: it's marketed as arriving up to 2 days early, and it's also how an advance eventually gets repaid.",
-    teaser:
-      "A cash advance and checking app where saving, borrowing, and getting referred all wait on the same bank connection to clear.",
-    sectionLeadIns: {
-      onboarding:
-        "This section covers everything between opening Dave for the first time and reaching the empty home screen. It runs through the pitch before signup, identity verification, and connecting a bank account and debit card.",
-      growth:
-        "This section covers Dave's referral program: where it sits in the app, what it pays, and the steps involved in earning it.",
-    },
     sectionCards: {
       onboarding:
         "Dave walks new users through signup, identity checks, and connecting a bank and debit card before showing an empty home screen.",
@@ -679,9 +678,26 @@ const V41_APP_META = {
 
 for (const entry of ALL_APPS) {
   if (detectAnalysisFormat(entry.file) === "v4.1") {
-    const a = parseAnalysisV41(entry.file);
+    // Spec §1.7: the content file is what publishes, and there's no fallback
+    // to the analysis when it's missing — the app simply doesn't render.
+    const content = parseContentV41(entry.file);
+    if (!content) {
+      console.warn(`note: ${entry.id} has no content file at sources/content/${entry.file}; app not rendered (spec §1.7)`);
+      continue;
+    }
     const meta = V41_APP_META[entry.id];
     if (!meta) throw new Error(`${entry.id}: no catalog metadata registered in V41_APP_META for this v4.1 app`);
+
+    // The analysis supplies only the applied tags and the header dates
+    // (spec §1.7); ids are the join back onto the content file's
+    // observations. A tag naming an id the content file doesn't have is a
+    // real mismatch between the two files, not something to skip silently.
+    const a = parseAnalysisV41(entry.file);
+    for (const id of a.tagsById.keys()) {
+      if (!content.obsById.has(id))
+        throw new Error(`${entry.file}: analysis applies a tag to observation ${id}, which is not in the content file`);
+    }
+    for (const obs of content.observations) obs.tags = a.tagsById.get(obs.id) ?? [];
 
     const icons = resolveIcons(entry.id);
     // Collect assets to sync into public/ — but never for report-only apps.
@@ -701,15 +717,14 @@ for (const entry of ALL_APPS) {
       visibility: effectiveVisibility(entry.id === ROTATING_FREE_APP ? "public" : entry.visibility),
       analysisDate: a.analysisDate,
       lastUpdated: a.lastUpdated,
-      summary: meta.summary,
-      teaser: meta.teaser,
+      summary: content.description,
+      teaser: content.teaser,
       icon: icons[0] ? "/" + icons[0] : null,
       heroImage: resolveHeroImage(entry.id),
       contentFormat: "v4.1",
-      observations: a.observations,
-      proposedTags: a.proposedTags,
-      systemView: a.systemView,
-      sectionLeadIns: meta.sectionLeadIns ?? {},
+      observations: content.observations,
+      systemView: content.systemView,
+      sectionLeadIns: content.sectionLeadIns,
       sectionCards: meta.sectionCards ?? {},
       system: buildSystemMap(entry.id),
     });

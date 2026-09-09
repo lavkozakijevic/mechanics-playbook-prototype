@@ -44,7 +44,11 @@ const observation = z.object({
   section: z.enum(V41_SECTION_SLUGS),
   observed: z.string(),
   detail: z.array(z.string()),
-  evidence: z.enum(["directly observed", "strongly supported", "plausible", "unresolved"]),
+  // No longer sourced (spec §1.7 review, 9 Sep 2026): the analysis file is
+  // now read only for applied tags and header dates, and tier annotations
+  // live nowhere else. Optional rather than removed, in case tiers get a
+  // home again later.
+  evidence: z.enum(["directly observed", "strongly supported", "plausible", "unresolved"]).optional(),
   // Publishing bar (spec §1.3) is enforced at parse time: a tag below
   // strongly-supported/confirmed never reaches this array at all.
   tags: z.array(observationTag),
