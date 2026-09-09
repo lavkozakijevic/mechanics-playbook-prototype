@@ -7,6 +7,7 @@
 // site's copy.
 import Base from "../../layouts/Base.astro";
 import { Card } from "../../components/ds/Card.jsx";
+import { SystemMap } from "../../components/site/SystemDetail.jsx";
 import { publishedApps, publishedMechanics } from "../../lib/content";
 import { systemProps } from "../../lib/props";
 
@@ -16,25 +17,7 @@ const mechById = new Map(mechanics.map((m) => [m.data.id, m.data]));
 
 const stravaEntry = apps.find((a) => a.data.id === "strava")?.data;
 const stravaSystem = stravaEntry?.system ? systemProps(stravaEntry, mechById) : null;
-
-const cleoEntry = apps.find((a) => a.data.id === "cleo")?.data;
-
-// A plain dot-and-line constellation from Strava's real system data (no card
-// chrome, no labels): the center point plus each mechanic node, connected by
-// Strava's real mechanic-to-mechanic links. Dot size reflects how many of
-// those real connections touch that node, not an invented value.
-let constellation = null;
-if (stravaEntry?.system) {
-  const raw = stravaEntry.system;
-  const points = [
-    { id: "center", x: raw.center.x, y: raw.center.y },
-    ...raw.nodes.map((n) => ({ id: n.id, x: n.x, y: n.y })),
-  ];
-  const links = (stravaSystem?.connections ?? []).map((c) => [c.from, c.to]);
-  const degree = Object.fromEntries(points.map((p) => [p.id, 0]));
-  for (const [a, b] of links) { degree[a] = (degree[a] ?? 0) + 1; degree[b] = (degree[b] ?? 0) + 1; }
-  constellation = { points, links, degree };
-}
+const stravaSystemById = Object.fromEntries((stravaSystem?.nodes ?? []).map((n) => [n.id, n]));
 
 // href for a real library mechanic, following the sitewide convention: public
 // mechanics link directly, everything else routes through the subscribe gate.
@@ -42,10 +25,6 @@ function mechHref(id) {
   const m = mechById.get(id);
   if (!m) return null;
   return m.visibility === "public" ? `/mechanics/${id}/` : "/subscribe/";
-}
-function caseStudyHref(app) {
-  if (!app) return null;
-  return app.visibility === "public" ? `/case-studies/${app.id}/` : "/subscribe/";
 }
 
 const SECTIONS = [
@@ -223,19 +202,9 @@ const faqJsonLd = {
               <h2 class="mech-section__title">App gamification examples: how mechanics become systems</h2>
               <div class="mech-prose wag-read"><p>A single mechanic on its own has a ceiling. What separates the best gamified apps from the rest is how the pieces connect.</p></div>
 
-              {constellation && (
-                <div>
-                  <svg class="wag-constellation" viewBox="0 0 100 100" role="img" aria-label={`How ${stravaEntry.name}'s mechanics connect`}>
-                    {constellation.links.map(([a, b]) => {
-                      const pa = constellation.points.find((p) => p.id === a);
-                      const pb = constellation.points.find((p) => p.id === b);
-                      return pa && pb ? <line x1={pa.x} y1={pa.y} x2={pb.x} y2={pb.y} /> : null;
-                    })}
-                    {constellation.points.map((p) => (
-                      <circle cx={p.x} cy={p.y} r={2.2 + (constellation.degree[p.id] ?? 0) * 0.9} />
-                    ))}
-                  </svg>
-                  <p class="wag-lab" style="margin-top: 10px;">The {stravaEntry.name} system map</p>
+              {stravaSystem && (
+                <div class="smap-stage">
+                  <SystemMap client:visible nodes={stravaSystem.nodes} connections={stravaSystem.connections} byId={stravaSystemById} />
                 </div>
               )}
 
@@ -243,23 +212,6 @@ const faqJsonLd = {
                 <p>Strava is the clearest example. Logging an activity produces something to share. Sharing it gives other people something to respond to. Those responses create the recognition that makes logging worth doing again. Clubs and challenges give that activity a shape, and the streak sits on top of a behavior, exercise, that people had already chosen before they installed anything. Remove any one piece and the others have less to work with.</p>
                 <p>Cleo shows the same principle in finance, a category where mechanics are often added on top rather than built in. Its most distinctive design is not a points system at all. It is a chat persona that will assess your spending if you ask it to, built entirely from the user's own transaction history. The mechanic and the product are the same thing.</p>
                 <p>This is why we document apps mechanic by mechanic and then map how those mechanics connect. Knowing that an app has streaks tells you very little. Knowing what feeds the streak, and what the streak feeds, tells you whether the idea can travel.</p>
-              </div>
-
-              <div class="wag-ex">
-                {[
-                  { app: stravaEntry, line: "Strava is the clearest example." },
-                  { app: cleoEntry, line: "Cleo shows the same principle in finance, a category where mechanics are often added on top rather than built in." },
-                ].filter((x) => x.app).map(({ app, line }) => (
-                  <Card>
-                    <a class="wag-excard" href={caseStudyHref(app)}>
-                      {app.icon && <img src={app.icon} alt="" class="wag-excard__icon" />}
-                      <div class="wag-excard__body">
-                        <span class="wag-excard__name">{app.name}</span>
-                        <p>{line}</p>
-                      </div>
-                    </a>
-                  </Card>
-                ))}
               </div>
             </div>
           </section>
@@ -280,8 +232,7 @@ const faqJsonLd = {
                   </div>
                 </div>
                 <div class="wag-transplant__mid">
-                  <span class="wag-transplant__mid-line wag-transplant__mid-line--solid">The mechanic</span>
-                  <span class="wag-transplant__mid-line wag-transplant__mid-line--dashed">The conditions</span>
+                  <span class="wag-transplant__mid-line">What gets copied</span>
                 </div>
                 <div class="wag-transplant__box">
                   <span class="wag-lab">In a different app</span>
@@ -300,9 +251,19 @@ const faqJsonLd = {
               </div>
 
               <div class="wag-q2">
-                {CONDITION_QS.map(([q, a], i) => (
+                {CONDITION_QS.slice(0, 2).map(([q, a], i) => (
                   <div class="wag-qitem">
                     <span class="cs-toc__n">{String(i + 1).padStart(2, "0")}</span>
+                    <div>
+                      <h3>{q}</h3>
+                      <p>{a}</p>
+                    </div>
+                  </div>
+                ))}
+                <div class="wag-q2__center">What actually determines user behavior</div>
+                {CONDITION_QS.slice(2, 4).map(([q, a], i) => (
+                  <div class="wag-qitem">
+                    <span class="cs-toc__n">{String(i + 3).padStart(2, "0")}</span>
                     <div>
                       <h3>{q}</h3>
                       <p>{a}</p>

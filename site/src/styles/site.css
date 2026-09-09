@@ -1640,45 +1640,42 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
 .wag-table td:last-child, .wag-table th:last-child { padding-right: 0; }
 .wag-table td:last-child.wag-table__dep, .wag-table th:last-child.wag-table__dep { padding-right: 20px; }
 
-/* Section 3: examples */
-.wag-constellation { display: block; width: 100%; aspect-ratio: 16 / 9; background: var(--surface-sunken);
-  border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); }
-.wag-constellation line { stroke: var(--border-default); stroke-width: 0.4; }
-.wag-constellation circle { fill: var(--ink-900); }
-.wag-ex { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 8px; }
-@media (min-width: 640px) { .wag-ex { grid-template-columns: repeat(2, 1fr); } }
-.wag-excard { display: flex; gap: 16px; align-items: center; color: inherit; text-decoration: none; }
-.wag-excard__icon { width: 44px; height: 44px; border-radius: var(--radius-md); flex: none; object-fit: cover; }
-.wag-excard__body { display: flex; flex-direction: column; gap: 4px; }
-.wag-excard__name { font: var(--type-h4); color: var(--ink-900); }
-.wag-excard__body p { font: var(--type-body-sm); color: var(--text-secondary); margin: 0; text-wrap: pretty; }
-
-/* Section 4: the transplant diagram */
+/* Section 4: the transplant diagram. Each box's label/chip/slots are direct
+   grid children so they can share row tracks (via subgrid) with the middle
+   column at 800px+, keeping "What gets copied" level with the chip row and
+   the two boxes' rows the same height without any manual centering. Below
+   800px each box falls back to a plain stacked column. */
 .wag-transplant { display: grid; grid-template-columns: 1fr; gap: 20px; }
-@media (min-width: 800px) { .wag-transplant { grid-template-columns: 1fr 160px 1fr; align-items: stretch; } }
 .wag-transplant__box { display: flex; flex-direction: column; gap: 14px; padding: 24px; border: 1px solid var(--border-default);
   border-radius: var(--radius-lg); background: var(--surface-card); min-width: 0; }
 .wag-chip { display: inline-flex; align-self: flex-start; padding: 10px 16px; border-radius: var(--radius-md);
   background: var(--surface-page); border: 1px solid var(--border-subtle);
   font: var(--type-body); font-weight: var(--weight-semibold); color: var(--ink-900); }
-.wag-slots { display: flex; flex-direction: column; gap: 8px; flex: 1; justify-content: space-between; }
+.wag-slots { display: flex; flex-direction: column; gap: 8px; }
 .wag-slot { width: 100%; height: 40px; box-sizing: border-box; display: flex; align-items: center;
   padding: 0 14px; border-radius: var(--radius-sm); border: 1px dashed var(--border-default);
   font: var(--type-body-sm); color: transparent; }
 .wag-slot--filled { color: var(--ink-900); background: var(--surface-sunken); border: 1px solid var(--border-subtle); }
-.wag-transplant__mid { display: flex; flex-direction: column; gap: 10px; justify-content: center; align-items: center;
-  text-align: center; }
+.wag-transplant__mid { display: flex; justify-content: center; align-items: center; text-align: center; }
 .wag-transplant__mid-line { font: var(--type-label); text-transform: uppercase; letter-spacing: var(--tracking-label);
-  font-size: 11px; }
-.wag-transplant__mid-line--solid { color: var(--ink-900); font-weight: var(--weight-semibold); }
-.wag-transplant__mid-line--dashed { color: var(--text-faint); }
+  font-size: 11px; color: var(--ink-900); font-weight: var(--weight-semibold); }
+@media (min-width: 800px) {
+  .wag-transplant { grid-template-columns: 1fr 160px 1fr; grid-template-rows: auto auto auto; align-items: stretch; }
+  .wag-transplant__box { display: grid; grid-template-rows: subgrid; grid-row: 1 / span 3; row-gap: 14px; }
+  .wag-transplant__mid { display: grid; grid-template-rows: subgrid; grid-row: 1 / span 3; }
+  .wag-transplant__mid-line { grid-row: 2; align-self: center; justify-self: center; }
+}
 
-/* Section 4: condition questions */
+/* Section 4: condition questions, with a divider naming what actually
+   decides the outcome sitting between the two rows of questions. */
 .wag-q2 { display: grid; grid-template-columns: 1fr; gap: 0; }
 @media (min-width: 720px) { .wag-q2 { grid-template-columns: repeat(2, 1fr); gap: 0 32px; } }
 .wag-qitem { display: flex; gap: 14px; padding: 20px 0; border-top: 1px solid var(--border-subtle); }
 .wag-qitem h3 { font: var(--type-body); font-weight: var(--weight-semibold); color: var(--ink-900); margin: 0 0 6px; text-wrap: pretty; }
 .wag-qitem p { font: var(--type-body-sm); color: var(--text-secondary); margin: 0; text-wrap: pretty; }
+.wag-q2__center { grid-column: 1 / -1; text-align: center; padding: 16px 0; font: var(--type-label);
+  text-transform: uppercase; letter-spacing: var(--tracking-label); color: var(--ink-900); font-weight: var(--weight-semibold);
+  border-top: 1px solid var(--border-subtle); }
 
 /* Section 5: steps */
 .wag-steps { display: grid; grid-template-columns: 1fr; gap: 16px; }
