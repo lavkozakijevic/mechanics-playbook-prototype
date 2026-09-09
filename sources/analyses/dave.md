@@ -1,5 +1,10 @@
 # Dave — behavioral design analysis
 
+**Session date:** 03 Jun 2026
+**Additional sessions:** None
+**Analysis date:** 03 Jun 2026
+**Last updated:** 09 Sep 2026
+
 Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A later recording on the same date contains a repeated segment of the same walkthrough covering ATM withdrawal, bill payment, the accounts list and goals; it duplicates material already present in the main session and adds no separate observation. No other session for this app exists in the record. The session is assembled from captured app screens rather than one continuous live run, and the analyst states at several points that some transitions may not be contiguous; where flow order matters, this is marked with a sequence caveat.
 
 ---
