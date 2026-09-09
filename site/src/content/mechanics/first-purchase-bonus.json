@@ -30,5 +30,5 @@
     "scarcity",
     "ownership"
   ],
-  "visibility": "subscriber"
+  "visibility": "public"
 }

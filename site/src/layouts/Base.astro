@@ -32,6 +32,12 @@ const categories = (await getCollection("categories"))
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {/* Temporary, sitewide, for the public review window. Not tied to
+        REVIEW_WINDOW_OPEN (site/lib/review-window.mjs) — removing this is a
+        separate, deliberate step taken later, not something re-locking the
+        site reverts automatically. See public/robots.txt and
+        public/_headers for the other two noindex surfaces. */}
+    <meta name="robots" content="noindex" />
     <link rel="icon" href="/assets/logo/favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="/assets/logo/favicon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />

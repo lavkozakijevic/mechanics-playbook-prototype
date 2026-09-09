@@ -16,6 +16,16 @@ import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 import { V41_SECTIONS } from "../src/lib/v41-sections.mjs";
+import { REVIEW_WINDOW_OPEN } from "../src/lib/review-window.mjs";
+
+// Temporary public review window (see review-window.mjs, the single
+// switch). Report-only stays excluded regardless — that is a content-safety
+// gate on unfinished analyses, not a paywall, and this window is about the
+// paywall only.
+function effectiveVisibility(computed) {
+  if (REVIEW_WINDOW_OPEN && computed !== "report-only") return "public";
+  return computed;
+}
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repo = path.resolve(here, "../..");
@@ -427,7 +437,7 @@ for (const m of MECHANICS) {
   const { apps, ...rest } = m; // relationships now live on the app side only
   write("mechanics", m.id, {
     ...rest,
-    visibility: m.id === "streak" ? "public" : "subscriber",
+    visibility: effectiveVisibility(m.id === "streak" ? "public" : "subscriber"),
   });
   mechanicCount++;
 }
@@ -440,7 +450,7 @@ for (const nm of NEW_MECHANICS) {
     cat: nm.cat,
     tagline: def.split(/(?<=\.)\s/)[0],
     desc: def,
-    visibility: "subscriber",
+    visibility: effectiveVisibility("subscriber"),
     toWrite: true, // long-form fields pending (corrections §5)
   });
   mechanicCount++;
@@ -688,7 +698,7 @@ for (const entry of ALL_APPS) {
       type: meta.type,
       // The rotating free slot overrides the declared visibility (standing
       // rule: two open case studies — strava plus the newest addition).
-      visibility: entry.id === ROTATING_FREE_APP ? "public" : entry.visibility,
+      visibility: effectiveVisibility(entry.id === ROTATING_FREE_APP ? "public" : entry.visibility),
       analysisDate: a.analysisDate,
       lastUpdated: a.lastUpdated,
       summary: meta.summary,
@@ -766,7 +776,7 @@ for (const entry of ALL_APPS) {
     type: v44?.type ?? (a.meta["Type"] ?? "app").toLowerCase(),
     // The rotating free slot overrides the declared visibility (standing
     // rule: two open case studies — strava plus the newest addition).
-    visibility: entry.id === ROTATING_FREE_APP ? "public" : entry.visibility,
+    visibility: effectiveVisibility(entry.id === ROTATING_FREE_APP ? "public" : entry.visibility),
     analysisDate: isoDate(a.meta["Analysis date"]),
     lastUpdated: isoDate(a.meta["Last updated"]) ?? isoDate(a.meta["Analysis date"]),
     summary: v44?.summary ?? a.overview,

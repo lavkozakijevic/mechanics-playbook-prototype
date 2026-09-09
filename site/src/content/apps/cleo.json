@@ -3,7 +3,7 @@
   "name": "Cleo",
   "category": "Finance",
   "type": "app",
-  "visibility": "subscriber",
+  "visibility": "public",
   "analysisDate": "2026-06-04",
   "lastUpdated": "2026-09-06",
   "summary": "Cleo turns personal finance into a quiz about a life the user already lived. Its in-chat game does not test a skill or reward a task performed inside the app; it scores the user on how well they remember their own spending, checked against the data Cleo already holds. Cleo's chat persona repeats that same pattern everywhere else, reporting a monthly spending limit back in jokes and gifs, and running scheduled reviews where the user swipes their own past purchases into loved or regretted. Nearly everything Cleo asks the user to do is a verdict on something the user already did.",

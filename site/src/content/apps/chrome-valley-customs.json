@@ -3,7 +3,7 @@
   "name": "Chrome Valley Customs",
   "category": "Puzzle / Meta",
   "type": "game",
-  "visibility": "subscriber",
+  "visibility": "public",
   "analysisDate": "2026-03-03",
   "lastUpdated": "2026-05-19",
   "summary": "Chrome Valley Customs wraps a match-3 core inside a car restoration meta-game where every coin earned from a level is immediately spent on a named restoration task. Each task produces a visible change to a 3D car model the player is authoring across roughly 22 choices per episode. Five named NPCs with domain-specific expertise (engine, paint, mechanics, sourcing, ownership) comment on every choice, and the episode-end client dialogue references specific decisions the player made, making the car feel personally authored rather than procedurally generated.",

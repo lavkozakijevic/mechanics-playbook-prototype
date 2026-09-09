@@ -3,7 +3,7 @@
   "name": "Solitaire Grand Harvest",
   "category": "Casual Game",
   "type": "game",
-  "visibility": "subscriber",
+  "visibility": "public",
   "analysisDate": "2026-04-03",
   "lastUpdated": "2026-05-15",
   "summary": "Solitaire Grand Harvest runs two simultaneous daily reward systems, a piggy bank that seeds itself at introduction, and five concurrent limited-time events at peak session depth. The win multiplier system links stake size to reward quality across every downstream system, card pack tier, gem yield, and event prize scale all rise together when the player chooses a higher multiplier.",

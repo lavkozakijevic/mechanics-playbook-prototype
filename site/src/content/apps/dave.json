@@ -3,7 +3,7 @@
   "name": "Dave",
   "category": "Finance / Neo-bank + Cash Advance",
   "type": "app",
-  "visibility": "subscriber",
+  "visibility": "public",
   "analysisDate": "2026-06-03",
   "lastUpdated": "2026-09-09",
   "summary": "Dave is a banking app built around two things: a Dave Checking account and a small cash advance called Extra Cash, worth up to $500. Almost everything in the app is organized around one decision made early on, connecting the bank account a user is already paid into, since that connection is what Dave uses to decide advance eligibility, and it's also one of the things the $1 monthly membership pays for. Saving happens through round-ups on Dave's own debit card, which flow into a Goals account created automatically the first time round-ups are turned on. Getting paid faster by moving direct deposit to Dave does double duty: it's marketed as arriving up to 2 days early, and it's also how an advance eventually gets repaid.",

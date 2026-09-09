@@ -17,6 +17,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { V41_SECTIONS } from "../src/lib/v41-sections.mjs";
+import { REVIEW_WINDOW_OPEN } from "../src/lib/review-window.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const content = path.resolve(here, "../src/content");
@@ -178,7 +179,17 @@ if (!fs.existsSync(settingsPath)) {
 // strava, permanent, never flips; the system map showcase follows the
 // rotating slot, whose system page must be a free sample so the showcase
 // never links into the paywall. Anything else means the rotation broke.
-{
+//
+// Suspended, not removed, during the temporary review window (every app's
+// visibility is overridden to "public" then, which would otherwise fail
+// this on sight). Resumes exactly as written, unweakened, the moment
+// REVIEW_WINDOW_OPEN goes back to false — nothing below this line changes
+// when that happens.
+if (REVIEW_WINDOW_OPEN) {
+  console.warn(
+    "NOTE: the two-public-case-studies rule is suspended (REVIEW_WINDOW_OPEN=true in site/src/lib/review-window.mjs). Re-enable it by flipping that switch back to false.\n"
+  );
+} else {
   const publicApps = apps.filter((a) => a.data.visibility === "public").map((a) => a.data.id);
   if (!publicApps.includes("strava"))
     problem("apps", "strava must always be the permanent free case study, but it is not public");
