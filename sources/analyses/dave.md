@@ -966,7 +966,7 @@ No observations. The session records no surface on which the user can see, inter
 
 **Supporting observations:** O60, O62, O63, O64, O65, O68
 
-**Confidence:** directly observed
+**Confidence:** strongly supported
 
 **Rationale:** The product presents, inside its own Grow tab, a catalogue of discrete compensated tasks supplied by a named third party, inBrain AI, and directs payment into the product's own checking account (tier: directly observed). Each listed survey carries both a payout and an estimated completion time before the user begins it, which is the entry's per-task disclosure of compensation and effort; the payout figures for the longer recommended surveys are not legible in the session record, but the quick surveys are listed at $0.45 for about 8 minutes and $0.50 for about 10 minutes and the listing form is the same for every item (tier: directly observed). The catalogue is presented as a repeatable activity rather than a concluded one: a further list is offered after the intro questionnaire, and a disqualified survey is removed while the rest of the list remains (tier: directly observed). The tasks are separate from the product's own core activity of banking, advances and saving (tier: directly observed). The entry requires at least one continuation element layered over the individual tasks, and three are present: a monthly earnings total displayed above the list, an ordered division of the catalogue into recommended, other and quick-survey sections, and the stated progression that higher paying surveys unlock as the user continues (tier: directly observed). The entry's own borderline case describes this exact configuration and resolves in favour of the label. The commercial arrangement itself is excluded by the entry and carries no label here: the supplier relationship, the terms toggle, and the deposit into the checking account are commerce infrastructure and are described in Pass One in plain language (tier: directly observed).
 
@@ -1043,20 +1043,6 @@ No observations. The session records no surface on which the user can see, inter
 
 # Pass three: proposed new tags
 
-### Referral Boost
-
-**Draft definition.** The product grants a referring user an enhancement to a future use of a core product action rather than cash or an immediate benefit, and conditions the grant on both the referrer and the referred user completing a defined product action rather than on sign-up alone.
-
-**Source observations:** O71, O72, O73.
-
-**Conditions it appears to depend on:** A core product action the referrer already uses and expects to use again; a defined completion event for that action performed by both parties; a stated enhancement expressed relative to the referrer's own next instance of the action; a ceiling on that enhancement; an expiry on the earned enhancement.
-
-**Why it is not covered.** Gifting excludes it explicitly, since the recipient earns the benefit by completing a referral action and the sender does not directly grant it. First-Purchase Bonus does not apply because the trigger is not a purchase. No approved entry describes a reward whose value is realised only through further use of the product rather than as a transferable or spendable benefit.
-
-**Recurrence elsewhere:** Lending, banking, telecoms, delivery and subscription products commonly reward introductions with credit toward the referrer's own next use. The structure is describable without reference to this product: reward the introducer with a better version of the thing they already do.
-
-**Caveat.** Nothing in the session shows the boost being earned, sized, applied or expiring; the entire structure is known from product copy on one screen and its FAQ titles. A definition drafted from this evidence describes what the product says the rule is, not observed behaviour.
-
 ### Scheduled eligibility re-check
 
 **Draft definition.** When a user requests a gated benefit and does not qualify, the product declines without closing the request, names a recurring interval at which the decision will be reconsidered, and offers a notification for the moment eligibility changes.
@@ -1084,20 +1070,6 @@ No observations. The session records no surface on which the user can see, inter
 **Recurrence elsewhere:** Payroll redirection, utility and insurance switching, subscription migration, number porting and pension transfer flows all take this shape. The structure is describable without reference to this product.
 
 **Caveat.** The session shows the routes and the partial option but no completed redirection, and it does not show how the partial amount is specified. Whether the pre-signature checkbox is on by default is also not established, and that default bears on any definition of the assisted route.
-
-### Earning Tasks
-
-**Draft definition.** The product embeds a catalogue of compensated tasks supplied by a third party, lists each with its payout and expected duration, pays into the product's own balance, and presents the catalogue as a repeatable activity with a running period total and a stated progression toward better-paying tasks.
-
-**Source observations:** O58, O59, O61.
-
-**Conditions it appears to depend on:** A third-party task supplier; a payout destination inside the product; per-task disclosure of payout and duration; a period total that accumulates across tasks; a stated progression that makes continued participation worth more than isolated participation; a screening step that can end a task without completion.
-
-**Why it is not covered.** Rewarded Advertisement requires an advertisement-engagement condition, and the library separates a sponsored task from a rewarded advertisement. Challenge requires a bounded objective instance, which the listed tasks do not establish. No approved entry describes a task marketplace inside a product.
-
-**Recurrence elsewhere:** Rewards apps, fintech apps and mobile games embed survey panels and offer walls with the same structure. The structure is describable without reference to this product.
-
-**Caveat.** This proposal sits closest to the boundary that excludes commercial arrangements. The payment relationship between the user, the panel provider and the product is not the proposed tag; what is proposed is the designed earning loop layered over it, namely the period total, the two task tiers and the stated unlock. If the reviewing judgement is that the loop is inseparable from the commercial arrangement, the proposal should be rejected rather than narrowed.
 
 ---
 
