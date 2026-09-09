@@ -1587,3 +1587,115 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
   font: var(--type-body-md); color: var(--text-secondary);
   margin: 0 0 clamp(20px, 2.5vw, 28px); line-height: 1.6;
 }
+
+/* =================== WHAT IS APP GAMIFICATION (SEO anchor page) =================== */
+.wag-h1 { font: var(--type-h1); font-size: clamp(30px, 4.4vw, 44px); letter-spacing: var(--tracking-display);
+  color: var(--ink-900); margin: 0 0 20px; max-width: 20ch; text-wrap: balance; }
+.wag-stack { display: flex; flex-direction: column; gap: clamp(20px, 2.6vw, 28px); }
+.wag-read { max-width: 68ch; }
+.wag-lab { font: var(--type-label); text-transform: uppercase; letter-spacing: var(--tracking-label);
+  color: var(--text-muted); }
+
+.wag-sec { padding-top: clamp(40px, 5vw, 64px); }
+.wag-sec:first-child { padding-top: 0; }
+.wag-sec + .wag-sec { border-top: 1px solid var(--border-subtle); }
+
+.wag-mobiletoc { display: block; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);
+  padding: 14px 0; margin-bottom: 8px; }
+.wag-mobiletoc summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between;
+  align-items: center; font: var(--type-body); font-weight: var(--weight-medium); color: var(--ink-900); }
+.wag-mobiletoc summary::-webkit-details-marker { display: none; }
+.wag-mobiletoc__list { display: flex; flex-direction: column; gap: 4px; padding-top: 14px; }
+.wag-mobiletoc__list a { display: flex; gap: 10px; align-items: baseline; font: var(--type-body-sm);
+  color: var(--text-secondary); text-decoration: none; padding: 6px 0; }
+.wag-mobiletoc__list a:hover { color: var(--ink-900); }
+@media (min-width: 1000px) { .wag-mobiletoc { display: none; } }
+
+/* Section 1: starter mechanic cards */
+.wag-cards4 { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 640px) { .wag-cards4 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .wag-cards4 { grid-template-columns: repeat(4, 1fr); } }
+.wag-startcard { display: flex; flex-direction: column; gap: 12px; height: 100%; }
+.wag-startcard h3 { font: var(--type-h4); color: var(--ink-900); margin: 0; }
+.wag-startcard > p { font: var(--type-body-sm); color: var(--text-secondary); margin: 0; text-wrap: pretty; }
+.wag-startcard__works { display: flex; flex-direction: column; gap: 6px; border-top: 1px solid var(--border-subtle);
+  padding-top: 12px; margin-top: auto; }
+.wag-startcard__works p { font: var(--type-body-sm); color: var(--text-secondary); margin: 0; text-wrap: pretty; }
+
+/* Section 2: the toolkit table, scrolls horizontally rather than reflowing */
+.wag-tablewrap { overflow-x: auto; }
+.wag-table { width: 100%; border-collapse: collapse; min-width: 640px; }
+.wag-table th { text-align: left; vertical-align: bottom; padding: 0 20px 10px 0; font: var(--type-label);
+  text-transform: uppercase; letter-spacing: var(--tracking-label); color: var(--text-muted); font-weight: var(--weight-medium);
+  border-bottom: 1px solid var(--border-default); }
+.wag-table td, .wag-table th[scope="row"] { vertical-align: top; padding: 16px 20px 16px 0; font: var(--type-body-sm);
+  line-height: 1.6; color: var(--text-secondary); border-bottom: 1px solid var(--border-subtle); text-wrap: pretty; }
+.wag-table th[scope="row"] { font: var(--type-body); font-weight: var(--weight-semibold); color: var(--ink-900);
+  width: 18%; white-space: nowrap; }
+.wag-table th[scope="row"] a { color: inherit; border-bottom: 1px solid var(--border-default); }
+.wag-table th[scope="row"] a:hover { border-bottom-color: var(--accent); color: var(--accent-text); }
+.wag-table .wag-table__dep, .wag-table th.wag-table__dep { background: var(--surface-sunken); }
+.wag-table td:last-child, .wag-table th:last-child { padding-right: 0; }
+
+/* Section 3: examples */
+.wag-ex { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 8px; }
+@media (min-width: 640px) { .wag-ex { grid-template-columns: repeat(2, 1fr); } }
+.wag-excard { display: flex; gap: 16px; align-items: center; color: inherit; text-decoration: none; }
+.wag-excard__icon { width: 44px; height: 44px; border-radius: var(--radius-md); flex: none; object-fit: cover; }
+.wag-excard__body { display: flex; flex-direction: column; gap: 4px; }
+.wag-excard__name { font: var(--type-h4); color: var(--ink-900); }
+.wag-excard__body p { font: var(--type-body-sm); color: var(--text-secondary); margin: 0; text-wrap: pretty; }
+
+/* Section 4: the transplant diagram */
+.wag-transplant { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 800px) { .wag-transplant { grid-template-columns: 1fr auto 1fr; align-items: center; } }
+.wag-transplant__box { display: flex; flex-direction: column; gap: 14px; padding: 24px; border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg); background: var(--surface-card); }
+.wag-chip { display: inline-flex; align-self: flex-start; padding: 10px 16px; border-radius: var(--radius-md);
+  background: var(--surface-page); border: 1px solid var(--border-subtle); border-top: 2px solid var(--accent);
+  font: var(--type-body); font-weight: var(--weight-semibold); color: var(--ink-900); }
+.wag-slots { display: flex; flex-direction: column; gap: 8px; }
+.wag-slot { padding: 10px 14px; border-radius: var(--radius-sm); border: 1px dashed var(--border-default);
+  font: var(--type-body-sm); color: transparent; min-height: 18px; }
+.wag-slot--filled { color: var(--ink-900); background: var(--surface-sunken); border: 1px solid var(--border-subtle); }
+.wag-transplant__mid { display: flex; flex-direction: row; gap: 20px; justify-content: center; text-align: center; }
+@media (min-width: 800px) { .wag-transplant__mid { flex-direction: column; gap: 32px; } }
+.wag-transplant__mid-line { font: var(--type-label); text-transform: uppercase; letter-spacing: var(--tracking-label);
+  font-size: 11px; max-width: 12ch; }
+.wag-transplant__mid-line--solid { color: var(--ink-900); }
+.wag-transplant__mid-line--dashed { color: var(--text-faint); }
+
+/* Section 4: condition questions */
+.wag-q2 { display: grid; grid-template-columns: 1fr; gap: 0; }
+@media (min-width: 720px) { .wag-q2 { grid-template-columns: repeat(2, 1fr); gap: 0 32px; } }
+.wag-qitem { display: flex; gap: 14px; padding: 20px 0; border-top: 1px solid var(--border-subtle); }
+.wag-qitem h3 { font: var(--type-body); font-weight: var(--weight-semibold); color: var(--ink-900); margin: 0 0 6px; text-wrap: pretty; }
+.wag-qitem p { font: var(--type-body-sm); color: var(--text-secondary); margin: 0; text-wrap: pretty; }
+
+/* Section 5: steps */
+.wag-steps { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 720px) { .wag-steps { grid-template-columns: repeat(4, 1fr); } }
+.wag-step { display: flex; flex-direction: column; gap: 10px; padding: 20px 0 0; border-top: 1px solid var(--border-subtle); }
+.wag-step h3 { font: var(--type-h4); color: var(--ink-900); margin: 0; text-wrap: pretty; }
+.wag-step p { font: var(--type-body-sm); color: var(--text-secondary); margin: 0; text-wrap: pretty; }
+.wag-step--marked { padding: 20px 20px 24px; border: 1px solid var(--border-default); border-top: 2px solid var(--accent);
+  border-radius: var(--radius-lg); background: var(--surface-card); }
+.wag-step--marked .wag-lab { color: var(--text-accent); }
+
+/* Section 6: tool checklist */
+.wag-checklist { display: flex; flex-direction: column; }
+.wag-checkitem { display: flex; gap: 14px; padding: 18px 0; border-top: 1px solid var(--border-subtle); max-width: 68ch; }
+.wag-checkitem__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); margin-top: 8px; flex: none; }
+.wag-checkitem__q { display: block; font: var(--type-body); font-weight: var(--weight-semibold); color: var(--ink-900); margin-bottom: 6px; }
+.wag-checkitem p { font: var(--type-body-sm); color: var(--text-secondary); margin: 0; text-wrap: pretty; }
+
+/* Section 7: FAQ accordion */
+.wag-faq { border-top: 1px solid var(--border-subtle); }
+.wag-faq details { border-bottom: 1px solid var(--border-subtle); }
+.wag-faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 20px;
+  align-items: baseline; padding: 20px 0; font: var(--type-body); font-weight: var(--weight-medium); color: var(--ink-900); }
+.wag-faq summary::-webkit-details-marker { display: none; }
+.wag-faq summary:hover { color: var(--accent-text); }
+.wag-faq__sign { font-size: 20px; color: var(--text-faint); line-height: 1; }
+.wag-faq details[open] .wag-faq__sign { color: var(--accent); }
+.wag-faq p { font: var(--type-body-sm); line-height: 1.65; color: var(--text-secondary); max-width: 68ch; margin: 0; padding: 0 0 24px; }
