@@ -10,7 +10,7 @@
     "explorer",
     "competitor"
   ],
-  "warn": "Season passes that front-load premium rewards drive early purchase decisions but may reduce late-season engagement if remaining rewards feel underwhelming. AB test before full activation.",
+  "warn": "Reward distribution across the season is the design decision: front-loading leaves the later track with less to pull against. AB test before full activation.",
   "variants": [
     "Free + Premium dual track",
     "Paid single track",

@@ -520,11 +520,19 @@ const NEW_MECHANICS = [
 fs.rmSync(path.join(out, "mechanics"), { recursive: true, force: true });
 fs.mkdirSync(path.join(out, "mechanics"), { recursive: true });
 let mechanicCount = 0;
+// All 27 mechanic entries carry declared visibility "public" (owner ruling,
+// preparing the library to go live as the site's search layer): the
+// distinction that used to single out "streak" no longer applies once every
+// entry is public on its own. This is the declared value, independent of
+// REVIEW_WINDOW_OPEN — when the window closes and the site re-locks, these
+// stay public rather than reverting. The two-public-case-studies rule in
+// validate-content.mjs only ever counted the apps collection, never
+// mechanics, so it's unaffected.
 for (const m of MECHANICS) {
   const { apps, ...rest } = m; // relationships now live on the app side only
   write("mechanics", m.id, {
     ...rest,
-    visibility: effectiveVisibility(m.id === "streak" ? "public" : "subscriber"),
+    visibility: effectiveVisibility("public"),
   });
   mechanicCount++;
 }
@@ -537,7 +545,7 @@ for (const nm of NEW_MECHANICS) {
     cat: nm.cat,
     tagline: def.split(/(?<=\.)\s/)[0],
     desc: def,
-    visibility: effectiveVisibility("subscriber"),
+    visibility: effectiveVisibility("public"),
     toWrite: true, // long-form fields pending (corrections §5)
   });
   mechanicCount++;

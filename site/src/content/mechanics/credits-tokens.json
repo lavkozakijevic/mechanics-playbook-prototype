@@ -5,7 +5,7 @@
   "cat": "monetization",
   "tagline": "A virtual currency layer that mediates between real money and in-app spending.",
   "desc": "Credits abstract the real cost of individual actions, making it easier to spend without feeling each transaction. The token layer also creates a second economy the product can influence through events, rewards, and bonuses, without touching core subscription pricing.",
-  "principle": "Currency abstraction reduces spending friction. The user spends tokens, not money, which makes the decision feel lighter.",
+  "principle": "A currency puts a layer between money and purchase, so the user evaluates the currency rather than the price. Spending tokens instead of money makes that evaluation feel lighter.",
   "players": [
     "explorer",
     "achiever"

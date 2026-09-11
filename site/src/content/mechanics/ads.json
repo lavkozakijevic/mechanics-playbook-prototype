@@ -9,7 +9,7 @@
   "players": [
     "achiever"
   ],
-  "warn": "Ad frequency is the primary driver of uninstall in ad-supported apps. Interstitials shown more than once per session dramatically increase churn.",
+  "warn": "Ad placement and frequency are where ad-supported apps most often lose users, and interstitials that interrupt a core action carry the most risk.",
   "variants": [
     "Rewarded video",
     "Interstitial",

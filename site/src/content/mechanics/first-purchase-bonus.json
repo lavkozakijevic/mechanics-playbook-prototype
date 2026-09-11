@@ -10,7 +10,7 @@
     "achiever",
     "competitor"
   ],
-  "warn": "First-purchase bonuses presented too early, before the user understands what the currency is for, reduce conversion. The user needs to experience a moment of frustration or desire first.",
+  "warn": "The offer depends on the user already understanding what the currency buys. Surfacing it before that point asks for a decision they cannot yet evaluate.",
   "variants": [
     "Starter pack",
     "Welcome bundle",

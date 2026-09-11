@@ -125,33 +125,46 @@ function exampleComplete(w: App["mechanics"][number]["writeup"]) {
   );
 }
 
+// Open-first, locked-rest (spec §3.2/§3.3, extended to mechanic pages by
+// §4's "Seen in the wild now lists implementations under the same rule").
+// "First" is first survivor after the filters above, in whatever order the
+// caller's `apps` already arrive in — there's no curation field, by design,
+// so this reads the existing order rather than adding one. A locked example
+// always points at /subscribe/, regardless of whether that app happens to
+// be public elsewhere on the site: the gate is about what this mechanic page
+// gives away for free, not about the app's own visibility.
 export function mechanicStudies(mechanicId: string, apps: App[]) {
   return apps
     .filter((a) => !EXAMPLE_EXCLUDED.has(a.id))
     .filter((a) => exampleComplete(a.mechanics.find((m) => m.id === mechanicId)?.writeup))
-    .map((a) => {
+    .map((a, i) => {
       const rel = a.mechanics.find((m) => m.id === mechanicId)!;
       const w = rel.writeup!;
+      const locked = i > 0;
       return {
         app: a.name,
         cat: a.category,
-        href: a.visibility === "public" ? `/case-studies/${a.id}/` : "/subscribe/",
+        locked,
+        href: locked ? "/subscribe/" : a.visibility === "public" ? `/case-studies/${a.id}/` : "/subscribe/",
         depth: rel.depth,
-        // Every example shows a screenshot area (owner ruling, 11 Jun 2026):
-        // real screenshots and suggested-shot captions both flex the count
-        // above two — the two-frame stack is a minimum, never a cap — with
-        // blank placeholders padding examples where the analysis has neither.
-        shots: (() => {
-          if (rel.screenshots.length > 0) {
-            return rel.screenshots.map((s) => ({ image: s.src, label: s.caption ?? undefined }));
-          }
-          const slots: { image?: string; label?: string }[] = [
-            ...rel.suggestedShots.map((label) => ({ label })),
-          ];
-          while (slots.length < 2) slots.push({});
-          return slots;
-        })(),
-        body: [w.observed ?? "", w.noting ?? "", w.presented ?? "", w.findings?.[0] ?? ""],
+        // Every open example shows a screenshot area (owner ruling, 11 Jun
+        // 2026): real screenshots and suggested-shot captions both flex the
+        // count above two — the two-frame stack is a minimum, never a cap —
+        // with blank placeholders padding examples where the analysis has
+        // neither. Locked examples show no screenshots at all.
+        shots: locked
+          ? []
+          : (() => {
+              if (rel.screenshots.length > 0) {
+                return rel.screenshots.map((s) => ({ image: s.src, label: s.caption ?? undefined }));
+              }
+              const slots: { image?: string; label?: string }[] = [
+                ...rel.suggestedShots.map((label) => ({ label })),
+              ];
+              while (slots.length < 2) slots.push({});
+              return slots;
+            })(),
+        body: locked ? null : [w.observed ?? "", w.noting ?? "", w.presented ?? "", w.findings?.[0] ?? ""],
       };
     });
 }

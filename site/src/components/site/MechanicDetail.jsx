@@ -1,6 +1,7 @@
 /* Website kit — Mechanic detail page. */
 import React from "react";
 import { Tag } from "../ds/Tag.jsx";
+import { Badge } from "../ds/Badge.jsx";
 
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
@@ -18,6 +19,11 @@ const IconAlert = (
 const IconArrow = (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+  </svg>
+);
+const IconLock = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <rect x="4" y="11" width="16" height="10" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" />
   </svg>
 );
 
@@ -138,30 +144,37 @@ function CaseStudies({ studies }) {
       <h2 className="mech-section__title" id="cs-h">Seen in the wild</h2>
       <div className="cstudies">
         {studies.map((s) => (
-          <article className="cstudy" id={`cstudy-${slug(s.app)}`} key={s.app}>
+          <article className={"cstudy" + (s.locked ? " cstudy--locked" : "")} id={`cstudy-${slug(s.app)}`} key={s.app}>
             <div className="cstudy__head">
               <span className="cstudy__app">{s.app}</span>
-              <Tag category="neutral">{s.cat}</Tag>
+              <div className="cstudy__headmeta">
+                <Tag category="neutral">{s.cat}</Tag>
+                {s.locked && <Badge tone="neutral" variant="outline" icon={IconLock}>For subscribers</Badge>}
+              </div>
             </div>
-            {s.body && (
+            {!s.locked && s.body && (
               <div className="cstudy__narr">
                 {s.body.map((b, i) => (
                   <div key={i}><div className="narr__label">{NARR[i]}</div><p>{b}</p></div>
                 ))}
               </div>
             )}
-            <div className={`shotgallery${s.shots.some((sh) => sh.image) ? " shotgallery--real" : ""}`}>
-              {s.shots.map((shot, i) => (
-                shot.image
-                  ? <figure className="shot shot--real" key={i}>
-                      <img src={shot.image} alt={shot.label || ""} className="shot__img" />
-                      {shot.label && <figcaption className="shot__cap">{shot.label}</figcaption>}
-                    </figure>
-                  : <ShotPlaceholder key={i} label={shot.label} />
-              ))}
-            </div>
+            {!s.locked && (
+              <div className={`shotgallery${s.shots.some((sh) => sh.image) ? " shotgallery--real" : ""}`}>
+                {s.shots.map((shot, i) => (
+                  shot.image
+                    ? <figure className="shot shot--real" key={i}>
+                        <img src={shot.image} alt={shot.label || ""} className="shot__img" />
+                        {shot.label && <figcaption className="shot__cap">{shot.label}</figcaption>}
+                      </figure>
+                    : <ShotPlaceholder key={i} label={shot.label} />
+                ))}
+              </div>
+            )}
             <div className="cstudy__foot">
-              <a className="cstudy__link" href={s.href}>View full case study {IconArrow}</a>
+              {s.locked
+                ? <a className="cstudy__link" href="/subscribe/">Subscribe to explore {IconArrow}</a>
+                : <a className="cstudy__link" href={s.href}>View full case study {IconArrow}</a>}
             </div>
           </article>
         ))}

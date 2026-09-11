@@ -431,6 +431,15 @@
   box-shadow: var(--shadow-xs); padding: clamp(20px, 2.4vw, 28px); scroll-margin-top: calc(var(--nav-h) + 16px); }
 .cstudy__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
 .cstudy__app { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: 22px; letter-spacing: var(--tracking-heading); color: var(--ink-900); }
+.cstudy__headmeta { display: flex; align-items: center; gap: 8px; }
+/* Open-first, locked-rest (spec §3.2/§4): same dimmed-content treatment
+   .csc--locked already uses on the case-studies index, not a new one —
+   the app name and the subscribe link stay visible but quiet, everything
+   else about the example simply isn't rendered. */
+.cstudy--locked .cstudy__app,
+.cstudy--locked .cstudy__foot { opacity: 0.5; transition: opacity var(--duration-base) var(--ease-standard); }
+.cstudy--locked:hover .cstudy__app,
+.cstudy--locked:hover .cstudy__foot { opacity: 0.62; }
 .cstudy__thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 22px; }
 .cthumb { aspect-ratio: 3 / 4; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-subtle);
   display: grid; place-items: end stretch; padding: 10px; text-align: left;
