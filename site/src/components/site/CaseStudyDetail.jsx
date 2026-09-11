@@ -74,7 +74,9 @@ function MechanicSection({ m }) {
           <Tag category={m.cat} dot>{CAT_LABEL[m.cat]}</Tag>
           <h2 className="cs-msec__name" id={`m-${m.id}-h`}>{m.name}</h2>
         </div>
-        <a className="cs-msec__link" href={m.href}>Full mechanic page {ArrowIcon}</a>
+        {m.href && (
+          <a className="cs-msec__link" href={m.href}>Full mechanic page {ArrowIcon}</a>
+        )}
       </div>
 
       <div className="cs-msec__body">

@@ -33,7 +33,7 @@ import { Tag } from "../ds/Tag.jsx";
 import { allSectionCounts, tagBlocks, CAT_COLOR, CAT_LABEL } from "../../lib/v41";
 import { PREVIEW_UNLOCK } from "../../lib/preview";
 import { initials } from "../../lib/props";
-import { formatMonthYear } from "../../lib/content";
+import { formatMonthYear, mechanicHref } from "../../lib/content";
 
 interface Props {
   app: any;
@@ -66,7 +66,9 @@ const systemNodes = app.system
         y: n.y,
         label: mechanic?.name ?? n.id,
         category: mechanic?.cat ?? "retention",
-        href: mechanic ? `/mechanics/${mechanic.id}/` : "#",
+        // "#" is the pre-existing, untouched fallback for no mechanics-
+        // collection entry at all — mechanicHref() only runs once one exists.
+        href: mechanic ? mechanicHref(mechanic.id, mechanic.visibility) : "#",
         spine: false,
       };
     })
@@ -218,6 +220,7 @@ const sections = allSectionCounts(app);
           </div>
           {mechanicBlocks.map((block) => {
             const cat = block.mechanic?.cat ?? "neutral";
+            const fullPageHref = block.mechanic ? mechanicHref(block.mechanic.id, block.mechanic.visibility) : null;
             return (
               <div class="cs-msec" id={`mechanic-${block.mechanicId}`}>
                 <div class="cs-msec__head">
@@ -225,8 +228,8 @@ const sections = allSectionCounts(app);
                     <Tag category={cat} dot>{CAT_LABEL[cat]}</Tag>
                     <h2 class="cs-msec__name">{block.name}</h2>
                   </div>
-                  {block.mechanic && (
-                    <a class="cs-msec__link" href={`/mechanics/${block.mechanic.id}/`}>
+                  {fullPageHref && (
+                    <a class="cs-msec__link" href={fullPageHref}>
                       Full mechanic page
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline>

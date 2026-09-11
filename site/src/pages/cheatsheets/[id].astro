@@ -5,7 +5,7 @@
 // The category eyebrow derives from the first related mechanic (v44
 // cheatsheets carry no category of their own).
 import Base from "../../layouts/Base.astro";
-import { publishedCheatsheets, publishedMechanics, publishedApps, CAT_LABEL, numberWord } from "../../lib/content";
+import { publishedCheatsheets, publishedMechanics, publishedApps, CAT_LABEL, numberWord, mechanicHref } from "../../lib/content";
 
 export async function getStaticPaths() {
   const all = await publishedCheatsheets();
@@ -92,12 +92,16 @@ const cat = relatedMechanics[0]?.cat;
             <div class="amod">
               <h3>Related mechanics</h3>
               <div class="amod__list">
-                {relatedMechanics.map((m) => (
-                  <a class="amod__item" href={`/mechanics/${m.id}/`}>
-                    <span class="amod__dot" style={`background:var(--cat-${m.cat})`} />
-                    <span class="amod__name">{m.name}</span>
-                  </a>
-                ))}
+                {relatedMechanics.map((m) => {
+                  const href = mechanicHref(m.id, m.visibility);
+                  const ItemTag = href ? "a" : "div";
+                  return (
+                    <ItemTag class="amod__item" href={href || undefined}>
+                      <span class="amod__dot" style={`background:var(--cat-${m.cat})`} />
+                      <span class="amod__name">{m.name}</span>
+                    </ItemTag>
+                  );
+                })}
               </div>
             </div>
           )}

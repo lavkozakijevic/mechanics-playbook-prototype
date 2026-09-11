@@ -6,7 +6,7 @@
 // related mechanics show no category and no practice section.
 import Base from "../../layouts/Base.astro";
 import { MechanicCard } from "../../components/ds/MechanicCard.jsx";
-import { publishedGlossary, publishedMechanics, CAT_LABEL, titleCase } from "../../lib/content";
+import { publishedGlossary, publishedMechanics, CAT_LABEL, titleCase, mechanicHref } from "../../lib/content";
 
 export async function getStaticPaths() {
   const all = await publishedGlossary();
@@ -18,15 +18,18 @@ const mechById = new Map((await publishedMechanics()).map((m) => [m.data.id, m.d
 const relMechanics = g.data.related.map((id) => mechById.get(id)).filter(Boolean);
 const cat = relMechanics[0]?.cat;
 
-const practice = relMechanics.map((m) => ({
-  number: Number(m.n),
-  category: m.cat,
-  name: m.name,
-  definition: m.tagline,
-  contextTags: (m.context ?? []).map(titleCase),
-  locked: m.visibility !== "public",
-  href: `/mechanics/${m.id}/`,
-}));
+const practice = relMechanics.map((m) => {
+  const href = mechanicHref(m.id, m.visibility);
+  return {
+    number: Number(m.n),
+    category: m.cat,
+    name: m.name,
+    definition: m.tagline,
+    contextTags: (m.context ?? []).map(titleCase),
+    locked: !href,
+    href,
+  };
+});
 
 const moreTerms = (await publishedGlossary()).filter((x) => x.data.id !== g.data.id).slice(0, 4);
 ---
@@ -79,12 +82,16 @@ const moreTerms = (await publishedGlossary()).filter((x) => x.data.id !== g.data
             <div class="amod">
               <h3>Related mechanics</h3>
               <div class="amod__list">
-                {relMechanics.map((m) => (
-                  <a class="amod__item" href={`/mechanics/${m.id}/`}>
-                    <span class="amod__dot" style={`background:var(--cat-${m.cat})`} />
-                    <span class="amod__name">{m.name}</span>
-                  </a>
-                ))}
+                {relMechanics.map((m) => {
+                  const href = mechanicHref(m.id, m.visibility);
+                  const ItemTag = href ? "a" : "div";
+                  return (
+                    <ItemTag class="amod__item" href={href || undefined}>
+                      <span class="amod__dot" style={`background:var(--cat-${m.cat})`} />
+                      <span class="amod__name">{m.name}</span>
+                    </ItemTag>
+                  );
+                })}
               </div>
             </div>
           )}

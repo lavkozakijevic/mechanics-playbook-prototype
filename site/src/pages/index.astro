@@ -3,7 +3,7 @@ import { getEntry } from "astro:content";
 import Base from "../layouts/Base.astro";
 import { HomeTop } from "../components/site/HomeTop.jsx";
 import { HomeBottom } from "../components/site/HomeBottom.jsx";
-import { publishedApps, publishedMechanics, formatDate } from "../lib/content";
+import { publishedApps, publishedMechanics, formatDate, mechanicHref } from "../lib/content";
 import { dominantCategory, systemProps } from "../lib/props";
 
 const apps = await publishedApps();
@@ -82,15 +82,22 @@ const showcase = showcaseApp?.system
 const featured = settings.featuredMechanics
   .map((id) => byId.get(id))
   .filter(Boolean)
-  .map((m) => ({
-    number: m!.n,
-    category: m!.cat,
-    name: m!.name,
-    definition: m!.tagline,
-    contextTags: (m!.context ?? []).map((c) => c.charAt(0).toUpperCase() + c.slice(1)),
-    locked: m!.visibility !== "public",
-    href: m!.visibility !== "public" ? "/subscribe/" : `/mechanics/${m!.id}/`,
-  }));
+  .map((m) => {
+    // Three of the six curated featuredMechanics ids (energy-lives,
+    // season-pass, leaderboards) are currently held back
+    // (sources/taxonomy-map.md); MechanicCard renders them unlinked with a
+    // lock badge rather than 404ing or misleadingly offering a subscribe CTA.
+    const href = mechanicHref(m!.id, m!.visibility);
+    return {
+      number: m!.n,
+      category: m!.cat,
+      name: m!.name,
+      definition: m!.tagline,
+      contextTags: (m!.context ?? []).map((c) => c.charAt(0).toUpperCase() + c.slice(1)),
+      locked: !href,
+      href,
+    };
+  });
 
 // Latest entries — curated (owner-set). These are the newest additions; each is
 // subscriber content, so all link to /subscribe/.

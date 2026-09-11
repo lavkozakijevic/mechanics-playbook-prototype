@@ -4,7 +4,7 @@
  * the design templates live here, in one reviewable place.
  */
 import type { CollectionEntry } from "astro:content";
-import { CAT_LABEL, formatDate, numberWord, playerChip, titleCase } from "./content";
+import { CAT_LABEL, formatDate, numberWord, playerChip, titleCase, mechanicHref } from "./content";
 import { kebabId } from "./v41";
 
 type App = CollectionEntry<"apps">["data"];
@@ -47,7 +47,7 @@ export function caseStudyProps(app: App, byId: MechanicsById) {
         id: r.id,
         cat: m.cat,
         name: m.name,
-        href: m.visibility === "public" ? `/mechanics/${r.id}/` : "/subscribe/",
+        href: mechanicHref(r.id, m.visibility),
         depth: r.depth,
         observed: r.writeup?.observed,
         presented: r.writeup?.presented,
@@ -94,7 +94,9 @@ export function mechanicDetailProps(mech: Mechanic) {
     }),
     variantsTitle: `${numberWord((mech.variants ?? []).length)} ways to build it`,
     lifecycle: mech.lifecycle,
-    pairedWith: (mech.paired ?? []).map((id) => ({ id, href: `/mechanics/${id}/` })),
+    // href is resolved downstream (mechanics/[id].astro) via mechanicHref(),
+    // once the paired mechanic's own visibility is known.
+    pairedWith: (mech.paired ?? []).map((id) => ({ id })),
     playerTypes: (mech.players ?? []).map(playerChip),
   };
 }
@@ -236,7 +238,10 @@ function resolveMechanicNode(app: App, byId: MechanicsById, id: string) {
   return {
     name: m?.name ?? writeup?.name ?? id,
     cat: m?.cat ?? (writeup ? "neutral" : "retention"),
-    href: m ? (m.visibility === "public" ? `/mechanics/${id}/` : "/subscribe/") : writeup ? "#" : "/subscribe/",
+    // The other two branches are pre-existing and untouched: a v4.1 tag with
+    // a composed block but no mechanics-collection entry at all renders
+    // unlinked too ("#"); one with neither falls back to /subscribe/.
+    href: m ? mechanicHref(id, m.visibility) : writeup ? "#" : "/subscribe/",
   };
 }
 
@@ -336,6 +341,7 @@ export function appCard(app: App, byId?: MechanicsById) {
 }
 
 export function mechanicCard(mech: Mechanic, exampleCount: number) {
+  const href = mechanicHref(mech.id, mech.visibility);
   return {
     id: mech.id,
     n: mech.n,
@@ -345,7 +351,10 @@ export function mechanicCard(mech: Mechanic, exampleCount: number) {
     contextTags: (mech.context ?? []).map(titleCase),
     players: mech.players ?? [],
     exampleCount,
-    locked: mech.visibility !== "public",
-    href: `/mechanics/${mech.id}/`,
+    // locked means "not clickable" — true for a held-back mechanic (no page
+    // exists) exactly the same as for a genuinely non-public one (no page
+    // yet), so the badge can't drift out of sync with the link.
+    locked: !href,
+    href,
   };
 }

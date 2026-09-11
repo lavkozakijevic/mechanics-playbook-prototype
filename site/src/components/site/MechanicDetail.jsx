@@ -190,12 +190,15 @@ function Sidebar({ mech, studies }) {
         <div className="amod">
           <h3>Often paired with</h3>
           <div className="amod__list">
-            {mech.pairedWith.map((m) => (
-              <a className="amod__item" href={m.href} key={m.name}>
-                <span className="amod__dot" style={{ background: `var(--cat-${m.cat})` }} />
-                <span className="amod__name">{m.name}</span>
-              </a>
-            ))}
+            {mech.pairedWith.map((m) => {
+              const ItemTag = m.href ? "a" : "div";
+              return (
+                <ItemTag className="amod__item" href={m.href || undefined} key={m.name}>
+                  <span className="amod__dot" style={{ background: `var(--cat-${m.cat})` }} />
+                  <span className="amod__name">{m.name}</span>
+                </ItemTag>
+              );
+            })}
           </div>
         </div>
       )}

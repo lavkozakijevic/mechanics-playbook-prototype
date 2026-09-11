@@ -68,11 +68,14 @@ const CATS: Record<string, { label: string; color: string }> = {
               const cats: string[] = Array.isArray(m.category) ? m.category : [m.category];
               const primary = cats[0];
               const locked = m.locked;
-              const href = locked ? "/subscribe/" : `/mechanics/${m.id}/`;
+              // A held-back mechanic (the eight merges, sources/taxonomy-map.md)
+              // has no page — the card renders unlinked (a plain div) rather
+              // than pointing at /subscribe/ or a URL that doesn't exist.
+              const CardTag = m.href ? "a" : "div";
               return (
-                <a
+                <CardTag
                   class:list={["mlc", locked && "mlc--locked"]}
-                  href={href}
+                  href={m.href || undefined}
                   data-mechanic-card={m.id}
                   data-cats={JSON.stringify(cats)}
                   data-contexts={JSON.stringify(m.contextTags ?? [])}
@@ -119,7 +122,7 @@ const CATS: Record<string, { label: string; color: string }> = {
                     </span>
                     <span class="mlc__examples">{m.exampleCount} examples</span>
                   </div>
-                </a>
+                </CardTag>
               );
             })}
           </div>

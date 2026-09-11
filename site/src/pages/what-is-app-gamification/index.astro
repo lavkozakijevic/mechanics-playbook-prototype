@@ -7,7 +7,7 @@
 // site's copy.
 import Base from "../../layouts/Base.astro";
 import { Card } from "../../components/ds/Card.jsx";
-import { publishedApps, publishedMechanics } from "../../lib/content";
+import { publishedApps, publishedMechanics, mechanicHref } from "../../lib/content";
 import { systemProps } from "../../lib/props";
 
 const apps = await publishedApps();
@@ -36,13 +36,15 @@ if (stravaEntry?.system) {
   constellation = { points, links, degree };
 }
 
-// href for a real library mechanic, following the sitewide convention: public
-// mechanics link directly, everything else routes through the subscribe gate.
+// href for a real library mechanic, via the shared mechanicHref() (a
+// held-back mechanic — the eight merges, sources/taxonomy-map.md — resolves
+// to null there, rendered unlinked below, rather than the /subscribe/ gate
+// apps use).
 function mechHref(id) {
   const m = mechById.get(id);
-  if (!m) return null;
-  return m.visibility === "public" ? `/mechanics/${id}/` : "/subscribe/";
+  return m ? mechanicHref(id, m.visibility) : null;
 }
+// Apps genuinely are subscriber content, so this one still routes to /subscribe/.
 function caseStudyHref(app) {
   if (!app) return null;
   return app.visibility === "public" ? `/case-studies/${app.id}/` : "/subscribe/";

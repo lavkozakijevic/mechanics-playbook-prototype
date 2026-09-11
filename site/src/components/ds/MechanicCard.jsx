@@ -45,7 +45,7 @@ export function MechanicCard({
   ...rest
 }) {
   return (
-    <Card interactive href={href} {...rest}>
+    <Card interactive={!!href} href={href || undefined} {...rest}>
       <div className="gb-mechanic">
         <div className="gb-mechanic__top">
           <Tag category={category} dot>{LABEL[category]}</Tag>

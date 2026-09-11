@@ -30,6 +30,41 @@ export const CAT_LABEL: Record<string, string> = {
   social: "Social",
 };
 
+/** The eight site mechanics that fuse two or three entries from the 36-entry
+ *  mechanics library under the site's older, coarser taxonomy
+ *  (sources/taxonomy-map.md has the full mapping, the per-merge split
+ *  condition, and which apps currently carry each one).
+ *
+ *  Publishing one of their pages would assert a taxonomy the library has
+ *  already moved past, which has nothing to do with subscriptions — so this
+ *  is deliberately not a visibility distinction. It's unconditional:
+ *  independent of each mechanic's own declared visibility (all eight are
+ *  declared "public", same as everything else) and independent of
+ *  REVIEW_WINDOW_OPEN. A "subscriber" declaration would make the page
+ *  locked rather than absent once the review window closes, and a
+ *  subscriber could then read a page that isn't supposed to exist yet
+ *  (owner ruling, 11 Sep 2026). mechanics/[id].astro excludes these ids from
+ *  getStaticPaths directly against this set — the page simply does not
+ *  exist until the merge splits, in either window state. */
+export const HELD_BACK_MECHANIC_IDS = new Set([
+  "achievements", "xp-leveling", "leaderboards", "community-groups",
+  "energy-lives", "season-pass", "ads", "variable-reward",
+]);
+
+/** A mechanic's href, or null if there is nothing to link to — the single
+ *  place this decision is made, reused everywhere a mechanic gets linked
+ *  (case study relationships, paired-mechanic sidebars, mechanic cards,
+ *  system-map nodes) so a held-back id can't be missed in one spot and
+ *  linked from another. A held-back mechanic (HELD_BACK_MECHANIC_IDS above)
+ *  renders unlinked regardless of its own declared visibility, since it has
+ *  no page and subscribing wouldn't produce one. Anything else follows the
+ *  ordinary rule: public mechanics link directly, a genuinely non-public one
+ *  (no current example, but the mechanism exists) routes to /subscribe/. */
+export function mechanicHref(id: string, visibility: string): string | null {
+  if (HELD_BACK_MECHANIC_IDS.has(id)) return null;
+  return visibility === "public" ? `/mechanics/${id}/` : "/subscribe/";
+}
+
 const PLAYER_COLOR: Record<string, string> = {
   achiever: "var(--cat-retention)",
   explorer: "var(--cat-monetization)",

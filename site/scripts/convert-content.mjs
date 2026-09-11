@@ -77,6 +77,16 @@ const POSITIONS = mapCtx.__p;
 // canonical names, both resolve onto the entry that covers them, and the
 // relationship is de-duplicated. A name mapped to null is classified in the
 // analysis but not published as a mechanic.
+//
+// The first 11 entries below were built incrementally, one at a time, as a
+// reviewed analysis actually used that heading. The rest were filled in on
+// 11 Sep 2026 to cover all 36 entries in the mechanics library up front, so
+// a future analysis naming any of them resolves instead of throwing.
+// sources/taxonomy-map.md records the full site-mechanic-to-library-entry
+// mapping, including which of these were forced by real usage versus
+// reasoned out from the library entry's own definition, and the eight site
+// mechanics that fuse two or three library entries under the site's older
+// taxonomy — read that file before changing any mapping below.
 const CANONICAL_MECHANIC_IDS = {
   "Streak": "streak",
   "Challenge": "challenges",
@@ -97,8 +107,43 @@ const CANONICAL_MECHANIC_IDS = {
   // or monetization mechanic: the content rules limit advertising coverage to
   // actual ad units (rewarded video, interstitial, banner, offerwall), and none
   // were observed. The partnerships are described inside the challenge write-up.
+  // This is Wakeout's own ruling, not a statement that Advertisement Exposure
+  // has no site mechanic in general — in general it merges into "ads" below,
+  // alongside Rewarded Advertisement. Left as null here rather than "ads" so
+  // this pass doesn't change Wakeout's build output as a side effect; a
+  // future app whose analysis observes generic ad exposure will need this
+  // revisited, since as written it resolves to "not published," not to "ads".
   "Advertisement Exposure": null,
   "Daily / Weekly Quests": "daily-weekly-quests",
+
+  // Filled in 11 Sep 2026 to cover the remaining 25 library entries (see the
+  // note above the first entry). None of these have been forced by a real
+  // analysis heading yet — sources/taxonomy-map.md marks them "inferred".
+  "Clan / Guild": "clans-guilds",
+  "Community Space": "community-groups", // merges with Group Membership above
+  "Cosmetic Customization": "cosmetics",
+  "Daily Login Rewards": "daily-login-reward",
+  "Earning Tasks": "earning-tasks",
+  "Energy": "energy-lives", // merges with Lives below
+  "First-Purchase Bonus": "first-purchase-bonus",
+  "Gifting": "gifting",
+  "Hard Currency": "hard-currency",
+  "Leveling": "xp-leveling", // merges with Experience Points above
+  "Lives": "energy-lives", // merges with Energy above
+  "Loot Box": "variable-reward", // merges with Variable Reward Schedule/Outcome below
+  "Monthly Reward Card": "monthly-card",
+  "Passive Construction": "passive-construction",
+  "Personal Data Reflection": "personal-data-reflection",
+  "Piggy Bank": "piggy-bank",
+  "Referral Boost": "referral-boost",
+  "Rewarded Advertisement": "ads", // merges with Advertisement Exposure above
+  "Season Content Pass": "season-pass", // merges with Seasonal Progression Pass below
+  "Seasonal Progression Pass": "season-pass", // merges with Season Content Pass above
+  "Set Collection": "set-collection",
+  "Soft Currency": "soft-currency",
+  "Spendable Credits and Tokens": "credits-tokens",
+  "Variable Reward Outcome": "variable-reward", // merges with Variable Reward Schedule and Loot Box
+  "Variable Reward Schedule": "variable-reward", // merges with Variable Reward Outcome and Loot Box
 };
 
 // A reviewed heading's confidence tag gates publication, independent of what
@@ -504,7 +549,7 @@ function splitWriteup(html) {
 fs.rmSync(path.join(out, "mechanics"), { recursive: true, force: true });
 fs.mkdirSync(path.join(out, "mechanics"), { recursive: true });
 let mechanicCount = 0;
-// All 27 mechanic entries carry declared visibility "public" (owner ruling,
+// All mechanic entries carry declared visibility "public" (owner ruling,
 // preparing the library to go live as the site's search layer): the
 // distinction that used to single out "streak" no longer applies once every
 // entry is public on its own. This is the declared value, independent of
@@ -512,8 +557,24 @@ let mechanicCount = 0;
 // stay public rather than reverting. The two-public-case-studies rule in
 // validate-content.mjs only ever counted the apps collection, never
 // mechanics, so it's unaffected.
+//
+// Eight of these entries fuse two or three entries from the 36-entry
+// mechanics library under the site's older, coarser taxonomy
+// (sources/taxonomy-map.md has the full mapping and the reasoning per
+// merge). Publishing one of their pages would assert a taxonomy the library
+// has already moved past — which has nothing to do with subscriptions, so
+// visibility is not how they're held back (owner ruling, 11 Sep 2026: a
+// "subscriber" declaration would make them locked rather than absent once
+// the review window closes, letting a subscriber read a page that isn't
+// supposed to exist yet). Instead their pages are excluded outright,
+// unconditionally, in mechanics/[id].astro's getStaticPaths, keyed off
+// HELD_BACK_MECHANIC_IDS (site/src/lib/content.ts) rather than visibility —
+// see that file for the exclusion and for how every other page renders a
+// reference to one of these eight unlinked instead of routing to /subscribe/.
 for (const m of MECHANICS) {
-  const { apps, ...rest } = m; // relationships now live on the app side only
+  // relationships live app-side only; libraryEntries is deferred-split
+  // groundwork (sources/taxonomy-map.md) and never reaches the built site.
+  const { apps, libraryEntries, ...rest } = m;
   write("mechanics", m.id, {
     ...rest,
     visibility: effectiveVisibility("public"),
