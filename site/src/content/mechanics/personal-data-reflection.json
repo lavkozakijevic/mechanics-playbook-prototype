@@ -1,0 +1,35 @@
+{
+  "id": "personal-data-reflection",
+  "n": "28",
+  "name": "Personal Data Reflection",
+  "cat": "retention",
+  "tagline": "A structured interaction that presents the user's own recorded data as steps requiring a response, rather than a screen that can be read without responding.",
+  "desc": "The interaction takes figures the product already holds about the user, spending in a period, payments made, subscriptions held, and releases them one step at a time, withholding the next step or the result until the user responds with an input that advances the sequence, an evaluative judgement with no correct answer, or an answer the product checks against the user's own record. What separates it from a dashboard showing the same figures is exactly that requirement, a display asks nothing of the user, this interaction stops until the user answers.",
+  "principle": "The same figures sitting untouched on a dashboard become something the user pays attention to once the product withholds them, or the result, until the user responds. Withholding is what turns a familiar record into an interaction.",
+  "players": [
+    "explorer"
+  ],
+  "warn": "The test is whether the product withholds the next step or the result until the user responds, not whether the same figures could also sit on a dashboard. A budget screen, statement, or insight card that shows identical data but asks nothing of the user is a display, not this mechanic, and carries no such label. Framing built on mockery of the user's own spending or habits is worth weighing against a lighter recap or rating tone, since the material being joked about is the user's own record rather than a generic prompt.",
+  "variants": [
+    "Data recap, the product releases the user's own figures one step at a time and asks only for an input that advances the sequence",
+    "Reflection rating, each step presents one of the user's records and asks for an evaluative judgement from a defined set, with no correct answer",
+    "Personal data quiz, each step asks a question whose answer is fixed by the user's own record, and the product marks the response against it",
+    "Consequential rating, the user's ratings change product state beyond the result itself, such as budgets, categories, recommendations, or later instances",
+    "Refreshed recap, the recap is delivered again on later occasions with the user's updated figures"
+  ],
+  "lifecycle": "Needs enough of the user's own recorded history to be worth reflecting on, so it has little to draw on immediately after signup and grows more relevant the longer the account has been active.",
+  "paired": [
+    "streak",
+    "challenges",
+    "daily-weekly-quests",
+    "xp-leveling"
+  ],
+  "context": [
+    "retention"
+  ],
+  "sdt": [
+    "ownership",
+    "autonomy"
+  ],
+  "visibility": "public"
+}
