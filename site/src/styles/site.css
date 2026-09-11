@@ -957,38 +957,36 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
 
 /* =================== V4.1 CASE STUDY =================== */
 /* Built entirely from the vocabulary above: .cs-hd, .cs-gate, .cs-toc,
-   .cs-msec, .mech-prose, .cs-findings, .shotgallery/.shot, .gb-tag,
-   .eyebrow, .pillchip, .crumb, .cs-layout. This section only adds what's
-   specific to observations, the full-record cards, and the section-page
-   sidebar/pagination — nothing here introduces a new color, font, spacing
+   .cs-layout, .cs-msec, .mech-section__kicker/__title, .mech-prose,
+   .cs-chips/.cs-chip, .gb-tag, .cs-findings, .shotgallery/.shot, .callout,
+   .pillchip, .crumb. Both the summary page and the section pages reuse
+   .cs-layout and .cs-toc verbatim — no parallel layout/nav classes — so
+   this section only adds what has no v3 equivalent at all: the observation
+   rhythm system, the full-record cards, and the section page's own title/
+   lead-in/pagination. Nothing here introduces a new color, font, spacing
    value, or radius outside the tokens already in use above. */
-
-/* The summary page reuses .cs-layout verbatim (sidebar column + main
-   column via grid-template-columns, sized by child order — no extra CSS
-   needed for the split itself) and .cs-toc verbatim for the sticky
-   in-page table of contents. */
-.v41-cs-body { display: flex; flex-direction: column; gap: clamp(48px, 6vw, 80px); padding-block: clamp(28px, 4vw, 48px); }
+.v41-cs-body { display: flex; flex-direction: column; gap: clamp(40px, 5vw, 64px); padding-block: clamp(28px, 4vw, 48px); }
 
 /* ---- System view: ordinary body copy on the page background, not a dark
    panel — a dark, bold-display treatment can carry one short "the point"
-   passage, not several paragraphs of running prose. .mech-prose already
-   gives the right type size/color/measure; only the section's own spacing
-   needs adding. */
-.v41-cs-systemview .eyebrow { display: block; margin-bottom: clamp(14px, 2vw, 20px); }
+   passage, not several paragraphs of running prose. Kicker + title above it
+   use .mech-section__kicker/__title as-is, with their own built-in spacing;
+   .mech-prose already gives the right type size/color/measure below that. */
 .v41-cs-diagram { margin-top: clamp(24px, 3vw, 36px); padding-top: clamp(24px, 3vw, 36px); border-top: var(--rule-hairline); }
 
-/* ---- Mechanics: each block is a .cs-msec section. Its observations render
-   in "flow" mode (see .v41-observation--flow below) — continuous writing,
-   not a stack of boxed cards, since every observation in a mechanic block
-   is tagged by definition and boxing each one said nothing extra. */
+/* ---- Mechanics: kicker + title (as above), then .cs-chips (its own
+   margin-top:18px carries it), then one .cs-msec block per applied tag.
+   Its observations render in "flow" mode (see .v41-observation--flow
+   below) — continuous writing, not a stack of boxed cards, since every
+   observation in a mechanic block is tagged by definition and boxing each
+   one said nothing extra. */
 .v41-cs-mechanics { display: flex; flex-direction: column; gap: 0; }
-.v41-cs-mechanics > .eyebrow { margin-bottom: clamp(18px, 2.4vw, 26px); }
 .v41-cs-mechanics .cs-msec { display: flex; flex-direction: column; scroll-margin-top: calc(var(--nav-h) + 16px); }
 .v41-mechanic-flow { display: flex; flex-direction: column; }
 
-/* ---- The full record: nine cards, .csc's bordered-card language. */
-.v41-cs-record > .eyebrow { display: block; margin-bottom: clamp(18px, 2.4vw, 26px); }
-.v41-record-cards { display: grid; grid-template-columns: 1fr; gap: 14px; }
+/* ---- The full record: kicker + title (as above), then nine cards on
+   .cs-conns's own margin-top (18px) and .csc's bordered-card language. */
+.v41-record-cards { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 18px; }
 @media (min-width: 620px) { .v41-record-cards { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 960px) { .v41-record-cards { grid-template-columns: repeat(3, 1fr); } }
 .v41-record-card { display: flex; flex-direction: column; gap: 10px; background: var(--surface-card);
@@ -1042,43 +1040,22 @@ a.v41-record-card:hover { border-color: var(--border-strong); box-shadow: var(--
 .v41-observation__shots { margin: 0; }
 .v41-observation__shots .shot__img { max-height: 340px; }
 
-/* Tagged: the same tinted-ground, bordered treatment a .callout gets —
-   this is the single biggest weight difference on the page, deliberately,
-   since a tagged observation is the "what patterns does this app use"
-   answer readers come for. */
+/* Tagged: .callout's own recipe, borrowed whole — border-subtle + radius-lg
+   + surface-sunken + its exact 20px 22px padding, not spliced with a
+   different block's padding value. This is the single biggest weight
+   difference on the page, deliberately, since a tagged observation is the
+   "what patterns does this app use" answer readers come for. */
 .v41-observation--tagged { background: var(--surface-sunken); border: 1px solid var(--border-subtle);
-  border-top: 1px solid var(--border-subtle); border-radius: var(--radius-lg);
-  padding: clamp(18px, 2.2vw, 24px); margin-block: clamp(18px, 2.4vw, 26px); }
+  border-radius: var(--radius-lg); padding: 20px 22px; margin-block: clamp(18px, 2.4vw, 26px); }
 .v41-observation--tagged:first-child { margin-top: 0; }
 
-/* ---- Section pages: sidebar + pagination. Denser and more literal than
-   the summary page's .cs-insight/.cs-msec treatment — this is reference
-   material to scan, not an article to read. */
-.v41-section-layout { display: grid; grid-template-columns: 1fr; gap: clamp(28px, 4vw, 48px);
-  padding-block: clamp(28px, 4vw, 48px); align-items: start; }
-@media (min-width: 1000px) {
-  .v41-section-layout { grid-template-columns: 232px minmax(0, 1fr); gap: clamp(40px, 5vw, 72px); }
-}
-
-.v41-section-nav { display: none; }
-@media (min-width: 1000px) { .v41-section-nav { display: block; position: sticky; top: calc(var(--nav-h) + 20px); } }
-.v41-section-nav > a { display: inline-flex; align-items: center; font: var(--type-body-sm); font-weight: var(--weight-medium);
-  color: var(--text-muted); text-decoration: none; margin-bottom: 22px; }
-.v41-section-nav > a:hover { color: var(--ink-900); }
-.v41-section-nav__label { font: var(--type-label); text-transform: uppercase; letter-spacing: var(--tracking-label);
-  color: var(--text-faint); margin-bottom: 12px; }
-.v41-section-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column;
-  border-left: 2px solid var(--border-subtle); }
-.v41-section-nav li { margin-left: -2px; border-left: 2px solid transparent; }
-.v41-section-nav li[aria-current="page"] { border-left-color: var(--accent); }
-.v41-section-nav a, .v41-section-nav__empty {
-  display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
-  padding: 7px 0 7px 16px; font: var(--type-body-sm); line-height: 1.4; text-decoration: none; color: var(--text-secondary); }
-.v41-section-nav a:hover { color: var(--ink-900); }
-.v41-section-nav li[aria-current="page"] a, .v41-section-nav li[aria-current="page"] .v41-section-nav__empty { color: var(--ink-900); font-weight: var(--weight-semibold); }
-.v41-section-nav__empty { color: var(--text-faint); }
-.v41-section-nav__count { font-family: var(--font-mono); font-size: 11px; color: var(--text-faint); flex: none; }
-.v41-section-nav li[aria-current="page"] .v41-section-nav__count { color: var(--accent); }
+/* ---- Section pages: title/lead-in/pagination. The sidebar itself is
+   .cs-layout + .cs-toc, reused verbatim from the summary page (see the
+   comment at the top of this section) — .cs-toc__link--empty below is its
+   one addition, for a section with nothing to link to, which .cs-toc has no
+   call for on the summary page since every entry there is always a link. */
+.cs-toc__link--empty { color: var(--text-faint); cursor: default; }
+.cs-toc__link--empty:hover { color: var(--text-faint); }
 
 .v41-section-main h1 { font: var(--type-h1); font-size: clamp(24px, 3vw, 34px); letter-spacing: var(--tracking-heading);
   color: var(--ink-900); margin: 0 0 14px; text-wrap: balance; }

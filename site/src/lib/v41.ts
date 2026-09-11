@@ -7,6 +7,26 @@ type Mechanic = CollectionEntry<"mechanics">["data"];
 
 export { V41_SECTIONS };
 
+/** Category color/label lookups — the same maps CaseStudyDetail.jsx defines
+ *  locally (CAT_COLOR/CAT_LABEL), exported here so the v4.1 templates can
+ *  reuse them for the same chips rather than redeclaring the values. "neutral"
+ *  is added for a tag with no reference page yet (kebabId misses in
+ *  mechanicsById) — v3 never has this case, since every mechanic there always
+ *  has a known category; it borrows the neutral classification Tag.jsx
+ *  already defines for exactly this "no specific category" situation. */
+export const CAT_COLOR: Record<string, string> = {
+  retention: "var(--cat-retention)",
+  monetization: "var(--cat-monetization)",
+  social: "var(--cat-social)",
+  neutral: "var(--ink-500)",
+};
+export const CAT_LABEL: Record<string, string> = {
+  retention: "Retention",
+  monetization: "Monetization",
+  social: "Social",
+  neutral: "Uncategorized",
+};
+
 /** Tag names are display names ("Piggy Bank"); mechanic ids are kebab-case
  *  ("piggy-bank"). Every existing mechanic entry already follows this
  *  convention, so deriving the id this way and looking it up is enough to

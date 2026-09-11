@@ -4,15 +4,18 @@
  * discipline as the summary page — nothing gated is interpolated into the
  * template when locked. A locked page renders only the app name, the
  * section name, and the gate (spec's own words for what it shows), not the
- * full section nav — that would expose every section's observation count,
- * which is exactly the kind of thing the gate exists to hold back.
+ * full section nav — that would expose which sections have anything in
+ * them, exactly the kind of thing the gate exists to hold back.
  *
  * Denser and more literal than the summary page on purpose: this is
- * reference material to scan, not an article to read. Reuses .cs-toc's
- * sticky-sidebar-with-active-state language (renamed v41-section-nav) since
- * "make the current position unmistakable" is exactly what that pattern
- * already does — no scroll-spy needed here, since "current" is just which
- * page you're on, not a scroll position.
+ * reference material to scan, not an article to read. Reuses .cs-layout and
+ * .cs-toc verbatim — the same classes the summary page uses, not a parallel
+ * copy of them — since "sticky rail + current position marked" is exactly
+ * what those already do; no scroll-spy needed here, since "current" is just
+ * which page you're on, not a scroll position. The one thing .cs-toc has no
+ * call for on the summary page (every entry there is always a link) is an
+ * unclickable entry for a section with nothing in it, so that's the one
+ * modifier class added: .cs-toc__link--empty.
  */
 import ObservationCard from "./ObservationCard.astro";
 import { GateWidget } from "./GateWidget.jsx";
@@ -56,28 +59,20 @@ const allSections = locked ? [] : allSectionCounts(app);
   </div>
 ) : (
   <div class="container">
-    <div class="v41-section-layout">
-      <nav class="v41-section-nav" aria-label="Sections">
-        <a href={`/case-studies/${app.id}/`}>← {app.name}</a>
-        <div class="v41-section-nav__label">On this page</div>
-        <ul>
+    <div class="cs-layout">
+      <aside class="cs-toc" aria-label="Sections">
+        <a class="cs-toc__back" href={`/case-studies/${app.id}/`}>← {app.name}</a>
+        <div class="cs-toc__label">On this page</div>
+        <nav class="cs-toc__nav">
           {allSections.map((s) => (
-            <li aria-current={s.slug === section ? "page" : undefined}>
-              {s.count > 0 ? (
-                <a href={`/case-studies/${app.id}/${s.slug}/`}>
-                  <span>{s.name}</span>
-                  <span class="v41-section-nav__count">{s.count}</span>
-                </a>
-              ) : (
-                <span class="v41-section-nav__empty">
-                  <span>{s.name}</span>
-                  <span class="v41-section-nav__count">—</span>
-                </span>
-              )}
-            </li>
+            s.count > 0 ? (
+              <a class={`cs-toc__link${s.slug === section ? " is-active" : ""}`} href={`/case-studies/${app.id}/${s.slug}/`}>{s.name}</a>
+            ) : (
+              <span class="cs-toc__link cs-toc__link--empty">{s.name}</span>
+            )
           ))}
-        </ul>
-      </nav>
+        </nav>
+      </aside>
 
       <main class="v41-section-main">
         <h1>{current?.name ?? section}</h1>

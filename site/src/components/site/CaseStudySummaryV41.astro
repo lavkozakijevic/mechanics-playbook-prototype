@@ -3,17 +3,21 @@
  * The v4.1 case study summary page body (spec §2.1). Plain Astro, no client
  * hydration for content — see the gating note below.
  *
- * Styled to read as an article: reuses .cs-hd for the header, .cs-gate for
- * the locked state, .cs-toc for the sticky in-page table of contents,
- * .mech-prose for System View's body copy, .cs-msec for each mechanic
- * block, and a .csc-style card grid for the full record. Deliberately more
- * generous and editorial than the section pages, which are built to be
- * scanned instead (see CaseStudySectionV41.astro).
+ * Styled to read as an article, using v3's case-study language throughout,
+ * not a parallel invention of it: .cs-hd for the header, .cs-gate for the
+ * locked state, .cs-toc for the sticky in-page table of contents,
+ * .mech-section__kicker/__title over each of the three top-level sections,
+ * .mech-prose for System View's body copy, .cs-chips/.cs-chip for the
+ * mechanics-observed row, .cs-msec + .gb-tag for each mechanic block, and a
+ * .csc-style card grid for the full record. Deliberately more generous and
+ * editorial than the section pages, which are built to be scanned instead
+ * (see CaseStudySectionV41.astro).
  */
 import ObservationCard from "./ObservationCard.astro";
 import { GateWidget } from "./GateWidget.jsx";
 import { SystemMap } from "./SystemDetail.jsx";
-import { allSectionCounts, tagBlocks } from "../../lib/v41";
+import { Tag } from "../ds/Tag.jsx";
+import { allSectionCounts, tagBlocks, CAT_COLOR, CAT_LABEL } from "../../lib/v41";
 import { PREVIEW_UNLOCK } from "../../lib/preview";
 import { initials } from "../../lib/props";
 
@@ -113,9 +117,12 @@ const sections = allSectionCounts(app);
             when one exists (Dave has none yet: no system.html entry, and
             that's fine for now). A dark, bold-display panel can carry one
             short "the point" passage; it can't carry several paragraphs of
-            running prose, so this reads like the rest of the page instead. */}
+            running prose, so this reads like the rest of the page instead —
+            that decision stands. Kicker + .mech-section__title restored,
+            exactly as v3's own top-level sections pair them. */}
         <section class="v41-cs-systemview" id="system-view" aria-label="System view">
-          <h2 class="eyebrow">System view</h2>
+          <div class="mech-section__kicker">System view</div>
+          <h2 class="mech-section__title">How the app fits together</h2>
           <div class="mech-prose">
             {(app.systemView ?? []).map((p: string) => <p>{p}</p>)}
           </div>
@@ -126,34 +133,56 @@ const sections = allSectionCounts(app);
           )}
         </section>
 
-        {/* 2. Mechanics — one block per applied tag. Observations render
-            unboxed (boxed=false): every observation here is tagged by
+        {/* 2. Mechanics — the mechanics-observed chip row first (.cs-chips,
+            one per applied tag, linking down to its block), then one .cs-msec
+            block per tag, each paired with a .gb-tag category chip beside its
+            heading — both exactly as v3 does. A tag with no reference page
+            yet (Earning Tasks, Referral Boost) renders under the neutral
+            category rather than guessing one. Observations inside a block
+            render unboxed (boxed=false): every observation here is tagged by
             definition, so boxing each one turned the block into a stack of
             tiles instead of one piece of writing. */}
         <section class="v41-cs-mechanics" id="mechanics" aria-label="Mechanics">
-          <h2 class="eyebrow">Mechanics</h2>
-          {mechanicBlocks.map((block) => (
-            <div class="cs-msec" id={`mechanic-${block.mechanicId}`}>
-              <div class="cs-msec__head">
-                <div class="cs-msec__meta">
-                  <h3 class="cs-msec__name">{block.name}</h3>
+          <div class="mech-section__kicker">Mechanics</div>
+          <h2 class="mech-section__title">Where the patterns show up</h2>
+          <div class="cs-chips">
+            {mechanicBlocks.map((block) => {
+              const cat = block.mechanic?.cat ?? "neutral";
+              return (
+                <a class="cs-chip" href={`#mechanic-${block.mechanicId}`}>
+                  <span class="cs-chip__dot" style={`background:${CAT_COLOR[cat]}`} />
+                  <span class="cs-chip__name">{block.name}</span>
+                  <span class="cs-chip__cat">{CAT_LABEL[cat]}</span>
+                </a>
+              );
+            })}
+          </div>
+          {mechanicBlocks.map((block) => {
+            const cat = block.mechanic?.cat ?? "neutral";
+            return (
+              <div class="cs-msec" id={`mechanic-${block.mechanicId}`}>
+                <div class="cs-msec__head">
+                  <div class="cs-msec__meta">
+                    <Tag category={cat} dot>{CAT_LABEL[cat]}</Tag>
+                    <h2 class="cs-msec__name">{block.name}</h2>
+                  </div>
+                  {block.mechanic && (
+                    <a class="cs-msec__link" href={`/mechanics/${block.mechanic.id}/`}>
+                      Full mechanic page
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline>
+                      </svg>
+                    </a>
+                  )}
                 </div>
-                {block.mechanic && (
-                  <a class="cs-msec__link" href={`/mechanics/${block.mechanic.id}/`}>
-                    Full mechanic page
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline>
-                    </svg>
-                  </a>
-                )}
+                <div class="v41-mechanic-flow">
+                  {block.observations.map((o) => (
+                    <ObservationCard observation={o} boxed={false} />
+                  ))}
+                </div>
               </div>
-              <div class="v41-mechanic-flow">
-                {block.observations.map((o) => (
-                  <ObservationCard observation={o} boxed={false} />
-                ))}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </section>
 
         {/* 3. The full record — nine section cards, name and a one-line
@@ -161,7 +190,8 @@ const sections = allSectionCounts(app);
             vocabulary a reader doesn't know). Empty ones are shown as such
             and stay unlinked. */}
         <section class="v41-cs-record" id="full-record" aria-label="The full record">
-          <h2 class="eyebrow">The full record</h2>
+          <div class="mech-section__kicker">The full record</div>
+          <h2 class="mech-section__title">Every section, in full</h2>
           <div class="v41-record-cards">
             {sections.map((s) => (
               s.count > 0 ? (
