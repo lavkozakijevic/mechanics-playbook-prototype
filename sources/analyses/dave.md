@@ -2,6 +2,8 @@
 
 **Session date:** 03 Jun 2026
 **Additional sessions:** None
+**As observed:** Oct 2024
+**App version:** None
 **Analysis date:** 03 Jun 2026
 **Last updated:** 09 Sep 2026
 
