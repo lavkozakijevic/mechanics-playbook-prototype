@@ -95,6 +95,13 @@ const apps = defineCollection({
     visibility,
     analysisDate: z.string().nullable(),
     lastUpdated: z.string().nullable(),
+    // v4.1-only header fields (spec review, 11 Sep 2026): "YYYY-MM", not a
+    // full date — the analysis records only a month and year for when the
+    // app was observed. appVersion is free text, null when the analysis
+    // file's own "None" means no version was stated. Both optional since v3
+    // apps carry neither.
+    asObserved: z.string().optional(),
+    appVersion: z.string().nullable().optional(),
     summary: z.string(),
     // One or two sentence index-card hook, distinct from the summary above.
     // Nullable: not every app (report-only, or awaiting a teaser) has one.

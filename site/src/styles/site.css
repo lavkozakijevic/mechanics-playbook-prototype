@@ -967,6 +967,21 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
    value, or radius outside the tokens already in use above. */
 .v41-cs-body { display: flex; flex-direction: column; gap: clamp(40px, 5vw, 64px); padding-block: clamp(28px, 4vw, 48px); }
 
+/* ---- Header metadata (as-observed month/version): a third .cs-hd__row
+   child, pushed to the right with its own margin rather than changing
+   .cs-hd__row's justify-content, so v3's two-child header is untouched.
+   Reuses .feed__date's own recipe (mono, muted, 12px) rather than a new
+   metadata style — this is a byline, not a heading, and should read at
+   that weight. Wraps onto its own row under the title on narrow screens
+   rather than squeezing three flex children into one line. */
+.cs-hd__meta { margin-left: auto; text-align: right; flex: none; }
+.cs-hd__meta-observed, .cs-hd__meta-version { font: var(--type-data); font-size: 12px; color: var(--text-muted); white-space: nowrap; }
+.cs-hd__meta-version { margin-top: 4px; }
+@media (max-width: 560px) {
+  .cs-hd__row { flex-wrap: wrap; }
+  .cs-hd__meta { margin-left: 0; width: 100%; text-align: left; margin-top: 6px; }
+}
+
 /* ---- System view: ordinary body copy on the page background, not a dark
    panel — a dark, bold-display treatment can carry one short "the point"
    passage, not several paragraphs of running prose. Kicker + title above it

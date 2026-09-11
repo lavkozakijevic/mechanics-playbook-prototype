@@ -24,6 +24,7 @@ import { Tag } from "../ds/Tag.jsx";
 import { allSectionCounts, tagBlocks, CAT_COLOR, CAT_LABEL } from "../../lib/v41";
 import { PREVIEW_UNLOCK } from "../../lib/preview";
 import { initials } from "../../lib/props";
+import { formatMonthYear } from "../../lib/content";
 
 interface Props {
   app: any;
@@ -88,6 +89,15 @@ const sections = allSectionCounts(app);
       <div class="cs-hd__heads">
         <Tag category="neutral" variant="outline">{app.category}</Tag>
         <h1 class="cs-hd__title">{app.name} {"—"} Full Breakdown</h1>
+      </div>
+      {/* Header metadata (spec review, 11 Sep 2026): quiet, top-right,
+          aligned with the title row rather than competing with it — reuses
+          .feed__date's own recipe (mono, 12px, muted) rather than a new
+          style. App version only renders when the analysis states one;
+          "None" in the source means nothing renders, not a placeholder. */}
+      <div class="cs-hd__meta">
+        <div class="cs-hd__meta-observed">{formatMonthYear(app.asObserved)}</div>
+        {app.appVersion && <div class="cs-hd__meta-version">App version {app.appVersion}</div>}
       </div>
     </div>
     <p class="cs-hd__overview">{app.summary}</p>

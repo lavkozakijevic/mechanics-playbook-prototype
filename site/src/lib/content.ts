@@ -55,6 +55,17 @@ export function formatDate(iso: string | null): string {
   });
 }
 
+// For "YYYY-MM" month/year fields (spec review, 11 Sep 2026's "As observed"),
+// not a full date — "2024-10" -> "October 2024".
+export function formatMonthYear(iso: string | undefined): string {
+  if (!iso) return "";
+  return new Date(iso + "-01T00:00:00Z").toLocaleDateString("en-US", {
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}
+
 const WORDS = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve"];
 export function numberWord(n: number): string {
   return WORDS[n] ?? String(n);

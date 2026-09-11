@@ -238,19 +238,28 @@ function idsIn(text) {
 function parseAnalysisV41(file) {
   const md = fs.readFileSync(path.join(repo, "sources/analyses", file), "utf8");
 
-  // ---- header: title line + four required labeled fields, before Pass one.
+  // ---- header: title line + required labeled fields, before Pass one.
   // Scoped to the preamble only, since bold "**Label:**" lines recur all
   // through Pass Two and Three and would otherwise pollute this.
   const preamble = md.split(/^# Pass one:/m)[0];
   const header = {};
   for (const [, k, v] of preamble.matchAll(/^\*\*([^:*]+):\*\*\s*(.+)$/gm)) header[k.trim()] = v.trim();
-  for (const required of ["Session date", "Additional sessions", "Analysis date", "Last updated"]) {
+  for (const required of ["Session date", "Additional sessions", "As observed", "App version", "Analysis date", "Last updated"]) {
     if (!header[required]) throw new Error(`${file}: v4.1 header is missing "${required}:"`);
   }
   const analysisDate = isoDate(header["Analysis date"]);
   const lastUpdated = isoDate(header["Last updated"]);
   if (!analysisDate) throw new Error(`${file}: "Analysis date" (${header["Analysis date"]}) is not a valid date`);
   if (!lastUpdated) throw new Error(`${file}: "Last updated" (${header["Last updated"]}) is not a valid date`);
+
+  // "As observed" is a month/year, not a full date — "Oct 2024" for Dave,
+  // not "DD Mon YYYY" — so it needs its own parse rather than isoDate()'s
+  // day-anchored regex. Stored as "YYYY-MM"; the template formats it out to
+  // a full month name ("October 2024"). "App version" is free text, and the
+  // source's own "None" means no version was stated, not a real value.
+  const asObserved = monthYear(header["As observed"]);
+  if (!asObserved) throw new Error(`${file}: "As observed" (${header["As observed"]}) is not a valid month/year`);
+  const appVersion = header["App version"] === "None" ? null : header["App version"];
 
   // ---- Pass two: applied tags, keyed by the observation ids they cover —
   // the join back onto the content file's observations happens at the call
@@ -306,7 +315,7 @@ function parseAnalysisV41(file) {
     caveat: field(body, "Caveat") || field(body, "Caveat on the third test"),
   }));
 
-  return { analysisDate, lastUpdated, tagsById, proposedTags };
+  return { analysisDate, lastUpdated, asObserved, appVersion, tagsById, proposedTags };
 }
 
 // Reads the content file (spec §1.7) for everything that renders: the app
@@ -451,6 +460,16 @@ function isoDate(s) {
   if (!first) return null;
   const d = new Date(first[0] + " UTC");
   return isNaN(d) ? null : d.toISOString().slice(0, 10);
+}
+
+// "Oct 2024" or "October 2024" → "2024-10". No day component, unlike
+// isoDate() above, since "As observed" is a month/year field, not a date.
+function monthYear(s) {
+  if (!s) return null;
+  const m = s.match(/([A-Z][a-z]{2,8})\s+(\d{4})/);
+  if (!m) return null;
+  const d = new Date(`1 ${m[1]} ${m[2]} UTC`);
+  return isNaN(d) ? null : d.toISOString().slice(0, 7);
 }
 
 // ------------------------------------------------ analysis prompt (new mechanics)
@@ -788,6 +807,8 @@ for (const entry of ALL_APPS) {
       visibility: effectiveVisibility(entry.id === ROTATING_FREE_APP ? "public" : entry.visibility),
       analysisDate: a.analysisDate,
       lastUpdated: a.lastUpdated,
+      asObserved: a.asObserved,
+      appVersion: a.appVersion,
       summary: content.description,
       teaser: content.teaser,
       icon: icons[0] ? "/" + icons[0] : null,
