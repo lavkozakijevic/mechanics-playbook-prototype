@@ -16,12 +16,24 @@ This stage produces plain text for review. It does not build anything.
 >
 > [app] carries these applied tags: [mechanic 1], [mechanic 2], [mechanic 3].
 >
-> **Deliver the summary page in full,** in this order:
+> **Deliver the summary page in full,** in this order. Note that the mechanic blocks are composed writing and the section pages are the record. They are different jobs and the difference matters:
 >
 > 1. App description. Three or four sentences on what [app] is and what its design is organised around, drawn from the system view.
 > 2. A one-line teaser.
-> 3. The system view. Open with one sentence stating whether this is a simple, medium or complex system. Then the spine, meaning the decision or action the rest of the product hangs from. Then each element that spine feeds, in a short clean paragraph each. Then a short close on how those elements connect, if they connect. Assume the reader has never opened the app. Keep it tight.
-> 4. Mechanics. One block per applied tag, headed by the mechanic name alone. Each block carries the observations that support that tag, rendered in full, and a note naming which screenshots the block needs.
+> 3. The system view, as one short paragraph only. State whether this is a simple, medium or complex system, and name the spine, meaning the decision or action the rest of the product hangs from. That is all. The full system account and its diagram live on the systems page and are written separately. Do not write the full narrative here.
+> 4. Mechanics. One block per applied tag, headed by the mechanic name alone. **Each block is composed prose, not a list of observations.** Write it as a piece about that mechanic in this app, in four labelled parts:
+>
+>    **What was observed.** What the app does with this mechanic, as continuous prose.
+>
+>    **How it is presented.** Where it appears, how it is framed, what the user sees and when.
+>
+>    **What is worth noting.** The choice a product person should take from it: what is unusual, deliberate, or different from how other apps do it. This is judgement, and it stays inside what the observations support.
+>
+>    **Key findings.** Three to five short bullets, each a single fact.
+>
+>    Write these from the observations carrying the tag. Do not reproduce the observations, do not keep their headings, and do not stack them one after another. The observations appear in full on their section pages. This block is where someone reads about the mechanic.
+>
+>    End each block with a note naming which screenshots it needs.
 > 5. The full record. Nine section cards, each with the section name, a one-line description, and its observation count. Empty sections appear as such and are not linked.
 >
 > Target around 1,500 words for the summary page.
@@ -44,7 +56,7 @@ This stage produces plain text for review. It does not build anything.
 >
 > Leave out regulatory and interface furniture unless it changes what a user does: links to learn more, deposit agreements, disclosures, consent checkboxes, terms acknowledgements. A product person adds those themselves. Keep them only where the placement itself is the behavioural point, for example three consents carried by a single continue button.
 >
-> Section lead-ins orient, they never argue. Say what this part of the app covers. Any judgement about what the app is doing belongs in the system view, where the analysis supports it.
+> Section lead-ins orient, they never argue. Say what this part of the app covers. Judgement about what the app is doing belongs in the mechanic blocks, under "what is worth noting", where the observations support it.
 >
 > No evidence tiers, no analysis vocabulary, no observation numbers, no em dashes. Contractions are fine.
 >
