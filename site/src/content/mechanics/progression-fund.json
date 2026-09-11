@@ -1,0 +1,34 @@
+{
+  "id": "progression-fund",
+  "n": "30",
+  "name": "Progression Fund",
+  "cat": "monetization",
+  "tagline": "An unbounded reward track attached to a progression measure the product already maintains, offering a purchasable second lane that pays more at the same positions than the free lane.",
+  "desc": "A progression fund attaches ordered reward positions to a measure the product is already tracking for another purpose, a level, a count of floors cleared, or a completion state, rather than defining a separate qualifying activity of its own. Reaching a position makes its reward available, and advancement follows however the underlying measure already moves; the fund carries no season, event window, or other boundary that closes it. Alongside the lane available without purchase, the fund offers a second lane, unlocked by a purchase, that pays more at those same positions, so the same ordinary progress becomes worth more once the lane is bought.",
+  "principle": "The fund does not ask the user to do anything they weren't already doing. Buying the lane changes what that same ordinary progress pays out, not how much progress is required to earn it.",
+  "players": [
+    "achiever"
+  ],
+  "warn": "A track where every position needs the purchase is a purchase offer rather than this mechanic, and the difference is whether the free lane pays anything.",
+  "variants": [
+    "Fixed-ratio lanes, the purchased lane pays the same multiple of the free lane at every position",
+    "Variable-ratio lanes, the difference between the lanes changes from position to position",
+    "Retroactive-lane fund, purchasing the lane pays its rewards for positions the user has already passed",
+    "Forward-only lane fund, the purchased lane pays only at positions reached after the purchase"
+  ],
+  "lifecycle": "Needs a progression measure already established elsewhere in the product. Most consequential once the user is far enough along that measure to see the free lane's positions as reachable and the purchased lane's premium as worth paying for.",
+  "paired": [
+    "season-pass",
+    "xp-leveling",
+    "first-purchase-bonus"
+  ],
+  "context": [
+    "monetization"
+  ],
+  "sdt": [
+    "mastery",
+    "ownership",
+    "scarcity"
+  ],
+  "visibility": "public"
+}

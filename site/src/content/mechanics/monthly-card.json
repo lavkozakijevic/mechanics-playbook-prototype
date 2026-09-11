@@ -1,25 +1,26 @@
 {
   "id": "monthly-card",
   "n": "14",
-  "name": "Monthly Reward Card",
+  "name": "Daily Claim Pack",
   "cat": "monetization",
-  "tagline": "A subscription-adjacent product that provides a daily currency drip over 30 days in exchange for a single upfront payment.",
-  "desc": "The monthly card converts a one-time payment into a daily reason to open the app. FC Mobile uses two cards targeting different player bottlenecks. Post-match is peak emotional engagement, the player is invested and the offer maps directly onto their desire for progression. The instant currency grant removes hesitation before the 30-day drip even begins.",
-  "principle": "Daily drip creates daily touchpoint. The card is purchased once but felt every day.",
+  "tagline": "A purchased entitlement that releases rewards across a series of recurring intervals, at least three, in exchange for a single upfront payment.",
+  "desc": "A daily claim pack converts a single upfront payment into a series of reward releases spaced across recurring intervals, at least three of them, rather than a schedule the product would run regardless of purchase. FC Mobile's cards each grant an instant currency amount on purchase and then release further currency over a fixed run of days; the entitlement's own bounded period is what closes off the releases, not a separate qualifying activity elsewhere in the product. The same shape covers any interval length, daily, weekly, or another recurring cadence, as long as there are at least three releases and the entitlement itself is what the user buys.",
+  "principle": "The entitlement is bought once; each interval it releases is a separate reason to return. A pack purchased once is felt at every release, not just at the moment of payment.",
   "players": [
     "achiever"
   ],
-  "warn": "Monthly cards presented outside peak emotional moments convert poorly. Cards providing currency the user has no immediate use for also underperform.",
+  "warn": "The design risk sits in timing and fit, not the entitlement itself: presenting the offer outside a moment where the user already wants what it releases, or attaching it to currency the user has no immediate use for, asks for the full upfront payment before the user has a reason to value what follows.",
   "variants": [
-    "Daily currency drip",
-    "Daily resource pack",
-    "Subscription with daily claim"
+    "Recurring currency drip, currency releases on each interval of the entitlement",
+    "Recurring resource pack, a non-currency resource releases on each interval instead of currency",
+    "Subscription with interval claim, an ongoing subscription itself carries the recurring release rather than a one-time purchase"
   ],
   "lifecycle": "Mid-to-late lifecycle. Most effective once the user has a specific goal they are trying to reach.",
   "paired": [
     "credits-tokens",
     "season-pass",
-    "first-purchase-bonus"
+    "first-purchase-bonus",
+    "progression-fund"
   ],
   "context": [
     "monetization"

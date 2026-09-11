@@ -37,7 +37,7 @@ resolvable in code either way; that code change does not change which
 mappings were empirically forced versus reasoned out, which is what
 "confirmed" and "inferred" track here.
 
-## Site mechanic → library entry mapping (28 site mechanics)
+## Site mechanic → library entry mapping (30 site mechanics)
 
 | site mechanic (`id`) | library entry / entries covered | evidence |
 |---|---|---|
@@ -54,7 +54,7 @@ mappings were empirically forced versus reasoned out, which is what
 | season-pass | Season Content Pass, Seasonal Progression Pass | inferred |
 | piggy-bank | Piggy Bank | inferred |
 | first-purchase-bonus | First-Purchase Bonus | inferred |
-| monthly-card | Monthly Reward Card | inferred |
+| monthly-card | Daily Claim Pack | inferred |
 | credits-tokens | Spendable Credits and Tokens | inferred |
 | cosmetics | Cosmetic Customization | inferred |
 | ads | Advertisement Exposure, Rewarded Advertisement | inferred (see the Advertisement Exposure note below) |
@@ -69,11 +69,17 @@ mappings were empirically forced versus reasoned out, which is what
 | referral-boost | Referral Boost | inferred |
 | earning-tasks | Earning Tasks | inferred |
 | personal-data-reflection | Personal Data Reflection | inferred |
+| companion | Companion | inferred |
+| progression-fund | Progression Fund | inferred |
 
 28 site mechanics, not 27 — `personal-data-reflection` was added in the
 step immediately before this one, closing what was then the library's only
 orphaned entry. It is a clean, one-to-one mapping and is not one of the
 eight held back below.
+
+30 site mechanics, not 28 — `companion` and `progression-fund` were added
+as new library entries with no prior site mechanic. Both are clean,
+one-to-one mappings and neither is one of the eight held back below.
 
 ## The eight merged mechanics (split deferred)
 
@@ -274,7 +280,9 @@ holdover from before the library existed), or a plural/singular mismatch:
 - `set-collection`: "Set Collection / Completion" → "Set Collection".
   Completion is not a library entry.
 - `daily-login-reward`: "Daily Login Reward" → "Daily Login Rewards".
-- `monthly-card`: "Monthly Card" → "Monthly Reward Card".
+- `monthly-card`: "Monthly Card" → "Monthly Reward Card" → "Daily Claim
+  Pack" (11 Sep 2026, following the library entry's own rename and
+  widening away from a fixed monthly period).
 - `clans-guilds`: "Clans / Guilds" → "Clan / Guild".
 
 Two were deliberately left as they are, against the library name:

@@ -53,7 +53,9 @@ export const CANONICAL_MECHANIC_IDS = {
   // analysis heading yet — sources/taxonomy-map.md marks them "inferred".
   "Clan / Guild": "clans-guilds",
   "Community Space": "community-groups", // merges with Group Membership above
+  "Companion": "companion",
   "Cosmetic Customization": "cosmetics",
+  "Daily Claim Pack": "monthly-card", // renamed and widened from Monthly Reward Card, 11 Sep 2026
   "Daily Login Rewards": "daily-login-reward",
   "Earning Tasks": "earning-tasks",
   "Energy": "energy-lives", // merges with Lives below
@@ -63,10 +65,10 @@ export const CANONICAL_MECHANIC_IDS = {
   "Leveling": "xp-leveling", // merges with Experience Points above
   "Lives": "energy-lives", // merges with Energy above
   "Loot Box": "variable-reward", // merges with Variable Reward Schedule/Outcome below
-  "Monthly Reward Card": "monthly-card",
   "Passive Construction": "passive-construction",
   "Personal Data Reflection": "personal-data-reflection",
   "Piggy Bank": "piggy-bank",
+  "Progression Fund": "progression-fund",
   "Referral Boost": "referral-boost",
   "Rewarded Advertisement": "ads", // merges with Advertisement Exposure above
   "Season Content Pass": "season-pass", // merges with Seasonal Progression Pass below
