@@ -3,8 +3,32 @@
   "n": "23",
   "name": "Hard Currency",
   "cat": "monetization",
-  "tagline": "Premium currency purchased directly with real money and spent directly on in-app items or actions.",
-  "desc": "Premium currency purchased directly with real money and spent directly on in-app items or actions. The purchase-to-spend path has no intermediate conversion step.",
-  "visibility": "public",
-  "toWrite": true
+  "tagline": "A product-defined currency bought with real money and held as a stored balance until it's spent on something the product defines.",
+  "desc": "Hard currency sits between a payment and whatever the payment is actually for. The user buys units, the units sit in a stored balance, and the exchange for an item, service, or access right happens later, sometimes across several separate purchases. That gap is what makes it different from a straight purchase: money converts into a product-defined unit first, and the unit is what gets spent. The same balance can also be earned, gifted, or bundled into a subscription without losing its hard-currency status, as long as a real-money path into it exists somewhere.",
+  "principle": "Buying the currency and spending the currency are two separate decisions. Once the purchase is made, every later exchange draws on a balance rather than a price, which is what keeps hard currency spending feeling lighter than the equivalent direct purchases would.",
+  "players": [
+    "achiever",
+    "competitor"
+  ],
+  "warn": "The distinguishing question is whether the balance behaves like money held for the user, refundable and spendable outside the product, or like a product-defined unit meant only for internal exchange. The prepaid-wallet case is the one to check against before applying this label.",
+  "variants": [
+    "Direct-purchase, sold in defined packages for money",
+    "Subscription-granted, an active plan periodically adds to the balance",
+    "Earnable, the same currency can also be obtained without paying",
+    "Restricted, spendable only within a defined feature or area"
+  ],
+  "lifecycle": "Effective across all lifecycle stages once a purchase path exists. Most consequential right after a first purchase, when spending shifts from real money to a stored balance.",
+  "paired": [
+    "soft-currency",
+    "credits-tokens",
+    "monthly-card"
+  ],
+  "context": [
+    "monetization"
+  ],
+  "sdt": [
+    "ownership",
+    "autonomy"
+  ],
+  "visibility": "public"
 }

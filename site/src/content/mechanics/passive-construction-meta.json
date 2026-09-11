@@ -3,8 +3,32 @@
   "n": "25",
   "name": "Passive Construction Meta",
   "cat": "retention",
-  "tagline": "A persistent construction or restoration layer where the output of the core activity — currency, completions, or time — is invested into visibly building something that accumulates across sessions: a village, a car, a city, a farm.",
-  "desc": "A persistent construction or restoration layer where the output of the core activity — currency, completions, or time — is invested into visibly building something that accumulates across sessions: a village, a car, a city, a farm. The constructed object is the long-term destination of play, and its progress may also advance in real time while the user is away (build timers, builders).",
-  "visibility": "public",
-  "toWrite": true
+  "tagline": "A construction, restoration, or upgrade process that keeps advancing once it starts, without repeated building actions from the user.",
+  "desc": "Once a construction instance begins, whether that's a building, a shared monument, or a restoration project, the system keeps advancing it toward a finished state on its own. A rule like elapsed time, automatic processing, or ordinary activity happening elsewhere in the product decides when it moves forward, not repeated taps or dedicated building actions. Completion swaps the entity for a new, upgraded, or restored version, and that change has to be something a user can actually see or use.",
+  "principle": "Progress keeps happening without the user having to keep producing it, which is what makes checking back in feel like a discovery rather than a chore: the thing changed while they were doing something else, or nothing at all.",
+  "players": [
+    "achiever",
+    "explorer"
+  ],
+  "warn": "The test is whether there's an active construction instance moving toward a new state, not just a timer or a structure that already produces something. A cooldown that blocks reuse, or a building that passively generates resources with nothing under construction, isn't the same mechanic even when the surface looks similar.",
+  "variants": [
+    "Offline, the process continues while the product is closed",
+    "Activity-fed, ordinary use elsewhere in the product feeds construction progress automatically",
+    "Accelerable, a separate action or payment shortens the remaining time without being required",
+    "Shared, several people contribute to or wait on the same construction instance"
+  ],
+  "lifecycle": "Mid-to-late lifecycle. Needs a persistent entity already established and a reason for the user to keep returning to check on it.",
+  "paired": [
+    "energy-lives",
+    "limited-time-events",
+    "daily-weekly-quests"
+  ],
+  "context": [
+    "retention"
+  ],
+  "sdt": [
+    "ownership",
+    "mastery"
+  ],
+  "visibility": "public"
 }

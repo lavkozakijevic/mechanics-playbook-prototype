@@ -472,15 +472,6 @@ function monthYear(s) {
   return isNaN(d) ? null : d.toISOString().slice(0, 7);
 }
 
-// ------------------------------------------------ analysis prompt (new mechanics)
-const prompt = fs.readFileSync(path.join(repo, "sources/mechanics-playbook-analysis-prompt.md"), "utf8");
-function promptDefinition(id) {
-  const re = new RegExp("^`" + id + "`\\n([\\s\\S]*?)\\nNot this:", "m");
-  const m = prompt.match(re);
-  if (!m) throw new Error("definition for " + id + " not found in analysis prompt");
-  return m[1].trim().replace(/\n/g, " ");
-}
-
 // --------------------------------------------------- rich write-up splitting
 // Each RICH_DESCRIPTIONS value is one HTML blob with four bold headings:
 // "How X uses Y" / "How they present it" / "Why it works" / "Key findings".
@@ -510,13 +501,6 @@ function splitWriteup(html) {
   return sections;
 }
 
-// ------------------------------------------------------------- mechanics
-const NEW_MECHANICS = [
-  { id: "hard-currency", n: "23", name: "Hard Currency", cat: "monetization" },
-  { id: "soft-currency", n: "24", name: "Soft Currency", cat: "monetization" },
-  { id: "passive-construction-meta", n: "25", name: "Passive Construction Meta", cat: "retention" },
-];
-
 fs.rmSync(path.join(out, "mechanics"), { recursive: true, force: true });
 fs.mkdirSync(path.join(out, "mechanics"), { recursive: true });
 let mechanicCount = 0;
@@ -533,20 +517,6 @@ for (const m of MECHANICS) {
   write("mechanics", m.id, {
     ...rest,
     visibility: effectiveVisibility("public"),
-  });
-  mechanicCount++;
-}
-for (const nm of NEW_MECHANICS) {
-  const def = promptDefinition(nm.id);
-  write("mechanics", nm.id, {
-    id: nm.id,
-    n: nm.n,
-    name: nm.name,
-    cat: nm.cat,
-    tagline: def.split(/(?<=\.)\s/)[0],
-    desc: def,
-    visibility: effectiveVisibility("public"),
-    toWrite: true, // long-form fields pending (corrections §5)
   });
   mechanicCount++;
 }
@@ -672,7 +642,7 @@ fs.mkdirSync(path.join(out, "apps"), { recursive: true });
 // synced into site/public after the loop so the deployed site can serve them.
 const publicAssets = new Set();
 
-const knownMechanicIds = new Set([...MECHANICS.map((m) => m.id), ...NEW_MECHANICS.map((m) => m.id)]);
+const knownMechanicIds = new Set(MECHANICS.map((m) => m.id));
 
 // system map: nodes from POSITIONS (skip "center"), connections from
 // CONNECTIONS. Shared by both analysis formats — node positions and
