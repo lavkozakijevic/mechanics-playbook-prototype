@@ -24,6 +24,10 @@ const observationTag = z.object({
   // mean re-parsing all of them, so it comes along now.
   rationale: z.string(),
   alternativeConsidered: z.string(),
+  // What this mechanic does in this app: engagement, retention, monetization
+  // or social (spec review, 11 Sep 2026). Data, not copy — no template
+  // renders it. Optional since older analyses (e.g. Dave) predate the field.
+  role: z.string().optional(),
 });
 
 const V41_SECTION_SLUGS = [

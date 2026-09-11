@@ -328,6 +328,9 @@
 <script src="auth.js"></script>
 <script>
 const CONNECTIONS = {
+  "cleo": [
+    { from: "personal-data-reflection", to: "streak", title: "Reviews and games feed their own streak", desc: "Completing a spending review moves the review streak from zero to one, and playing the money game produces the streak shown on its own stats screen.", effect: "The counters that give a reason to come back are tied to finishing a review or a game round, not to anything in the budget tab." },
+  ],
   "royal-match": [
     { from: "energy-lives", to: "gifting", title: "Depletion triggers gifting", desc: "When hearts reach zero, the lives screen routes the player to Ask Your Teammates before showing the paid refill. The social path is the first offered resolution to the energy constraint.", effect: "The player experiences the energy system's most frustrating moment as a social opportunity rather than a paywall. Running out of lives becomes a reason to check the team screen, not a reason to quit." },
     { from: "energy-lives", to: "clans-guilds", title: "Energy wall introduces teams", desc: "The team join prompt surfaces at levels 19–21, precisely when the first genuine heart depletion occurs. Free lives is the headline value of joining a team.", effect: "Players who would never seek out a social mechanic are guided to it at the moment it solves a real problem they're experiencing. The team adoption rate is driven by the energy system, not by social interest." },
@@ -510,6 +513,12 @@ const CONNECTIONS = {
 
 // Node positions for each system (as % of canvas width/height)
 const POSITIONS = {
+  "cleo": {
+    center:                       { x: 50, y: 12, label: "CLEO" },
+    "challenges":                 { x: 25, y: 40 },
+    "personal-data-reflection":   { x: 75, y: 40 },
+    "streak":                     { x: 50, y: 68 },
+  },
   "royal-match": {
     center:                  { x: 50, y: 8,  label: "ROYAL MATCH" },
     "energy-lives":          { x: 50, y: 26 },

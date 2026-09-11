@@ -669,6 +669,21 @@ function getMechanicAppDesc(mechanicId, appId) {
 
 const SYSTEMS = [
   {
+    id: "cleo",
+    name: "Cleo",
+    app_id: "cleo",
+    tagline: "One bank connection feeds a budget, a quiz, and a set of scheduled reviews that don't otherwise touch each other.",
+    overview: "Cleo's system runs on one connection made during onboarding: linking a bank account through Plaid. That connection supplies the real account figures that the roast, the budget, the bill and category views, income suggestions, the bills conversation, hype mode, the game's answer key, and the spending reviews all draw from afterward. From the chat home, Cleo branches into routes that don't depend on each other: budgeting, a habits tab added only once onboarding finishes, and a money section covering the cash advance and credit-builder plans. The habits tab runs its own internal sequence, a scheduled review followed by a streak, layered on top of the same connected data rather than wired into the budget or the game.",
+    loop_description: "Onboarding runs as one chain inside the chat: the user picks a starting goal, answers a five-question habits quiz, sits through a roast built from their own account figures, is asked for a review, then reaches an overview and a daily spending limit before confirming bills and reaching the finished budget. Once that chain completes, the habits tab appears in the nav bar and runs its own sequence: a 21-day challenge preview, a spending review with a practice round ahead of the user's real payments, and a review streak that moves from zero to one on completion, with the next review already scheduled for the following day. The chat home, meanwhile, stays available as a hub the user can return to at any time for affordability checks, bill and subscription management, the money game, hype mode, and account balance views, none of which require the habits tab or the budget to have been used first. The money section, covering the cash advance and credit-builder plans, sits apart from all of it, restricted in this session by the account's state.",
+    mechanics: [
+      { id: "challenges", role: "Runs as a monthly budget with a set limit and an on-track or overspent state, plus a 21-day challenge preview in the habits tab that stays a preview and never becomes an active instance in this session.", position: "budget" },
+      { id: "personal-data-reflection", role: "Turns the connected account's own transaction history into the roast, hype mode, the money game, the spending reviews, and the subscription keep-or-ditch swipe, each asking for a response before the next step or a result appears.", position: "engagement-layer" },
+      { id: "streak", role: "Counts consecutive completed spending reviews, and separately counts plays of the money game, though what breaks either count is never shown.", position: "return-mechanic" },
+    ],
+    key_insight: "The habits tab, added only once onboarding finishes, runs its own review-and-streak sequence on a schedule of its own, tomorrow, then three days out, that never references the daily spending limit onboarding introduces first. Cleo ends up with two separate return mechanisms that don't touch each other: a daily framing attached to the budget, and a multi-day framing attached to the reviews.",
+    what_makes_it_work: "None of Cleo's routes need to be wired to each other because they all draw on the same connected account. The budget's numbers, the game's answer key, and the reviews' real transactions are three different views of the same underlying bank data, so the chat home doesn't need a mechanic-to-mechanic handoff to feel coherent, the shared connection already does that job.",
+  },
+  {
     id: "royal-match",
     name: "Royal Match",
     app_id: "royal-match",

@@ -226,9 +226,20 @@ function detectAnalysisFormat(file) {
 // silently drop a tag over a labeling inconsistency — but the inconsistency
 // itself is real and is flagged separately, not papered over.
 const TAG_CONFIDENCE_RANK = { plausible: 0, "strongly supported": 1, confirmed: 2, "directly observed": 2 };
+// Confidence is usually a bare phrase ("strongly supported", Dave's format).
+// A newer analysis format instead writes one paragraph discussing each
+// observation the tag covers, with a "(tier: ...)" annotation per one, e.g.
+// "...(tier: strongly supported)... (tier: directly observed, presence
+// only)." (Cleo, spec review 11 Sep 2026) — every tier actually mentioned
+// has to clear the bar for the tag as a whole to publish, so the weakest one
+// governs rather than the first.
 function tagPublishes(confidence) {
-  const rank = TAG_CONFIDENCE_RANK[confidence.trim().toLowerCase()];
-  return rank !== undefined && rank >= 1;
+  const bare = confidence.trim().toLowerCase();
+  const tiers = bare in TAG_CONFIDENCE_RANK
+    ? [bare]
+    : [...confidence.matchAll(/\(tier:\s*([^,)]+)/gi)].map((m) => m[1].trim().toLowerCase());
+  if (!tiers.length) return false;
+  return tiers.every((t) => (TAG_CONFIDENCE_RANK[t] ?? -1) >= 1);
 }
 
 // Splits text on a heading marker ("^## ", "^### ", ...) into {heading, body}
@@ -322,22 +333,22 @@ function parseAnalysisV41(file) {
     const block = chunk.slice(nl + 1);
 
     const obsLine = block.match(/\*\*Observations:\*\*\s*(.+)/);
-    const confLine = block.match(/\*\*Confidence:\*\*\s*(.+)/);
-    if (!obsLine || !confLine) throw new Error(`${file}: tag "${tagName}" is missing Observations or Confidence`);
+    const confidence = field(block, "Confidence");
+    if (!obsLine || !confidence) throw new Error(`${file}: tag "${tagName}" is missing Observations or Confidence`);
 
-    const confidence = confLine[1].trim();
     if (!tagPublishes(confidence)) continue;
 
     // Confidence is stated once per tag block, covering every observation it
     // lists, not independently per observation — so the same value is
-    // copied onto each one. Rationale and Alternative considered are carried
-    // verbatim (tier annotations included) for future review; nothing
-    // renders them yet.
+    // copied onto each one. Rationale, Alternative considered and Role are
+    // carried verbatim (tier annotations included) for future review;
+    // nothing renders them yet.
     const tagEntry = {
       name: tagName,
       confidence,
       rationale: field(block, "Rationale"),
       alternativeConsidered: field(block, "Alternative considered"),
+      role: field(block, "Role"),
     };
     for (const id of idsIn(obsLine[1])) {
       if (!tagsById.has(id)) tagsById.set(id, []);
@@ -786,6 +797,26 @@ const V41_APP_META = {
         "Dave charges for membership, advance delivery, funding, cash and check handling, and pays interest on two of its accounts.",
       returns:
         "Dave brings users back through notifications, balance alerts, and a marketing consent gathered during signup.",
+    },
+  },
+  cleo: {
+    name: "Cleo",
+    category: "Finance / Personal finance",
+    type: "app",
+    sectionCards: {
+      onboarding:
+        "Cleo walks new users through sign up, a state-law restriction, and connecting a bank account before the chat opens with a habits quiz and a roast.",
+      "core-loop":
+        "Cleo runs its budget, bills, categorization, and chat-persona features through a set of swipeable cards on its chat home.",
+      goals: "Cleo sets a monthly spending limit with category limits, and previews a 21-day challenge against one spending habit.",
+      access: "Cleo restricts its cash advance and paid plans by the user's state, and gates its wallet behind an identity and age check.",
+      earning: "Cleo offers automatic saving through its wallet and save tab, gated behind setup the session doesn't complete.",
+      social:
+        "Cleo has no feature that lets a user see, interact with, compare against, or team up with another identified person.",
+      growth: "Cleo asks for an app store review at the end of its roast and hype sequences.",
+      money: "Cleo pitches Cleo Plus and Cleo Builder with a plan comparison and FAQ, neither purchasable in this session.",
+      returns:
+        "Cleo asks to send notifications and tells users to check in daily, before scheduling spending reviews days apart.",
     },
   },
 };
