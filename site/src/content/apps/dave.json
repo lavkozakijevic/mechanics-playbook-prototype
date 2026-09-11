@@ -1239,5 +1239,33 @@
     "money": "Dave charges for membership, advance delivery, funding, cash and check handling, and pays interest on two of its accounts.",
     "returns": "Dave brings users back through notifications, balance alerts, and a marketing consent gathered during signup."
   },
+  "proposedTags": [
+    {
+      "name": "Scheduled eligibility re-check",
+      "sourceObservations": [
+        "O54",
+        "O56",
+        "O80"
+      ],
+      "draftDefinition": "When a user requests a gated benefit and does not qualify, the product declines without closing the request, names a recurring interval at which the decision will be reconsidered, and offers a notification for the moment eligibility changes.",
+      "conditions": "A benefit gated by a system-evaluated eligibility rule; a decision the product will re-evaluate rather than treat as final; a named interval short enough to be actionable; a notification opt-in offered in place of the withheld benefit; a stated or implied route by which the user can change the input the decision depends on.",
+      "whyNotCovered": "No approved entry describes a refusal that carries a return date. Daily Login Rewards requires a benefit granted for access rather than a re-evaluated decision. Daily / Weekly Quests requires an objective instance with a completion state, and no objective is issued here. The behaviour is a return trigger built on a pending decision rather than on a reward or a task.",
+      "recurrenceElsewhere": "Lending, credit-limit increases, insurance underwriting, marketplace seller eligibility, waitlists and account-upgrade flows all decline provisionally and invite a return. The structure is describable without reference to this product.",
+      "caveat": "The session observes the refusal, the named interval and the notification offer, but not a single re-evaluation. Whether the decision is genuinely reconsidered daily, and whether the interval is a real cadence or a phrase, is not established."
+    },
+    {
+      "name": "Assisted external redirection",
+      "sourceObservations": [
+        "O35",
+        "O36",
+        "O37"
+      ],
+      "draftDefinition": "The product provides several parallel routes for completing a required action inside a third-party system it does not control, including at least one route in which the product generates the paperwork on the user's behalf, and offers a partial-commitment option so the user need not move the whole of the thing being redirected.",
+      "conditions": "An action outside the product's control that materially changes the product's value to the user; more than one route to that action, differentiated by effort or speed; a route in which the product does the work and the user only supplies identifying details; an option to commit part rather than all; a statement that the choice can be changed later.",
+      "whyNotCovered": "No approved entry addresses the product assisting an action performed in another system. The behaviour is not a quest, a challenge or an achievement, because the product neither issues an objective nor records a completion state; it reduces the cost of a step it cannot perform.",
+      "recurrenceElsewhere": "Payroll redirection, utility and insurance switching, subscription migration, number porting and pension transfer flows all take this shape. The structure is describable without reference to this product.",
+      "caveat": "The session shows the routes and the partial option but no completed redirection, and it does not show how the partial amount is specified. Whether the pre-signature checkbox is on by default is also not established, and that default bears on any definition of the assisted route."
+    }
+  ],
   "system": null
 }

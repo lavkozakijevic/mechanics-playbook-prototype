@@ -1039,8 +1039,6 @@ a.v41-record-card:hover { border-color: var(--border-strong); box-shadow: var(--
 .v41-observation__observed { font: var(--type-body); color: var(--text-secondary); line-height: 1.6; margin: 0; text-wrap: pretty; }
 .v41-observation--short .v41-observation__observed { font: var(--type-body-sm); }
 .v41-observation__detail { margin-top: 12px; }
-.v41-observation__crossrefs { margin-top: 12px; font: var(--type-caption); color: var(--text-muted); }
-.v41-observation__crossrefs a { color: var(--text-muted); text-decoration-color: var(--border-strong); }
 .v41-observation__shots { margin: 0; }
 .v41-observation__shots .shot__img { max-height: 340px; }
 

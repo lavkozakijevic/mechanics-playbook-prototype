@@ -29,22 +29,12 @@ interface Props {
     observed: string;
     detail: string[];
     tags: { name: string; confidence: string }[];
-    crossRefs: string[];
     screenshots: { src: string; caption: string | null }[];
   };
-  appId: string;
-  crossRefLookup: Map<string, { name: string; section: string }>;
   boxed?: boolean;
 }
 
-const { observation, appId, crossRefLookup, boxed = true } = Astro.props as Props;
-
-const resolvedCrossRefs = observation.crossRefs
-  .map((id) => {
-    const target = crossRefLookup.get(id);
-    return target ? { id, ...target } : null;
-  })
-  .filter((x): x is { id: string; name: string; section: string } => x !== null);
+const { observation, boxed = true } = Astro.props as Props;
 
 const hasTags = observation.tags.length > 0;
 const hasShots = observation.screenshots.length > 0;
@@ -78,18 +68,6 @@ const density = wordCount < 30 && observation.detail.length <= 1 ? "short" : wor
         <ul class="cs-findings v41-observation__detail">
           {observation.detail.map((d) => <li>{d}</li>)}
         </ul>
-      )}
-
-      {resolvedCrossRefs.length > 0 && (
-        <p class="v41-observation__crossrefs">
-          Related:{" "}
-          {resolvedCrossRefs.map((r, i) => (
-            <>
-              <a href={`/case-studies/${appId}/${r.section}/#${r.id}`}>{r.name}</a>
-              {i < resolvedCrossRefs.length - 1 ? ", " : ""}
-            </>
-          ))}
-        </p>
       )}
     </div>
 

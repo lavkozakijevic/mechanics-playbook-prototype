@@ -221,11 +221,13 @@ function idsIn(text) {
   return [...text.matchAll(/O\d+/g)].map((m) => m[0]);
 }
 
-// Reads the analysis file for exactly what spec §1.7 says it still supplies:
-// the header dates, and the applied tags with their confidence. Everything
-// else that used to come from Pass one/three and the Close section (observed
-// prose, detail, system view narrative, cross-references) now comes from the
-// content file instead, via parseContentV41 below.
+// Reads the analysis file for what spec §1.7 says it still supplies for
+// publishing — the header dates, and the applied tags with their confidence
+// — plus the proposed-tags list (spec §1.6), which is never published but is
+// worth keeping parsed rather than re-deriving later. Everything else that
+// used to come from Pass one and the Close section (observed prose, detail,
+// system view narrative, cross-references) now comes from the content file
+// instead, via parseContentV41 below.
 function parseAnalysisV41(file) {
   const md = fs.readFileSync(path.join(repo, "sources/analyses", file), "utf8");
 
@@ -245,9 +247,9 @@ function parseAnalysisV41(file) {
 
   // ---- Pass two: applied tags, keyed by the observation ids they cover —
   // the join back onto the content file's observations happens at the call
-  // site. The rejected-entries, unresolved, never-observed and proposed-tag
-  // lists aren't part of the published content model (spec §1.6/§1.7) and
-  // are deliberately left unparsed — they stay in the source file only.
+  // site. The rejected-entries and unresolved/never-observed lists aren't
+  // part of the published content model (spec §1) and are deliberately left
+  // unparsed — they stay in the source file only.
   const passTwo = h1Section(md, "Pass two: tagging");
   if (passTwo === null) throw new Error(`${file}: "# Pass two: tagging" not found`);
   const appliedBlock = headingChunks(passTwo, 2).find((c) => c.heading === "Applied tags");
@@ -282,7 +284,22 @@ function parseAnalysisV41(file) {
     }
   }
 
-  return { analysisDate, lastUpdated, tagsById };
+  // ---- Pass three: proposed tags — recorded per app, never rendered
+  // (spec §1.6), but kept parsed rather than dropped: it's the library's
+  // growth queue, and re-deriving it from forty analysis files later would
+  // mean re-parsing all of them.
+  const passThree = h1Section(md, "Pass three: proposed new tags") ?? "";
+  const proposedTags = headingChunks(passThree, 3).map(({ heading, body }) => ({
+    name: heading,
+    sourceObservations: idsIn(field(body, "Source observations")),
+    draftDefinition: field(body, "Draft definition"),
+    conditions: field(body, "Conditions it appears to depend on"),
+    whyNotCovered: field(body, "Why it is not covered"),
+    recurrenceElsewhere: field(body, "Recurrence elsewhere"),
+    caveat: field(body, "Caveat") || field(body, "Caveat on the third test"),
+  }));
+
+  return { analysisDate, lastUpdated, tagsById, proposedTags };
 }
 
 // Reads the content file (spec §1.7) for everything that renders: the app
@@ -726,6 +743,7 @@ for (const entry of ALL_APPS) {
       systemView: content.systemView,
       sectionLeadIns: content.sectionLeadIns,
       sectionCards: meta.sectionCards ?? {},
+      proposedTags: a.proposedTags,
       system: buildSystemMap(entry.id),
     });
     continue;

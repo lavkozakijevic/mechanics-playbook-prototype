@@ -16,7 +16,7 @@
  */
 import ObservationCard from "./ObservationCard.astro";
 import { GateWidget } from "./GateWidget.jsx";
-import { allSectionCounts, nonEmptySections, crossRefLookup } from "../../lib/v41";
+import { allSectionCounts, nonEmptySections } from "../../lib/v41";
 import { PREVIEW_UNLOCK } from "../../lib/preview";
 
 interface Props {
@@ -35,7 +35,6 @@ const current = nonEmpty[currentIndex];
 
 const observations = locked ? [] : (app.observations ?? []).filter((o: any) => o.section === section);
 const leadIn = app.sectionLeadIns?.[section] ?? "";
-const observationLookup = locked ? new Map() : crossRefLookup(app);
 const allSections = locked ? [] : allSectionCounts(app);
 ---
 
@@ -85,7 +84,7 @@ const allSections = locked ? [] : allSectionCounts(app);
         {leadIn && <p class="v41-section-leadin">{leadIn}</p>}
 
         {observations.map((o: any) => (
-          <ObservationCard observation={o} appId={app.id} crossRefLookup={observationLookup} />
+          <ObservationCard observation={o} />
         ))}
 
         <div class="v41-section-pagination">

@@ -45,16 +45,6 @@ export function allSectionCounts(app: App): { slug: string; name: string; count:
   return V41_SECTIONS.map((s) => ({ ...s, count: counts.get(s.slug) ?? 0 }));
 }
 
-/** id -> {name, section} for every observation in the app, so a
- *  cross-reference (stored as a raw id) can be rendered as the target
- *  observation's title, linking to its one canonical location: its section
- *  page. Built once per page render, not per observation. */
-export function crossRefLookup(app: App): Map<string, { name: string; section: string }> {
-  const map = new Map<string, { name: string; section: string }>();
-  for (const o of app.observations ?? []) map.set(o.id, { name: o.name, section: o.section });
-  return map;
-}
-
 export interface TagBlock {
   name: string;
   mechanicId: string;

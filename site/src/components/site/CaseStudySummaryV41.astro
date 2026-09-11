@@ -13,7 +13,7 @@
 import ObservationCard from "./ObservationCard.astro";
 import { GateWidget } from "./GateWidget.jsx";
 import { SystemMap } from "./SystemDetail.jsx";
-import { allSectionCounts, crossRefLookup, tagBlocks } from "../../lib/v41";
+import { allSectionCounts, tagBlocks } from "../../lib/v41";
 import { PREVIEW_UNLOCK } from "../../lib/preview";
 import { initials } from "../../lib/props";
 
@@ -58,7 +58,6 @@ const systemConnections = app.system
   ? app.system.connections.map((c: any) => ({ from: c.from, to: c.to, type: "mechanic", label: c.title }))
   : [];
 
-const observationLookup = crossRefLookup(app);
 const mechanicBlocks = tagBlocks(app, mechanicsById);
 const sections = allSectionCounts(app);
 ---
@@ -150,14 +149,17 @@ const sections = allSectionCounts(app);
               </div>
               <div class="v41-mechanic-flow">
                 {block.observations.map((o) => (
-                  <ObservationCard observation={o} appId={app.id} crossRefLookup={observationLookup} boxed={false} />
+                  <ObservationCard observation={o} boxed={false} />
                 ))}
               </div>
             </div>
           ))}
         </section>
 
-        {/* 3. The full record — nine section cards, empty ones unlinked. */}
+        {/* 3. The full record — nine section cards, name and a one-line
+            description only (spec §2.1: "16 observations" is internal
+            vocabulary a reader doesn't know). Empty ones are shown as such
+            and stay unlinked. */}
         <section class="v41-cs-record" id="full-record" aria-label="The full record">
           <h2 class="eyebrow">The full record</h2>
           <div class="v41-record-cards">
@@ -166,7 +168,6 @@ const sections = allSectionCounts(app);
                 <a class="v41-record-card" href={`/case-studies/${app.id}/${s.slug}/`}>
                   <h3>{s.name}</h3>
                   <p>{app.sectionCards?.[s.slug] ?? ""}</p>
-                  <span>{s.count} observation{s.count === 1 ? "" : "s"}</span>
                 </a>
               ) : (
                 <div class="v41-record-card v41-record-card--empty">
