@@ -416,7 +416,7 @@
 .variant { display: flex; gap: 14px; padding: 18px 20px; border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md); background: var(--surface-card); }
 .variant__n { font-family: var(--font-mono); font-size: 13px; color: var(--text-faint); flex: none; padding-top: 1px; }
-.variant h4 { font: var(--type-h4); font-size: 17px; color: var(--ink-900); margin-bottom: 5px; }
+.variant h3 { font: var(--type-h4); font-size: 17px; color: var(--ink-900); margin-bottom: 5px; }
 .variant p { font: var(--type-body-sm); color: var(--text-secondary); line-height: 1.55; text-wrap: pretty; }
 
 /* Lifecycle band */

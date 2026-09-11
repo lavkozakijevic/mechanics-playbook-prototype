@@ -111,7 +111,7 @@ function Variants({ mech }) {
         {mech.variants.map((v, i) => (
           <div className="variant" key={v.name}>
             <span className="variant__n">{String(i + 1).padStart(2, "0")}</span>
-            <div><h4>{v.name}</h4><p>{v.desc}</p></div>
+            <div><h3>{v.name}</h3><p>{v.desc}</p></div>
           </div>
         ))}
       </div>
