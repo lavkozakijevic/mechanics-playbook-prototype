@@ -789,21 +789,34 @@
     ],
     "center": {
       "x": 50,
-      "y": 18,
+      "y": 12,
       "label": "CLEO"
     },
     "nodes": [
       {
         "id": "challenges",
-        "x": 32,
-        "y": 58
+        "x": 25,
+        "y": 40
+      },
+      {
+        "id": "personal-data-reflection",
+        "x": 75,
+        "y": 40
       },
       {
         "id": "streak",
-        "x": 68,
-        "y": 58
+        "x": 50,
+        "y": 68
       }
     ],
-    "connections": []
+    "connections": [
+      {
+        "from": "personal-data-reflection",
+        "to": "streak",
+        "title": "Reviews and games feed their own streak",
+        "desc": "Completing a spending review moves the review streak from zero to one, and playing the money game produces the streak shown on its own stats screen.",
+        "effect": "The counters that give a reason to come back are tied to finishing a review or a game round, not to anything in the budget tab."
+      }
+    ]
   }
 }

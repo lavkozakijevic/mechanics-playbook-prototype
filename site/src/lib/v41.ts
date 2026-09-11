@@ -1,5 +1,6 @@
 import type { CollectionEntry } from "astro:content";
 import { V41_SECTIONS } from "./v41-sections.mjs";
+import { resolveMechanicId } from "./canonical-mechanic-ids.mjs";
 
 type App = CollectionEntry<"apps">["data"];
 type Observation = NonNullable<App["observations"]>[number];
@@ -27,12 +28,16 @@ export const CAT_LABEL: Record<string, string> = {
   neutral: "Uncategorized",
 };
 
-/** Tag names are display names ("Piggy Bank"); mechanic ids are kebab-case
- *  ("piggy-bank"). Every existing mechanic entry already follows this
- *  convention, so deriving the id this way and looking it up is enough to
- *  link a chip — when nothing matches, the caller renders the chip unlinked
- *  rather than guessing or 404ing (Earning Tasks and Referral Boost have no
- *  reference page yet; that's content work, tracked separately). */
+/** A plain kebab-casing of a name, with no awareness of the library-to-site
+ *  mapping. Most mechanic ids happen to be their name kebab-cased ("Piggy
+ *  Bank" -> "piggy-bank"), but not all of them are ("Challenge" -> the site's
+ *  "challenges", not "challenge") — resolveMechanicId() (canonical-mechanic-
+ *  ids.mjs) is the real name-to-id path and checks the canonical map first;
+ *  this stays only as its fallback for a name the map doesn't recognize, and
+ *  for callers that need a stable id-shaped string with no site mechanic
+ *  behind it at all (spec review, 11 Sep 2026 — a naive kebabId() call used
+ *  directly for chip resolution produced mismatched names and a missing
+ *  system-map node on Cleo's summary page). */
 export function kebabId(name: string): string {
   return name
     .toLowerCase()
@@ -68,7 +73,16 @@ export function allSectionCounts(app: App): { slug: string; name: string; count:
 type MechanicWriteup = NonNullable<App["mechanicWriteups"]>[number];
 
 export interface TagBlock {
+  // The raw tag name as the analysis wrote it (a library entry name, e.g.
+  // "Challenge") — kept only as the join key back onto mechanicWriteups,
+  // which content files key by this same raw name. Never render this
+  // directly; use displayName below, so a reader sees the site mechanic's
+  // own name everywhere it resolves, not the library's name in one place and
+  // the site's in another (spec review, 11 Sep 2026).
   name: string;
+  // The name to show: the resolved site mechanic's own name when one
+  // exists, falling back to the raw tag name only when nothing resolves.
+  displayName: string;
   mechanicId: string;
   mechanic: Mechanic | null;
   // Kept as data for the tag index (spec §6.3) to use later — the summary
@@ -86,7 +100,14 @@ export interface TagBlock {
  *  observations. `writeup` is null only if a tag's composed block is
  *  missing from the content file, which convert-content.mjs already treats
  *  as a build error — null here is a defensive fallback, not an expected
- *  state. */
+ *  state.
+ *
+ *  The tag name is resolved onto a site mechanic id through
+ *  resolveMechanicId() (canonical-mechanic-ids.mjs), the same map a v3
+ *  reviewed heading resolves through — not a raw kebabId() guess, which is
+ *  what previously mismatched a mechanic id like "challenges" against a tag
+ *  name like "Challenge" and left the chip uncategorized. kebabId() is only
+ *  the fallback for a name resolveMechanicId() doesn't recognize at all. */
 export function tagBlocks(app: App, mechanicsById: Map<string, Mechanic>): TagBlock[] {
   const order: string[] = [];
   const byName = new Map<string, Observation[]>();
@@ -101,11 +122,14 @@ export function tagBlocks(app: App, mechanicsById: Map<string, Mechanic>): TagBl
   }
   const writeupsByName = new Map((app.mechanicWriteups ?? []).map((w) => [w.name, w]));
   return order.map((name) => {
-    const mechanicId = kebabId(name);
+    const canonicalId = resolveMechanicId(name);
+    const mechanicId = canonicalId ?? kebabId(name);
+    const mechanic = canonicalId ? mechanicsById.get(canonicalId) ?? null : null;
     return {
       name,
+      displayName: mechanic?.name ?? name,
       mechanicId,
-      mechanic: mechanicsById.get(mechanicId) ?? null,
+      mechanic,
       observations: byName.get(name)!,
       writeup: writeupsByName.get(name) ?? null,
     };

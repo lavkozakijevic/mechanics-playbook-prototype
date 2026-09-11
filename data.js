@@ -1091,21 +1091,6 @@ const SYSTEMS = [
   },
 
   {
-    id: "cleo",
-    name: "Cleo",
-    app_id: "cleo",
-    tagline: "A finance app whose central mechanics are not new tasks but judgments on data the user already produced.",
-    overview: "Cleo connects to the user's bank account and centers its engagement on reviewing that connection's own data back at the user, through a monthly spending limit, an in-chat game, and scheduled reviews of past purchases. Each of the two published mechanics, the monthly limit and the game, ties its pass-or-fail outcome to information Cleo already holds rather than to a new task, and a chat persona delivers the verdict in jokes, gifs, and emoji rather than a plain dashboard.",
-    loop_description: "The core loop is: connect a bank account and set a monthly spending limit → Cleo's chat persona reports back against that limit daily, in jokes, emoji, and gifs rather than a plain dashboard → a scheduled spending review asks the user to swipe their own past purchases into loved, regretted, or don't know → completing that review advances a review streak and schedules the next review → a separate in-chat game quizzes the user on the same transaction history, scoring memory of one's own past spending rather than any task performed in the app. Two entertainment set pieces, a roast and a hype mode, sit outside that loop and restate the same monthly figures back as a joke with gifs, each ending on a prompt to leave an app store review.",
-    mechanics: [
-      { id: "challenges", role: "Ties its pass-or-fail outcome, an on-track or overspent month, and a game scored on memory, to data Cleo already holds rather than to a new task." },
-      { id: "streak", role: "Advances the moment a scheduled spending review is completed, and reappears a second time inside the game's own stats screen." },
-    ],
-    key_insight: "Nearly every interactive part of Cleo, the monthly limit, the in-chat game, and the scheduled spending reviews, asks the user to look at data the user already generated and pass judgment on it, rather than to complete a new task. The game does not test a skill; it tests memory of one's own spending, checked against Cleo's own record of it. The spending review does not introduce new information; it asks the user to rate purchases that already happened. The roast and hype-mode set pieces work the same way, restating the user's own monthly figures back as entertainment rather than adding anything the user did not already know.",
-    what_makes_it_work: "The chat persona carries that repeated self-judgment. A skull and the words \"rip budget\" turn an overspent month into a joke rather than a plain warning, and the roast and hype-mode set pieces turn the same monthly figures into gifs and emoji before ending on a prompt to leave an app store review. Because the underlying activity is always a review of data Cleo already holds, the app can generate a new return moment, a scheduled review, another round of the game, a fresh month to rate, without asking the user to produce anything new.",
-  },
-
-  {
     id: "dave",
     name: "Dave",
     app_id: "dave",

@@ -17,6 +17,7 @@ import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 import { V41_SECTIONS } from "../src/lib/v41-sections.mjs";
 import { REVIEW_WINDOW_OPEN } from "../src/lib/review-window.mjs";
+import { CANONICAL_MECHANIC_IDS } from "../src/lib/canonical-mechanic-ids.mjs";
 
 // Temporary public review window (see review-window.mjs, the single
 // switch). Report-only stays excluded regardless — that is a content-safety
@@ -78,73 +79,12 @@ const POSITIONS = mapCtx.__p;
 // relationship is de-duplicated. A name mapped to null is classified in the
 // analysis but not published as a mechanic.
 //
-// The first 11 entries below were built incrementally, one at a time, as a
-// reviewed analysis actually used that heading. The rest were filled in on
-// 11 Sep 2026 to cover all 36 entries in the mechanics library up front, so
-// a future analysis naming any of them resolves instead of throwing.
-// sources/taxonomy-map.md records the full site-mechanic-to-library-entry
-// mapping, including which of these were forced by real usage versus
-// reasoned out from the library entry's own definition, and the eight site
-// mechanics that fuse two or three library entries under the site's older
-// taxonomy — read that file before changing any mapping below.
-const CANONICAL_MECHANIC_IDS = {
-  "Streak": "streak",
-  "Challenge": "challenges",
-  "Social Feed": "social-feed",
-  "Leaderboard": "leaderboards",
-  // This library carries one ranking entry; the analysis separates the ordered
-  // list from the user's own standing. Both are written up under leaderboards.
-  "Comparative Rank": "leaderboards",
-  // This library's entry is "Achievements / Milestones" and covers both.
-  "Milestone": "achievements",
-  "Achievement": "achievements",
-  "Group Membership": "community-groups",
-  // Wakeout's analysis classifies Wake Out Watts as "Experience Points"; this
-  // library's equivalent entry is "XP / Leveling".
-  "Experience Points": "xp-leveling",
-  // Partner cross-promotion (Runna, Apple Fitness+, partner-named challenges)
-  // and the app's own subscription upsell are not published as an advertising
-  // or monetization mechanic: the content rules limit advertising coverage to
-  // actual ad units (rewarded video, interstitial, banner, offerwall), and none
-  // were observed. The partnerships are described inside the challenge write-up.
-  // This is Wakeout's own ruling, not a statement that Advertisement Exposure
-  // has no site mechanic in general — in general it merges into "ads" below,
-  // alongside Rewarded Advertisement. Left as null here rather than "ads" so
-  // this pass doesn't change Wakeout's build output as a side effect; a
-  // future app whose analysis observes generic ad exposure will need this
-  // revisited, since as written it resolves to "not published," not to "ads".
-  "Advertisement Exposure": null,
-  "Daily / Weekly Quests": "daily-weekly-quests",
-
-  // Filled in 11 Sep 2026 to cover the remaining 25 library entries (see the
-  // note above the first entry). None of these have been forced by a real
-  // analysis heading yet — sources/taxonomy-map.md marks them "inferred".
-  "Clan / Guild": "clans-guilds",
-  "Community Space": "community-groups", // merges with Group Membership above
-  "Cosmetic Customization": "cosmetics",
-  "Daily Login Rewards": "daily-login-reward",
-  "Earning Tasks": "earning-tasks",
-  "Energy": "energy-lives", // merges with Lives below
-  "First-Purchase Bonus": "first-purchase-bonus",
-  "Gifting": "gifting",
-  "Hard Currency": "hard-currency",
-  "Leveling": "xp-leveling", // merges with Experience Points above
-  "Lives": "energy-lives", // merges with Energy above
-  "Loot Box": "variable-reward", // merges with Variable Reward Schedule/Outcome below
-  "Monthly Reward Card": "monthly-card",
-  "Passive Construction": "passive-construction",
-  "Personal Data Reflection": "personal-data-reflection",
-  "Piggy Bank": "piggy-bank",
-  "Referral Boost": "referral-boost",
-  "Rewarded Advertisement": "ads", // merges with Advertisement Exposure above
-  "Season Content Pass": "season-pass", // merges with Seasonal Progression Pass below
-  "Seasonal Progression Pass": "season-pass", // merges with Season Content Pass above
-  "Set Collection": "set-collection",
-  "Soft Currency": "soft-currency",
-  "Spendable Credits and Tokens": "credits-tokens",
-  "Variable Reward Outcome": "variable-reward", // merges with Variable Reward Schedule and Loot Box
-  "Variable Reward Schedule": "variable-reward", // merges with Variable Reward Outcome and Loot Box
-};
+// CANONICAL_MECHANIC_IDS now lives in ../src/lib/canonical-mechanic-ids.mjs,
+// shared with the Astro/TS template layer (v41.ts, lib/props.ts) so a v4.1
+// app's applied tags resolve onto a site mechanic id the same way a v3
+// reviewed heading does here — see that file for the mapping and the
+// mismatched-chip bug (spec review, 11 Sep 2026) that made the sharing
+// necessary. sources/taxonomy-map.md still records the full reasoning.
 
 // A reviewed heading's confidence tag gates publication, independent of what
 // mechanic it maps to: "confirmed" and "strongly supported" (with whatever

@@ -6,6 +6,7 @@
 import type { CollectionEntry } from "astro:content";
 import { CAT_LABEL, formatDate, numberWord, playerChip, titleCase, mechanicHref } from "./content";
 import { kebabId } from "./v41";
+import { resolveMechanicId } from "./canonical-mechanic-ids.mjs";
 
 type App = CollectionEntry<"apps">["data"];
 type Mechanic = CollectionEntry<"mechanics">["data"];
@@ -234,7 +235,15 @@ export function dominantCategory(app: App, byId: MechanicsById): string {
 // rather than guessing a real category or defaulting to "retention".
 function resolveMechanicNode(app: App, byId: MechanicsById, id: string) {
   const m = byId.get(id);
-  const writeup = app.contentFormat === "v4.1" ? app.mechanicWriteups?.find((w) => kebabId(w.name) === id) : undefined;
+  // Matches a writeup's raw tag name against this already-resolved site id
+  // the same way tagBlocks() resolves the other direction: through the
+  // canonical map first, kebabId() only as its fallback (spec review, 11 Sep
+  // 2026 — see canonical-mechanic-ids.mjs for why a bare kebabId() match
+  // isn't reliable here either).
+  const writeup =
+    app.contentFormat === "v4.1"
+      ? app.mechanicWriteups?.find((w) => (resolveMechanicId(w.name) ?? kebabId(w.name)) === id)
+      : undefined;
   return {
     name: m?.name ?? writeup?.name ?? id,
     cat: m?.cat ?? (writeup ? "neutral" : "retention"),

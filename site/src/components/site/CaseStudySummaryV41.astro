@@ -129,7 +129,7 @@ const sections = allSectionCounts(app);
           <a class="cs-toc__link" href="#system-view">System view</a>
           <a class="cs-toc__link" href="#mechanics">Mechanics</a>
           {mechanicBlocks.map((block) => (
-            <a class="cs-toc__link cs-toc__link--sub" href={`#mechanic-${block.mechanicId}`}>{block.name}</a>
+            <a class="cs-toc__link cs-toc__link--sub" href={`#mechanic-${block.mechanicId}`}>{block.displayName}</a>
           ))}
           <a class="cs-toc__link" href="#full-record">The full record</a>
         </nav>
@@ -212,7 +212,7 @@ const sections = allSectionCounts(app);
               return (
                 <a class="cs-chip" href={`#mechanic-${block.mechanicId}`}>
                   <span class="cs-chip__dot" style={`background:${CAT_COLOR[cat]}`} />
-                  <span class="cs-chip__name">{block.name}</span>
+                  <span class="cs-chip__name">{block.displayName}</span>
                   <span class="cs-chip__cat">{CAT_LABEL[cat]}</span>
                 </a>
               );
@@ -226,7 +226,7 @@ const sections = allSectionCounts(app);
                 <div class="cs-msec__head">
                   <div class="cs-msec__meta">
                     <Tag category={cat} dot>{CAT_LABEL[cat]}</Tag>
-                    <h2 class="cs-msec__name">{block.name}</h2>
+                    <h2 class="cs-msec__name">{block.displayName}</h2>
                   </div>
                   {fullPageHref && (
                     <a class="cs-msec__link" href={fullPageHref}>
