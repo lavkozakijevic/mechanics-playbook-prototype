@@ -2,7 +2,7 @@
 // Shared template for every category landing page (/finance, /productivity, …).
 // Fixed section order: hero, what you get, why it matters (the six-block
 // grid), problem cards, all mechanics (the breakdown visual), the systems
-// map, cross-category, how it works, email block, closing. The breakdown
+// map, cross-category, email block, closing. The breakdown
 // visual and the systems map are two views of the same "what's in the
 // library" idea: one app's full set of mechanics, then how those mechanics
 // connect. "Access the library" is the one paid CTA (hero, how it works,
@@ -74,13 +74,6 @@ const CROSS_CATEGORY_APPS = [
   { id: "strava", ext: "png", label: "Strava" },
   { id: "calm", ext: "png", label: "Calm" },
   { id: "canva", ext: "png", label: "Canva" },
-];
-
-// Section 6: shared, not category-specific.
-const HOW_IT_WORKS = [
-  "Get your team access",
-  "Search by problem, mechanic, or app",
-  "Build on what shipped, instead of guessing",
 ];
 
 // Section 3: one minimal line icon per problem card, matching the site's
@@ -213,22 +206,6 @@ const PROBLEM_ICONS = [
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  {/* 6. How it works */}
-  <section class="band" aria-labelledby="how-h">
-    <div class="container">
-      <h2 class="mech-section__title" id="how-h">How it works</h2>
-      <div class="catland-stepcards">
-        {HOW_IT_WORKS.map((s, i) => (
-          <div class="catland-stepcard">
-            <span class="catland-stepcard__n" aria-hidden="true">{i + 1}</span>
-            <p>{s}</p>
-          </div>
-        ))}
-      </div>
-      <a class="gb-btn gb-btn--accent gb-btn--lg catland-plan__cta" href="/subscribe/">Access the library</a>
     </div>
   </section>
 
