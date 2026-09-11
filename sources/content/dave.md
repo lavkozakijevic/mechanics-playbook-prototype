@@ -8,17 +8,68 @@ Dave is a banking app built around two things: a Dave Checking account and a sma
 
 ## System view
 
-Dave is a medium complexity system.
+Dave is a medium complexity system built around one decision made during onboarding: connecting the bank account the user is already paid into. That connection decides Extra Cash advance eligibility, is one of the things the $1 monthly membership pays for, and settles against the same linked debit card an advance is eventually repaid through. Saving runs on a separate chain from the same checking account, round-ups from Dave's own debit card feed a Goals account created automatically the first time they're switched on. Survey earnings in the Grow tab pay into that same checking account too, so saving, borrowing and earning all settle in one place, though the referral reward can't pay out until the connected account has already cleared the user for an advance.
 
-It's built around a single early decision: connecting the bank account the user is already paid into. Dave asks for this account by name during onboarding, and treats it as the one input nearly everything downstream depends on.
+---
 
-Advance eligibility runs on that connection. Dave decides whether a user can take an Extra Cash advance based on the connected account, and says an advance settles against the user's next paycheck through the linked debit card. Setting up direct deposit into Dave also decides where that repayment lands.
+## Mechanics
 
-Savings runs on a separate chain from the same checking account. Dave rounds up purchases made on its own debit card into a Goals account it creates automatically the first time round-ups are turned on, arriving already set up with a starting goal and a target. Ending a goal pauses its round-ups and cancels any recurring transfers feeding it, and Dave immediately offers to restart the automation with a new goal.
+### Piggy Bank
 
-Growth sits downstream of the other two. The referral reward is a bigger next advance rather than cash, and Dave pays it out only once the referrer has taken an advance and both the referrer and their friend have repaid one.
+**What was observed:** Dave rounds up every purchase made on its own debit card to the nearest dollar and rolls the difference into a Goals account. The Goals account isn't optional plumbing the user sets up separately, it's a precondition Dave creates automatically the moment round-ups are turned on, arriving already configured with a $75 default target and round-ups already switched on. From there the account behaves like its own small bank: it carries a stated 4% APY, shows a progress bar against the target, and sits alongside Dave Checking and Extra Cash as one of three accounts Dave itself holds, distinct from the external bank account the user connected during onboarding.
 
-These three chains meet in the Grow tab. Survey earnings land in the same checking account that feeds round-ups and settles advances, and the tab features Dave's own survey option inside the same job list it uses to point users toward other employers.
+**How it is presented:** Dave introduces round-ups well before they're something to opt into, mentioning them in the pitch for opening a checking account, then again, with more detail, once the account exists. Before asking the user to turn the feature on, Dave states upfront that money can be added at any pace and taken out or paused whenever the user likes. The first deposit prompt offers presets starting at $5, a custom amount, and the option to defer. A second goal is capped by a shared $25,000 ceiling across all goals, quietly reduced by whatever's already committed to an existing one, so the room Dave offers to save more shrinks the more a user has already saved.
+
+**What is worth noting:** Goals sits apart from checking as its own account with its own balance, and Dave describes only a withdrawal, never a spend, as the way money comes back out. Ending a goal is treated as consequential rather than routine: Dave states plainly that it's permanent, that it pauses round-ups and cancels any recurring transfer feeding it, and that it can't be undone, then follows that warning immediately with an offer to start over by creating a new goal, framed as resuming round-ups rather than starting something new. Dave doesn't say what happens when a goal actually reaches its target.
+
+**Key findings:**
+
+- Round-ups trigger on any purchase made with the Dave debit card and round to the nearest dollar.
+- The first goal is created automatically with a $75 default target and round-ups already on.
+- Goals carries a stated 4% APY and a progress bar against the target.
+- The overall ceiling across goals is $25,000, reduced by whatever's already committed elsewhere.
+- First deposit presets start at $5, alongside a custom amount and the option to defer.
+- Ending a goal pauses round-ups and cancels recurring transfers into it, and Dave says it can't be undone.
+
+**Screenshots needed:** the round-ups setup screen stating the pause/withdraw terms; the first-goal screen showing the $75 default and round-up toggle already on; the Goals balance screen with the 4% APY and progress bar; the end-goal warning screen.
+
+### Earning Tasks
+
+**What was observed:** Inside its Grow tab, Dave runs a catalogue of paid surveys supplied by a third party, inBrain AI, with earnings paid directly into the Dave checking account. Every survey in the list carries a payout and an estimated completion time before the user opens it: the two quick surveys observed paid $0.45 for about 8 minutes and $0.50 for about 10, and three recommended surveys ran roughly 40, 14 and 20 minutes, though their payout amounts weren't legible in the session. A running total of the month's earnings sits above the list, and the catalogue itself is split into a recommended set and a quick set.
+
+**How it is presented:** The survey feature sits at the top of the Grow tab, carrying a "new" tag and pitched as earning cash instantly, with the user's savings goals below it and a larger side hustle section further down. Before any survey begins, Dave frames it as three steps: start with an intro survey, unlock higher paying surveys by continuing, and watch earnings land in checking, though it doesn't say what actually triggers that unlock. Every survey opens with a warning that answering carefully secures the full reward, followed by the topic and approximate length restated right before starting.
+
+**What is worth noting:** Dave discloses the possibility of falling short before a user ever starts: not qualifying for a survey is said to end it early with a partial reward, stated upfront rather than only at the point of failure, though no amount is attached to that partial reward. In the one instance observed, a survey did end this way, with Dave attributing the outcome to the user's own answers and the survey afterward gone from the list; whether that instance actually paid the promised partial reward isn't shown. An intro questionnaire collecting seven attributes runs before any paid survey is available, closing with a celebratory animation rather than any stated payment, and Dave doesn't say whether the questionnaire itself pays. The same survey feature reappears as the featured, first listed item inside Grow's separate job board, ahead of third-party listings for outside work.
+
+**Key findings:**
+
+- Surveys are supplied by a named third party, inBrain AI, and pay into Dave's own checking account.
+- Quick surveys observed: $0.45 for about 8 minutes, $0.50 for about 10 minutes.
+- Three recommended surveys ran about 40, 14 and 20 minutes each.
+- A monthly earnings total is shown above the survey list.
+- The catalogue is split into recommended and quick sections.
+- An intro questionnaire collects 7 attributes before any paid survey is available.
+
+**Screenshots needed:** the survey list showing payout, duration and the monthly total; the intro questionnaire or its closing animation; the mid-survey disqualification message; the Grow tab's job board with the survey feature featured first.
+
+### Referral Boost
+
+**What was observed:** Dave's referral offer promises up to $100 more on the user's second Extra Cash advance rather than a cash payment, an increase of 20% once the user and the friend they referred have each repaid an advance of their own. Dave lays the sequence out as four steps: take an advance and spend it, share a referral link to help a friend, wait for that friend to repay an advance of their own, then collect the 20% increase on the next advance. Referral sits at the very top of the settings screen, above the account, profile, app settings and support groups that follow it.
+
+**How it is presented:** The reward is framed throughout as helping rather than earning: the sharing step is worded around helping a friend, and the qualifying event for both sides is repayment of an advance rather than signing up. Underneath the headline offer, Dave immediately qualifies it: the 20% and the $100 ceiling can both change based on extra cash eligibility and the approval amount, and once a boost is earned it expires after 60 days. A published FAQ answers what the boost is and when it arrives after a friend signs up, and separately lists a question asking whether the boost itself has to be repaid, one the referral screen doesn't otherwise answer.
+
+**What is worth noting:** Dave describes the boost rather than showing it in operation. The referring user must already have taken and repaid an advance before any referral can pay out at all, and that advance sits behind an eligibility decision Dave defers to "tomorrow" the first time it's requested, so the referral offer can't pay out until that separate gate opens. Dave's own screens leave open whether the boost is applied automatically or has to be claimed, whether the 60-day clock starts at the friend's repayment or from whenever the boost becomes available, and whether its mention of a second advance and a next advance describe the same thing.
+
+**Key findings:**
+
+- The stated increase is 20%, up to $100 more.
+- The reward applies to the user's second Extra Cash advance.
+- Both the referrer and the friend must repay an advance; signing up alone doesn't qualify.
+- An earned boost expires 60 days after being earned.
+- Referral is the first item listed in settings, ahead of four other groups.
+- The introduction is made through a shareable link.
+
+**Screenshots needed:** the referral offer screen stating the 20%/$100 terms; the eligibility qualifier and 60-day expiry line; the four-step "how to earn" screen; the referral FAQ list.
 
 ---
 
