@@ -33,19 +33,43 @@ const repo = path.resolve(here, "../..");
 const out = path.resolve(here, "../src/content");
 
 // ---------------------------------------------------------------- data.js
+const dataJsSrc = fs.readFileSync(path.join(repo, "data.js"), "utf8");
 const ctx = {};
 vm.createContext(ctx);
 vm.runInContext(
-  fs.readFileSync(path.join(repo, "data.js"), "utf8") +
-    ";__o={MECHANICS,APPS,SYSTEMS,RICH_DESCRIPTIONS,SCREENSHOTS,CHEATSHEETS,GLOSSARY};",
+  dataJsSrc + ";__o={MECHANICS,APPS,SYSTEMS,RICH_DESCRIPTIONS,SCREENSHOTS,CHEATSHEETS,GLOSSARY};",
   ctx
 );
 const { MECHANICS, APPS, SYSTEMS, RICH_DESCRIPTIONS, SCREENSHOTS, CHEATSHEETS, GLOSSARY } = ctx.__o;
 
+// SYSTEMS is a plain array, not a keyed object, so Array.find (buildSystemMap
+// below) silently returns the first matching app_id and a later duplicate
+// entry just goes unused — quieter than system.html's "last copy wins" but
+// the same underlying mistake, and just as easy to leave behind after an
+// abandoned draft (spec review, 11 Sep 2026). app_id is a distinctive-enough
+// field name that a plain scan across the whole file is safe: it's the
+// SYSTEMS join key and appears nowhere else, including each entry's own
+// nested `mechanics` list, which uses `id`, never `app_id`. Unlike the
+// system.html checks below, this one throws rather than warns: SYSTEMS
+// currently carries no duplicate, so there's nothing pre-existing to break —
+// the stronger check is safe to apply here today.
+{
+  const counts = new Map();
+  for (const m of dataJsSrc.matchAll(/\bapp_id:\s*"([^"]+)"/g)) counts.set(m[1], (counts.get(m[1]) ?? 0) + 1);
+  const dupes = [...counts.entries()].filter(([, n]) => n > 1);
+  if (dupes.length) {
+    const list = dupes.map(([k, n]) => `"${k}" (${n} times)`).join(", ");
+    throw new Error(`data.js: SYSTEMS has a duplicate app_id: ${list}. Array.find would silently use only the first; remove the others.`);
+  }
+}
+
 // ---------------------------------------------------------- system.html
-// CONNECTIONS and POSITIONS are object literals embedded in the page. Some
-// systems are defined more than once; evaluating the literal keeps the LAST
-// copy, exactly as the browser does on the live site.
+// CONNECTIONS and POSITIONS are object literals embedded in the page, each
+// keyed by app id. A literal silently keeps only the LAST copy of a repeated
+// key, same as a browser evaluating it — which is exactly what let a stale
+// leftover "cleo" entry from an earlier draft silently win over the real one
+// and drop its personal-data-reflection node undetected through a build and
+// a push (spec review, 11 Sep 2026). Checked for below rather than relied on.
 const systemHtml = fs.readFileSync(path.join(repo, "system.html"), "utf8");
 function extractObjectLiteral(name) {
   const i = systemHtml.indexOf("const " + name);
@@ -62,12 +86,68 @@ function extractObjectLiteral(name) {
   }
   return systemHtml.slice(start, j + 1);
 }
+
+// Scans a "{ "key": ... }" object literal's source text (as extracted above)
+// for its immediate (depth-1) quoted keys, string-aware so a brace or
+// bracket inside a description's prose can't miscount nesting depth. Returns
+// every key found, duplicates included, so the caller can decide what a
+// repeat means.
+function topLevelKeys(objectLiteralSrc) {
+  const keys = [];
+  let depth = 0;
+  for (let i = 0; i < objectLiteralSrc.length; i++) {
+    const c = objectLiteralSrc[i];
+    if (c === '"' || c === "'" || c === "`") {
+      const quote = c;
+      let j = i + 1;
+      while (j < objectLiteralSrc.length && objectLiteralSrc[j] !== quote) {
+        if (objectLiteralSrc[j] === "\\") j++;
+        j++;
+      }
+      if (depth === 1) {
+        let k = j + 1;
+        while (k < objectLiteralSrc.length && /\s/.test(objectLiteralSrc[k])) k++;
+        if (objectLiteralSrc[k] === ":") keys.push(objectLiteralSrc.slice(i + 1, j));
+      }
+      i = j;
+      continue;
+    }
+    if (c === "{" || c === "[") depth++;
+    else if (c === "}" || c === "]") depth--;
+  }
+  return keys;
+}
+
+// Warns loudly, rather than failing outright, on a repeated app-id key in a
+// system.html literal — the literal itself would silently keep only the
+// last copy. This is a warning and not a build failure (spec review, 11 Sep
+// 2026) because turning up this check surfaced six apps (ladder, fiton,
+// freeletics, liftoff, gymverse, clash-of-clans) already carrying two
+// different, non-identical connection sets each — not a leftover accident
+// like Cleo's, but two genuinely different authored sets where the second
+// silently wins and the first has been invisible on the live site all
+// along. Resolving those means deciding how to merge two real, differing
+// accounts of the same app, an editorial call outside this fix's scope, so
+// failing the build here now would block on content this check doesn't
+// itself know how to reconcile. Promote this to `throw` once those six are
+// resolved, so a *new* accidental duplicate can't slip in the same way again.
+function assertNoDuplicateKeys(name, src) {
+  const counts = new Map();
+  for (const k of topLevelKeys(src)) counts.set(k, (counts.get(k) ?? 0) + 1);
+  const dupes = [...counts.entries()].filter(([, n]) => n > 1);
+  if (dupes.length) {
+    const list = dupes.map(([k, n]) => `"${k}" (${n} times)`).join(", ");
+    console.error(`\n=== DUPLICATE APP-ID KEY: system.html ${name} ===\n${list}\nOnly the last copy is used; the rest are silently dropped. Remove or merge the extras.\n`);
+  }
+}
+const connectionsSrc = extractObjectLiteral("CONNECTIONS");
+const positionsSrc = extractObjectLiteral("POSITIONS");
+assertNoDuplicateKeys("CONNECTIONS", connectionsSrc);
+assertNoDuplicateKeys("POSITIONS", positionsSrc);
+
 const mapCtx = {};
 vm.createContext(mapCtx);
-vm.runInContext(
-  "__c=" + extractObjectLiteral("CONNECTIONS") + ";__p=" + extractObjectLiteral("POSITIONS") + ";",
-  mapCtx
-);
+vm.runInContext("__c=" + connectionsSrc + ";__p=" + positionsSrc + ";", mapCtx);
 const CONNECTIONS = mapCtx.__c;
 const POSITIONS = mapCtx.__p;
 
