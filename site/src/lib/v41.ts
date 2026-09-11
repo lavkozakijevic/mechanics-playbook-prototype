@@ -65,19 +65,28 @@ export function allSectionCounts(app: App): { slug: string; name: string; count:
   return V41_SECTIONS.map((s) => ({ ...s, count: counts.get(s.slug) ?? 0 }));
 }
 
+type MechanicWriteup = NonNullable<App["mechanicWriteups"]>[number];
+
 export interface TagBlock {
   name: string;
   mechanicId: string;
   mechanic: Mechanic | null;
+  // Kept as data for the tag index (spec §6.3) to use later — the summary
+  // page no longer renders these directly, `writeup` below is what it reads.
   observations: Observation[];
+  writeup: MechanicWriteup | null;
 }
 
-/** One block per applied tag, each carrying every observation in the app
- *  that carries it, in the app's section order (spec §2.1 item 2, §3.5).
- *  "Applied" needs no extra filtering here — the publishing bar (spec §1.3)
- *  is already enforced at parse time, so anything present in an
- *  observation's `tags` is already index-ready. Block order follows each
- *  tag's first appearance across the app's observations. */
+/** One block per applied tag (spec §2.1): the composed write-up plus every
+ *  observation in the app that carries it, in the app's section order
+ *  (spec §3.5, for the tag index). "Applied" needs no extra filtering here —
+ *  the publishing bar (spec §1.3) is already enforced at parse time, so
+ *  anything present in an observation's `tags` is already index-ready.
+ *  Block order follows each tag's first appearance across the app's
+ *  observations. `writeup` is null only if a tag's composed block is
+ *  missing from the content file, which convert-content.mjs already treats
+ *  as a build error — null here is a defensive fallback, not an expected
+ *  state. */
 export function tagBlocks(app: App, mechanicsById: Map<string, Mechanic>): TagBlock[] {
   const order: string[] = [];
   const byName = new Map<string, Observation[]>();
@@ -90,8 +99,15 @@ export function tagBlocks(app: App, mechanicsById: Map<string, Mechanic>): TagBl
       byName.get(t.name)!.push(o);
     }
   }
+  const writeupsByName = new Map((app.mechanicWriteups ?? []).map((w) => [w.name, w]));
   return order.map((name) => {
     const mechanicId = kebabId(name);
-    return { name, mechanicId, mechanic: mechanicsById.get(mechanicId) ?? null, observations: byName.get(name)! };
+    return {
+      name,
+      mechanicId,
+      mechanic: mechanicsById.get(mechanicId) ?? null,
+      observations: byName.get(name)!,
+      writeup: writeupsByName.get(name) ?? null,
+    };
   });
 }

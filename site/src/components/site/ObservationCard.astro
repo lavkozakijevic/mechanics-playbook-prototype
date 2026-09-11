@@ -1,26 +1,17 @@
 ---
 /**
- * One observation, rendered in full (spec §2.3). Used identically by a
- * section page (every observation in that section) and by a mechanic block
- * on the summary page (just the observations carrying that tag) — same
- * component, same output, deliberately appearing twice per spec §2.3.
+ * One observation, rendered in full (spec §2.3). Used only by section pages
+ * now — mechanic blocks on the summary page render composed prose instead
+ * (spec §2.1, revised 11 Sep 2026), not a second rendering of the tagged
+ * observations, so this component only ever appears once per observation.
  *
- * No tag chips render here — the mechanic name is already the heading of
- * its block, so repeating it on every observation inside that block was
- * redundant, and it was the only thing under a mechanic's own observations
- * saying "this one has a tag" when every observation there already has one
- * by definition. Tags stay in the data; nothing here reads them for display,
- * only `boxed` cares whether an observation is tagged at all.
- *
- * `boxed` (default true) controls whether an observation gets the
- * tinted-box weight treatment: true on a section page, where tagged and
- * untagged observations are mixed and the box is what tells a reader "this
- * one connects to a named pattern"; false inside a mechanic block, where
- * every observation is tagged by definition and boxing each one turned the
- * block into a stack of tiles instead of one piece of writing. Screenshots
- * still switch to a two-column layout regardless of context, and short/long
- * observations still get tighter or looser vertical spacing — those are
- * about density, not about flagging a tag.
+ * No tag chips render here — tags stay in the data; nothing here reads them
+ * for display, only `hasTags` cares whether an observation is tagged at all,
+ * for the tinted-box weight treatment that tells a reader "this one connects
+ * to a named pattern" among the section's mix of tagged and untagged
+ * observations. Screenshots switch to a two-column layout, and short/long
+ * observations get tighter or looser vertical spacing — those are about
+ * density, not about flagging a tag.
  */
 interface Props {
   observation: {
@@ -31,10 +22,9 @@ interface Props {
     tags: { name: string; confidence: string }[];
     screenshots: { src: string; caption: string | null }[];
   };
-  boxed?: boolean;
 }
 
-const { observation, boxed = true } = Astro.props as Props;
+const { observation } = Astro.props as Props;
 
 const hasTags = observation.tags.length > 0;
 const hasShots = observation.screenshots.length > 0;
@@ -54,9 +44,8 @@ const density = wordCount < 30 && observation.detail.length <= 1 ? "short" : wor
   class:list={[
     "v41-observation",
     `v41-observation--${density}`,
-    boxed && hasTags && "v41-observation--tagged",
+    hasTags && "v41-observation--tagged",
     hasShots && "v41-observation--shots",
-    !boxed && "v41-observation--flow",
   ]}
 >
   <div class="v41-observation__body">

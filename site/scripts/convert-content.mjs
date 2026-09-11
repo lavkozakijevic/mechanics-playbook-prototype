@@ -210,9 +210,16 @@ function h1Section(md, heading) {
 // labels are inconsistently punctuated in the source ("Draft definition."
 // vs "Source observations:"), so both are accepted. Stops at the next
 // capitalised bold label or the end of the block.
+//
+// No "m" flag: every prior caller's field values happened to be a single
+// unwrapped line, so `$` matching end-of-line rather than end-of-string
+// never showed up. A multi-line bullet list (mechanic-block "Key findings",
+// spec §2.1) exposed it — `$` was matching after the first bullet's line
+// instead of after the whole list. Dropping "m" makes `$` mean true
+// end-of-string, which is what "end of the block" was always meant to be.
 function field(block, label) {
   const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const re = new RegExp("\\*\\*" + escaped + "[.:]\\*\\*\\s*([\\s\\S]*?)(?=\\n\\n\\*\\*[A-Z]|$)", "m");
+  const re = new RegExp("\\*\\*" + escaped + "[.:]\\*\\*\\s*([\\s\\S]*?)(?=\\n\\n\\*\\*[A-Z]|$)");
   const m = block.match(re);
   return m ? m[1].trim() : "";
 }
@@ -333,14 +340,38 @@ function parseContentV41(file) {
   if (!h2s.length || h2s[0].heading.toLowerCase() !== "system view")
     throw new Error(`${file}: expected "## System view" as the first section`);
 
-  // ---- system view: narrative only, one string per paragraph — node
-  // positions and connections for the diagram still come from data.js
-  // SYSTEMS + system.html (spec §1.5).
+  // ---- system view: narrative only, one string per paragraph (spec §2.1:
+  // one short paragraph now, with the full account on the systems page) —
+  // node positions and connections for the diagram still come from data.js
+  // SYSTEMS + system.html (spec §1.5). A one-paragraph body already yields a
+  // length-1 array here, so the shorter system view needs no parsing change.
   const systemView = h2s[0].body
     .replace(/^---\s*$/gm, "")
     .split(/\n{2,}/)
     .map(norm)
     .filter(Boolean);
+
+  // ---- Mechanics (spec §2.1): one composed block per applied tag, in four
+  // labelled parts plus a screenshots note, using the same "**Label:**"
+  // convention the analysis file's Pass Two already uses — field() below is
+  // the same helper that reads Rationale/Alternative considered there.
+  // Optional: an app with no applied tags has nothing to compose here.
+  let mechanicWriteups = [];
+  let fixedSectionChunks = h2s.slice(1);
+  if (h2s[1] && h2s[1].heading.toLowerCase() === "mechanics") {
+    mechanicWriteups = headingChunks(h2s[1].body, 3).map(({ heading: name, body: block }) => {
+      const observed = field(block, "What was observed");
+      const presented = field(block, "How it is presented");
+      const noting = field(block, "What is worth noting");
+      const findingsRaw = field(block, "Key findings");
+      const findings = [...findingsRaw.matchAll(/^- (.+)$/gm)].map((m) => m[1].trim());
+      const screenshotsNote = field(block, "Screenshots needed");
+      if (!observed || !presented || !noting || !findings.length)
+        throw new Error(`${file}: mechanic block "${name}" is missing one of its four composed parts`);
+      return { name: name.trim(), observed, presented, noting, findings, screenshotsNote };
+    });
+    fixedSectionChunks = h2s.slice(2);
+  }
 
   // ---- the nine fixed sections: a lead-in paragraph, then "### O<n>. Label"
   // observation blocks. An empty section carries only the fixed placeholder
@@ -350,7 +381,7 @@ function parseContentV41(file) {
   const obsById = new Map();
   const seenSlugs = new Set();
 
-  for (const { heading, body } of h2s.slice(1)) {
+  for (const { heading, body } of fixedSectionChunks) {
     const slug = V41_SECTION_SLUG.get(heading);
     if (!slug) throw new Error(`${file}: unrecognized section "${heading}"`);
     if (seenSlugs.has(slug)) throw new Error(`${file}: duplicate section "${heading}"`);
@@ -398,7 +429,15 @@ function parseContentV41(file) {
   if (seenSlugs.size !== V41_SECTIONS.length)
     throw new Error(`${file}: expected all 9 sections, found ${seenSlugs.size}`);
 
-  return { teaser: teaserMatch[1].trim(), description, systemView, sectionLeadIns, observations, obsById };
+  return {
+    teaser: teaserMatch[1].trim(),
+    description,
+    systemView,
+    mechanicWriteups,
+    sectionLeadIns,
+    observations,
+    obsById,
+  };
 }
 
 function isoDate(s) {
@@ -716,6 +755,21 @@ for (const entry of ALL_APPS) {
     }
     for (const obs of content.observations) obs.tags = a.tagsById.get(obs.id) ?? [];
 
+    // Every tag actually applied to an observation needs a composed block to
+    // render on the summary page (spec §2.1) — a missing one is a real gap,
+    // not something to fall back on. A composed block with no applied tag
+    // behind it is stale content rather than a broken page, so it warns
+    // instead of failing the build.
+    const appliedTagNames = new Set(content.observations.flatMap((o) => o.tags.map((t) => t.name)));
+    for (const tagName of appliedTagNames) {
+      if (!content.mechanicWriteups.some((w) => w.name === tagName))
+        throw new Error(`${entry.file}: applied tag "${tagName}" has no composed mechanic block in the content file`);
+    }
+    for (const w of content.mechanicWriteups) {
+      if (!appliedTagNames.has(w.name))
+        console.warn(`note: ${entry.id} has a composed mechanic block for "${w.name}", which is not an applied tag on any observation`);
+    }
+
     const icons = resolveIcons(entry.id);
     // Collect assets to sync into public/ — but never for report-only apps.
     if (entry.visibility !== "report-only") {
@@ -741,6 +795,7 @@ for (const entry of ALL_APPS) {
       contentFormat: "v4.1",
       observations: content.observations,
       systemView: content.systemView,
+      mechanicWriteups: content.mechanicWriteups,
       sectionLeadIns: content.sectionLeadIns,
       sectionCards: meta.sectionCards ?? {},
       proposedTags: a.proposedTags,

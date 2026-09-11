@@ -975,14 +975,12 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
 .v41-cs-diagram { margin-top: clamp(24px, 3vw, 36px); padding-top: clamp(24px, 3vw, 36px); border-top: var(--rule-hairline); }
 
 /* ---- Mechanics: kicker + title (as above), then .cs-chips (its own
-   margin-top:18px carries it), then one .cs-msec block per applied tag.
-   Its observations render in "flow" mode (see .v41-observation--flow
-   below) — continuous writing, not a stack of boxed cards, since every
-   observation in a mechanic block is tagged by definition and boxing each
-   one said nothing extra. */
+   margin-top:18px carries it), then one .cs-msec block per applied tag. Each
+   block's body is .cs-msec__body/.cs-sub, the same composed-writeup classes
+   CaseStudyDetail.jsx already uses for Strava — no v4.1-specific CSS needed
+   here at all. */
 .v41-cs-mechanics { display: flex; flex-direction: column; gap: 0; }
 .v41-cs-mechanics .cs-msec { display: flex; flex-direction: column; scroll-margin-top: calc(var(--nav-h) + 16px); }
-.v41-mechanic-flow { display: flex; flex-direction: column; }
 
 /* ---- The full record: kicker + title (as above), then nine cards on
    .cs-conns's own margin-top (18px) and .csc's bordered-card language. */
@@ -1017,15 +1015,6 @@ a.v41-record-card:hover { border-color: var(--border-strong); box-shadow: var(--
 .v41-observation:first-child { border-top: none; padding-top: 0; }
 .v41-observation--short { padding-block: clamp(12px, 1.4vw, 16px); }
 .v41-observation--long { padding-block: clamp(26px, 3.4vw, 38px); }
-
-/* Flow mode (inside a mechanic block): no divider, no box, just vertical
-   space before each one — reads as one piece of writing with subheadings,
-   the same way a mechanic's "what was observed / why it works" subsections
-   already read elsewhere on the site, rather than as a list of entries. */
-.v41-observation--flow { border-top: none; padding-block: 0; margin-top: clamp(22px, 2.8vw, 32px); }
-.v41-observation--flow:first-child { margin-top: 0; }
-.v41-observation--flow.v41-observation--short { margin-top: clamp(14px, 1.6vw, 18px); }
-.v41-observation--flow.v41-observation--long { margin-top: clamp(28px, 3.6vw, 40px); }
 
 .v41-observation__body { display: grid; grid-template-columns: 1fr; gap: clamp(16px, 2vw, 22px); }
 @media (min-width: 720px) {

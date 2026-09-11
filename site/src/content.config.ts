@@ -58,6 +58,21 @@ const observation = z.object({
   screenshots: z.array(z.object({ src: z.string(), caption: z.string().nullable() })),
 });
 
+// One composed block per applied tag (spec §2.1): a written piece about that
+// mechanic in this app, in four required parts, plus a note on which
+// screenshots the block needs. Written from the observations carrying the
+// tag, not a rendering of them — those stay in `observations` above for the
+// tag index (spec §6.3) to use later. Joined to a tag by `name` matching the
+// same display string in `observations[].tags[].name`.
+const mechanicWriteup = z.object({
+  name: z.string(),
+  observed: z.string(),
+  presented: z.string(),
+  noting: z.string(),
+  findings: z.array(z.string()),
+  screenshotsNote: z.string(),
+});
+
 // Recorded per app, not rendered (spec §1.6) — input to library decisions,
 // not published content.
 const proposedTag = z.object({
@@ -107,6 +122,7 @@ const apps = defineCollection({
     // connection pairs for the diagram still come from `system` below,
     // sourced from system.html (spec §1.5).
     systemView: z.array(z.string()).optional(),
+    mechanicWriteups: z.array(mechanicWriteup).optional(),
     proposedTags: z.array(proposedTag).optional(),
     // Per-section authored copy (spec §2.1/§2.2), keyed by section slug.
     // sectionLeadIns may be incomplete while it's being written section by
