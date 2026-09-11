@@ -71,8 +71,11 @@ if (hits.length) {
 // otherwise published. cleo and acorns ship as finance hero logos / case
 // studies, so the report-only scan above does not cover them — check the
 // mechanic pages directly for a case-study link to any barred app, which only
-// appears when that app is rendered as an example.
-const EXAMPLE_EXCLUDED_IDS = ["cleo", "dave", "acorns", "starling-bank", "orbit", "george-app-erste-serbia"];
+// appears when that app is rendered as an example. Dave cleared once it
+// became a complete v4.1 app with a full case study — mirrors
+// EXAMPLE_EXCLUDED in site/src/lib/props.ts, which is the list that actually
+// gates rendering; this is the independent build-time check that it worked.
+const EXAMPLE_EXCLUDED_IDS = ["cleo", "acorns", "starling-bank", "orbit", "george-app-erste-serbia"];
 const mechDir = path.join(dist, "mechanics");
 const exampleHits = [];
 if (fs.existsSync(mechDir)) {

@@ -100,12 +100,14 @@ export function mechanicDetailProps(mech: Mechanic) {
 }
 
 // Apps barred from appearing as mechanic-page examples (owner ruling, 17 Jun
-// 2026). The report-only finance set never renders as a worked example; cleo
-// and acorns are published as finance hero logos / case studies but, like the
-// rest of the set, must not surface as examples until the owner says otherwise.
+// 2026). Dave cleared (owner ruling, since) once it became a complete v4.1
+// app with a full case study — the other five haven't been re-run yet: the
+// report-only finance set never renders as a worked example, and starling-
+// bank/orbit/george are barred on the same ground. cleo and acorns are
+// published as finance hero logos / case studies but must not surface as
+// examples until the owner says otherwise.
 const EXAMPLE_EXCLUDED = new Set([
   "cleo",
-  "dave",
   "acorns",
   "starling-bank",
   "orbit",
@@ -114,8 +116,13 @@ const EXAMPLE_EXCLUDED = new Set([
 
 // An example may render only when its write-up carries all four parts the card
 // shows (How they use it / Why it works / The detail / Takeaway). A missing
-// part hides the whole example rather than printing a half-filled card.
-function exampleComplete(w: App["mechanics"][number]["writeup"]) {
+// part hides the whole example rather than printing a half-filled card. Typed
+// loosely (not App["mechanics"][number]["writeup"] specifically) so the same
+// check covers both v3's writeup and a v4.1 app's composed mechanicWriteup —
+// the four field names are identical between the two shapes.
+function exampleComplete(
+  w: { observed?: string; presented?: string; noting?: string; findings?: string[] } | null | undefined
+) {
   return !!(
     w &&
     w.observed?.trim() &&
@@ -123,6 +130,27 @@ function exampleComplete(w: App["mechanics"][number]["writeup"]) {
     w.presented?.trim() &&
     w.findings?.[0]?.trim()
   );
+}
+
+// The one thing that differs between a v3 relationship and a v4.1 tag: where
+// the four-part write-up and the screenshots come from. v3 carries both on
+// the app's own `mechanics[]` relationship; v4.1 has no `mechanics` array at
+// all — the relationship is an observation's tag (matched by kebabId, same
+// as everywhere else v4.1 tags get resolved), and the write-up is the
+// composed mechanicWriteups entry rather than a RICH_DESCRIPTIONS writeup.
+// v4.1 has no per-relationship screenshots yet (spec §6.2: re-keying is
+// separate work), so it always falls through to the blank-slot padding below.
+function mechanicRelationship(a: App, mechanicId: string) {
+  if (a.contentFormat === "v4.1") {
+    const tagName = (a.observations ?? [])
+      .flatMap((o) => o.tags)
+      .find((t) => kebabId(t.name) === mechanicId)?.name;
+    if (!tagName) return null;
+    const writeup = a.mechanicWriteups?.find((w) => w.name === tagName) ?? null;
+    return { writeup, screenshots: [] as { src: string; caption: string | null }[], suggestedShots: [] as string[], depth: undefined as string | undefined };
+  }
+  const rel = a.mechanics.find((m) => m.id === mechanicId);
+  return rel ? { writeup: rel.writeup, screenshots: rel.screenshots, suggestedShots: rel.suggestedShots, depth: rel.depth } : null;
 }
 
 // Open-first, locked-rest (spec §3.2/§3.3, extended to mechanic pages by
@@ -136,9 +164,10 @@ function exampleComplete(w: App["mechanics"][number]["writeup"]) {
 export function mechanicStudies(mechanicId: string, apps: App[]) {
   return apps
     .filter((a) => !EXAMPLE_EXCLUDED.has(a.id))
-    .filter((a) => exampleComplete(a.mechanics.find((m) => m.id === mechanicId)?.writeup))
-    .map((a, i) => {
-      const rel = a.mechanics.find((m) => m.id === mechanicId)!;
+    .map((a) => ({ a, rel: mechanicRelationship(a, mechanicId) }))
+    .filter((x): x is { a: App; rel: NonNullable<ReturnType<typeof mechanicRelationship>> } => x.rel !== null)
+    .filter((x) => exampleComplete(x.rel.writeup))
+    .map(({ a, rel }, i) => {
       const w = rel.writeup!;
       const locked = i > 0;
       return {
