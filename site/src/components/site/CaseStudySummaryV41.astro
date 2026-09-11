@@ -76,6 +76,8 @@ const sections = allSectionCounts(app);
       <a href="/case-studies/">Case studies</a>
       <span class="crumb__sep" aria-hidden="true">/</span>
       <span>{app.name}</span>
+      <span class="crumb__sep" aria-hidden="true">/</span>
+      <span>Full breakdown</span>
     </nav>
     <div class="cs-hd__row">
       {app.icon ? (
@@ -84,8 +86,8 @@ const sections = allSectionCounts(app);
         <div class="cs-hd__icon" aria-hidden="true">{initials(app.name)}</div>
       )}
       <div class="cs-hd__heads">
-        <span class="pillchip">{app.category}</span>
-        <h1 class="cs-hd__title">{app.name}</h1>
+        <Tag category="neutral" variant="outline">{app.category}</Tag>
+        <h1 class="cs-hd__title">{app.name} {"—"} Full Breakdown</h1>
       </div>
     </div>
     <p class="cs-hd__overview">{app.summary}</p>

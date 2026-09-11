@@ -978,9 +978,19 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
    margin-top:18px carries it), then one .cs-msec block per applied tag. Each
    block's body is .cs-msec__body/.cs-sub, the same composed-writeup classes
    CaseStudyDetail.jsx already uses for Strava — no v4.1-specific CSS needed
-   here at all. */
+   for the body itself. gap:0 here (rather than .cs-main's own gap) because
+   the kicker/title/chips above the first .cs-msec already carry their own
+   spacing and a nonzero gap would double up on it — so the margin-top below
+   is scoped to .cs-msec specifically, not the container, and reuses its own
+   padding-top value so the hairline between two mechanics gets equal room on
+   both sides instead of only below it. Scoped to this container, not plain
+   .cs-msec, since v3's case study already gets its inter-mechanic spacing
+   for free from .cs-main's own gap and doesn't need this. */
 .v41-cs-mechanics { display: flex; flex-direction: column; gap: 0; }
-.v41-cs-mechanics .cs-msec { display: flex; flex-direction: column; scroll-margin-top: calc(var(--nav-h) + 16px); }
+.v41-cs-mechanics .cs-msec {
+  display: flex; flex-direction: column; scroll-margin-top: calc(var(--nav-h) + 16px);
+  margin-top: clamp(28px, 3.6vw, 44px);
+}
 
 /* ---- The full record: kicker + title (as above), then nine cards on
    .cs-conns's own margin-top (18px) and .csc's bordered-card language. */
