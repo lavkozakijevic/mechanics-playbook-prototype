@@ -1,7 +1,7 @@
 {
   "id": "daily-login-reward",
   "n": "03",
-  "name": "Daily Login Reward",
+  "name": "Daily Login Rewards",
   "cat": "retention",
   "tagline": "A system that gives users a reward simply for opening the app each day.",
   "desc": "The reward typically increases with consecutive days logged in, creating a compounding incentive to return. Unlike the streak, the login reward does not require completing a core action, it rewards presence alone. The risk is training users to open, collect, and leave without engaging the core loop.",

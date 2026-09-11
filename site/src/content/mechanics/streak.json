@@ -1,7 +1,7 @@
 {
   "id": "streak",
   "n": "01",
-  "name": "Streak / Streak Bonus",
+  "name": "Streak",
   "cat": "retention",
   "tagline": "A counter that increments each time a user completes a defined action within a set time window, typically once per day.",
   "desc": "The streak counter resets to zero if the window is missed. Its power comes from what it accumulates over time: a number representing a visible, unbroken history of behaviour. The longer it runs, the more it is worth protecting. Loss aversion does the work here, users return not to gain a reward but to avoid losing what they have built.",

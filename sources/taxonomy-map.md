@@ -251,3 +251,54 @@ reference page at all, rather than a broken link or a misleading
 `/subscribe/` CTA. The other 20 mechanics — the 19 clean one-to-one
 mappings plus `personal-data-reflection` — are unaffected. A merge gets its
 own page back, for both sides, once it clears the split condition above.
+
+## Public display names (owner ruling, 11 Sep 2026)
+
+Readers now see one name per mechanic everywhere — the chip, the map node,
+the mechanic's own page, the sidebar — all read the same `name` field in
+`data.js` (see the taxonomy-audit findings that led here: chips and the
+system map used to resolve through separate paths and could disagree; both
+now resolve through `resolveMechanicId()`, `site/src/lib/canonical-
+mechanic-ids.mjs`, and display `name` field directly). That makes `name` a
+public-facing decision, not an internal label, and it does not have to
+match the library's own name for that entry.
+
+Six site mechanics were renamed to their library name, where the site's old
+name was carrying an artifact of a taxonomy the library no longer has —
+either a second term bolted on with a slash that isn't one of the 36 (a
+holdover from before the library existed), or a plural/singular mismatch:
+
+- `streak`: "Streak / Streak Bonus" → "Streak". Streak Bonus is not a
+  library entry.
+- `challenges`: "Challenges" → "Challenge".
+- `set-collection`: "Set Collection / Completion" → "Set Collection".
+  Completion is not a library entry.
+- `daily-login-reward`: "Daily Login Reward" → "Daily Login Rewards".
+- `monthly-card`: "Monthly Card" → "Monthly Reward Card".
+- `clans-guilds`: "Clans / Guilds" → "Clan / Guild".
+
+Two were deliberately left as they are, against the library name:
+
+- `cosmetics` keeps "Cosmetics" rather than "Cosmetic Customization".
+- `credits-tokens` keeps "Credits / Tokens" rather than "Spendable Credits
+  and Tokens".
+
+The rule is that a public mechanic's name is what a product person would
+call it, not what a taxonomist would. "Cosmetic Customization" and
+"Spendable Credits and Tokens" are precise classification labels, built to
+disambiguate against neighboring entries in a 36-entry library — exactly
+the register the library needs and the site doesn't. Nobody building a
+product says either phrase. This is recorded here so a future pass doesn't
+"correct" these two to match the library on the assumption that the other
+six renames established a blanket rule that site names should always match
+library names — they don't; each of the eight was judged on its own name,
+not on a rule that public copy must track the library's taxonomy.
+
+The eight held-back merged mechanics (`achievements`, `xp-leveling`,
+`leaderboards`, `community-groups`, `energy-lives`, `season-pass`, `ads`,
+`variable-reward`) keep their current names for now. A merged mechanic's
+name is inherently a compromise across two or three library entries; the
+right name for each resolves naturally once that merge splits and each side
+gets its own page and its own name, so renaming them now would mean
+renaming them again later. `limited-time-events` (no library entry at all)
+is likewise untouched — there's no library name to reconcile against.
