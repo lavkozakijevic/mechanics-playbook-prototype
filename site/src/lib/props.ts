@@ -159,12 +159,43 @@ export function mechanicStudies(mechanicId: string, apps: App[]) {
 // ----------------------------------------------------------- system detail
 export function dominantCategory(app: App, byId: MechanicsById): string {
   const tally: Record<string, number> = {};
-  for (const r of app.mechanics) {
-    if (r.depth !== "core") continue;
-    const cat = byId.get(r.id)?.cat;
-    if (cat) tally[cat] = (tally[cat] ?? 0) + 1;
+  // v4.1 apps carry no `mechanics` array (same gap appCard() above already
+  // handles) — tally categories from applied tags instead. There's no v3
+  // "depth" concept here, so every applied tag counts equally rather than
+  // only "core" ones.
+  if (app.contentFormat === "v4.1") {
+    const seen = new Set<string>();
+    for (const o of app.observations ?? []) {
+      for (const t of o.tags) {
+        if (seen.has(t.name)) continue;
+        seen.add(t.name);
+        const cat = byId.get(kebabId(t.name))?.cat;
+        if (cat) tally[cat] = (tally[cat] ?? 0) + 1;
+      }
+    }
+  } else {
+    for (const r of app.mechanics) {
+      if (r.depth !== "core") continue;
+      const cat = byId.get(r.id)?.cat;
+      if (cat) tally[cat] = (tally[cat] ?? 0) + 1;
+    }
   }
   return Object.entries(tally).sort((a, b) => b[1] - a[1])[0]?.[0] ?? "retention";
+}
+
+// A v4.1 node/list-item id may have no entry in the mechanics collection yet
+// (a tag with no reference page written — spec review, 11 Sep 2026 gap,
+// tracked separately). Falls back to the composed mechanic block's own name
+// rather than the raw kebab-case id, and to a neutral, honest "uncategorized"
+// rather than guessing a real category or defaulting to "retention".
+function resolveMechanicNode(app: App, byId: MechanicsById, id: string) {
+  const m = byId.get(id);
+  const writeup = app.contentFormat === "v4.1" ? app.mechanicWriteups?.find((w) => kebabId(w.name) === id) : undefined;
+  return {
+    name: m?.name ?? writeup?.name ?? id,
+    cat: m?.cat ?? (writeup ? "neutral" : "retention"),
+    href: m ? (m.visibility === "public" ? `/mechanics/${id}/` : "/subscribe/") : writeup ? "#" : "/subscribe/",
+  };
 }
 
 export function systemProps(app: App, byId: MechanicsById) {
@@ -182,15 +213,10 @@ export function systemProps(app: App, byId: MechanicsById) {
     // v44 stores one paragraph; the template wants a headline + prose.
     // The first sentence serves as the headline until copy exists (flagged).
     whatMakesItWork: { title: firstSentence(wmw), paragraphs: [wmw] },
-    nodes: sys.nodes.map((n) => ({
-      id: n.id,
-      label: byId.get(n.id)?.name ?? n.id,
-      category: byId.get(n.id)?.cat ?? "retention",
-      x: n.x,
-      y: n.y,
-      href: byId.get(n.id)?.visibility === "public" ? `/mechanics/${n.id}/` : "/subscribe/",
-      description: roleById.get(n.id) ?? "",
-    })),
+    nodes: sys.nodes.map((n) => {
+      const r = resolveMechanicNode(app, byId, n.id);
+      return { id: n.id, label: r.name, category: r.cat, x: n.x, y: n.y, href: r.href, description: roleById.get(n.id) ?? "" };
+    }),
     // v44 connections carry no line type; "mechanic" is the neutral dashed
     // style. The modal preserves all three v44 text fields: title becomes the
     // heading, desc + effect together form the effect paragraph.
@@ -202,13 +228,10 @@ export function systemProps(app: App, byId: MechanicsById) {
       effect: `${c.desc} ${c.effect}`.trim(),
     })),
     walkthroughParagraphs: [sys.loop],
-    mechanicsList: sys.roles.map((r) => ({
-      id: r.id,
-      name: byId.get(r.id)?.name ?? r.id,
-      cat: byId.get(r.id)?.cat ?? "retention",
-      description: r.role,
-      href: byId.get(r.id)?.visibility === "public" ? `/mechanics/${r.id}/` : "/subscribe/",
-    })),
+    mechanicsList: sys.roles.map((r) => {
+      const resolved = resolveMechanicNode(app, byId, r.id);
+      return { id: r.id, name: resolved.name, cat: resolved.cat, description: r.role, href: resolved.href };
+    }),
   };
 }
 

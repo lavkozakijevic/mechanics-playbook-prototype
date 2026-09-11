@@ -1309,5 +1309,56 @@
       "caveat": "The session shows the routes and the partial option but no completed redirection, and it does not show how the partial amount is specified. Whether the pre-signature checkbox is on by default is also not established, and that default bears on any definition of the assisted route.\n\n---"
     }
   ],
-  "system": null
+  "system": {
+    "tagline": "One connected bank account gates saving, borrowing, and earning at once.",
+    "overview": "Dave's system runs on one decision made during onboarding: connecting the bank account the user is already paid into. That connection is what Dave uses to decide Extra Cash advance eligibility, and it's also one of the things the $1 monthly membership pays for. From there the system splits into three mostly separate chains: an advance chain gated by that connection, a savings chain built on round-ups into a Goals account, and an earning chain built on paid surveys inside the Grow tab. The three chains rejoin only through the same Dave Checking account, which round-ups feed, survey earnings land in, and an advance settles against.",
+    "loop": "A user connects the bank account they're already paid into during onboarding, and Dave uses that connection to decide whether an Extra Cash advance is available. The referral chain waits behind that same decision: a referrer has to have already taken and repaid an advance before their friend's own repayment can unlock a bigger next advance. Saving runs separately: opening the Dave Checking account and turning on round-ups creates a Goals account automatically, and every purchase on the Dave debit card rounds up into it from then on. Earning runs through the Grow tab, where completed surveys pay into the same checking account that round-ups draw from and that an advance settles against, so a user earning through surveys is funding the same balance the other two chains depend on.",
+    "keyInsight": "Referral Boost looks like a separate growth mechanic, but it isn't one. It only pays out once the referrer has already taken and repaid an Extra Cash advance, which means it sits behind the exact same eligibility decision the advance itself sits behind. Dave can't grow through referral any faster than it can approve advances, because the growth mechanic and the lending decision are the same gate.",
+    "whatMakesItWork": "The three chains don't need to be wired to each other because they're already wired to the same account. Round-ups draw from Dave Checking, survey earnings land in Dave Checking, and an advance settles against Dave Checking, so the system doesn't need a mechanic-to-mechanic connection to tie saving, earning, and borrowing together, the shared account already does that job.",
+    "roles": [
+      {
+        "id": "piggy-bank",
+        "role": "Round-ups from the Dave debit card feed a Goals account created automatically the first time the feature is turned on."
+      },
+      {
+        "id": "earning-tasks",
+        "role": "Paid surveys inside the Grow tab pay into the same Dave Checking account that round-ups draw from and that an advance settles against."
+      },
+      {
+        "id": "referral-boost",
+        "role": "A bigger next Extra Cash advance, paid out only once the referrer has taken and repaid an advance and their friend has repaid one too, so it waits behind the same eligibility decision the advance itself waits behind."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 15,
+      "label": "DAVE"
+    },
+    "nodes": [
+      {
+        "id": "earning-tasks",
+        "x": 30,
+        "y": 48
+      },
+      {
+        "id": "piggy-bank",
+        "x": 70,
+        "y": 48
+      },
+      {
+        "id": "referral-boost",
+        "x": 50,
+        "y": 80
+      }
+    ],
+    "connections": [
+      {
+        "from": "earning-tasks",
+        "to": "piggy-bank",
+        "title": "Survey earnings land in the same account round-ups draw from",
+        "desc": "Survey earnings inside the Grow tab are paid into the same Dave Checking account that round-ups draw from and that an advance settles against.",
+        "effect": "A user earning through surveys is funding the same account balance that round-ups pull from and that Extra Cash settlement depends on, so two of Dave's three mechanics share funding without needing a direct relationship to each other."
+      }
+    ]
+  }
 }

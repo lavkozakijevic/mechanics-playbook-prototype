@@ -1,0 +1,31 @@
+{
+  "id": "earning-tasks",
+  "n": "27",
+  "name": "Earning Tasks",
+  "cat": "retention",
+  "tagline": "A repeatable catalogue of individually priced tasks, each disclosing its pay and effort before the user starts, with a running total or tier structure layered over the set.",
+  "desc": "Each task in the catalogue states its payout and expected effort before the user starts it, and completing one directs the payment to a balance the product holds rather than paying out immediately elsewhere. The catalogue alone is just a price list; what makes it a mechanic is the layer on top, a running total across a period, an ordered set of tiers, or a stated claim that continuing unlocks better-paid work. That layer is what turns a single completed task into a reason to open the next one, which is why the mechanic sits on the return side of the product rather than the paid side: the product is not charging the user for anything here, it is paying them to keep coming back.",
+  "principle": "Priced work becomes a habit loop once a running total or a tier sits on top of it. The individual task pays for itself; the layer over the catalogue is what pays for the next session.",
+  "players": [
+    "achiever"
+  ],
+  "warn": "A stated progression that never names its threshold reads as a promise rather than a mechanic. If the catalogue never shows a completed task raising the running total or unlocking a better tier, the return incentive isn't actually operating yet, it's just copy on the intro screen.",
+  "variants": [
+    "Third-party-supplied panel, tasks come from a named external provider",
+    "Period-total panel, a running total accumulates across a defined window",
+    "Tiered panel, the catalogue is split into ordered sections by payout or length",
+    "Stated-progression panel, the product claims better tasks unlock without naming the rule"
+  ],
+  "lifecycle": "Effective at any lifecycle stage once the catalogue is live. Most valuable once the core loop's own pull has leveled off and the product needs a separate reason to bring the user back.",
+  "paired": [
+    "xp-leveling"
+  ],
+  "context": [
+    "retention"
+  ],
+  "sdt": [
+    "ownership",
+    "mastery"
+  ],
+  "visibility": "public"
+}

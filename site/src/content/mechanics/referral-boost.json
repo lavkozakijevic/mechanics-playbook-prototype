@@ -1,0 +1,30 @@
+{
+  "id": "referral-boost",
+  "n": "26",
+  "name": "Referral Boost",
+  "cat": "social",
+  "tagline": "A reward that improves a future instance of an action a referring user already performs, unlocked once both the referrer and the person they introduced complete a defined step.",
+  "desc": "The enhancement is not a balance the referring user can hold, spend, or transfer. It exists only as an improved version of a future instance of an action they were already going to take again, a bigger amount, a better rate, more capacity, and it is realized only by performing that action again. Both people have to complete a defined step, not just sign up or download, which is what separates it from a plain referral credit or a joining bonus. Because the enhancement disappears if the action is never repeated, the mechanic pulls the referring user back to the very action it rewards.",
+  "principle": "The reward only pays out through repetition. A referral boost cannot be banked or spent, it can only be realized by doing the rewarded action again, which ties the growth incentive directly to the return loop it lives inside.",
+  "players": [
+    "socializer",
+    "achiever"
+  ],
+  "warn": "The enhancement only pays off if the referring user actually performs the rewarded action again, so the offer should be shown at a moment that action is still live for them, not buried in a settings menu after the introduction is made. It is easy to misread as a referral credit, but it is inert until that action happens again, so completed introductions are not the metric that tells you it's working.",
+  "variants": [
+    "Proportional enhancement, sized as a percentage of the next qualifying instance",
+    "Capped enhancement, with a stated ceiling on the increase",
+    "Prior-use-gated referral, requires the referrer to have completed the action once already",
+    "Two-sided referral boost, the introduced person also gets a future-action enhancement"
+  ],
+  "lifecycle": "Mid lifecycle. Needs the referring user to have already completed the qualifying action at least once, so it lands after activation rather than during it.",
+  "paired": [],
+  "context": [
+    "referral",
+    "retention"
+  ],
+  "sdt": [
+    "competence"
+  ],
+  "visibility": "public"
+}

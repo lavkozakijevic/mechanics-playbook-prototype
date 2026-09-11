@@ -6,10 +6,15 @@ import React, { useState, useEffect } from "react";
 import { Tag } from "../ds/Tag.jsx";
 import { SubscribeCard, WaitlistModal } from "./Subscribe.jsx";
 
+// "neutral" covers a v4.1 tag with no mechanics-collection entry yet (spec
+// review, 11 Sep 2026 gap, tracked separately) — same neutral classification
+// Tag.jsx and lib/v41.ts already use for exactly this case, reused here
+// rather than redefined.
 const CAT_COLOR = {
   retention: "var(--cat-retention)", monetization: "var(--cat-monetization)", social: "var(--cat-social)",
+  neutral: "var(--ink-500)",
 };
-const CAT_LABEL = { retention: "Retention", monetization: "Monetization", social: "Social" };
+const CAT_LABEL = { retention: "Retention", monetization: "Monetization", social: "Social", neutral: "Uncategorized" };
 
 const ArrowIcon = (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
