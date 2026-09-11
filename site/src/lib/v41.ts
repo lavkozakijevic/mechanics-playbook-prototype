@@ -121,7 +121,7 @@ export function tagBlocks(app: App, mechanicsById: Map<string, Mechanic>): TagBl
     }
   }
   const writeupsByName = new Map((app.mechanicWriteups ?? []).map((w) => [w.name, w]));
-  return order.map((name) => {
+  const blocks = order.map((name) => {
     const canonicalId = resolveMechanicId(name);
     const mechanicId = canonicalId ?? kebabId(name);
     const mechanic = canonicalId ? mechanicsById.get(canonicalId) ?? null : null;
@@ -134,4 +134,22 @@ export function tagBlocks(app: App, mechanicsById: Map<string, Mechanic>): TagBl
       writeup: writeupsByName.get(name) ?? null,
     };
   });
+
+  // Two different library entries can resolve to the same site mechanic —
+  // the merged taxonomy surfacing (e.g. Loot Box and Variable Reward Outcome
+  // both landing on variable-reward; see sources/taxonomy-map.md), not a
+  // mistake to fold together. Each stays its own block, with its own name
+  // and its own observations. What can't stay shared is the DOM anchor id:
+  // two headings with the same id is invalid HTML and leaves an in-page link
+  // pointing at whichever one the browser picks. Disambiguated here, on the
+  // block's own tag name, only for the second and later block that collides
+  // — the first keeps its plain id so the common, non-colliding case is
+  // unaffected (spec review, 11 Sep 2026).
+  const seen = new Map<string, number>();
+  for (const block of blocks) {
+    const count = (seen.get(block.mechanicId) ?? 0) + 1;
+    seen.set(block.mechanicId, count);
+    if (count > 1) block.mechanicId = `${block.mechanicId}--${kebabId(block.name)}`;
+  }
+  return blocks;
 }

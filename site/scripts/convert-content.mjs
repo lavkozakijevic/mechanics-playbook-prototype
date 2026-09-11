@@ -17,7 +17,7 @@ import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 import { V41_SECTIONS } from "../src/lib/v41-sections.mjs";
 import { REVIEW_WINDOW_OPEN } from "../src/lib/review-window.mjs";
-import { CANONICAL_MECHANIC_IDS } from "../src/lib/canonical-mechanic-ids.mjs";
+import { CANONICAL_MECHANIC_IDS, resolveMechanicId } from "../src/lib/canonical-mechanic-ids.mjs";
 
 // Temporary public review window (see review-window.mjs, the single
 // switch). Report-only stays excluded regardless — that is a content-safety
@@ -252,14 +252,27 @@ const TAG_CONFIDENCE_RANK = { plausible: 0, "strongly supported": 1, confirmed: 
 // "...(tier: strongly supported)... (tier: directly observed, presence
 // only)." (Cleo, spec review 11 Sep 2026) — every tier actually mentioned
 // has to clear the bar for the tag as a whole to publish, so the weakest one
-// governs rather than the first.
-function tagPublishes(confidence) {
+// governs rather than the first. Shared with the multi-block consolidation
+// below (spec review, 11 Sep 2026), which also needs to compare two whole
+// confidence strings against each other, not just check one against the bar.
+function confidenceTiers(confidence) {
   const bare = confidence.trim().toLowerCase();
-  const tiers = bare in TAG_CONFIDENCE_RANK
+  return bare in TAG_CONFIDENCE_RANK
     ? [bare]
     : [...confidence.matchAll(/\(tier:\s*([^,)]+)/gi)].map((m) => m[1].trim().toLowerCase());
+}
+function tagPublishes(confidence) {
+  const tiers = confidenceTiers(confidence);
   if (!tiers.length) return false;
   return tiers.every((t) => (TAG_CONFIDENCE_RANK[t] ?? -1) >= 1);
+}
+// The single worst (lowest-ranked) tier a confidence string actually
+// mentions — used to find which of several blocks for the same tag is the
+// weakest, so its confidence can govern the consolidated entry rather than
+// an arbitrary one being picked.
+function confidenceWorstRank(confidence) {
+  const ranks = confidenceTiers(confidence).map((t) => TAG_CONFIDENCE_RANK[t] ?? -1);
+  return ranks.length ? Math.min(...ranks) : -1;
 }
 
 // Splits text on a heading marker ("^## ", "^### ", ...) into {heading, body}
@@ -346,7 +359,33 @@ function parseAnalysisV41(file) {
   if (passTwo === null) throw new Error(`${file}: "# Pass two: tagging" not found`);
   const appliedBlock = headingChunks(passTwo, 2).find((c) => c.heading === "Applied tags");
 
-  const tagsById = new Map();
+  // A tag name can carry more than one block (spec review, 11 Sep 2026 —
+  // Capybara Go applies several library entries across more blocks than
+  // entries, because the same mechanic gets a separate block per session or
+  // context with its own confidence). The parser used to treat every block
+  // as fully independent: each got its own tagEntry, pushed onto whichever
+  // observations that one block listed, with no awareness that another
+  // block shared its name. That meant a block below the publishing bar was
+  // silently dropped — its observations never tagged at all — even while a
+  // sibling block for the exact same tag published fine, with no warning
+  // that partial evidence had gone missing. It also meant confidence, role,
+  // rationale and alternative-considered text fragmented across blocks
+  // instead of describing the tag as a whole.
+  //
+  // Fixed by parsing every block first, grouping by name, then consolidating
+  // each name's blocks into one entry: observations are the union of every
+  // block that clears the bar; confidence is the weakest of those blocks'
+  // (carried alongside the full per-block list, not collapsed to a number
+  // that hides how confident the weakest evidence actually was); role is
+  // reconciled to one value when the passing blocks agree, and when they
+  // don't, both are kept and the disagreement is warned about rather than
+  // silently picking one. This only consolidates blocks that share a name —
+  // two *different* library entries landing on the same site mechanic (Loot
+  // Box and Variable Reward Outcome both resolving to variable-reward) is a
+  // separate case, handled separately, on purpose: that's the merged
+  // taxonomy surfacing, not blocks to fold together (see the report emitted
+  // after this function's caller resolves tag names to site mechanics).
+  const blocksByName = new Map();
   for (const chunk of (appliedBlock?.body ?? "").split(/^\*\*Tag:\*\*\s*/m).slice(1)) {
     const nl = chunk.indexOf("\n");
     const tagName = chunk.slice(0, nl).trim();
@@ -356,23 +395,68 @@ function parseAnalysisV41(file) {
     const confidence = field(block, "Confidence");
     if (!obsLine || !confidence) throw new Error(`${file}: tag "${tagName}" is missing Observations or Confidence`);
 
-    if (!tagPublishes(confidence)) continue;
-
-    // Confidence is stated once per tag block, covering every observation it
-    // lists, not independently per observation — so the same value is
-    // copied onto each one. Rationale, Alternative considered and Role are
-    // carried verbatim (tier annotations included) for future review;
-    // nothing renders them yet.
-    const tagEntry = {
-      name: tagName,
+    if (!blocksByName.has(tagName)) blocksByName.set(tagName, []);
+    blocksByName.get(tagName).push({
       confidence,
       rationale: field(block, "Rationale"),
       alternativeConsidered: field(block, "Alternative considered"),
       role: field(block, "Role"),
-    };
-    for (const id of idsIn(obsLine[1])) {
-      if (!tagsById.has(id)) tagsById.set(id, []);
-      tagsById.get(id).push(tagEntry);
+      obsIds: idsIn(obsLine[1]),
+    });
+  }
+
+  const tagsById = new Map();
+  for (const [tagName, blocks] of blocksByName) {
+    const passing = blocks.filter((b) => tagPublishes(b.confidence));
+    const failing = blocks.filter((b) => !tagPublishes(b.confidence));
+
+    // Loud, not silent: a block dropped here still exists in the source
+    // file, still describes real evidence, and the reader has no way to
+    // know it's missing unless this says so.
+    if (passing.length && failing.length) {
+      for (const f of failing) {
+        console.error(
+          `\n=== BLOCK DROPPED AT CONFIDENCE GATE: ${file} "${tagName}" ===\n` +
+            `This block's confidence ("${f.confidence}") doesn't clear the publishing bar, but another block for the same tag does, so "${tagName}" still publishes overall.\n` +
+            `Observations NOT tagged as a result: ${f.obsIds.join(", ") || "(none listed)"}\n` +
+            `If this evidence should count, raise its confidence or fold it into a passing block; if it shouldn't, this is expected and can be ignored.\n`
+        );
+      }
+    }
+    if (!passing.length) continue; // no block clears the bar — tag doesn't publish, same as before
+
+    // Weakest governs: the consolidated confidence is whichever passing
+    // block's worst mentioned tier is lowest, not the first block seen and
+    // not an invented average. Every passing block's own string is kept too.
+    const weakest = passing.reduce((a, b) => (confidenceWorstRank(b.confidence) < confidenceWorstRank(a.confidence) ? b : a));
+    const confidence = weakest.confidence;
+    const confidences = passing.map((b) => b.confidence);
+
+    const roleValues = [...new Set(passing.map((b) => b.role.trim()).filter(Boolean))];
+    let role;
+    if (roleValues.length <= 1) {
+      role = roleValues[0] ?? "";
+    } else {
+      console.error(
+        `\n=== ROLE DISAGREEMENT ACROSS BLOCKS: ${file} "${tagName}" ===\n` +
+          roleValues.map((r) => `- ${r}`).join("\n") +
+          `\nMultiple blocks for the same tag state a different role. Both are kept rather than one being picked arbitrarily; resolve which is right in the source analysis.\n`
+      );
+      role = roleValues.join(" | ");
+    }
+
+    // Rationale and Alternative considered are each block's own paragraph of
+    // write-up, not a short categorical value like role or confidence — kept
+    // as every passing block's text rather than one being discarded.
+    const rationale = passing.map((b) => b.rationale).filter(Boolean).join("\n\n");
+    const alternativeConsidered = passing.map((b) => b.alternativeConsidered).filter(Boolean).join("\n\n");
+
+    const tagEntry = { name: tagName, confidence, confidences, rationale, alternativeConsidered, role };
+    for (const b of passing) {
+      for (const id of b.obsIds) {
+        if (!tagsById.has(id)) tagsById.set(id, []);
+        tagsById.get(id).push(tagEntry);
+      }
     }
   }
 
@@ -877,6 +961,24 @@ for (const entry of ALL_APPS) {
     for (const w of content.mechanicWriteups) {
       if (!appliedTagNames.has(w.name))
         console.warn(`note: ${entry.id} has a composed mechanic block for "${w.name}", which is not an applied tag on any observation`);
+    }
+
+    // Two different library entries can resolve to the same site mechanic —
+    // the merged taxonomy surfacing (sources/taxonomy-map.md), not an error.
+    // Reported, not merged: each stays its own tag, its own block, its own
+    // observations (tagBlocks() disambiguates the resulting shared DOM id).
+    // This is purely informational, so it's a plain note rather than the
+    // louder banners above — nothing here needs fixing in the source file.
+    const namesByMechanicId = new Map();
+    for (const tagName of appliedTagNames) {
+      const id = resolveMechanicId(tagName);
+      if (!id) continue;
+      if (!namesByMechanicId.has(id)) namesByMechanicId.set(id, []);
+      namesByMechanicId.get(id).push(tagName);
+    }
+    for (const [id, names] of namesByMechanicId) {
+      if (names.length > 1)
+        console.log(`note: ${entry.id} applies ${names.length} library entries onto one site mechanic "${id}": ${names.join(", ")}`);
     }
 
     const icons = resolveIcons(entry.id);

@@ -18,15 +18,30 @@ const writeup = z
 // fields are optional so neither format is forced to populate the other's.
 const observationTag = z.object({
   name: z.string(),
+  // The weakest confidence among the blocks that contributed to this tag —
+  // see `confidences` below for all of them. A single block's confidence
+  // when there's only one, same as before this field existed.
   confidence: z.string(),
+  // Every contributing block's own confidence, verbatim, not collapsed into
+  // the single `confidence` value above (spec review, 11 Sep 2026 — a tag
+  // can carry more than one block, e.g. Capybara Go's Daily Login Rewards,
+  // Energy, Leaderboard; consolidating them must not hide how confident the
+  // weakest one actually was).
+  confidences: z.array(z.string()),
   // Carried for future review even though nothing renders it yet (spec
   // review, 9 Sep 2026): re-deriving this from 40 analysis files later would
-  // mean re-parsing all of them, so it comes along now.
+  // mean re-parsing all of them, so it comes along now. When a tag has more
+  // than one contributing block, each block's own paragraph is joined here
+  // rather than one being discarded.
   rationale: z.string(),
   alternativeConsidered: z.string(),
   // What this mechanic does in this app: engagement, retention, monetization
   // or social (spec review, 11 Sep 2026). Data, not copy — no template
   // renders it. Optional since older analyses (e.g. Dave) predate the field.
+  // When a tag has more than one contributing block and they agree, this is
+  // that shared value; when they disagree, both are kept, joined with " | "
+  // rather than one being picked arbitrarily, and the disagreement is warned
+  // about at conversion time so it gets resolved in the source analysis.
   role: z.string().optional(),
 });
 
