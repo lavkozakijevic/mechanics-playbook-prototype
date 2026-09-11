@@ -245,9 +245,9 @@ Fortune City is explicitly positioned within the Sparkful app ecosystem alongsid
 
 ## Unrecognized mechanics
 
-### `passive-construction-meta`
+### `passive-construction`
 **What was observed:** Recorded expenses become buildings. Buildings produce coins passively while the app is closed (citizens work and earn coins per hour based on their productivity level and job assignment). Coins are spent on City Hall upgrades that unlock new building slots, vehicles, and VIP citizens. Buildings of the same type merge into higher-level versions. The city grows visually with each expense recorded, upgrade purchased, and merge completed. The city's appearance changes based on the theme purchased (Temple Palace, Moon Lake, etc.). This is the same mechanic flagged in the Royal Match analysis — a spend-currency-on-named-construction-tasks-to-visually-improve-a-space loop — with the critical difference that the currency here (expense records) is a real-world behavior rather than a game action.
-**Why it maps to the flagged mechanic:** The passive-construction-meta mechanic (flagged in Royal Match analysis as worth adding to the library) is the organizing framework of the entire Fortune City experience. The distinctive implementation: the "currency" for construction is real-world expense logging rather than in-game currency earned through gameplay. This makes the construction meta a habit-building mechanism rather than an engagement mechanism.
+**Why it maps to the flagged mechanic:** The passive-construction mechanic (flagged in Royal Match analysis as worth adding to the library) is the organizing framework of the entire Fortune City experience. The distinctive implementation: the "currency" for construction is real-world expense logging rather than in-game currency earned through gameplay. This makes the construction meta a habit-building mechanism rather than an engagement mechanism.
 **Worth adding to library:** Yes — confirm the addition flagged in the Royal Match analysis. Fortune City is a strong reference app for this mechanic given that the entire product is built around it.
 
 ### `companion-app-ecosystem`

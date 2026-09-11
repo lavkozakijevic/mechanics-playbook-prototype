@@ -531,7 +531,7 @@ const ADDITIONS = {
     // Stage 1/2 review ruling: the analysis's unrecognized section describes
     // the castle decoration meta as "the primary aesthetic reward system" —
     // observed content beats the addendum's seed-list minimum.
-    { id: "passive-construction-meta", depth: "core" },
+    { id: "passive-construction", depth: "core" },
   ],
   // Stage 2 review ruling: analysis recommends mapping the guest pass to
   // gifting; keep the v44 write-up. Shallow — two passes a year is

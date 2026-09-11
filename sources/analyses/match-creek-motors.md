@@ -32,7 +32,7 @@ Players complete named customization tasks on a car — strip, add fenders, inst
 
 ## Mechanics observed
 
-### Passive Construction Meta (`passive-construction-meta`) · Core
+### Passive Construction (`passive-construction`) · Core
 
 **What was observed:**
 Episode 1 contained approximately 22 named customization tasks across the full car: strip down, front fenders, headlights, front bumper, hood, rear fenders, brake color, roof color, hood color, body color, wheels, tires, wheel color, suspension height, interior setup, camera (camber), side mirrors, body decal, and sell the car. Each task cost wrenches (ranging from 100 to 200+ per task). Tasks were structured into a visible task list with a progress path from the broken car silhouette to a complete car silhouette, with two reward chests visible at intermediate milestones.

@@ -97,7 +97,7 @@ Not this: standard daily quests automatically assigned to all users. Not this: p
 Experience points that accumulate through actions and cross named thresholds (levels) that unlock content, rewards, or status. Both the accumulation mechanic and the threshold unlock must be present.
 Not this: a progress bar with no named levels or threshold unlocks. Not this: a farm or meta level that unlocks areas but has no XP accumulation described. Minimum evidence: a described XP or equivalent accumulation mechanic with named levels and described unlocks at those levels.
 
-`passive-construction-meta`
+`passive-construction`
 A persistent construction or restoration layer where the output of the core activity — currency, completions, or time — is invested into visibly building something that accumulates across sessions: a village, a car, a city, a farm. The constructed object is the long-term destination of play, and its progress may also advance in real time while the user is away (build timers, builders).
 Not this: cosmetics (visual items without cumulative construction progress). Not this: xp-leveling (numeric advancement without a constructed object). Not this: set-collection (completing named sets rather than building a persistent object). Minimum evidence: a described construction or restoration layer with visible cumulative progress fed by the core activity and persisting across sessions.
 
@@ -337,7 +337,7 @@ Run this checklist before writing. Do not skip it.
 - [ ] `gifting` was only logged if a unilateral send mechanic was described — not a swap, not a trade, not a shared team reward
 - [ ] `daily-login-reward` was only logged if the trigger is app open or daily return, not a specific in-app action
 - [ ] `clans-guilds` was only logged if shared goals or collective reward mechanics were described, not just a group or team feature
-- [ ] `passive-construction-meta` was only logged if a persistent constructed object with cumulative visible progress was described, not a task list alone
+- [ ] `passive-construction` was only logged if a persistent constructed object with cumulative visible progress was described, not a task list alone
 - [ ] `hard-currency`, `soft-currency`, and `credits-tokens` were distinguished by the conversion test: credits-tokens requires a described conversion step between real money and a currency spent separately; direct purchase-to-spend is hard currency; earned through play is soft currency
 
 **Completeness**

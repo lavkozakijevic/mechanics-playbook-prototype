@@ -30,7 +30,7 @@ The loop is build, attack, upgrade — repeated at increasing cost and time inve
 
 ## Mechanics observed
 
-### Passive Construction Meta (`passive-construction-meta`) · Core
+### Passive Construction (`passive-construction`) · Core
 
 **What was observed:**
 The entire game is organized around spending earned currencies (gold, elixir) on named construction and upgrade tasks across the village. Each building has a name, a cost, a build time, and an upgrade path. The player arranges buildings on an isometric grid, choosing placement strategically. Completed buildings change the visual state of the village and increase its defensive or offensive capability. Town Hall upgrades are a specific type of construction task that unlocks new content: Town Hall 2 opened new buildings; Town Hall 4 opened traps, army camp upgrades, cosmetics, and new store offers; Town Hall 5 unlocked the Builder Base and war league participation; Town Hall 6 prompted "you need a million coins" for the next level.
@@ -315,7 +315,7 @@ No explicit comparisons to other games were made in the transcripts.
 
 ### `dual-village-structure`
 **What was observed:** Clash of Clans contains two entirely separate villages: the Home Village (primary, unlocked from start) and the Builder Base (secondary, unlocked at Town Hall 5 by repairing a boat). Each village has its own currencies (gold/elixir for Home Village; gold squares/purple droplets for Builder Base), its own buildings, its own troops, its own battle mechanic (Home Village uses asymmetric attack/defense; Builder Base uses simultaneous head-to-head battles), its own progression track, its own shop items, and its own league system. Navigating between them requires tapping the boat on the Home Village map. Resources and materials do not transfer between villages.
-**Why it does not map to an existing mechanic:** Not `passive-construction-meta` in duplicate — the two villages have different battle mechanics, different economies, and different social structures. The dual-village structure is a game architecture decision: two parallel games within one app, each with a complete progression system, sharing only the gem currency and some achievement tracks.
+**Why it does not map to an existing mechanic:** Not `passive-construction` in duplicate — the two villages have different battle mechanics, different economies, and different social structures. The dual-village structure is a game architecture decision: two parallel games within one app, each with a complete progression system, sharing only the gem currency and some achievement tracks.
 **Worth adding to library:** Possibly — as a structural observation for strategy games that use parallel progression systems to extend engagement surface without requiring the player to reach a single high-level endpoint.
 
 ### `soft-currency` (Gold, Elixir, Dark Elixir, Builder Base Gold, Builder Base Elixir, League Medals, Green Challenge Points, Clan XP)

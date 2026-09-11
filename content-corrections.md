@@ -43,9 +43,9 @@ Ruling for Strava: its clubs are community-groups, not clans-guilds. Keep the ex
 
 ## 4. Three new library mechanics
 
-Add to the mechanics library: `hard-currency`, `soft-currency` (Monetization), and `passive-construction-meta` (Retention). Their definitions come from the updated analysis prompt in /sources/. Seed their app relationships from the analyses:
+Add to the mechanics library: `hard-currency`, `soft-currency` (Monetization), and `passive-construction` (Retention). Their definitions come from the updated analysis prompt in /sources/. Seed their app relationships from the analyses:
 
-- passive-construction-meta: clash-of-clans (core), chrome-valley-customs (core), match-creek-motors (core)
+- passive-construction: clash-of-clans (core), chrome-valley-customs (core), match-creek-motors (core)
 - hard-currency and soft-currency: harvest the relationships from the "Unrecognized mechanics" sections of the analysis files, where each currency observation is documented per app with its evidence
 
 The three new mechanic pages render with the definition plus whatever computed example relationships exist; their long-form write-ups join the to-write list. The mechanics count shown anywhere on the site must be computed, never hardcoded, so 22 becoming 25 happens by itself.

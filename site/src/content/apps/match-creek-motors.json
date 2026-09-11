@@ -12,7 +12,7 @@
   "heroImage": null,
   "mechanics": [
     {
-      "id": "passive-construction-meta",
+      "id": "passive-construction",
       "depth": "core",
       "writeup": null,
       "screenshots": [],

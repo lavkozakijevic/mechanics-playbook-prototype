@@ -155,7 +155,7 @@ _Group write-up totals: 75 complete, 31 stub, 85 empty._
   | Mechanic | Depth | Write-up |
   |---|---|---|
   | Energy / Lives | core | complete |
-  | Passive Construction Meta | core | empty |
+  | Passive Construction | core | empty |
   | Variable Reward Schedule | core | stub |
   | Cosmetics | supporting | empty |
   | Daily / Weekly Quests | supporting | empty |
@@ -173,7 +173,7 @@ _Group write-up totals: 75 complete, 31 stub, 85 empty._
   | Mechanic | Depth | Write-up |
   |---|---|---|
   | Clans / Guilds | core | stub |
-  | Passive Construction Meta | core | empty |
+  | Passive Construction | core | empty |
   | Achievements / Milestones | supporting | stub |
   | Daily / Weekly Quests | supporting | empty |
   | Gifting | supporting | empty |
@@ -250,7 +250,7 @@ _Group write-up totals: 75 complete, 31 stub, 85 empty._
   | Achievements / Milestones | core | complete |
   | Ads | core | complete |
   | Daily Login Reward | core | complete |
-  | Passive Construction Meta | core | empty |
+  | Passive Construction | core | empty |
   | Daily / Weekly Quests | supporting | complete |
   | Soft Currency | supporting | empty |
   | Variable Reward Schedule | supporting | stub |
@@ -345,7 +345,7 @@ _Group write-up totals: 75 complete, 31 stub, 85 empty._
 
   | Mechanic | Depth | Write-up |
   |---|---|---|
-  | Passive Construction Meta | core | empty |
+  | Passive Construction | core | empty |
   | Achievements / Milestones | supporting | stub |
   | Energy / Lives | supporting | stub |
   | Leaderboards | supporting | stub |
@@ -380,7 +380,7 @@ _Group write-up totals: 75 complete, 31 stub, 85 empty._
   | Clans / Guilds | core | complete |
   | Energy / Lives | core | complete |
   | Limited-Time Events | core | complete |
-  | Passive Construction Meta | core | empty |
+  | Passive Construction | core | empty |
   | Season Pass / Battle Pass | core | complete |
   | Achievements / Milestones | supporting | empty |
   | Gifting | supporting | complete |
