@@ -965,7 +965,12 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
    rhythm system, the full-record cards, and the section page's own title/
    lead-in/pagination. Nothing here introduces a new color, font, spacing
    value, or radius outside the tokens already in use above. */
-.v41-cs-body { display: flex; flex-direction: column; gap: clamp(40px, 5vw, 64px); padding-block: clamp(28px, 4vw, 48px); }
+/* No padding-block here, matching .cs-main exactly — .cs-layout already
+   supplies it once at the grid level, shared by both columns. Duplicating
+   it here (now that the header lives inside this column, not above the
+   grid) would push the header below .cs-toc's own top edge instead of
+   starting level with it. */
+.v41-cs-body { display: flex; flex-direction: column; gap: clamp(40px, 5vw, 64px); }
 
 /* ---- Header metadata (as-observed month/version): a third .cs-hd__row
    child, pushed to the right with its own margin rather than changing

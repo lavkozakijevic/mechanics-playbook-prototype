@@ -17,6 +17,15 @@
  * rendering of the tagged observations — .cs-sub/.cs-sub__h/.cs-findings
  * below are the exact classes CaseStudyDetail.jsx's MechanicSection uses for
  * Strava's write-ups, reused verbatim rather than reinvented for v4.1.
+ *
+ * Header placement (design review, 11 Sep 2026): the header lives inside
+ * .cs-layout/.v41-cs-body, not above it, and is duplicated into the locked
+ * branch rather than shared — exactly how CaseStudyDetail.jsx's own
+ * LockedCaseStudy/FullCaseStudy each render their own copy. This is what
+ * makes .cs-toc sit beside the title from the very top of the page instead
+ * of only starting once the body sections begin, and what keeps the
+ * header's left edge flush with the body content below it rather than
+ * spanning the full container width above the two-column grid.
  */
 import { GateWidget } from "./GateWidget.jsx";
 import { SystemMap } from "./SystemDetail.jsx";
@@ -72,39 +81,34 @@ const sections = allSectionCounts(app);
 ---
 
 <div class="container">
-  <header class="cs-hd" id="overview">
-    <nav class="crumb" aria-label="Breadcrumb">
-      <a href="/case-studies/">Case studies</a>
-      <span class="crumb__sep" aria-hidden="true">/</span>
-      <span>{app.name}</span>
-      <span class="crumb__sep" aria-hidden="true">/</span>
-      <span>Full breakdown</span>
-    </nav>
-    <div class="cs-hd__row">
-      {app.icon ? (
-        <div class="cs-hd__icon" aria-hidden="true"><img src={app.icon} alt="" style="width:100%;height:100%;object-fit:cover;" /></div>
-      ) : (
-        <div class="cs-hd__icon" aria-hidden="true">{initials(app.name)}</div>
-      )}
-      <div class="cs-hd__heads">
-        <Tag category="neutral" variant="outline">{app.category}</Tag>
-        <h1 class="cs-hd__title">{app.name} {"—"} Full Breakdown</h1>
-      </div>
-      {/* Header metadata (spec review, 11 Sep 2026): quiet, top-right,
-          aligned with the title row rather than competing with it — reuses
-          .feed__date's own recipe (mono, 12px, muted) rather than a new
-          style. App version only renders when the analysis states one;
-          "None" in the source means nothing renders, not a placeholder. */}
-      <div class="cs-hd__meta">
-        <div class="cs-hd__meta-observed">{formatMonthYear(app.asObserved)}</div>
-        {app.appVersion && <div class="cs-hd__meta-version">App version {app.appVersion}</div>}
-      </div>
-    </div>
-    <p class="cs-hd__overview">{app.summary}</p>
-  </header>
-
   {locked ? (
     <div class="container--narrow">
+      <header class="cs-hd" id="overview">
+        <nav class="crumb" aria-label="Breadcrumb">
+          <a href="/case-studies/">Case studies</a>
+          <span class="crumb__sep" aria-hidden="true">/</span>
+          <span>{app.name}</span>
+          <span class="crumb__sep" aria-hidden="true">/</span>
+          <span>Full breakdown</span>
+        </nav>
+        <div class="cs-hd__row">
+          {app.icon ? (
+            <div class="cs-hd__icon" aria-hidden="true"><img src={app.icon} alt="" style="width:100%;height:100%;object-fit:cover;" /></div>
+          ) : (
+            <div class="cs-hd__icon" aria-hidden="true">{initials(app.name)}</div>
+          )}
+          <div class="cs-hd__heads">
+            <Tag category="neutral" variant="outline">{app.category}</Tag>
+            <h1 class="cs-hd__title">{app.name} {"—"} Full Breakdown</h1>
+          </div>
+          <div class="cs-hd__meta">
+            <div class="cs-hd__meta-observed">{formatMonthYear(app.asObserved)}</div>
+            {app.appVersion && <div class="cs-hd__meta-version">App version {app.appVersion}</div>}
+          </div>
+        </div>
+        <p class="cs-hd__overview">{app.summary}</p>
+      </header>
+
       <div class="cs-gate">
         <div class="cs-gate__lead">
           <div class="eyebrow">Subscribers only</div>
@@ -117,6 +121,7 @@ const sections = allSectionCounts(app);
   ) : (
     <div class="cs-layout">
       <aside class="cs-toc" aria-label="On this page">
+        <a class="cs-toc__back" href="/case-studies/">{"←"} All case studies</a>
         <div class="cs-toc__label">On this page</div>
         <nav class="cs-toc__nav">
           <a class="cs-toc__link" href="#system-view">System view</a>
@@ -129,6 +134,38 @@ const sections = allSectionCounts(app);
       </aside>
 
       <div class="v41-cs-body">
+        <header class="cs-hd" id="overview">
+          <nav class="crumb" aria-label="Breadcrumb">
+            <a href="/case-studies/">Case studies</a>
+            <span class="crumb__sep" aria-hidden="true">/</span>
+            <span>{app.name}</span>
+            <span class="crumb__sep" aria-hidden="true">/</span>
+            <span>Full breakdown</span>
+          </nav>
+          <div class="cs-hd__row">
+            {app.icon ? (
+              <div class="cs-hd__icon" aria-hidden="true"><img src={app.icon} alt="" style="width:100%;height:100%;object-fit:cover;" /></div>
+            ) : (
+              <div class="cs-hd__icon" aria-hidden="true">{initials(app.name)}</div>
+            )}
+            <div class="cs-hd__heads">
+              <Tag category="neutral" variant="outline">{app.category}</Tag>
+              <h1 class="cs-hd__title">{app.name} {"—"} Full Breakdown</h1>
+            </div>
+            {/* Header metadata (spec review, 11 Sep 2026): quiet, top-right,
+                aligned with the title row rather than competing with it —
+                reuses .feed__date's own recipe (mono, 12px, muted) rather
+                than a new style. App version only renders when the analysis
+                states one; "None" in the source means nothing renders, not
+                a placeholder. */}
+            <div class="cs-hd__meta">
+              <div class="cs-hd__meta-observed">{formatMonthYear(app.asObserved)}</div>
+              {app.appVersion && <div class="cs-hd__meta-version">App version {app.appVersion}</div>}
+            </div>
+          </div>
+          <p class="cs-hd__overview">{app.summary}</p>
+        </header>
+
         {/* 1. System view — one short paragraph (spec §2.1, revised 11 Sep
             2026): how complex the system is and the spine it hangs from,
             then a link through to the systems page, where the diagram and
