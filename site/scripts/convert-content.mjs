@@ -264,20 +264,19 @@ function detectAnalysisFormat(file) {
   );
 }
 
-// Publishing bar (spec §1.3): tags publish only at confirmed or strongly
-// supported. A plausible tag stays in the analysis file and never enters the
-// parsed data — not even as a filtered-out record — so anything that reaches
-// an observation's `tags` array is already index-ready.
+// Publishing bar (spec §1.3): tags publish only at directly observed or
+// strongly supported. A plausible or unresolved tag stays in the analysis
+// file and never enters the parsed data — not even as a filtered-out record
+// — so anything that reaches an observation's `tags` array is already
+// index-ready.
 //
-// "Directly observed" is included here even though it's not named in the
-// spec's publishing-bar wording: it's the observation-evidence vocabulary's
-// top tier, not the tag-confidence vocabulary's, and the two are used
-// interchangeably in this file (Earning Tasks is tagged at "directly
-// observed" rather than "confirmed"). Since directly observed is at least as
-// strong as confirmed, treating it as passing is the reading that doesn't
-// silently drop a tag over a labeling inconsistency — but the inconsistency
-// itself is real and is flagged separately, not papered over.
-const TAG_CONFIDENCE_RANK = { plausible: 0, "strongly supported": 1, confirmed: 2, "directly observed": 2 };
+// The evidence key has exactly four tiers: directly observed, strongly
+// supported, plausible, unresolved. "Confirmed" was a fifth value this map
+// used to accept; it has been retired from the evidence key and the
+// operating card amended to match (13 Sep 2026), so it is no longer a
+// recognized tier at all — a tag confidence of "confirmed" now fails loudly
+// (see confidenceTiers below) rather than quietly passing as it used to.
+const TAG_CONFIDENCE_RANK = { unresolved: 0, plausible: 0, "strongly supported": 1, "directly observed": 2 };
 // Confidence is usually a bare phrase ("strongly supported", Dave's format).
 // A newer analysis format instead writes one paragraph discussing each
 // observation the tag covers, with a "(tier: ...)" annotation per one, e.g.
@@ -287,23 +286,46 @@ const TAG_CONFIDENCE_RANK = { plausible: 0, "strongly supported": 1, confirmed: 
 // governs rather than the first. Shared with the multi-block consolidation
 // below (spec review, 11 Sep 2026), which also needs to compare two whole
 // confidence strings against each other, not just check one against the bar.
+//
+// A tier this doesn't recognize throws immediately rather than silently
+// ranking as if it were below the bar — an unrecognized value (a typo, a
+// retired tier like "confirmed", a value from some other vocabulary
+// entirely) is a defect in the source file, not evidence that happens to be
+// weak, and treating the two the same was how a value could fail the
+// publishing bar for the wrong reason with no signal that anything was
+// actually wrong.
 function confidenceTiers(confidence) {
   const bare = confidence.trim().toLowerCase();
-  return bare in TAG_CONFIDENCE_RANK
-    ? [bare]
-    : [...confidence.matchAll(/\(tier:\s*([^,)]+)/gi)].map((m) => m[1].trim().toLowerCase());
+  if (bare in TAG_CONFIDENCE_RANK) return [bare];
+  const tiers = [...confidence.matchAll(/\(tier:\s*([^,)]+)/gi)].map((m) => m[1].trim().toLowerCase());
+  // A bare value that isn't a recognized tier AND carries no "(tier: ...)"
+  // annotation at all used to fall through to an empty array here, which
+  // tagPublishes below read as "doesn't publish" — indistinguishable from a
+  // tag that legitimately failed the bar. That's the silent-failure path a
+  // retired or misspelled value took; it now throws instead.
+  if (!tiers.length)
+    throw new Error(
+      `unrecognized confidence value "${confidence}" — must be one of: ${Object.keys(TAG_CONFIDENCE_RANK).join(", ")}, or a paragraph containing one or more "(tier: ...)" annotations using those values`
+    );
+  for (const t of tiers) {
+    if (!(t in TAG_CONFIDENCE_RANK))
+      throw new Error(
+        `unrecognized confidence tier "${t}" (in "${confidence}") — must be one of: ${Object.keys(TAG_CONFIDENCE_RANK).join(", ")}`
+      );
+  }
+  return tiers;
 }
 function tagPublishes(confidence) {
   const tiers = confidenceTiers(confidence);
   if (!tiers.length) return false;
-  return tiers.every((t) => (TAG_CONFIDENCE_RANK[t] ?? -1) >= 1);
+  return tiers.every((t) => TAG_CONFIDENCE_RANK[t] >= 1);
 }
 // The single worst (lowest-ranked) tier a confidence string actually
 // mentions — used to find which of several blocks for the same tag is the
 // weakest, so its confidence can govern the consolidated entry rather than
 // an arbitrary one being picked.
 function confidenceWorstRank(confidence) {
-  const ranks = confidenceTiers(confidence).map((t) => TAG_CONFIDENCE_RANK[t] ?? -1);
+  const ranks = confidenceTiers(confidence).map((t) => TAG_CONFIDENCE_RANK[t]);
   return ranks.length ? Math.min(...ranks) : -1;
 }
 
@@ -439,8 +461,13 @@ function parseAnalysisV41(file) {
 
   const tagsById = new Map();
   for (const [tagName, blocks] of blocksByName) {
-    const passing = blocks.filter((b) => tagPublishes(b.confidence));
-    const failing = blocks.filter((b) => !tagPublishes(b.confidence));
+    let passing, failing;
+    try {
+      passing = blocks.filter((b) => tagPublishes(b.confidence));
+      failing = blocks.filter((b) => !tagPublishes(b.confidence));
+    } catch (e) {
+      throw new Error(`${file}: tag "${tagName}": ${e.message}`);
+    }
 
     // Loud, not silent: a block dropped here still exists in the source
     // file, still describes real evidence, and the reader has no way to
