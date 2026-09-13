@@ -16,7 +16,7 @@ Last updated: 13 Sep 2026
 
 ---
 
-## Pass One: observation record
+# Pass One: observation record
 
 1. Onboarding and first run: O1 to O7
 2. Core loop and automation: O8 to O23
@@ -28,7 +28,7 @@ Last updated: 13 Sep 2026
 8. Money: O51 to O61
 9. Return triggers: O62 to O64
 
-### 1. Onboarding and first run
+## 1. Onboarding and first run
 
 **O1. Launch permission prompts and asset download.**
 
@@ -112,7 +112,7 @@ Last updated: 13 Sep 2026
 
 *Cross-reference: O4, O24, O27, O50.*
 
-### 2. Core loop and automation
+## 2. Core loop and automation
 
 **O8. Day-by-day run advanced by tapping.**
 
@@ -294,7 +294,7 @@ Last updated: 13 Sep 2026
 
 *Cross-reference: O29, O36, O56, O59.*
 
-### 3. Goals and progression
+## 3. Goals and progression
 
 **O24. Talent upgrades with gold.**
 
@@ -390,7 +390,7 @@ Last updated: 13 Sep 2026
 
 *Cross-reference: O37.*
 
-### 4. Access and eligibility
+## 4. Access and eligibility
 
 **O33. Energy capacity and run cost.**
 
@@ -461,7 +461,7 @@ Last updated: 13 Sep 2026
 
 *Cross-reference: O3, O18, O21, O49.*
 
-### 5. Earning and utility
+## 5. Earning and utility
 
 **O38. Gold coins.**
 
@@ -576,7 +576,7 @@ Last updated: 13 Sep 2026
 
 *Cross-reference: O30, O45.*
 
-### 6. Social
+## 6. Social
 
 **O48. Ranking list.**
 
@@ -598,7 +598,7 @@ Last updated: 13 Sep 2026
 
 *Cross-reference: O37, O46.*
 
-### 7. Growth
+## 7. Growth
 
 **O50. Account linking to Habby ID.**
 
@@ -610,7 +610,7 @@ Last updated: 13 Sep 2026
 
 *Cross-reference: O7.*
 
-### 8. Money
+## 8. Money
 
 **O51. Store sections.**
 
@@ -738,7 +738,7 @@ Last updated: 13 Sep 2026
 
 *Cross-reference: O21, O24, O38, O46.*
 
-### 9. Return triggers
+## 9. Return triggers
 
 **O62. Seven-Day Sign-In Event.**
 
@@ -786,11 +786,9 @@ Last updated: 13 Sep 2026
 
 ---
 
-## Pass Two: tagging
+# Pass Two: tagging
 
-### Applied tags
-
-#### T1. Challenge
+## Applied tags
 
 **Tag:** Challenge
 
@@ -812,8 +810,6 @@ The chapter day target in O21 and the floor attempts in O22 organize what the us
 
 **Alternative considered:** Leveling for chapters. The home screen shows the current area, but chapters are ordered content units with their own success conditions, and the Leveling entry excludes numbered stages that are content units when no separate current level state is maintained (tier: plausible). A chapter number presented as the account's progression state apart from the map would separate the two.
 
-#### T2. Companion
-
 **Tag:** Companion
 
 **Observations:** O29, O30
@@ -833,8 +829,6 @@ Pets act in the battles and raids that make up play in O23 and O29, and their ac
 **Variants not established:** Single-position roster and multi-position roster, since the roster is stated to expand and no second position was opened; directed companion; activity-scoped companion; equipment-bearing companion, named only as a Black Market item, pet equipment designs (O46); transferable companion; shared companion.
 
 **Alternative considered:** Cosmetic Customization, which would apply if the pets changed presentation only. Pets attack in battle and in raids, which this entry separates from presentation (tier: directly observed). A battle that shows a pet's effect on the outcome is the separating evidence for the size of that contribution, and no such view was narrated (tier: unresolved). Set Collection was also considered: no member-level tracking of which distinct pets have been obtained was shown (tier: directly observed).
-
-#### T3. Daily / Weekly Quests
 
 **Tag:** Daily / Weekly Quests
 
@@ -856,8 +850,6 @@ The daily and weekly sections in O43, with the reset countdown in O63, create ob
 
 **Alternative considered:** Challenge for individual tasks. No boundary for a task beyond the period reset is shown, and the period cadence is the behavior this entry specifies (tier: strongly supported).
 
-#### T4. Daily Claim Pack (Monthly Card and Automine Card)
-
 **Tag:** Daily Claim Pack
 
 **Observations:** O59
@@ -877,8 +869,6 @@ The Monthly Card and Automine Card in O59 are sold for money, and each pays out 
 **Variants not established:** Claim-based or automatic-grant delivery; accumulating or expiring claims; stackable or non-stackable pack; login-claim pack.
 
 **Alternative considered:** The Lifetime Card and Ad-Free Card also produce daily collectible rewards from one purchase, but neither states an end to the daily collection, which fails this entry's bounded-entitlement condition; they carry no mechanic label and their daily collection is described in plain language at O59 (tier: directly observed).
-
-#### T5. Daily Claim Pack (3-Day Deluxe Pack)
 
 **Tag:** Daily Claim Pack
 
@@ -900,8 +890,6 @@ The pack in O60 is sold for $0.99 at the end of a run and lists its rewards unde
 
 **Alternative considered:** A one-time reward bundle delivered whole at purchase, which this entry excludes and which would leave the pack with no mechanic label (tier: plausible). O60 records the release of the day 2 and day 3 rewards as not observed, and a purchase followed across three days would separate the two.
 
-#### T6. Daily Login Rewards (Seven-Day Sign-In Event)
-
 **Tag:** Daily Login Rewards
 
 **Observations:** O62
@@ -921,8 +909,6 @@ O62 attaches a reward to each day of access across a seven-day event.
 **Variants not established:** Consecutive daily reward; accumulating daily reward; expiring daily reward; random daily reward.
 
 **Alternative considered:** Streak. The event carries no continuity framing and the effect of a missed day was not shown, so no continuity state is established (tier: directly observed). A missed day that resets or ends the sequence would add Streak.
-
-#### T7. Daily Login Rewards (free daily claims)
 
 **Tag:** Daily Login Rewards
 
@@ -944,8 +930,6 @@ O53 and O59 offer free benefits limited to one claim per daily period, with coun
 
 **Alternative considered:** Daily Claim Pack for the Privilege Card daily benefits. The benefits were claimed with no card purchased, so no prior entitlement governs them (tier: directly observed).
 
-#### T8. Energy (stamina)
-
 **Tag:** Energy
 
 **Observations:** O33, O34
@@ -965,8 +949,6 @@ The regeneration countdown in O33 makes runs available again after time passes, 
 **Variants not established:** Behavior at zero energy; variable-cost energy; overdraft energy. Whether claiming overflow stamina can raise energy above the cap is recorded at O35 as plausible only.
 
 **Alternative considered:** Spendable Credits and Tokens. The units are consumed automatically by starting a run, which that entry assigns to Energy (tier: directly observed).
-
-#### T9. Energy (mode tickets)
 
 **Tag:** Energy
 
@@ -988,8 +970,6 @@ The tickets in O36 limit how many Tower and raid attempts can be made in a sessi
 
 **Alternative considered:** Spendable Credits and Tokens. That entry's automatic entry charge case assigns single-purpose tokens consumed on entry to Energy or an attempt allowance unless they can be allocated among results, and these tickets serve one mode each (tier: directly observed).
 
-#### T10. Experience Points
-
 **Tag:** Experience Points
 
 **Observations:** O10
@@ -1009,8 +989,6 @@ The experience in O10 accumulates during a run toward level-ups that present ski
 **Variants not established:** Threshold values; rollover XP; threshold-reset or cumulative display; whether experience and level reset between runs.
 
 **Alternative considered:** A separate Experience Points tag for the Battle Pass's pass experience in O57. It is the advancement value of the pass, never seen accumulating, and is described under T23 (tier: directly observed).
-
-#### T11. First-Purchase Bonus
 
 **Tag:** First-Purchase Bonus
 
@@ -1032,8 +1010,6 @@ O54 attaches the bonus to buying gem packages for money.
 
 **Alternative considered:** The bonus-package variant of Hard Currency, which ties extra units to package size. The label ties the bonus to the first purchase of each package, which is the condition this entry specifies (tier: strongly supported).
 
-#### T12. Hard Currency
-
 **Tag:** Hard Currency
 
 **Observations:** O38, O39
@@ -1053,8 +1029,6 @@ O54, O55 and O61 sell gems and gold for money.
 **Variants not established:** Expiring, transferable or locked hard currency. Jade stones are sold in Top Up, but no spending use was shown, so they are not established as hard currency.
 
 **Alternative considered:** Spendable Credits and Tokens, the parent entry, noted here under the overlap rule. Soft Currency applies separately to the same balances because both acquisition paths are observable, which both entries permit (tier: directly observed).
-
-#### T13. Leaderboard (Ranking and Tower)
 
 **Tag:** Leaderboard
 
@@ -1076,8 +1050,6 @@ O48 and O22 set the user's chapter, longest run and highest floor in order again
 
 **Alternative considered:** Comparative Rank for the user's position of 3,092 and the Tower's "unranked" state. The Leaderboard entry classifies a view that states the user's position alongside other ordered entries as a leaderboard, and here the position appears within the same view (tier: directly observed).
 
-#### T14. Leaderboard (Timed Growth events)
-
 **Tag:** Leaderboard
 
 **Observations:** O45
@@ -1097,8 +1069,6 @@ O45 ties rewards to placement within a five-day event.
 **Variants not established:** Comparison measure; comparison scope; live leaderboard; final leaderboard.
 
 **Alternative considered:** Comparative Rank alone. The app frames the tab as a leaderboard listing placements, and no single-position readout was narrated (tier: strongly supported).
-
-#### T15. Leveling
 
 **Tag:** Leveling
 
@@ -1120,8 +1090,6 @@ The in-run levels in O10 change skill options during a session, and the talent l
 
 **Alternative considered:** Milestone for the rank title change. The title is kept as a current state, which is this entry's invariant, and no recognition beyond the stat change was narrated (tier: directly observed). Leveling for chapters is addressed under T1.
 
-#### T16. Loot Box (chests and eggs)
-
 **Tag:** Loot Box
 
 **Observations:** O41, O42
@@ -1141,8 +1109,6 @@ O42 prices draws in gems sold for money, and O41 and O29 place draws inside the 
 **Variants not established:** Duplicate-protected loot box; multi-item pack; limited-pool loot box.
 
 **Alternative considered:** Variable Reward Outcome alone. A value commitment before resolution is present on these surfaces, which makes the specialization the applicable label (tier: directly observed).
-
-#### T17. Loot Box (heart-cost spins)
 
 **Tag:** Loot Box
 
@@ -1164,8 +1130,6 @@ The spins in O12 sit inside a run and trade run health for a chance outcome duri
 
 **Alternative considered:** Variable Reward Outcome without the specialization, which applies if the health loss is one possible result rather than an upfront cost, as on the Forest Maiden wheel (tier: plausible). A clear view of the spin screen showing the cost before spinning would separate the two.
 
-#### T18. Milestone
-
 **Tag:** Milestone
 
 **Observations:** O3, O21, O22, O25
@@ -1185,8 +1149,6 @@ O25 and O22 reward crossing defined points in talent and Tower progress, and O3 
 **Variants not established:** Recorded milestone; hidden milestone; recurring milestone.
 
 **Alternative considered:** Achievement. No surface records an attained criterion separately from the reward or access change (tier: directly observed).
-
-#### T19. Piggy Bank
 
 **Tag:** Piggy Bank
 
@@ -1208,8 +1170,6 @@ O35 holds stamina regenerated beyond the cap in mail for six days, keeping that 
 
 **Alternative considered:** A plain-language description of the Energy regeneration rule, with mail as the delivery route and no reserve mechanic (tier: plausible). Evidence that the mail is presented as a stored reserve with its own total, or that claims exceed the energy cap as the 249 of 30 reading suggests, would separate the two.
 
-#### T20. Progression Fund
-
 **Tag:** Progression Fund
 
 **Observations:** O58
@@ -1229,8 +1189,6 @@ Each fund in O58 sells its larger lane for $9.99 to $29.99, and the measures tho
 **Variants not established:** Currency-purchased lane; fixed-ratio lanes; retroactive-lane fund; forward-only lane fund; automatic-grant fund; extension positions; shared-measure fund. No fund was purchased and none was seen advancing.
 
 **Alternative considered:** Seasonal Progression Pass. The Main Quest Fund on the same screen states an end time and is tagged there at T24, while these funds state none, and an untimed track is what this entry specifies (tier: directly observed). If any of these funds is later shown to carry a closing boundary, it moves to that entry.
-
-#### T21. Rewarded Advertisement
 
 **Tag:** Rewarded Advertisement
 
@@ -1252,8 +1210,6 @@ O56 converts ad views into ad inventory and places the Ad-Free Card offer on eve
 
 **Alternative considered:** Loot Box for ad-opened containers. The Loot Box entry excludes an uncertain reward opened directly by an ad with no held resource consumed (tier: directly observed).
 
-#### T23. Seasonal Progression Pass (Battle Pass, Seven-Day Carnival, Pet Auspice)
-
 **Tag:** Seasonal Progression Pass
 
 **Observations:** O44, O45, O57
@@ -1273,8 +1229,6 @@ O44 and O45 reward activity within event windows, and the end times in O64 tie t
 **Variants not established:** Premium seasonal pass (the Battle Pass lane's access rule and price were not stated); retroactive-upgrade pass; claim-limited pass; resetting pass.
 
 **Alternative considered:** Milestone for the threshold rewards. The thresholds sit on bounded ordered tracks, which is this entry's more specific structure, and no threshold was seen being reached (tier: directly observed). Challenge for the carnival tasks, which feed the track as the quest-driven variant and showed no completion state (tier: directly observed).
-
-#### T24. Seasonal Progression Pass (Main Quest Fund)
 
 **Tag:** Seasonal Progression Pass
 
@@ -1296,8 +1250,6 @@ The fund lane in O58 is sold for $9.99, and its rewards follow main quest progre
 
 **Alternative considered:** Progression Fund, which carries the untimed funds on the same screen at T20 and would take the Main Quest Fund as well if its timer is later shown to close only the purchase window (tier: plausible).
 
-#### T25. Seasonal Progression Pass (daily and weekly task tracks)
-
 **Tag:** Seasonal Progression Pass
 
 **Observations:** O43
@@ -1317,8 +1269,6 @@ The tracks in O43 reset each day and each week, so their rewards belong to the c
 **Variants not established:** Threshold values; rewards; behavior at reset.
 
 **Alternative considered:** Treating the tracks as the reward structure of Daily / Weekly Quests under its cumulative-period variant, with no separate tag (tier: plausible). A view of the tracks showing ordered thresholds and a reset would separate the two.
-
-#### T26. Soft Currency
 
 **Tag:** Soft Currency
 
@@ -1340,8 +1290,6 @@ O38 and O40 turn run and Tower results into gold and power stones that are spent
 
 **Alternative considered:** Spendable Credits and Tokens, the parent entry, noted here under the overlap rule (tier: directly observed).
 
-#### T27. Variable Reward Outcome (in-run choices, wheels, mini-games and free or ad-opened draws)
-
 **Tag:** Variable Reward Outcome
 
 **Observations:** O10, O12, O15, O19, O41
@@ -1361,8 +1309,6 @@ O10, O12, O15 and O19 resolve rewards with differing results during a run, and O
 **Variants not established:** Probabilities for skill offers or wheel segments; duplicate protection; state dependence.
 
 **Alternative considered:** Loot Box. These surfaces require no value commitment before resolution, which excludes the specialization (tier: directly observed).
-
-#### T28. Variable Reward Outcome (day events)
 
 **Tag:** Variable Reward Outcome
 
@@ -1384,7 +1330,7 @@ The outcomes in O8 vary as the user advances day by day within a run.
 
 **Alternative considered:** A fixed chapter script that differs only with character state, which would carry no mechanic label (tier: plausible). Two runs started at identical stats would separate the two.
 
-### Entries considered and not applied
+## Entries considered and not applied
 
 - **Achievement.** The Adventure Badge at talent level 20 (O25) was not reached, and no surface records an attained criterion separately from rewards and access changes (O3, O22) (tier: directly observed).
 - **Advertisement Exposure.** The Ad-Free Card (O56, O59) was tagged under this entry in an earlier version of this analysis and the tag is withdrawn. The card is a purchase that removes ad units, which is a monetization offer rather than a promotional slot the app fills. The entry as rewritten on 13 Sep 2026 covers only slots the product itself fills with a subject it chose under an arrangement made outside the product, and states that a purchase removing ad units does not bring those units into the entry. The ad units themselves (O56) are network-served inventory: where they carry a reward they are tagged Rewarded Advertisement at T21, and the entry no longer applies a second label alongside it. The app's own offer pop-ups (O6, O60, O61) promote its own purchases and are out of scope entirely (tier: directly observed).
@@ -1406,7 +1352,7 @@ The following were proposed as new entries in Pass Three and were not applied. E
 - **Rotating Stock Shop.** Proposed in Pass Three and rejected on scope. A store whose stock carries purchase limits and a countdown (O46) is a genre convention of this kind of game. Classify the currencies spent under Soft Currency and Hard Currency and the containers sold under Loot Box, treat Limited-Time Opportunity as the Layer Three pattern it already is, and describe the rotation in plain language.
 - **Stat-for-Power Trade.** Proposed in Pass Three and rejected on scope. An in-attempt bargain exchanging part of a run stat for a capability (O13) belongs to run-based games and would not apply elsewhere. Describe the trade in plain language, and classify it under Loot Box or Variable Reward Outcome where the outcome can resolve to more than one distinct result.
 
-### Unresolved
+## Unresolved
 
 - **Guilds (O46, O49).** The app presents Guilds and a Black Market Guild tab that requires membership, but the feature is locked, with conflicting unlock conditions of Chapter 3 and Chapter 4 (O37). Whether the surface holds a collective group-owned state, which would select Clan / Guild, or maintained membership only, which would select Group Membership, is behind the gate.
 - **Collectibles (O37, O42).** Collectibles unlock after Chapter 3, chest probabilities name epic and legendary collectibles, and the Mythic Treasure Fund ends with a choice among 14 mythic treasures (O58). Whether the app tracks member-level completeness, which Set Collection requires, is behind the gate.
@@ -1414,7 +1360,7 @@ The following were proposed as new entries in Pass Three and were not applied. E
 - **Goblin Miner and auto mine (O37, O59).** Goblin Miner opens on day seven of server opening, and the Automine Card describes spirit stone output and a pickaxe maximum. Whether pickaxes act as Energy for mining, and whether mining is passive production or a construction process, is behind the gate.
 - **Friends (O37, O49).** Friends unlocks after surviving one day in Chapter 2. Whether it carries Gifting or any other social mechanic is behind the gate.
 
-### Entries never observed
+## Entries never observed
 
 - **Community Space.** No shared multi-actor context was reached in the sessions (tier: directly observed).
 - **Earning Tasks.** No catalogue of compensated tasks appears in the app (tier: directly observed).
@@ -1425,7 +1371,7 @@ The following were proposed as new entries in Pass Three and were not applied. E
 
 ---
 
-## Pass Three: proposed new tags
+# Pass Three: proposed new tags
 
 P1 and P4 were approved and written into `/library/approved` on 11 Sep 2026. Five further proposals were rejected on scope and moved to "Entries considered and not applied" above.
 
@@ -1463,7 +1409,7 @@ P1 and P4 were approved and written into `/library/approved` on 11 Sep 2026. Fiv
 
 ---
 
-## Close: system view
+# Close: system view
 
 **Energy gates the core loop.** Starting a run spends energy (O33), and energy returns through regeneration, ads, gems, free daily packs and run end grants (O16, O34), with overflow held in mail for later claim (O35) (tier: directly observed). Runs are chapter attempts built from day events, automatic battles and in-run skill choices (O8, O9, O10, O21), and every run, won or lost, pays out gold (O16, O38) (tier: directly observed).
 
