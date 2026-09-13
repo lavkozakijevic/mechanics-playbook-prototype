@@ -111,11 +111,11 @@ hasn't been re-derived yet.
 The nine sections' own boundary definitions (what belongs in Access vs.
 Core loop, the three fixed non-judged placements — leaderboards always
 Social, rating prompts always Return triggers, rate limiters always Core
-loop and automation) live in a document that was reviewed and applied
-across every re-derivation this repo has done, but it was never committed
-here — only `v41-sections.mjs`'s bare slug/name pairs are. If that
-definitions document doesn't turn up attached to a session that needs it,
-that's why: it has to be re-supplied, not looked up in the repo.
+loop and automation) are at `sources/section-definitions.md`. The
+canonical copy lives in `app-analysis-prompt-v4.1.md`, outside this repo —
+that external copy governs if the two ever disagree — but the committed
+copy here is what a session working in this repo should read, since it
+was reviewed and applied across every re-derivation this repo has done.
 
 ## Every check, what it catches, why it exists
 
