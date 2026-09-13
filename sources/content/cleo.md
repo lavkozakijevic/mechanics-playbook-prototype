@@ -2,7 +2,7 @@
 
 **Teaser:** A budgeting app that turns a connected bank account into a persona's quizzes, roasts and reviews of the user's own spending.
 
-Cleo is a US personal finance app that introduces itself as a way to save money and build credit. It connects to a user's bank account through Plaid and delivers most of what it does through a chat interface with a named persona, alongside a nav bar for spending, budgeting, chatting, saving, borrowing and, once onboarding finishes, habits. In this session, Cleo set a monthly spending limit of $1,400, and asked the user to come back regularly to review, rate and categorize their own past transactions.
+Cleo is a US personal finance app that introduces itself as a way to save money and build credit. It connects to a user's bank account through Plaid and delivers most of what it does through a chat interface with a named persona, alongside a nav bar for spending, budgeting, chatting, saving, borrowing and, once onboarding finishes, habits. Cleo sets a monthly spending limit, $1,400 in this example, and asks the user to come back regularly to review, rate and categorize their own past transactions.
 
 ---
 
@@ -16,11 +16,11 @@ Cleo is a medium complexity system built around one connection made during onboa
 
 ### Challenge
 
-**What was observed:** Cleo runs two surfaces that give the user a bounded goal it can judge as met or not. The core one is the monthly spending limit: the user sets an overall amount that includes all bills, plus optional limits across 14 spending categories based on their average spending, and each month becomes its own tracked state, one that either stays on track or goes over. A thumbs-up shows under the two coin stacks while spending stays inside the limit; going over swaps in a skull, turns the line under the month red, and marks the month "overspent", a result that stays attached to that month even after it's passed. The second surface is a 21-day challenge previewed in the habits tab, framed around picking one spending habit to cut and tracking a savings amount against it. In this session it's shown only as a mock-up of what an active challenge would look like, and starting one led instead to the spending review screen rather than to a live instance.
+**What was observed:** Cleo runs two surfaces that give the user a bounded goal it can judge as met or not. The core one is the monthly spending limit: the user sets an overall amount that includes all bills, plus optional limits across 14 spending categories based on their average spending, and each month becomes its own tracked state, one that either stays on track or goes over. A thumbs-up shows under the two coin stacks while spending stays inside the limit; going over swaps in a skull, turns the line under the month red, and marks the month "overspent", a result that stays attached to that month even after it's passed. The second surface is a 21-day challenge previewed in the habits tab, framed around picking one spending habit to cut and tracking a savings amount against it. It's shown only as a mock-up of what an active challenge would look like, and starting one leads instead to the spending review screen rather than to a live instance.
 
 **How it is presented:** The monthly limit lives on its own budget tab but is also echoed on the chat home as a running card stating how much of the budget is left and when it ends. Its two outcomes show up as an emoji swap, a colour change on the line under the month, and short copy rather than any longer explanation. The 21-day challenge, by contrast, gets its own headline spot at the top of the habits tab, styled the same way whether or not an instance is actually running.
 
-**What is worth noting:** The monthly limit is the only one of the two built out as a state a user can actually look back on, a past month keeps its overspent result rather than resetting. The 21-day challenge is described and illustrated in full, right down to a specific savings figure, without the session ever showing what starting, running or finishing one actually looks like.
+**What is worth noting:** The monthly limit is the only one of the two built out as a state a user can actually look back on, a past month keeps its overspent result rather than resetting. The 21-day challenge is described and illustrated in full, right down to a specific savings figure, without ever showing what starting, running or finishing one actually looks like.
 
 **Key findings:**
 
@@ -28,7 +28,7 @@ Cleo is a medium complexity system built around one connection made during onboa
 - Staying inside the limit shows a thumbs-up; going over shows a skull, a red line under the month, and "overspent".
 - A past overspent month keeps that result rather than resetting when a new month starts.
 - The 21-day challenge preview names a specific example, an eating-out limit tracking toward an $85 savings goal.
-- No 21-day challenge is actually started in this session; the displayed state is a mock-up.
+- No 21-day challenge is actually started; the displayed state is a mock-up.
 
 **Screenshots needed:** the budget tab in its on-track state with the two coin stacks and the thumbs-up; a month in the overspent state with the skull, red line and "overspent" label; the "set your limit for the month" sheet with category limits switched on; the habits tab's 21-day challenge preview with its progress bar and savings figure.
 
@@ -45,7 +45,7 @@ Cleo is a medium complexity system built around one connection made during onboa
 - The review streak reads zero before any review and one right after the first is completed.
 - Completing a review is paired with a line encouraging the user to return tomorrow to keep the streak alive.
 - The game's stats screen shows a streak of one alongside a 0% knowledge score and one recorded play.
-- What causes either streak to reset or break isn't shown in this session.
+- What causes either streak to reset or break isn't shown.
 
 **Screenshots needed:** the habits header showing the review streak at zero before the first review; the same header after it moves to one; the game stats screen showing the streak next to knowledge score and play count.
 
@@ -93,10 +93,10 @@ Sign up opens a sequence of single-purpose screens: full legal name, email, date
 
 ### O3. Cleo's persona voice
 
-Cleo speaks throughout the session as a named persona, referred to as "she", writing in jokes, slang and emojis over large type, bright colors and full-screen illustrations. Chat messages pair with GIFs chosen for the moment, including one matched to the exact amount the user has spent, and some messages contain profanity.
+Cleo speaks throughout as a named persona, referred to as "she", writing in jokes, slang and emojis over large type, bright colors and full-screen illustrations. Chat messages pair with GIFs chosen for the moment, including one matched to the exact amount the user has spent, and some messages contain profanity.
 
 - On the bank connection screen, Cleo describes herself as "just an AI with bad attitude" who can't move the user's money.
-- Slang in the session includes "qs" for questions, "v" for very, "peeps" for people, and a capital K for okay.
+- Slang used throughout includes "qs" for questions, "v" for very, "peeps" for people, and a capital K for okay.
 - One pair of adjacent quick-reply buttons splits a single joke sentence, "I'm v good" and "at spending", across two separate options.
 - The borrow tab addresses the user as "angel face".
 
@@ -107,7 +107,7 @@ A "link your account" screen tells the user that Plaid connects Cleo securely an
 - The connect screen's alternative option is framed as wanting more information about security, not as a way to decline.
 - The Plaid pop-up covers connecting effortlessly, states that Plaid doesn't sell personal information and uses it only with permission, and describes fraud reduction using account, transaction and connection history.
 - No option to skip the bank connection is shown.
-- This connected account is what supplies the balances, transactions, bills and income suggestions Cleo uses for the rest of the session.
+- This connected account is what supplies the balances, transactions, bills and income suggestions Cleo uses throughout.
 
 ### O5. Ready to launch
 
@@ -118,14 +118,14 @@ After identity verification, a full screen reads "are you ready?" with large typ
 The chat opens on its own, without the user typing anything, with a typing indicator before Cleo's first messages appear. Cleo greets the user by name, says "I've been expecting you" and "you just walked into the best decision of your fabulous life", shows a GIF of a woman clapping captioned "knew you could do it", then asks "so where do we start?".
 
 - The starting options, each with its own emoji, are control my spending, get a cash advance, improve my credit score, and "I don't know, see where my money goes".
-- The session follows control my spending.
+- Control my spending leads into the money habits quiz.
 - At this point the nav bar shows spend, budget, chat, save and borrow, with a profile button in the top right.
 
 ### O7. Money habits quiz
 
 Choosing "control my spending" opens a five-question quiz about money habits, introduced with a request to be honest and a line that the more Cleo knows, the better she can help. Questions are answered by quick reply, with Cleo responding to each before the next appears, and the quiz ends with a line about now having "enough ammo" to roast the user's worst habits, alongside a "roast me Cleo" button.
 
-- One question asks how much of the user's income was usually spent over the last six months, counting paychecks, government support and student loans, with five options from not much up to all of it and then a lot more; the session picks the highest option.
+- One question asks how much of the user's income was usually spent over the last six months, counting paychecks, government support and student loans, with five options from not much up to all of it and then a lot more.
 - Another question asks what the user is like with bills, with options including "I'm on top of them" and "they're on top of me".
 - Cleo responds to one answer with "okay, not here to judge you".
 - The remaining questions in the set of five aren't individually described.
@@ -145,7 +145,6 @@ After the roast, Cleo says the user's "overview is ready" and explains how it wo
 
 - The explanation arrives as a series of message bubbles appearing one under another.
 - The step directly after "see updated budget" is confirming bills.
-- Some screens between "see updated budget" and bill confirmation may be missing from this record, since the flow became broken around this point.
 
 ### O10. Bill confirmation and setup
 
@@ -187,7 +186,7 @@ Scrolling the budget tab shows bills due, including subscriptions, with an optio
 
 The spending section shows two swipeable cards, essential and other spending, each with an amount and its share of income, and swiping between them changes the category breakdown below. An edit-categories screen lets the user move categories between essential and other and save the change.
 
-- Other spending shows zero in this session.
+- Other spending shows zero for the month shown.
 - The category breakdown lists categories such as transport and transfer out, with limits shown where set.
 - A separate section shows income received this month and savings, which shows no transactions; another section shows what's excluded from the breakdown entirely.
 
@@ -221,7 +220,7 @@ The "can you afford that thing?" conversation asks the user to picture the purch
 
 Typing "how much did I save this month?" into chat returns an overview from the start of the month to the current date, covering income, spending and net, with three follow-up routes: by categories, by merchants, and to the insights feed.
 
-- The insights feed named here isn't located or opened in the session.
+- What the insights feed named here actually shows isn't described.
 
 ### O19. Income setup
 
@@ -247,7 +246,7 @@ The upcoming bills conversation opens with an animated "bills" screen, states th
 
 Opening the gambling addiction card starts a short chat introduction in which Cleo calls it "not a super fun topic but a v real one", cites a figure of 46 million people in the US, and points to a five-minute blog read for ways to help, with options to go to the blog or back to insights.
 
-- The article itself isn't opened in the session.
+- The linked blog article's own content isn't described.
 
 ### O23. Balance and dashboard views
 
@@ -276,7 +275,7 @@ Starting a review opens a practice round of three cards asking the user to rate 
 
 - The first review is labeled as covering 20 spends.
 - The loading sequence includes lines about the user's loves and regrets before "summarizing those spends".
-- The summary read aloud in this session counts 11 loved items.
+- The summary shown counts 11 loved items.
 
 ---
 
@@ -310,7 +309,7 @@ The habits tab opens on a pitch to "turn vices into savings" and shows a preview
 
 The start screen reads "start challenges and save money" and lists three activities: challenging a vice by picking a spending habit to test willpower against, starting to save by tracking challenges, and spotting trends by reviewing spending for saving tips. Tapping through leads to the spending review screen rather than to an active vice challenge.
 
-- Whether the three listed activities are things to select or just descriptions of what the feature does isn't settled by the session.
+- Whether the three listed activities are things to select or just descriptions of what the feature does isn't settled by the screen itself.
 - No vice challenge is actually started.
 
 ### O31. Game stats
@@ -326,7 +325,7 @@ Game stats shows a knowledge score of 0%, one play, a second counter also at zer
 Before any review, the habits screen shows a review streak of zero. After completing the first review, the streak reads one, the review is marked done, and the screen shows counts of loved and regretted spends alongside a "tips and truths" section commenting on specific purchases, closing with "play again tomorrow to remain a spending review legend".
 
 - One tip comments on a McDonald's purchase and what else its amount could have bought; another comments on an account fee.
-- The counts read aloud in this session include five regrets.
+- The counts shown include five regrets.
 - "Spending review legend" is copy only, with no separate badge or status attached to it.
 
 ---
@@ -351,13 +350,13 @@ During onboarding the nav bar shows spend, budget, chat, save and borrow; once o
 
 ### O35. Paid plans unusable here
 
-Because of the state laws that apply to this account, neither Cleo Plus nor Cleo Builder can actually be used in this session, though both plan screens remain browsable.
+Because of the state laws that apply to this account, neither Cleo Plus nor Cleo Builder can actually be used, though both plan screens remain browsable.
 
 - Whether the plan screens themselves display a restriction message isn't described.
 
 ### O36. Cleo wallet setup
 
-Setting up autosave opens a wallet form asking for the name as it appears on a government ID, email, mobile number, date of birth with a note that the user must be 18 or over, address, and the last four digits of a Social Security number, with terms requiring agreement to Cleo's own terms and to a second party the transcript renders as "Dwolla". Setup isn't completed in this session.
+Setting up autosave opens a wallet form asking for the name as it appears on a government ID, email, mobile number, date of birth with a note that the user must be 18 or over, address, and the last four digits of a Social Security number, with terms requiring agreement to Cleo's own terms and to a second party the transcript renders as "Dwolla". Setup isn't completed here.
 
 - The screen doesn't explain who the second party in the terms is.
 
@@ -404,7 +403,7 @@ The roast ends with a request to share the joy and leave a review, answered affi
 
 ## Money
 
-This section covers the borrow tab and Cleo's two paid plans, Plus and Builder, neither usable in this session.
+This section covers the borrow tab and Cleo's two paid plans, Plus and Builder, neither usable under this account's state restriction.
 
 ### O40. Borrow tab intro
 
@@ -423,7 +422,7 @@ Scrolling the borrow tab reaches "choose your fighter", comparing two plans: Cle
 - FAQ questions cover the kind of card, its credit limit, whether fees apply, and what kind of spending to use it for.
 - The onboarding carousel states the cash advance as up to $500, while this checklist states up to $250.
 - The save tab ties cashback to Plus, while this checklist lists cashback as a Builder feature.
-- No prices are stated anywhere in the session.
+- No prices are stated anywhere in this comparison.
 
 ---
 

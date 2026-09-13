@@ -16,7 +16,7 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 
 ### Achievement
 
-**What was observed:** Clash of Clans keeps a named achievement list across separate categories for the home village, the builder base, and the clan capital, each entry carrying up to three stars and paying experience points and gems on attainment. Observed criteria include connecting an account, upgrading the town hall to level 3, unlocking specific troops, and social actions like donating or requesting reinforcements. One criterion, linking the account, pays roughly ten times the experience and gems of an ordinary progression criterion sitting beside it.
+**What was observed:** Clash of Clans keeps a named achievement list across separate categories for the home village, the builder base, and the clan capital, each entry carrying up to three stars and paying experience points and gems on attainment. Criteria include connecting an account, upgrading the town hall to level 3, unlocking specific troops, and social actions like donating or requesting reinforcements. One criterion, linking the account, pays roughly ten times the experience and gems of an ordinary progression criterion sitting beside it.
 
 **How it is presented:** The list sits in a profile view split by village, each entry showing its current star count and reward. Newly attained criteria don't always register immediately: the account-linking achievement didn't update until the app was closed and reopened.
 
@@ -42,7 +42,7 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 **Key findings:**
 
 - Starter challenges are worth 1,050 points against a ladder running to 5,000; more unlock only by raising the town hall level.
-- Observed starter challenges include destroying 50 buildings in multiplayer battles for 125 points and upgrading two elixir collectors for 150 points.
+- Starter challenges include destroying 50 buildings in multiplayer battles for 125 points and upgrading two elixir collectors for 150 points.
 - A clan war runs a fixed two-day contest, scored in stars, with a stated tie-break by total destruction.
 - One live war showed the user's clan at 24 stars against the opponent's 3, with per-member records available.
 
@@ -60,8 +60,8 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 
 - Joining or creating a clan requires a rebuilt clan castle, itself gated behind an elixir storage upgrade.
 - Creating a clan costs 40,000 gold; joining one is free once the castle is rebuilt.
-- Clan chat carries a rules notice, and the first observed message was an unsolicited external promotion.
-- A clan capital exists, funded by member-contributed currency, but was never entered during the sessions.
+- Clan chat carries a rules notice, and the first message in it was an unsolicited external promotion.
+- A clan capital exists, funded by member-contributed currency, with its own tab in the profile alongside the home village and builder base.
 
 **Screenshots needed:** the clan finder with its filter list, and the clan war screen showing the treasury and war record.
 
@@ -71,20 +71,20 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 
 **How it is presented:** Sceneries are shown with a preview of how the village would look before purchase. Higher-priced sceneries are tied to specific occasions. Decorations are sold from the same catalogue, priced in whichever currency matches their tier.
 
-**What is worth noting:** Nothing observed tied a cosmetic to a rule, a cost, or an outcome, including the decorations that physically occupy grid space the way a functional building would; they're presentation content dressed as village objects, not configuration.
+**What is worth noting:** Nothing ties a cosmetic to a rule, a cost, or an outcome, including the decorations that physically occupy grid space the way a functional building would; they're presentation content dressed as village objects, not configuration.
 
 **Key findings:**
 
 - Standard sceneries cost $3.49; two occasion-tied sceneries cost $16.99.
 - The current season's own scenery is sold separately for $4.99 with a village preview.
 - A hero skin is the headline exclusive reward on the paid pass lane, offered as a choice between two named skins.
-- No cosmetic was observed to change a rule, cost, or outcome.
+- No cosmetic changes a rule, cost, or outcome.
 
 **Screenshots needed:** the cosmetics tab showing scenery pricing and the village preview.
 
 ### Experience Points
 
-**What was observed:** Clash of Clans grants a quantified amount of experience for stated actions, mostly achievement attainment, and accumulates it toward an account level that rose from 1 to 4 within a single session. The points were never observed to be spent on anything; their only stated function is advancing the account level.
+**What was observed:** Clash of Clans grants a quantified amount of experience for stated actions, mostly achievement attainment, and accumulates it toward an account level that rose from 1 to 4 early on. The points aren't spent on anything else; their only stated function is advancing the account level.
 
 **How it is presented:** Achievement entries state the exact experience figure attached to each criterion. The account level sits at the top of the screen with a partial-progress indicator, separate from every other progress marker in the game.
 
@@ -93,9 +93,9 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 **Key findings:**
 
 - Linking an account grants 100 experience points; an ordinary town hall upgrade grants 10.
-- The account level rose from 1 to 4 within a single session.
+- The account level rose from 1 to 4 early on.
 - One decoration requires experience level 75 in addition to its stated price.
-- Experience points were never observed being spent directly.
+- Experience points aren't spent directly on anything.
 
 **Screenshots needed:** an achievement entry showing its stated experience grant, and the account level indicator with its partial-progress bar.
 
@@ -105,14 +105,14 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 
 **How it is presented:** The clan castle description states it can hold reinforcement troops or spells sent by clanmates. A gold pass perk is listed as reducing the wait on a clan castle troop request by 90 percent.
 
-**What is worth noting:** The transfer itself was never performed during any session, so what's established here is the structure the game describes, a directed, non-reciprocal transfer between identified accounts, rather than its interface or its limits in practice.
+**What is worth noting:** What the game describes is the structure itself, a directed, non-reciprocal transfer between identified accounts; it doesn't publish further detail on the sending interface or any practical limits.
 
 **Key findings:**
 
 - Troops and spells sent by clanmates are held in the receiving member's own clan castle.
 - Achievement criteria exist separately for troops donated and troops received.
 - A paid pass perk reduces the wait on a clan castle troop request by 90 percent.
-- No donation or request was actually performed during the sessions.
+- Neither side of the exchange requires reciprocity from the other member.
 
 **Screenshots needed:** the clan castle screen showing its reinforcement-holding description.
 
@@ -144,7 +144,7 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 **Key findings:**
 
 - Four leaderboard views exist: top players globally, top players nationally, top clans globally, and top clans by war league.
-- The top global entry observed held 88 attacks won and roughly 5,814 trophies.
+- The top global entry held 88 attacks won and roughly 5,814 trophies.
 - The user's own position was unranked and did not appear on any list.
 
 **Screenshots needed:** the four-tab leaderboard view.
@@ -160,9 +160,9 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 **Key findings:**
 
 - The town hall runs a numbered level to 18, gated by both a resource cost and a prerequisite building checklist.
-- The account level rose from 1 to 4 within a single session, driven by experience points.
+- The account level rose from 1 to 4 early on, driven by experience points.
 - League tiers run skeleton through legend in the home village and wood 5 through diamond in the second, with the stated rule that more trophies raise the tier.
-- The trophy thresholds separating league tiers were never shown; only the product's own statement of the rule was observed.
+- The trophy thresholds separating league tiers aren't shown; only the product's own stated rule, that more trophies raise the tier, is given.
 - The second village runs its own town-hall-equivalent level, the builder hall, on the identical structure.
 
 **Screenshots needed:** a town hall upgrade screen listing its unlocks, and the league tier screen showing tier-by-tier reward rates.
@@ -207,7 +207,7 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 
 **How it is presented:** The reserve is described on the pass screen rather than its own dedicated surface, and a season-end message confirms a release occurred.
 
-**What is worth noting:** The reserve's own contribution behavior was never seen operating, only described and then confirmed as paid out at a season boundary, so what's established here is that the reserve exists and releases on schedule, not the rate at which battles actually fill it.
+**What is worth noting:** The reserve's own fill rate isn't stated; what's established is that it exists, accumulates bonus loot across the season, and releases on schedule at the season boundary.
 
 **Key findings:**
 
@@ -228,7 +228,7 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 
 **Key findings:**
 
-- The pass costs $4.99 and doesn't appear until town hall 7, six or seven hours into play by the narrator's estimate.
+- The pass costs $4.99 and doesn't appear until town hall 7, an estimated six or seven hours into play.
 - The free lane carries 30 rewards; the paid lane carries 40, with every fourth position paying nothing on the free side.
 - The season itself runs 27 days, ending and paying out before a new one opens.
 - A hero skin choice is the pass's headline exclusive reward.
@@ -237,17 +237,17 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 
 ### Soft Currency
 
-**What was observed:** Gold and elixir are earned from collectors and raid loot, held in capped storage, and spent on nearly everything the player builds or trains; dark elixir joins them at town hall 7 with its own drill and storage. The second village runs two further currencies, earned and spent entirely within its own loop, never observed usable in the home village. A separate balance, league medals, buys items from its own shop tab and is stated to come from clan war leagues, though none were held or spent during the sessions.
+**What was observed:** Gold and elixir are earned from collectors and raid loot, held in capped storage, and spent on nearly everything the player builds or trains; dark elixir joins them at town hall 7 with its own drill and storage. The second village runs two further currencies, earned and spent entirely within its own loop and not usable in the home village. A separate balance, league medals, buys items from its own shop tab and is stated to come from clan war leagues, though the balance sits at zero.
 
 **How it is presented:** Gold and elixir each show a stated maximum and production rate on tap. The second village's currencies carry their own icons and their own star-bonus payout table. League medals sit in a dedicated shop tab showing a balance of zero against priced items.
 
-**What is worth noting:** Clash of Clans keeps five separate earned currencies, three of them fully walled off from each other by village, and the fifth, league medals, sits priced and ready in its own shop despite the game never actually granting any during the sessions observed.
+**What is worth noting:** Clash of Clans keeps five separate earned currencies, three of them fully walled off from each other by village, and the fifth, league medals, sits priced and ready in its own shop despite the game showing a balance of zero for it.
 
 **Key findings:**
 
 - Gold, elixir, and dark elixir are earned from collectors and raids and spent on nearly every home-village action.
 - The second village runs two of its own currencies, not usable in the home village.
-- League medals are stated to come from clan war leagues; the balance observed was 0 of a possible 2,500.
+- League medals are stated to come from clan war leagues; the balance shown is 0 of a possible 2,500.
 - Gems can also be converted directly into gold or elixir.
 
 **Screenshots needed:** the resource bar showing gold, elixir, and gems together, and the league shop showing the zero medal balance against priced items.
@@ -352,7 +352,7 @@ After the first town hall upgrade, a group of new elements appears at once on th
 A shield-marked button opens a set of starter challenges, each worth points toward a separate reward ladder, introduced by the guide character.
 
 - Active challenges are worth 1,050 points in total, starting from zero.
-- Observed challenges include getting 25 wall pieces for 50 points and destroying 50 buildings in multiplayer battles for 125 points.
+- Challenges include getting 25 wall pieces for 50 points and destroying 50 buildings in multiplayer battles for 125 points.
 - The rewards view states more starter challenges unlock by upgrading the town hall.
 
 ### O13. Account linking flow
@@ -379,7 +379,7 @@ Clash of Clans settles into a repeating sequence almost immediately: collect, bu
 
 ### O15. The repeating loop
 
-Play settles into a repeating sequence of collecting resources, starting upgrades, training troops, attacking another village for loot, and returning to start further upgrades, recorded across all four sessions.
+Play settles into a repeating sequence of collecting resources, starting upgrades, training troops, attacking another village for loot, and returning to start further upgrades.
 
 - Loot taken from an attack is the input to the next upgrade; upgrades raise storage and production, which raise what can be afforded.
 - The loop is interrupted by waits rather than by any per-attempt limit on attacking.
@@ -405,15 +405,15 @@ Once a build or upgrade is started, it advances on a timer and completes without
 Build times grow from seconds at the first levels to hours at later ones.
 
 - Town hall 2 takes 10 seconds; barracks upgrade takes 15 seconds.
-- Town hall 3 takes 30 minutes, noted as the longest upgrade seen so far.
+- Town hall 3 takes 30 minutes, the longest upgrade at this stage.
 - Town hall 6 takes 12 hours.
 
 ### O19. Speed-up offered at every wait
 
-Every observed waiting state carries an offer to end it immediately for gems.
+Every waiting state carries an offer to end it immediately for gems.
 
 - One gem finishes an elixir collector; 10 gems finish a 30-minute town hall upgrade; one gem frees a busy builder.
-- The narrator uses gems to complete town hall upgrades rather than wait, in sessions 3 and 4.
+- The gem-priced skip applies to town hall upgrades themselves, not just minor builds.
 
 ### O20. Collectors accumulate and require manual collection
 
@@ -434,14 +434,14 @@ Troops are deployed by tapping or holding on the map and then act on their own; 
 
 An end battle button closes an attack without consequence, and the same battle can be re-entered afterward.
 
-- No attempt counter, entry cost, or cooldown was observed on ordinary attacks.
+- No attempt counter, entry cost, or cooldown applies to ordinary attacks.
 
 ### O23. Opponent search with loot disclosed in advance
 
 The attack screen offers single player, multiplayer, and practice modes, states the loot available before the attack begins, and allows skipping to another opponent.
 
 - Available loot is stated as a gold figure and an elixir figure before committing.
-- A next button searches for another opponent; the narrator skips several times comparing loot against visible defenses.
+- A next button searches for another opponent, allowing repeated skips while comparing loot against visible defenses.
 - Regular battles are stated not to cost trophies.
 
 ### O24. Defense log, replays, and live viewing
@@ -486,14 +486,14 @@ The town hall holds a numbered level that determines what else in the product is
 
 - Levels 1 to 18 are selectable as a minimum requirement when creating a clan.
 - The cost escalates sharply: 4,000 gold for level 2, 25,000 for level 5, 150,000 for level 6, and a stated one million for the level after 6.
-- The narrator reaches town hall 4 in session 1, 5 in session 2, 6 in session 3, and 7 in session 4.
+- Each successive town hall level in this early stretch takes longer to reach than the last, climbing from level 4 up to level 7.
 
 ### O29. Prerequisite buildings gate the next town hall level
 
 The town hall can't be upgraded on resources alone; a checklist of buildings must exist first.
 
 - The message reads upgrade locked, build the following buildings to unlock the next town hall level.
-- In session 1, the listed prerequisites were another cannon and an archer tower.
+- One instance of this checklist listed another cannon and an archer tower as the prerequisites.
 - Meeting the checklist consumed resources that had been saved for the upgrade itself, delaying it further.
 
 ### O30. Advisory warning before a town hall upgrade
@@ -513,7 +513,7 @@ A Chief's Journey view shows how the town hall progresses and what arrives at la
 
 A separate numbered account level sits at the top of the screen with a partial-progress indicator, rising as experience points accumulate.
 
-- Levels 2, 3, and 4 are reached during session 1.
+- Levels 2, 3, and 4 are reached in quick succession early on.
 - Achievements state explicit experience grants, for example 100 points for linking the account and 10 for a town hall upgrade.
 - An experience level of 75 is required for one purchasable decoration.
 
@@ -521,7 +521,7 @@ A separate numbered account level sits at the top of the screen with a partial-p
 
 A profile achievements list holds named criteria, each carrying up to three stars and granting experience points and gems on attainment.
 
-- Observed entries include connecting an account for 100 experience points and 50 gems, and upgrading the town hall to level 3 for 10 experience points and 5 gems.
+- Entries include connecting an account for 100 experience points and 50 gems, and upgrading the town hall to level 3 for 10 experience points and 5 gems.
 - Separate achievement lists exist for the home village, the builder base, and the clan capital.
 - One achievement requires requesting reinforcements, which requires clan membership.
 
@@ -546,7 +546,7 @@ Both villages maintain an ordered series of named leagues the user moves through
 
 - The home village list runs skeleton, barbarian, archer, and onward to legend, locked until town hall 7.
 - The second village list runs wood 5 through diamond, in five steps at the lower tiers and three at several higher ones.
-- The trophy thresholds themselves were never shown.
+- The trophy thresholds themselves aren't shown.
 
 ### O37. Season track and task cards
 
@@ -554,7 +554,7 @@ After the town hall 7 upgrade, the app introduces a season track advanced by com
 
 - The card in view held starting any building upgrade and starting the boat research.
 - The card stated the next task card unlocks in 19 hours and 20 minutes.
-- Whether cards refresh on a fixed daily or weekly cadence wasn't shown.
+- Whether cards refresh on a fixed daily or weekly cadence isn't stated.
 
 ### O38. Gold pass and silver pass reward tracks
 
@@ -572,15 +572,15 @@ Nearly every gate in Clash of Clans reads on the town hall level, with a smaller
 
 ### O39. Town hall level gates content across the product
 
-The town hall level is the stated condition on buildings, troops, spells, heroes, modes, cosmetics, and decorations alike. Barracks upgrades require town hall 2; practice mode unlocks at town hall 4; spells at town hall 5; ranked battle and a hero at town hall 7; siege machines at town hall 12; a free eagle monument decoration at town hall 17. The same gate message recurs across every session recorded.
+The town hall level is the stated condition on buildings, troops, spells, heroes, modes, cosmetics, and decorations alike. Barracks upgrades require town hall 2; practice mode unlocks at town hall 4; spells at town hall 5; ranked battle and a hero at town hall 7; siege machines at town hall 12; a free eagle monument decoration at town hall 17. The same gate message recurs across the product.
 
 - Barracks upgrades require town hall 2; spells require town hall 5; a hero requires town hall 7.
 - Siege machines require town hall 12; a free decoration requires town hall 17.
-- The same "upgrade your town hall to unlock" message recurs across all four sessions.
+- The same "upgrade your town hall to unlock" message recurs throughout.
 
 ### O40. Experience level gates a purchasable decoration
 
-One decoration can't be bought even with its price held, because it also requires experience level 75. A statue costs one million gold and requires that level; the narrator notes that holding the gold alone wouldn't allow the purchase.
+One decoration can't be bought even with its price held, because it also requires experience level 75. A statue costs one million gold and requires that level; holding the gold alone doesn't unlock the purchase.
 
 - A statue decoration requires both one million gold and experience level 75.
 - Holding the gold price alone does not unlock the purchase.
@@ -601,11 +601,11 @@ Creating a clan rather than joining one costs 40,000 gold.
 
 ### O43. War participation gated by clan leadership
 
-The war surface is fully visible while attacking within it is withheld, with the decision resting on another person: the status shown is war spectator, with a note to ask a clan leader or co-leader to be picked next time. Scouting, war stats, and replays remain available to a spectator. The war information text states that attacks are limited during a war, so a bounded allowance exists that the session couldn't exercise.
+The war surface is fully visible while attacking within it is withheld, with the decision resting on another person: the status shown is war spectator, with a note to ask a clan leader or co-leader to be picked next time. Scouting, war stats, and replays remain available to a spectator. The war information text states that attacks are limited during a war, without giving the exact number.
 
 - Spectator status still allows scouting, war stats, and replays.
 - Being picked to attack in a war rests on a clan leader or co-leader's decision.
-- War attacks are stated to be limited in number, though the limit itself wasn't observed.
+- War attacks are stated to be limited in number, though the exact limit isn't given.
 
 ### O44. Clan war leagues gated by clan size and a signup window
 
@@ -633,10 +633,10 @@ The second village runs its own numbered hall level that gates removing obstacle
 
 ### O47. The pass gated until town hall 7
 
-No pass surface existed at town hall 4, 5, or 6; it appeared immediately after the town hall 7 upgrade completed, alongside a town hall 7 pack in the store. The narrator recorded more than two hours of play at town hall 4 with no pass, and estimates at least six or seven hours of total play to reach town hall 7. Home village leagues carry the same town hall 7 requirement.
+No pass surface existed at town hall 4, 5, or 6; it appeared immediately after the town hall 7 upgrade completed, alongside a town hall 7 pack in the store. Play continues for more than two hours at town hall 4 alone with no pass surface in sight, and reaching town hall 7 takes an estimated six or seven hours of total play. Home village leagues carry the same town hall 7 requirement.
 
 - The pass does not exist before town hall 7.
-- The narrator estimates six to seven hours of play to reach town hall 7.
+- Reaching town hall 7 takes an estimated six to seven hours of play.
 - Home village leagues share the same town hall 7 gate as the pass.
 
 ---
@@ -678,22 +678,22 @@ Gold and elixir can't be bought with money directly; they're bought with gems, w
 A further balance, league medals, buys items from a dedicated shop tab, and the user held none of it.
 
 - The balance was shown as 0 out of 2,500.
-- Prices observed include a giant gauntlet at 750 medals and 2.5 million gold for 15 medals.
+- Prices include a giant gauntlet at 750 medals and 2.5 million gold for 15 medals.
 - Medals are stated as a reward from clan war leagues, so the earning path was described but not exercised.
 
 ### O53. Second village currencies
 
-The second village runs its own currencies, described by the narrator as square gold tokens and amethyst droplets.
+The second village runs its own currencies, square gold tokens and amethyst droplets.
 
 - A star bonus in the second village paid 13,000 of each.
 - The piggy bank lists caps of 800,000 for each of the two second village currencies.
-- Gems are shared across both villages; the second village currencies weren't observed usable in the home village.
+- Gems are shared across both villages; the second village currencies are not usable in the home village.
 
 ### O54. Storage capacity constrains progression
 
 The amount that can be held is capped by storage buildings, so an upgrade costing more than current capacity can't be paid for until storage is raised first.
 
-- The narrator identifies needing a bigger gold storage as the blocker on a 25,000 gold town hall upgrade.
+- A bigger gold storage is the blocker on a 25,000 gold town hall upgrade until it's raised.
 - A storage upgrade is described as increasing capacity by 3,000 and raising hit points.
 
 ### O55. Treasury holds bonus loot separately
@@ -712,16 +712,16 @@ Winning multiplayer attacks pays a star bonus into the treasury, at a rate state
 
 ### O57. Defending earns resources in the second village
 
-In the second village, successful defense pays a resource, which the home village wasn't observed to do.
+In the second village, successful defense pays a resource; the home village has no equivalent reward for defending.
 
 - The message reads each star we win on defense earns us elixir.
-- The narrator repels an attack to 90 percent and records this as an improvement.
+- A repelled attack that reaches only 90 percent destruction still counts as a successful defense.
 
 ### O58. Obstacles occupy space and cost resources to clear
 
 Trees, stumps, and stones occupy buildable grid space and are removed only by paying.
 
-- Costs observed: 100 elixir for mushrooms, 1,000 elixir for a trunk, 20,000 gold for a stone.
+- Costs include 100 elixir for mushrooms, 1,000 elixir for a trunk, and 20,000 gold for a stone.
 - The same condition exists in the second village, additionally gated on the builder hall level.
 
 ### O59. Overflow converts into gems
@@ -729,7 +729,7 @@ Trees, stumps, and stones occupy buildable grid space and are removed only by pa
 Reward value exceeding what the user can hold is converted into gems rather than discarded.
 
 - The season end message reads any rewards exceeding inventory will be converted to gems.
-- The conversion rate itself was never shown.
+- The conversion rate itself isn't stated.
 
 ---
 
@@ -739,7 +739,7 @@ Clash of Clans' social layer sits entirely behind a rebuilt clan castle: nothing
 
 ### O60. Clan castle reinforcements and donation
 
-Clan members can send troops and spells to one another, and the receiving member holds them in the clan castle. The war information text states that troops are donated and enemies scouted on preparation day, and separate achievement criteria exist for troops donated and troops received, counting both directions. One achievement requires requesting reinforcements, which can't be done without joining a clan. A gold pass perk reduces the wait for a clan castle troop request by 90 percent. The transfer itself was not performed during any session.
+Clan members can send troops and spells to one another, and the receiving member holds them in the clan castle. The war information text states that troops are donated and enemies scouted on preparation day, and separate achievement criteria exist for troops donated and troops received, counting both directions. One achievement requires requesting reinforcements, which can't be done without joining a clan. A gold pass perk reduces the wait for a clan castle troop request by 90 percent.
 
 - Achievement criteria track troops donated and troops received separately.
 - Requesting reinforcements requires clan membership.
@@ -751,7 +751,7 @@ The clan finder opens by asking for a language, then lists clans by recent notic
 
 - The finder opens by asking for a language before showing any clans.
 - Filters include location, war frequency, member count, league requirement, and a family-friendly flag.
-- The narrator joined a clan directly from the notice list.
+- A clan can be joined directly from the notice list.
 
 ### O62. Clan creation settings
 
@@ -763,10 +763,10 @@ Creating a clan exposes the same attributes the finder searches on, set by the c
 
 ### O63. Clan chat and its rules
 
-Joining a clan opens a chat carrying a rules notice, asking members to respect each other, keep private information private, and report offensive players, with misconduct risking a ban. The first message observed in it was an unsolicited promotion of an external site offering free gems, which the narrator judged an attempted scam. Clan membership was shown as 2 of 15 online.
+Joining a clan opens a chat carrying a rules notice, asking members to respect each other, keep private information private, and report offensive players, with misconduct risking a ban. The first message in it was an unsolicited promotion of an external site offering free gems, consistent with a scam attempt. Clan membership was shown as 2 of 15 online.
 
 - The chat rules notice warns that misconduct may lead to a ban.
-- The first chat message observed was an external scam attempt.
+- The first chat message was an unsolicited promotion consistent with a scam attempt.
 - The clan showed 2 of 15 members online.
 
 ### O64. Player profile and social settings
@@ -779,12 +779,12 @@ The profile controls how much contact other players may make: clan invites can b
 
 ### O65. Clan wars
 
-A clan war is a two-day contest between two clans scored in stars, with a preparation day and a battle day, decided by whichever clan scores more stars and, in a tie, by total destruction. On preparation day, war bases are open for donation and can be redesigned. On battle day, only the best attack against each enemy base counts. War attacks don't reduce the shield or affect trophies, and bonus loot goes to the treasury at the end, mostly lost if the clan loses. The live war observed showed the user's clan at 24 stars against the opponent's 3.
+A clan war is a two-day contest between two clans scored in stars, with a preparation day and a battle day, decided by whichever clan scores more stars and, in a tie, by total destruction. On preparation day, war bases are open for donation and can be redesigned. On battle day, only the best attack against each enemy base counts. War attacks don't reduce the shield or affect trophies, and bonus loot goes to the treasury at the end, mostly lost if the clan loses. A clan war in progress showed the user's clan at 24 stars against the opponent's 3.
 
 - Wars run a fixed two-day cycle: preparation, then battle.
 - Only the best attack against each enemy base counts on battle day.
 - War attacks don't affect trophies or reduce the shield.
-- The live war observed showed a 24-to-3 star lead for the user's clan.
+- A clan war in progress showed a 24-to-3 star lead for the user's clan.
 
 ### O66. Clan war leagues and clan prizes
 
@@ -796,15 +796,14 @@ A recurring event places clans in a group of eight, paying glory, bonus loot, cl
 
 ### O67. Clan capital
 
-A third shared construction context, the clan capital, is funded by a currency members contribute. Capital gold is stated to construct and upgrade buildings and unlock districts, and a clan capital tab appears in the profile's achievements view. The clan capital itself was never entered during any session.
+A third shared construction context, the clan capital, is funded by a currency members contribute. Capital gold is stated to construct and upgrade buildings and unlock districts, and a clan capital tab appears in the profile's achievements view.
 
 - Capital gold, contributed by members, funds clan capital construction.
 - A clan capital tab exists in the profile, separate from the home village and builder base tabs.
-- The clan capital area was never opened during the sessions.
 
 ### O68. Top players and top clans
 
-Ranked lists present other players and clans in order, in both global and national scopes, plus a clan war league scope for clans. The leaderboard view holds four tabs: my league, my town hall, top players, and top clans. The global top entry observed showed 88 attacks won and roughly 5,814 trophies. The user's own position was unranked and did not appear on any list.
+Ranked lists present other players and clans in order, in both global and national scopes, plus a clan war league scope for clans. The leaderboard view holds four tabs: my league, my town hall, top players, and top clans. The global top entry showed 88 attacks won and roughly 5,814 trophies. The user's own position was unranked and did not appear on any list.
 
 - Four leaderboard tabs exist: my league, my town hall, top players, top clans.
 - The global top player entry showed 88 attacks won and about 5,814 trophies.
@@ -820,12 +819,12 @@ A social tab holds friends, friend requests, and player search, stating that Gam
 
 ### O70. Revenge attacks
 
-An attacker recorded in the defense log can be attacked back under different rules from an ordinary attack: targets are chosen from the defense log, magic shields don't stop revenge attacks, and the target will hold at least the same resources that were taken. During session 2, the narrator observed another player had completed a revenge attack against the user's village and replayed it.
+An attacker logged in the defense log can be attacked back under different rules from an ordinary attack: targets are chosen from the defense log, magic shields don't stop revenge attacks, and the target will hold at least the same resources that were taken. The defense log also records other players' completed attacks against the user's own village, each available to replay.
 
 - Revenge targets are chosen from the defense log.
 - Magic shields don't block revenge attacks.
 - The revenged-upon target holds at least the resources originally taken.
-- The narrator's own village was revenge-attacked by another player during the sessions.
+- The user's own village was itself revenge-attacked by another player, its replay available in the defense log.
 
 ---
 
@@ -846,7 +845,7 @@ The linked account is presented as a hub across the developer's other games, wit
 
 - The linking screens state that several identities can be switched between on one device, and friends' progress and status can be seen.
 - After linking, an ID rewards card offers 1,000 free points for activation, which leaves the game for a website.
-- The narrator records not knowing what the rewards points are for.
+- What the reward points are actually redeemable for isn't stated.
 
 ### O73. Creator and esports links leading out of the app
 
@@ -925,7 +924,7 @@ A cosmetics tab unlocked at town hall 4 sells alternative presentations of the v
 - Standard sceneries cost $3.49; two occasion-tied sceneries cost $16.99.
 - The current season's scenery is sold separately for $4.99 with an in-app preview.
 - Town hall 7 brought five named hero skins into the store.
-- No cosmetic was observed to change a rule, cost, or outcome.
+- No cosmetic changes a rule, cost, or outcome.
 
 ### O83. Magic shields sold in gems
 
@@ -948,7 +947,7 @@ A reserve accumulates bonus loot from battles during the season and is opened at
 
 - Stated caps: 0 to 2 million gold, 0 to 2 million elixir, 0 to 20,000 dark elixir, and 0 to 800,000 of each second village currency.
 - The silver lane carries no multiplier.
-- The narrator hadn't encountered the reserve before seeing it on the pass screen.
+- The reserve isn't surfaced anywhere else in the game outside the pass screen.
 
 ### O86. Purchase disclosure routed to a website
 
@@ -957,12 +956,12 @@ The pass info button leads to the developer's website rather than an in-game exp
 - The page shown covers in-app purchases, discounts, and offers.
 - The same disclosure was made at launch, before play began.
 
-### O87. No separate bonus observed on a first purchase
+### O87. No separate bonus on a first purchase
 
-A purchase was made during the sessions, and no benefit separate from the purchased contents was observed to follow from its being the first.
+Making a purchase brings no benefit separate from the purchased contents; no first-purchase bonus is attached to it.
 
-- Session 2 records only the change in what the store offered after a builder pack was purchased.
-- No message, grant, or claim state tied to a first purchase was seen.
+- The only change following a purchase shows up in what the store subsequently offers, such as after a builder pack is bought.
+- No message, grant, or claim state is tied to a first purchase.
 
 ---
 
@@ -979,7 +978,7 @@ Reopening after time away produces a summary of what happened in the user's abse
 
 ### O89. Shield countdown on the main screen
 
-A shield icon with a running countdown sits at the top of the screen from the first session, showing how long the village's resources remain protected.
+A shield icon with a running countdown sits at the top of the screen from the start, showing how long the village's resources remain protected.
 
 - The initial state was 2 days 23 hours, pulsing for attention.
 - The stated explanation is that magic shields protect resources from attacks in regular battles.
@@ -997,18 +996,17 @@ A calendar lists what's running now, what starts next, and what's scheduled acro
 
 - Today's event was clan war leagues, with 8 days 9 hours remaining.
 - The upcoming event was a raid weekend starting in 8 hours 58 minutes.
-- None of the calendar's events was entered during the sessions.
 
 ### O92. Season boundary
 
-A season ended during the sessions, paying out accumulated rewards, and a new one opened with its own countdown.
+A season ends, paying out accumulated rewards, and a new one opens with its own countdown.
 
 - The end message granted gold, elixir, second village tokens, amethyst droplets, and bank rewards collected.
 - The new season was stated as ending in 27 days and 19 hours.
 
 ### O93. Notification permission
 
-The app requests permission to send notifications during the first session, at the point the first town hall upgrade is started.
+The app requests permission to send notifications at the point the first town hall upgrade is started.
 
 - What notifications would be sent wasn't stated.
 
@@ -1016,15 +1014,15 @@ The app requests permission to send notifications during the first session, at t
 
 Most purchasable offers carry a visible countdown to their withdrawal.
 
-- Observed remaining times ranged from just under two days to five days.
+- Remaining times range from just under two days to five days.
 - The builder pack carried no countdown while the others did.
 
 ### O95. Long timers and idle builders
 
-Once upgrade durations reach hours, play can't continue in the intended direction until they finish.
+Once upgrade durations reach hours, there's nothing left to do but wait for them to finish, or pay gems to skip ahead.
 
-- The narrator names a 30 minute upgrade as the first that would allow leaving and coming back.
-- Session 3 ends with the narrator stopping because there's nothing to do but wait.
+- A 30-minute upgrade is long enough to leave the app and come back once it's done.
+- Longer town hall upgrades leave no action available beyond waiting or paying a gem-priced skip.
 
 ### O96. Task card cooldown
 
@@ -1033,9 +1031,8 @@ The season track's next task card is released on a timer rather than on demand.
 - The card stated the next task card unlocks in 19 hours and 20 minutes.
 - Tasks on the current card can be completed any number of times in the meantime.
 
-### O97. Rating prompt on the second visit
+### O97. Rating prompt on a return visit
 
-On the second session, the app asked whether the user was enjoying it.
+The app asks whether the user is enjoying it, appearing on a return visit rather than at first launch.
 
-- The prompt appeared after most of the available surfaces had been seen.
-- What the prompt led to wasn't recorded.
+- The prompt appears after most of the app's other surfaces have already been shown.

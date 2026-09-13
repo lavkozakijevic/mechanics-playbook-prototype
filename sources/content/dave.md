@@ -35,16 +35,16 @@ Dave is a medium complexity system built around one decision made during onboard
 
 ### Earning Tasks
 
-**What was observed:** Inside its Grow tab, Dave runs a catalogue of paid surveys supplied by a third party, inBrain AI, with earnings paid directly into the Dave checking account. Every survey in the list carries a payout and an estimated completion time before the user opens it: the two quick surveys observed paid $0.45 for about 8 minutes and $0.50 for about 10, and three recommended surveys ran roughly 40, 14 and 20 minutes, though their payout amounts weren't legible in the session. A running total of the month's earnings sits above the list, and the catalogue itself is split into a recommended set and a quick set.
+**What was observed:** Inside its Grow tab, Dave runs a catalogue of paid surveys supplied by a third party, inBrain AI, with earnings paid directly into the Dave checking account. Every survey in the list carries a payout and an estimated completion time before the user opens it: two quick surveys paid $0.45 for about 8 minutes and $0.50 for about 10, and three recommended surveys ran roughly 40, 14 and 20 minutes, though their payout amounts aren't legible in the list. A running total of the month's earnings sits above the list, and the catalogue itself is split into a recommended set and a quick set.
 
 **How it is presented:** The survey feature sits at the top of the Grow tab, carrying a "new" tag and pitched as earning cash instantly, with the user's savings goals below it and a larger side hustle section further down. Before any survey begins, Dave frames it as three steps: start with an intro survey, unlock higher paying surveys by continuing, and watch earnings land in checking, though it doesn't say what actually triggers that unlock. Every survey opens with a warning that answering carefully secures the full reward, followed by the topic and approximate length restated right before starting.
 
-**What is worth noting:** Dave discloses the possibility of falling short before a user ever starts: not qualifying for a survey is said to end it early with a partial reward, stated upfront rather than only at the point of failure, though no amount is attached to that partial reward. In the one instance observed, a survey did end this way, with Dave attributing the outcome to the user's own answers and the survey afterward gone from the list; whether that instance actually paid the promised partial reward isn't shown. An intro questionnaire collecting seven attributes runs before any paid survey is available, closing with a celebratory animation rather than any stated payment, and Dave doesn't say whether the questionnaire itself pays. The same survey feature reappears as the featured, first listed item inside Grow's separate job board, ahead of third-party listings for outside work.
+**What is worth noting:** Dave discloses the possibility of falling short before a user ever starts: not qualifying for a survey is said to end it early with a partial reward, stated upfront rather than only at the point of failure, though no amount is attached to that partial reward. In practice, a survey did end this way, with Dave attributing the outcome to the user's own answers and the survey afterward gone from the list; whether that instance actually paid the promised partial reward isn't shown. An intro questionnaire collecting seven attributes runs before any paid survey is available, closing with a celebratory animation rather than any stated payment, and Dave doesn't say whether the questionnaire itself pays. The same survey feature reappears as the featured, first listed item inside Grow's separate job board, ahead of third-party listings for outside work.
 
 **Key findings:**
 
 - Surveys are supplied by a named third party, inBrain AI, and pay into Dave's own checking account.
-- Quick surveys observed: $0.45 for about 8 minutes, $0.50 for about 10 minutes.
+- Quick surveys include: $0.45 for about 8 minutes, $0.50 for about 10 minutes.
 - Three recommended surveys ran about 40, 14 and 20 minutes each.
 - A monthly earnings total is shown above the survey list.
 - The catalogue is split into recommended and quick sections.
@@ -575,7 +575,7 @@ Starting a survey, Dave warns that answering carefully secures the full reward, 
 
 - The warning ties answer quality directly to reward size.
 - Topic and length are restated right before starting.
-- The survey observed here covered food and beverage, about 10 minutes.
+- One available survey covered food and beverage, about 10 minutes.
 
 ### O64. Disqualified mid-survey
 
@@ -735,7 +735,7 @@ Dave's notification prompt, raised right after refusing the advance, bundles acc
 Dave lets users set a low balance alert on a predicted, not just actual, shortfall, and lists 6 notification categories, mostly push, mixing account alerts with promotional ones.
 
 - 6 notification categories are listed.
-- The low balance alert threshold seen here is $40.
+- The low balance alert threshold is $40.
 - It's predictive, worded around a predicted shortfall rather than an actual one.
 - A daily balance alert exists as its own category, separate from the low balance alert.
 - Promotional categories sit in the same list as account alerts.

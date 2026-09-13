@@ -999,11 +999,11 @@ const V41_APP_META = {
         "Cleo runs its budget, bills, categorization, and chat-persona features through a set of swipeable cards on its chat home.",
       goals: "Cleo sets a monthly spending limit with category limits, and previews a 21-day challenge against one spending habit.",
       access: "Cleo restricts its cash advance and paid plans by the user's state, and gates its wallet behind an identity and age check.",
-      earning: "Cleo offers automatic saving through its wallet and save tab, gated behind setup the session doesn't complete.",
+      earning: "Cleo offers automatic saving through its wallet and save tab, gated behind setup that isn't completed here.",
       social:
         "Cleo has no feature that lets a user see, interact with, compare against, or team up with another identified person.",
       growth: "Cleo asks for an app store review at the end of its roast and hype sequences.",
-      money: "Cleo pitches Cleo Plus and Cleo Builder with a plan comparison and FAQ, neither purchasable in this session.",
+      money: "Cleo pitches Cleo Plus and Cleo Builder with a plan comparison and FAQ, neither purchasable under this account's state restriction.",
       returns:
         "Cleo asks to send notifications and tells users to check in daily, before scheduling spending reviews days apart.",
     },
@@ -1020,7 +1020,7 @@ const V41_APP_META = {
       goals: "Capybara Go! turns gold and materials into talent levels, a rank title, equipment, and pets, each with its own upgrade path.",
       access: "Capybara Go! gates runs behind an energy balance and gates nearly everything else behind chapter clears and survival-day thresholds.",
       earning: "Capybara Go! runs a large number of named currencies and materials alongside chests, tasks, and timed events built around collecting them.",
-      social: "Capybara Go! offers one ranking list from the first session, with Friends, Guilds, and Arena still locked behind later chapters.",
+      social: "Capybara Go! offers one ranking list available from the very start, with Friends, Guilds, and Arena still locked behind later chapters.",
       growth: "Capybara Go! offers one growth-facing feature, linking the game account to an external Habby ID.",
       money: "Capybara Go! charges through packs, cards, and triggered offers across a four-tab store, alongside ads and a permanent ad-removal purchase.",
       returns:
