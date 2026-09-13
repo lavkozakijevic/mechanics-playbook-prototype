@@ -67,23 +67,6 @@ Canva is a medium complexity system whose spine is export: the production loop, 
 
 **Screenshots needed:** the credit purchase screen with its eight-package price ladder; the zero-balance state next to the one-credit requirement.
 
-### Group Membership
-
-**What was observed:** Canva maintains teams, an entity a user can belong to more than one of at once, administered through an invitation-based people management screen in the account area.
-
-**How it is presented:** Teams sit in the account area alongside orders, invoices, subscription and web domains, with the people management screen showing who has been invited into the team.
-
-**What is worth noting:** Canva doesn't state what belonging to a team actually changes. No member-specific content, permission, or shared workspace state is named anywhere as a consequence of membership, which leaves teams as a maintained relationship without a demonstrated effect. This sits in contrast to Canva's per-design sharing, which is a permission list scoped to one file rather than a standing group membership. The two look adjacent but are structurally different, and only one of them is a group at all.
-
-**Key findings:**
-
-- The account area lists the teams a user belongs to and allows membership in more than one.
-- Team membership is created and administered through invitations, via a people management screen.
-- Canva doesn't state what membership changes beyond the relationship itself.
-- Per-design sharing is a separate, file-scoped permission list rather than the team structure.
-
-**Screenshots needed:** the account area's teams list; the people management and invitation screen.
-
 ### Shareable Win
 
 **What was observed:** Canva composes a passed certification test into a certificate stating the course, the holder, the date and a credential ID, then offers more than one way to send it out, sharing to social, downloading as an image, and an automatic emailed copy.

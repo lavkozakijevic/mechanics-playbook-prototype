@@ -143,17 +143,31 @@ the order they run:
   `## Mechanics` in the content file. A tag with no write-up would otherwise
   render as a chip linking to nothing on the summary page.
 - **Composed-block-with-no-applied-tag** (warn, reverse of the above). A
-  write-up exists but nothing tags it — stale content, not a broken page, so
-  it warns rather than blocking.
-- **Confidence gate** (`tagPublishes`, silent unless it changes something).
-  A tag's observations are only published — chip attached, block rendered —
-  if at least one of its Pass-two blocks clears "strongly supported" or
-  better. "Plausible" and "unresolved" alone don't publish. This is why
-  Canva's Group Membership and Tiimo's Personal Data Reflection each got a
-  composed write-up on the summary page (that part isn't gated) but carry no
-  tag chip on any observation (that part is) — the write-up is allowed to
-  exist and say what the evidence supports; the gate only stops a weakly
-  evidenced tag from being asserted as if confirmed.
+  write-up exists but nothing tags it — normally stale content left behind
+  by a re-derivation, not a broken page, so it warns rather than blocking.
+  It also fires for a tag that never cleared the confidence gate and so
+  never became "applied" at all — Canva's Group Membership does this on
+  every build right now (see the confidence gate note just below) — which
+  is the same warning text but a different cause; the fix in that case is
+  to drop the block, not to treat the warning as describing intended
+  behavior.
+- **Confidence gate** (`tagPublishes`). A tag needs at least one Pass-two
+  block that clears "strongly supported" or better to become an *applied*
+  tag at all. "Plausible" and "unresolved" alone don't clear it — and a
+  tag that doesn't clear it isn't partially published: `tagsById` skips it
+  entirely (`if (!passing.length) continue`), so it never reaches any
+  observation's `tags`, never becomes an applied-tag name, and correctly
+  gets no composed block either — a sub-bar tag should have no page
+  presence at all, chip or prose. Tiimo's Personal Data Reflection (Pass
+  two confidence `plausible`) is the clean example: `tiimo.md` has no
+  Personal Data Reflection block, and `mechanicWriteups` in the generated
+  JSON has exactly the 5 entries that match its 5 applied tags, not 6.
+  Canva's Group Membership sits at the same confidence and is just as
+  unpublished — but `canva.md` still carries a written Group Membership
+  block despite that, which isn't a second sanctioned shape for a sub-bar
+  tag, it's exactly the case the check just above warns about. Don't take
+  Canva's page as a model for how a sub-bar tag is supposed to render;
+  Tiimo's is.
 - **Multi-block consolidation** (warn on disagreement). One tag name can
   span several Pass-two blocks (an entry that came up more than once with
   different confidence each time). Blocks are unioned if they clear the

@@ -16,6 +16,8 @@ This stage produces plain text for review. It does not build anything.
 >
 > [app] carries these applied tags: [mechanic 1], [mechanic 2], [mechanic 3].
 >
+> Applied means the tag cleared the publishing bar: at least one Pass two block at "strongly supported" or better. A tag that never clears it, however plausible, is not applied — it gets no mechanic block and does not belong in this list, however much material it has in the section pages. The number of mechanic blocks in the summary page must equal the number of applied tags listed here, every time. If those two counts don't match, one of them is wrong.
+>
 > **Deliver the summary page in full,** in this order. Note that the mechanic blocks are composed writing and the section pages are the record. They are different jobs and the difference matters:
 >
 > 1. App description. Three or four sentences on what [app] is and what its design is organised around, drawn from the system view.
