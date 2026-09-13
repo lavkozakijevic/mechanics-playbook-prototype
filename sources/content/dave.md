@@ -75,7 +75,7 @@ Dave is a medium complexity system built around one decision made during onboard
 
 ## Onboarding and first run
 
-This section covers everything between opening Dave for the first time and reaching the empty home screen. It runs through the pitch before signup, identity verification, and connecting a bank account and debit card.
+This section covers everything from Dave's first screen through creating the checking account itself and reaching the first funding prompt: the pitch before signup, identity verification, connecting a bank account and debit card, and opening the checking account.
 
 ### O1. Pre-account pitch
 
@@ -194,12 +194,6 @@ Dave greets the user after connecting with a welcoming message and a single butt
 - The main call to action on first entry is opening a second account, not using the one just connected.
 - The navigation has 4 tabs.
 
----
-
-## Core loop and automation
-
-This section covers everything that runs through Dave once the checking account exists: opening it, verifying identity, and then moving money in, out, and between accounts through direct deposit, round-ups, checks, cash, and bill pay.
-
 ### O17. Checking account pitch
 
 Dave pitches its checking account first as a set of removals, no minimum, no overdraft fees, no monthly fees, and no balance requirements, before asking for any identity information.
@@ -264,6 +258,12 @@ As soon as the checking account exists, Dave offers setting up direct deposit wi
 - 3 funding routes are presented together with their relative speeds.
 - Direct deposit is the only route pitched with a speed advantage.
 - The option to defer is on the same screen.
+
+---
+
+## Core loop and automation
+
+This section covers everything Dave repeats or automates once the checking account exists: the banking utility hub (direct deposit, round-ups, transfers, checks, cash, bill pay), the interest Dave pays on its own accounts, the Extra Cash advance mechanic and its own opening flow, and the paid surveys and side hustle job board inside the Grow tab.
 
 ### O26. Balance widget with actions
 
@@ -394,13 +394,122 @@ Dave offers 3 ways to pay bills: copying debit card details for online payment, 
 - 3 payment routes lead to the same outcome.
 - Each identifier can be copied on its own.
 
+### O43. Interest without applying
+
+Dave announces interest on checking and Goals as already active, without an application, showing 4% APY on both.
+
+- The rate shown on both accounts is 4% APY.
+- The benefit is announced as already active, not offered as something to opt into.
+- The conditions behind that rate aren't shown up front.
+
+### O44. How the advance works
+
+Dave explains that advances arrive in 2 to 3 days for no fee or instantly for a small fee, that taking one puts the extra cash balance negative, and that it settles against the next paycheck. The account can also just hold money.
+
+- The negative balance is described as the mechanism, not as a warning.
+- Settlement is tied to the next paycheck.
+- 2 delivery speeds carry 2 different prices.
+- The account can hold money as well as extend an advance.
+
+### O45. Opening extra cash
+
+Dave's extra cash account opens with a single checkbox and then a wait filled with more value propositions, before confirming the account is set up.
+
+- A single checkbox covers 3 documents, the same pattern used for opening checking.
+- The wait shows propositions again rather than status detail.
+
+### O46. Grow tab overview
+
+The Grow tab leads with Dave's survey feature, tagged as new and pitched as earning cash instantly, with the user's goals below it and a larger side hustle section beneath those.
+
+- 3 features share the tab: surveys, goals, and side hustle.
+- The survey feature carries a new tag.
+- Dave frames earnings from both surveys and side hustle work as landing in its own checking account.
+
+### O47. How survey earning works
+
+Dave frames surveys as 3 steps: start with an intro survey, unlock higher paying surveys by continuing, and see earnings land in checking. It tells users up front that not qualifying for a survey ends it early with a partial reward. The surveys themselves come from a named third party, inBrain AI.
+
+- Continuing is said to unlock higher paying surveys, though Dave doesn't say what triggers the unlock.
+- Disqualification is disclosed before the first survey, not just when it happens.
+- A partial reward is promised for disqualification, without an amount attached.
+
+### O48. Closing the survey intro
+
+Dismissing the survey introduction from the corner control takes the user straight to the survey list rather than back to the previous tab.
+
+- The dismiss control moves forward, not back.
+- Taking the intro survey and dismissing the intro both land on survey content.
+
+### O49. The survey list
+
+Dave's survey list shows a payout and estimated time for each survey, a running total of the month's earnings, and splits surveys into a recommended set and a quick set.
+
+- Every survey lists a payout and a duration.
+- A monthly earnings total sits above the list.
+- 3 recommended surveys ran about 40, 14, and 20 minutes. 2 quick surveys paid $0.45 for about 8 minutes and $0.50 for about 10.
+- Recommendation applies to only part of the list.
+
+### O50. The profiling questionnaire
+
+Before any paid survey, Dave runs the user through a profiling questionnaire covering gender, postal code, marital status, education, employment status, race, and birth date, then marks the finish with a confetti animation.
+
+- 7 attributes are collected before any paid survey is taken.
+- Several questions, including marital status and race, offer an option to skip.
+- Finishing the profile is marked with a celebration animation rather than a stated reward.
+- Dave doesn't say whether the intro questionnaire itself pays anything.
+
+### O51. An accuracy warning
+
+Starting a survey, Dave warns that answering carefully secures the full reward, then names the topic and approximate length before beginning.
+
+- The warning ties answer quality directly to reward size.
+- Topic and length are restated right before starting.
+- One available survey covered food and beverage, about 10 minutes.
+
+### O52. Disqualified mid-survey
+
+Partway through a survey, Dave can end it early, telling the user one of their answers indicated they weren't the intended respondent, and the survey disappears from the list afterward.
+
+- The instance ends before completion.
+- Dave attributes the outcome to the user's own answers.
+- The disqualified survey no longer appears in the available list.
+
+### O53. Survey FAQ
+
+Dave publishes a survey FAQ covering how surveys work and why users get disqualified.
+
+- Disqualification comes up often enough to have its own FAQ entry.
+
+### O54. Location permission request
+
+Tapping into the side hustle section first raises a permission prompt where Dave says it uses location to find ATMs and protect users from fraud.
+
+- The stated reasons for the permission, ATMs and fraud protection, aren't what this surface is actually for.
+- The prompt appears at the entrance to the job feature, not the ATM feature.
+
+### O55. Side hustle categories
+
+Dave introduces Side Hustle by asking whether the user wants quick cash from a gig or a new job, then narrows straight to 6 categories: flexible hours, part time, gig jobs, work from home, seasonal, and temp jobs.
+
+- 6 categories are offered.
+- The framing covers both supplementary income and full replacement work.
+
+### O56. The job list
+
+Selecting a category opens a job list with sorting and a distance filter, and Dave features its own survey feature at the top, ahead of third-party listings for delivery, therapy, security, seasonal retail, and event work.
+
+- Dave's own earning surface occupies the featured spot in what's otherwise a third-party job list.
+- The distance filter is likely what the earlier location permission enables, though Dave doesn't show the two connected directly.
+- The listings shown are for the US market.
+
 ---
 
 ## Goals and progression
 
 This section covers what happens once round-ups are turned on: how the first goal gets created, personalized, extended with a second goal, and ended.
 
-### O43. Dave suggests the first goal
+### O57. Dave suggests the first goal
 
 Once the Goals account is open, Dave hands the user a goal that's already running, round-ups switched on and a savings target of $75 set by default. It invites the user to personalize the title, amount, and end date afterward, and offers a recurring deposit as a way to reach it faster.
 
@@ -409,14 +518,14 @@ Once the Goals account is open, Dave hands the user a goal that's already runnin
 - Round-up is already switched on for this goal.
 - Title, amount, and end date are editable.
 
-### O44. Personalizing an empty goal
+### O58. Personalizing an empty goal
 
 Dave lets users edit the title, amount, and banner image of a goal from its detail screen, before any money has been added to it.
 
 - The banner image is editable right from the goal detail screen.
 - Personalization is offered while the goal balance still sits at zero.
 
-### O45. Goals balance and progress
+### O59. Goals balance and progress
 
 Dave shows the Goals balance alongside a 4% APY figure and a progress bar tracking how close the user is to their target.
 
@@ -424,14 +533,14 @@ Dave shows the Goals balance alongside a 4% APY figure and a progress bar tracki
 - A progress bar tracks position against the goal amount.
 - Dave doesn't say what happens when a goal actually reaches its target.
 
-### O46. Shared ceiling across goals
+### O60. Shared ceiling across goals
 
 Dave caps a second goal's amount based on what's already committed elsewhere: an overall $25,000 limit across goals, reduced by whatever's already set aside.
 
 - The overall limit across goals is $25,000.
 - The maximum offered for a new goal is reduced by whatever's already committed to existing goals.
 
-### O47. Goal image from a photo library
+### O61. Goal image from a photo library
 
 Dave lets users choose a goal's banner image from an external photo library, Unsplash, rather than a built-in set.
 
@@ -439,7 +548,7 @@ Dave lets users choose a goal's banner image from an external photo library, Uns
 - It's attached to the individual goal, not to the account or the profile.
 - Choosing an image doesn't change any goal rule, limit, or rate.
 
-### O48. Small first-deposit presets
+### O62. Small first-deposit presets
 
 Dave's first deposit prompt encourages starting small, offering presets of $5, $25, and $50, a custom amount, and the option to defer.
 
@@ -447,14 +556,14 @@ Dave's first deposit prompt encourages starting small, offering presets of $5, $
 - The copy addresses hesitation rather than pitching a benefit.
 - Choosing to defer still leaves the goal created.
 
-### O49. Ending a goal is permanent
+### O63. Ending a goal is permanent
 
 Dave's end-goal control warns that ending a goal deactivates it permanently, pauses round-ups, and cancels any recurring transfers into it, and that it can't be undone. Users choose to keep it or end it.
 
 - 3 consequences are stated together: permanent deactivation, round-ups paused, recurring transfers cancelled.
 - Dave states plainly that this can't be undone.
 
-### O50. Restart offer after ending
+### O64. Restart offer after ending
 
 Dave confirms an ended goal stays visible in a past goals list, then immediately offers to restart round-ups by creating a new goal.
 
@@ -466,32 +575,16 @@ Dave confirms an ended goal stays visible in a past goals list, then immediately
 
 ## Access and eligibility
 
-This section covers the Extra Cash advance: how Dave pitches it, explains how it works, and gates it behind eligibility.
+This section covers what determines whether a user can reach the Extra Cash advance at all: the tab's own headline, the eligibility gate itself, what does and doesn't affect it, and how Dave publishes its eligibility rules.
 
-### O51. Advance tab headline
+### O65. Advance tab headline
 
 Dave's Extra Cash tab opens with the same $500 advance headline as the pre-account screen, asking users to open 2 accounts to get started.
 
 - The same $500 figure that opens the unauthenticated app opens this tab too.
 - Getting access is conditioned on opening 2 accounts.
 
-### O52. How the advance works
-
-Dave explains that advances arrive in 2 to 3 days for no fee or instantly for a small fee, that taking one puts the extra cash balance negative, and that it settles against the next paycheck. The account can also just hold money.
-
-- The negative balance is described as the mechanism, not as a warning.
-- Settlement is tied to the next paycheck.
-- 2 delivery speeds carry 2 different prices.
-- The account can hold money as well as extend an advance.
-
-### O53. Opening extra cash
-
-Dave's extra cash account opens with a single checkbox and then a wait filled with more value propositions, before confirming the account is set up.
-
-- A single checkbox covers 3 documents, the same pattern used for opening checking.
-- The wait shows propositions again rather than status detail.
-
-### O54. Not eligible yet
+### O66. Not eligible yet
 
 Dave declines the advance right after the account is created, telling users they're "not yet" eligible and to check back the next day, offering a notification instead.
 
@@ -500,14 +593,14 @@ Dave declines the advance right after the account is created, telling users they
 - A notification opt-in is offered in place of the benefit itself.
 - This message shows up in more than one place in the tab.
 
-### O55. Funding doesn't help eligibility
+### O67. Funding doesn't help eligibility
 
 Dave tells users that adding money to the extra cash account doesn't increase the advance amount and won't affect eligibility, though a deposit option stays available anyway.
 
 - This decoupling is stated up front, right at the deposit screen.
 - Deposits remain available even though Dave says they won't help.
 
-### O56. Eligibility tied to salary account
+### O68. Eligibility tied to salary account
 
 Dave ties advance eligibility to the connected bank account and asks again, at the point of refusal, whether the user is paid into a different bank.
 
@@ -515,7 +608,7 @@ Dave ties advance eligibility to the connected bank account and asks again, at t
 - This prompt specifically targets the account the user's salary lands in.
 - It's the same request made during onboarding, resurfacing at the point of refusal.
 
-### O57. Eligibility answered as FAQ
+### O69. Eligibility answered as FAQ
 
 Dave publishes 10 FAQ questions about Extra Cash covering eligibility, receiving and repaying an advance, and fees, rather than showing these rules directly in the interface.
 
@@ -524,101 +617,9 @@ Dave publishes 10 FAQ questions about Extra Cash covering eligibility, receiving
 
 ---
 
-## Earning and utility
+## Economy and resources
 
-This section covers the Grow tab: paid surveys, a profiling questionnaire, and a job board. It's where Dave lets users add money to their checking account without borrowing or saving.
-
-### O58. Grow tab overview
-
-The Grow tab leads with Dave's survey feature, tagged as new and pitched as earning cash instantly, with the user's goals below it and a larger side hustle section beneath those.
-
-- 3 features share the tab: surveys, goals, and side hustle.
-- The survey feature carries a new tag.
-- Dave frames earnings from both surveys and side hustle work as landing in its own checking account.
-
-### O59. How survey earning works
-
-Dave frames surveys as 3 steps: start with an intro survey, unlock higher paying surveys by continuing, and see earnings land in checking. It tells users up front that not qualifying for a survey ends it early with a partial reward. The surveys themselves come from a named third party, inBrain AI.
-
-- Continuing is said to unlock higher paying surveys, though Dave doesn't say what triggers the unlock.
-- Disqualification is disclosed before the first survey, not just when it happens.
-- A partial reward is promised for disqualification, without an amount attached.
-
-### O60. Closing the survey intro
-
-Dismissing the survey introduction from the corner control takes the user straight to the survey list rather than back to the previous tab.
-
-- The dismiss control moves forward, not back.
-- Taking the intro survey and dismissing the intro both land on survey content.
-
-### O61. The survey list
-
-Dave's survey list shows a payout and estimated time for each survey, a running total of the month's earnings, and splits surveys into a recommended set and a quick set.
-
-- Every survey lists a payout and a duration.
-- A monthly earnings total sits above the list.
-- 3 recommended surveys ran about 40, 14, and 20 minutes. 2 quick surveys paid $0.45 for about 8 minutes and $0.50 for about 10.
-- Recommendation applies to only part of the list.
-
-### O62. The profiling questionnaire
-
-Before any paid survey, Dave runs the user through a profiling questionnaire covering gender, postal code, marital status, education, employment status, race, and birth date, then marks the finish with a confetti animation.
-
-- 7 attributes are collected before any paid survey is taken.
-- Several questions, including marital status and race, offer an option to skip.
-- Finishing the profile is marked with a celebration animation rather than a stated reward.
-- Dave doesn't say whether the intro questionnaire itself pays anything.
-
-### O63. An accuracy warning
-
-Starting a survey, Dave warns that answering carefully secures the full reward, then names the topic and approximate length before beginning.
-
-- The warning ties answer quality directly to reward size.
-- Topic and length are restated right before starting.
-- One available survey covered food and beverage, about 10 minutes.
-
-### O64. Disqualified mid-survey
-
-Partway through a survey, Dave can end it early, telling the user one of their answers indicated they weren't the intended respondent, and the survey disappears from the list afterward.
-
-- The instance ends before completion.
-- Dave attributes the outcome to the user's own answers.
-- The disqualified survey no longer appears in the available list.
-
-### O65. Survey FAQ
-
-Dave publishes a survey FAQ covering how surveys work and why users get disqualified.
-
-- Disqualification comes up often enough to have its own FAQ entry.
-
-### O66. Location permission request
-
-Tapping into the side hustle section first raises a permission prompt where Dave says it uses location to find ATMs and protect users from fraud.
-
-- The stated reasons for the permission, ATMs and fraud protection, aren't what this surface is actually for.
-- The prompt appears at the entrance to the job feature, not the ATM feature.
-
-### O67. Side hustle categories
-
-Dave introduces Side Hustle by asking whether the user wants quick cash from a gig or a new job, then narrows straight to 6 categories: flexible hours, part time, gig jobs, work from home, seasonal, and temp jobs.
-
-- 6 categories are offered.
-- The framing covers both supplementary income and full replacement work.
-
-### O68. The job list
-
-Selecting a category opens a job list with sorting and a distance filter, and Dave features its own survey feature at the top, ahead of third-party listings for delivery, therapy, security, seasonal retail, and event work.
-
-- Dave's own earning surface occupies the featured spot in what's otherwise a third-party job list.
-- The distance filter is likely what the earlier location permission enables, though Dave doesn't show the two connected directly.
-- The listings shown are for the US market.
-
-### O69. Applications leave Dave
-
-Opening a listing shows the employer's own details, and applying takes the user out to the employer's website. Dave doesn't process the application itself.
-
-- The application is completed entirely outside Dave.
-- Dave doesn't show a path back in after applying.
+(No observations in this app.)
 
 ---
 
@@ -628,18 +629,25 @@ Opening a listing shows the employer's own details, and applying takes the user 
 
 ---
 
-## Growth
+## Reach beyond the app
 
-This section covers Dave's referral program: where it sits in the app, what it pays, and the steps involved in earning it.
+This section covers what takes a Dave user outside the app: job applications from the side hustle board, and the referral program, where it sits, what it pays, and the steps involved in earning it.
 
-### O70. Referral leads settings
+### O70. Applications leave Dave
+
+Opening a listing shows the employer's own details, and applying takes the user out to the employer's website. Dave doesn't process the application itself.
+
+- The application is completed entirely outside Dave.
+- Dave doesn't show a path back in after applying.
+
+### O71. Referral leads settings
 
 Dave places a prominent referral button at the very top of settings, ahead of an accounts group, an info group, an app settings group, and a support group.
 
 - Referral outranks account, profile, security, and support entries in the settings hierarchy.
 - 4 groups follow it.
 
-### O71. A bigger next advance
+### O72. A bigger next advance
 
 Dave pitches referral as a way to earn up to $100 more on a second advance, paying out once the user and their friend have both repaid an advance.
 
@@ -649,7 +657,7 @@ Dave pitches referral as a way to earn up to $100 more on a second advance, payi
 - It's tied specifically to the user's second advance.
 - It requires repayment by both parties, not just a friend signing up.
 
-### O72. Conditions on the boost
+### O73. Conditions on the boost
 
 Dave qualifies the offer directly below it: the boost amount can change based on eligibility and approval amount, and an earned boost expires after 60 days.
 
@@ -657,7 +665,7 @@ Dave qualifies the offer directly below it: the boost amount can change based on
 - Once earned, the boost expires after 60 days.
 - The expiry applies to the boost after it's earned, not to the offer itself.
 
-### O73. How to earn the boost
+### O74. How to earn the boost
 
 Dave lays out 4 steps: take an advance and spend it on gas, bills, or groceries; share a referral link; wait for the friend to repay an advance; then collect 20% more on the next advance. Referral FAQs answer what the boost is, when it lands after a friend signs up, and whether it has to be repaid.
 
@@ -668,11 +676,11 @@ Dave lays out 4 steps: take an advance and spend it on gas, bills, or groceries;
 
 ---
 
-## Money
+## Monetization
 
-This section covers everything Dave charges for or pays interest on: membership, advance delivery, funding, cash and check handling, and the rate on 2 of its accounts.
+This section covers everything Dave charges for: membership, advance delivery, funding, and cash and check handling.
 
-### O74. Membership fee, pause anytime
+### O75. Membership fee, pause anytime
 
 Dave's membership entry in settings shows the next bill date, a $1 monthly charge, and the payment method, with an easy pause and resume.
 
@@ -680,7 +688,7 @@ Dave's membership entry in settings shows the next bill date, a $1 monthly charg
 - Pausing is offered, not just cancelling outright.
 - Resuming is available from the same screen.
 
-### O75. Speed is what costs money
+### O76. Speed is what costs money
 
 Across the app, Dave describes the advance itself without interest, pricing speed instead: 2 to 3 days for no fee, or instant for a small fee.
 
@@ -688,33 +696,25 @@ Across the app, Dave describes the advance itself without interest, pricing spee
 - The paid path is instant.
 - No specific fee amount for instant delivery is stated anywhere.
 
-### O76. Funding priced by source
+### O77. Funding priced by source
 
 Dave charges nothing to add money from a bank account, but takes 1% through Apple Pay.
 
 - The free source is also the slower one, arriving in 4 to 5 business days.
 - The priced source is the instant wallet route.
 
-### O77. Cash deposits priced by location
+### O78. Cash deposits priced by location
 
 Dave makes cash deposits free at 2 named retailers using its barcode, with a possible fee elsewhere.
 
 - The free route requires both a specific retailer and the in-app barcode.
 
-### O78. Check handling priced by speed
+### O79. Check handling priced by speed
 
 Dave prices checks the same way as advances: scanning is free and slow or paid and instant, sending is free and takes 5 business days, and the actual cashing is handled by a named partner.
 
 - The pricing pattern matches the advance: free is slow, paid is instant.
 - No specific fee is stated for instant check cashing.
-
-### O79. Interest without applying
-
-Dave announces interest on checking and Goals as already active, without an application, showing 4% APY on both.
-
-- The rate shown on both accounts is 4% APY.
-- The benefit is announced as already active, not offered as something to opt into.
-- The conditions behind that rate aren't shown up front.
 
 ---
 
@@ -753,3 +753,4 @@ Dave asks for consent to receive promotional texts on the same screen and the sa
 
 - A second messaging channel opens up at what's otherwise a security step.
 - The consent states it isn't a condition of purchase.
+

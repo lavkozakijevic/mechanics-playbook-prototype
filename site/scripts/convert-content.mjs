@@ -1020,18 +1020,19 @@ const V41_APP_META = {
     type: "app",
     sectionCards: {
       onboarding:
-        "Dave walks new users through signup, identity checks, and connecting a bank and debit card before showing an empty home screen.",
+        "Dave walks new users through signup, identity checks, bank connection, and opening the checking account itself, guiding every step until the account exists and the first funding prompt appears.",
       "core-loop":
-        "Dave runs everything through the checking account once it exists: adding money, moving money, direct deposit, round-ups, checks, cash, and bill pay.",
+        "Dave's checking account runs on a hub of repeating utilities, direct deposit, round-ups, transfers, checks, cash, and bills, plus the interest it pays, the Extra Cash advance mechanic, and the paid surveys inside its Grow tab.",
       goals: "Dave creates, personalizes, extends, and ends a user's savings goals.",
-      access: "Dave pitches, explains, and gates the Extra Cash advance behind eligibility.",
+      access:
+        "Dave gates the Extra Cash advance behind an eligibility decision tied to the connected bank account, and publishes its own rules as an FAQ rather than showing them directly.",
       economy:
-        "Dave pays users for surveys and a profiling questionnaire, and points them to outside jobs through a board of its own.",
+        "Dave holds no currency, material, or resource inventory of its own; every balance is real dollars, covered under Core loop and automation instead.",
       social:
         "Dave has no feature that lets a user see, interact with, compare against, or team up with another identified person.",
-      reach: "Dave runs its referral program from settings and pays it out as a bigger future advance.",
-      monetization:
-        "Dave charges for membership, advance delivery, funding, cash and check handling, and pays interest on two of its accounts.",
+      reach:
+        "Dave's side hustle board sends job applications out to employers' own sites, and its referral program pays out as a bigger future advance rather than cash.",
+      monetization: "Dave charges for membership, advance delivery, funding, and cash and check handling.",
       returns:
         "Dave brings users back through notifications, balance alerts, and a marketing consent gathered during signup.",
     },

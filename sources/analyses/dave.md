@@ -13,14 +13,14 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 
 # Pass one: observation record
 
-1. Onboarding and first run: O1 to O16
-2. Core loop and automation: O17 to O42
-3. Goals and progression: O43 to O50
-4. Access and eligibility: O51 to O57
-5. Earning and utility: O58 to O69
+1. Onboarding and first run: O1 to O25
+2. Core loop and automation: O26 to O56
+3. Goals and progression: O57 to O64
+4. Access and eligibility: O65 to O69
+5. Economy and resources: no observations in this session
 6. Social: no observations in this session
-7. Growth: O70 to O73
-8. Money: O74 to O79
+7. Reach beyond the app: O70 to O74
+8. Monetization: O75 to O79
 9. Return triggers: O80 to O83
 
 ## Onboarding and first run
@@ -35,7 +35,7 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - An asterisk on the headline links to a "See terms" control (tier: directly observed).
 - No third option, guest mode, or demonstration path is shown on this screen (tier: directly observed).
 
-*Cross-reference: O51.*
+*Cross-reference: O65.*
 
 **O2. The headline's terms sit behind an asterisk.**
 
@@ -47,7 +47,7 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - Delivery fees are named as possible here and not in the headline (tier: directly observed).
 - The pop-up is dismissed by acknowledgement rather than by acceptance (tier: directly observed).
 
-*Cross-reference: O52, O54, O75.*
+*Cross-reference: O44, O66, O76.*
 
 **O3. One sign-up path, with consent bundled into the continue action.**
 
@@ -117,7 +117,7 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - The stated benefit of connecting is a better approval amount (tier: directly observed).
 - Instant delivery is introduced as a paid option at the moment of connection (tier: directly observed).
 
-*Cross-reference: O56, O75.*
+*Cross-reference: O68, O76.*
 
 **O10. The membership charge is authorised on the bank connection screen.**
 
@@ -127,7 +127,7 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - The recurring charge is $1 per month (tier: directly observed).
 - The authorisation shares a screen and a continue action with the bank connection (tier: directly observed).
 
-*Cross-reference: O12, O74.*
+*Cross-reference: O12, O75.*
 
 **O11. The bank connection step has three exits.**
 
@@ -137,7 +137,7 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - Two of the three exits leave the account unconnected (tier: directly observed).
 - What the product does after either non-connecting exit is not shown (tier: unresolved).
 
-*Cross-reference: O54, O56.*
+*Cross-reference: O66, O68.*
 
 **O12. A second screen restates the fee alongside what it buys.**
 
@@ -148,7 +148,7 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - The fee is restated on a second consecutive screen (tier: directly observed).
 - The remaining work is presented as two numbered steps (tier: directly observed).
 
-*Cross-reference: O10, O74, O82.*
+*Cross-reference: O10, O75, O82.*
 
 **O13. Bank connection is handed to a third party with trust framing.**
 
@@ -177,7 +177,7 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - The card must be associated with the connected bank account (tier: directly observed).
 - The stated function of the card is settlement of advances (tier: directly observed).
 
-*Cross-reference: O52, O57.*
+*Cross-reference: O44, O69.*
 
 **O16. The first dashboard is empty except for one prominent action.**
 
@@ -189,8 +189,6 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - The analyst records difficulty reading what sits under the primary button on this screen (sequence caveat: the home screen's lower content is not clearly captured at this point).
 
 *Cross-reference: O17, O30.*
-
-## Core loop and automation
 
 **O17. The checking account is pitched twice before any identity request.**
 
@@ -214,7 +212,7 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - The partner bank is named as Evolve Bank and Trust, member FDIC (tier: directly observed).
 - The FDIC coverage figure is not legible in the session record (tier: unresolved).
 
-*Cross-reference: O31, O77, O79.*
+*Cross-reference: O31, O78, O43.*
 
 **O19. Date of birth is the first identity field.**
 
@@ -279,7 +277,9 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - Direct deposit is the only route carrying a speed advantage claim (tier: directly observed).
 - The deferral option is present on the same screen (tier: directly observed).
 
-*Cross-reference: O33, O35, O77.*
+*Cross-reference: O33, O35, O78.*
+
+## Core loop and automation
 
 **O26. The account home is a balance widget with immediate actions.**
 
@@ -336,7 +336,7 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - Withdrawal and pausing are stated on the introduction screen, before opt-in (tier: directly observed).
 - The analyst records uncertainty about how this section is reached from the preceding screen (sequence caveat: the transition into the round-up section is not captured).
 
-*Cross-reference: O18, O32, O43, O49.*
+*Cross-reference: O18, O32, O57, O63.*
 
 **O32. Round-ups cannot exist without a Goals account.**
 
@@ -347,7 +347,7 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - A goal is created by the product rather than by the user at this step (tier: directly observed).
 - One checkbox carries the deposit agreement and its disclosures (tier: directly observed).
 
-*Cross-reference: O31, O43.*
+*Cross-reference: O31, O57.*
 
 **O33. Adding money prices the funding source and confirms by swipe.**
 
@@ -359,7 +359,7 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - The arrival window for the transfer is four to five business days (tier: directly observed).
 - The completion screen carries a prompt asking whether the user wants to be paid up to two days early by setting up direct deposit (tier: directly observed).
 
-*Cross-reference: O25, O34, O35, O76.*
+*Cross-reference: O25, O34, O35, O77.*
 
 **O34. The recurring transfer toggle is on by default within the recurring flow.**
 
@@ -371,7 +371,7 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - The full set of frequency options is not established (tier: unresolved).
 - Cancellation is performed by turning the same toggle off, and the analyst records that this cancels it (tier: directly observed).
 
-*Cross-reference: O33, O49.*
+*Cross-reference: O33, O63.*
 
 **O35. Direct deposit offers three routes, one of them tagged as fastest.**
 
@@ -417,7 +417,7 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - The external account is presented in its own group (tier: directly observed).
 - Opening the external account shows its available balance, the linked debit card, a prompt to start a budget, and recent transactions (tier: directly observed).
 
-*Cross-reference: O13, O32, O53, O79.*
+*Cross-reference: O13, O32, O45, O43.*
 
 **O39. Check handling is split into scan and send, each with its own speed and fee.**
 
@@ -429,7 +429,7 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - The check-cashing partner is named in a dedicated introduction screen (tier: directly observed).
 - Recipients can be added within the send flow (tier: directly observed).
 
-*Cross-reference: O78.*
+*Cross-reference: O79.*
 
 **O40. Cash deposit is free at two named retailers and priced elsewhere.**
 
@@ -441,7 +441,7 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - The stated fee amount is not legible in the session record (tier: unresolved).
 - Posting time is stated as typically ten minutes and up to thirty at some locations (tier: directly observed).
 
-*Cross-reference: O18, O77.*
+*Cross-reference: O18, O78.*
 
 **O41. Cash withdrawal is presented as a map with per-location instructions.**
 
@@ -451,7 +451,7 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - Location data and procedural instruction are placed on the same surface (tier: directly observed).
 - The PIN referred to is the debit card PIN of four digits (tier: directly observed).
 
-*Cross-reference: O28, O66.*
+*Cross-reference: O28, O54.*
 
 **O42. Bill payment offers three routes without leaving the account.**
 
@@ -464,111 +464,18 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 
 *Cross-reference: O39.*
 
-## Goals and progression
+**O43. Interest appears on the accounts without an application.**
 
-**O43. The product creates the user's first goal and gives it a target.**
-
-**Observed:** After the goals account is created, the screen reads "Your goals account is ready for roundups", states that round-ups are set up for the new goal, and invites the user to personalise it by editing title, goal amount and end date (tier: directly observed). Opening the goal shows the goal detail, with the savings target set by default at $75 and round-up switched on (tier: directly observed).
+**Observed:** The Accounts tab carries a banner reading "Congrats, you're now earning interest on your checking and goals account" with a "Learn more" control, and the analyst records that nothing was applied for (tier: directly observed). Both the Dave Checking card and the Goals screen display 4% APY (tier: directly observed).
 
 **Detail:**
-- The goal exists before the user has defined anything about it (tier: directly observed).
-- The default target amount is $75 (tier: directly observed).
-- Round-up is already on for this goal (tier: directly observed).
-- Three attributes are named as editable: title, goal amount, end date (tier: directly observed).
-- A "Set a recurring deposit" control sits below, framed as reaching goals faster (tier: directly observed).
+- The rate shown on both accounts is 4% APY (tier: directly observed).
+- The benefit is announced as already active rather than offered (tier: directly observed).
+- The conditions attached to the rate are not shown; the explanation sits behind "Learn more", which is not opened (tier: unresolved).
 
-*Cross-reference: O32, O44, O46, O49.*
+*Cross-reference: O38, O59.*
 
-**O44. Personalisation is offered before any money is in the goal.**
-
-**Observed:** The goal detail screen allows editing the title and the goal amount, changing the appearance of the banner image, and viewing the savings figure (tier: directly observed).
-
-**Detail:**
-- The banner image is editable from the goal detail screen (tier: directly observed).
-- Personalisation is invited at a point when the goal balance is zero (tier: strongly supported, no deposit has been made at this point in the session).
-
-*Cross-reference: O43, O47.*
-
-**O45. The goals surface shows a balance, a yield and a progress bar.**
-
-**Observed:** The Goals entry in the accounts list opens a screen showing the available balance for goals, a 4% APY figure, and a progress bar for savings (tier: directly observed). A "Get started, add some money" prompt and an "Add money" control appear, with "Create a new goal" below (tier: directly observed).
-
-**Detail:**
-- The yield stated is 4% APY (tier: directly observed).
-- A progress bar represents position against the goal amount (tier: strongly supported, the bar is described as a savings progress bar on a screen carrying the goal target).
-- Whether reaching the goal amount produces any recognition, message or state change is not shown (tier: unresolved).
-
-*Cross-reference: O38, O43, O79.*
-
-**O46. Additional goals share a single ceiling with existing ones.**
-
-**Observed:** Creating a new goal asks for a name and then a goal amount, stating that the amount can be set up to $24,925 (tier: directly observed). The session records that the ceiling is the $25,000 limit less the $75 already held in another goal (tier: directly observed).
-
-**Detail:**
-- The stated overall limit is $25,000 (tier: directly observed).
-- The offered maximum for the new goal is reduced by the existing goal's amount (tier: directly observed).
-- The limit is expressed only through the reduced maximum, not as a separate statement of remaining capacity (tier: strongly supported, the screen presents the arithmetic result rather than the rule).
-
-*Cross-reference: O43, O45.*
-
-**O47. Goal appearance is chosen from an external image library.**
-
-**Observed:** The goal creation flow offers "Add a photo to represent your goal", and selecting it opens Unsplash, from which the user chooses an image before creating the goal (tier: directly observed).
-
-**Detail:**
-- The image source is a third-party image library rather than a built-in set (tier: directly observed).
-- The stated purpose of the image is to represent the goal (tier: directly observed).
-- The image is attached to the goal, not to the account or the user profile (tier: strongly supported, the picker is inside the goal creation flow and the result is described as the goal's banner).
-- The image does not alter any stated goal rule, limit or rate in the session (tier: directly observed).
-
-*Cross-reference: O44.*
-
-**O48. The first deposit prompt uses small presets and minimising language.**
-
-**Observed:** After the goal is created, the screen reads "Start achieving your goal" and states that tiny amounts will quickly add up, so the user should not be afraid to kick things off with just a few bucks (tier: directly observed). It offers three preset first deposits of $5, $25 and $50, a custom amount, and "Maybe later" at the bottom (tier: directly observed).
-
-**Detail:**
-- The lowest preset is $5 (tier: directly observed).
-- The copy addresses reluctance rather than benefit (tier: directly observed).
-- The deferral option is present and is placed last (tier: directly observed).
-- Choosing "Maybe later" still completes goal creation (tier: directly observed).
-
-**O49. Ending a goal is permanent and cascades into the automation.**
-
-**Observed:** Each goal carries an "End goal" control at the bottom, and confirming raises a screen stating that ending the goal will deactivate it permanently, pause automatic round-ups, and cancel any active recurring transfers, and that once ended the goal cannot be reactivated (tier: directly observed). The choices are "Keep it" or "End goal" (tier: directly observed).
-
-**Detail:**
-- Three consequences are stated together: permanent deactivation, round-ups paused, recurring transfers cancelled (tier: directly observed).
-- Irreversibility is stated explicitly (tier: directly observed).
-- The retain option is presented alongside the destructive one (tier: directly observed).
-- Whether "pause automatic roundups" affects round-ups across all goals or only this one is not established (tier: unresolved).
-
-*Cross-reference: O31, O34, O50.*
-
-**O50. Ending a goal is immediately followed by an offer to restart the automation.**
-
-**Observed:** After ending, the product states that the goal has ended and remains accessible in a past goals section, then presents "Resume roundup with a new goal", explaining that creating a new goal restarts automatic savings with round-up, with "Resume roundup" and "Not now" (tier: directly observed).
-
-**Detail:**
-- The ended goal is retained in a past goals section (tier: directly observed).
-- The restart offer appears on the confirmation screen rather than later (tier: directly observed).
-- The restart is framed as resuming round-up rather than as creating a goal (tier: directly observed).
-
-*Cross-reference: O49.*
-
-## Access and eligibility
-
-**O51. The advance is the headline of the product and of its own tab.**
-
-**Observed:** The Extra cash tab opens with "Get an extra cash advance up to $500" and instructs the user to open their extra cash and spending accounts to get started, with a control to see how extra cash works and a "Get started" action (tier: directly observed).
-
-**Detail:**
-- The same $500 figure that opens the unauthenticated app opens this tab (tier: directly observed).
-- Access is conditioned on opening two accounts (tier: directly observed).
-
-*Cross-reference: O1, O53.*
-
-**O52. The mechanics of the advance are explained before the account is opened.**
+**O44. The mechanics of the advance are explained before the account is opened.**
 
 **Observed:** The explanation screen states that advances arrive in two to three days for no fee or instantly for a small fee, that taking an advance makes the extra cash account balance go negative and that it settles on the next paycheck, and that money can also be stored in the account (tier: directly observed).
 
@@ -578,9 +485,9 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - Two delivery speeds are priced differently (tier: directly observed).
 - The storage function of the account is introduced alongside the borrowing function (tier: directly observed).
 
-*Cross-reference: O2, O15, O55, O75.*
+*Cross-reference: O2, O15, O67, O76.*
 
-**O53. Opening the extra cash account is a checkbox and a wait.**
+**O45. Opening the extra cash account is a checkbox and a wait.**
 
 **Observed:** The opening screen presents the extra cash account with a note that express fees apply to instant transfers, and a checkbox agreeing to the extra cash deposit agreement, its disclosures and the partner bank's privacy policy (tier: directly observed). After the action, the screen loads and cycles value propositions, including using advances instantly with the product's checking account and Apple Pay, before confirming that the extra cash and checking accounts are set up (tier: directly observed).
 
@@ -590,55 +497,7 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 
 *Cross-reference: O23, O24, O38.*
 
-**O54. Eligibility is withheld after the account is opened, with a dated retry.**
-
-**Observed:** Immediately after the account is created, the product states "You're not eligible for an advance yet. Check back tomorrow to see if you're eligible." and offers "Get notified if you're eligible" (tier: directly observed). A parallel screen states that the product is working on getting the user approved for an advance, tells them to check back tomorrow, and offers "Notify me when I'm eligible" (tier: directly observed).
-
-**Detail:**
-- The refusal is worded as "not yet" rather than as a decline (tier: directly observed).
-- A specific return interval is named: tomorrow (tier: directly observed).
-- A notification opt-in is offered in place of the benefit (tier: directly observed).
-- The message appears in more than one position in the tab (tier: directly observed).
-- The analyst records that no reason for tomorrow's difference is given on these screens (tier: directly observed).
-- Whether eligibility is in fact re-evaluated daily is not shown (tier: unresolved).
-
-*Cross-reference: O56, O80.*
-
-**O55. Funding the extra cash account is explicitly decoupled from eligibility.**
-
-**Observed:** Opening the extra cash account balance shows the balance and states that adding money to the account does not increase the advance amount and will not affect advance eligibility (tier: directly observed). A deposit control is nonetheless present (tier: directly observed).
-
-**Detail:**
-- The decoupling is stated pre-emptively at the deposit surface (tier: directly observed).
-- Deposit remains available despite the stated absence of effect (tier: directly observed).
-
-*Cross-reference: O52.*
-
-**O56. Eligibility is tied to the account the user is paid into.**
-
-**Observed:** Below the balance, the screen shows the linked bank and debit cards and states that the bank is used to determine advance eligibility, then asks "Getting paid in a different bank? Connect your primary bank account." (tier: directly observed).
-
-**Detail:**
-- The determinant of eligibility is named as the connected bank (tier: directly observed).
-- The prompt targets specifically the account salary arrives in (tier: directly observed).
-- This restates at the point of refusal the same request made during onboarding (tier: directly observed).
-
-*Cross-reference: O9, O11, O54.*
-
-**O57. Eligibility rules are published as questions rather than as state.**
-
-**Observed:** An extra cash FAQ lists what extra cash is, what affects eligibility for an advance, how an advance is received, how it is repaid, what the extra cash balance is, why the balance is negative, why another advance cannot be taken immediately, why the advance amount changed, what fees extra cash has, and what happens if settlement is late (tier: directly observed).
-
-**Detail:**
-- Ten questions are listed (tier: directly observed).
-- The questions name rules the interface does not otherwise display, including limits on taking a further advance and changes to the advance amount (tier: directly observed).
-- The answers are not opened in the session (tier: unresolved).
-
-*Cross-reference: O52, O54, O75.*
-
-## Earning and utility
-
-**O58. The Grow tab leads with earning and closes with work.**
+**O46. The Grow tab leads with earning and closes with work.**
 
 **Observed:** The Grow tab presents, at the top, "Earn cash instantly" tagged as new, described as taking surveys and getting cash in the product's checking account (tier: directly observed). Below it the user's goals appear, and below those a large tappable section, "Try a side hustle", framed as putting more money in your pocket with a side job (tier: directly observed).
 
@@ -647,9 +506,9 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - The survey surface carries a "new" tag (tier: directly observed).
 - Earnings from both surfaces are directed to or framed around the product's own checking account (tier: strongly supported, the survey surface states this explicitly and the side hustle surface is framed as income).
 
-*Cross-reference: O45, O59, O66.*
+*Cross-reference: O59, O47, O54.*
 
-**O59. Survey earning is framed as three steps with an unlock and a partial-reward rule.**
+**O47. Survey earning is framed as three steps with an unlock and a partial-reward rule.**
 
 **Observed:** The survey introduction reads "Start earning with surveys. Get paid instantly to your Dave Checking account", states that when the user does not qualify for a survey they are taking it will end early and they will receive a partial reward, and numbers three steps: get started with an intro survey, unlock higher paying surveys as you go, see earnings in the checking account (tier: directly observed). The screen attributes the surveys to a third party, inBrain AI, and links to terms of use (tier: directly observed).
 
@@ -660,9 +519,9 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - A partial reward is promised for disqualification, with no amount or rule stated (tier: directly observed).
 - The provider of the surveys is a named third party (tier: directly observed).
 
-*Cross-reference: O61, O64.*
+*Cross-reference: O49, O52.*
 
-**O60. Dismissing the introduction reveals the list directly.**
+**O48. Dismissing the introduction reveals the list directly.**
 
 **Observed:** Closing the introduction with the control in the top right corner reveals the survey list rather than returning the user to the previous tab (tier: directly observed).
 
@@ -670,9 +529,9 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - The dismiss control leads forward rather than back (tier: directly observed).
 - Taking the intro survey and dismissing the introduction both arrive at survey content (tier: directly observed).
 
-*Cross-reference: O59, O61.*
+*Cross-reference: O47, O49.*
 
-**O61. The survey list shows payout, duration, a period total and two tiers.**
+**O49. The survey list shows payout, duration, a period total and two tiers.**
 
 **Observed:** The list screen shows the surveys available and the user's earnings for the month, with a section of surveys recommended for the user carrying a payout and an estimated completion time each, a further section of other listed surveys, and a "quick surveys" section (tier: directly observed). A survey FAQ sits at the bottom, and the side hustle section is featured below the list (tier: directly observed).
 
@@ -684,9 +543,9 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - The payout figures for the longer surveys are not legible in the session record (tier: unresolved).
 - Recommendation is applied to a subset of the list (tier: directly observed).
 
-*Cross-reference: O59, O64.*
+*Cross-reference: O47, O52.*
 
-**O62. The intro survey is a profiling questionnaire.**
+**O50. The intro survey is a profiling questionnaire.**
 
 **Observed:** Taking the intro survey opens "Take surveys, earn rewards" with a close control and a toggle by which the user accepts the provider's terms and privacy policy before a "Get started" action (tier: directly observed). The questions that follow ask gender, postal code, marital status, highest level of education completed, current employment status with a drop-down for further detail, race, and birth date, after which a celebratory confetti animation appears and the user continues to the recommended surveys (tier: directly observed).
 
@@ -697,9 +556,9 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - The completion of the profile is marked with a celebration rather than a stated reward (tier: directly observed).
 - Whether the intro survey itself pays is not established (tier: unresolved).
 
-*Cross-reference: O59, O61.*
+*Cross-reference: O47, O49.*
 
-**O63. A survey opens with an accuracy warning.**
+**O51. A survey opens with an accuracy warning.**
 
 **Observed:** Starting a survey shows "Answer carefully to ensure you get the full reward", then a screen naming the topic and stating the approximate length before a "Begin survey" action (tier: directly observed).
 
@@ -708,9 +567,9 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - The topic and approximate length are restated immediately before starting (tier: directly observed).
 - The survey observed was on food and beverage with a stated length of about ten minutes (tier: directly observed).
 
-*Cross-reference: O59, O64.*
+*Cross-reference: O47, O52.*
 
-**O64. Disqualification ends the instance mid-way and removes it from the list.**
+**O52. Disqualification ends the instance mid-way and removes it from the list.**
 
 **Observed:** Partway through the survey a message states that one of the user's answers indicated they are not the person the survey was intended for (tier: directly observed). On returning to the list, the ten-minute survey is no longer shown (tier: directly observed).
 
@@ -720,9 +579,9 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - The disqualified survey is removed from the available list (tier: directly observed).
 - Whether a partial reward was granted for this instance is not shown (tier: unresolved).
 
-*Cross-reference: O59, O61, O63.*
+*Cross-reference: O47, O49, O51.*
 
-**O65. Survey rules are published as questions.**
+**O53. Survey rules are published as questions.**
 
 **Observed:** A survey FAQ is available covering how the surveys work and why the user is getting disqualified (tier: directly observed).
 
@@ -730,9 +589,9 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - Disqualification is common enough to have its own published question (tier: plausible, the FAQ names it but frequency is not shown).
 - The answers are not opened in the session (tier: unresolved).
 
-*Cross-reference: O57, O64.*
+*Cross-reference: O69, O52.*
 
-**O66. The side hustle entry requests location permission.**
+**O54. The side hustle entry requests location permission.**
 
 **Observed:** Tapping "Try a side hustle" first raises a permission prompt stating that the product uses the user's location to find ATMs and protect them from fraud (tier: directly observed).
 
@@ -740,9 +599,9 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - The stated reasons for the permission are ATMs and fraud protection, neither of which is the surface being opened (tier: directly observed).
 - The prompt appears at the entry to the job surface rather than at the ATM surface (tier: directly observed).
 
-*Cross-reference: O41, O68.*
+*Cross-reference: O41, O56.*
 
-**O67. Side hustle is introduced and then reduced to categories.**
+**O55. Side hustle is introduced and then reduced to categories.**
 
 **Observed:** The introduction reads "Welcome to Side Hustle" and asks whether the user wants to earn quick cash with a side gig or find a new job, promising a search across thousands of jobs from top employers, flexible work fitting their schedule, and more money in their pocket (tier: directly observed). After "Get started", the categories offered are flexible hours, part time jobs, gig jobs, work from home, seasonal jobs and temp jobs (tier: directly observed).
 
@@ -750,7 +609,7 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - Six categories are offered (tier: directly observed).
 - The framing covers both supplementary and replacement work (tier: directly observed).
 
-**O68. The job list is sortable and filterable, and the product's own surface is featured first.**
+**O56. The job list is sortable and filterable, and the product's own surface is featured first.**
 
 **Observed:** Selecting a category opens a job list with a sort control offering newest to oldest and oldest to newest, and a filter on distance from the user (tier: directly observed). The first, featured item in the list is the product's own surveys, presented as taking surveys and earning cash instantly, anywhere, followed by third-party listings including delivery, therapy, security, seasonal retail and event work (tier: directly observed).
 
@@ -759,9 +618,173 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - The distance filter is what the location permission enables (tier: plausible, the permission is requested at entry and the filter is distance-based, but the session does not show the two connected).
 - The listings observed are for the United States market (tier: directly observed).
 
-*Cross-reference: O59, O66.*
+*Cross-reference: O47, O54.*
 
-**O69. Applications leave the product entirely.**
+## Goals and progression
+
+**O57. The product creates the user's first goal and gives it a target.**
+
+**Observed:** After the goals account is created, the screen reads "Your goals account is ready for roundups", states that round-ups are set up for the new goal, and invites the user to personalise it by editing title, goal amount and end date (tier: directly observed). Opening the goal shows the goal detail, with the savings target set by default at $75 and round-up switched on (tier: directly observed).
+
+**Detail:**
+- The goal exists before the user has defined anything about it (tier: directly observed).
+- The default target amount is $75 (tier: directly observed).
+- Round-up is already on for this goal (tier: directly observed).
+- Three attributes are named as editable: title, goal amount, end date (tier: directly observed).
+- A "Set a recurring deposit" control sits below, framed as reaching goals faster (tier: directly observed).
+
+*Cross-reference: O32, O58, O60, O63.*
+
+**O58. Personalisation is offered before any money is in the goal.**
+
+**Observed:** The goal detail screen allows editing the title and the goal amount, changing the appearance of the banner image, and viewing the savings figure (tier: directly observed).
+
+**Detail:**
+- The banner image is editable from the goal detail screen (tier: directly observed).
+- Personalisation is invited at a point when the goal balance is zero (tier: strongly supported, no deposit has been made at this point in the session).
+
+*Cross-reference: O57, O61.*
+
+**O59. The goals surface shows a balance, a yield and a progress bar.**
+
+**Observed:** The Goals entry in the accounts list opens a screen showing the available balance for goals, a 4% APY figure, and a progress bar for savings (tier: directly observed). A "Get started, add some money" prompt and an "Add money" control appear, with "Create a new goal" below (tier: directly observed).
+
+**Detail:**
+- The yield stated is 4% APY (tier: directly observed).
+- A progress bar represents position against the goal amount (tier: strongly supported, the bar is described as a savings progress bar on a screen carrying the goal target).
+- Whether reaching the goal amount produces any recognition, message or state change is not shown (tier: unresolved).
+
+*Cross-reference: O38, O57, O43.*
+
+**O60. Additional goals share a single ceiling with existing ones.**
+
+**Observed:** Creating a new goal asks for a name and then a goal amount, stating that the amount can be set up to $24,925 (tier: directly observed). The session records that the ceiling is the $25,000 limit less the $75 already held in another goal (tier: directly observed).
+
+**Detail:**
+- The stated overall limit is $25,000 (tier: directly observed).
+- The offered maximum for the new goal is reduced by the existing goal's amount (tier: directly observed).
+- The limit is expressed only through the reduced maximum, not as a separate statement of remaining capacity (tier: strongly supported, the screen presents the arithmetic result rather than the rule).
+
+*Cross-reference: O57, O59.*
+
+**O61. Goal appearance is chosen from an external image library.**
+
+**Observed:** The goal creation flow offers "Add a photo to represent your goal", and selecting it opens Unsplash, from which the user chooses an image before creating the goal (tier: directly observed).
+
+**Detail:**
+- The image source is a third-party image library rather than a built-in set (tier: directly observed).
+- The stated purpose of the image is to represent the goal (tier: directly observed).
+- The image is attached to the goal, not to the account or the user profile (tier: strongly supported, the picker is inside the goal creation flow and the result is described as the goal's banner).
+- The image does not alter any stated goal rule, limit or rate in the session (tier: directly observed).
+
+*Cross-reference: O58.*
+
+**O62. The first deposit prompt uses small presets and minimising language.**
+
+**Observed:** After the goal is created, the screen reads "Start achieving your goal" and states that tiny amounts will quickly add up, so the user should not be afraid to kick things off with just a few bucks (tier: directly observed). It offers three preset first deposits of $5, $25 and $50, a custom amount, and "Maybe later" at the bottom (tier: directly observed).
+
+**Detail:**
+- The lowest preset is $5 (tier: directly observed).
+- The copy addresses reluctance rather than benefit (tier: directly observed).
+- The deferral option is present and is placed last (tier: directly observed).
+- Choosing "Maybe later" still completes goal creation (tier: directly observed).
+
+**O63. Ending a goal is permanent and cascades into the automation.**
+
+**Observed:** Each goal carries an "End goal" control at the bottom, and confirming raises a screen stating that ending the goal will deactivate it permanently, pause automatic round-ups, and cancel any active recurring transfers, and that once ended the goal cannot be reactivated (tier: directly observed). The choices are "Keep it" or "End goal" (tier: directly observed).
+
+**Detail:**
+- Three consequences are stated together: permanent deactivation, round-ups paused, recurring transfers cancelled (tier: directly observed).
+- Irreversibility is stated explicitly (tier: directly observed).
+- The retain option is presented alongside the destructive one (tier: directly observed).
+- Whether "pause automatic roundups" affects round-ups across all goals or only this one is not established (tier: unresolved).
+
+*Cross-reference: O31, O34, O64.*
+
+**O64. Ending a goal is immediately followed by an offer to restart the automation.**
+
+**Observed:** After ending, the product states that the goal has ended and remains accessible in a past goals section, then presents "Resume roundup with a new goal", explaining that creating a new goal restarts automatic savings with round-up, with "Resume roundup" and "Not now" (tier: directly observed).
+
+**Detail:**
+- The ended goal is retained in a past goals section (tier: directly observed).
+- The restart offer appears on the confirmation screen rather than later (tier: directly observed).
+- The restart is framed as resuming round-up rather than as creating a goal (tier: directly observed).
+
+*Cross-reference: O63.*
+
+## Access and eligibility
+
+**O65. The advance is the headline of the product and of its own tab.**
+
+**Observed:** The Extra cash tab opens with "Get an extra cash advance up to $500" and instructs the user to open their extra cash and spending accounts to get started, with a control to see how extra cash works and a "Get started" action (tier: directly observed).
+
+**Detail:**
+- The same $500 figure that opens the unauthenticated app opens this tab (tier: directly observed).
+- Access is conditioned on opening two accounts (tier: directly observed).
+
+*Cross-reference: O1, O45.*
+
+**O66. Eligibility is withheld after the account is opened, with a dated retry.**
+
+**Observed:** Immediately after the account is created, the product states "You're not eligible for an advance yet. Check back tomorrow to see if you're eligible." and offers "Get notified if you're eligible" (tier: directly observed). A parallel screen states that the product is working on getting the user approved for an advance, tells them to check back tomorrow, and offers "Notify me when I'm eligible" (tier: directly observed).
+
+**Detail:**
+- The refusal is worded as "not yet" rather than as a decline (tier: directly observed).
+- A specific return interval is named: tomorrow (tier: directly observed).
+- A notification opt-in is offered in place of the benefit (tier: directly observed).
+- The message appears in more than one position in the tab (tier: directly observed).
+- The analyst records that no reason for tomorrow's difference is given on these screens (tier: directly observed).
+- Whether eligibility is in fact re-evaluated daily is not shown (tier: unresolved).
+
+*Cross-reference: O68, O80.*
+
+**O67. Funding the extra cash account is explicitly decoupled from eligibility.**
+
+**Observed:** Opening the extra cash account balance shows the balance and states that adding money to the account does not increase the advance amount and will not affect advance eligibility (tier: directly observed). A deposit control is nonetheless present (tier: directly observed).
+
+**Detail:**
+- The decoupling is stated pre-emptively at the deposit surface (tier: directly observed).
+- Deposit remains available despite the stated absence of effect (tier: directly observed).
+
+*Cross-reference: O44.*
+
+**O68. Eligibility is tied to the account the user is paid into.**
+
+**Observed:** Below the balance, the screen shows the linked bank and debit cards and states that the bank is used to determine advance eligibility, then asks "Getting paid in a different bank? Connect your primary bank account." (tier: directly observed).
+
+**Detail:**
+- The determinant of eligibility is named as the connected bank (tier: directly observed).
+- The prompt targets specifically the account salary arrives in (tier: directly observed).
+- This restates at the point of refusal the same request made during onboarding (tier: directly observed).
+
+*Cross-reference: O9, O11, O66.*
+
+**O69. Eligibility rules are published as questions rather than as state.**
+
+**Observed:** An extra cash FAQ lists what extra cash is, what affects eligibility for an advance, how an advance is received, how it is repaid, what the extra cash balance is, why the balance is negative, why another advance cannot be taken immediately, why the advance amount changed, what fees extra cash has, and what happens if settlement is late (tier: directly observed).
+
+**Detail:**
+- Ten questions are listed (tier: directly observed).
+- The questions name rules the interface does not otherwise display, including limits on taking a further advance and changes to the advance amount (tier: directly observed).
+- The answers are not opened in the session (tier: unresolved).
+
+*Cross-reference: O44, O66, O76.*
+
+## Economy and resources
+
+No observations. Dave defines no currency, material, or resource inventory of its own: every balance in the product (checking, Goals, Extra Cash, the external account) is denominated in real dollars. The surfaces that pay the user directly, the paid surveys and the side hustle job board, are recorded under Core loop and automation instead, since they are things the product repeatedly asks the user to do rather than an economy it maintains (tier: directly observed).
+
+*Cross-reference: O46 to O56.*
+
+## Social
+
+No observations. The session records no surface on which the user can see, interact with, compare against, or contribute alongside another identified person inside the product (tier: directly observed). The only surface involving another person is the referral link, which is recorded under Reach beyond the app (tier: directly observed).
+
+*Cross-reference: O71, O72, O73, O74.*
+
+## Reach beyond the app
+
+**O70. Applications leave the product entirely.**
 
 **Observed:** Opening a listing shows the employer, the locations and details provided by that employer, with an "Apply now" action at the bottom that takes the user out to the employer's own website (tier: directly observed). The analyst records that the product does not process the application (tier: directly observed).
 
@@ -769,17 +792,9 @@ Source: one recorded walkthrough session, 3 June 2026, retrieved in full. A late
 - The application is completed outside the product (tier: directly observed).
 - No return path into the product after applying is shown (tier: unresolved).
 
-*Cross-reference: O68.*
+*Cross-reference: O56.*
 
-## Social
-
-No observations. The session records no surface on which the user can see, interact with, compare against, or contribute alongside another identified person inside the product (tier: directly observed). The only surface involving another person is the referral link, which is recorded under Growth (tier: directly observed).
-
-*Cross-reference: O70, O71, O72, O73.*
-
-## Growth
-
-**O70. Referral is the first item in settings.**
+**O71. Referral is the first item in settings.**
 
 **Observed:** The settings screen places a "Refer friends" button at the very top, described by the analyst as large and prominent, ahead of the accounts group listing extra cash, checking and goals, an info group listing membership, linked banks and cards, edit profile and statements, an app settings group listing notifications, security settings and language, and a support group with FAQ and chat (tier: directly observed).
 
@@ -787,9 +802,9 @@ No observations. The session records no surface on which the user can see, inter
 - Referral outranks account, profile, security and support entries in the settings hierarchy (tier: directly observed).
 - Four groups follow it (tier: directly observed).
 
-*Cross-reference: O71, O74, O81.*
+*Cross-reference: O72, O75, O81.*
 
-**O71. The referral reward is a larger future advance rather than cash.**
+**O72. The referral reward is a larger future advance rather than cash.**
 
 **Observed:** The referral screen reads "Earn up to $100 more on your second extra cash advance" and states that when the user and their friend repay an advance, the user will get 20% more next time (tier: directly observed). Controls are offered to share or copy a referral link (tier: directly observed).
 
@@ -800,9 +815,9 @@ No observations. The session records no surface on which the user can see, inter
 - The reward is attached specifically to the second advance (tier: directly observed).
 - The reward requires repayment by both parties, not only sign-up (tier: directly observed).
 
-*Cross-reference: O52, O72, O73.*
+*Cross-reference: O44, O73, O74.*
 
-**O72. The boost is conditional, variable and expiring.**
+**O73. The boost is conditional, variable and expiring.**
 
 **Observed:** Below the offer, the screen states that the boost amount is subject to change based on extra cash eligibility and approval amount, and that an earned boost expires after 60 days (tier: directly observed).
 
@@ -811,9 +826,9 @@ No observations. The session records no surface on which the user can see, inter
 - The earned boost has a 60-day expiry (tier: directly observed).
 - The expiry applies after the boost is earned, not to the referral offer itself (tier: strongly supported, the wording specifies the earned boost).
 
-*Cross-reference: O71.*
+*Cross-reference: O72.*
 
-**O73. The referral steps are framed as helping, with repayment as the qualifying event.**
+**O74. The referral steps are framed as helping, with repayment as the qualifying event.**
 
 **Observed:** A "How to earn" sequence lists four steps: take an extra cash advance and spend instantly on gas, bills or groceries; share a referral link to help out your friends and family; your friend repays an extra cash advance, and they will know as soon as they are approved; you get 20% more on your next advance, up to $100 more (tier: directly observed). Referral FAQs cover what an extra cash boost is, when the boost arrives after a friend signs up, and whether the boost has to be paid back (tier: directly observed).
 
@@ -824,11 +839,11 @@ No observations. The session records no surface on which the user can see, inter
 - One of the published questions asks whether the boost must be repaid, which the interface does not otherwise answer (tier: directly observed).
 - The answers are not opened in the session (tier: unresolved).
 
-*Cross-reference: O57, O71, O72.*
+*Cross-reference: O69, O72, O73.*
 
-## Money
+## Monetization
 
-**O74. Membership is a small recurring charge that can be paused and resumed.**
+**O75. Membership is a small recurring charge that can be paused and resumed.**
 
 **Observed:** The membership entry in settings shows the next bill date, the bill amount of $1, a monthly schedule, and the payment method (tier: directly observed). The analyst records that the membership can be paused and then resumed easily (tier: directly observed).
 
@@ -838,9 +853,9 @@ No observations. The session records no surface on which the user can see, inter
 - Resuming is available from the same surface (tier: strongly supported, the analyst describes pausing and resuming from this screen).
 - What happens to the connected bank, alerts and budgeting tools during a pause is not shown (tier: unresolved).
 
-*Cross-reference: O10, O12, O70.*
+*Cross-reference: O10, O12, O71.*
 
-**O75. Advance delivery is the priced dimension, not the advance.**
+**O76. Advance delivery is the priced dimension, not the advance.**
 
 **Observed:** Across the pre-account terms, the onboarding screen and the extra cash explanation, the advance itself is described without interest and the fee is attached to speed: two to three days for no fee, or instantly for a small fee, with express fees named for instant transfers (tier: directly observed).
 
@@ -849,9 +864,9 @@ No observations. The session records no surface on which the user can see, inter
 - The paid path is instant (tier: directly observed).
 - No fee amount for instant delivery is stated on any screen observed (tier: directly observed).
 
-*Cross-reference: O1, O9, O52, O53, O57.*
+*Cross-reference: O1, O9, O44, O45, O69.*
 
-**O76. Funding the account is priced by source.**
+**O77. Funding the account is priced by source.**
 
 **Observed:** In the add-money flow, a transfer from a bank account carries no fee while Apple Pay carries a 1% fee (tier: directly observed).
 
@@ -861,7 +876,7 @@ No observations. The session records no surface on which the user can see, inter
 
 *Cross-reference: O33.*
 
-**O77. Cash deposits are priced by where they are made.**
+**O78. Cash deposits are priced by where they are made.**
 
 **Observed:** Deposits at the two named retailers using a barcode scan are fee-free, while other locations may charge a service fee (tier: directly observed).
 
@@ -871,7 +886,7 @@ No observations. The session records no surface on which the user can see, inter
 
 *Cross-reference: O18, O40.*
 
-**O78. Check handling is priced by speed and delegated to a partner.**
+**O79. Check handling is priced by speed and delegated to a partner.**
 
 **Observed:** Scanning a check is free at ten days or paid for instantly, sending a check is free and arrives within five business days, and the check-cashing itself is performed by a named partner (tier: directly observed).
 
@@ -879,18 +894,7 @@ No observations. The session records no surface on which the user can see, inter
 - The pricing pattern matches the advance: the free path is slow, the paid path is instant (tier: directly observed).
 - The fee amount for instant check cashing is not stated (tier: directly observed).
 
-*Cross-reference: O39, O75.*
-
-**O79. Interest appears on the accounts without an application.**
-
-**Observed:** The Accounts tab carries a banner reading "Congrats, you're now earning interest on your checking and goals account" with a "Learn more" control, and the analyst records that nothing was applied for (tier: directly observed). Both the Dave Checking card and the Goals screen display 4% APY (tier: directly observed).
-
-**Detail:**
-- The rate shown on both accounts is 4% APY (tier: directly observed).
-- The benefit is announced as already active rather than offered (tier: directly observed).
-- The conditions attached to the rate are not shown; the explanation sits behind "Learn more", which is not opened (tier: unresolved).
-
-*Cross-reference: O38, O45.*
+*Cross-reference: O39, O76.*
 
 ## Return triggers
 
@@ -903,7 +907,7 @@ No observations. The session records no surface on which the user can see, inter
 - The account-change purpose is stated first and the offers second (tier: directly observed).
 - The permission is requested at the moment the user has been refused a benefit and asked to come back tomorrow (tier: directly observed).
 
-*Cross-reference: O54, O81.*
+*Cross-reference: O66, O81.*
 
 **O81. Notification categories are granular and mostly push-only.**
 
@@ -927,7 +931,7 @@ No observations. The session records no surface on which the user can see, inter
 - A return trigger is sold as a membership benefit rather than presented as a default service (tier: directly observed).
 - The alert depends on the connected external account (tier: strongly supported, the alert and the connection are named as parts of the same fee).
 
-*Cross-reference: O12, O74, O81.*
+*Cross-reference: O12, O75, O81.*
 
 **O83. Marketing SMS is consented to at the verification step.**
 
@@ -942,15 +946,16 @@ No observations. The session records no surface on which the user can see, inter
 
 ---
 
+
 # Pass two: tagging
 
 ## Applied tags
 
 **Tag:** Piggy Bank
 
-**Observations:** O31, O32, O43, O45
+**Observations:** O31, O32, O57, O59
 
-**Supporting observations:** O18, O38, O46, O48, O49, O50
+**Supporting observations:** O18, O38, O60, O62, O63, O64
 
 **Confidence:** strongly supported
 
@@ -964,9 +969,9 @@ No observations. The session records no surface on which the user can see, inter
 
 **Tag:** Earning Tasks
 
-**Observations:** O58, O59, O61
+**Observations:** O46, O47, O49
 
-**Supporting observations:** O60, O62, O63, O64, O65, O68
+**Supporting observations:** O48, O50, O51, O52, O53, O56
 
 **Confidence:** strongly supported
 
@@ -980,9 +985,9 @@ No observations. The session records no surface on which the user can see, inter
 
 **Tag:** Referral Boost
 
-**Observations:** O71, O72, O73
+**Observations:** O72, O73, O74
 
-**Supporting observations:** O52, O54, O70
+**Supporting observations:** O44, O66, O71
 
 **Confidence:** strongly supported
 
@@ -996,34 +1001,34 @@ No observations. The session records no surface on which the user can see, inter
 
 ## Entries considered and not applied
 
-- Cosmetic Customization. The goal banner image (O47) is customization of one element of a feature rather than cosmetic presentation, so the entry does not apply. The image is a property of a user-created goal object within the savings feature, chosen to represent that goal, and the surface it sits on is the goal's configuration alongside its title and amount (O44). The entry describes presentation state maintained as cosmetic content in its own right, which this is not.
-- Advertisement Exposure. The session records a promotional channel but never a presented promotional unit: an SMS marketing consent (O83), a notification permission that names offers (O80), and a "special offers" notification category (O81). The entry's first required condition is that the product presents an identifiable content unit, and no such unit is shown at any point. The product's own upsell screens for its checking account and direct deposit (O17, O18, O25, O30) are separately excluded by the entry's rule that a product's promotion of its own offerings is not advertisement exposure. The featured placement of the product's own surveys inside the job list (O68) is excluded on the same ground and additionally by the entry's rule on promoted placement inside the product's own lists; that placement is carried as a variant of Earning Tasks.
-- Rewarded Advertisement. The survey payouts (O59, O61) are conditional on completing a survey, not on engaging with an advertisement. The entry's own separation of a sponsored task from a rewarded advertisement places this outside the label: the benefit is granted for performing an activity, not for viewing or interacting with a promotional unit. The surface is carried by Earning Tasks, which sits on the task side of the same separation.
-- Challenge. The surveys (O61, O63) are the closest surface, but the session establishes no bounded objective instance. No deadline, attempt limit, session boundary or participation window is shown for a listed survey, and its availability is not period-bounded. The one instance that concluded did so through disqualification by the provider (O64) rather than by reaching a challenge boundary, which is not the completed-or-not-completed structure the entry requires. Earning Tasks excludes the same case on the same reasoning and carries the surface.
-- Daily / Weekly Quests. No objective is issued, refreshed or released on a daily or weekly cadence anywhere in the session. The monthly earnings total on the survey list (O61) is a display of accumulated earning, not a period-issued objective, and the next-day eligibility retry (O54) re-evaluates a condition rather than releasing an objective with a completion state. The survey catalogue's contents change as tasks are exhausted rather than on a period cadence, which Earning Tasks treats as outside this entry.
-- Variable Reward Outcome. The disqualification rule (O59) states that an early-ending survey yields a partial reward, which raises the question of two materially different results for one reward event. It is not applied because the full payout for each survey is fixed and displayed in advance (O61), the difference between full and partial follows a disclosed condition rather than an undetermined selection, and no reward resolution of any kind is observed in the session (O64). The entry's own separation of a conditional reward from a variable outcome places this on the conditional side, and the disclosed condition is carried as a variant of Earning Tasks.
-- Variable Reward Schedule. Nothing in the session makes whether or when a reward occurs unpredictable in the way the entry requires. Survey payouts follow completion, and the eligibility retry (O54) concerns access to a borrowing product rather than a reward contingency.
-- Achievement. The confetti at the end of the profiling questionnaire (O62) is the only celebratory recognition in the session, and it marks the end of a form rather than a criterion the product preserves as attained. No attained state is recorded, displayed or referenced afterwards, which the entry requires.
+- Cosmetic Customization. The goal banner image (O61) is customization of one element of a feature rather than cosmetic presentation, so the entry does not apply. The image is a property of a user-created goal object within the savings feature, chosen to represent that goal, and the surface it sits on is the goal's configuration alongside its title and amount (O58). The entry describes presentation state maintained as cosmetic content in its own right, which this is not.
+- Advertisement Exposure. The session records a promotional channel but never a presented promotional unit: an SMS marketing consent (O83), a notification permission that names offers (O80), and a "special offers" notification category (O81). The entry's first required condition is that the product presents an identifiable content unit, and no such unit is shown at any point. The product's own upsell screens for its checking account and direct deposit (O17, O18, O25, O30) are separately excluded by the entry's rule that a product's promotion of its own offerings is not advertisement exposure. The featured placement of the product's own surveys inside the job list (O56) is excluded on the same ground and additionally by the entry's rule on promoted placement inside the product's own lists; that placement is carried as a variant of Earning Tasks.
+- Rewarded Advertisement. The survey payouts (O47, O49) are conditional on completing a survey, not on engaging with an advertisement. The entry's own separation of a sponsored task from a rewarded advertisement places this outside the label: the benefit is granted for performing an activity, not for viewing or interacting with a promotional unit. The surface is carried by Earning Tasks, which sits on the task side of the same separation.
+- Challenge. The surveys (O49, O51) are the closest surface, but the session establishes no bounded objective instance. No deadline, attempt limit, session boundary or participation window is shown for a listed survey, and its availability is not period-bounded. The one instance that concluded did so through disqualification by the provider (O52) rather than by reaching a challenge boundary, which is not the completed-or-not-completed structure the entry requires. Earning Tasks excludes the same case on the same reasoning and carries the surface.
+- Daily / Weekly Quests. No objective is issued, refreshed or released on a daily or weekly cadence anywhere in the session. The monthly earnings total on the survey list (O49) is a display of accumulated earning, not a period-issued objective, and the next-day eligibility retry (O66) re-evaluates a condition rather than releasing an objective with a completion state. The survey catalogue's contents change as tasks are exhausted rather than on a period cadence, which Earning Tasks treats as outside this entry.
+- Variable Reward Outcome. The disqualification rule (O47) states that an early-ending survey yields a partial reward, which raises the question of two materially different results for one reward event. It is not applied because the full payout for each survey is fixed and displayed in advance (O49), the difference between full and partial follows a disclosed condition rather than an undetermined selection, and no reward resolution of any kind is observed in the session (O52). The entry's own separation of a conditional reward from a variable outcome places this on the conditional side, and the disclosed condition is carried as a variant of Earning Tasks.
+- Variable Reward Schedule. Nothing in the session makes whether or when a reward occurs unpredictable in the way the entry requires. Survey payouts follow completion, and the eligibility retry (O66) concerns access to a borrowing product rather than a reward contingency.
+- Achievement. The confetti at the end of the profiling questionnaire (O50) is the only celebratory recognition in the session, and it marks the end of a form rather than a criterion the product preserves as attained. No attained state is recorded, displayed or referenced afterwards, which the entry requires.
 - Spendable Credits and Tokens. Every balance in the product is denominated in dollars: checking, goals, extra cash and the external account (O38). The entry explicitly excludes balances denominated in real currency, so no unit here qualifies as product-specific spendable units.
-- Soft Currency. Survey earnings are paid into the checking account as money (O59), and the entry explicitly excludes balances representing legal tender, bank deposits or stored monetary value. No product-defined unit with a non-paid acquisition path exists.
+- Soft Currency. Survey earnings are paid into the checking account as money (O47), and the entry explicitly excludes balances representing legal tender, bank deposits or stored monetary value. No product-defined unit with a non-paid acquisition path exists.
 - Hard Currency. The product defines no currency of its own that can be bought. Money added to the account by card or wallet (O33) is the user's own funds moving between accounts, not the acquisition of a product-defined unit.
-- Gifting. The referral (O71, O73) is the only surface involving another person's benefit, and the entry excludes exactly this case: the recipient earns a benefit by completing a referral action, and the sender does not directly grant it. Neither party's balance is changed by an act of the sender. The surface is carried by Referral Boost, whose exclusions draw the same line.
-- Monthly Reward Card. The $1 monthly membership (O74) is a recurring charge that buys continuous access to a bank connection, alerts and budgeting tools (O12). The entry excludes an entitlement that provides only continuous access or feature availability without creating multiple interval-based reward opportunities, and no interval reward is observed.
+- Gifting. The referral (O72, O74) is the only surface involving another person's benefit, and the entry excludes exactly this case: the recipient earns a benefit by completing a referral action, and the sender does not directly grant it. Neither party's balance is changed by an act of the sender. The surface is carried by Referral Boost, whose exclusions draw the same line.
+- Monthly Reward Card. The $1 monthly membership (O75) is a recurring charge that buys continuous access to a bank connection, alerts and budgeting tools (O12). The entry excludes an entitlement that provides only continuous access or feature availability without creating multiple interval-based reward opportunities, and no interval reward is observed.
 - Passive Construction. Round-ups advance a savings balance without repeated direct action (O31), which resembles activity-fed advancement. It is not applied because the entry requires a persistent constructed entity with distinguishable pre-construction and completed states, and the Goals balance is accumulated stored value rather than an entity that is created or upgraded. This behaviour is already carried by Piggy Bank.
-- First-Purchase Bonus. No bonus is attached to a first qualifying purchase anywhere in the session. The referral boost (O71) attaches to a second advance and is triggered by two parties repaying, not by a purchase, which is the same ground on which Referral Boost excludes this entry.
-- Energy. The extra cash FAQ names a question about why another advance cannot be taken immediately (O57), which points to some limit on repeat use. It is not applied because no bounded capacity, no consumption event and no replenishment rule is shown; only the question title is visible and its answer is not opened.
-- Set Collection. Goals can be created repeatedly (O46) and past goals are retained (O50), but the product defines no set with identifiable members whose completeness changes as members are acquired. Goals are user-created containers, not members of a defined group.
-- Leveling. The survey panel's tiers (O61) and its stated unlock (O59) were checked against this entry, since Earning Tasks names it as a label that can co-occur. It is not applied because the sections are a division of the catalogue rather than an ordered series of discrete states the user is assigned to and moved between, and no state, position or advancement rule is shown anywhere on the surface.
+- First-Purchase Bonus. No bonus is attached to a first qualifying purchase anywhere in the session. The referral boost (O72) attaches to a second advance and is triggered by two parties repaying, not by a purchase, which is the same ground on which Referral Boost excludes this entry.
+- Energy. The extra cash FAQ names a question about why another advance cannot be taken immediately (O69), which points to some limit on repeat use. It is not applied because no bounded capacity, no consumption event and no replenishment rule is shown; only the question title is visible and its answer is not opened.
+- Set Collection. Goals can be created repeatedly (O60) and past goals are retained (O64), but the product defines no set with identifiable members whose completeness changes as members are acquired. Goals are user-created containers, not members of a defined group.
+- Leveling. The survey panel's tiers (O49) and its stated unlock (O47) were checked against this entry, since Earning Tasks names it as a label that can co-occur. It is not applied because the sections are a division of the catalogue rather than an ordered series of discrete states the user is assigned to and moved between, and no state, position or advancement rule is shown anywhere on the surface.
 
 ## Unresolved
 
-**Milestone (O43, O45).** The product maintains an ongoing savings measure and defines a threshold within it: a goal amount, set by the product at $75 by default and editable by the user, with a progress bar representing position against it. What the session does not show is whether reaching that amount produces any observable system response distinct from an ordinary balance update. The entry's exclusion is explicit that setting a future target without recognising its crossing is not a milestone, and its final clause directs an unresolved classification when the product's recognition of reaching the point is not established. Reaching the threshold sits behind a condition the session did not meet, since no goal was funded past zero. What would resolve it: any session in which a goal balance reaches its target amount, showing whether a message, marker, record or state change follows.
+**Milestone (O57, O59).** The product maintains an ongoing savings measure and defines a threshold within it: a goal amount, set by the product at $75 by default and editable by the user, with a progress bar representing position against it. What the session does not show is whether reaching that amount produces any observable system response distinct from an ordinary balance update. The entry's exclusion is explicit that setting a future target without recognising its crossing is not a milestone, and its final clause directs an unresolved classification when the product's recognition of reaching the point is not established. Reaching the threshold sits behind a condition the session did not meet, since no goal was funded past zero. What would resolve it: any session in which a goal balance reaches its target amount, showing whether a message, marker, record or state change follows.
 
-**Extra Cash advance behaviour (O54, O57).** The advance is the product's headline and is observed to exist through the product's own framing on three separate surfaces, but it is locked behind an eligibility determination the session never passed. What is behind the gate, named but not seen: how the advance is received, how it is repaid, why the balance goes negative, why a further advance cannot be taken immediately, why an advance amount changes, what fees apply, and what happens when settlement is late. No mechanic label is assigned to any of it, because nothing beyond the account shell and the published question titles was observed.
+**Extra Cash advance behaviour (O66, O69).** The advance is the product's headline and is observed to exist through the product's own framing on three separate surfaces, but it is locked behind an eligibility determination the session never passed. What is behind the gate, named but not seen: how the advance is received, how it is repaid, why the balance goes negative, why a further advance cannot be taken immediately, why an advance amount changes, what fees apply, and what happens when settlement is late. No mechanic label is assigned to any of it, because nothing beyond the account shell and the published question titles was observed.
 
-**Survey unlock progression (O59, O61).** The panel itself is tagged as Earning Tasks on the product's own framing, and the stated unlock is recorded there as the entry's stated-progression variant. What remains unresolved is the progression's operation. No threshold, count, earnings level or other advancement rule is stated, no unlock is observed, and whether the tiers reorder or expand as participation continues is not shown. Whether the monthly total is what drives the unlock, or whether the sections are a static segmentation of the catalogue by length with no advancement rule behind them, is also not established. What would resolve it: a session in which the completed-survey count or the period total increases and the listing is then re-examined.
+**Survey unlock progression (O47, O49).** The panel itself is tagged as Earning Tasks on the product's own framing, and the stated unlock is recorded there as the entry's stated-progression variant. What remains unresolved is the progression's operation. No threshold, count, earnings level or other advancement rule is stated, no unlock is observed, and whether the tiers reorder or expand as participation continues is not shown. Whether the monthly total is what drives the unlock, or whether the sections are a static segmentation of the catalogue by length with no advancement rule behind them, is also not established. What would resolve it: a session in which the completed-survey count or the period total increases and the listing is then re-examined.
 
-**Referral boost issuance (O71, O72, O73).** The referral offer is tagged as Referral Boost on the product's own framing of the rule sequence. What remains unresolved is the reward's delivery form and its operation. The boost is conditioned on the referrer having taken and repaid an advance and on a referred friend repaying one, neither of which occurs in the session, and the eligibility gate on the advance (O54) sits upstream of the entire referral loop. Nothing shows whether the enhancement is applied automatically or claimed, whether it stacks across referrals, how the $100 ceiling interacts with the approval amount, whether the 60-day period runs from the qualifying repayment or from the boost becoming available, or whether the second-advance and next-advance wordings describe the same instance. What would resolve it: a session in which a boost is earned and the referring user then takes an advance. If the enhancement appears as a credited balance the user could apply elsewhere, or as a payment separable from the advance, the tag should be withdrawn and the reward classified under the applicable currency or credit entry.
+**Referral boost issuance (O72, O73, O74).** The referral offer is tagged as Referral Boost on the product's own framing of the rule sequence. What remains unresolved is the reward's delivery form and its operation. The boost is conditioned on the referrer having taken and repaid an advance and on a referred friend repaying one, neither of which occurs in the session, and the eligibility gate on the advance (O66) sits upstream of the entire referral loop. Nothing shows whether the enhancement is applied automatically or claimed, whether it stacks across referrals, how the $100 ceiling interacts with the approval amount, whether the 60-day period runs from the qualifying repayment or from the boost becoming available, or whether the second-advance and next-advance wordings describe the same instance. What would resolve it: a session in which a boost is earned and the referring user then takes an advance. If the enhancement appears as a credited balance the user could apply elsewhere, or as a payment separable from the advance, the tag should be withdrawn and the reward classified under the applicable currency or credit entry.
 
 ## Entries never observed
 
@@ -1034,7 +1039,7 @@ No observations. The session records no surface on which the user can see, inter
 - Experience Points. No units of progression value are granted for activity or accumulated toward an advancement threshold.
 - Group Membership. The product places the user in no system-recognised group and maintains no membership list.
 - Leaderboard. No ordered list of comparable entities appears on any surface.
-- Lives. No continuation units are removed on failure; the disqualified survey (O64) removes an offer, not a unit of permission to continue.
+- Lives. No continuation units are removed on failure; the disqualified survey (O52) removes an offer, not a unit of permission to continue.
 - Loot Box. No acquired container or draw with contents unknown before commitment appears.
 - Season Content Pass. No entitlement grants access to content grouped under a season, event or release cycle.
 - Seasonal Progression Pass. No time-bounded progression track with ordered thresholds appears.
@@ -1049,7 +1054,7 @@ No observations. The session records no surface on which the user can see, inter
 
 **Draft definition.** When a user requests a gated benefit and does not qualify, the product declines without closing the request, names a recurring interval at which the decision will be reconsidered, and offers a notification for the moment eligibility changes.
 
-**Source observations:** O54, O56, O80.
+**Source observations:** O66, O68, O80.
 
 **Conditions it appears to depend on:** A benefit gated by a system-evaluated eligibility rule; a decision the product will re-evaluate rather than treat as final; a named interval short enough to be actionable; a notification opt-in offered in place of the withheld benefit; a stated or implied route by which the user can change the input the decision depends on.
 
@@ -1079,14 +1084,14 @@ No observations. The session records no surface on which the user can see, inter
 
 The product is organised so that one connection decision made during onboarding governs almost everything that follows.
 
-Connecting the account the user is paid into (O9, O13) is the input to the eligibility determination for the advance (O56), which is the product's headline offer on its first unauthenticated screen (O1) and again on its own tab (O51). That same connection is one of the three things the $1 monthly membership is said to pay for (O12), and the membership also pays for the low balance alert (O82), which is the product's most frequent reason to reopen the app (O81). The membership charge is authorised on the connection screen itself (O10), so the fee, the connection and the eligibility path are agreed in one action.
+Connecting the account the user is paid into (O9, O13) is the input to the eligibility determination for the advance (O68), which is the product's headline offer on its first unauthenticated screen (O1) and again on its own tab (O65). That same connection is one of the three things the $1 monthly membership is said to pay for (O12), and the membership also pays for the low balance alert (O82), which is the product's most frequent reason to reopen the app (O81). The membership charge is authorised on the connection screen itself (O10), so the fee, the connection and the eligibility path are agreed in one action.
 
-The advance sits behind a gate the session never passed (O54). Everything downstream of it therefore also sits behind that gate. The referral reward is not cash but a larger next advance (O71), and its first qualifying step is that the referrer has taken an advance (O73), so the growth loop cannot start until the eligibility loop resolves. The settlement mechanism for an advance is the next paycheck (O52) and the linked debit card (O15), which gives the direct deposit flow (O35, O36, O37) a second function beyond the two-days-early claim it advertises: it makes the paycheck arrive where settlement happens.
+The advance sits behind a gate the session never passed (O66). Everything downstream of it therefore also sits behind that gate. The referral reward is not cash but a larger next advance (O72), and its first qualifying step is that the referrer has taken an advance (O74), so the growth loop cannot start until the eligibility loop resolves. The settlement mechanism for an advance is the next paycheck (O44) and the linked debit card (O15), which gives the direct deposit flow (O35, O36, O37) a second function beyond the two-days-early claim it advertises: it makes the paycheck arrive where settlement happens.
 
-The savings side runs on a different dependency. Round-ups are triggered only by purchases on the product's own debit card (O31), which requires the checking account (O17 to O23), which requires the identity verification sequence (O19, O20, O21). Round-ups in turn require a Goals account (O32), so the savings container exists as a precondition of the automation rather than as something the user asked for, and the first goal arrives already created with a $75 target and round-up switched on (O43). Ending a goal cascades back into that automation, pausing round-ups and cancelling recurring transfers (O49), and the product answers the cascade immediately with an offer to restart it by creating another goal (O50). The savings surface and the spending surface are therefore coupled in both directions: spending feeds saving, and removing the savings target switches the feeding off.
+The savings side runs on a different dependency. Round-ups are triggered only by purchases on the product's own debit card (O31), which requires the checking account (O17 to O23), which requires the identity verification sequence (O19, O20, O21). Round-ups in turn require a Goals account (O32), so the savings container exists as a precondition of the automation rather than as something the user asked for, and the first goal arrives already created with a $75 target and round-up switched on (O57). Ending a goal cascades back into that automation, pausing round-ups and cancelling recurring transfers (O63), and the product answers the cascade immediately with an offer to restart it by creating another goal (O64). The savings surface and the spending surface are therefore coupled in both directions: spending feeds saving, and removing the savings target switches the feeding off.
 
-The Grow tab connects the two halves. Survey earnings are paid into the checking account (O59), which is also the settlement point for advances and the source of round-ups, so a user who earns in Grow is funding the same account that both the saving automation and the borrowing settlement depend on. The job board within Grow points outward (O69), but its featured position is occupied by the product's own survey surface (O68), which points back in.
+The Grow tab connects the two halves. Survey earnings are paid into the checking account (O47), which is also the settlement point for advances and the source of round-ups, so a user who earns in Grow is funding the same account that both the saving automation and the borrowing settlement depend on. The job board within Grow points outward (O70), but its featured position is occupied by the product's own survey surface (O56), which points back in.
 
-Dependencies worth stating plainly. O54 depends on O9, O13 and O56. O71, O72 and O73 depend on O54. O31 depends on O17 through O23 and on O28. O43, O45, O46, O47 and O48 depend on O32. O49 and O50 depend on O31 and O34. O82 depends on O12 and O13. O59 and O61 depend on O23. O35, O36 and O37 depend on O23 and feed O52.
+Dependencies worth stating plainly. O66 depends on O9, O13 and O68. O72, O73 and O74 depend on O66. O31 depends on O17 through O23 and on O28. O57, O59, O60, O61 and O62 depend on O32. O63 and O64 depend on O31 and O34. O82 depends on O12 and O13. O47 and O49 depend on O23. O35, O36 and O37 depend on O23 and feed O44.
 
 What the session cannot say. It observed no advance, no repayment, no referral boost, no goal reaching its target, no survey completing and no notification arriving. Six of the nine dependency chains above terminate in behaviour that was never seen, and every one of them terminates at the same place: the eligibility decision the product deferred to tomorrow.
