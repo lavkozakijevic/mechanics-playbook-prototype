@@ -37,7 +37,7 @@ resolvable in code either way; that code change does not change which
 mappings were empirically forced versus reasoned out, which is what
 "confirmed" and "inferred" track here.
 
-## Site mechanic → library entry mapping (31 site mechanics)
+## Site mechanic → library entry mapping (34 site mechanics)
 
 | site mechanic (`id`) | library entry / entries covered | evidence |
 |---|---|---|
@@ -73,6 +73,8 @@ mappings were empirically forced versus reasoned out, which is what
 | personal-data-reflection | Personal Data Reflection | inferred |
 | companion | Companion | inferred |
 | progression-fund | Progression Fund | inferred |
+| shareable-win | Shareable Win | confirmed |
+| expert-guidance | Expert Guidance | confirmed |
 
 28 site mechanics, not 27 — `personal-data-reflection` was added in the
 step immediately before this one, closing what was then the library's only
@@ -89,15 +91,19 @@ and `leveling` on 13 Sep 2026 (see "The xp-leveling split" below), a
 one-into-two split that adds one to the total while removing one merge.
 Both new mechanics are clean, one-to-one mappings and neither is held back.
 
-One more than the count above states, not one fewer — `achievements`
-split into `achievement` and `milestone` on 13 Sep 2026 (see "The
-achievements split" below), the same one-into-two shape as the
-xp-leveling split. Both new mechanics are clean, one-to-one mappings and
-neither is held back. This document's own running count was already out
-of date before this split (two more recent library-grounded additions,
-Shareable Win and Expert Guidance, aren't in the table above at all yet);
-this note corrects only what the achievements split itself changes,
-not that separate gap.
+32 site mechanics, not 31 — `achievements` split into `achievement` and
+`milestone` on 13 Sep 2026 (see "The achievements split" below), the same
+one-into-two shape as the xp-leveling split. Both new mechanics are clean,
+one-to-one mappings and neither is held back.
+
+34 site mechanics, not 32 — Shareable Win and Expert Guidance are now in
+the table above. Both are brand-new one-to-one mappings, the same shape as
+Companion and Progression Fund: no prior site mechanic, no merge involved.
+Both are *confirmed* rather than *inferred*: Canva applies Shareable Win
+and Tiimo applies Expert Guidance, each as its own tag under the current
+(v4.1) model. An earlier version of this document flagged their absence
+from the table as a known gap rather than closing it; this entry replaces
+that flag.
 
 ## The five merged mechanics (split deferred)
 
@@ -384,12 +390,14 @@ can't be missed in one spot and linked from another. It renders the
 reference unlinked — the name and category still show, there's simply no
 link to click — reusing the fallback already built for a mechanic with no
 reference page at all, rather than a broken link or a misleading
-`/subscribe/` CTA. The other 25 mechanics — the 19 original clean
+`/subscribe/` CTA. The other 29 mechanics — the 19 original clean
 one-to-one mappings, `personal-data-reflection`, `companion`,
 `progression-fund`, and `ads` now that Advertisement Exposure's retirement
-has left it a clean one-to-one mapping too, plus `experience-points` and
+has left it a clean one-to-one mapping too, `experience-points` and
 `leveling` now that the xp-leveling split has left them clean one-to-one
-mappings as well — are unaffected. A merge gets
+mappings as well, `achievement` and `milestone` now that the achievements
+split has done the same, and `shareable-win` and `expert-guidance`, two
+more one-to-one mappings added alongside that split — are unaffected. A merge gets
 its own page back, for both sides, once it clears the split condition
 above.
 
