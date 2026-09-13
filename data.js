@@ -860,21 +860,6 @@ const SYSTEMS = [
     what_makes_it_work: "The system works because the check-ins are genuinely useful without the content library. A user who cannot afford the subscription can still maintain a mood log, sleep log, gratitude journal, and daily reflection, all free, all with reminder support. The free tier is a complete daily wellness practice, not a teaser.",
   },
   {
-    id: "canva",
-    name: "Canva",
-    app_id: "canva",
-    tagline: "A design platform where the achievement system distributes verifiable credentials designed for LinkedIn.",
-    overview: "Canva's engagement system is built around Design School, a certification platform where the achievement and the credential are the same artifact. Completing a quiz produces both an in-app badge and a downloadable certificate with a verifiable credential ID. The same action serves the internal achievement system and the professional social network simultaneously. The credit system builds the subscription argument through accumulated small purchases without ever stating it directly.",
-    loop_description: "The core loop is: create in Canva → encounter a premium element → decide between credits or subscription → buy credits → notice the subscription math → enter Design School → complete a quiz → earn a certificate with a credential ID → share on LinkedIn → LinkedIn audience discovers Canva. The Design School credential is the acquisition channel embedded in the achievement system.",
-    mechanics: [
-      { id: "achievements", role: "Each Design School completion produces an in-app badge and a shareable certificate with a credential ID, designed to leave the app and appear on LinkedIn, making each completion a potential acquisition moment.", position: "center" },
-      { id: "challenges", role: "Design School quizzes function as opt-in challenges with pass/fail outcomes and dual rewards (badge + certificate), the challenge completion is the credential.", position: "engagement-layer" },
-      { id: "credits-tokens", role: "Credits and subscription are presented at the same decision point, the credit system builds the subscription case through accumulated small spends without stating the comparison.", position: "monetization-layer" },
-    ],
-    key_insight: "The LinkedIn Official badge names LinkedIn specifically as its sharing target, a platform-specific distribution instruction embedded in the achievement system. Every Design School completion is simultaneously an in-app achievement and a branded Canva advertisement on a professional network.",
-    what_makes_it_work: "The credit system and the subscription are not alternatives, the credit system is how users discover the subscription is the rational choice. Each $1.99 credit purchase makes the $18/month subscription math more legible, without Canva having to say it. The comparison emerges from behaviour rather than from copy.",
-  },
-  {
     id: "steam",
     name: "Steam (iOS)",
     app_id: "steam",
@@ -1111,6 +1096,24 @@ const SYSTEMS = [
     ],
     key_insight: "Referral Boost looks like a separate growth mechanic, but it isn't one. It only pays out once the referrer has already taken and repaid an Extra Cash advance, which means it sits behind the exact same eligibility decision the advance itself sits behind. Dave can't grow through referral any faster than it can approve advances, because the growth mechanic and the lending decision are the same gate.",
     what_makes_it_work: "The three chains don't need to be wired to each other because they're already wired to the same account. Round-ups draw from Dave Checking, survey earnings land in Dave Checking, and an advance settles against Dave Checking, so the system doesn't need a mechanic-to-mechanic connection to tie saving, earning, and borrowing together, the shared account already does that job.",
+  },
+
+  {
+    id: "canva",
+    name: "Canva",
+    app_id: "canva",
+    tagline: "A production loop with no limits meets a paywall that only appears at export, while a separate certification track quietly manufactures shareable credentials on the side.",
+    overview: "Canva's system splits into two halves that meet at exactly one point: export. The first half, browsing templates and photos, building in the editor, generating images or entire websites from a prompt, runs with no capacity limit, cooldown, or schedule anywhere in it. The second half is the gate: every route to a purchase, a 14-day trial, a one-off licence, or a purchasable credit balance, converges on the same moment, after a design already exists, whether the user is trying to remove a watermark, export, or publish. A third structure, Design School, sits apart from both: it's the only place anything in the system actually accumulates, and what it produces is built to leave the app rather than feed back into it.",
+    loop_description: "The production loop runs: browse the template or photo catalogue → drop into the format picker → build freely in the editor, or generate an image, video or website from a prompt → reach export. A crown marks premium content the moment it appears, so the user always knows what will eventually cost something, but nothing stops them building with it first. At export, three separately priced routes converge: a free trial, a one-off per-design licence, or a purchasable credit balance, and Canva argues among its own routes on the same screen where the credit price is shown. Design School runs a third, disconnected loop: take or skip the course → pass a bounded certification test → receive a badge, then a certificate → share the certificate outward, with two badges paid out only for sending it further.",
+    mechanics: [
+      { id: "hard-currency", role: "The credit balance is one of three routes across the export gate, priced one to one against a single premium element and sold in packages that reward buying more than any one design needs. Canva actively undercuts its own credit price with a subscription pitch on the same screen where the credit price is shown.", position: "gate" },
+      { id: "challenges", role: "The certification test is a bounded, stated instance, 14 questions, 30 minutes, that can be entered and finished without ever completing the course it certifies. It's the single entry point into everything Design School accumulates.", position: "design-school-entry" },
+      { id: "achievements", role: "Passing the test flips a badge from unattained to attained and unlocks a stored certificate. Six further badges, stepping at one, three and five completions, stay greyed out as the next reasons to return, but the record is kept behind the Design School sidebar specifically, not the account area.", position: "design-school-core" },
+      { id: "shareable-win", role: "The same passed test composes a certificate carrying a credential ID and an issue date, offered for social sharing, download, or email delivery, with two badges paid out only for sending it further, one of them naming LinkedIn specifically.", position: "design-school-exit" },
+      { id: "community-groups", role: "Teams exist, invitation-managed, and a user can belong to more than one, but no effect of membership on content, permission or shared state is stated anywhere. It sits beside per-design sharing and comments as a thin, mostly self-contained social layer.", position: "peripheral-social" },
+    ],
+    key_insight: "Design School's dependency chain runs one way and never rejoins the rest of the system: the badge tiers depend on the completion counters, the counters depend on finishing courses, and the certificate depends on a test that can be passed without finishing any of them. That broken link is what makes a shareable, checkable credential cheap to produce, and cheapness is exactly what a mechanic built to leave the app and be seen elsewhere needs.",
+    what_makes_it_work: "Canva doesn't need its production loop and its paywall to negotiate with each other because they never touch: the loop stays permissive everywhere except the single choke point of export, so the user never has to feel gated while working, only when leaving. Design School works the same way in reverse. It's allowed to be generous with its credential exactly because nothing it grants can be spent anywhere else in the product.",
   },
 
 ];

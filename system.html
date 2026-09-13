@@ -392,9 +392,8 @@ const CONNECTIONS = {
     { from: "streak", to: "gifting", title: "Streak milestones generate shareable cards", desc: "Streak milestones generate pre-formatted Instagram Stories cards. Each milestone is a referral moment framed as personal achievement sharing rather than recruitment.", effect: "The streak milestone card is unsolicited and personal; the guest pass is solicited and generous. Together they cover different referral contexts." },
   ],
   canva: [
-    { from: "achievements", to: "challenges", title: "Badges and certificates are the same artifact", desc: "Completing a Design School quiz produces both an in-app badge and a downloadable certificate with a credential ID. The completion action serves both systems simultaneously.", effect: "Users who pursue certification for professional reasons accumulate achievement badges as a byproduct. Users who browse achievements discover that each badge corresponds to a completable course." },
-    { from: "challenges", to: "achievements", title: "Course completion unlocks the LinkedIn badge", desc: "The LinkedIn Official badge, the achievement with the most specific external distribution target, is earned through Design School course completion.", effect: "Every course completion is simultaneously a learning moment and a Canva distribution event on LinkedIn. The challenge reward is the ad." },
-    { from: "credits-tokens", to: "challenges", title: "Credit spending reveals subscription value", desc: "Each credit purchase makes the subscription math more legible. Users who have spent credits multiple times have implicitly calculated the subscription value through their own behavior.", effect: "The credit system converts the subscription decision from a cold evaluation to a conclusion the user reaches through their own spending. Engaged users are already invested in the platform." },
+    { from: "challenges", to: "achievements", title: "The test produces the badge", desc: "Passing the certification test flips a badge from unattained to attained, evaluated the moment the test's stated success condition is met.", effect: "The badge fires directly from the test result, not from any broader course progress, so completing the course itself is not required to receive it." },
+    { from: "achievements", to: "shareable-win", title: "The same result composes the certificate", desc: "The same passed test that produces the badge also composes a certificate, presented in a second screen immediately after the badge.", effect: "A cheap, checkable credential is available as soon as the test is passed, which is what makes it easy to hand out and easy to share." },
   ],
   steam: [
     { from: "cosmetics", to: "experience-points", title: "Seasonal badges feed profile XP", desc: "Seasonal badges available in the Points Shop contribute towards profile XP. The cosmetics system and the leveling system share the same seasonal badge item.", effect: "Acquiring seasonal badges advances both the cosmetic display layer and the profile level simultaneously, giving the same item two progression roles." },
@@ -602,10 +601,12 @@ const POSITIONS = {
     "gifting":               { x: 74, y: 70 },
   },
   "canva": {
-    center:                  { x: 50, y: 15, label: "CANVA" },
-    "achievements":          { x: 50, y: 38 },
-    "challenges":            { x: 26, y: 68 },
-    "credits-tokens":        { x: 74, y: 68 },
+    center:                  { x: 50, y: 8,  label: "CANVA" },
+    "challenges":            { x: 28, y: 30 },
+    "achievements":          { x: 28, y: 52 },
+    "shareable-win":         { x: 28, y: 74 },
+    "hard-currency":         { x: 72, y: 40 },
+    "community-groups":      { x: 72, y: 74 },
   },
   "steam": {
     center:                    { x: 50, y: 8,  label: "STEAM" },

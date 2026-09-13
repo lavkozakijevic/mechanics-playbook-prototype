@@ -4,138 +4,947 @@
   "category": "Design",
   "type": "app",
   "visibility": "public",
-  "analysisDate": "2026-04-25",
-  "lastUpdated": "2026-05-15",
-  "summary": "Canva's Design School certification system issues achievements with verifiable credential IDs designed to be shared on LinkedIn, the LinkedIn Official badge names its distribution target directly. The credit system runs as a parallel monetisation path alongside the subscription, with variable credit costs per AI tool signalling feature value before spending. The same completion action produces both an in-app badge and an externally shareable certificate with a credential ID.",
-  "teaser": "Every Design School badge is also a branded advertisement: the certificate names LinkedIn directly as where to share it.",
+  "analysisDate": "2026-09-13",
+  "lastUpdated": "2026-09-13",
+  "asObserved": "2026-04",
+  "appVersion": "None.",
+  "summary": "Canva is a design tool built around an unobstructed production loop: browsing, editing and generating content carries no cap, cooldown or schedule anywhere in it, and the charge only arrives once a design already exists, at export. Three separately priced routes, a subscription trial, a one-off licence and a credit balance, meet at that single point rather than gating the work itself. Design School sits apart from that loop entirely, running a certification path whose badges and certificate point outward, toward being shared, rather than back into the editor.",
+  "teaser": "Canva never limits what you can build, only what you can leave with when it's done.",
   "icon": "/icons/canva.png",
   "heroImage": null,
-  "mechanics": [
+  "contentFormat": "v4.1",
+  "observations": [
     {
-      "id": "achievements",
-      "depth": "supporting",
-      "writeup": {
-        "observed": "Design School houses the achievement system. Named badge tiers: First Course / Three Courses / Five Courses, First Certificate / Three Certificates / Five Certificates, Sharing Superstar, and LinkedIn Official. Badges display as a grid, grayed out until earned, each with a 'Browse Courses' CTA. Completing a quiz triggers a two-step reveal: a confetti screen announcing the badge, followed by the certificate with credential ID, date, and shareable options.",
-        "presented": "Achievements are inside Design School, accessed via the sidebar. The section has four sub-tabs: Overview (aggregate stats), Badges, Certificates, and Skills. Completing the AI Skills for Students quiz during analysis triggered both the First Certificate badge and a downloadable certificate with a credential ID.",
-        "noting": "The certificate is designed to leave the app. A credential ID and shareable card make the completion artifact credible enough for LinkedIn or a portfolio. The LinkedIn Official badge names its distribution channel directly, a platform-specific instruction that signals exactly where the achievement should go without requiring the user to figure it out.",
-        "findings": [
-          "The LinkedIn Official badge names LinkedIn specifically as its sharing target, the most platform-specific social sharing incentive observed across the library.",
-          "Certificates include a credential ID and completion date, giving them verifiable legitimacy beyond a purely in-app marker.",
-          "The certification quiz was passable through 'common sense' during analysis, the barrier to earning the First Certificate badge is intentionally low to maximize early conversion into the achievement system.",
-          "The Sharing Superstar badge rewards social distribution, not learning, an acquisition driver embedded inside a retention feature."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": [
-        "Achievements section in Design School showing the badges grid — First Course, First Certificate, Sharing Superstar, LinkedIn Official — with grayed-out unearned badges and the Browse Courses CTA",
-        "Certificate of Completion popup showing confetti, \"You've hit a learning milestone\" message, and the \"You're Canva Certified\" follow-up with social share and download options"
-      ]
+      "id": "O1",
+      "name": "Cross-app tracking consent",
+      "section": "onboarding",
+      "observed": "Canva's first prompt on opening the app asks permission to track the user's activity across other companies' apps and websites, appearing before any product screen, ahead of even the sign-up screen.",
+      "detail": [
+        "It's the first pop-up shown, appearing before sign-up.",
+        "Canva doesn't state what changes depending on which option is chosen."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "challenges",
-      "depth": "shallow",
-      "writeup": {
-        "observed": "Design School course activities function as opt-in structured objectives with defined completion states and rewards. The certification quiz, AI Skills for Students, has 14 questions, a 30-minute window, a pass/fail outcome, and a named reward (First Certificate badge plus a downloadable certificate). Entry is voluntary; during analysis the user chose to take the quiz without completing the full course first. Individual Design School courses are described with duration, difficulty level, lesson count, and whether they carry a shareable certificate.",
-        "presented": "Challenges sit within Design School's course catalogue, filterable by topic, difficulty, and certificate availability. Some courses are free, some are premium (marked with a crown). Each course page shows the prerequisite knowledge level and whether a certificate is awarded.",
-        "noting": "The challenge and achievement mechanics are inseparable at the point of completion, finishing a quiz always produces both a certificate (external credential) and a badge (in-app achievement). The same completion action serves both the internal achievement system and the professional social network.",
-        "findings": [
-          "Every Design School quiz that carries a certificate produces both a shareable certificate and an in-app badge, the same completion action serves both the internal achievement system and the external social network.",
-          "Some Design School content is premium (crown-marked), the achievement system partially sits behind the subscription paywall.",
-          "Course activities open live Canva templates for hands-on practice, directly connecting learning content to the product's core creation activity.",
-          "The paywall copy adapts to the user's entry point, when hitting it through brand kit, it describes brand kit features; through AI tools, it describes AI limits."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O2",
+      "name": "Account required to start",
+      "section": "onboarding",
+      "observed": "Canva requires an account before any part of the product can be used, collapsing sign-up and log-in into a single continue action.",
+      "detail": [
+        "Visible sign-in options: Apple, Google, Facebook, email, and a further set reached through \"continue another way\" (Microsoft, Clever, work email, phone number).",
+        "The screen doesn't ask the user to specify whether they're signing up or logging in."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "variable-reward",
-      "depth": "shallow",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O3",
+      "name": "Use-case question ties eligibility",
+      "section": "onboarding",
+      "observed": "After sign-in, Canva asks what the product will be used for, offering four answers, two of which state that premium features are free for that group.",
+      "detail": [
+        "Personal projects and work and business carry no eligibility claim.",
+        "Education states that students and teachers get premium features for free; nonprofit states that 800,000 nonprofits get premium features for free."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "credits-tokens",
-      "depth": "supporting",
-      "writeup": {
-        "observed": "Canva Credits are purchased with real money (1 credit for $1.99, scaling to 100 credits for $99.99) and spent on individual premium elements within designs. Each premium element costs 1 credit. Credits are positioned as an alternative to the subscription: 'don't pay for images, get Canva Business' appears next to the credit purchase option. A watermarked download is available as a free fallback for premium content.",
-        "presented": "Credit cost surfaces at the moment of use, when a premium element is selected, the cost appears alongside the subscription option. Both credits and subscription are presented at the same decision point. The subscription paywall copy adapts to the feature the user was accessing.",
-        "noting": "For a user who needs one premium image for one design, 1 credit at $1.99 is the low-friction alternative to an $18/month subscription. The credit system builds the subscription argument through accumulated small spends, each credit purchase makes the subscription math more obvious without anyone stating it.",
-        "findings": [
-          "Credits and subscription are presented at the same decision point, at the moment of highest purchase intent.",
-          "The watermarked download is a free fallback that delivers the functionality at reduced quality, preventing a hard stop that would cause abandonment.",
-          "The AI consent toggle is pre-enabled at onboarding, requiring active opt-out rather than opt-in.",
-          "8 pricing tiers from $1.99 to $99.99 with increasingly favorable per-credit rates at higher volumes create a natural progression from single-use to bulk purchase."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O4",
+      "name": "AI training consent, default on",
+      "section": "onboarding",
+      "observed": "Canva's AI consent screen explains that AI is used throughout the product and improved with user content, with a toggle allowing that improvement already switched on.",
+      "detail": [
+        "The toggle defaults on; turning it off requires the user to act.",
+        "Canva states the setting can be changed later in settings at any time.",
+        "The benefit is framed collectively, as building better AI tools for everyone, rather than personally."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O5",
+      "name": "Straight into the catalogue",
+      "section": "onboarding",
+      "observed": "Onboarding ends immediately after AI consent, dropping the user onto the home surface, which opens on a browsable template catalogue with no tutorial or sample project.",
+      "detail": [
+        "Guidance stops at this screen. Nothing afterward tells the user what to do next."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O6",
+      "name": "Endless template catalogue",
+      "section": "core-loop",
+      "observed": "Canva's home surface opens on Templates and scrolls without a visible end, mixing category shortcuts, promotional rows and further template grids.",
+      "detail": [
+        "Top-level tabs: templates, photos, graphics, creators, store content.",
+        "Categories include business, social media, video, logo, Instagram story, poster, invitation, and more.",
+        "The category bar reappears above the content as the user scrolls down."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O7",
+      "name": "Browsable, licensed photo library",
+      "section": "core-loop",
+      "observed": "Canva's photo library presents curated collections and a stated library size, marking premium items with a crown and showing licensing terms on each one.",
+      "detail": [
+        "The library states more than 240,000 photos available.",
+        "Each premium item's detail sheet carries a description, size, provider, and licence terms for commercial use.",
+        "Available actions on a photo: star, report, add to folder, use in design."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O8",
+      "name": "Format picker before the canvas",
+      "section": "core-loop",
+      "observed": "Choosing an asset to use routes the user into a format picker listing dozens of output formats before opening the editor, rather than starting from a blank canvas.",
+      "detail": [
+        "Formats include Instagram post, Instagram story, logo, business card, infographic, calendar, and many more.",
+        "The chosen design opens with the source asset already placed."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O9",
+      "name": "One gated editor tool",
+      "section": "core-loop",
+      "observed": "Canva's editor toolbar offers templates, elements, text, camera roll, brand, uploads, tools, projects, apps and Magic Media, with brand as the only premium-marked entry.",
+      "detail": [
+        "Adding text and elements, including rotating and editing them, works without obstruction.",
+        "Brand opens directly into the brand kit gate rather than a working tool."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O10",
+      "name": "Magic Media writes its own prompt",
+      "section": "core-loop",
+      "observed": "Magic Media generates an image, graphic, video or 3D object from a written prompt, requiring at least five words, with an \"inspire me\" option that supplies a random prompt for the user.",
+      "detail": [
+        "The minimum input is five words.",
+        "3D generation returned four results, each viewable from any angle.",
+        "Results can be saved to the phone as an image."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O11",
+      "name": "Canva AI builds a website from one sentence",
+      "section": "core-loop",
+      "observed": "Canva AI accepts a single description and builds a complete result, showing generated code and a rising line count while it works, and sits inside the More menu rather than the main navigation.",
+      "detail": [
+        "A simple prompt produced roughly 100 lines of code; a more complex one ran past 360 lines and took longer.",
+        "Canva doesn't name the underlying model powering it.",
+        "The result can be shared, published to a site URL, or given a new domain, with its own publishing settings.",
+        "Output types offered: website, presentation, doc, whiteboard."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O12",
+      "name": "Dream Lab, a separate image generator",
+      "section": "core-loop",
+      "observed": "Dream Lab is a second image generation surface, letting the user choose a style and dimensions, sitting in the More menu alongside Canva AI rather than inside the editor.",
+      "detail": [
+        "Canva doesn't state Dream Lab's limits, cost, or how its output is handled."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O13",
+      "name": "Grow turns a URL into ad creative",
+      "section": "core-loop",
+      "observed": "Grow takes a product page URL and a chosen business, then generates ad creative across several angles, positioned as a connected workflow for creating and measuring ads.",
+      "detail": [
+        "Ad angles offered include case study, feature callout, announcement, comparison, and before and after.",
+        "The output is intended for external ad accounts, consistent with the Business plan's promise to manage performance across 50 ad accounts."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O14",
+      "name": "Document menu and accessibility check",
+      "section": "core-loop",
+      "observed": "The editor's three-dot menu carries document management, settings and an accessibility checker alongside a long action list.",
+      "detail": [
+        "Actions include resize (marked as paid), view all pages, version history, download, share, and report design.",
+        "Settings include page thumbnails, guides, margins, print bleed, and grid options.",
+        "The accessibility check reports on typography, colour contrast, and alternative text."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O15",
+      "name": "Finished work in a filterable folder",
+      "section": "core-loop",
+      "observed": "Finished designs collect in \"Your designs,\" a top-level destination alongside Create and More, filterable by owner, date, category, and design type.",
+      "detail": [
+        "This accumulated folder is the only persistent user state found outside Design School."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O16",
+      "name": "Home surface changes after relaunch",
+      "section": "core-loop",
+      "observed": "On a second launch, Canva's home surface no longer opened on the template catalogue; instead it asked what the user wanted to create and offered creation entry points directly.",
+      "detail": [
+        "Second-launch entry points included magic layers, social media, video, presentation, photo editor, and website.",
+        "Canva doesn't state what triggers the change between the two versions of home."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O17",
+      "name": "Overlay bug forced a restart",
+      "section": "core-loop",
+      "observed": "A microphone control sat over the back button during one screen, at the premium element payment step, blocking the back action entirely and requiring the app to be closed and reopened to escape.",
+      "detail": [
+        "The obstruction occurred during a card entry flow.",
+        "Restarting the app is what produced the changed home surface described in the previous observation."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O18",
+      "name": "Design School's own section",
+      "section": "goals",
+      "observed": "Design School opens as a distinct part of the app with its own sidebar, its own catalogue, and free and certified courses.",
+      "detail": [
+        "Sidebar sections: explore all, courses, lessons, achievements, plus new in Canva, a blog, and events.",
+        "Content types include activities, cheat sheets, courses, guides, lessons and videos.",
+        "Filters include audience, skill, duration, certification, plan and device.",
+        "Audiences named include content creators, marketers, small business owners, students and teachers.",
+        "Lessons run roughly ten to fifteen minutes each."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O19",
+      "name": "Course terms stated upfront",
+      "section": "goals",
+      "observed": "Every Design School course card states whether it's premium or free, its length, its difficulty, whether it carries a shareable certificate, and its lesson count, before the user opens it.",
+      "detail": [
+        "Course pages also show what you'll learn, key skills, and an FAQ.",
+        "The shareable certificate is disclosed as a property of the course before any work is done."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O20",
+      "name": "A standalone certification test",
+      "section": "goals",
+      "observed": "\"Earn a certificate\" opens a bounded certification test that states its own terms and can be started directly, without taking the course it belongs to.",
+      "detail": [
+        "Stated terms: 14 questions, 30 minutes, a certificate of completion on success.",
+        "Progress is visible per question, with an explanation returned on each correct answer.",
+        "Canva doesn't state what happens on a wrong answer, whether a failed attempt can be retaken, or what the pass threshold is."
+      ],
+      "tags": [
+        {
+          "name": "Challenge",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "The product creates a discrete instance with a stated success condition and a stated boundary before the user begins: 14 questions, 30 minutes, \"on successful completion be awarded a certificate\" (O20). Reaching the success condition produced a different system response from not reaching it, in the form of the certificate and badge (O21), and the terms are disclosed on the course card beforehand (O19). The instance is opt-in, entered through \"let's start\".",
+          "alternativeConsidered": "that the test is only the delivery mechanism for the Achievement at O21, with no bounded instance of its own. The stated question count, time limit and prospective success condition, all given before entry, establish the instance independently.",
+          "role": "engagement.\n\nThe test is a within-session activity that shapes what the user does in Design School and produces the badge and credential at O21."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O21",
+      "name": "Badge, then certificate",
+      "section": "goals",
+      "observed": "Finishing the test produces a badge first, then a separate certificate screen naming the course, the date, and a credential ID, with a copy emailed to the user as well.",
+      "detail": [
+        "The certificate states the course is equivalent to 1 hour 30 minutes of training, though the credential was earned from the test alone.",
+        "The certificate can be shared to social or downloaded as an image."
+      ],
+      "tags": [
+        {
+          "name": "Achievement",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Design School defines criteria that hold an unattained and an attained state, evaluates the user's activity against them, and preserves the result. The first certificate flipped from unattained to attained and produced both a badge state and a stored credential with an issue date (O21). The badge grid shows the unattained states directly, greyed out until earned (O23), and the certificates list preserves the attained one (O22). The attained state is distinct from the underlying activity: the certificate records satisfaction of the test criterion, not the test answers.",
+          "alternativeConsidered": "that the badges are only a display of the counters in O22, with no separate attained state. The greyed-to-earned change and the separately stored certificate rule this out. Milestone was the second reading of the same observations and is not applied; the reasoning sits in Entries considered and not applied.",
+          "role": "engagement, retention.\n\nThe badges and the certificate are earned inside the Design School surface and shape what the user does there (O20, O21), while the greyed higher tiers at three and five name the next reasons to come back (O23)."
+        },
+        {
+          "name": "Shareable Win",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Canva composes the completed test into a certificate stating the course, the holder, the date and a credential ID, presents it with a route to share on social and a route to download it as an image, and states that a copy is emailed as well (O21, O40). The representation states what was accomplished and can be read by someone who does not hold the account, and more than one route out of the product is offered, which is what this entry requires beyond the recorded state. The recorded state itself is classified separately under Achievement; both apply here because Canva does both.",
+          "alternativeConsidered": "that these are the same ordinary content-distribution controls Canva places on a finished design (O37), which this entry excludes. The subject separates them: a design is the user's own work, while the certificate is a record Canva holds about the user, composed by Canva into a form built to be read by someone else.",
+          "role": "social, engagement.\n\nThe certificate is composed for people other than the holder and carries named routes to social and professional platforms (O40), and the two community badges pay for sending it, which shapes what the user does at the end of the Design School flow (O21, O23)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O22",
+      "name": "Counters for skills and completions",
+      "section": "goals",
+      "observed": "Design School's achievements overview tracks how many skills, lessons and courses the user has completed, alongside a certificates list showing what's been earned and when.",
+      "detail": [
+        "All three counters read zero even after a certificate was earned, since the course itself wasn't completed.",
+        "Canva doesn't state whether the skills counter tracks a defined set of named skills or only a running total."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O23",
+      "name": "Badge tiers at one, three and five",
+      "section": "goals",
+      "observed": "A badges tab shows course and certificate completions stepping at one, three and five, greyed out until earned, plus two further badges for sharing.",
+      "detail": [
+        "The two sharing badges are Sharing Superstar, for sharing on social, and LinkedIn Official, naming that platform specifically.",
+        "Tapping any greyed badge opens the same \"browse courses\" call to action, even for the two sharing badges.",
+        "No reward beyond the badge state itself is attached to any tier."
+      ],
+      "tags": [
+        {
+          "name": "Achievement",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Design School defines criteria that hold an unattained and an attained state, evaluates the user's activity against them, and preserves the result. The first certificate flipped from unattained to attained and produced both a badge state and a stored credential with an issue date (O21). The badge grid shows the unattained states directly, greyed out until earned (O23), and the certificates list preserves the attained one (O22). The attained state is distinct from the underlying activity: the certificate records satisfaction of the test criterion, not the test answers.",
+          "alternativeConsidered": "that the badges are only a display of the counters in O22, with no separate attained state. The greyed-to-earned change and the separately stored certificate rule this out. Milestone was the second reading of the same observations and is not applied; the reasoning sits in Entries considered and not applied.",
+          "role": "engagement, retention.\n\nThe badges and the certificate are earned inside the Design School surface and shape what the user does there (O20, O21), while the greyed higher tiers at three and five name the next reasons to come back (O23)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O24",
+      "name": "Achievement record hard to find",
+      "section": "goals",
+      "observed": "Design School's achievements overview, where completed courses and certificates are stored, is reachable only through the Design School sidebar, not from the account area.",
+      "detail": [
+        "The catalogue's own divisions, explore all, courses, and lessons, aren't distinguished elsewhere in the app."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O25",
+      "name": "Activities open a live template",
+      "section": "goals",
+      "observed": "Design School activities, such as a lesson on writing emails worth opening, state what the lesson teaches, then hand the user a working template to edit directly in the editor.",
+      "detail": [
+        "The activity opens a real design the user edits part by part rather than a passive lesson."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O26",
+      "name": "Crown marks premium everywhere",
+      "section": "access",
+      "observed": "A crown marks premium content on the home surface, on individual photos, on editor tools, on custom link creation, and on connected tools, before any of it is opened.",
+      "detail": [
+        "The marker sits on the item itself, not only at the point of payment, so the boundary is visible while browsing."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O27",
+      "name": "Brand kit fully locked",
+      "section": "access",
+      "observed": "Brand opens into a complete, browsable set of categories, each ending in an upgrade prompt rather than a working control, including the free path offered from inside the editor.",
+      "detail": [
+        "Categories include brand templates, guidelines, assets, logos, colours, fonts, and more.",
+        "Choosing the free three-colours option still leads to a palette that requires the paid upgrade."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O28",
+      "name": "Free export keeps the watermark",
+      "section": "access",
+      "observed": "Saving a design with premium content works once; saving again raises a paywall offering three routes, one of which is downloading with Canva's watermark left in place.",
+      "detail": [
+        "The three routes: start a trial, buy a one-off licence with a credit, or download with the watermark retained.",
+        "The gate sits at output, not at use: a whole design can be built with premium content before meeting it."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O29",
+      "name": "Free domain caps published designs",
+      "section": "access",
+      "observed": "Claiming a free Canva-branded domain limits publishing to five designs; bringing an external domain is limited to the Business plan.",
+      "detail": [
+        "The credit-based route isn't offered for the domain; the only path to an external domain is the Business upgrade."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O30",
+      "name": "Two categories told premium is free",
+      "section": "access",
+      "observed": "Canva's onboarding use-case question states that students and teachers, and nonprofits, get premium features for free.",
+      "detail": [
+        "Eligibility is asserted at the point of self-declaration, with no verification step described.",
+        "Canva doesn't state what either category must prove or exactly what they receive."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O31",
+      "name": "Connected tools split free and premium",
+      "section": "access",
+      "observed": "The account area lists three connectable advanced tools, Affinity, Leonardo AI and Flourish, with Affinity unmarked and the other two crowned as premium.",
+      "detail": [
+        "Business plan copy separately promises unlocked access to premium features in Leonardo AI and Flourish, so access to those two runs through the Canva subscription."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O32",
+      "name": "AI memory retention default",
+      "section": "access",
+      "observed": "Under AI personalization settings, Canva's setting to save and reference memories when responding is switched on by default, with a separate screen listing what's been stored.",
+      "detail": [
+        "The default state is on.",
+        "Stored memories are viewable and manageable from the same settings screen."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O33",
+      "name": "Credits price premium elements",
+      "section": "economy",
+      "observed": "Canva sells a credit balance priced one to one against a design's premium content, reached from the same screen that offers to remove a watermark. The screen states the design's exact requirement, one credit for one premium image, next to a running balance and the option to buy more.",
+      "detail": [
+        "One credit unlocks one premium image in the current design.",
+        "The balance starts at zero and is reached only through purchase.",
+        "The same premium element can also be unlocked by a one-off licence purchase or by a subscription trial, so credits are one of three routes to the same result.",
+        "Canva doesn't state whether a purchased balance carries over between designs, though the largest package sold, 100 credits against a one-credit requirement, implies it's meant to."
+      ],
+      "tags": [
+        {
+          "name": "Hard Currency",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "The product maintains a quantified balance of product-defined units, displayed as \"credits available: 0\", with a defined result obtainable by spending them, \"1x premium image, 1 credit\", and a paid acquisition path in eight priced packages (O33, O47). This is the most specific applicable label; its parent entry, Spendable Credits and Tokens, is preserved rather than applied separately. Presence is asserted from the product's own framing of a credit balance and its exchange price. Behavior detail is not: no purchase was completed, no spend was observed, and whether the balance persists between designs was not shown (O33).",
+          "alternativeConsidered": "the one-off Pro content licence at O46, which resolves the same premium element for a single payment. That is a direct purchase and not this balance, since it creates no stored units; the two sit on the same surface as separate routes.",
+          "role": "monetization.\n\nThe credits exist only to move money to Canva for premium elements: they are bought, never earned, and priced per element at the point of export (O33, O47)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O34",
+      "name": "Access list controls design sharing",
+      "section": "social",
+      "observed": "A design's sharing surface is an access list its owner controls, adding people by name, group or email, with an option to remove everyone's access and make the design private again.",
+      "detail": [
+        "Access is granted per design and per person, with no state shared across designs.",
+        "Copying a link is free; creating a custom link is premium and opens the same upgrade prompt as other gated features."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O35",
+      "name": "Comments anchored to a point",
+      "section": "social",
+      "observed": "Comments attach to a chosen point in the design, can be styled and tagged, and carry their own lifecycle of resolution, editing, deletion and a per-comment link.",
+      "detail": [
+        "A comment is anchored to a position the user selects, not to the whole design.",
+        "Resolution is a separate state from deletion."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O36",
+      "name": "Teams with invited membership",
+      "section": "social",
+      "observed": "Canva maintains teams a user can belong to, administered through an invitation-based people management screen in the account area, with the product describing membership in the plural.",
+      "detail": [
+        "A user can belong to more than one team.",
+        "Canva doesn't state what membership changes beyond the relationship itself."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O37",
+      "name": "Exports into other companies' apps",
+      "section": "reach",
+      "observed": "Canva's share and download surface sends a design directly to Facebook, Microsoft PowerPoint, OneDrive, Google Drive and Dropbox, as well as to a website, social channels and messaging.",
+      "detail": [
+        "The same pop-up offers \"save to camera roll\" and \"share this design\" together."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O38",
+      "name": "Publish a live website",
+      "section": "reach",
+      "observed": "A design can be published as a live website, choosing a Canva-branded domain, a claimable free domain, or an external one, with site-level settings exposed before publishing.",
+      "detail": [
+        "Settings include title and favicon, a meta description, search visibility, password protection, and a social preview.",
+        "Publishing re-raises the premium element payment before the site goes live."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O39",
+      "name": "Analytics require an audience first",
+      "section": "reach",
+      "observed": "Canva's analytics cover visits, public view links, social media and website performance, but hold nothing until the design is distributed somewhere first.",
+      "detail": [
+        "Visits shows total unique visitors and total visits once there's an audience.",
+        "A public view link is described as trackable, showing who visited and when."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O40",
+      "name": "Certificate built to leave, one platform named",
+      "section": "reach",
+      "observed": "The Design School certificate can be shared to social, downloaded, or emailed, and two badges reward sending it further, one of them naming LinkedIn specifically.",
+      "detail": [
+        "The certificate carries a credential ID and issue date, making it checkable outside Canva.",
+        "LinkedIn Official ties a badge to one named platform rather than sharing in general."
+      ],
+      "tags": [
+        {
+          "name": "Shareable Win",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Canva composes the completed test into a certificate stating the course, the holder, the date and a credential ID, presents it with a route to share on social and a route to download it as an image, and states that a copy is emailed as well (O21, O40). The representation states what was accomplished and can be read by someone who does not hold the account, and more than one route out of the product is offered, which is what this entry requires beyond the recorded state. The recorded state itself is classified separately under Achievement; both apply here because Canva does both.",
+          "alternativeConsidered": "that these are the same ordinary content-distribution controls Canva places on a finished design (O37), which this entry excludes. The subject separates them: a design is the user's own work, while the certificate is a record Canva holds about the user, composed by Canva into a form built to be read by someone else.",
+          "role": "social, engagement.\n\nThe certificate is composed for people other than the holder and carries named routes to social and professional platforms (O40), and the two community badges pay for sending it, which shapes what the user does at the end of the Design School flow (O21, O23)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O41",
+      "name": "Apps directory reaches external services",
+      "section": "reach",
+      "observed": "Canva's apps directory lists integrations led by a payments entry offering to add payment links or QR codes through PayPal.",
+      "detail": [
+        "Further apps include Mailchimp, ChatGPT, Google Drive, Google Photos, and Lottie Animations."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O42",
+      "name": "Parts of Design School open the browser",
+      "section": "reach",
+      "observed": "New in Canva, a blog and events all take the user out of the app into the browser, sitting in the same sidebar as in-app lessons and courses.",
+      "detail": [
+        "The boundary between in-app and web content isn't signalled before tapping."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O43",
+      "name": "Paywall matches entry point",
+      "section": "monetization",
+      "observed": "Reaching Canva's upgrade screen from the brand kit changes the headline depending on which plan is preselected. It read \"up to 100 brand kits\" on Business and \"up to 5\" when Pro was chosen instead. Switching the selected plan changes the number in the headline, not the subject, so the pitch stays tied to whatever feature the user came through.",
+      "detail": [
+        "The paywall opens with Business preselected by default.",
+        "The headline names the same feature, brand kits, regardless of which plan is showing, only the number changes."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O44",
+      "name": "Two trial-first plans",
+      "section": "monetization",
+      "observed": "Canva offers two paid plans, Pro and Business, both structured as a 14-day free trial before any charge, Pro at $18 a month after the trial, Business at $25. Business carries everything in Pro plus managing ad accounts through Canva Grow, more AI usage, more brand kits, and premium access to two connected tools.",
+      "detail": [
+        "Pro: $0 for 14 days, then $18 a month, including over 140 million premium elements, 3,000 premium fonts, 2 million templates, and 10 times the AI usage of the free tier.",
+        "Business: $0 for 14 days, then $25 a month, adding management of ad performance across 50 ad accounts, 20 times the free tier's AI usage, 100 brand kits, and premium features in two connected tools.",
+        "Canva states it will send a reminder before the trial ends, with no toggle to control that reminder.",
+        "Business offers a monthly or yearly billing choice."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O45",
+      "name": "Watermark removal pricing",
+      "section": "monetization",
+      "observed": "Removing a watermark from a finished design opens an offer naming both the specific content in that design, one premium image, and the full premium library behind the subscription, over 140 million elements. The same prompt reappears at a second save attempt and again when publishing.",
+      "detail": [
+        "The offer states both the smallest unit, the one image already in the design, and the largest, the full library, on the same screen.",
+        "The same watermark removal prompt appears again at second save and again at website publishing."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O46",
+      "name": "One-off design licence",
+      "section": "monetization",
+      "observed": "A separate purchase, placed one level below the subscription trial button, buys a one-time licence for about a dollar that resolves the premium content already in a single design permanently, with no ongoing balance or commitment.",
+      "detail": [
+        "The one-off licence is priced at roughly $1 (100 RSD).",
+        "It resolves one design only, paid once with no recurring balance."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O47",
+      "name": "Credit package pricing",
+      "section": "monetization",
+      "observed": "Credits are sold in eight packages, from a single credit at $1.99 up to 100 credits at $99.99, with the price per credit falling steadily as the package size grows, toward roughly $1 per credit at the largest size.",
+      "detail": [
+        "Package prices run from $1.99 for one credit to $99.99 for 100.",
+        "Per-credit cost drops from $1.99 toward about $1 as package size increases.",
+        "A single credit at $1.99 costs about double the one-off licence that resolves the same result.",
+        "Buying premium elements asks for card details rather than the faster payment option offered at sign-in."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O48",
+      "name": "Undercutting its own credits",
+      "section": "monetization",
+      "observed": "On the same screen that prices a premium element at one credit, Canva also offers a competing pitch to skip paying altogether by starting a free trial of Canva Business, undercutting its own credit price in real time.",
+      "detail": [
+        "Both the one-credit price and the subscription pitch appear on the same screen.",
+        "The number of elements quoted in this pitch, 90 million, differs from the 140 million quoted elsewhere for the same library."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O49",
+      "name": "Customers before features",
+      "section": "monetization",
+      "observed": "Canva's Business plan page opens on an outcome-focused pitch before listing any feature, then moves into proof, a testimonial from a named marketing lead and a row of recognizable company logos, followed by an expandable comparison of what's free against what's included in Business.",
+      "detail": [
+        "The page opens with an outcome-led pitch before any feature list.",
+        "A named customer testimonial and a row of brand logos sit under the pricing.",
+        "An expandable comparison breaks features into categories: design, publishing, brand management, storage and access, collaboration, and security and support."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O50",
+      "name": "Permanent upgrade prompts",
+      "section": "monetization",
+      "observed": "An upgrade pitch for Canva Business sits at the very top of the More menu, ahead of every other feature listed there, and a crown marking premium status sits permanently in the top right of the home screen.",
+      "detail": [
+        "The upgrade pitch is the first item in the More menu, ahead of Brand, Canva AI, apps, Dream Lab, Grow and Design School.",
+        "The resize tool is marked as a paid option directly inside the editor's own menu list."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O51",
+      "name": "Notification preview during onboarding",
+      "section": "returns",
+      "observed": "During onboarding, a skippable screen previews what a Canva notification looks like and offers to turn notifications on, using a sample about a design tip.",
+      "detail": [
+        "Four reasons for notifications are named, two social and two content-driven.",
+        "The step can be skipped."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O52",
+      "name": "Marketing on by default everywhere",
+      "section": "returns",
+      "observed": "Canva's message preferences describe the user as already opted in to marketing communications, with every channel toggle, including notifications and email, switched on.",
+      "detail": [
+        "Frequency of messages is adjustable, not just on or off.",
+        "Canva doesn't state whether this default follows from the onboarding notification step or is set independently."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O53",
+      "name": "Rating prompt during use",
+      "section": "returns",
+      "observed": "A prompt to rate Canva appeared during the sharing flow, roughly fifteen minutes in, shortly after the first design had been created, downloaded and shared.",
+      "detail": [
+        "It arrived during active work rather than at a natural completion point."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     }
   ],
+  "systemView": [
+    "Canva is a medium complexity system whose spine is export: the production loop, browsing, editing, and two generative tools, runs with no restriction anywhere in it, and every paid route, the trial, the one-off licence, and the credit balance, converges on that single moment rather than on any earlier point in the process. Design School runs alongside as a separate structure, the only place anything in the system actually accumulates, and everything it produces is built to leave rather than feed back into the loop."
+  ],
+  "mechanicWriteups": [
+    {
+      "name": "Achievement",
+      "observed": "Canva runs an achievement system inside Design School: passing a certification test produces a badge, then a separately stored certificate carrying a credential ID and issue date. Six further badges sit greyed out until earned, three for completed courses and three for completed certificates, each family stepping at one, three and five.",
+      "presented": "Design School sits in its own section with its own sidebar, and finishing the certification test triggers a two-step reveal, a badge pop-up first, then the certificate screen. An achievements overview inside that same sidebar tracks running counts for skills, lessons completed and courses completed, and a separate badges tab shows each tier greyed out or earned. Both live only inside Design School, not the account area.",
+      "noting": "The test that earns the first certificate and badge can be passed without ever completing the course it certifies, so the credential is available for the time it takes to answer 14 questions rather than the one and a half hours the certificate itself claims as the course's length. Canva's achievements area is also reachable only through the Design School sidebar rather than the account area, so attaining the record and finding your way back to it are two separate problems with two separate answers.",
+      "findings": [
+        "Passing the certification test triggers a badge, then a separate certificate screen, in that order.",
+        "Course and certificate badge tiers both step at one, three and five, greyed out until earned.",
+        "The certification test can be passed without completing its associated course.",
+        "The achievements overview and badge grid are reachable only through Design School's own sidebar.",
+        "Two further badges reward sharing outcomes rather than course completions, using the same call to action as the learning badges."
+      ],
+      "screenshotsNote": "the badge pop-up shown immediately after passing the test, the achievements overview with its counters, the badge grid showing earned versus greyed tiers."
+    },
+    {
+      "name": "Challenge",
+      "observed": "Canva frames its Design School certification test as a bounded, opt-in activity, a stated 14 questions and a stated 30-minute limit, with the reward for finishing disclosed before the user starts.",
+      "presented": "The terms appear twice, first on the course card, whether it carries a certificate, its length, difficulty and lesson count, and again on the test's own entry screen, which restates the question count, time limit and reward in one line ahead of the start action. Progress is visible question by question, and each correct answer returns immediate confirmation with an explanation.",
+      "noting": "The test can be entered and finished with no prerequisite, which makes it an independent gateway to the certificate rather than a capstone on the course it's nominally attached to. Canva doesn't state what happens on a wrong answer, whether a failed attempt can be retaken, or what the pass threshold is, so the entire failure path of this Challenge is undocumented.",
+      "findings": [
+        "The test states its full terms, question count, time limit and reward, before the user commits to starting it.",
+        "The test can be started and finished without taking the course it belongs to.",
+        "Progress is visible per question, with immediate feedback and an explanation on each correct answer.",
+        "Entry is voluntary, reached through a dedicated start action."
+      ],
+      "screenshotsNote": "the course card showing its certificate, duration and difficulty terms; the test's entry screen stating question count and time limit; an in-progress question with its feedback."
+    },
+    {
+      "name": "Hard Currency",
+      "observed": "Canva sells a credit balance priced one to one against premium elements, in eight packages from a single credit up to a hundred, with no way to earn credits without paying for them.",
+      "presented": "Credits surface at the point a design already contains premium content, on the same screen offering to remove a watermark, alongside a stated running balance and the exact requirement for that design, one credit for one premium image. The balance is sold directly from that screen rather than only through a subscription.",
+      "noting": "Canva runs three separately priced routes to the same result at export, a subscription trial, a one-off per-design licence and the credit balance, and prices a single credit at roughly double the one-off licence for the identical outcome. The per-credit price falls steadily as package size grows, from just under two dollars down toward about one dollar at the hundred-credit tier, which pushes toward buying more credits than any one design needs.",
+      "findings": [
+        "Credits are sold in eight packages from 1 to 100, with the per-unit price falling as the package grows.",
+        "One credit unlocks one premium element in the current design.",
+        "No way to earn credits without paying was found anywhere in the app.",
+        "A single credit costs roughly double the one-off licence that resolves the same design.",
+        "Canva doesn't state whether a purchased balance carries over between designs, though the largest package sold implies it's meant to."
+      ],
+      "screenshotsNote": "the credit purchase screen with its eight-package price ladder; the zero-balance state next to the one-credit requirement."
+    },
+    {
+      "name": "Group Membership",
+      "observed": "Canva maintains teams, an entity a user can belong to more than one of at once, administered through an invitation-based people management screen in the account area.",
+      "presented": "Teams sit in the account area alongside orders, invoices, subscription and web domains, with the people management screen showing who has been invited into the team.",
+      "noting": "Canva doesn't state what belonging to a team actually changes. No member-specific content, permission, or shared workspace state is named anywhere as a consequence of membership, which leaves teams as a maintained relationship without a demonstrated effect. This sits in contrast to Canva's per-design sharing, which is a permission list scoped to one file rather than a standing group membership. The two look adjacent but are structurally different, and only one of them is a group at all.",
+      "findings": [
+        "The account area lists the teams a user belongs to and allows membership in more than one.",
+        "Team membership is created and administered through invitations, via a people management screen.",
+        "Canva doesn't state what membership changes beyond the relationship itself.",
+        "Per-design sharing is a separate, file-scoped permission list rather than the team structure."
+      ],
+      "screenshotsNote": "the account area's teams list; the people management and invitation screen."
+    },
+    {
+      "name": "Shareable Win",
+      "observed": "Canva composes a passed certification test into a certificate stating the course, the holder, the date and a credential ID, then offers more than one way to send it out, sharing to social, downloading as an image, and an automatic emailed copy.",
+      "presented": "The certificate appears right after the badge, at the moment the test is passed, already carrying its share and download controls. Two Design School badges reward sending it further, one for sharing to social in general, and one, LinkedIn Official, naming that platform specifically.",
+      "noting": "The credential ID and issue date make the certificate checkable outside Canva, which is what separates it from an ordinary share control: it's a record Canva composed about the user, not the user's own design output. It's also cheap to obtain, since the test that produces it can be passed without completing its course, so a shareable, checkable credential costs about the time it takes to answer 14 questions. Naming LinkedIn specifically, rather than leaving the destination generic, is a direct instruction about where the credential is meant to travel.",
+      "findings": [
+        "The certificate carries a credential ID and issue date, making it checkable independent of Canva.",
+        "Three routes are offered for the certificate: share to social, download as an image, and an emailed copy.",
+        "One badge is earned only for sharing to social, and a separate badge names LinkedIn specifically.",
+        "The certificate can be earned without completing the course it certifies."
+      ],
+      "screenshotsNote": "the certificate screen with its share and download controls; the two community badges.\n\n---"
+    }
+  ],
+  "sectionLeadIns": {
+    "onboarding": "Canva's first run moves through consent, account creation and one setup question before dropping the user into the product with no tutorial. This section covers that opening sequence in full.",
+    "core-loop": "Canva's production loop, browsing, editing, and generating, runs with no cap, cooldown or schedule anywhere in it. This section covers that loop and the document, settings and account surfaces built around it.",
+    "goals": "Design School sits apart from the rest of Canva as its own certification path, tracking course and certificate completions through counters and a tiered badge grid. This section covers all of it.",
+    "access": "Canva marks premium content everywhere it appears and locks entire feature areas behind its paid plans, alongside one standing default in how it handles a user's own content. This section covers every gate and condition in the app.",
+    "economy": "Canva runs a single purchasable balance of its own, priced directly against the premium content it gates elsewhere in the app. This section covers what that balance buys and how it's sold.",
+    "social": "Canva's sharing, comments and teams are all scoped to one design or one workspace, without a broader social space connecting users to each other. This section covers all three.",
+    "reach": "Canva exports finished work directly into other companies' products, publishes live websites from inside the app, and connects outward through an apps directory. This section covers all of it.",
+    "monetization": "Canva's monetization sits entirely at export: three separately priced routes, a subscription trial, a one-off licence and the credit balance, all resolve the same gated content, and the pitch a user sees depends on where they hit it. This section covers the plans, the pricing, and how the paywall frames itself.",
+    "returns": "Canva previews its own notifications during onboarding, defaults every marketing channel to on, and interrupts active use with a rating prompt. This section covers all three."
+  },
+  "sectionCards": {
+    "onboarding": "Canva asks for tracking consent, creates an account, asks what the product is for, and gets AI training consent before dropping the user straight into a full template catalogue with no tutorial.",
+    "core-loop": "Canva's production loop runs an unrestricted catalogue, editor, and three separate generative tools alongside its document management, all with no capacity limit, cooldown, or schedule anywhere in it.",
+    "goals": "Canva runs Design School as a separate certification path, tracking course and certificate completions through counters and a tiered badge grid.",
+    "access": "Canva marks premium content with a crown everywhere it appears, locks its brand kit entirely, caps free exports and domains, and defaults to retaining a user's content for its own AI training.",
+    "economy": "Canva sells a single purchasable credit balance priced against individual premium elements.",
+    "social": "Canva's sharing, comments, and teams are all scoped to one design or one workspace, with no broader social space.",
+    "reach": "Canva exports designs directly into other companies' products, publishes live websites, and connects to an apps directory and payment integrations.",
+    "monetization": "Canva prices three separate routes, a trial, a one-off licence, and a credit balance, that all converge at the moment a design is exported.",
+    "returns": "Canva previews its own notifications during onboarding, defaults every marketing channel to on, and interrupts active use with a rating prompt."
+  },
+  "proposedTags": [],
   "system": {
-    "tagline": "A design platform where the achievement system distributes verifiable credentials designed for LinkedIn.",
-    "overview": "Canva's engagement system is built around Design School, a certification platform where the achievement and the credential are the same artifact. Completing a quiz produces both an in-app badge and a downloadable certificate with a verifiable credential ID. The same action serves the internal achievement system and the professional social network simultaneously. The credit system builds the subscription argument through accumulated small purchases without ever stating it directly.",
-    "loop": "The core loop is: create in Canva → encounter a premium element → decide between credits or subscription → buy credits → notice the subscription math → enter Design School → complete a quiz → earn a certificate with a credential ID → share on LinkedIn → LinkedIn audience discovers Canva. The Design School credential is the acquisition channel embedded in the achievement system.",
-    "keyInsight": "The LinkedIn Official badge names LinkedIn specifically as its sharing target, a platform-specific distribution instruction embedded in the achievement system. Every Design School completion is simultaneously an in-app achievement and a branded Canva advertisement on a professional network.",
-    "whatMakesItWork": "The credit system and the subscription are not alternatives, the credit system is how users discover the subscription is the rational choice. Each $1.99 credit purchase makes the $18/month subscription math more legible, without Canva having to say it. The comparison emerges from behaviour rather than from copy.",
+    "tagline": "A production loop with no limits meets a paywall that only appears at export, while a separate certification track quietly manufactures shareable credentials on the side.",
+    "overview": "Canva's system splits into two halves that meet at exactly one point: export. The first half, browsing templates and photos, building in the editor, generating images or entire websites from a prompt, runs with no capacity limit, cooldown, or schedule anywhere in it. The second half is the gate: every route to a purchase, a 14-day trial, a one-off licence, or a purchasable credit balance, converges on the same moment, after a design already exists, whether the user is trying to remove a watermark, export, or publish. A third structure, Design School, sits apart from both: it's the only place anything in the system actually accumulates, and what it produces is built to leave the app rather than feed back into it.",
+    "loop": "The production loop runs: browse the template or photo catalogue → drop into the format picker → build freely in the editor, or generate an image, video or website from a prompt → reach export. A crown marks premium content the moment it appears, so the user always knows what will eventually cost something, but nothing stops them building with it first. At export, three separately priced routes converge: a free trial, a one-off per-design licence, or a purchasable credit balance, and Canva argues among its own routes on the same screen where the credit price is shown. Design School runs a third, disconnected loop: take or skip the course → pass a bounded certification test → receive a badge, then a certificate → share the certificate outward, with two badges paid out only for sending it further.",
+    "keyInsight": "Design School's dependency chain runs one way and never rejoins the rest of the system: the badge tiers depend on the completion counters, the counters depend on finishing courses, and the certificate depends on a test that can be passed without finishing any of them. That broken link is what makes a shareable, checkable credential cheap to produce, and cheapness is exactly what a mechanic built to leave the app and be seen elsewhere needs.",
+    "whatMakesItWork": "Canva doesn't need its production loop and its paywall to negotiate with each other because they never touch: the loop stays permissive everywhere except the single choke point of export, so the user never has to feel gated while working, only when leaving. Design School works the same way in reverse. It's allowed to be generous with its credential exactly because nothing it grants can be spent anywhere else in the product.",
     "roles": [
       {
-        "id": "achievements",
-        "role": "Each Design School completion produces an in-app badge and a shareable certificate with a credential ID, designed to leave the app and appear on LinkedIn, making each completion a potential acquisition moment."
+        "id": "hard-currency",
+        "role": "The credit balance is one of three routes across the export gate, priced one to one against a single premium element and sold in packages that reward buying more than any one design needs. Canva actively undercuts its own credit price with a subscription pitch on the same screen where the credit price is shown."
       },
       {
         "id": "challenges",
-        "role": "Design School quizzes function as opt-in challenges with pass/fail outcomes and dual rewards (badge + certificate), the challenge completion is the credential."
+        "role": "The certification test is a bounded, stated instance, 14 questions, 30 minutes, that can be entered and finished without ever completing the course it certifies. It's the single entry point into everything Design School accumulates."
       },
       {
-        "id": "credits-tokens",
-        "role": "Credits and subscription are presented at the same decision point, the credit system builds the subscription case through accumulated small spends without stating the comparison."
+        "id": "achievements",
+        "role": "Passing the test flips a badge from unattained to attained and unlocks a stored certificate. Six further badges, stepping at one, three and five completions, stay greyed out as the next reasons to return, but the record is kept behind the Design School sidebar specifically, not the account area."
+      },
+      {
+        "id": "shareable-win",
+        "role": "The same passed test composes a certificate carrying a credential ID and an issue date, offered for social sharing, download, or email delivery, with two badges paid out only for sending it further, one of them naming LinkedIn specifically."
+      },
+      {
+        "id": "community-groups",
+        "role": "Teams exist, invitation-managed, and a user can belong to more than one, but no effect of membership on content, permission or shared state is stated anywhere. It sits beside per-design sharing and comments as a thin, mostly self-contained social layer."
       }
     ],
     "center": {
       "x": 50,
-      "y": 15,
+      "y": 8,
       "label": "CANVA"
     },
     "nodes": [
       {
-        "id": "achievements",
-        "x": 50,
-        "y": 38
-      },
-      {
         "id": "challenges",
-        "x": 26,
-        "y": 68
+        "x": 28,
+        "y": 30
       },
       {
-        "id": "credits-tokens",
-        "x": 74,
-        "y": 68
+        "id": "achievements",
+        "x": 28,
+        "y": 52
+      },
+      {
+        "id": "shareable-win",
+        "x": 28,
+        "y": 74
+      },
+      {
+        "id": "hard-currency",
+        "x": 72,
+        "y": 40
+      },
+      {
+        "id": "community-groups",
+        "x": 72,
+        "y": 74
       }
     ],
     "connections": [
       {
-        "from": "achievements",
-        "to": "challenges",
-        "title": "Badges and certificates are the same artifact",
-        "desc": "Completing a Design School quiz produces both an in-app badge and a downloadable certificate with a credential ID. The completion action serves both systems simultaneously.",
-        "effect": "Users who pursue certification for professional reasons accumulate achievement badges as a byproduct. Users who browse achievements discover that each badge corresponds to a completable course."
-      },
-      {
         "from": "challenges",
         "to": "achievements",
-        "title": "Course completion unlocks the LinkedIn badge",
-        "desc": "The LinkedIn Official badge, the achievement with the most specific external distribution target, is earned through Design School course completion.",
-        "effect": "Every course completion is simultaneously a learning moment and a Canva distribution event on LinkedIn. The challenge reward is the ad."
+        "title": "The test produces the badge",
+        "desc": "Passing the certification test flips a badge from unattained to attained, evaluated the moment the test's stated success condition is met.",
+        "effect": "The badge fires directly from the test result, not from any broader course progress, so completing the course itself is not required to receive it."
       },
       {
-        "from": "credits-tokens",
-        "to": "challenges",
-        "title": "Credit spending reveals subscription value",
-        "desc": "Each credit purchase makes the subscription math more legible. Users who have spent credits multiple times have implicitly calculated the subscription value through their own behavior.",
-        "effect": "The credit system converts the subscription decision from a cold evaluation to a conclusion the user reaches through their own spending. Engaged users are already invested in the platform."
+        "from": "achievements",
+        "to": "shareable-win",
+        "title": "The same result composes the certificate",
+        "desc": "The same passed test that produces the badge also composes a certificate, presented in a second screen immediately after the badge.",
+        "effect": "A cheap, checkable credential is available as soon as the test is passed, which is what makes it easy to hand out and easy to share."
       }
     ]
   }

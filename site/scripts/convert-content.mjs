@@ -1098,6 +1098,26 @@ const V41_APP_META = {
         "Clash of Clans runs a shield countdown, a return-from-absence summary, and an event calendar layered on top of its own season boundary.",
     },
   },
+  canva: {
+    name: "Canva",
+    category: "Design",
+    type: "app",
+    sectionCards: {
+      onboarding:
+        "Canva asks for tracking consent, creates an account, asks what the product is for, and gets AI training consent before dropping the user straight into a full template catalogue with no tutorial.",
+      "core-loop":
+        "Canva's production loop runs an unrestricted catalogue, editor, and three separate generative tools alongside its document management, all with no capacity limit, cooldown, or schedule anywhere in it.",
+      goals: "Canva runs Design School as a separate certification path, tracking course and certificate completions through counters and a tiered badge grid.",
+      access:
+        "Canva marks premium content with a crown everywhere it appears, locks its brand kit entirely, caps free exports and domains, and defaults to retaining a user's content for its own AI training.",
+      economy: "Canva sells a single purchasable credit balance priced against individual premium elements.",
+      social: "Canva's sharing, comments, and teams are all scoped to one design or one workspace, with no broader social space.",
+      reach: "Canva exports designs directly into other companies' products, publishes live websites, and connects to an apps directory and payment integrations.",
+      monetization: "Canva prices three separate routes, a trial, a one-off licence, and a credit balance, that all converge at the moment a design is exported.",
+      returns:
+        "Canva previews its own notifications during onboarding, defaults every marketing channel to on, and interrupts active use with a rating prompt.",
+    },
+  },
 };
 
 beginRegenerate("apps");

@@ -79,6 +79,7 @@ export const CANONICAL_MECHANIC_IDS = {
   "Season Content Pass": "season-pass", // merges with Seasonal Progression Pass below
   "Seasonal Progression Pass": "season-pass", // merges with Season Content Pass above
   "Set Collection": "set-collection",
+  "Shareable Win": "shareable-win",
   "Soft Currency": "soft-currency",
   "Spendable Credits and Tokens": "credits-tokens",
   "Variable Reward Outcome": "variable-reward", // merges with Variable Reward Schedule and Loot Box

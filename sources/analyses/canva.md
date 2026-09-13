@@ -12,9 +12,9 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 # Pass one: observation record
 
 1. Onboarding and first run: O1 to O5
-2. Core loop and automation: O6 to O18
-3. Goals and progression: O19 to O26
-4. Access and eligibility: O27 to O32
+2. Core loop and automation: O6 to O17
+3. Goals and progression: O18 to O25
+4. Access and eligibility: O26 to O32
 5. Economy and resources: O33 to O33
 6. Social: O34 to O36
 7. Reach beyond the app: O37 to O42
@@ -52,7 +52,7 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - Nonprofit: "800,000 nonprofits get premium features for free" (tier: directly observed).
 - The session selected personal projects, so no eligibility check for the two free-premium categories was reached (tier: directly observed).
 
-*Cross-reference: O31.*
+*Cross-reference: O30.*
 
 **O4. AI training consent is presented as an explanation with the toggle already on.**
 
@@ -64,7 +64,7 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - The framing is collective rather than personal: the benefit named is better AI tools "for everyone" (tier: directly observed).
 - Accepting produced confetti across the screen (tier: directly observed).
 
-*Cross-reference: O18.*
+*Cross-reference: O32.*
 
 **O5. Onboarding ends by dropping the user into a full template catalogue.**
 
@@ -75,7 +75,7 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - The speaker read the crown as marking premium content or features (tier: plausible, the session did not open it at this point).
 - Guidance stops here: from this screen on, nothing in the session tells the user what to do next (tier: directly observed).
 
-*Cross-reference: O6, O16, O27.*
+*Cross-reference: O6, O16, O26.*
 
 ## Core loop and automation
 
@@ -103,7 +103,7 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - Available actions: star, report, add to folder, use in design, plus a row of similar images (tier: directly observed).
 - The premium preview shows the image with a Canva mark over it, which the speaker corrected from "watermark" to a preview of how it looks (tier: directly observed).
 
-*Cross-reference: O27, O29.*
+*Cross-reference: O26, O28.*
 
 **O8. Choosing an asset routes the user into a format picker rather than a blank canvas.**
 
@@ -122,7 +122,7 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - Adding a text box and adding elements worked without obstruction, including rotating and editing placed elements (tier: directly observed).
 - Brand opens into the brand kit gate rather than into a working tool (tier: directly observed).
 
-*Cross-reference: O28.*
+*Cross-reference: O27.*
 
 **O10. Magic Media generates from a written prompt and supplies the prompt if the user has none.**
 
@@ -135,7 +135,7 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - A notice accompanies the results: "We're evolving this new technology with you. Please report this 3D model if it doesn't seem right" (tier: directly observed).
 - The results can be saved to the phone as an image (tier: directly observed).
 
-*Cross-reference: O29, O45.*
+*Cross-reference: O28, O45.*
 
 **O11. Canva AI produces a finished website from one sentence and is buried under More.**
 
@@ -212,20 +212,9 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 
 *Cross-reference: O16, O47.*
 
-**O18. Canva AI keeps memories by default.**
-
-**Observed:** Under settings, AI personalization carries a toggle for "save and reference memories: let Canva AI save and use memories when responding", switched on, with a manage memories screen listing what has been stored (tier: directly observed).
-
-**Detail:**
-- The default state is on (tier: directly observed).
-- Stored memories are viewable and manageable from the same screen (tier: directly observed).
-- Separate privacy controls for AI sit alongside it (tier: directly observed).
-
-*Cross-reference: O4.*
-
 ## Goals and progression
 
-**O19. Design School is a separate section of the app with its own navigation.**
+**O18. Design School is a separate section of the app with its own navigation.**
 
 **Observed:** Design School opens what the speaker described as a new section of the app, with its own sidebar and its own catalogue, headed "Design school is in session. Learn how to design in Canva with free resources and certified courses" (tier: directly observed).
 
@@ -239,7 +228,7 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - Lessons run roughly ten to fifteen minutes; durations filter from under five minutes to more than an hour (tier: directly observed).
 - The speaker judged the material substantial rather than promotional, with tips, additional resources, suggested further guides and step-by-step instructions (tier: plausible, this is the analyst's assessment of the content rather than a product behavior).
 
-**O20. Every course states its terms before the user starts.**
+**O19. Every course states its terms before the user starts.**
 
 **Observed:** Each course card shows whether it is premium or free, how long it takes, its difficulty level, whether it carries a shareable certificate, and how many lessons it contains (tier: directly observed).
 
@@ -248,9 +237,9 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - A "stand out with this course" prompt sits on the page (tier: directly observed).
 - The shareable certificate is disclosed as a property of the course before any work is done (tier: directly observed).
 
-*Cross-reference: O21, O22.*
+*Cross-reference: O20, O21.*
 
-**O21. The certification test is a bounded, stated instance that can be taken without the course.**
+**O20. The certification test is a bounded, stated instance that can be taken without the course.**
 
 **Observed:** "Earn a certificate" opens a certification test that states its terms and can be started directly: "Test your knowledge of the AI skills for students course with multiple choice questions and on successful completion be awarded a certificate. Let's start." The session started it without having taken the course (tier: directly observed).
 
@@ -262,7 +251,7 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - The speaker found the questions easy to answer by common sense (tier: plausible, one analyst's judgement on one test).
 - What happens on failure, whether retakes are allowed, and what the pass threshold is were not observed (tier: unresolved).
 
-**O22. Completion produces a badge and a dated credential in two steps.**
+**O21. Completion produces a badge and a dated credential in two steps.**
 
 **Observed:** Finishing the test produced confetti, then a pop-up reading "You've hit a learning milestone. You unlocked a badge for earning your first certificate. Proof that you're building something great", then a second screen reading "You're Canva certified. Here's your AI skills for students certificate of completion. We'll email you a copy too" (tier: directly observed).
 
@@ -274,9 +263,9 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - A copy is sent to the user's email as well as shown in the app (tier: directly observed, stated by the product; delivery not verified in the session).
 - The stated training equivalent, 1 hour 30 minutes, was not the time spent: the credential was earned from the test alone (tier: directly observed).
 
-*Cross-reference: O24, O40.*
+*Cross-reference: O23, O40.*
 
-**O23. Design School keeps running counts of lessons, courses, certificates and skills.**
+**O22. Design School keeps running counts of lessons, courses, certificates and skills.**
 
 **Observed:** The achievements area holds an overview showing how many skills the user has, how many lessons they have completed and how many courses they have completed, each reading 0, alongside a certificates list and a skills-mastered section (tier: directly observed).
 
@@ -287,9 +276,9 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - The counters read 0 even after the certificate was earned, because the course itself was not completed (tier: strongly supported, the counters and the certificate were seen on the same screen).
 - Whether the skills area tracks a defined set of named skills or only a total was not reachable (tier: unresolved).
 
-*Cross-reference: O21, O24.*
+*Cross-reference: O20, O23.*
 
-**O24. Badges sit in a locked grid at one, three and five, plus two sharing badges.**
+**O23. Badges sit in a locked grid at one, three and five, plus two sharing badges.**
 
 **Observed:** A badges tab beside the overview shows first course, three courses, five courses, first certificate, three certificates and five certificates, then a community group containing Sharing Superstar and LinkedIn Official. Unearned badges are greyed out (tier: directly observed).
 
@@ -300,9 +289,9 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - The call to action is the same for the community badges even though browsing courses is not what earns them (tier: directly observed).
 - No reward beyond the badge state itself was observed (tier: directly observed).
 
-*Cross-reference: O22, O23, O40.*
+*Cross-reference: O21, O22, O40.*
 
-**O25. The record of what the user has done is hard to get back to.**
+**O24. The record of what the user has done is hard to get back to.**
 
 **Observed:** Entering Design School from the main app did not show completed courses or certificates. The speaker asked repeatedly where their profile and completed courses could be seen, and found the achievements area only later, through the Design School sidebar (tier: directly observed).
 
@@ -311,9 +300,9 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - The catalogue's own divisions were unclear to the user: explore all, courses and lessons appeared to overlap, and the difference had to be worked out by trial (tier: directly observed).
 - The awarded state exists and is recorded; the route back to it is what the session found obstructed (tier: strongly supported).
 
-*Cross-reference: O23, O24.*
+*Cross-reference: O22, O23.*
 
-**O26. Design School activities open a working template in the editor.**
+**O25. Design School activities open a working template in the editor.**
 
 **Observed:** Opening an activity such as "create emails that are worth opening" states what the user will learn, then opens a template that the user edits part by part (tier: directly observed).
 
@@ -321,11 +310,11 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - The learning surface hands the user back into the editor with a real artifact to change (tier: directly observed).
 - The speaker noted that editing part by part is not easy on mobile (tier: plausible, one user's experience on one device).
 
-*Cross-reference: O9, O19.*
+*Cross-reference: O9, O18.*
 
 ## Access and eligibility
 
-**O27. A crown marks premium content everywhere it appears.**
+**O26. A crown marks premium content everywhere it appears.**
 
 **Observed:** Crowns appear on the home surface, on individual photos, on editor tools, on custom link creation and on connected advanced tools, marking each as premium before it is opened (tier: directly observed).
 
@@ -333,9 +322,9 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - The speaker described the marking as consistent enough that there is no confusion about what will be gated (tier: strongly supported, crowns were observed across five separate surfaces in the session).
 - The marker sits on the item, not only at the point of payment, so the boundary is visible while browsing (tier: directly observed).
 
-*Cross-reference: O5, O7, O32, O34.*
+*Cross-reference: O5, O7, O31, O34.*
 
-**O28. The brand kit is fully browsable and entirely locked.**
+**O27. The brand kit is fully browsable and entirely locked.**
 
 **Observed:** Brand opens into a complete set of categories, each with explanatory copy, and each ending in an "Upgrade to Canva Business" button rather than a working control (tier: directly observed).
 
@@ -349,7 +338,7 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 
 *Cross-reference: O9, O43.*
 
-**O29. Free export of premium content is possible, with the watermark left on.**
+**O28. Free export of premium content is possible, with the watermark left on.**
 
 **Observed:** Saving a design containing premium content the first time worked; saving again raised a paywall offering three routes, one of which is downloading with the Canva watermark retained (tier: directly observed).
 
@@ -361,7 +350,7 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 
 *Cross-reference: O33, O45, O46.*
 
-**O30. The free domain caps how many designs can be published.**
+**O29. The free domain caps how many designs can be published.**
 
 **Observed:** Claiming a free Canva domain states "as you claim the free Canva domain, you can publish up to five designs in your Canva branded domain." Bringing an external domain is Business-only (tier: directly observed).
 
@@ -372,7 +361,7 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 
 *Cross-reference: O33, O38.*
 
-**O31. Two user categories are told premium is free for them.**
+**O30. Two user categories are told premium is free for them.**
 
 **Observed:** The onboarding use-case question states that students and teachers get premium features for free, and that 800,000 nonprofits get premium features for free (tier: directly observed).
 
@@ -382,7 +371,7 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 
 *Cross-reference: O3.*
 
-**O32. Connected advanced tools are split between free and premium.**
+**O31. Connected advanced tools are split between free and premium.**
 
 **Observed:** The account area lists advanced tools that can be connected: Affinity, Leonardo AI and Flourish. Affinity carries no marker; Leonardo AI and Flourish carry crowns (tier: directly observed).
 
@@ -390,7 +379,18 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - The Business feature list separately promises "unlock access to premium features in Leonardo AI and Flourish" (tier: directly observed).
 - Access to the two crowned tools therefore runs through the Canva subscription rather than through those products (tier: strongly supported).
 
-*Cross-reference: O27, O44.*
+*Cross-reference: O26, O44.*
+
+**O32. Canva AI keeps memories by default.**
+
+**Observed:** Under settings, AI personalization carries a toggle for "save and reference memories: let Canva AI save and use memories when responding", switched on, with a manage memories screen listing what has been stored (tier: directly observed).
+
+**Detail:**
+- The default state is on (tier: directly observed).
+- Stored memories are viewable and manageable from the same screen (tier: directly observed).
+- Separate privacy controls for AI sit alongside it (tier: directly observed).
+
+*Cross-reference: O4.*
 
 ## Economy and resources
 
@@ -405,7 +405,7 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - Whether credits persist between designs after purchase was not observed, though the package sizes imply storage (tier: plausible, packages of up to 100 credits are offered against a one-credit requirement).
 - The same premium element can also be unlocked without credits by a one-off licence purchase or by the trial, so credits are one of three routes to the same result (tier: directly observed).
 
-*Cross-reference: O29, O46, O47, O48.*
+*Cross-reference: O28, O46, O47, O48.*
 
 ## Social
 
@@ -469,7 +469,7 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - Publishing re-raises the premium element payment, with the counter-offer "don't pay for images. Get Canva Business. Unlock this image and 90 million more. Start your free trial now" (tier: directly observed).
 - Payment at this step asked for card details rather than Apple Pay (tier: directly observed).
 
-*Cross-reference: O11, O30, O48.*
+*Cross-reference: O11, O29, O48.*
 
 **O39. Analytics measure the design's audience and withhold the detail.**
 
@@ -494,7 +494,7 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - The speaker read the credential as a way to show others that one knows the tool, not only to know it (tier: plausible, this is the analyst's interpretation of purpose).
 - LinkedIn Official ties a badge to one named external platform rather than to sharing in general (tier: directly observed).
 
-*Cross-reference: O22, O24.*
+*Cross-reference: O21, O23.*
 
 **O41. An apps directory connects Canva to external services.**
 
@@ -522,7 +522,7 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - The speaker noted the pitch is made from the perspective of the feature the user came through (tier: directly observed).
 - Switching plan changes the headline number rather than the subject, keeping the pitch on brand kits (tier: directly observed).
 
-*Cross-reference: O28.*
+*Cross-reference: O27.*
 
 **O44. Two paid plans, both opening on a 14-day free trial.**
 
@@ -535,7 +535,7 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - The trial reminder is stated as a promise with no toggle to control it (tier: directly observed).
 - The Business page offers a monthly or yearly choice (tier: directly observed).
 
-*Cross-reference: O32, O49.*
+*Cross-reference: O31, O49.*
 
 **O45. The watermark prompt prices the exact content in the design.**
 
@@ -545,7 +545,7 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - The prompt names both the smallest unit, the single image in this design, and the largest, the entire 140 million element library (tier: directly observed).
 - The same prompt appeared again on the second save attempt and again at website publishing (tier: directly observed).
 
-*Cross-reference: O29, O33, O46.*
+*Cross-reference: O28, O33, O46.*
 
 **O46. A one-off licence buys a single design out of the gate.**
 
@@ -599,7 +599,7 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 - The upgrade prompt is the first item in More, ahead of brand, Canva AI, apps, Dream Lab, Grow and Design School (tier: directly observed).
 - Resize inside the editor menu is marked as a paid option in the list itself (tier: directly observed).
 
-*Cross-reference: O5, O14, O27.*
+*Cross-reference: O5, O14, O26.*
 
 ## Return triggers
 
@@ -635,87 +635,138 @@ Source: one narrated walkthrough of the Canva mobile app, recorded on 25 Apr 202
 
 *Cross-reference: O37.*
 
+
 # Pass two: tagging
 
 ## Applied tags
 
 **Tag:** Achievement
-**Observations:** O22, O24.
-**Supporting observations:** O19, O21, O23, O25, O40.
-**Confidence:** directly observed.
+
+**Observations:** O21, O23.
+
+**Supporting observations:** O18, O20, O22, O24, O40.
+
+**Confidence:** directly observed
+
 **Role:** engagement, retention.
-The badges and the certificate are earned inside the Design School surface and shape what the user does there (O21, O22), while the greyed higher tiers at three and five name the next reasons to come back (O24).
-**Rationale:** Design School defines criteria that hold an unattained and an attained state, evaluates the user's activity against them, and preserves the result. The first certificate flipped from unattained to attained and produced both a badge state and a stored credential with an issue date (O22). The badge grid shows the unattained states directly, greyed out until earned (O24), and the certificates list preserves the attained one (O23). The attained state is distinct from the underlying activity: the certificate records satisfaction of the test criterion, not the test answers.
-**Variants present:** visible achievement, the criteria are shown before completion (O24); tiered achievement, courses and certificates each step at one, three and five (O24); cumulative achievement, the higher tiers depend on accumulated completions (O24); progressive achievement, the overview counters expose partial progress toward those tiers (O23); unrewarded achievement, no benefit beyond the recorded state was observed (O24).
+
+The badges and the certificate are earned inside the Design School surface and shape what the user does there (O20, O21), while the greyed higher tiers at three and five name the next reasons to come back (O23).
+
+**Rationale:** Design School defines criteria that hold an unattained and an attained state, evaluates the user's activity against them, and preserves the result. The first certificate flipped from unattained to attained and produced both a badge state and a stored credential with an issue date (O21). The badge grid shows the unattained states directly, greyed out until earned (O23), and the certificates list preserves the attained one (O22). The attained state is distinct from the underlying activity: the certificate records satisfaction of the test criterion, not the test answers.
+
+**Variants present:** visible achievement, the criteria are shown before completion (O23); tiered achievement, courses and certificates each step at one, three and five (O23); cumulative achievement, the higher tiers depend on accumulated completions (O23); progressive achievement, the overview counters expose partial progress toward those tiers (O22); unrewarded achievement, no benefit beyond the recorded state was observed (O23).
+
 **Variants not established:** hidden, composite, sequence, constraint-based, retroactive, repeatable-instance, shared, comparative, collection and rewarded achievement were not observed.
-**Alternative considered:** that the badges are only a display of the counters in O23, with no separate attained state. The greyed-to-earned change and the separately stored certificate rule this out. Milestone was the second reading of the same observations and is not applied; the reasoning sits in Entries considered and not applied.
+
+**Alternative considered:** that the badges are only a display of the counters in O22, with no separate attained state. The greyed-to-earned change and the separately stored certificate rule this out. Milestone was the second reading of the same observations and is not applied; the reasoning sits in Entries considered and not applied.
+
 
 **Tag:** Shareable Win
-**Observations:** O22, O40.
-**Supporting observations:** O21, O24.
-**Confidence:** directly observed.
+
+**Observations:** O21, O40.
+
+**Supporting observations:** O20, O23.
+
+**Confidence:** directly observed
+
 **Role:** social, engagement.
-The certificate is composed for people other than the holder and carries named routes to social and professional platforms (O40), and the two community badges pay for sending it, which shapes what the user does at the end of the Design School flow (O22, O24).
-**Rationale:** Canva composes the completed test into a certificate stating the course, the holder, the date and a credential ID, presents it with a route to share on social and a route to download it as an image, and states that a copy is emailed as well (O22, O40). The representation states what was accomplished and can be read by someone who does not hold the account, and more than one route out of the product is offered, which is what this entry requires beyond the recorded state. The recorded state itself is classified separately under Achievement; both apply here because Canva does both.
-**Variants present:** credential win, the representation is a certificate naming the holder and the course (O22); verified win, it carries a credential ID and an issue date (O22); platform-named win, LinkedIn is named by a badge and social destinations are offered on the certificate (O24, O40); downloadable win, the certificate can be saved as an image (O40); delivered win, Canva states that a copy is emailed to the holder (O22); prompted win, the certificate and its routes are presented at the moment of attainment rather than requested (O22); rewarded sharing win, two badges are defined for sending it, both observed unearned (O24).
+
+The certificate is composed for people other than the holder and carries named routes to social and professional platforms (O40), and the two community badges pay for sending it, which shapes what the user does at the end of the Design School flow (O21, O23).
+
+**Rationale:** Canva composes the completed test into a certificate stating the course, the holder, the date and a credential ID, presents it with a route to share on social and a route to download it as an image, and states that a copy is emailed as well (O21, O40). The representation states what was accomplished and can be read by someone who does not hold the account, and more than one route out of the product is offered, which is what this entry requires beyond the recorded state. The recorded state itself is classified separately under Achievement; both apply here because Canva does both.
+
+**Variants present:** credential win, the representation is a certificate naming the holder and the course (O21); verified win, it carries a credential ID and an issue date (O21); platform-named win, LinkedIn is named by a badge and social destinations are offered on the certificate (O23, O40); downloadable win, the certificate can be saved as an image (O40); delivered win, Canva states that a copy is emailed to the holder (O21); prompted win, the certificate and its routes are presented at the moment of attainment rather than requested (O21); rewarded sharing win, two badges are defined for sending it, both observed unearned (O23).
+
 **Variants not established:** badge, recap, result, rank and streak wins, and unverified, open-destination, hosted, on-demand, scheduled, editable, multi-format, shared-holder and gated wins were not observed.
+
 **Alternative considered:** that these are the same ordinary content-distribution controls Canva places on a finished design (O37), which this entry excludes. The subject separates them: a design is the user's own work, while the certificate is a record Canva holds about the user, composed by Canva into a form built to be read by someone else.
 
+
 **Tag:** Challenge
-**Observations:** O21.
-**Supporting observations:** O20, O22.
-**Confidence:** strongly supported.
+
+**Observations:** O20.
+
+**Supporting observations:** O19, O21.
+
+**Confidence:** strongly supported
+
 **Role:** engagement.
-The test is a within-session activity that shapes what the user does in Design School and produces the badge and credential at O22.
-**Rationale:** The product creates a discrete instance with a stated success condition and a stated boundary before the user begins: 14 questions, 30 minutes, "on successful completion be awarded a certificate" (O21). Reaching the success condition produced a different system response from not reaching it, in the form of the certificate and badge (O22), and the terms are disclosed on the course card beforehand (O20). The instance is opt-in, entered through "let's start".
-**Variants present:** time-boxed challenge, 30 minutes (O21); completion challenge, the success condition is finishing the defined question set (O21); opt-in challenge, entered deliberately (O21); rewarded challenge, completion grants the certificate and badge (O22).
-**Variants not established:** attempt-bounded, session, event-bounded, threshold, sequence, constraint, personal-benchmark, head-to-head, group, community, automatically assigned, recurring, adaptive and multi-stage variants were not observed. What happens on failure, whether the instance can be retaken, and the pass threshold were all not observed (O21).
-**Alternative considered:** that the test is only the delivery mechanism for the Achievement at O22, with no bounded instance of its own. The stated question count, time limit and prospective success condition, all given before entry, establish the instance independently.
+
+The test is a within-session activity that shapes what the user does in Design School and produces the badge and credential at O21.
+
+**Rationale:** The product creates a discrete instance with a stated success condition and a stated boundary before the user begins: 14 questions, 30 minutes, "on successful completion be awarded a certificate" (O20). Reaching the success condition produced a different system response from not reaching it, in the form of the certificate and badge (O21), and the terms are disclosed on the course card beforehand (O19). The instance is opt-in, entered through "let's start".
+
+**Variants present:** time-boxed challenge, 30 minutes (O20); completion challenge, the success condition is finishing the defined question set (O20); opt-in challenge, entered deliberately (O20); rewarded challenge, completion grants the certificate and badge (O21).
+
+**Variants not established:** attempt-bounded, session, event-bounded, threshold, sequence, constraint, personal-benchmark, head-to-head, group, community, automatically assigned, recurring, adaptive and multi-stage variants were not observed. What happens on failure, whether the instance can be retaken, and the pass threshold were all not observed (O20).
+
+**Alternative considered:** that the test is only the delivery mechanism for the Achievement at O21, with no bounded instance of its own. The stated question count, time limit and prospective success condition, all given before entry, establish the instance independently.
+
 
 **Tag:** Hard Currency
+
 **Observations:** O33.
-**Supporting observations:** O29, O45, O47, O48.
-**Confidence:** strongly supported.
+
+**Supporting observations:** O28, O45, O47, O48.
+
+**Confidence:** strongly supported
+
 **Role:** monetization.
+
 The credits exist only to move money to Canva for premium elements: they are bought, never earned, and priced per element at the point of export (O33, O47).
+
 **Rationale:** The product maintains a quantified balance of product-defined units, displayed as "credits available: 0", with a defined result obtainable by spending them, "1x premium image, 1 credit", and a paid acquisition path in eight priced packages (O33, O47). This is the most specific applicable label; its parent entry, Spendable Credits and Tokens, is preserved rather than applied separately. Presence is asserted from the product's own framing of a credit balance and its exchange price. Behavior detail is not: no purchase was completed, no spend was observed, and whether the balance persists between designs was not shown (O33).
+
 **Variants present:** direct-purchase hard currency, packages are sold for money (O47); variable-rate hard currency, the unit price falls as the package grows (O47); restricted hard currency, the only spending option observed is unlocking premium elements (O33).
+
 **Variants not established:** earnable, promotional, subscription-granted, converted, bundled, fixed-rate, bonus-package, general-purpose, single-sink, convertible, transferable, shared, expiring, locked, platform and multi-currency variants were not observed.
+
 **Alternative considered:** the one-off Pro content licence at O46, which resolves the same premium element for a single payment. That is a direct purchase and not this balance, since it creates no stored units; the two sit on the same surface as separate routes.
 
+
 **Tag:** Group Membership
+
 **Observations:** O36.
+
 **Supporting observations:** O34.
-**Confidence:** plausible.
+
+**Confidence:** plausible
+
 **Role:** social.
+
 The team is a standing relationship with other identified people, administered through invitations in people management (O36).
+
 **Rationale:** Canva represents a team as a distinct entity the user belongs to, holds more than one of them, and maintains who belongs through an invitation-based people management screen (O36). What the session did not show is the condition membership changes: no member-scoped content, permission or shared state was opened, which is the entry's remaining required condition. The label is therefore applied at the level the surface supports and no further. The design access list at O34 is deliberately not covered by this tag; it is a per-artifact permission list rather than a group the user belongs to, and it is described in plain language in the observation record.
+
 **Variants present:** invitation-only group, membership is created by invitation (O36); overlapping group, the product speaks of teams in the plural (O36); delegated-membership group, people management administers members from inside the product (O36). Each of these rests on the surface as presented rather than on observed membership changes.
+
 **Variants not established:** open, request-to-join, automatically assigned, user-created, system-created, public, private, hidden, permanent, time-bounded, activity-bounded, role-based, equal-permission, shared-resource, communication, shared-progress, competitive, nested and shared-account variants were not observed.
+
 **Alternative considered:** that this is a collaborator or contact list with no group-scoped effect, which the entry excludes. The separating evidence would be a single observation of something a member can reach that a non-member cannot; the session never opened one.
+
 
 ## Entries considered and not applied
 
-- Milestone. The badge tiers at O24 were tested against this entry and it is not applied. The broader measure it would need is the set of counters at O23, which read zero for the whole session, so no threshold was observed being crossed within a rising count; the badge that did fire was for the first certificate, making the count it crossed a count of one. The remaining support is Canva's own use of the word in the copy at O22, which the entry explicitly excludes as a basis for classification. What would change the call: a session on this app in which the lessons, courses or certificates counters hold a non-zero value and a tier at three or five is seen being crossed, with the recognition event separate from the ordinary counter update. On that evidence the entry would apply alongside Achievement, as both entries permit.
+- Milestone. The badge tiers at O23 were tested against this entry and it is not applied. The broader measure it would need is the set of counters at O22, which read zero for the whole session, so no threshold was observed being crossed within a rising count; the badge that did fire was for the first certificate, making the count it crossed a count of one. The remaining support is Canva's own use of the word in the copy at O21, which the entry explicitly excludes as a basis for classification. What would change the call: a session on this app in which the lessons, courses or certificates counters hold a non-zero value and a tier at three or five is seen being crossed, with the recognition event separate from the ordinary counter update. On that evidence the entry would apply alongside Achievement, as both entries permit.
 - Spendable Credits and Tokens. The credits at O33 satisfy this entry, but Hard Currency is its specialization and an observable paid acquisition path is present, so the most specific label is reported and this entry is recorded as its parent rather than applied alongside it.
 - Soft Currency. No repeatable non-paid acquisition path for credits appeared anywhere in the session; the balance was reachable only through purchase (O33).
-- Experience Points. The Design School counters at O23 record how many lessons and courses were completed rather than assigning progression value to those events, and no level, tier, rank or track advances on them. The entry excludes a cumulative count of completed actions on exactly this ground.
+- Experience Points. The Design School counters at O22 record how many lessons and courses were completed rather than assigning progression value to those events, and no level, tier, rank or track advances on them. The entry excludes a cumulative count of completed actions on exactly this ground.
 - Leveling. Nothing in the session assigns the user or any entity to one state within an ordered series of states; the badge tiers are separate attainment states, not positions the user occupies.
 - Community Space. The design comment surface at O35 is a persistent context attached to one artifact, and the design's access list at O34 is a permission list on a file rather than a venue with governance. A per-design access list creates no group entity and no membership that survives the artifact, so neither this entry nor Group Membership describes it, and it is recorded in plain language. The comment thread itself is carried to Pass three instead of being forced into this entry.
 - Clan / Guild. No collective group-owned state was observed for any team or shared context; teams hold members, not a state of their own (O36).
 - Social Feed. No surface presents a revisable sequence of content or activity associated with multiple social actors. The home catalogue at O6 is product-published content, not actor activity.
-- Cosmetic Customization. The app theme and the accessibility display options at O14 and the account settings are product configuration, which the entry explicitly excludes, and the brand kit at O28 changes the presentation of the user's own output rather than maintaining an alternative presentation state of a product entity.
+- Cosmetic Customization. The app theme and the accessibility display options at O14 and the account settings are product configuration, which the entry explicitly excludes, and the brand kit at O27 changes the presentation of the user's own output rather than maintaining an alternative presentation state of a product entity.
 - Personal Data Reflection. The design analytics at O39 display figures from the user's own record but present them as a readout, not as steps that each require a response from the user.
-- Referral Boost. Inviting collaborators (O34) and the sharing badges (O24, O40) were considered. Neither grants the inviting user an enhancement to a future product action conditional on a completion event by both parties; the sharing badges pay in recorded state, not in an enhanced action.
+- Referral Boost. Inviting collaborators (O34) and the sharing badges (O23, O40) were considered. Neither grants the inviting user an enhancement to a future product action conditional on a completion event by both parties; the sharing badges pay in recorded state, not in an enhanced action.
 - Variable Reward Outcome. Magic Media returning four different results per generation (O10) was considered. Generation is a production output the user commissioned, not a reward-resolution event, so the entry's core invariant is not engaged.
 
 - Anchored Comment Thread. Proposed in Pass three of this analysis on the comment behavior at O35 and rejected on scope; it is not a library entry and should not be proposed again. A conversation pinned to a point inside an artifact, with replies, resolution and tagging, is document collaboration infrastructure rather than engagement design: it exists to get work reviewed, not to shape returning, continuing, progressing or contributing. The comment surface is recorded in plain language in the observation record and carries no mechanic label.
-- Product Skill Curriculum. Proposed in Pass three of this analysis on Design School at O19, O20 and O26 and rejected on scope; it is not a library entry and should not be proposed again. A catalogue of lessons about operating the product is product content, and the parts of it that are mechanics, the recorded completions and the badges earned from them, are already covered by Achievement. Describe the catalogue in plain language and tag what it records.
+- Product Skill Curriculum. Proposed in Pass three of this analysis on Design School at O18, O19 and O25 and rejected on scope; it is not a library entry and should not be proposed again. A catalogue of lessons about operating the product is product content, and the parts of it that are mechanics, the recorded completions and the badges earned from them, are already covered by Achievement. Describe the catalogue in plain language and tag what it records.
 - Prompt Seed Suggestion. Proposed in Pass three of this analysis on the suggestion control at O10 and rejected on scope; it is not a library entry and should not be proposed again. Supplying a usable input on a feature that requires one is an interface affordance, not a designed experience pointing the user toward a behavior, and admitting it would open the library to every control that reduces the effort of starting an action.
 
 ## Unresolved
 
-**Skill tracking in Design School (O23, O25).** The achievements overview holds a skills counter reading 0 and a skills-mastered section instructing the user to "master skills by completing lessons and courses", and the catalogue exposes a named skill vocabulary including animation, branding, typography and user experience (O19, O23). Whether Canva maintains member-level state across a defined set of those skills, which would make Set Collection apply, or only a running total, which would not, sits behind completing lessons and courses, which this session did not do. What was seen is the surface and its zeroed counter; where it is locked is behind course and lesson completion. The badge grid at O24 does not settle it in the other direction either: badges there are earned by completing tasks rather than acquired as distinct members, which is the case the Set Collection entry excludes.
+**Skill tracking in Design School (O22, O24).** The achievements overview holds a skills counter reading 0 and a skills-mastered section instructing the user to "master skills by completing lessons and courses", and the catalogue exposes a named skill vocabulary including animation, branding, typography and user experience (O18, O22). Whether Canva maintains member-level state across a defined set of those skills, which would make Set Collection apply, or only a running total, which would not, sits behind completing lessons and courses, which this session did not do. What was seen is the surface and its zeroed counter; where it is locked is behind course and lesson completion. The badge grid at O23 does not settle it in the other direction either: badges there are earned by completing tasks rather than acquired as distinct members, which is the case the Set Collection entry excludes.
 
 ## Entries never observed
 
@@ -742,7 +793,7 @@ The team is a standing relationship with other identified people, administered t
 
 # Pass three: proposed new tags
 
-None. The one proposal made from this analysis was approved as the library entry Shareable Win and is applied in Pass two on O22 and O40. The three further proposals made from this analysis were rejected on scope and are recorded in Entries considered and not applied.
+None. The one proposal made from this analysis was approved as the library entry Shareable Win and is applied in Pass two on O21 and O40. The three further proposals made from this analysis were rejected on scope and are recorded in Entries considered and not applied.
 
 # Close: system view
 
@@ -750,10 +801,10 @@ Canva's system has two halves that meet at one point, and the point is export.
 
 The first half is the production loop and it is almost entirely unobstructed. The catalogue at O6 and O7 opens straight after onboarding with no tutorial, the format picker at O8 turns any browsed asset into a started design, and the editor at O9 lets the user build with premium content freely. The generative surfaces extend the same permissiveness: Magic Media at O10 will write the prompt for the user, Canva AI at O11 will build an entire website from one sentence. Nothing in this half rations activity. There is no capacity limit, no cooldown, no daily allowance, and no schedule the user has to meet. That absence is the single most consistent finding in the record, and it is why twenty of the library's entries were never observed.
 
-The second half is the gate, and every route through it converges at output. The crown at O27 keeps the boundary visible during production, so the user knows what will cost while they build, but nothing stops them building with it. The charge arrives at export (O29), at watermark removal (O45) and again at publishing (O38, O48), always after the work exists. Three priced routes cross the same gate: the 14-day trial at O44, the one-off licence at O46, and the credit balance at O33 and O47. They are not tiers of one offer; they are alternatives that the product itself arbitrates between, to the point of arguing against its own credit path on the screen where the credit price is displayed (O48). The paywall's headline is written from wherever the user entered it (O43), which means the gate is described to each user in terms of the thing they were denied rather than in terms of what is sold.
+The second half is the gate, and every route through it converges at output. The crown at O26 keeps the boundary visible during production, so the user knows what will cost while they build, but nothing stops them building with it. The charge arrives at export (O28), at watermark removal (O45) and again at publishing (O38, O48), always after the work exists. Three priced routes cross the same gate: the 14-day trial at O44, the one-off licence at O46, and the credit balance at O33 and O47. They are not tiers of one offer; they are alternatives that the product itself arbitrates between, to the point of arguing against its own credit path on the screen where the credit price is displayed (O48). The paywall's headline is written from wherever the user entered it (O43), which means the gate is described to each user in terms of the thing they were denied rather than in terms of what is sold.
 
-Design School is a third structure and it sits apart from both. It is the only place in the product where anything accumulates: the counters at O23, the tiered badges at O24, the credential at O22. Everything the library recognises as progression in Canva lives here, and none of it touches the production loop. Completing courses does not change what the editor can do, does not affect the gate, and does not alter the credit price. What it does instead is point outward: the credential is built to leave (O40), and two of the badges are earned only by sending Canva somewhere else. The dependency runs one way: the badge tiers at O24 depend on the counters at O23, the counters depend on completing courses, and the certificate at O22 depends on a test that can be taken without completing any (O21). That last dependency is broken in the product's favour, which is worth stating plainly because it is what makes the credential cheap to obtain and therefore easy to share.
+Design School is a third structure and it sits apart from both. It is the only place in the product where anything accumulates: the counters at O22, the tiered badges at O23, the credential at O21. Everything the library recognises as progression in Canva lives here, and none of it touches the production loop. Completing courses does not change what the editor can do, does not affect the gate, and does not alter the credit price. What it does instead is point outward: the credential is built to leave (O40), and two of the badges are earned only by sending Canva somewhere else. The dependency runs one way: the badge tiers at O23 depend on the counters at O22, the counters depend on completing courses, and the certificate at O21 depends on a test that can be taken without completing any (O20). That last dependency is broken in the product's favour, which is worth stating plainly because it is what makes the credential cheap to obtain and therefore easy to share.
 
-Three friction points recur and none of them sit in the production loop. The record of what the user has earned is hard to get back to (O25). The home surface changed between the first and second launch without explanation (O16). A control overlay trapped the user and forced a restart at the payment step (O17). All three fall on the surfaces the user reaches after the work is done, which is the same region of the product where the charge sits.
+Three friction points recur and none of them sit in the production loop. The record of what the user has earned is hard to get back to (O24). The home surface changed between the first and second launch without explanation (O16). A control overlay trapped the user and forced a restart at the payment step (O17). All three fall on the surfaces the user reaches after the work is done, which is the same region of the product where the charge sits.
 
 The social surfaces are thin and artifact-scoped. Sharing, access and comments (O34, O35) all attach to one design; teams (O36) exist but the session never reached anything membership changes; analytics (O39) count an audience the user has to create by distributing the design elsewhere. Canva's social layer is built around moving a file outward, not around holding people together inside the product, which is consistent with the certificate, the sharing badges, the apps directory and the export destinations all pointing the same way.

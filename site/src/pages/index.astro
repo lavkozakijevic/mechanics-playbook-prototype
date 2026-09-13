@@ -30,7 +30,12 @@ const carousel = CAROUSEL_PAIRINGS
   .map(({ appId, mechId }) => {
     const app = appsById.get(appId);
     const mech = byId.get(mechId);
-    if (!app || !mech) return null;
+    // A pairing can point at an app that has since moved from the v3 shape
+    // (`mechanics`, depth-graded) to v4.1 (`observations`), which carries no
+    // `mechanics` field at all — the same "skip silently" rule that already
+    // covers a missing write-up has to cover a missing field too, or this
+    // crashes the whole homepage build instead of just dropping one card.
+    if (!app || !mech || !app.mechanics) return null;
     const rel = app.mechanics.find((r) => r.id === mechId);
     const w = rel?.writeup;
     if (!w?.observed?.trim() || !w?.noting?.trim() || !w?.presented?.trim() || !w?.findings?.[0]?.trim()) return null;
