@@ -1692,7 +1692,7 @@
         "role": "The entry gate to every run and every secondary mode. Overflow energy above the 30 cap is reissued through mail rather than lost, so a returning player is never short of runs to spend it on."
       },
       {
-        "id": "xp-leveling",
+        "id": "leveling",
         "role": "The permanent-strength track: talent levels bought with run gold, plus a public rank title that advances alongside them and a private in-run level that resets every attempt."
       },
       {
@@ -1736,7 +1736,7 @@
         "y": 22
       },
       {
-        "id": "xp-leveling",
+        "id": "leveling",
         "x": 15,
         "y": 42
       },
@@ -1779,7 +1779,7 @@
     "connections": [
       {
         "from": "energy-lives",
-        "to": "xp-leveling",
+        "to": "leveling",
         "title": "Runs fund permanent talent gains",
         "desc": "Gold and materials earned in a run are spent on talents between runs, and the resulting stat gains carry into the next run's starting point.",
         "effect": "A defeat still leaves the capybara measurably stronger than the one that started the run, so the next attempt starts from a higher floor."
@@ -1807,7 +1807,7 @@
       },
       {
         "from": "progression-fund",
-        "to": "xp-leveling",
+        "to": "leveling",
         "title": "Funds sell a faster lane on progress already happening",
         "desc": "Each fund's paid lane pays larger rewards at the same talent, tower, or dungeon milestones the player reaches anyway by playing.",
         "effect": "A purchase here doesn't redirect play toward anything new, it just multiplies the payout of runs and tower floors the player was always going to do."

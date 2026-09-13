@@ -1,0 +1,32 @@
+{
+  "id": "experience-points",
+  "n": "31",
+  "name": "Experience Points",
+  "cat": "retention",
+  "tagline": "A quantified amount of progress the system grants for qualifying activity and accumulates toward a defined threshold, stage, or track position.",
+  "desc": "Experience points are progress the system grants after a qualifying action, held apart from the action itself and added together until the total crosses a stated threshold or moves the user further along some larger progression structure. What makes an amount experience points rather than a running count is that second half of the shape: the accumulated value has to feed into something further along, a stage, a tier, a track position, a level, not just sit there as a record of how many times something happened. The mechanic doesn't need a level system to hang from, it can advance a rank, an account status, or a track of its own, and it doesn't need to be shown as a visible number at all, only the resulting progress has to be observable somewhere.",
+  "principle": "Every qualifying action adds a small amount toward something larger, so a single grant means little on its own; what accumulates is what matters. The value only becomes meaningful measured against the distance still to travel toward the next threshold.",
+  "players": [
+    "achiever"
+  ],
+  "warn": "The label is easy to claim from a value that only measures a score or a completed-action count. If nothing further along a progression structure actually depends on the accumulated number, crossing a round total is a coincidence of counting, not evidence that experience points are operating.",
+  "variants": [
+    "Account XP, the progression value advances a product-wide account state",
+    "Skill XP, separate progression values advance individual abilities, subjects, or activity categories",
+    "Variable-grant XP, the amount granted differs according to activity, result, performance, or another system-defined condition",
+    "Capped XP, the system limits how much progression value can be earned within a period, activity, source, or progression state"
+  ],
+  "lifecycle": "Effective across all lifecycle stages once a qualifying activity exists. Most visible once the user has enough accumulated to see how close a threshold actually is.",
+  "paired": [
+    "leveling"
+  ],
+  "context": [
+    "activation",
+    "retention"
+  ],
+  "sdt": [
+    "mastery",
+    "competence"
+  ],
+  "visibility": "public"
+}

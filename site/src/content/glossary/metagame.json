@@ -5,7 +5,8 @@
   "related": [
     "season-pass",
     "set-collection",
-    "xp-leveling"
+    "experience-points",
+    "leveling"
   ],
   "visibility": "public"
 }

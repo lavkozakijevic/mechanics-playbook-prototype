@@ -120,13 +120,11 @@
       ]
     },
     {
-      "id": "xp-leveling",
+      "id": "experience-points",
       "depth": "supporting",
       "writeup": null,
       "screenshots": [],
-      "suggestedShots": [
-        "Farm XP bar at 30% with \"earn XP by completing tasks, level up to unlock new areas\" message visible"
-      ]
+      "suggestedShots": []
     },
     {
       "id": "achievements",

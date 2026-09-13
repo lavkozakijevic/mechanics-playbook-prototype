@@ -12,7 +12,7 @@
   "heroImage": null,
   "mechanics": [
     {
-      "id": "xp-leveling",
+      "id": "experience-points",
       "depth": "core",
       "writeup": {
         "observed": "Wakeout turns movement into Wakeout Watts, a single number we grow toward a daily target rather than toward any one finish line. The main action is completing a wakeout, a movement break, and what the app offers are four 15-second exercises. Completing one added 50 watts in a pop up naming the move we had just finished, and our running total moved from 613 to 663 in the same moment. The daily target is not fixed. Wakeout lets the user pick a difficulty level, and each level sets two numbers: an active goal and a stretch goal above it. On easy, the default, that is 500 and 200 watts, with earning capped at 150 watts an hour. The app's own copy frames the cap as encouraging movement across the day rather than one intense session. Harder levels raise both numbers. The total also persists beyond the day, tracked as a weekly figure and a single-day high in a dedicated stats section, with an hourly log behind it breaking down what produced the watts.",

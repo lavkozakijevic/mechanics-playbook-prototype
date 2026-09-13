@@ -4,7 +4,7 @@
  * mechanic id. This is the single source of truth for that mapping —
  * sources/taxonomy-map.md records the full reasoning per entry, including
  * which of these were forced by real analysis usage versus reasoned out from
- * the library entry's own definition, and the seven site mechanics that fuse
+ * the library entry's own definition, and the six site mechanics that fuse
  * two or three library entries under the site's older taxonomy.
  *
  * Plain .mjs with no astro:content dependency so both the Node conversion
@@ -31,9 +31,12 @@ export const CANONICAL_MECHANIC_IDS = {
   "Milestone": "achievements",
   "Achievement": "achievements",
   "Group Membership": "community-groups",
-  // Wakeout's analysis classifies Wake Out Watts as "Experience Points"; this
-  // library's equivalent entry is "XP / Leveling".
-  "Experience Points": "xp-leveling",
+  // Wakeout's analysis classifies Wake Out Watts as "Experience Points",
+  // which is now this entry's own site mechanic directly — no translation
+  // needed since xp-leveling split into experience-points and leveling on
+  // 13 Sep 2026 (sources/taxonomy-map.md), once Capybara Go and Clash of
+  // Clans each applied Experience Points and Leveling as distinct tags.
+  "Experience Points": "experience-points",
   // Retired from the mechanics library and moved to the archive on 13 Sep
   // 2026. No longer an approved entry, and no analysis will apply it going
   // forward, so this null is now permanent rather than the provisional,
@@ -64,7 +67,7 @@ export const CANONICAL_MECHANIC_IDS = {
   "First-Purchase Bonus": "first-purchase-bonus",
   "Gifting": "gifting",
   "Hard Currency": "hard-currency",
-  "Leveling": "xp-leveling", // merges with Experience Points above
+  "Leveling": "leveling",
   "Lives": "energy-lives", // merges with Energy above
   "Loot Box": "variable-reward", // merges with Variable Reward Schedule/Outcome below
   "Passive Construction": "passive-construction",

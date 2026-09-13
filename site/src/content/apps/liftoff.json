@@ -12,7 +12,7 @@
   "heroImage": null,
   "mechanics": [
     {
-      "id": "xp-leveling",
+      "id": "leveling",
       "depth": "core",
       "writeup": {
         "observed": "The body rank system gives each muscle group an independent rank advancing through Bronze, Silver, Gold, Platinum, and Diamond. Performing exercises targeted at a muscle group fills that muscle's rank bar. At onboarding, a rank assessment asks the user for their best lifts on one chosen exercise and assigns an immediate rank (Bronze 3 for pull-ups in the session), with a predicted date to reach Gold. The account also carries a level displayed on the home screen avatar with a progress bar. A Double XP Shake consumable doubles XP earned during a single workout.",
@@ -23,9 +23,7 @@
         ]
       },
       "screenshots": [],
-      "suggestedShots": [
-        "Body rank overview screen showing multiple muscle groups each with their own Bronze/Silver/Gold rank indicator and percentage fill bars, with the \"body graph\" visual showing which muscles are high-ranked vs. lagging"
-      ]
+      "suggestedShots": []
     },
     {
       "id": "leaderboards",
@@ -118,7 +116,7 @@
     "whatMakesItWork": "Volume-based XP means the quality of the reward is determined by the quantity of work logged. There is no way to game the system by opening the app and closing it. The only way to advance is to do the actual workout.",
     "roles": [
       {
-        "id": "xp-leveling",
+        "id": "leveling",
         "role": "Overall rank and per-muscle ranks advance through logged workout volume. Named tier levels are visible ahead of the current position across each muscle group independently."
       },
       {
@@ -145,7 +143,7 @@
     },
     "nodes": [
       {
-        "id": "xp-leveling",
+        "id": "leveling",
         "x": 50,
         "y": 26
       },
@@ -172,7 +170,7 @@
     ],
     "connections": [
       {
-        "from": "xp-leveling",
+        "from": "leveling",
         "to": "leaderboards",
         "title": "Volume-based XP determines leaderboard position",
         "desc": "The same logged workout volume that advances rank also determines position on volume leaderboards. One logging action serves both systems.",

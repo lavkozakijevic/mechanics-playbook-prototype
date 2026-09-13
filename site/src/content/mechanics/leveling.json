@@ -1,0 +1,37 @@
+{
+  "id": "leveling",
+  "n": "32",
+  "name": "Leveling",
+  "cat": "retention",
+  "tagline": "An entity assigned to one state within an ordered series of discrete states, moved between them when the system's advancement or reassessment rule is satisfied.",
+  "desc": "Leveling holds a current position in an ordered sequence of states and changes that position only when a defined rule says so, a threshold crossed, an assessment completed, a duration served. The state belongs to whatever the product is tracking, an account, a character, a skill, a team, and it persists between changes rather than drifting on its own. What separates a level from an ordinary running number is that the system treats it as a position to occupy, not an amount to spend or exchange, and the mechanic doesn't require the number to be visible, or even to only move upward: what matters is that a defined rule governs the move and the change shows up somewhere in what the product does.",
+  "principle": "A level is a place, not a total. The system holds a position in an ordered structure and only moves it when its own rule is satisfied, which is what makes reaching a new one feel like a state change rather than another point added to a pile.",
+  "players": [
+    "achiever",
+    "competitor"
+  ],
+  "warn": "The label is easy to claim from a numbered stage or a purchased tier that never actually functions as an assigned, changing state. If the product doesn't maintain a current level that a rule moves the entity through, numbered content units or purchased plans read as leveling without meeting it.",
+  "variants": [
+    "XP-driven leveling, accumulated experience points trigger movement between level states",
+    "Assessment-based leveling, the system assigns or changes the level according to an evaluation of performance, proficiency, or state",
+    "Demotion-enabled leveling, the system can move the entity to a lower level when defined conditions are met",
+    "Multi-track leveling, the product maintains independent level states for different skills, subjects, categories, modes, or entities",
+    "Capped leveling, the progression has a defined highest level beyond which the current state cannot advance"
+  ],
+  "lifecycle": "Effective across all lifecycle stages once at least two ordered states exist. Most consequential once the user has enough history for a level change, an advancement or a demotion, to actually be visible.",
+  "paired": [
+    "experience-points",
+    "achievements",
+    "leaderboards"
+  ],
+  "context": [
+    "activation",
+    "retention"
+  ],
+  "sdt": [
+    "mastery",
+    "competence",
+    "ownership"
+  ],
+  "visibility": "public"
+}

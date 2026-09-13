@@ -732,7 +732,7 @@ let mechanicCount = 0;
 // validate-content.mjs only ever counted the apps collection, never
 // mechanics, so it's unaffected.
 //
-// Seven of these entries fuse two or three entries from the 36-entry
+// Six of these entries fuse two or three entries from the 36-entry
 // mechanics library under the site's older, coarser taxonomy
 // (sources/taxonomy-map.md has the full mapping and the reasoning per
 // merge). Publishing one of their pages would assert a taxonomy the library
@@ -744,7 +744,7 @@ let mechanicCount = 0;
 // unconditionally, in mechanics/[id].astro's getStaticPaths, keyed off
 // HELD_BACK_MECHANIC_IDS (site/src/lib/content.ts) rather than visibility —
 // see that file for the exclusion and for how every other page renders a
-// reference to one of these seven unlinked instead of routing to /subscribe/.
+// reference to one of these six unlinked instead of routing to /subscribe/.
 for (const m of MECHANICS) {
   // relationships live app-side only; libraryEntries is deferred-split
   // groundwork (sources/taxonomy-map.md) and never reaches the built site.
@@ -794,7 +794,33 @@ const ADDITIONS = {
 // Strava needed one while its clubs were classified as clans-guilds; the
 // reviewed analysis classifies them as Group Membership, which the canonical
 // name map resolves to community-groups directly, so no remap is needed.
-const REMAPS = {};
+//
+// xp-leveling split into experience-points and leveling on 13 Sep 2026
+// (sources/taxonomy-map.md). These eight v3 files still carry the old
+// inline id in a "### ... (`xp-leveling`) · Depth" heading and were not
+// rewritten — remapped here instead, onto whichever of the two split
+// concepts that app's own write-up is actually about, decided from each
+// file's own observed text: clash-of-clans, fc-mobile, freeletics, gymverse,
+// and liftoff each describe a level or rank state as the thing observed
+// (leveling); solitaire-grand-harvest, steam, and tiimo each describe a
+// running accumulation toward a threshold with no named level state
+// (experience-points). Without this, any of these eight would throw
+// "unknown mechanic xp-leveling" the moment xp-leveling stopped being a
+// registered id. capybara-go is not remapped here: its analysis was
+// migrated to v4.1 and never reaches this v3 path at all, and wakeout's
+// analysis already uses the reviewed canonical name "Experience Points"
+// rather than the inline id, which resolves through
+// CANONICAL_MECHANIC_IDS directly.
+const REMAPS = {
+  "clash-of-clans": { "xp-leveling": "leveling" },
+  "fc-mobile": { "xp-leveling": "leveling" },
+  "freeletics": { "xp-leveling": "leveling" },
+  "gymverse": { "xp-leveling": "leveling" },
+  "liftoff": { "xp-leveling": "leveling" },
+  "solitaire-grand-harvest": { "xp-leveling": "experience-points" },
+  "steam": { "xp-leveling": "experience-points" },
+  "tiimo": { "xp-leveling": "experience-points" },
+};
 // Strava's unrecognized "hard-currency" section is about the subscription
 // model and explicitly says it does NOT map to hard currency — exclude it
 // from the currency harvest. (Flagged in the content questions list.)
@@ -810,7 +836,7 @@ const DROPS = new Set([
   "daily-login-reward|clash-of-clans",
   "limited-time-events|strava",
   "challenges|clash-of-clans",
-  "xp-leveling|gymverse",
+  "leveling|gymverse", // was "xp-leveling|gymverse" before the 13 Sep 2026 split; DROPS is checked after REMAPS, so this key has to track the remapped id, not the analysis file's own literal one.
   "credits-tokens|liftoff",
   "ads|chrome-valley-customs",
   "ads|match-creek-motors",

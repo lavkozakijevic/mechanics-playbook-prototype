@@ -5,7 +5,8 @@
   "related": [
     "energy-lives",
     "daily-weekly-quests",
-    "xp-leveling"
+    "experience-points",
+    "leveling"
   ],
   "visibility": "public"
 }

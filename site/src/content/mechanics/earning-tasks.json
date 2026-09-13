@@ -18,7 +18,7 @@
   ],
   "lifecycle": "Effective at any lifecycle stage once the catalogue is live. Most valuable once the core loop's own pull has leveled off and the product needs a separate reason to bring the user back.",
   "paired": [
-    "xp-leveling"
+    "experience-points"
   ],
   "context": [
     "retention"

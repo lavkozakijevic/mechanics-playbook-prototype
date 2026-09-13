@@ -85,7 +85,7 @@
       "suggestedShots": []
     },
     {
-      "id": "xp-leveling",
+      "id": "leveling",
       "depth": "supporting",
       "writeup": null,
       "screenshots": [],
@@ -138,7 +138,7 @@
         "role": "Starter Challenges are the primary progression guidance system, organized by point values with milestone rewards. New challenges unlock per Town Hall level."
       },
       {
-        "id": "xp-leveling",
+        "id": "leveling",
         "role": "Player level (separate from Town Hall level) advances through XP earned from achievements and battles. The Supercell ID achievement pays 10x more XP than standard achievements."
       },
       {
@@ -187,7 +187,7 @@
         "y": 70
       },
       {
-        "id": "xp-leveling",
+        "id": "leveling",
         "x": 82,
         "y": 70
       },
@@ -207,7 +207,7 @@
       },
       {
         "from": "daily-weekly-quests",
-        "to": "xp-leveling",
+        "to": "leveling",
         "title": "Challenge completions award XP toward player level",
         "desc": "Completing challenge milestones and achievements both award XP. Player level (separate from Town Hall) advances faster than Town Hall and provides visible progress during the long waits between Town Hall upgrades.",
         "effect": "The player always has something crossing a threshold. While the 12-hour Town Hall timer runs, player level advances through challenges."

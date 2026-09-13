@@ -62,7 +62,7 @@
       "suggestedShots": []
     },
     {
-      "id": "xp-leveling",
+      "id": "leveling",
       "depth": "shallow",
       "writeup": null,
       "screenshots": [],
@@ -93,7 +93,7 @@
         "role": "Community feed showing challenge participation and workout completions from followed users."
       },
       {
-        "id": "xp-leveling",
+        "id": "leveling",
         "role": "God level system with named tiers. Logged workouts advance the user's level within the Freeletics ranking structure."
       }
     ],

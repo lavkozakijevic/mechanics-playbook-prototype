@@ -32,7 +32,7 @@
       ]
     },
     {
-      "id": "xp-leveling",
+      "id": "experience-points",
       "depth": "supporting",
       "writeup": null,
       "screenshots": [],
@@ -81,7 +81,7 @@
         "role": "A deeply developed cosmetics catalogue funded by the purchase-rebate Points economy. Seasonal badges (Summer and Winter Sales only) are the sole urgency mechanic; every other item is perpetually available."
       },
       {
-        "id": "xp-leveling",
+        "id": "experience-points",
         "role": "Profile XP accumulates through badge collection, displayed as a public-facing level on the user's profile alongside username and last-online time."
       },
       {
@@ -113,7 +113,7 @@
         "y": 26
       },
       {
-        "id": "xp-leveling",
+        "id": "experience-points",
         "x": 22,
         "y": 48
       },
@@ -141,7 +141,7 @@
     "connections": [
       {
         "from": "cosmetics",
-        "to": "xp-leveling",
+        "to": "experience-points",
         "title": "Seasonal badges feed profile XP",
         "desc": "Seasonal badges available in the Points Shop contribute towards profile XP. The cosmetics system and the leveling system share the same seasonal badge item.",
         "effect": "Acquiring seasonal badges advances both the cosmetic display layer and the profile level simultaneously, giving the same item two progression roles."

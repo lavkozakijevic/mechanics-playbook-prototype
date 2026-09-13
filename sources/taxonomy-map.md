@@ -11,7 +11,7 @@ originally wrote up together on one page, because at the time nothing
 forced the distinction. Energy and Lives are both "what happens when
 attempts run out"; Season Content Pass and Seasonal Progression Pass are
 both battle-pass shapes; Achievement and Milestone are both permanent
-progress markers. Seven site mechanics carry this kind of fused writing
+progress markers. Six site mechanics carry this kind of fused writing
 today, together covering two or three library entries apiece.
 
 Splitting a merged page is not a formatting exercise. The existing prose
@@ -37,7 +37,7 @@ resolvable in code either way; that code change does not change which
 mappings were empirically forced versus reasoned out, which is what
 "confirmed" and "inferred" track here.
 
-## Site mechanic → library entry mapping (30 site mechanics)
+## Site mechanic → library entry mapping (31 site mechanics)
 
 | site mechanic (`id`) | library entry / entries covered | evidence |
 |---|---|---|
@@ -50,7 +50,8 @@ mappings were empirically forced versus reasoned out, which is what
 | limited-time-events | *(none — see "Site mechanics with no library entry" below)* | — |
 | achievements | Achievement, Milestone | confirmed |
 | challenges | Challenge | confirmed |
-| xp-leveling | Experience Points, Leveling | confirmed (Experience Points); inferred (Leveling) |
+| experience-points | Experience Points | confirmed |
+| leveling | Leveling | confirmed |
 | season-pass | Season Content Pass, Seasonal Progression Pass | inferred |
 | piggy-bank | Piggy Bank | inferred |
 | first-purchase-bonus | First-Purchase Bonus | inferred |
@@ -82,20 +83,18 @@ as new library entries with no prior site mechanic. Both are clean,
 one-to-one mappings and neither is one of the merged mechanics held back
 below.
 
-## The seven merged mechanics (split deferred)
+31 site mechanics, not 30 — `xp-leveling` split into `experience-points`
+and `leveling` on 13 Sep 2026 (see "The xp-leveling split" below), a
+one-into-two split that adds one to the total while removing one merge.
+Both new mechanics are clean, one-to-one mappings and neither is held back.
+
+## The six merged mechanics (split deferred)
 
 **achievements** — Achievement, Milestone. The two are treated as
 synonyms, not distinguished: *"Each completed milestone is a named,
 permanent record of accomplishment"* uses "milestone" as the definition of
 what an achievement is. Splitting means deciding a distinction the current
 text doesn't draw, not dividing existing text.
-
-**xp-leveling** — Experience Points, Leveling. Tagline and description
-cover both, but present them as one continuous loop rather than two
-separable ideas: *"Unlike achievements, which are discrete events, XP is
-continuous, every action contributes."* The point-accumulation resource
-(Experience Points) and the threshold/status system (Leveling) are never
-treated as separate mechanics in the text.
 
 **leaderboards** — Leaderboard, Comparative Rank. The tagline is pure
 list-framing (*"a ranked list... publicly comparable"*), but the
@@ -168,6 +167,51 @@ correct rather than a gap to fix — the entry it named no longer exists.
 This resolves on its own once Strava is re-run under the current (v4.1)
 model, since a fresh analysis has no route to apply a retired entry.
 
+## The xp-leveling split (13 Sep 2026)
+
+`xp-leveling` split into two clean, one-to-one mechanics: `experience-points`
+(Experience Points) and `leveling` (Leveling). The split condition below
+fired on real evidence: Capybara Go and Clash of Clans each apply
+Experience Points and Leveling as separate, independently-evidenced tags
+under the current (v4.1) model — Capybara Go's analysis carries both as
+distinct applied tags with their own observations, and Clash of Clans'
+does too once it is staged. Two apps meeting the condition independently is
+what moved both mappings from *inferred* to *confirmed* in the table above.
+
+The old fused page never separated "the value that accumulates" from "the
+state it moves you into," so the two new pages were written fresh against
+each library entry's own definition rather than divided from the old
+prose (full reasoning and the two entries themselves were shown for review
+before writing). Both new mechanics carry the old fused entry's app list
+unchanged, since only Capybara Go and Clash of Clans have real per-tag
+evidence separating the two; for the rest (fc-mobile, fortune-city,
+freeletics, liftoff, gymverse) no analysis narrows which specific one
+applies, so neither entry's list overclaims a distinction that isn't
+evidenced.
+
+Eight older v3 analysis files still carry the literal `xp-leveling` inline
+id in a `### ... (\`xp-leveling\`) · Depth` heading, unrewritten:
+clash-of-clans, fc-mobile, freeletics, gymverse, and liftoff resolve to
+`leveling`; solitaire-grand-harvest, steam, and tiimo resolve to
+`experience-points`. Each was decided from that file's own observed text
+(a named, assigned level or rank state versus a running accumulation
+toward a threshold with no named level), and is handled by a per-app entry
+in `REMAPS` (`site/scripts/convert-content.mjs`) rather than by editing
+the analysis files — REMAPS exists exactly for this case, an id split
+after the file was written. Without it, any of the eight would throw
+"unknown mechanic xp-leveling" the moment the id stopped being registered.
+Wakeout's analysis was not one of the eight: it already uses the reviewed
+canonical name "Experience Points" rather than the inline id, which
+resolves through `CANONICAL_MECHANIC_IDS` directly and needed no remap.
+Capybara Go was not one of the eight either — its analysis was migrated to
+the v4.1 format and never reaches the v3 parsing path at all.
+
+The old `/mechanics/xp-leveling/` URL 404s rather than redirects. Nothing
+is indexed there yet, so there is no inbound-link cost to weigh, and a
+redirect would assert that one of the two new pages is "the same content
+at a new address," which isn't true of either — the page didn't move, it
+split into two different things.
+
 ## When each merge splits
 
 A merged page splits when at least two apps analysed under the current
@@ -180,50 +224,58 @@ alone, without real implementations to draw the dividing line from, would
 produce two new pages that get rewritten again the moment real evidence
 arrives. Two independent v4.1 observations turn the split into a lookup
 against actual analysis rather than a guess. Each pair unlocks on its own
-evidence — the seven do not move together.
+evidence — the six do not move together.
 
-As of this document, zero apps analysed under the current model carry any
-of the seven merged ids — the only v4.1 app so far (Dave) carries none of
-them. Every occurrence below is from the old (v3) model, and none of it
-counts toward the threshold; it is recorded here so that checking progress,
-once v4.1 re-analysis reaches these apps, is a lookup rather than a recount.
+As of this document, one app analysed under the current model, Capybara
+Go, carries several of the six merged ids — Milestone (achievements),
+Leaderboard (leaderboards), Energy (energy-lives), Seasonal Progression
+Pass (season-pass), and both Loot Box and Variable Reward Outcome
+(variable-reward) — but none of the six has cleared its split condition
+yet, since that needs two apps each independently carrying both sides
+distinctly. Capybara Go carries both sides of variable-reward alone (Loot
+Box and Variable Reward Outcome as separate, independently-evidenced
+tags), so that merge needs exactly one more v4.1 app doing the same to
+split; the other five merges have only one side evidenced by Capybara Go
+so far. Every other occurrence below is from the old (v3) model, and none
+of it counts toward the threshold; it is recorded here so that checking
+progress, once v4.1 re-analysis reaches these apps, is a lookup rather
+than a recount.
 
-**achievements** (Achievement, Milestone) — 25 apps, all v3: acorns, calm,
-canva, capybara-go, chrome-valley-customs, clash-of-clans, fc-mobile,
-fifa-panini-collection, fiton, fortune-city, freeletics, gymverse,
-insight-timer, ladder, liftoff, match-creek-motors, royal-match,
-solitaire-grand-harvest, strava, subway-surfers, swgoh, tiimo, uptime,
-wakeout, wispr-flow.
+**achievements** (Achievement, Milestone) — 25 apps: capybara-go (v4.1,
+Milestone only), and 24 more, all v3: acorns, calm, canva,
+chrome-valley-customs, clash-of-clans, fc-mobile, fifa-panini-collection,
+fiton, fortune-city, freeletics, gymverse, insight-timer, ladder, liftoff,
+match-creek-motors, royal-match, solitaire-grand-harvest, strava,
+subway-surfers, swgoh, tiimo, uptime, wakeout, wispr-flow.
 
-**xp-leveling** (Experience Points, Leveling) — 9 apps, all v3: capybara-go,
-clash-of-clans, fc-mobile, freeletics, liftoff, solitaire-grand-harvest,
-steam, tiimo, wakeout.
-
-**leaderboards** (Leaderboard, Comparative Rank) — 11 apps, all v3:
-capybara-go, chrome-valley-customs, clash-of-clans, fc-mobile, freeletics,
-liftoff, match-creek-motors, royal-match, strava, subway-surfers, swgoh.
+**leaderboards** (Leaderboard, Comparative Rank) — 11 apps: capybara-go
+(v4.1, Leaderboard only), and 10 more, all v3: chrome-valley-customs,
+clash-of-clans, fc-mobile, freeletics, liftoff, match-creek-motors,
+royal-match, strava, subway-surfers, swgoh.
 
 **community-groups** (Community Space, Group Membership) — 7 apps, all v3:
 fifa-panini-collection, fiton, insight-timer, ladder, picsart, steam,
 strava.
 
-**energy-lives** (Energy, Lives) — 7 apps, all v3: capybara-go,
-chrome-valley-customs, fifa-panini-collection, fortune-city,
-match-creek-motors, royal-match, swgoh.
+**energy-lives** (Energy, Lives) — 7 apps: capybara-go (v4.1, Energy
+only), and 6 more, all v3: chrome-valley-customs, fifa-panini-collection,
+fortune-city, match-creek-motors, royal-match, swgoh.
 
-**season-pass** (Season Content Pass, Seasonal Progression Pass) — 5 apps,
-all v3: capybara-go, fc-mobile, royal-match, solitaire-grand-harvest, swgoh.
+**season-pass** (Season Content Pass, Seasonal Progression Pass) — 5 apps:
+capybara-go (v4.1, Seasonal Progression Pass only), and 4 more, all v3:
+fc-mobile, royal-match, solitaire-grand-harvest, swgoh.
 
 **variable-reward** (Variable Reward Schedule, Variable Reward Outcome,
-Loot Box) — 13 apps, all v3: acorns, canva, capybara-go,
-chrome-valley-customs, clash-of-clans, fc-mobile, fifa-panini-collection,
-liftoff, match-creek-motors, royal-match, solitaire-grand-harvest,
-subway-surfers, swgoh.
+Loot Box) — 13 apps: capybara-go (v4.1, both Loot Box and Variable Reward
+Outcome — one app short of the split condition), and 12 more, all v3:
+acorns, canva, chrome-valley-customs, clash-of-clans, fc-mobile,
+fifa-panini-collection, liftoff, match-creek-motors, royal-match,
+solitaire-grand-harvest, subway-surfers, swgoh.
 
 ## Visibility, pending the split
 
-This is deliberately not a visibility distinction. All 30 mechanics,
-including the seven merged ones, carry declared visibility `public` — the
+This is deliberately not a visibility distinction. All 31 mechanics,
+including the six merged ones, carry declared visibility `public` — the
 same as before this work. Publishing a merged page would assert a taxonomy
 the library has already moved past, which has nothing to do with
 subscriptions: declaring a merge `subscriber` instead would only make its
@@ -233,21 +285,21 @@ subscriber read a page that isn't supposed to exist at all yet (an earlier
 draft of this work made exactly that mistake and was corrected before
 shipping).
 
-Instead, the seven merged mechanics are excluded outright from
+Instead, the six merged mechanics are excluded outright from
 `getStaticPaths` in `mechanics/[id].astro`, against `HELD_BACK_MECHANIC_IDS`
-(`site/src/lib/content.ts`) — a plain set of the seven ids, unconditional
+(`site/src/lib/content.ts`) — a plain set of the six ids, unconditional
 and independent of both each mechanic's own declared visibility and of
 `REVIEW_WINDOW_OPEN`. The page does not exist, in either window state,
 until the merge clears the split condition above; verified directly by
 building with the window both open and closed and confirming zero links to
-any of the seven in either output. Real gating (a locked page like
+any of the six in either output. Real gating (a locked page like
 subscriber apps and case studies get) was considered and rejected: it's
 auth-adjacent work that would be discarded the moment a merge splits and
 both sides go public, and shipping the pages live-but-unlinked would leave
 the fused content readable at its direct URL regardless — exactly what
 holding them back is meant to avoid.
 
-Every other page that can reference one of the seven (the 27 v3 case
+Every other page that can reference one of the six (the 27 v3 case
 studies, the mechanics index, paired-mechanic sidebars on glossary and
 cheatsheet pages, the homepage's featured-mechanics strip, v4.1 case study
 tag chips and system-map nodes) resolves its href through the same shared
@@ -257,10 +309,12 @@ can't be missed in one spot and linked from another. It renders the
 reference unlinked — the name and category still show, there's simply no
 link to click — reusing the fallback already built for a mechanic with no
 reference page at all, rather than a broken link or a misleading
-`/subscribe/` CTA. The other 23 mechanics — the 19 original clean
-one-to-one mappings, `personal-data-reflection`, `companion` and
-`progression-fund`, plus `ads` now that Advertisement Exposure's retirement
-has left it a clean one-to-one mapping too — are unaffected. A merge gets
+`/subscribe/` CTA. The other 25 mechanics — the 19 original clean
+one-to-one mappings, `personal-data-reflection`, `companion`,
+`progression-fund`, and `ads` now that Advertisement Exposure's retirement
+has left it a clean one-to-one mapping too, plus `experience-points` and
+`leveling` now that the xp-leveling split has left them clean one-to-one
+mappings as well — are unaffected. A merge gets
 its own page back, for both sides, once it clears the split condition
 above.
 
@@ -308,15 +362,22 @@ six renames established a blanket rule that site names should always match
 library names — they don't; each of the eight was judged on its own name,
 not on a rule that public copy must track the library's taxonomy.
 
-The seven held-back merged mechanics (`achievements`, `xp-leveling`,
-`leaderboards`, `community-groups`, `energy-lives`, `season-pass`,
-`variable-reward`) keep their current names for now. `ads` came out of this
-set on 13 Sep 2026 when Advertisement Exposure was retired, but its name
-was not revisited as part of that change — it wasn't one of the six renamed
-or two deliberately-kept names above either, so it stands untouched pending
-a future look. A merged mechanic's
+The six held-back merged mechanics (`achievements`, `leaderboards`,
+`community-groups`, `energy-lives`, `season-pass`, `variable-reward`) keep
+their current names for now. `ads` came out of this set on 13 Sep 2026
+when Advertisement Exposure was retired, but its name was not revisited as
+part of that change — it wasn't one of the six renamed or two
+deliberately-kept names above either, so it stands untouched pending a
+future look. A merged mechanic's
 name is inherently a compromise across two or three library entries; the
 right name for each resolves naturally once that merge splits and each side
 gets its own page and its own name, so renaming them now would mean
 renaming them again later. `limited-time-events` (no library entry at all)
 is likewise untouched — there's no library name to reconcile against.
+
+`xp-leveling` also came out of this set on 13 Sep 2026, but by splitting
+rather than by losing a merged side the way `ads` did. Its two successors,
+`experience-points` and `leveling`, aren't renames of anything — each
+takes its library entry's own name directly, the same way `companion` and
+`progression-fund` did as brand-new mechanics, so neither belongs on the
+six-renamed or two-kept-as-is lists above.

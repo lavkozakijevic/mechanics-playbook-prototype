@@ -20,7 +20,7 @@
   ],
   "lifecycle": "Any lifecycle stage once an acquisition route exists. Most consequential once the user holds more entities than active positions allow and must choose among them.",
   "paired": [
-    "xp-leveling",
+    "leveling",
     "set-collection",
     "variable-reward"
   ],

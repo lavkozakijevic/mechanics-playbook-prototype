@@ -19,7 +19,7 @@
   "lifecycle": "Needs a progression measure already established elsewhere in the product. Most consequential once the user is far enough along that measure to see the free lane's positions as reachable and the purchased lane's premium as worth paying for.",
   "paired": [
     "season-pass",
-    "xp-leveling",
+    "leveling",
     "first-purchase-bonus"
   ],
   "context": [

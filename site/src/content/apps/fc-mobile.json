@@ -181,7 +181,7 @@
       ]
     },
     {
-      "id": "xp-leveling",
+      "id": "leveling",
       "depth": "supporting",
       "writeup": {
         "observed": "Account XP is earned from missions, matches, skill games, and daily tasks (750 XP per completed daily bundle). Level-ups unlock new systems on a defined schedule: Level 5 unlocks Challenge Mode, Level 6 unlocks Scouting Camp, Level 9 unlocks the Transfer Market, Level 14 unlocks Manager Mode. Three level-ups occurred in a single early session. Each level-up grants a pack containing 200 gems. Individual players have separate training levels (capped at 30 per rank) and rank-up levels, creating a second progression axis alongside account level.",
@@ -195,9 +195,7 @@
         ]
       },
       "screenshots": [],
-      "suggestedShots": [
-        "Level-up interstitial showing \"Level 8 reached — lineup slot added\" alongside the Level Up Pack animation"
-      ]
+      "suggestedShots": []
     },
     {
       "id": "set-collection",
