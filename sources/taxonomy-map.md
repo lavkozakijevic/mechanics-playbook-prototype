@@ -11,7 +11,7 @@ originally wrote up together on one page, because at the time nothing
 forced the distinction. Energy and Lives are both "what happens when
 attempts run out"; Season Content Pass and Seasonal Progression Pass are
 both battle-pass shapes; Achievement and Milestone are both permanent
-progress markers. Eight site mechanics carry this kind of fused writing
+progress markers. Seven site mechanics carry this kind of fused writing
 today, together covering two or three library entries apiece.
 
 Splitting a merged page is not a formatting exercise. The existing prose
@@ -57,7 +57,7 @@ mappings were empirically forced versus reasoned out, which is what
 | monthly-card | Daily Claim Pack | inferred |
 | credits-tokens | Spendable Credits and Tokens | inferred |
 | cosmetics | Cosmetic Customization | inferred |
-| ads | Advertisement Exposure, Rewarded Advertisement | inferred (see the Advertisement Exposure note below) |
+| ads | Rewarded Advertisement | inferred |
 | social-feed | Social Feed | confirmed |
 | community-groups | Community Space, Group Membership | confirmed (Group Membership); inferred (Community Space) |
 | clans-guilds | Clan / Guild | inferred |
@@ -75,13 +75,14 @@ mappings were empirically forced versus reasoned out, which is what
 28 site mechanics, not 27 — `personal-data-reflection` was added in the
 step immediately before this one, closing what was then the library's only
 orphaned entry. It is a clean, one-to-one mapping and is not one of the
-eight held back below.
+merged mechanics held back below.
 
 30 site mechanics, not 28 — `companion` and `progression-fund` were added
 as new library entries with no prior site mechanic. Both are clean,
-one-to-one mappings and neither is one of the eight held back below.
+one-to-one mappings and neither is one of the merged mechanics held back
+below.
 
-## The eight merged mechanics (split deferred)
+## The seven merged mechanics (split deferred)
 
 **achievements** — Achievement, Milestone. The two are treated as
 synonyms, not distinguished: *"Each completed milestone is a named,
@@ -121,12 +122,6 @@ and description both frame this as a progression/reward-track system
 Progression Pass. Nothing in the text represents a content-delivery framing
 (Season Content Pass).
 
-**ads** — Advertisement Exposure, Rewarded Advertisement. Tagline and
-variants are evenly split across ad formats, but the description's only two
-worked examples (Subway Surfers, Capybara Go) are both about rewarded video
-specifically — plain interstitial/banner exposure has no example of its
-own.
-
 **variable-reward** — Variable Reward Schedule, Variable Reward Outcome,
 Loot Box. The tagline fuses timing uncertainty (Schedule) and result
 uncertainty (Outcome) into one indivisible mechanism (*"slot machines...
@@ -147,20 +142,31 @@ now has a page (`personal-data-reflection`).
   decision (deprecate the page, or propose the concept back to the library)
   is needed whenever this is revisited.
 
-## Note on Advertisement Exposure
+## Note on Advertisement Exposure (retired 13 Sep 2026)
 
-`CANONICAL_MECHANIC_IDS` maps `"Advertisement Exposure": null`, but that
-entry was written for one app (Wakeout), whose partner cross-promotions and
-subscription upsell don't count as an ad unit under the content rules — it
-is not a statement that Advertisement Exposure has no site mechanic in
-general. In general it merges into `ads`, alongside Rewarded Advertisement,
-as recorded above. The null mapping is left untouched rather than changed
-to `"ads"`, so that completing the map doesn't change Wakeout's build
-output as a side effect of this groundwork step. The tension is worth
-resolving deliberately later: as the map is completed today, a future app
-whose analysis genuinely observes generic ad exposure (not Wakeout's
-specific case) will resolve to "not published," not to `ads`, until this is
-revisited.
+Advertisement Exposure has been retired from the mechanics library and
+moved to the archive. It is no longer an approved entry, and no future
+analysis will apply it. `ads` now maps to a single library entry, Rewarded
+Advertisement, and is no longer a merged mechanic — it has come out of the
+held-back set above, and its split condition no longer applies because
+there is nothing left on the other side to split out.
+
+`CANONICAL_MECHANIC_IDS` already mapped `"Advertisement Exposure": null`
+before this retirement. That mapping was written for one app (Wakeout),
+whose partner cross-promotions and subscription upsell don't count as an ad
+unit under the content rules, and it was left provisional: a future app
+whose analysis genuinely observed generic ad exposure would have needed the
+mapping revisited, since as written it resolved to "not published" rather
+than to `ads`. That question is now closed rather than open. The null is
+permanently correct: there is no entry left for the name to resolve to, so
+any analysis that names it, past or future, correctly renders unpublished.
+
+One existing case is affected: Strava's analysis, still in the old (v3)
+format, carries an active Advertisement Exposure tag applied under the
+entry before its retirement. That tag now resolves to nothing, which is
+correct rather than a gap to fix — the entry it named no longer exists.
+This resolves on its own once Strava is re-run under the current (v4.1)
+model, since a fresh analysis has no route to apply a retired entry.
 
 ## When each merge splits
 
@@ -174,10 +180,10 @@ alone, without real implementations to draw the dividing line from, would
 produce two new pages that get rewritten again the moment real evidence
 arrives. Two independent v4.1 observations turn the split into a lookup
 against actual analysis rather than a guess. Each pair unlocks on its own
-evidence — the eight do not move together.
+evidence — the seven do not move together.
 
 As of this document, zero apps analysed under the current model carry any
-of the eight merged ids — the only v4.1 app so far (Dave) carries none of
+of the seven merged ids — the only v4.1 app so far (Dave) carries none of
 them. Every occurrence below is from the old (v3) model, and none of it
 counts toward the threshold; it is recorded here so that checking progress,
 once v4.1 re-analysis reaches these apps, is a lookup rather than a recount.
@@ -208,9 +214,6 @@ match-creek-motors, royal-match, swgoh.
 **season-pass** (Season Content Pass, Seasonal Progression Pass) — 5 apps,
 all v3: capybara-go, fc-mobile, royal-match, solitaire-grand-harvest, swgoh.
 
-**ads** (Advertisement Exposure, Rewarded Advertisement) — 4 apps, all v3:
-capybara-go, fc-mobile, fortune-city, subway-surfers.
-
 **variable-reward** (Variable Reward Schedule, Variable Reward Outcome,
 Loot Box) — 13 apps, all v3: acorns, canva, capybara-go,
 chrome-valley-customs, clash-of-clans, fc-mobile, fifa-panini-collection,
@@ -219,8 +222,8 @@ subway-surfers, swgoh.
 
 ## Visibility, pending the split
 
-This is deliberately not a visibility distinction. All 28 mechanics,
-including the eight merged ones, carry declared visibility `public` — the
+This is deliberately not a visibility distinction. All 30 mechanics,
+including the seven merged ones, carry declared visibility `public` — the
 same as before this work. Publishing a merged page would assert a taxonomy
 the library has already moved past, which has nothing to do with
 subscriptions: declaring a merge `subscriber` instead would only make its
@@ -230,21 +233,21 @@ subscriber read a page that isn't supposed to exist at all yet (an earlier
 draft of this work made exactly that mistake and was corrected before
 shipping).
 
-Instead, the eight merged mechanics are excluded outright from
+Instead, the seven merged mechanics are excluded outright from
 `getStaticPaths` in `mechanics/[id].astro`, against `HELD_BACK_MECHANIC_IDS`
-(`site/src/lib/content.ts`) — a plain set of the eight ids, unconditional
+(`site/src/lib/content.ts`) — a plain set of the seven ids, unconditional
 and independent of both each mechanic's own declared visibility and of
 `REVIEW_WINDOW_OPEN`. The page does not exist, in either window state,
 until the merge clears the split condition above; verified directly by
 building with the window both open and closed and confirming zero links to
-any of the eight in either output. Real gating (a locked page like
+any of the seven in either output. Real gating (a locked page like
 subscriber apps and case studies get) was considered and rejected: it's
 auth-adjacent work that would be discarded the moment a merge splits and
 both sides go public, and shipping the pages live-but-unlinked would leave
 the fused content readable at its direct URL regardless — exactly what
 holding them back is meant to avoid.
 
-Every other page that can reference one of the eight (the 27 v3 case
+Every other page that can reference one of the seven (the 27 v3 case
 studies, the mechanics index, paired-mechanic sidebars on glossary and
 cheatsheet pages, the homepage's featured-mechanics strip, v4.1 case study
 tag chips and system-map nodes) resolves its href through the same shared
@@ -254,9 +257,12 @@ can't be missed in one spot and linked from another. It renders the
 reference unlinked — the name and category still show, there's simply no
 link to click — reusing the fallback already built for a mechanic with no
 reference page at all, rather than a broken link or a misleading
-`/subscribe/` CTA. The other 20 mechanics — the 19 clean one-to-one
-mappings plus `personal-data-reflection` — are unaffected. A merge gets its
-own page back, for both sides, once it clears the split condition above.
+`/subscribe/` CTA. The other 23 mechanics — the 19 original clean
+one-to-one mappings, `personal-data-reflection`, `companion` and
+`progression-fund`, plus `ads` now that Advertisement Exposure's retirement
+has left it a clean one-to-one mapping too — are unaffected. A merge gets
+its own page back, for both sides, once it clears the split condition
+above.
 
 ## Public display names (owner ruling, 11 Sep 2026)
 
@@ -302,9 +308,13 @@ six renames established a blanket rule that site names should always match
 library names — they don't; each of the eight was judged on its own name,
 not on a rule that public copy must track the library's taxonomy.
 
-The eight held-back merged mechanics (`achievements`, `xp-leveling`,
-`leaderboards`, `community-groups`, `energy-lives`, `season-pass`, `ads`,
-`variable-reward`) keep their current names for now. A merged mechanic's
+The seven held-back merged mechanics (`achievements`, `xp-leveling`,
+`leaderboards`, `community-groups`, `energy-lives`, `season-pass`,
+`variable-reward`) keep their current names for now. `ads` came out of this
+set on 13 Sep 2026 when Advertisement Exposure was retired, but its name
+was not revisited as part of that change — it wasn't one of the six renamed
+or two deliberately-kept names above either, so it stands untouched pending
+a future look. A merged mechanic's
 name is inherently a compromise across two or three library entries; the
 right name for each resolves naturally once that merge splits and each side
 gets its own page and its own name, so renaming them now would mean

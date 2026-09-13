@@ -30,15 +30,18 @@ export const CAT_LABEL: Record<string, string> = {
   social: "Social",
 };
 
-/** The eight site mechanics that fuse two or three entries from the 36-entry
+/** The seven site mechanics that fuse two or three entries from the 36-entry
  *  mechanics library under the site's older, coarser taxonomy
  *  (sources/taxonomy-map.md has the full mapping, the per-merge split
- *  condition, and which apps currently carry each one).
+ *  condition, and which apps currently carry each one). "ads" was an eighth
+ *  until Advertisement Exposure was retired from the library on 13 Sep
+ *  2026: with only Rewarded Advertisement left, it's a clean one-to-one
+ *  mapping again and was removed from this set.
  *
  *  Publishing one of their pages would assert a taxonomy the library has
  *  already moved past, which has nothing to do with subscriptions — so this
  *  is deliberately not a visibility distinction. It's unconditional:
- *  independent of each mechanic's own declared visibility (all eight are
+ *  independent of each mechanic's own declared visibility (all seven are
  *  declared "public", same as everything else) and independent of
  *  REVIEW_WINDOW_OPEN. A "subscriber" declaration would make the page
  *  locked rather than absent once the review window closes, and a
@@ -48,7 +51,7 @@ export const CAT_LABEL: Record<string, string> = {
  *  exist until the merge splits, in either window state. */
 export const HELD_BACK_MECHANIC_IDS = new Set([
   "achievements", "xp-leveling", "leaderboards", "community-groups",
-  "energy-lives", "season-pass", "ads", "variable-reward",
+  "energy-lives", "season-pass", "variable-reward",
 ]);
 
 /** A mechanic's href, or null if there is nothing to link to — the single

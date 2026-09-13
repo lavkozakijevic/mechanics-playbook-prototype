@@ -673,7 +673,7 @@ let mechanicCount = 0;
 // validate-content.mjs only ever counted the apps collection, never
 // mechanics, so it's unaffected.
 //
-// Eight of these entries fuse two or three entries from the 36-entry
+// Seven of these entries fuse two or three entries from the 36-entry
 // mechanics library under the site's older, coarser taxonomy
 // (sources/taxonomy-map.md has the full mapping and the reasoning per
 // merge). Publishing one of their pages would assert a taxonomy the library
@@ -685,7 +685,7 @@ let mechanicCount = 0;
 // unconditionally, in mechanics/[id].astro's getStaticPaths, keyed off
 // HELD_BACK_MECHANIC_IDS (site/src/lib/content.ts) rather than visibility —
 // see that file for the exclusion and for how every other page renders a
-// reference to one of these eight unlinked instead of routing to /subscribe/.
+// reference to one of these seven unlinked instead of routing to /subscribe/.
 for (const m of MECHANICS) {
   // relationships live app-side only; libraryEntries is deferred-split
   // groundwork (sources/taxonomy-map.md) and never reaches the built site.

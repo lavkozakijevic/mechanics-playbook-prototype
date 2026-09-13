@@ -4,7 +4,7 @@
  * mechanic id. This is the single source of truth for that mapping —
  * sources/taxonomy-map.md records the full reasoning per entry, including
  * which of these were forced by real analysis usage versus reasoned out from
- * the library entry's own definition, and the eight site mechanics that fuse
+ * the library entry's own definition, and the seven site mechanics that fuse
  * two or three library entries under the site's older taxonomy.
  *
  * Plain .mjs with no astro:content dependency so both the Node conversion
@@ -34,17 +34,19 @@ export const CANONICAL_MECHANIC_IDS = {
   // Wakeout's analysis classifies Wake Out Watts as "Experience Points"; this
   // library's equivalent entry is "XP / Leveling".
   "Experience Points": "xp-leveling",
-  // Partner cross-promotion (Runna, Apple Fitness+, partner-named challenges)
-  // and the app's own subscription upsell are not published as an advertising
-  // or monetization mechanic: the content rules limit advertising coverage to
-  // actual ad units (rewarded video, interstitial, banner, offerwall), and none
-  // were observed. The partnerships are described inside the challenge write-up.
-  // This is Wakeout's own ruling, not a statement that Advertisement Exposure
-  // has no site mechanic in general — in general it merges into "ads" below,
-  // alongside Rewarded Advertisement. Left as null here rather than "ads" so
-  // this pass doesn't change Wakeout's build output as a side effect; a
-  // future app whose analysis observes generic ad exposure will need this
-  // revisited, since as written it resolves to "not published," not to "ads".
+  // Retired from the mechanics library and moved to the archive on 13 Sep
+  // 2026. No longer an approved entry, and no analysis will apply it going
+  // forward, so this null is now permanent rather than the provisional,
+  // Wakeout-specific carve-out it started as (that earlier reasoning — the
+  // partner cross-promotions and subscription upsell this name was written
+  // for aren't ad units under the content rules — no longer matters, since
+  // the entry itself is gone). "ads" below now maps only to Rewarded
+  // Advertisement and is no longer a merged mechanic. Strava's analysis,
+  // still in the old (v3) format, carries an active Advertisement Exposure
+  // tag applied under the entry before its retirement; that tag now
+  // resolves to nothing, which is correct, and resolves itself once Strava
+  // is re-run under the current (v4.1) model. See "Note on Advertisement
+  // Exposure" in sources/taxonomy-map.md.
   "Advertisement Exposure": null,
   "Daily / Weekly Quests": "daily-weekly-quests",
 
@@ -70,7 +72,7 @@ export const CANONICAL_MECHANIC_IDS = {
   "Piggy Bank": "piggy-bank",
   "Progression Fund": "progression-fund",
   "Referral Boost": "referral-boost",
-  "Rewarded Advertisement": "ads", // merges with Advertisement Exposure above
+  "Rewarded Advertisement": "ads", // the only entry mapping to "ads" since Advertisement Exposure's retirement, 13 Sep 2026
   "Season Content Pass": "season-pass", // merges with Seasonal Progression Pass below
   "Seasonal Progression Pass": "season-pass", // merges with Season Content Pass above
   "Set Collection": "set-collection",
