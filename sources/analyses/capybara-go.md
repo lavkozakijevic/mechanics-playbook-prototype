@@ -10,7 +10,7 @@ App version: 1812
 
 Analysis date: 11 Sep 2026
 
-Last updated: 11 Sep 2026
+Last updated: 13 Sep 2026
 
 **Source.** This analysis is built from three Granola walkthrough sessions recorded by a single narrator and retrieved as full transcripts: "Capybara Go! I" (12 May 2026), "Capybara Go! II" (13 May 2026) and "Capybara Go! III" (15 May 2026). Session I covers first launch, the first run through its defeat on day 40, the first home screen, talents, the store and equipment. Session II reopens the app more than 24 hours later and covers energy, the sidebar, rewarded ads and a second run that reaches day 59. Session III begins after Chapter 1 has been cleared and covers mail, Growth Fund, Privilege Card, the Seven-Day Carnival, Tower Challenge, pets, raids, tasks, the sign-in event, Timed Growth events and the Black Market, ending in Chapter 3. The transcripts are machine speech-to-text of live narration; names and numbers are reported as transcribed, and passages where the narration is fragmented are marked at the relevant observation. The sessions contain no typed notes. The app version is reported as spoken in Session I.
 
@@ -1252,28 +1252,6 @@ O56 converts ad views into ad inventory and places the Ad-Free Card offer on eve
 
 **Alternative considered:** Loot Box for ad-opened containers. The Loot Box entry excludes an uncertain reward opened directly by an ad with no held resource consumed (tier: directly observed).
 
-#### T22. Advertisement Exposure
-
-**Tag:** Advertisement Exposure
-
-**Observations:** O56
-
-**Supporting observations:** O41
-
-**Confidence:** directly observed
-
-**Role:** monetization
-
-O56 serves ad units, and the Ad-Free Card sells their removal.
-
-**Rationale:** The app's own offer pop-ups in O6, O60 and O61 promote its own purchases and are excluded by this entry (tier: directly observed). The rewarded ads are served ad units, and the library states that every rewarded advertisement also carries this label (tier: directly observed).
-
-**Variants present:** Reward-linked advertisement; frequency-limited advertisement.
-
-**Variants not established:** Format of the ad unit (video, full-screen, playable); interstitial, banner or pre-roll placements; skippable or non-skippable behavior.
-
-**Alternative considered:** House advertisement for the offer pop-ups. Promotion of the product's own purchases is excluded from this entry (tier: directly observed).
-
 #### T23. Seasonal Progression Pass (Battle Pass, Seven-Day Carnival, Pet Auspice)
 
 **Tag:** Seasonal Progression Pass
@@ -1409,6 +1387,7 @@ The outcomes in O8 vary as the user advances day by day within a run.
 ### Entries considered and not applied
 
 - **Achievement.** The Adventure Badge at talent level 20 (O25) was not reached, and no surface records an attained criterion separately from rewards and access changes (O3, O22) (tier: directly observed).
+- **Advertisement Exposure.** The Ad-Free Card (O56, O59) was tagged under this entry in an earlier version of this analysis and the tag is withdrawn. The card is a purchase that removes ad units, which is a monetization offer rather than a promotional slot the app fills. The entry as rewritten on 13 Sep 2026 covers only slots the product itself fills with a subject it chose under an arrangement made outside the product, and states that a purchase removing ad units does not bring those units into the entry. The ad units themselves (O56) are network-served inventory: where they carry a reward they are tagged Rewarded Advertisement at T21, and the entry no longer applies a second label alongside it. The app's own offer pop-ups (O6, O60, O61) promote its own purchases and are out of scope entirely (tier: directly observed).
 - **Comparative Rank.** The user's position of 3,092 (O48) and the Tower's "unranked" state (O22) appear within leaderboard views, which the Leaderboard entry classifies as leaderboards (tier: directly observed).
 - **Cosmetic Customization.** Frames (O45, O59) and a yellow duck for the character's head (O60) are named as rewards, but none was applied or displayed and whether the duck carries stats is not shown (tier: directly observed).
 - **Group Membership.** Guild membership is referenced by the Black Market's Guild tab (O46), but the guild surface is locked (O49), so no membership relationship was observed; the guild case is recorded under Unresolved (tier: directly observed).
