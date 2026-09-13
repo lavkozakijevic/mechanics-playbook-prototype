@@ -1,4 +1,15 @@
-# Mechanics Playbook — App Analysis Instructions
+# Mechanics Playbook — App Analysis Instructions (superseded)
+
+**Superseded, 13 Sep 2026.** This is the v3 analysis process. It is no
+longer used — the current process is `app-analysis-prompt-v4.1.md` in the
+behavioral-design library. Kept here for historical reference only, so
+that the v3-format analyses already produced under it (and the ids they
+reference, some since renamed or split) remain traceable to the process
+that generated them. Do not paste this into a new analysis; do not update
+it to track later site changes — maintaining two live analysis prompts is
+exactly what this retirement avoids.
+
+---
 
 *Paste this document into a new chat and name the app you want analyzed. Claude will retrieve the Granola transcript and produce a structured analysis file.*
 
