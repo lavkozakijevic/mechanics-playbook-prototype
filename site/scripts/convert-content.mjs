@@ -1067,15 +1067,16 @@ const V41_APP_META = {
       onboarding:
         "Capybara Go! opens with permission prompts and a long asset download, then drops the player into an unexplained run for almost 20 minutes before anything else is visible.",
       "core-loop":
-        "Capybara Go! advances a run day by day through automatic battles, in-run choices, and level-up skill picks, then carries gold and materials into permanent upgrades between runs.",
+        "Capybara Go! advances a run day by day through automatic battles, in-run choices, and level-up skill picks, then carries gold and materials into permanent upgrades between runs, all gated by an energy and ticket balance and layered with daily and weekly tasks.",
       goals: "Capybara Go! turns gold and materials into talent levels, a rank title, equipment, and pets, each with its own upgrade path.",
-      access: "Capybara Go! gates runs behind an energy balance and gates nearly everything else behind chapter clears and survival-day thresholds.",
-      economy: "Capybara Go! runs a large number of named currencies and materials alongside chests, tasks, and timed events built around collecting them.",
+      access: "Capybara Go! gates nearly everything behind a long sequence of chapter clears and survival-day thresholds.",
+      economy:
+        "Capybara Go! runs a large number of named currencies and materials alongside the chests and shops built around collecting and spending them.",
       social: "Capybara Go! offers one ranking list available from the very start, with Friends, Guilds, and Arena still locked behind later chapters.",
-      reach: "Capybara Go! offers one growth-facing feature, linking the game account to an external Habby ID.",
+      reach: "Capybara Go! offers one feature connecting a user outside the app, linking the game account to an external Habby ID.",
       monetization: "Capybara Go! charges through packs, cards, and triggered offers across a four-tab store, alongside ads and a permanent ad-removal purchase.",
       returns:
-        "Capybara Go! runs a seven-day sign-in event and countdowns on nearly every timed surface, from energy to chests to events.",
+        "Capybara Go! runs a seven-day sign-in event, two further timed events, and countdowns on nearly every timed surface in the game.",
     },
   },
   "clash-of-clans": {

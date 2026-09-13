@@ -383,7 +383,7 @@ Capybara Go places exclamation marks on the menu button, the energy counter, the
 
 ## Core loop and automation
 
-Capybara Go!'s core loop runs day by day inside a run: the app resolves one event after another until a battle interrupts it, and each level gained during that run opens a skill choice. This section covers how a run advances, how battles and elite fights resolve, and the secondary attempt-based modes that open once early chapters clear.
+Capybara Go!'s core loop runs day by day inside a run: the app resolves one event after another until a battle interrupts it, and each level gained during that run opens a skill choice. This section covers how a run advances, how battles and elite fights resolve, the secondary attempt-based modes that open once early chapters clear, the energy and ticket limits that govern how often any of it can be run, and the daily and weekly tasks built around it.
 
 ### O8. Advancing a run day by day
 
@@ -516,13 +516,54 @@ After the second chapter clears, two raid modes unlock, each gated by its own ti
 - Running out of dragon tickets offers restoring one per ad, up to two per day.
 - Raid rewards include pet food, and pets participate in raid battles.
 
+### O24. Energy capacity and run cost
+
+Capybara Go caps energy at 30 and shows it in the home screen's top bar with a countdown to the next point. Every run costs 5 energy, and the run-end screen itself states that further adventures require it. The regeneration rate behind that countdown is never stated outright.
+
+- Energy caps at 30, shown with a countdown to the next point.
+- Every run costs 5 energy.
+- The regeneration rate itself is never stated.
+
+### O25. Four ways to refill energy
+
+Tapping the energy counter opens every refill option at once: watching an ad for 15 energy with a daily limit, paying 90 gems for 15 energy with a separate daily limit, or claiming a free daily pack of 10 energy that refreshes every 5 hours. A separate "purchase missed stamina" option shows zero remaining purchases without explaining what missed stamina refers to. The Monthly and Lifetime cards each list 50 energy as part of their daily collectible benefits.
+
+- Watching an ad grants 15 energy, limited per day.
+- Paying 90 gems grants 15 energy, limited separately per day.
+- A free daily pack grants 10 energy and refreshes every 5 hours.
+- A "purchase missed stamina" option shows zero remaining purchases.
+
+### O26. Overflow energy arrives as mail
+
+Once the first chapter clears, Capybara Go's mailbox starts receiving messages from an in-game association stating that stamina which overflowed past the cap during regeneration has been reissued, each with its own amount and a six-day claim window. Messages carry different ages, from two days old down to eighteen minutes, and claim-all and delete-all buttons handle them together. At one point the player held far more energy in these unclaimed messages than the cap itself allows.
+
+- Overflow messages carry amounts such as 60 or 17 stamina, each with a six-day claim window.
+- Message ages range from two days to eighteen minutes old.
+- At one point 249 units of energy sat unclaimed in the inbox, well above the 30 cap.
+
+### O27. Secondary modes use their own tickets
+
+Tower Challenge, the two raid types, and Phantom Sword Island each draw on a separate ticket rather than shared energy. Every Tower Challenge attempt consumes one ticket, including one started immediately after a win, and running out of raid tickets offers restoring one per ad watched, up to two per day. A pack sold in the store includes one of each ticket type.
+
+- Every Tower Challenge attempt, including one started right after a win, consumes one ticket.
+- Running out of dragon tickets offers an ad-restore, up to two per day.
+- The Dungeon Pack sells one of each ticket type for $0.99.
+
+### O28. Daily and weekly tasks
+
+Once available, Capybara Go's tasks screen splits into a daily section and a weekly section. Daily tasks ask for specific actions, a Black Market purchase, opening chests, clearing a stage, entering the Arena, and completing them advances a claimable daily reward track that also feeds a separate weekly track with its own levels to reach before the week resets. The daily list carries its own countdown.
+
+- Daily tasks include a Black Market purchase, opening three chests, and clearing a stage.
+- Daily completions also feed a separate weekly reward track.
+- The daily list showed a reset countdown of about one hour.
+
 ---
 
 ## Goals and progression
 
 Between runs, Capybara Go turns gold and materials into permanent strength: talent levels, a rank title, equipment, and pets. This section covers how each of those systems is unlocked, upgraded, and shown to the player.
 
-### O24. Upgrading talents with gold
+### O29. Upgrading talents with gold
 
 Capybara Go's Talents screen holds three stats, health, attack, and defense, each raised by spending gold coins. An attack upgrade costs 240 coins for 3 attack, a health upgrade adds 12 health, and a defense upgrade adds 1 defense, with costs rising as talents advance. The app's pointer guidance directs the first upgrade to attack, and tapping a talent without enough coins opens a gold-purchase offer instead.
 
@@ -530,7 +571,7 @@ Capybara Go's Talents screen holds three stats, health, attack, and defense, eac
 - A health upgrade adds 12 health; a defense upgrade adds 1 defense.
 - Tapping a talent without enough coins opens a gold-purchase offer.
 
-### O25. A talent progress bar with milestones
+### O30. A talent progress bar with milestones
 
 The talents screen shows a bar counting combined talent levels, paying 720 gold coins at 10 points and an Adventure Badge at 20. Reaching 10 points pays out close to what it cost to get there. The Adventure Badge itself was never reached, so what it does isn't shown.
 
@@ -538,7 +579,7 @@ The talents screen shows a bar counting combined talent levels, paying 720 gold 
 - Reaching 20 points grants an Adventure Badge, not yet reached.
 - The 720-coin reward roughly repays the coins spent reaching that point.
 
-### O26. A rank title ladder
+### O31. A rank title ladder
 
 Capybara Go's profile shows the title "Apprentice" and a preview button opening a full ladder of ranks running from Apprentice through Adventurer, Elite, Master, Warrior, and Hero to Elite Legacy, each with its own point threshold. Reaching the second rank added a direct boost to attack, defense, and health. The app never names what unit the thresholds actually count, and the ladder sits on the talents screen, suggesting a tie to talent levels that the app doesn't state outright.
 
@@ -546,7 +587,7 @@ Capybara Go's profile shows the title "Apprentice" and a preview button opening 
 - Reaching Apprentice 2 added 12 attack, 1 defense, and 48 health.
 - The unit counted toward rank thresholds is never named.
 
-### O27. Equipment slots and enhancement
+### O32. Equipment slots and enhancement
 
 Capybara Go gives the character six equipment slots, one weapon, one armor, two rings, and two necklaces, each item showing a quality, a level out of 10, basic stats, and four further effects shown locked. Items can be equipped, enhanced, or quick-enhanced using power stones. Replacing an equipped item doesn't offer a side-by-side comparison with what's already worn, though items can be sorted by quality and a separate screen lists the character's overall stats.
 
@@ -554,14 +595,14 @@ Capybara Go gives the character six equipment slots, one weapon, one armor, two 
 - The first crate item, a common Guardian's Ring, showed level 0 of 10, with attack 10, defense 3, and health 10.
 - Replacing an item offers no side-by-side comparison with the currently equipped one.
 
-### O28. Merging duplicate equipment
+### O33. Merging duplicate equipment
 
 A workshop screen lets the player merge identical equipment items into a higher quality. Two additional copies of a given item are needed to raise it to the next tier, and the quality tiers run from common through great, rare, and epic up to S epic.
 
 - Merging requires two further copies of an identical item.
 - Quality tiers: common, great, rare, epic, S epic.
 
-### O29. Unlocking and hatching pets
+### O34. Unlocking and hatching pets
 
 Pets unlock through their own feature pop-up once the player is far enough into the game. The pets screen shows three battle positions, one open and two locked, with the next stated to open at level four without saying which level it means. Eggs hatch through three routes: watching three ads, or paying 300 or 600 gems for larger quantities. Hatching by ad produced several pets in one sitting, and a hatched pet can be swiped into the open battle position to fight alongside the capybara.
 
@@ -569,7 +610,7 @@ Pets unlock through their own feature pop-up once the player is far enough into 
 - Egg hatch routes: three ads, 300 gems, or 600 gems for a larger batch.
 - Ad-based hatching produced several pets, including a parrot, mushrooms, an onion, and a frog, in one sitting.
 
-### O30. Growing and merging pets
+### O35. Growing and merging pets
 
 Each pet Capybara Go grants carries its own level, battle skills that unlock at higher levels, and an upgrade bar. Growing a pet consumes further copies of the same pet plus pet food. A separate synthesis screen states that surplus pet fragments will combine into a new pet, though no fragments were held to test it. A full list shows every held pet alongside its battle skills.
 
@@ -577,13 +618,13 @@ Each pet Capybara Go grants carries its own level, battle skills that unlock at 
 - Growing a pet requires further copies of itself plus pet food.
 - No fragments were held, so pet synthesis was not performed.
 
-### O31. Losing routes back to upgrades
+### O36. Losing routes back to upgrades
 
 Losing a Tower Challenge floor shows a message telling the player to get stronger, with direct buttons to the Equip and Talents screens.
 
 - The loss screen routes directly to Equip and Talents.
 
-### O32. A locked preview of mounts and artifacts
+### O37. A locked preview of mounts and artifacts
 
 Capybara Go's backpack, unlocked once the first chapter clears, previews a mount and an artifact the player doesn't yet hold: a mount adding damage and speed bonuses, and an artifact adding attack and suppression bonuses. Mounts unlock after a much later chapter, and artifacts later still.
 
@@ -595,42 +636,9 @@ Capybara Go's backpack, unlocked once the first chapter clears, previews a mount
 
 ## Access and eligibility
 
-Capybara Go gates nearly everything behind two things: an energy balance that limits how many runs can be made before it's exhausted, and a long sequence of chapter and survival-day conditions that unlock the rest of the app. This section covers both.
+Capybara Go gates nearly everything behind a long sequence of chapter and survival-day conditions. This section covers what each one unlocks.
 
-### O33. Energy capacity and run cost
-
-Capybara Go caps energy at 30 and shows it in the home screen's top bar with a countdown to the next point. Every run costs 5 energy, and the run-end screen itself states that further adventures require it. The regeneration rate behind that countdown is never stated outright.
-
-- Energy caps at 30, shown with a countdown to the next point.
-- Every run costs 5 energy.
-- The regeneration rate itself is never stated.
-
-### O34. Four ways to refill energy
-
-Tapping the energy counter opens every refill option at once: watching an ad for 15 energy with a daily limit, paying 90 gems for 15 energy with a separate daily limit, or claiming a free daily pack of 10 energy that refreshes every 5 hours. A separate "purchase missed stamina" option shows zero remaining purchases without explaining what missed stamina refers to. The Monthly and Lifetime cards each list 50 energy as part of their daily collectible benefits.
-
-- Watching an ad grants 15 energy, limited per day.
-- Paying 90 gems grants 15 energy, limited separately per day.
-- A free daily pack grants 10 energy and refreshes every 5 hours.
-- A "purchase missed stamina" option shows zero remaining purchases.
-
-### O35. Overflow energy arrives as mail
-
-Once the first chapter clears, Capybara Go's mailbox starts receiving messages from an in-game association stating that stamina which overflowed past the cap during regeneration has been reissued, each with its own amount and a six-day claim window. Messages carry different ages, from two days old down to eighteen minutes, and claim-all and delete-all buttons handle them together. At one point the player held far more energy in these unclaimed messages than the cap itself allows.
-
-- Overflow messages carry amounts such as 60 or 17 stamina, each with a six-day claim window.
-- Message ages range from two days to eighteen minutes old.
-- At one point 249 units of energy sat unclaimed in the inbox, well above the 30 cap.
-
-### O36. Secondary modes use their own tickets
-
-Tower Challenge, the two raid types, and Phantom Sword Island each draw on a separate ticket rather than shared energy. Every Tower Challenge attempt consumes one ticket, including one started immediately after a win, and running out of raid tickets offers restoring one per ad watched, up to two per day. A pack sold in the store includes one of each ticket type.
-
-- Every Tower Challenge attempt, including one started right after a win, consumes one ticket.
-- Running out of dragon tickets offers an ad-restore, up to two per day.
-- The Dungeon Pack sells one of each ticket type for $0.99.
-
-### O37. A long chain of chapter gates
+### O38. A long chain of chapter gates
 
 Capybara Go states each locked feature's unlock condition directly, almost always a chapter clear or a survival-day count in a named chapter. The backpack and mail open after the first chapter clears; pets after the second; collectibles after the third; mounts and artifacts after later chapters still. Tasks, the Black Market, and the sign-in event all open after the second chapter clears, while friends open after surviving a single day into it. Guilds, Tower Challenge auto-advance, faster battle speed, and a long list of further modes each carry their own stated chapter or survival-day condition, several of them far beyond anything reached so far.
 
@@ -640,11 +648,11 @@ Capybara Go states each locked feature's unlock condition directly, almost alway
 
 ---
 
-## Earning and utility
+## Economy and resources
 
-Capybara Go runs an unusually large number of named currencies and materials, each earned and spent on a different part of the game, plus the chests, tasks, and events built around collecting them. This section covers all of it.
+Capybara Go runs an unusually large number of named currencies and materials, each earned and spent on a different part of the game, plus the chests and shops built around collecting and spending them. This section covers all of it.
 
-### O38. Gold coins
+### O39. Gold coins
 
 Gold coins are earned inside runs, from events, battles, chests, chapter clears, and Tower floors, and are spent on talent upgrades and inside the Black Market. Gold is also sold directly for money in several packs.
 
@@ -652,7 +660,7 @@ Gold coins are earned inside runs, from events, battles, chests, chapter clears,
 - The run one summary granted 1,300 coins, bringing the balance to 2,852.
 - The Chapter 1 Pack includes 10,000 gold coins as part of its bundle.
 
-### O39. Gems and jade stones
+### O40. Gems and jade stones
 
 Capybara Go starts the player with 100 gems and grants more for free through the daily pack, the sign-in event, and the carnival's daily gift, while also selling them directly. Gem prices appear on energy refills, both equipment crates, the Limited Secret Chest, and pet egg hatches. Jade stones, a separate currency shown as green gems, are also sold directly, though no use for them appears anywhere else in the game.
 
@@ -661,7 +669,7 @@ Capybara Go starts the player with 100 gems and grants more for free through the
 - No gem purchase or gem spend takes place.
 - Jade stones are sold directly, with no spending use shown anywhere.
 
-### O40. Single-purpose materials
+### O41. Single-purpose materials
 
 Beyond gold and gems, Capybara Go runs a long list of named, single-purpose resources, power stones for equipment enhancement, several kinds of keys for opening chests, equipment designs, pet food, gold horseshoes for mounts, divine hammers for artifacts, and tickets for each of its secondary modes, each named directly in pack descriptions alongside what it's used for.
 
@@ -669,7 +677,7 @@ Beyond gold and gems, Capybara Go runs a long list of named, single-purpose reso
 - Named single-purpose resources include legendary keys, gold horseshoes, divine hammers, and mode-specific tickets.
 - Pack descriptions state each resource's use directly.
 
-### O41. Equipment chests priced three ways
+### O42. Equipment chests priced three ways
 
 The Adventure Supply Crate opens free once and then costs 80 gems or three ad views, with roughly a 13.5-hour wait for the next free open, and states a guarantee of great-quality equipment within nine opens. The Hero Supply Crate opens with one ad view or a key and states a guarantee of epic equipment within ten opens; watching the ad opened it automatically in one instance and granted a rare item.
 
@@ -677,7 +685,7 @@ The Adventure Supply Crate opens free once and then costs 80 gems or three ad vi
 - The Adventure Crate guarantees great equipment within nine opens; the Hero Crate guarantees epic within ten.
 - Watching the Hero Crate's ad opened it automatically and granted a great Nomad Staff.
 
-### O42. The Limited Secret Chest
+### O43. The Limited Secret Chest
 
 Capybara Go's highest-priced chest costs 320 gems per pull or 2,980 for ten, and states a guarantee of epic equipment within 10 opens and a top-tier result within 60, with every guaranteed pull equally likely among the current rate-up set. A separate information button discloses exact odds without the guarantee applied: 0.65 percent for the top tier, down to 62.35 percent for the most common result. The rate-up set itself changes on its own countdown.
 
@@ -685,31 +693,7 @@ Capybara Go's highest-priced chest costs 320 gems per pull or 2,980 for ten, and
 - Disclosed odds: S epic 0.65 percent, epic 3 percent, rare 9 percent, great 25 percent, common 62.35 percent.
 - The rate-up item set changes on a separate countdown of roughly 13 hours 27 minutes.
 
-### O43. Daily and weekly tasks
-
-Once available, Capybara Go's tasks screen splits into a daily section and a weekly section. Daily tasks ask for specific actions, a Black Market purchase, opening chests, clearing a stage, entering the Arena, and completing them advances a claimable daily reward track that also feeds a separate weekly track with its own levels to reach before the week resets. The daily list carries its own countdown.
-
-- Daily tasks include a Black Market purchase, opening three chests, and clearing a stage.
-- Daily completions also feed a separate weekly reward track.
-- The daily list showed a reset countdown of about one hour.
-
-### O44. The Seven-Day Carnival
-
-A ten-day carnival event runs a point bar from 0 to 150 with chest rewards at fixed thresholds, fed by a list of tasks assigned to each of the event's days and covering actions like clearing a stage or opening chests. A separate pack tab offers a free daily gift alongside paid packs that change what they sell depending on the day.
-
-- The carnival's activity bar runs from 0 to 150, with chest rewards at 30, 60, 90, and 120.
-- Tasks are assigned per day across twelve stages.
-- The pack tab's paid offerings change by day, equipment packs, pet packs, chest packs, and energy packs on different days.
-
-### O45. Timed pet growth events
-
-Two five-day events, Pet Auspice and Stage Growth, run pet-focused reward tracks. Pet Auspice pays out at cumulative thresholds of eggs opened, and both events carry their own leaderboard and ranking rewards, with Pet Auspice additionally offering a shop that exchanges event-specific tickets for pets.
-
-- Pet Auspice pays out at 500, 1,000, 2,000, 3,000, and 4,000 cumulative eggs opened.
-- Both events carry their own leaderboard and ranking rewards.
-- Pet Auspice's Growth Shop exchanges event tickets for specific pets.
-
-### O46. The Black Market
+### O44. The Black Market
 
 Capybara Go's Black Market states it is open only for a limited window at a time and sells chests, power stones, keys, pet-related materials, and pet food for gold or other items, most limited to one purchase each. Gold itself can be obtained here by watching an ad or paying gems, and a guild tab requires guild membership to use.
 
@@ -717,7 +701,7 @@ Capybara Go's Black Market states it is open only for a limited window at a time
 - Gold can be obtained here by watching an ad or paying gems.
 - A Guild tab within the Black Market requires guild membership.
 
-### O47. A ticket-based pet shop
+### O45. A ticket-based pet shop
 
 Inside the Timed Growth area, a separate Growth Shop exchanges tickets collected from pet events for specific pets, though the prices of individual pets aren't stated.
 
@@ -730,7 +714,7 @@ Inside the Timed Growth area, a separate Growth Shop exchanges tickets collected
 
 Capybara Go's social surface is small: one ranking list available from the very start, and a handful of features still waiting behind later chapters. This section covers both.
 
-### O48. The ranking list
+### O46. The ranking list
 
 Capybara Go's Ranking screen lists players in order by their longest survived run, alongside each player's current chapter, and is available before any chapter has been cleared. The player's own position showed as 3,092nd. Whether the list shows other players by name isn't stated.
 
@@ -738,7 +722,7 @@ Capybara Go's Ranking screen lists players in order by their longest survived ru
 - The player's position was shown as 3,092nd.
 - Ranking is available before any chapter is cleared.
 
-### O49. Social features still locked
+### O47. Social features still locked
 
 Friends, Guilds, and Arena all appear as locked entries with their own stated unlock conditions, and the Black Market's own guild tab likewise requires membership to use. No feature letting the player interact with another identified player is reachable yet.
 
@@ -747,11 +731,11 @@ Friends, Guilds, and Arena all appear as locked entries with their own stated un
 
 ---
 
-## Growth
+## Reach beyond the app
 
-Capybara Go's only growth-facing feature ties the game account to an external developer account.
+Capybara Go's only feature that connects a user to something outside the app ties the game account to an external developer account.
 
-### O50. Linking an external account
+### O48. Linking an external account
 
 A badge on the profile leads to a prompt asking the player to link their game account to a Habby ID, which requires entering an email address and creating a separate account with the developer. This step is not completed here. The settings screen separately shows an account identifier alongside quality, language, and sound settings.
 
@@ -761,18 +745,18 @@ A badge on the profile leads to a prompt asking the player to link their game ac
 
 ---
 
-## Money
+## Monetization
 
 This section covers Capybara Go's store: its four sections, its packs, and the ads, cards, and offers sold alongside them.
 
-### O51. Store sections
+### O49. Store sections
 
 The shop has four bottom tabs: Equipment Shop, Value Picks, Pack Shop, and Top Up, all visible together on first entry. On a later visit the shop opens directly on Top Up.
 
 - The shop has four tabs: Equipment Shop, Value Picks, Pack Shop, Top Up.
 - A later visit opened directly on the Top Up tab.
 
-### O52. Value Picks packs
+### O50. Value Picks packs
 
 Value Picks lists four packs, each limited to one purchase and marked "10x value."
 
@@ -781,7 +765,7 @@ Value Picks lists four packs, each limited to one purchase and marked "10x value
 - Equipment Enhance Pack 1: 1,200 gems, 40 equipment designs for $9.99.
 - Equipment Enhance Pack 2: 3,600 gems, 120 equipment designs for $29.99.
 
-### O53. Pack Shop daily, weekly, and monthly packs
+### O51. Pack Shop daily, weekly, and monthly packs
 
 Pack Shop groups packs into daily packs with a refresh time of about 13 hours, weekly packs, and monthly packs that refresh in 20 days. The daily section includes a free pack of 30 gems marked 8x value, claimable once per day. Purchase limits are one for daily packs, three for weekly packs, and three or ten for monthly packs.
 
@@ -790,7 +774,7 @@ Pack Shop groups packs into daily packs with a refresh time of about 13 hours, w
 - Monthly packs range from $14.99 to $49.99, limited to three or ten purchases.
 - Packs carry value labels of 8x, 3x, or 20x.
 
-### O54. Top Up currency packages and first top-up bonus
+### O52. Top Up currency packages and first top-up bonus
 
 Top Up sells jade stones and gems for money. Each gem package has its own name and carries a first top-up bonus that doubles the package amount.
 
@@ -798,7 +782,7 @@ Top Up sells jade stones and gems for money. Each gem package has its own name a
 - Gems are sold from 120 for $0.99 up to 12,000 for $99.99.
 - Each gem package carries its own first-purchase bonus, applied separately per package.
 
-### O55. Chapter 1 Pack
+### O53. Chapter 1 Pack
 
 The Equipment Shop offers a Chapter 1 Pack for $2.99, marked 10x value, containing 5 legendary keys, 150 power stones, 10,000 gold coins, and 100 gems. Tapping it opens the platform's payment sheet.
 
@@ -806,7 +790,7 @@ The Equipment Shop offers a Chapter 1 Pack for $2.99, marked 10x value, containi
 - It contains 5 legendary keys, 150 power stones, 10,000 gold coins, and 100 gems.
 - The pack states each item's intended use directly in its listing.
 
-### O56. Rewarded ad prompts and Ad-Free Card cross-sell
+### O54. Rewarded ad prompts and Ad-Free Card cross-sell
 
 Ads are offered in exchange for specific benefits: 15 energy, an Adventure Supply Crate open for three ads, a Hero Supply Crate open for one ad, pet egg hatches for three ads, dragon tickets, and Black Market gold. Each ad offer opens a prompt with cancel and watch options, and beneath it Capybara Go shows the Ad-Free Card offer for $9.99. A sidebar video entry showed no video available at one point.
 
@@ -814,7 +798,7 @@ Ads are offered in exchange for specific benefits: 15 energy, an Adventure Suppl
 - The Ad-Free Card offer, priced at $9.99, appears beneath every ad prompt.
 - A sidebar "watch videos for rewards" entry showed no video available at one point.
 
-### O57. Battle Pass
+### O55. Battle Pass
 
 The Growth Fund screen features a Battle Pass, "Season 1: Bad Guys," with the text "complete daily tasks to gain pass experience" and an end time of 15 days 2 hours. It shows 30 reward positions, with a free lane holding one item per position and a Battle Pass lane holding two, and carries an inactive badge.
 
@@ -822,7 +806,7 @@ The Growth Fund screen features a Battle Pass, "Season 1: Bad Guys," with the te
 - It lists 30 reward positions with a 1:2 free-to-paid ratio.
 - The Battle Pass price is not stated anywhere.
 
-### O58. Funds
+### O56. Funds
 
 Growth Fund lists several funds, each a reward track tied to progress in one part of the app, with a free reward lane and a larger fund reward lane unlocked by purchase. The Growth Fund button features the Battle Pass, Talent Fund, Tower Challenge Fund, and Dungeon Fund, all marked inactive, with further funds listed at the bottom of each fund screen. Only the Battle Pass and the Main Quest Fund show end timers.
 
@@ -831,7 +815,7 @@ Growth Fund lists several funds, each a reward track tied to progress in one par
 - No fund states a consistent multiplier between its two lanes.
 - Whether free-lane rewards can be claimed without purchasing the fund is not shown.
 
-### O59. Privilege Card
+### O57. Privilege Card
 
 Privilege Card opens with Daily Benefits, a daily reward claimable once per day, followed by a countdown to the end of the day after which it can be claimed again. Below it, an inactive Super Membership states that holding lifetime and monthly cards grants exclusive frames. The screen then lists four cards.
 
@@ -841,7 +825,7 @@ Privilege Card opens with Daily Benefits, a daily reward claimable once per day,
 - The Automine Card costs 1,200 gems and 40 pickaxes on purchase and cannot be bought until Goblin Miner unlocks.
 - No card is purchased here.
 
-### O60. Newbie Gifts 3-Day Deluxe Pack
+### O58. Newbie Gifts 3-Day Deluxe Pack
 
 When run two reached day 59, Capybara Go offered a 3-Day Deluxe Pack for $0.99. The pack lists rewards by day: day 1 a magic ring, 10 silver keys, 5,000 coins, and 120 gems; day 2 a cosmetic item and 10 silver keys; day 3 10 silver keys and 20,000 gold coins. The same offer opens from the Newbie Gifts button on the home screen.
 
@@ -849,7 +833,7 @@ When run two reached day 59, Capybara Go offered a 3-Day Deluxe Pack for $0.99. 
 - Day 2's reward is a cosmetic item for the character.
 - Whether day 2 and day 3 rewards release automatically on those days isn't stated.
 
-### O61. Triggered offers
+### O59. Triggered offers
 
 After clearing Chapter 2, Capybara Go shows a Weapon Special Offer Pack pop-up with a purchase time of 2 hours 51 minutes, offering a choice of one of seven weapons plus 600 gems for $4.99. Tapping a talent without enough gold opens an item acquisition screen showing the current gold quantity, a Gold Supplies offer of 62,000 gold and 600 gems for $4.99, and alternative sources of Black Market purchase and travel.
 
@@ -861,9 +845,9 @@ After clearing Chapter 2, Capybara Go shows a Weapon Special Offer Pack pop-up w
 
 ## Return triggers
 
-Capybara Go surfaces countdowns almost everywhere, and times its biggest offers to specific moments rather than showing them all at once. This section covers the sign-in event and the timers that run across the rest of the app.
+Capybara Go surfaces countdowns almost everywhere, and times its biggest offers to specific moments rather than showing them all at once. This section covers the sign-in event, the timers that run across the rest of the app, and the two timed events that reward activity within their own multi-day windows.
 
-### O62. The Seven-Day Sign-In Event
+### O60. The Seven-Day Sign-In Event
 
 Once the second chapter clears, Capybara Go opens a seven-day sign-in event with a different reward for each day, from 50 gems on day one, claimable immediately, up to a named mythic pet and a chest on day seven. What happens after a missed day isn't shown, and which of two middle days holds a stated 100-gem reward isn't clear from the event's own listing.
 
@@ -871,7 +855,7 @@ Once the second chapter clears, Capybara Go opens a seven-day sign-in event with
 - The sign-in event does not appear until the second chapter is cleared.
 - What happens after a missed day is not shown.
 
-### O63. Countdowns across the app
+### O61. Countdowns across the app
 
 Capybara Go runs countdowns on nearly every timed surface at once: energy regeneration, the free daily energy pack, the Pack Shop's daily and monthly refreshes, the Adventure Supply Crate's free open, the Limited Secret Chest's rate-up rotation, the Black Market's open window, the daily task reset, the Privilege Card's daily benefit, and the six-day window on overflow stamina mail. A notification permission is requested at first launch, though no notification arrives afterward.
 
@@ -879,10 +863,27 @@ Capybara Go runs countdowns on nearly every timed surface at once: energy regene
 - Overflow stamina mail carries its own six-day claim countdown.
 - A notification permission is requested at launch, but no notification arrives afterward.
 
-### O64. Stated end times across events and offers
+### O62. Stated end times across events and offers
 
 Every time-limited surface in Capybara Go states its own end time or duration: seven days for Newbie Gifts, ten for the Carnival, fifteen days and two hours for the Battle Pass, eight days and two hours for the Main Quest Fund, five days each for the two pet events, under three hours for the Weapon Special Offer Pack, and a fixed calendar day for Goblin Miner's opening.
 
 - Newbie Gifts: seven days. Seven-Day Carnival: ten days. Battle Pass: 15 days 2 hours.
 - Main Quest Fund: 8 days 2 hours. Pet Auspice and Stage Growth: five days each.
 - Weapon Special Offer Pack: 2 hours 51 minutes. Goblin Miner: opens on day seven of server opening.
+
+### O63. The Seven-Day Carnival
+
+A ten-day carnival event runs a point bar from 0 to 150 with chest rewards at fixed thresholds, fed by a list of tasks assigned to each of the event's days and covering actions like clearing a stage or opening chests. A separate pack tab offers a free daily gift alongside paid packs that change what they sell depending on the day.
+
+- The carnival's activity bar runs from 0 to 150, with chest rewards at 30, 60, 90, and 120.
+- Tasks are assigned per day across twelve stages.
+- The pack tab's paid offerings change by day, equipment packs, pet packs, chest packs, and energy packs on different days.
+
+### O64. Timed pet growth events
+
+Two five-day events, Pet Auspice and Stage Growth, run pet-focused reward tracks. Pet Auspice pays out at cumulative thresholds of eggs opened, and both events carry their own leaderboard and ranking rewards, with Pet Auspice additionally offering a shop that exchanges event-specific tickets for pets.
+
+- Pet Auspice pays out at 500, 1,000, 2,000, 3,000, and 4,000 cumulative eggs opened.
+- Both events carry their own leaderboard and ranking rewards.
+- Pet Auspice's Growth Shop exchanges event tickets for specific pets.
+
