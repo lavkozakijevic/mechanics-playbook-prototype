@@ -1,0 +1,2169 @@
+{
+  "id": "clash-of-clans",
+  "name": "Clash of Clans",
+  "category": "Strategy",
+  "type": "game",
+  "visibility": "public",
+  "analysisDate": "2026-09-13",
+  "lastUpdated": "2026-09-13",
+  "asObserved": "2026-04",
+  "appVersion": "None.",
+  "summary": "Clash of Clans is a base-building strategy game in which town hall level gates nearly everything else the product offers: buildings, troops, spells, heroes, cosmetics, leagues, and the game's own season pass. Progress runs on three resource routes that all solve the same problem at once, collectors that fill on their own, raids that take resources from other players, and gems that convert directly into resources, with every wait in the game offering a gem price to end it early. What's accumulated is also exposed: resources sit visible to other players except behind a timed shield, and a clan, reachable only after rebuilding a ruined castle, adds a second, socially gated layer on top of the solo loop, including the one surface where another person's decision controls what the player can do next.",
+  "teaser": "Clash of Clans prices its season pass against a village, a second village, and a clan all at once, but only shows it to players who've already spent six or seven hours building all three.",
+  "icon": "/icons/clash-of-clans.png",
+  "heroImage": null,
+  "contentFormat": "v4.1",
+  "observations": [
+    {
+      "id": "O1",
+      "name": "Store listing before install",
+      "section": "onboarding",
+      "observed": "The store page presents Clash of Clans with an aggregate rating, an Editor's Choice award, a video preview, screenshots, and a banner for the current season framed as a new season. The page's own description frames the product around building a village, raising a clan, and competing in clan wars.",
+      "detail": [
+        "The app holds 4.8 stars from 2.7 million ratings, an Editor's Choice award, and a 13+ age rating.",
+        "The install is 634 MB, with support for English and 20 more languages.",
+        "The featured event on the page, Sound of Clash, is described as a new season.",
+        "The page's review summary states that users find the game fun and engaging and cite its strategic gameplay, graphics, and progression."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O2",
+      "name": "Launch disclosure and consent sequence",
+      "section": "onboarding",
+      "observed": "Before any play, Clash of Clans presents a free-to-play notice, a terms acceptance, an age entry, a privacy and cookie consent, and a tracking permission request, in that order.",
+      "detail": [
+        "The opening notice states the game is free to play but progress can be sped up with purchases, and that this can be disabled in device settings.",
+        "Accepting the terms is the only way forward from that screen.",
+        "The privacy notice offers deny all or accept all.",
+        "The tracking request asks to allow tracking across other companies' apps and websites."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O3",
+      "name": "Guided cannon build",
+      "section": "onboarding",
+      "observed": "A recurring character introduces the village, an enemy appears, and the app directs the first build with an arrow pointing at the shop button, framed as a defensive necessity. The shop opens on a four-tab catalogue of army, resources, defenses, and traps, and an info button explains that defenses can't shoot while being upgraded.",
+      "detail": [
+        "The shop's four tabs are army, resources, defenses, and traps.",
+        "An arrow directs the first cannon's placement, with the instruction to protect the town hall.",
+        "At the moment of placement, the app states that gems can speed things up."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O4",
+      "name": "Scripted first defense",
+      "section": "onboarding",
+      "observed": "Immediately after the cannon is placed, a scripted attack occurs and is repelled, and the app explains that buildings repair themselves.",
+      "detail": [
+        "The attack is triggered by a button reading bring it on.",
+        "The cannon takes damage and is restored without user action.",
+        "The explanation given is that in these magical lands buildings repair themselves."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O5",
+      "name": "Scripted first attack with granted troops",
+      "section": "onboarding",
+      "observed": "Clash of Clans grants three troops and runs a first attack in which deployment is taught on screen, ending in a full-destruction victory and a resource grant.",
+      "detail": [
+        "The instruction reads tap multiple times in an empty area to deploy your troops.",
+        "The result screen shows 100 percent damage, victory, and a grant of 500 gold and 500 of a second resource.",
+        "The deployed troops are consumed and not returned after the battle.",
+        "The result screen shows silhouettes of two unit types not yet available."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O6",
+      "name": "Directed economy build sequence",
+      "section": "onboarding",
+      "observed": "The app directs, one at a time, the construction of a builder hut, an elixir collector, an elixir storage, a gold storage, and barracks, each introduced by the guide character and routed through the shop with an arrow.",
+      "detail": [
+        "Each step is framed as a consequence of the last: elixir is needed alongside gold, then a storage is needed so none is wasted.",
+        "A second builder can be hired for 250 gems, allowing two constructions at once; up to five builder huts are buildable.",
+        "The first collector offers to finish construction immediately for one gem."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O7",
+      "name": "First troop training and the army board",
+      "section": "onboarding",
+      "observed": "The app directs training of 20 troops and, in doing so, exposes a board listing units, spells, siege machines, reinforcements, and a hero locked behind stated town hall levels.",
+      "detail": [
+        "Army capacity at this point is a maximum of 20 units.",
+        "Spells unlock at town hall 5, siege machines at town hall 12, and a hero at town hall 7.",
+        "Reinforcements require the ruined clan castle to be rebuilt first.",
+        "Barracks upgrades are greyed out until town hall 2."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O8",
+      "name": "Naming after the first self-directed attack",
+      "section": "onboarding",
+      "observed": "Clash of Clans asks the player to choose a name only after the first attack they chose to launch themselves, stating that the name is shown to other players and can be changed later.",
+      "detail": [
+        "The naming prompt appears after a victory screen, not at first launch.",
+        "The app states the name can be changed later in settings."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O9",
+      "name": "Notification permission requested mid-flow",
+      "section": "onboarding",
+      "observed": "The system notification prompt appears during the guided sequence with no preceding explanation screen, directly after the instruction to upgrade the town hall and battle for more gold.",
+      "detail": [
+        "No pre-prompt or preparation screen precedes the system request.",
+        "It appears right after the instruction to upgrade the town hall."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O10",
+      "name": "Tracking re-prompt after device-level refusal",
+      "section": "onboarding",
+      "observed": "After tracking was blocked at the device level, Clash of Clans shows its own message asking the user to enable tracking in system settings and try again.",
+      "detail": [
+        "The message states tracking requires enabling it in system settings.",
+        "The prompt was dismissed and play continued without it."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O11",
+      "name": "Interface revealed in stages",
+      "section": "onboarding",
+      "observed": "After the first town hall upgrade, a group of new elements appears at once on the main screen, several animated to draw attention.",
+      "detail": [
+        "New elements include a rank indicator, a leaderboard button, a join button, an attack button, a shield countdown, a calendar, a task list, and a suggested-upgrades counter.",
+        "Two arrows pulse and the shop is highlighted with a moving glow.",
+        "The same staged reveal recurs again at town hall 3 and town hall 4."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O12",
+      "name": "Starter challenges introduced",
+      "section": "onboarding",
+      "observed": "A shield-marked button opens a set of starter challenges, each worth points toward a separate reward ladder, introduced by the guide character.",
+      "detail": [
+        "Active challenges are worth 1,050 points in total, starting from zero.",
+        "Observed challenges include getting 25 wall pieces for 50 points and destroying 50 buildings in multiplayer battles for 125 points.",
+        "The rewards view states more starter challenges unlock by upgrading the town hall."
+      ],
+      "tags": [
+        {
+          "name": "Challenge",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported",
+            "strongly supported"
+          ],
+          "rationale": "Each starter challenge is a discrete instance with a stated success condition and a tracked completed state, and completion pays points where non-completion pays none (O12, O34). The scope boundary is the starter stage: the set is named for it and expands only as the town hall level rises, so the instance set is bounded by progression rather than remaining an open standing goal (O12, O34).\n\nA clan war is a bounded instance with a stated end boundary of two days, a stated success condition of scoring the most stars, a stated tie rule, and a concluded result that pays bonus loot and clan experience to the winner and withdraws most of the bonus loot from the loser (O65). The war in progress showed both clans' running star totals and destroyed bases, so the active state is maintained and observable (O65).",
+          "alternativeConsidered": "Daily / Weekly Quests, since the objectives resemble issued tasks. No daily or weekly issuance, refresh, or reset rule was observed for them; new ones arrive on town hall upgrades instead, which is not a recurring calendar cadence.\n\nLeaderboard, since the war screen orders two clans by stars. The ordering there is the scoring of one bounded contest rather than a standing comparison surface; the standing ordered lists are tagged separately as Leaderboard.",
+          "role": "engagement\n\nThe objectives name actions performed inside a session, such as buying wall pieces, upgrading collectors, and destroying buildings in battles, and were pursued within the session in which they were issued (O12, O34). | social, engagement\n\nThe instance is contested by the clan as a unit against another clan with donation and base design contributed by members (O65), and the attacking within it is the ordinary in-session activity (O43)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O13",
+      "name": "Account linking flow",
+      "section": "onboarding",
+      "observed": "The settings menu shows the account as disconnected and offers a linking flow requiring an email address and a six-digit code, with no third-party sign-in options.",
+      "detail": [
+        "The linking screen states the account safeguards the game and allows play on multiple devices.",
+        "For young players, the email is described as that of a trusted adult.",
+        "Only email is offered; no Apple, Facebook, or Google option is present.",
+        "The corresponding achievement did not register until the app was closed and reopened."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O14",
+      "name": "Village obstacles present from the start",
+      "section": "onboarding",
+      "observed": "The starting village contains trees, stumps, and stones that occupy grid space and must be paid for to remove.",
+      "detail": [
+        "A trunk costs 1,000 elixir, mushrooms 100 elixir, and a stone 20,000 gold.",
+        "A ruined clan castle and a boat are present in the same starting state, each requiring payment to restore."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O15",
+      "name": "The repeating loop",
+      "section": "core-loop",
+      "observed": "Play settles into a repeating sequence of collecting resources, starting upgrades, training troops, attacking another village for loot, and returning to start further upgrades, recorded across all four sessions.",
+      "detail": [
+        "Loot taken from an attack is the input to the next upgrade; upgrades raise storage and production, which raise what can be afforded.",
+        "The loop is interrupted by waits rather than by any per-attempt limit on attacking."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O16",
+      "name": "Builder slots limit parallel construction",
+      "section": "core-loop",
+      "observed": "The number of builder huts owned sets how many constructions can run at once; with two builders, a third upgrade can't be started.",
+      "detail": [
+        "The message given is that all builders are busy.",
+        "Attempting a third upgrade offers to complete a running build and free a builder for one gem.",
+        "Up to five builder huts are buildable, at 250 gems each."
+      ],
+      "tags": [
+        {
+          "name": "Passive Construction",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Starting a build or upgrade creates an active instance that advances on a timer without further construction input and completes into a persistent new or upgraded state with changed capacity and hit points (O17, O18). Progress continues while the app is closed (O17, O88). The number of builder huts owned limits how many instances can run at once (O16).",
+          "alternativeConsidered": "Energy, for the builder slots as a bounded capacity consumed by starting a build. The slot is occupied for the duration of one construction and released on its completion rather than consumed and later restored under a refill rule, and the constraint belongs to the construction instance, which this entry already covers.",
+          "role": "retention, monetization, engagement\n\nDurations reaching 12 hours end outside the session and produce the completed-while-away summary on return (O18, O88); every wait carries a gem price to end it (O19); and the builder count decides how much can be started in any one sitting (O16)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O17",
+      "name": "Construction advances without further input",
+      "section": "core-loop",
+      "observed": "Once a build or upgrade is started, it advances on a timer and completes without further construction actions, including while the app is closed.",
+      "detail": [
+        "A builder figure is shown working on the structure during the process.",
+        "On return after an absence, the app lists upgrades that completed while away.",
+        "Completion changes the structure to a new persistent level with higher stated capacity or hit points."
+      ],
+      "tags": [
+        {
+          "name": "Passive Construction",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Starting a build or upgrade creates an active instance that advances on a timer without further construction input and completes into a persistent new or upgraded state with changed capacity and hit points (O17, O18). Progress continues while the app is closed (O17, O88). The number of builder huts owned limits how many instances can run at once (O16).",
+          "alternativeConsidered": "Energy, for the builder slots as a bounded capacity consumed by starting a build. The slot is occupied for the duration of one construction and released on its completion rather than consumed and later restored under a refill rule, and the constraint belongs to the construction instance, which this entry already covers.",
+          "role": "retention, monetization, engagement\n\nDurations reaching 12 hours end outside the session and produce the completed-while-away summary on return (O18, O88); every wait carries a gem price to end it (O19); and the builder count decides how much can be started in any one sitting (O16)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O18",
+      "name": "Timer durations lengthen with progression",
+      "section": "core-loop",
+      "observed": "Build times grow from seconds at the first levels to hours at later ones.",
+      "detail": [
+        "Town hall 2 takes 10 seconds; barracks upgrade takes 15 seconds.",
+        "Town hall 3 takes 30 minutes, noted as the longest upgrade seen so far.",
+        "Town hall 6 takes 12 hours."
+      ],
+      "tags": [
+        {
+          "name": "Passive Construction",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Starting a build or upgrade creates an active instance that advances on a timer without further construction input and completes into a persistent new or upgraded state with changed capacity and hit points (O17, O18). Progress continues while the app is closed (O17, O88). The number of builder huts owned limits how many instances can run at once (O16).",
+          "alternativeConsidered": "Energy, for the builder slots as a bounded capacity consumed by starting a build. The slot is occupied for the duration of one construction and released on its completion rather than consumed and later restored under a refill rule, and the constraint belongs to the construction instance, which this entry already covers.",
+          "role": "retention, monetization, engagement\n\nDurations reaching 12 hours end outside the session and produce the completed-while-away summary on return (O18, O88); every wait carries a gem price to end it (O19); and the builder count decides how much can be started in any one sitting (O16)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O19",
+      "name": "Speed-up offered at every wait",
+      "section": "core-loop",
+      "observed": "Every observed waiting state carries an offer to end it immediately for gems.",
+      "detail": [
+        "One gem finishes an elixir collector; 10 gems finish a 30-minute town hall upgrade; one gem frees a busy builder.",
+        "The narrator uses gems to complete town hall upgrades rather than wait, in sessions 3 and 4."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O20",
+      "name": "Collectors accumulate and require manual collection",
+      "section": "core-loop",
+      "observed": "Resource buildings produce over time and display a marker when there's something to collect; tapping transfers the output to storage.",
+      "detail": [
+        "Tapping a currency display shows its maximum and its production per hour.",
+        "Production continues while the user is away and waits to be collected on return."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O21",
+      "name": "Deployment rules and absence of target control",
+      "section": "core-loop",
+      "observed": "Troops are deployed by tapping or holding on the map and then act on their own; the user can't direct which structures they attack.",
+      "detail": [
+        "Deployed troops are consumed whether the attack succeeds or fails.",
+        "Defensive buildings aren't prioritised by default.",
+        "The planning window is 30 seconds in the home village and 60 seconds in the second village."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O22",
+      "name": "Battles can be ended or abandoned freely",
+      "section": "core-loop",
+      "observed": "An end battle button closes an attack without consequence, and the same battle can be re-entered afterward.",
+      "detail": [
+        "No attempt counter, entry cost, or cooldown was observed on ordinary attacks."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O23",
+      "name": "Opponent search with loot disclosed in advance",
+      "section": "core-loop",
+      "observed": "The attack screen offers single player, multiplayer, and practice modes, states the loot available before the attack begins, and allows skipping to another opponent.",
+      "detail": [
+        "Available loot is stated as a gold figure and an elixir figure before committing.",
+        "A next button searches for another opponent; the narrator skips several times comparing loot against visible defenses.",
+        "Regular battles are stated not to cost trophies."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O24",
+      "name": "Defense log, replays, and live viewing",
+      "section": "core-loop",
+      "observed": "Clash of Clans records attacks made against the user, offers replays, and in the second village allows watching an attack live.",
+      "detail": [
+        "A defense log lists who attacked and what was taken.",
+        "In the second village, a live notice allows watching an attack as it happens, with the outcome reported as a percentage.",
+        "War attacks can also be replayed after the war, with older wars available in a war log."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O25",
+      "name": "Layout editor",
+      "section": "core-loop",
+      "observed": "A layout editor unlocks at town hall 3, allowing the village to be rearranged and alternative layouts kept.",
+      "detail": [
+        "The editor offers an active village selection and the ability to move buildings.",
+        "War bases are redesignable separately during a war preparation day."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O26",
+      "name": "Laboratory research",
+      "section": "core-loop",
+      "observed": "A laboratory can be built that upgrades troops and spells, with each unit upgraded separately, paid in elixir.",
+      "detail": [
+        "The introduction text states research makes spells and troops harder, faster, and stronger.",
+        "The second village has its own research facility, a star laboratory, giving troops special abilities."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O27",
+      "name": "Temporary boosts and magic items",
+      "section": "core-loop",
+      "observed": "Clash of Clans grants and sells consumable items that temporarily change rates or instantly complete work.",
+      "detail": [
+        "A builder's byte makes builders work twice as fast for one hour, usable only in the home village within 24 hours of claiming.",
+        "Reaching town hall 4 granted three three-day boosts: a star bonus boost, a resource boost, and a power boost.",
+        "A book of building instantly finishes any upgrade in either village; a wall ring instantly upgrades a wall piece."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O28",
+      "name": "Town hall level as the master progression state",
+      "section": "goals",
+      "observed": "The town hall holds a numbered level that determines what else in the product is available, and raising it is the stated purpose of most activity.",
+      "detail": [
+        "Levels 1 to 18 are selectable as a minimum requirement when creating a clan.",
+        "The cost escalates sharply: 4,000 gold for level 2, 25,000 for level 5, 150,000 for level 6, and a stated one million for the level after 6.",
+        "The narrator reaches town hall 4 in session 1, 5 in session 2, 6 in session 3, and 7 in session 4."
+      ],
+      "tags": [
+        {
+          "name": "Leveling",
+          "confidence": "strongly supported",
+          "confidences": [
+            "directly observed",
+            "directly observed",
+            "strongly supported"
+          ],
+          "rationale": "The town hall holds a current numbered state within an ordered series running to 18, advances under a defined rule combining a resource cost with a prerequisite building checklist, and persists until the next advance (O28, O29). The second village runs the same structure on its own builder hall (O46). Individual troops hold their own ordered levels advanced through research (O26). Each advance changes observable conditions: unlocked buildings, raised storage caps, raised hit points, and new store contents (O28, O79).\n\nA separate numbered account level is maintained with a visible partial-progress indicator, advances when accumulated experience points cross a threshold, and persists across sessions (O32). It carries an observable consequence at least once, as an eligibility condition on a decoration requiring level 75 (O40). The thresholds themselves were not shown (O32).\n\nBoth villages maintain an ordered series of named tiers, running skeleton to legend in the home village and wood 5 to diamond in the second, with the stated advancement rule that more trophies won raise the tier and the stated consequence that a higher tier pays a larger league bonus and star bonus (O36, O56). The trophy thresholds that separate the tiers were never displayed, so the rule is asserted from the product's own statement of it rather than from observed threshold behavior (O36).",
+          "alternativeConsidered": "Milestone, for each town hall level as a threshold within a broader progression. The entry excludes assigning a level number where no separate threshold recognition exists beyond the level-state update, and what was observed at each town hall level was the level state changing and its consequences, not a separate recognition event.\n\nExperience Points alone, treating the level as a display of the balance. The two are separate behaviors under the library: the points are the accumulating progression value and the level is the discrete ordered state they advance, and both are tagged.\n\nComparative Rank, since leagues are populated by players competing for trophies. The tier observed is assigned from a trophy amount rather than from an ordering against other entities, and the entry excludes absolute tiers assigned from thresholds.",
+          "role": "engagement, retention, monetization\n\nThe level decides what can be built and attempted in any session (O28, O39); each step carries a wait measured in hours that ends outside the session (O18, O95); and a matching pack enters the store at each new level (O79). | engagement\n\nThe level rose three times within one session as achievements and battles were completed (O32, O33). | engagement, retention\n\nThe tier decides the rate at which battles pay (O36, O56), and battles are the repeated activity that moves it in both directions across sessions (O36)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O29",
+      "name": "Prerequisite buildings gate the next town hall level",
+      "section": "goals",
+      "observed": "The town hall can't be upgraded on resources alone; a checklist of buildings must exist first.",
+      "detail": [
+        "The message reads upgrade locked, build the following buildings to unlock the next town hall level.",
+        "In session 1, the listed prerequisites were another cannon and an archer tower.",
+        "Meeting the checklist consumed resources that had been saved for the upgrade itself, delaying it further."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O30",
+      "name": "Advisory warning before a town hall upgrade",
+      "section": "goals",
+      "observed": "Before the town hall 5 upgrade, the app interrupts with a warning advising against the upgrade the user is entitled to make.",
+      "detail": [
+        "The text warns that upgrading will bring stronger opponents and recommends upgrading attack strength first.",
+        "A continue option proceeds regardless."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O31",
+      "name": "Chief's Journey preview",
+      "section": "goals",
+      "observed": "A Chief's Journey view shows how the town hall progresses and what arrives at later stages.",
+      "detail": [
+        "A scenery selector in the same area shows classic and jungle sceneries, with others requiring town hall levels not yet reached."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O32",
+      "name": "Account experience level",
+      "section": "goals",
+      "observed": "A separate numbered account level sits at the top of the screen with a partial-progress indicator, rising as experience points accumulate.",
+      "detail": [
+        "Levels 2, 3, and 4 are reached during session 1.",
+        "Achievements state explicit experience grants, for example 100 points for linking the account and 10 for a town hall upgrade.",
+        "An experience level of 75 is required for one purchasable decoration."
+      ],
+      "tags": [
+        {
+          "name": "Experience Points",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Quantified units are granted on stated qualifying events, accumulate across events, and advance an ordered account level that rose from 1 to 4 during one session (O32). The accumulated level also functions as an eligibility condition elsewhere, with one decoration requiring experience level 75 (O40). The units were never observed to be spendable (O32).",
+          "alternativeConsidered": "Spendable Credits and Tokens, since the same screens show several exchangeable balances. Experience was never offered in exchange for anything and only advanced the account level and gated one purchase, which is the boundary the entry draws.",
+          "role": "engagement\n\nGrants are attached to the actions taken during a session, with achievement entries stating an experience figure beside each criterion (O32, O33)."
+        },
+        {
+          "name": "Leveling",
+          "confidence": "strongly supported",
+          "confidences": [
+            "directly observed",
+            "directly observed",
+            "strongly supported"
+          ],
+          "rationale": "The town hall holds a current numbered state within an ordered series running to 18, advances under a defined rule combining a resource cost with a prerequisite building checklist, and persists until the next advance (O28, O29). The second village runs the same structure on its own builder hall (O46). Individual troops hold their own ordered levels advanced through research (O26). Each advance changes observable conditions: unlocked buildings, raised storage caps, raised hit points, and new store contents (O28, O79).\n\nA separate numbered account level is maintained with a visible partial-progress indicator, advances when accumulated experience points cross a threshold, and persists across sessions (O32). It carries an observable consequence at least once, as an eligibility condition on a decoration requiring level 75 (O40). The thresholds themselves were not shown (O32).\n\nBoth villages maintain an ordered series of named tiers, running skeleton to legend in the home village and wood 5 to diamond in the second, with the stated advancement rule that more trophies won raise the tier and the stated consequence that a higher tier pays a larger league bonus and star bonus (O36, O56). The trophy thresholds that separate the tiers were never displayed, so the rule is asserted from the product's own statement of it rather than from observed threshold behavior (O36).",
+          "alternativeConsidered": "Milestone, for each town hall level as a threshold within a broader progression. The entry excludes assigning a level number where no separate threshold recognition exists beyond the level-state update, and what was observed at each town hall level was the level state changing and its consequences, not a separate recognition event.\n\nExperience Points alone, treating the level as a display of the balance. The two are separate behaviors under the library: the points are the accumulating progression value and the level is the discrete ordered state they advance, and both are tagged.\n\nComparative Rank, since leagues are populated by players competing for trophies. The tier observed is assigned from a trophy amount rather than from an ordering against other entities, and the entry excludes absolute tiers assigned from thresholds.",
+          "role": "engagement, retention, monetization\n\nThe level decides what can be built and attempted in any session (O28, O39); each step carries a wait measured in hours that ends outside the session (O18, O95); and a matching pack enters the store at each new level (O79). | engagement\n\nThe level rose three times within one session as achievements and battles were completed (O32, O33). | engagement, retention\n\nThe tier decides the rate at which battles pay (O36, O56), and battles are the repeated activity that moves it in both directions across sessions (O36)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O33",
+      "name": "Achievements with three tiers each",
+      "section": "goals",
+      "observed": "A profile achievements list holds named criteria, each carrying up to three stars and granting experience points and gems on attainment.",
+      "detail": [
+        "Observed entries include connecting an account for 100 experience points and 50 gems, and upgrading the town hall to level 3 for 10 experience points and 5 gems.",
+        "Separate achievement lists exist for the home village, the builder base, and the clan capital.",
+        "One achievement requires requesting reinforcements, which requires clan membership."
+      ],
+      "tags": [
+        {
+          "name": "Achievement",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Named criteria change from unattained to attained, the attained state persists in a profile list, and attainment grants experience points and gems separately from the activity that satisfied the criterion (O33). Criteria are evaluated against activity the user performs elsewhere, and the attained state survives closing and reopening the app (O13).",
+          "alternativeConsidered": "Milestone, since several criteria are thresholds within the town hall progression. The criteria are maintained as a separate list with their own attained states and rewards rather than as recognitions inside the progression itself, which is what the Achievement entry describes; the ladder that is a threshold set within an ongoing measure is tagged separately as Milestone.",
+          "role": "engagement\n\nThe list is read and its entries are worked toward inside the session, with the linking criterion acted on directly (O13, O33, O71) and other criteria naming in-session actions such as unlocking units and upgrading the town hall (O33)."
+        },
+        {
+          "name": "Experience Points",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Quantified units are granted on stated qualifying events, accumulate across events, and advance an ordered account level that rose from 1 to 4 during one session (O32). The accumulated level also functions as an eligibility condition elsewhere, with one decoration requiring experience level 75 (O40). The units were never observed to be spendable (O32).",
+          "alternativeConsidered": "Spendable Credits and Tokens, since the same screens show several exchangeable balances. Experience was never offered in exchange for anything and only advanced the account level and gated one purchase, which is the boundary the entry draws.",
+          "role": "engagement\n\nGrants are attached to the actions taken during a session, with achievement entries stating an experience figure beside each criterion (O32, O33)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O34",
+      "name": "Starter challenge points and the reward ladder",
+      "section": "goals",
+      "observed": "Completing starter challenges pays points into a single running total, and defined point totals along that total release rewards.",
+      "detail": [
+        "The ladder runs from 100 to 5,000 points.",
+        "Claimed rewards include 2,000 gold, then elixir, then 1,000 gold, then a builder's byte.",
+        "Active challenges total only 1,050 points, short of the full ladder, so more challenges must be unlocked to reach later thresholds."
+      ],
+      "tags": [
+        {
+          "name": "Challenge",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported",
+            "strongly supported"
+          ],
+          "rationale": "Each starter challenge is a discrete instance with a stated success condition and a tracked completed state, and completion pays points where non-completion pays none (O12, O34). The scope boundary is the starter stage: the set is named for it and expands only as the town hall level rises, so the instance set is bounded by progression rather than remaining an open standing goal (O12, O34).\n\nA clan war is a bounded instance with a stated end boundary of two days, a stated success condition of scoring the most stars, a stated tie rule, and a concluded result that pays bonus loot and clan experience to the winner and withdraws most of the bonus loot from the loser (O65). The war in progress showed both clans' running star totals and destroyed bases, so the active state is maintained and observable (O65).",
+          "alternativeConsidered": "Daily / Weekly Quests, since the objectives resemble issued tasks. No daily or weekly issuance, refresh, or reset rule was observed for them; new ones arrive on town hall upgrades instead, which is not a recurring calendar cadence.\n\nLeaderboard, since the war screen orders two clans by stars. The ordering there is the scoring of one bounded contest rather than a standing comparison surface; the standing ordered lists are tagged separately as Leaderboard.",
+          "role": "engagement\n\nThe objectives name actions performed inside a session, such as buying wall pieces, upgrading collectors, and destroying buildings in battles, and were pursued within the session in which they were issued (O12, O34). | social, engagement\n\nThe instance is contested by the clan as a unit against another clan with donation and base design contributed by members (O65), and the attacking within it is the ordinary in-session activity (O43)."
+        },
+        {
+          "name": "Milestone",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Challenge points accumulate as one ongoing measure, and defined totals along that measure from 100 to 5,000 are separately recognized by releasing a reward when crossed (O34). States exist before and after each defined point, and reward claims were observed at several of them (O34).",
+          "alternativeConsidered": "Progression Fund, which also attaches ordered reward positions to an existing measure. That entry requires a second lane unlocked by purchase paying more at the same positions, and the starter challenge ladder has one lane only.",
+          "role": "engagement\n\nThe thresholds are crossed by completing the in-session objectives that pay points, and the rewards they release are the gold, elixir, and boosts used in the same session (O12, O27, O34)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O35",
+      "name": "Suggested upgrades panel",
+      "section": "goals",
+      "observed": "A counter at the top of the screen holds a short list of suggested next builds, refilling with new suggestions once its entries are completed.",
+      "detail": [
+        "The counter reads two out of two, falling to one out of two when one is taken.",
+        "A separate suggestion surface later appears for troop upgrades."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O36",
+      "name": "Trophy leagues in both villages",
+      "section": "goals",
+      "observed": "Both villages maintain an ordered series of named leagues the user moves through by winning trophies, with the league determining reward rates.",
+      "detail": [
+        "The home village list runs skeleton, barbarian, archer, and onward to legend, locked until town hall 7.",
+        "The second village list runs wood 5 through diamond, in five steps at the lower tiers and three at several higher ones.",
+        "The trophy thresholds themselves were never shown."
+      ],
+      "tags": [
+        {
+          "name": "Leveling",
+          "confidence": "strongly supported",
+          "confidences": [
+            "directly observed",
+            "directly observed",
+            "strongly supported"
+          ],
+          "rationale": "The town hall holds a current numbered state within an ordered series running to 18, advances under a defined rule combining a resource cost with a prerequisite building checklist, and persists until the next advance (O28, O29). The second village runs the same structure on its own builder hall (O46). Individual troops hold their own ordered levels advanced through research (O26). Each advance changes observable conditions: unlocked buildings, raised storage caps, raised hit points, and new store contents (O28, O79).\n\nA separate numbered account level is maintained with a visible partial-progress indicator, advances when accumulated experience points cross a threshold, and persists across sessions (O32). It carries an observable consequence at least once, as an eligibility condition on a decoration requiring level 75 (O40). The thresholds themselves were not shown (O32).\n\nBoth villages maintain an ordered series of named tiers, running skeleton to legend in the home village and wood 5 to diamond in the second, with the stated advancement rule that more trophies won raise the tier and the stated consequence that a higher tier pays a larger league bonus and star bonus (O36, O56). The trophy thresholds that separate the tiers were never displayed, so the rule is asserted from the product's own statement of it rather than from observed threshold behavior (O36).",
+          "alternativeConsidered": "Milestone, for each town hall level as a threshold within a broader progression. The entry excludes assigning a level number where no separate threshold recognition exists beyond the level-state update, and what was observed at each town hall level was the level state changing and its consequences, not a separate recognition event.\n\nExperience Points alone, treating the level as a display of the balance. The two are separate behaviors under the library: the points are the accumulating progression value and the level is the discrete ordered state they advance, and both are tagged.\n\nComparative Rank, since leagues are populated by players competing for trophies. The tier observed is assigned from a trophy amount rather than from an ordering against other entities, and the entry excludes absolute tiers assigned from thresholds.",
+          "role": "engagement, retention, monetization\n\nThe level decides what can be built and attempted in any session (O28, O39); each step carries a wait measured in hours that ends outside the session (O18, O95); and a matching pack enters the store at each new level (O79). | engagement\n\nThe level rose three times within one session as achievements and battles were completed (O32, O33). | engagement, retention\n\nThe tier decides the rate at which battles pay (O36, O56), and battles are the repeated activity that moves it in both directions across sessions (O36)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O37",
+      "name": "Season track and task cards",
+      "section": "goals",
+      "observed": "After the town hall 7 upgrade, the app introduces a season track advanced by completing task cards, with the next card released on a timer.",
+      "detail": [
+        "The card in view held starting any building upgrade and starting the boat research.",
+        "The card stated the next task card unlocks in 19 hours and 20 minutes.",
+        "Whether cards refresh on a fixed daily or weekly cadence wasn't shown."
+      ],
+      "tags": [
+        {
+          "name": "Seasonal Progression Pass",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "The track is bounded by a stated season ending in 27 days and 19 hours, contains ordered positions counted at 40 on the gold lane and 30 on the silver, attaches rewards to those positions, and is advanced by completing task cards (O37, O38). A season boundary was observed closing and paying out, with a new season opening behind it (O92).",
+          "alternativeConsidered": "Progression Fund, whose two-lane structure this resembles. That entry excludes any track bounded by a season, and the season boundary here is stated on the pass and was observed operating at a season end.",
+          "role": "monetization, retention, engagement\n\nThe gold lane is sold for $4.99 with its own exclusive rewards (O38, O84); the season runs 27 days with the next task card released on a timer (O38, O96); and the task cards name ordinary in-session actions such as starting an upgrade (O37)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O38",
+      "name": "Gold pass and silver pass reward tracks",
+      "section": "goals",
+      "observed": "The season track carries two parallel lanes, a silver lane available without purchase and a gold lane unlocked for money, attached to the same ordered positions.",
+      "detail": [
+        "The gold pass costs $4.99; the season is stated as ending in 27 days and 19 hours.",
+        "The reward list holds 40 gold lane rewards and 30 silver lane rewards, with every fourth position carrying no silver reward.",
+        "A hero skin is presented as an exclusive gold pass reward, with a choice between two named skins."
+      ],
+      "tags": [
+        {
+          "name": "Seasonal Progression Pass",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "The track is bounded by a stated season ending in 27 days and 19 hours, contains ordered positions counted at 40 on the gold lane and 30 on the silver, attaches rewards to those positions, and is advanced by completing task cards (O37, O38). A season boundary was observed closing and paying out, with a new season opening behind it (O92).",
+          "alternativeConsidered": "Progression Fund, whose two-lane structure this resembles. That entry excludes any track bounded by a season, and the season boundary here is stated on the pass and was observed operating at a season end.",
+          "role": "monetization, retention, engagement\n\nThe gold lane is sold for $4.99 with its own exclusive rewards (O38, O84); the season runs 27 days with the next task card released on a timer (O38, O96); and the task cards name ordinary in-session actions such as starting an upgrade (O37)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O39",
+      "name": "Town hall level gates content across the product",
+      "section": "access",
+      "observed": "The town hall level is the stated condition on buildings, troops, spells, heroes, modes, cosmetics, and decorations alike. Barracks upgrades require town hall 2; practice mode unlocks at town hall 4; spells at town hall 5; ranked battle and a hero at town hall 7; siege machines at town hall 12; a free eagle monument decoration at town hall 17. The same gate message recurs across every session recorded.",
+      "detail": [
+        "Barracks upgrades require town hall 2; spells require town hall 5; a hero requires town hall 7.",
+        "Siege machines require town hall 12; a free decoration requires town hall 17.",
+        "The same \"upgrade your town hall to unlock\" message recurs across all four sessions."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O40",
+      "name": "Experience level gates a purchasable decoration",
+      "section": "access",
+      "observed": "One decoration can't be bought even with its price held, because it also requires experience level 75. A statue costs one million gold and requires that level; the narrator notes that holding the gold alone wouldn't allow the purchase.",
+      "detail": [
+        "A statue decoration requires both one million gold and experience level 75.",
+        "Holding the gold price alone does not unlock the purchase."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O41",
+      "name": "Clan access gated behind a repaired building and a storage upgrade",
+      "section": "access",
+      "observed": "Clan features are unavailable until a ruined clan castle is rebuilt for 10,000 elixir, which itself requires raising elixir storage capacity to hold that amount first. The join screen states that a clan gives free army donations and unlocks clan wars, clan games, clan capital, and clan chat. Once rebuilt, the clan castle holds the treasury and any reinforcements sent by clanmates.",
+      "detail": [
+        "Rebuilding the clan castle costs 10,000 elixir.",
+        "Elixir storage must be raised before the cost can even be held.",
+        "The rebuilt clan castle holds both the treasury and reinforcement troops."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O42",
+      "name": "Creating a clan costs resources",
+      "section": "access",
+      "observed": "Creating a clan rather than joining one costs 40,000 gold.",
+      "detail": [
+        "Clan creation costs 40,000 gold, a separate cost from joining."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O43",
+      "name": "War participation gated by clan leadership",
+      "section": "access",
+      "observed": "The war surface is fully visible while attacking within it is withheld, with the decision resting on another person: the status shown is war spectator, with a note to ask a clan leader or co-leader to be picked next time. Scouting, war stats, and replays remain available to a spectator. The war information text states that attacks are limited during a war, so a bounded allowance exists that the session couldn't exercise.",
+      "detail": [
+        "Spectator status still allows scouting, war stats, and replays.",
+        "Being picked to attack in a war rests on a clan leader or co-leader's decision.",
+        "War attacks are stated to be limited in number, though the limit itself wasn't observed."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O44",
+      "name": "Clan war leagues gated by clan size and a signup window",
+      "section": "access",
+      "observed": "The clan war leagues event requires a minimum of 15 clan members and a leader signing up within a stated window. Sign-up was shown ending in 8 hours 20 minutes, with clan leaders given two days from the event start. Normal clan wars remain available to non-participating clans while league sign-up is open.",
+      "detail": [
+        "Clan war leagues require at least 15 clan members.",
+        "Clan leaders get a two-day window from the event start to sign up.",
+        "Ordinary clan wars stay available to clans not participating in the league event."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O45",
+      "name": "The second village gated behind repairing the boat",
+      "section": "access",
+      "observed": "A separate village with its own buildings, currencies, leagues, and research opens only after a broken boat in the home village is repaired. Arrival is presented as a ruined village that must be cleaned and rebuilt, with a second character appearing afterward with a wish list of buildings. The closing instruction states that both villages now need attention.",
+      "detail": [
+        "The second village unlocks only after the home village's boat is repaired.",
+        "A second non-player character appears once the new village is cleaned up.",
+        "The game explicitly states both villages require ongoing attention afterward."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O46",
+      "name": "Builder hall levels gate the second village",
+      "section": "access",
+      "observed": "The second village runs its own numbered hall level that gates removing obstacles and building further structures. Builder hall level 3 is required to remove obstacles blocking construction, at a stated cost of 3,000. Troop production there is capped until an army camp is built, and gems speed construction the same way they do in the home village.",
+      "detail": [
+        "Builder hall level 3 is required to clear obstacles, costing 3,000.",
+        "Troop production in the second village is capped until an army camp is built.",
+        "Gems speed up construction in the second village the same way as the home village."
+      ],
+      "tags": [
+        {
+          "name": "Leveling",
+          "confidence": "strongly supported",
+          "confidences": [
+            "directly observed",
+            "directly observed",
+            "strongly supported"
+          ],
+          "rationale": "The town hall holds a current numbered state within an ordered series running to 18, advances under a defined rule combining a resource cost with a prerequisite building checklist, and persists until the next advance (O28, O29). The second village runs the same structure on its own builder hall (O46). Individual troops hold their own ordered levels advanced through research (O26). Each advance changes observable conditions: unlocked buildings, raised storage caps, raised hit points, and new store contents (O28, O79).\n\nA separate numbered account level is maintained with a visible partial-progress indicator, advances when accumulated experience points cross a threshold, and persists across sessions (O32). It carries an observable consequence at least once, as an eligibility condition on a decoration requiring level 75 (O40). The thresholds themselves were not shown (O32).\n\nBoth villages maintain an ordered series of named tiers, running skeleton to legend in the home village and wood 5 to diamond in the second, with the stated advancement rule that more trophies won raise the tier and the stated consequence that a higher tier pays a larger league bonus and star bonus (O36, O56). The trophy thresholds that separate the tiers were never displayed, so the rule is asserted from the product's own statement of it rather than from observed threshold behavior (O36).",
+          "alternativeConsidered": "Milestone, for each town hall level as a threshold within a broader progression. The entry excludes assigning a level number where no separate threshold recognition exists beyond the level-state update, and what was observed at each town hall level was the level state changing and its consequences, not a separate recognition event.\n\nExperience Points alone, treating the level as a display of the balance. The two are separate behaviors under the library: the points are the accumulating progression value and the level is the discrete ordered state they advance, and both are tagged.\n\nComparative Rank, since leagues are populated by players competing for trophies. The tier observed is assigned from a trophy amount rather than from an ordering against other entities, and the entry excludes absolute tiers assigned from thresholds.",
+          "role": "engagement, retention, monetization\n\nThe level decides what can be built and attempted in any session (O28, O39); each step carries a wait measured in hours that ends outside the session (O18, O95); and a matching pack enters the store at each new level (O79). | engagement\n\nThe level rose three times within one session as achievements and battles were completed (O32, O33). | engagement, retention\n\nThe tier decides the rate at which battles pay (O36, O56), and battles are the repeated activity that moves it in both directions across sessions (O36)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O47",
+      "name": "The pass gated until town hall 7",
+      "section": "access",
+      "observed": "No pass surface existed at town hall 4, 5, or 6; it appeared immediately after the town hall 7 upgrade completed, alongside a town hall 7 pack in the store. The narrator recorded more than two hours of play at town hall 4 with no pass, and estimates at least six or seven hours of total play to reach town hall 7. Home village leagues carry the same town hall 7 requirement.",
+      "detail": [
+        "The pass does not exist before town hall 7.",
+        "The narrator estimates six to seven hours of play to reach town hall 7.",
+        "Home village leagues share the same town hall 7 gate as the pass."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O48",
+      "name": "Three home village resources",
+      "section": "earning",
+      "observed": "The home village runs gold, elixir, and gems, with gold and elixir produced by buildings and taken in raids, and gems held in a separate balance.",
+      "detail": [
+        "Gold and elixir both have storage buildings, stated maximums, and stated production per hour.",
+        "Gold and elixir are spent on buildings, upgrades, walls, troop training, research, obstacle removal, and decorations.",
+        "Gems are spent on speed-ups, builder huts, magic shields, decorations, and conversion into gold and elixir."
+      ],
+      "tags": [
+        {
+          "name": "Hard Currency",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Gems are a product-defined balance acquired through six money packages from $0.49 to $49.99, held after purchase, and later exchanged for builder huts, instant completion of builds, magic shields, decorations, and conversions into gold and elixir, with each exchange reducing the balance (O48, O50, O51, O83). Gems are also granted without payment through achievements and clan prizes, which the entry permits (O33, O66).",
+          "alternativeConsidered": "Spendable Credits and Tokens, its parent entry. The paid acquisition path is observed directly in the treasure tab, so the more specific specialization applies.",
+          "role": "monetization, engagement\n\nSix money-priced packages feed the balance (O50), and spending it removes waits and adds builders inside the session (O16, O19)."
+        },
+        {
+          "name": "Soft Currency",
+          "confidence": "strongly supported",
+          "confidences": [
+            "directly observed",
+            "directly observed",
+            "strongly supported"
+          ],
+          "rationale": "Gold and elixir are quantified balances with stated caps and stated production per hour, added by collectors and by loot taken in raids, held in storage, and reduced by spending on buildings, upgrades, walls, troop training, research, obstacle removal, and decorations (O20, O23, O48, O58). Dark elixir joins them at town hall 7 with its own drill and storage (O49). Both can also be bought with gems, which the entry permits (O51).\n\nThe second village maintains two further quantified balances, earned through star bonuses from attacking, through successful defense, and through collectors, and spent on that village's buildings, defenses, and obstacle removal (O53, O57). They were not observed to be usable in the home village (O53).\n\nLeague medals are a quantified balance with a shown ceiling of 2,500 and stated prices across a dedicated shop tab, and the product states them as a reward from clan war leagues, which is a repeatable non-paid acquisition path (O44, O52). No medals were earned or spent during the sessions, so only the balance, its stated source, and its prices were observed (O52).",
+          "alternativeConsidered": "Spendable Credits and Tokens, its parent entry. A repeatable non-paid acquisition path was observed directly in collectors and raid loot, so the more specific specialization applies.\n\nTreating these as the same balances as gold and elixir under a different name. The second village's balances have their own icons, their own star bonus table, and their own piggy bank caps, and the home village balances were never shown to move between the two.\n\nSpendable Credits and Tokens, its parent entry, since the earning path was described rather than exercised. The product states the earning route on the event screen and the entry's presence standard treats that framing as sufficient, so the specialization is reported with the gap in the behavior detail noted.",
+          "role": "engagement\n\nCollecting and spending these balances is the activity the session consists of, with every build, upgrade, and raid denominated in them (O20, O23, O48). | engagement\n\nThe two balances are earned and spent entirely inside the second village's own build and battle loop (O45, O53, O57). | engagement, social\n\nThe balance buys battle items used in attacks (O52), and its stated earning route runs through a clan event rather than solo play (O44, O52)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O49",
+      "name": "Dark elixir added at town hall 7",
+      "section": "earning",
+      "observed": "A fourth home village resource, dark elixir, appears with the town hall 7 upgrade, together with its own drill and storage.",
+      "detail": [
+        "It appears first in the treasury, then as buildable resource buildings in the shop.",
+        "The pass lists filling dark elixir storages as a gold lane reward, and a piggy bank cap of 20,000 dark elixir."
+      ],
+      "tags": [
+        {
+          "name": "Soft Currency",
+          "confidence": "strongly supported",
+          "confidences": [
+            "directly observed",
+            "directly observed",
+            "strongly supported"
+          ],
+          "rationale": "Gold and elixir are quantified balances with stated caps and stated production per hour, added by collectors and by loot taken in raids, held in storage, and reduced by spending on buildings, upgrades, walls, troop training, research, obstacle removal, and decorations (O20, O23, O48, O58). Dark elixir joins them at town hall 7 with its own drill and storage (O49). Both can also be bought with gems, which the entry permits (O51).\n\nThe second village maintains two further quantified balances, earned through star bonuses from attacking, through successful defense, and through collectors, and spent on that village's buildings, defenses, and obstacle removal (O53, O57). They were not observed to be usable in the home village (O53).\n\nLeague medals are a quantified balance with a shown ceiling of 2,500 and stated prices across a dedicated shop tab, and the product states them as a reward from clan war leagues, which is a repeatable non-paid acquisition path (O44, O52). No medals were earned or spent during the sessions, so only the balance, its stated source, and its prices were observed (O52).",
+          "alternativeConsidered": "Spendable Credits and Tokens, its parent entry. A repeatable non-paid acquisition path was observed directly in collectors and raid loot, so the more specific specialization applies.\n\nTreating these as the same balances as gold and elixir under a different name. The second village's balances have their own icons, their own star bonus table, and their own piggy bank caps, and the home village balances were never shown to move between the two.\n\nSpendable Credits and Tokens, its parent entry, since the earning path was described rather than exercised. The product states the earning route on the event screen and the entry's presence standard treats that framing as sufficient, so the specialization is reported with the gap in the behavior detail noted.",
+          "role": "engagement\n\nCollecting and spending these balances is the activity the session consists of, with every build, upgrade, and raid denominated in them (O20, O23, O48). | engagement\n\nThe two balances are earned and spent entirely inside the second village's own build and battle loop (O45, O53, O57). | engagement, social\n\nThe balance buys battle items used in attacks (O52), and its stated earning route runs through a clan event rather than solo play (O44, O52)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O50",
+      "name": "Gem packages priced in money",
+      "section": "earning",
+      "observed": "Gems are sold in six packages ranging from $0.49 to $49.99.",
+      "detail": [
+        "80 gems for $0.49, 500 for $2.49, 1,200 for $4.99, 2,500 for $9.99, 6,500 for $24.99, 14,000 for $49.99."
+      ],
+      "tags": [
+        {
+          "name": "Hard Currency",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Gems are a product-defined balance acquired through six money packages from $0.49 to $49.99, held after purchase, and later exchanged for builder huts, instant completion of builds, magic shields, decorations, and conversions into gold and elixir, with each exchange reducing the balance (O48, O50, O51, O83). Gems are also granted without payment through achievements and clan prizes, which the entry permits (O33, O66).",
+          "alternativeConsidered": "Spendable Credits and Tokens, its parent entry. The paid acquisition path is observed directly in the treasure tab, so the more specific specialization applies.",
+          "role": "monetization, engagement\n\nSix money-priced packages feed the balance (O50), and spending it removes waits and adds builders inside the session (O16, O19)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O51",
+      "name": "Gems convert into resources",
+      "section": "earning",
+      "observed": "Gold and elixir can't be bought with money directly; they're bought with gems, which are bought with money.",
+      "detail": [
+        "Stated conversions: 400 gold for two gems, 1,531 gold for six gems, 400 elixir for two gems, 1,049 elixir for five gems.",
+        "The conversion is framed on screen as filling storages by a percentage."
+      ],
+      "tags": [
+        {
+          "name": "Hard Currency",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Gems are a product-defined balance acquired through six money packages from $0.49 to $49.99, held after purchase, and later exchanged for builder huts, instant completion of builds, magic shields, decorations, and conversions into gold and elixir, with each exchange reducing the balance (O48, O50, O51, O83). Gems are also granted without payment through achievements and clan prizes, which the entry permits (O33, O66).",
+          "alternativeConsidered": "Spendable Credits and Tokens, its parent entry. The paid acquisition path is observed directly in the treasure tab, so the more specific specialization applies.",
+          "role": "monetization, engagement\n\nSix money-priced packages feed the balance (O50), and spending it removes waits and adds builders inside the session (O16, O19)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O52",
+      "name": "League medals and the league shop",
+      "section": "earning",
+      "observed": "A further balance, league medals, buys items from a dedicated shop tab, and the user held none of it.",
+      "detail": [
+        "The balance was shown as 0 out of 2,500.",
+        "Prices observed include a giant gauntlet at 750 medals and 2.5 million gold for 15 medals.",
+        "Medals are stated as a reward from clan war leagues, so the earning path was described but not exercised."
+      ],
+      "tags": [
+        {
+          "name": "Soft Currency",
+          "confidence": "strongly supported",
+          "confidences": [
+            "directly observed",
+            "directly observed",
+            "strongly supported"
+          ],
+          "rationale": "Gold and elixir are quantified balances with stated caps and stated production per hour, added by collectors and by loot taken in raids, held in storage, and reduced by spending on buildings, upgrades, walls, troop training, research, obstacle removal, and decorations (O20, O23, O48, O58). Dark elixir joins them at town hall 7 with its own drill and storage (O49). Both can also be bought with gems, which the entry permits (O51).\n\nThe second village maintains two further quantified balances, earned through star bonuses from attacking, through successful defense, and through collectors, and spent on that village's buildings, defenses, and obstacle removal (O53, O57). They were not observed to be usable in the home village (O53).\n\nLeague medals are a quantified balance with a shown ceiling of 2,500 and stated prices across a dedicated shop tab, and the product states them as a reward from clan war leagues, which is a repeatable non-paid acquisition path (O44, O52). No medals were earned or spent during the sessions, so only the balance, its stated source, and its prices were observed (O52).",
+          "alternativeConsidered": "Spendable Credits and Tokens, its parent entry. A repeatable non-paid acquisition path was observed directly in collectors and raid loot, so the more specific specialization applies.\n\nTreating these as the same balances as gold and elixir under a different name. The second village's balances have their own icons, their own star bonus table, and their own piggy bank caps, and the home village balances were never shown to move between the two.\n\nSpendable Credits and Tokens, its parent entry, since the earning path was described rather than exercised. The product states the earning route on the event screen and the entry's presence standard treats that framing as sufficient, so the specialization is reported with the gap in the behavior detail noted.",
+          "role": "engagement\n\nCollecting and spending these balances is the activity the session consists of, with every build, upgrade, and raid denominated in them (O20, O23, O48). | engagement\n\nThe two balances are earned and spent entirely inside the second village's own build and battle loop (O45, O53, O57). | engagement, social\n\nThe balance buys battle items used in attacks (O52), and its stated earning route runs through a clan event rather than solo play (O44, O52)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O53",
+      "name": "Second village currencies",
+      "section": "earning",
+      "observed": "The second village runs its own currencies, described by the narrator as square gold tokens and amethyst droplets.",
+      "detail": [
+        "A star bonus in the second village paid 13,000 of each.",
+        "The piggy bank lists caps of 800,000 for each of the two second village currencies.",
+        "Gems are shared across both villages; the second village currencies weren't observed usable in the home village."
+      ],
+      "tags": [
+        {
+          "name": "Soft Currency",
+          "confidence": "strongly supported",
+          "confidences": [
+            "directly observed",
+            "directly observed",
+            "strongly supported"
+          ],
+          "rationale": "Gold and elixir are quantified balances with stated caps and stated production per hour, added by collectors and by loot taken in raids, held in storage, and reduced by spending on buildings, upgrades, walls, troop training, research, obstacle removal, and decorations (O20, O23, O48, O58). Dark elixir joins them at town hall 7 with its own drill and storage (O49). Both can also be bought with gems, which the entry permits (O51).\n\nThe second village maintains two further quantified balances, earned through star bonuses from attacking, through successful defense, and through collectors, and spent on that village's buildings, defenses, and obstacle removal (O53, O57). They were not observed to be usable in the home village (O53).\n\nLeague medals are a quantified balance with a shown ceiling of 2,500 and stated prices across a dedicated shop tab, and the product states them as a reward from clan war leagues, which is a repeatable non-paid acquisition path (O44, O52). No medals were earned or spent during the sessions, so only the balance, its stated source, and its prices were observed (O52).",
+          "alternativeConsidered": "Spendable Credits and Tokens, its parent entry. A repeatable non-paid acquisition path was observed directly in collectors and raid loot, so the more specific specialization applies.\n\nTreating these as the same balances as gold and elixir under a different name. The second village's balances have their own icons, their own star bonus table, and their own piggy bank caps, and the home village balances were never shown to move between the two.\n\nSpendable Credits and Tokens, its parent entry, since the earning path was described rather than exercised. The product states the earning route on the event screen and the entry's presence standard treats that framing as sufficient, so the specialization is reported with the gap in the behavior detail noted.",
+          "role": "engagement\n\nCollecting and spending these balances is the activity the session consists of, with every build, upgrade, and raid denominated in them (O20, O23, O48). | engagement\n\nThe two balances are earned and spent entirely inside the second village's own build and battle loop (O45, O53, O57). | engagement, social\n\nThe balance buys battle items used in attacks (O52), and its stated earning route runs through a clan event rather than solo play (O44, O52)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O54",
+      "name": "Storage capacity constrains progression",
+      "section": "earning",
+      "observed": "The amount that can be held is capped by storage buildings, so an upgrade costing more than current capacity can't be paid for until storage is raised first.",
+      "detail": [
+        "The narrator identifies needing a bigger gold storage as the blocker on a 25,000 gold town hall upgrade.",
+        "A storage upgrade is described as increasing capacity by 3,000 and raising hit points."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O55",
+      "name": "Treasury holds bonus loot separately",
+      "section": "earning",
+      "observed": "Bonus loot is paid into a treasury held in the clan castle rather than ordinary storage, transferred to storage by a separate action.",
+      "detail": [
+        "The transfer prompt reads transfer all resources from treasury to your storages.",
+        "War bonus loot is delivered to the treasury at the end of a war, mostly lost if the clan loses."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O56",
+      "name": "Star bonus scales with league",
+      "section": "earning",
+      "observed": "Winning multiplayer attacks pays a star bonus into the treasury, at a rate stated to depend on the current league.",
+      "detail": [
+        "The stated rule in the second village is that a higher league pays more gold per star.",
+        "A town hall 4 boost multiplied the star bonus by four for three days."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O57",
+      "name": "Defending earns resources in the second village",
+      "section": "earning",
+      "observed": "In the second village, successful defense pays a resource, which the home village wasn't observed to do.",
+      "detail": [
+        "The message reads each star we win on defense earns us elixir.",
+        "The narrator repels an attack to 90 percent and records this as an improvement."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O58",
+      "name": "Obstacles occupy space and cost resources to clear",
+      "section": "earning",
+      "observed": "Trees, stumps, and stones occupy buildable grid space and are removed only by paying.",
+      "detail": [
+        "Costs observed: 100 elixir for mushrooms, 1,000 elixir for a trunk, 20,000 gold for a stone.",
+        "The same condition exists in the second village, additionally gated on the builder hall level."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O59",
+      "name": "Overflow converts into gems",
+      "section": "earning",
+      "observed": "Reward value exceeding what the user can hold is converted into gems rather than discarded.",
+      "detail": [
+        "The season end message reads any rewards exceeding inventory will be converted to gems.",
+        "The conversion rate itself was never shown."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O60",
+      "name": "Clan castle reinforcements and donation",
+      "section": "social",
+      "observed": "Clan members can send troops and spells to one another, and the receiving member holds them in the clan castle. The war information text states that troops are donated and enemies scouted on preparation day, and separate achievement criteria exist for troops donated and troops received, counting both directions. One achievement requires requesting reinforcements, which can't be done without joining a clan. A gold pass perk reduces the wait for a clan castle troop request by 90 percent. The transfer itself was not performed during any session.",
+      "detail": [
+        "Achievement criteria track troops donated and troops received separately.",
+        "Requesting reinforcements requires clan membership.",
+        "A gold pass perk cuts the troop request wait by 90 percent."
+      ],
+      "tags": [
+        {
+          "name": "Clan / Guild",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "The clan is a persistent entity with a roster, badge, description, and settings, and holds state of its own: clan experience, a treasury, war records and a war log, a clan level requirement structure, a position in ranked clan lists, and a clan capital with buildings and districts funded by member contributions (O62, O64, O65, O66, O67, O68). Member activity changes that collective state through donation, war attacks, and capital gold contribution (O60, O65, O67). Membership changes observable conditions: the clan castle can receive reinforcements, war surfaces appear, and clan chat opens (O60, O63, O65).",
+          "alternativeConsidered": "Group Membership and Community Space, its two mutually exclusive siblings. The decision ladder in the entry takes the most specific observed level: a collective group-owned state is present in the clan's experience, treasury, war record, ranking and capital (O65, O66, O67, O68), which selects Clan / Guild over both siblings.",
+          "role": "social, engagement, retention\n\nMembership brings other identified people into the product through chat, donation and war (O60, O63, O65); it changes what can be done in a session by adding reinforcements and war surfaces (O60, O65); and war schedules, league sign-up windows and the clan's own construction run on multi-day cycles that require coming back (O65, O66, O67)."
+        },
+        {
+          "name": "Gifting",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "The product describes clan members sending troops and spells to a member's clan castle, counts troops donated and troops received as separate achievement criteria, and sells a perk that shortens the wait on a request, all of which establish a directed non-reciprocal transfer of a product-defined benefit between identified accounts (O33, O60, O84). No reciprocal transfer is required of the recipient (O60). The transfer itself was not performed in any session, so its interface, limits, and timing are not described here (O60).",
+          "alternativeConsidered": "No mechanic label, on the grounds that donation is a contribution to a shared clan pool. The clan castle that receives the troops belongs to one named member and the counters are per-member, which makes the recipient identifiable rather than a pool.",
+          "role": "social, engagement\n\nThe transfer runs between identified clan members in both directions and is counted separately for each (O33, O60), and the received troops are used in the receiving member's own battles and defenses (O60, O65)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O61",
+      "name": "Clan discovery and filters",
+      "section": "social",
+      "observed": "The clan finder opens by asking for a language, then lists clans by recent notices alongside bookmarks and a filtered search. Filters include location, whether the user can join, family-friendly status, war frequency, member count, league requirement, builder base league, and clan labels. Bookmarks can be added from a clan notice or a clan info page.",
+      "detail": [
+        "The finder opens by asking for a language before showing any clans.",
+        "Filters include location, war frequency, member count, league requirement, and a family-friendly flag.",
+        "The narrator joined a clan directly from the notice list."
+      ],
+      "tags": [
+        {
+          "name": "Clan / Guild",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "The clan is a persistent entity with a roster, badge, description, and settings, and holds state of its own: clan experience, a treasury, war records and a war log, a clan level requirement structure, a position in ranked clan lists, and a clan capital with buildings and districts funded by member contributions (O62, O64, O65, O66, O67, O68). Member activity changes that collective state through donation, war attacks, and capital gold contribution (O60, O65, O67). Membership changes observable conditions: the clan castle can receive reinforcements, war surfaces appear, and clan chat opens (O60, O63, O65).",
+          "alternativeConsidered": "Group Membership and Community Space, its two mutually exclusive siblings. The decision ladder in the entry takes the most specific observed level: a collective group-owned state is present in the clan's experience, treasury, war record, ranking and capital (O65, O66, O67, O68), which selects Clan / Guild over both siblings.",
+          "role": "social, engagement, retention\n\nMembership brings other identified people into the product through chat, donation and war (O60, O63, O65); it changes what can be done in a session by adding reinforcements and war surfaces (O60, O65); and war schedules, league sign-up windows and the clan's own construction run on multi-day cycles that require coming back (O65, O66, O67)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O62",
+      "name": "Clan creation settings",
+      "section": "social",
+      "observed": "Creating a clan exposes the same attributes the finder searches on, set by the creator: name, description, badge, who may join, war frequency, required builder base and home leagues, a minimum town hall level from 1 to 18, location, chat language, a family-friendly flag, and labels. War frequency options include always, not set, never, and rarely.",
+      "detail": [
+        "Creation settings mirror the finder's own search filters exactly.",
+        "Minimum town hall level for joining can be set anywhere from 1 to 18.",
+        "War frequency options are always, not set, never, and rarely."
+      ],
+      "tags": [
+        {
+          "name": "Clan / Guild",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "The clan is a persistent entity with a roster, badge, description, and settings, and holds state of its own: clan experience, a treasury, war records and a war log, a clan level requirement structure, a position in ranked clan lists, and a clan capital with buildings and districts funded by member contributions (O62, O64, O65, O66, O67, O68). Member activity changes that collective state through donation, war attacks, and capital gold contribution (O60, O65, O67). Membership changes observable conditions: the clan castle can receive reinforcements, war surfaces appear, and clan chat opens (O60, O63, O65).",
+          "alternativeConsidered": "Group Membership and Community Space, its two mutually exclusive siblings. The decision ladder in the entry takes the most specific observed level: a collective group-owned state is present in the clan's experience, treasury, war record, ranking and capital (O65, O66, O67, O68), which selects Clan / Guild over both siblings.",
+          "role": "social, engagement, retention\n\nMembership brings other identified people into the product through chat, donation and war (O60, O63, O65); it changes what can be done in a session by adding reinforcements and war surfaces (O60, O65); and war schedules, league sign-up windows and the clan's own construction run on multi-day cycles that require coming back (O65, O66, O67)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O63",
+      "name": "Clan chat and its rules",
+      "section": "social",
+      "observed": "Joining a clan opens a chat carrying a rules notice, asking members to respect each other, keep private information private, and report offensive players, with misconduct risking a ban. The first message observed in it was an unsolicited promotion of an external site offering free gems, which the narrator judged an attempted scam. Clan membership was shown as 2 of 15 online.",
+      "detail": [
+        "The chat rules notice warns that misconduct may lead to a ban.",
+        "The first chat message observed was an external scam attempt.",
+        "The clan showed 2 of 15 members online."
+      ],
+      "tags": [
+        {
+          "name": "Clan / Guild",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "The clan is a persistent entity with a roster, badge, description, and settings, and holds state of its own: clan experience, a treasury, war records and a war log, a clan level requirement structure, a position in ranked clan lists, and a clan capital with buildings and districts funded by member contributions (O62, O64, O65, O66, O67, O68). Member activity changes that collective state through donation, war attacks, and capital gold contribution (O60, O65, O67). Membership changes observable conditions: the clan castle can receive reinforcements, war surfaces appear, and clan chat opens (O60, O63, O65).",
+          "alternativeConsidered": "Group Membership and Community Space, its two mutually exclusive siblings. The decision ladder in the entry takes the most specific observed level: a collective group-owned state is present in the clan's experience, treasury, war record, ranking and capital (O65, O66, O67, O68), which selects Clan / Guild over both siblings.",
+          "role": "social, engagement, retention\n\nMembership brings other identified people into the product through chat, donation and war (O60, O63, O65); it changes what can be done in a session by adding reinforcements and war surfaces (O60, O65); and war schedules, league sign-up windows and the clan's own construction run on multi-day cycles that require coming back (O65, O66, O67)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O64",
+      "name": "Player profile and social settings",
+      "section": "social",
+      "observed": "The profile controls how much contact other players may make: clan invites can be set to receive invites or no invites. Up to three labels can be chosen to describe play style, from a list including talkative, teacher, competitive, amateur attacker, newbie, veteran, and others tied to specific game modes. The profile carries a share link, a clan badge where one applies, and the current ranking, shown as unranked, and splits into home village, builder base, and clan capital views.",
+      "detail": [
+        "Clan invites can be toggled to receive invites or none.",
+        "Up to three play-style labels can be chosen from a fixed list.",
+        "The profile splits into home village, builder base, and clan capital views."
+      ],
+      "tags": [
+        {
+          "name": "Clan / Guild",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "The clan is a persistent entity with a roster, badge, description, and settings, and holds state of its own: clan experience, a treasury, war records and a war log, a clan level requirement structure, a position in ranked clan lists, and a clan capital with buildings and districts funded by member contributions (O62, O64, O65, O66, O67, O68). Member activity changes that collective state through donation, war attacks, and capital gold contribution (O60, O65, O67). Membership changes observable conditions: the clan castle can receive reinforcements, war surfaces appear, and clan chat opens (O60, O63, O65).",
+          "alternativeConsidered": "Group Membership and Community Space, its two mutually exclusive siblings. The decision ladder in the entry takes the most specific observed level: a collective group-owned state is present in the clan's experience, treasury, war record, ranking and capital (O65, O66, O67, O68), which selects Clan / Guild over both siblings.",
+          "role": "social, engagement, retention\n\nMembership brings other identified people into the product through chat, donation and war (O60, O63, O65); it changes what can be done in a session by adding reinforcements and war surfaces (O60, O65); and war schedules, league sign-up windows and the clan's own construction run on multi-day cycles that require coming back (O65, O66, O67)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O65",
+      "name": "Clan wars",
+      "section": "social",
+      "observed": "A clan war is a two-day contest between two clans scored in stars, with a preparation day and a battle day, decided by whichever clan scores more stars and, in a tie, by total destruction. On preparation day, war bases are open for donation and can be redesigned. On battle day, only the best attack against each enemy base counts. War attacks don't reduce the shield or affect trophies, and bonus loot goes to the treasury at the end, mostly lost if the clan loses. The live war observed showed the user's clan at 24 stars against the opponent's 3.",
+      "detail": [
+        "Wars run a fixed two-day cycle: preparation, then battle.",
+        "Only the best attack against each enemy base counts on battle day.",
+        "War attacks don't affect trophies or reduce the shield.",
+        "The live war observed showed a 24-to-3 star lead for the user's clan."
+      ],
+      "tags": [
+        {
+          "name": "Challenge",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported",
+            "strongly supported"
+          ],
+          "rationale": "Each starter challenge is a discrete instance with a stated success condition and a tracked completed state, and completion pays points where non-completion pays none (O12, O34). The scope boundary is the starter stage: the set is named for it and expands only as the town hall level rises, so the instance set is bounded by progression rather than remaining an open standing goal (O12, O34).\n\nA clan war is a bounded instance with a stated end boundary of two days, a stated success condition of scoring the most stars, a stated tie rule, and a concluded result that pays bonus loot and clan experience to the winner and withdraws most of the bonus loot from the loser (O65). The war in progress showed both clans' running star totals and destroyed bases, so the active state is maintained and observable (O65).",
+          "alternativeConsidered": "Daily / Weekly Quests, since the objectives resemble issued tasks. No daily or weekly issuance, refresh, or reset rule was observed for them; new ones arrive on town hall upgrades instead, which is not a recurring calendar cadence.\n\nLeaderboard, since the war screen orders two clans by stars. The ordering there is the scoring of one bounded contest rather than a standing comparison surface; the standing ordered lists are tagged separately as Leaderboard.",
+          "role": "engagement\n\nThe objectives name actions performed inside a session, such as buying wall pieces, upgrading collectors, and destroying buildings in battles, and were pursued within the session in which they were issued (O12, O34). | social, engagement\n\nThe instance is contested by the clan as a unit against another clan with donation and base design contributed by members (O65), and the attacking within it is the ordinary in-session activity (O43)."
+        },
+        {
+          "name": "Clan / Guild",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "The clan is a persistent entity with a roster, badge, description, and settings, and holds state of its own: clan experience, a treasury, war records and a war log, a clan level requirement structure, a position in ranked clan lists, and a clan capital with buildings and districts funded by member contributions (O62, O64, O65, O66, O67, O68). Member activity changes that collective state through donation, war attacks, and capital gold contribution (O60, O65, O67). Membership changes observable conditions: the clan castle can receive reinforcements, war surfaces appear, and clan chat opens (O60, O63, O65).",
+          "alternativeConsidered": "Group Membership and Community Space, its two mutually exclusive siblings. The decision ladder in the entry takes the most specific observed level: a collective group-owned state is present in the clan's experience, treasury, war record, ranking and capital (O65, O66, O67, O68), which selects Clan / Guild over both siblings.",
+          "role": "social, engagement, retention\n\nMembership brings other identified people into the product through chat, donation and war (O60, O63, O65); it changes what can be done in a session by adding reinforcements and war surfaces (O60, O65); and war schedules, league sign-up windows and the clan's own construction run on multi-day cycles that require coming back (O65, O66, O67)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O66",
+      "name": "Clan war leagues and clan prizes",
+      "section": "social",
+      "observed": "A recurring event places clans in a group of eight, paying glory, bonus loot, clan XP, and league medals; it was shown with 8 days 9 hours remaining. A separate clan tournament pays gem prizes divided among a clan's top members: 45,000 gems for first place, 30,000 for second, and 15,000 for third, split among the top 30 players.",
+      "detail": [
+        "Clan war leagues group eight clans against each other.",
+        "Clan war league rewards include glory, bonus loot, clan XP, and league medals.",
+        "A clan tournament divides gem prizes among a clan's top 30 members."
+      ],
+      "tags": [
+        {
+          "name": "Clan / Guild",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "The clan is a persistent entity with a roster, badge, description, and settings, and holds state of its own: clan experience, a treasury, war records and a war log, a clan level requirement structure, a position in ranked clan lists, and a clan capital with buildings and districts funded by member contributions (O62, O64, O65, O66, O67, O68). Member activity changes that collective state through donation, war attacks, and capital gold contribution (O60, O65, O67). Membership changes observable conditions: the clan castle can receive reinforcements, war surfaces appear, and clan chat opens (O60, O63, O65).",
+          "alternativeConsidered": "Group Membership and Community Space, its two mutually exclusive siblings. The decision ladder in the entry takes the most specific observed level: a collective group-owned state is present in the clan's experience, treasury, war record, ranking and capital (O65, O66, O67, O68), which selects Clan / Guild over both siblings.",
+          "role": "social, engagement, retention\n\nMembership brings other identified people into the product through chat, donation and war (O60, O63, O65); it changes what can be done in a session by adding reinforcements and war surfaces (O60, O65); and war schedules, league sign-up windows and the clan's own construction run on multi-day cycles that require coming back (O65, O66, O67)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O67",
+      "name": "Clan capital",
+      "section": "social",
+      "observed": "A third shared construction context, the clan capital, is funded by a currency members contribute. Capital gold is stated to construct and upgrade buildings and unlock districts, and a clan capital tab appears in the profile's achievements view. The clan capital itself was never entered during any session.",
+      "detail": [
+        "Capital gold, contributed by members, funds clan capital construction.",
+        "A clan capital tab exists in the profile, separate from the home village and builder base tabs.",
+        "The clan capital area was never opened during the sessions."
+      ],
+      "tags": [
+        {
+          "name": "Clan / Guild",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "The clan is a persistent entity with a roster, badge, description, and settings, and holds state of its own: clan experience, a treasury, war records and a war log, a clan level requirement structure, a position in ranked clan lists, and a clan capital with buildings and districts funded by member contributions (O62, O64, O65, O66, O67, O68). Member activity changes that collective state through donation, war attacks, and capital gold contribution (O60, O65, O67). Membership changes observable conditions: the clan castle can receive reinforcements, war surfaces appear, and clan chat opens (O60, O63, O65).",
+          "alternativeConsidered": "Group Membership and Community Space, its two mutually exclusive siblings. The decision ladder in the entry takes the most specific observed level: a collective group-owned state is present in the clan's experience, treasury, war record, ranking and capital (O65, O66, O67, O68), which selects Clan / Guild over both siblings.",
+          "role": "social, engagement, retention\n\nMembership brings other identified people into the product through chat, donation and war (O60, O63, O65); it changes what can be done in a session by adding reinforcements and war surfaces (O60, O65); and war schedules, league sign-up windows and the clan's own construction run on multi-day cycles that require coming back (O65, O66, O67)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O68",
+      "name": "Top players and top clans",
+      "section": "social",
+      "observed": "Ranked lists present other players and clans in order, in both global and national scopes, plus a clan war league scope for clans. The leaderboard view holds four tabs: my league, my town hall, top players, and top clans. The global top entry observed showed 88 attacks won and roughly 5,814 trophies. The user's own position was unranked and did not appear on any list.",
+      "detail": [
+        "Four leaderboard tabs exist: my league, my town hall, top players, top clans.",
+        "The global top player entry showed 88 attacks won and about 5,814 trophies.",
+        "The user did not appear on any ranked list."
+      ],
+      "tags": [
+        {
+          "name": "Leaderboard",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Four ordered views present multiple comparable entities by trophy count within defined scopes: top players globally, top players nationally, top clans globally and nationally, and a clan war league scope (O68). The ordering is comparative rather than organizational, and the user's absence from the lists is itself the differential response (O68).",
+          "alternativeConsidered": "Comparative Rank, which the Leaderboard entry names as the label for a position shown without other entities. The observed surfaces present many ordered entities at once, so the leaderboard label is the correct one; the user's own standing was an unranked state and a threshold-based league tier, neither of which is a position derived from ordering against others.",
+          "role": "social, engagement\n\nThe lists are populated by other identified players and clans (O68) and sit beside the league surface that the user's own battles advance (O36)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O69",
+      "name": "Friends and cross-game identity",
+      "section": "social",
+      "observed": "A social tab holds friends, friend requests, and player search, stating that Game Center and linked-account friends appear automatically once logged in. Friends can be added from a player profile, and the linked account hub states that friends' progress and online status can be seen.",
+      "detail": [
+        "Friends can be added directly from a player's profile.",
+        "Logging into a linked account surfaces existing friends automatically.",
+        "The linked account hub shows friends' progress and online status."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O70",
+      "name": "Revenge attacks",
+      "section": "social",
+      "observed": "An attacker recorded in the defense log can be attacked back under different rules from an ordinary attack: targets are chosen from the defense log, magic shields don't stop revenge attacks, and the target will hold at least the same resources that were taken. During session 2, the narrator observed another player had completed a revenge attack against the user's village and replayed it.",
+      "detail": [
+        "Revenge targets are chosen from the defense log.",
+        "Magic shields don't block revenge attacks.",
+        "The revenged-upon target holds at least the resources originally taken.",
+        "The narrator's own village was revenge-attacked by another player during the sessions."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O71",
+      "name": "Account linking rewarded far above comparable actions",
+      "section": "growth",
+      "observed": "The achievement for linking an account pays around ten times the reward of the ordinary progression achievements sitting beside it.",
+      "detail": [
+        "Linking pays 100 experience points and 50 gems; upgrading the town hall to level 3 pays 10 experience points and 5 gems.",
+        "The reward didn't appear until the app was relaunched, at which point it was granted with three stars."
+      ],
+      "tags": [
+        {
+          "name": "Achievement",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Named criteria change from unattained to attained, the attained state persists in a profile list, and attainment grants experience points and gems separately from the activity that satisfied the criterion (O33). Criteria are evaluated against activity the user performs elsewhere, and the attained state survives closing and reopening the app (O13).",
+          "alternativeConsidered": "Milestone, since several criteria are thresholds within the town hall progression. The criteria are maintained as a separate list with their own attained states and rewards rather than as recognitions inside the progression itself, which is what the Achievement entry describes; the ladder that is a threshold set within an ongoing measure is tagged separately as Milestone.",
+          "role": "engagement\n\nThe list is read and its entries are worked toward inside the session, with the linking criterion acted on directly (O13, O33, O71) and other criteria naming in-session actions such as unlocking units and upgrading the town hall (O33)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O72",
+      "name": "Cross-game identity hub and external rewards site",
+      "section": "growth",
+      "observed": "The linked account is presented as a hub across the developer's other games, with its own rewards programme hosted outside the app.",
+      "detail": [
+        "The linking screens state that several identities can be switched between on one device, and friends' progress and status can be seen.",
+        "After linking, an ID rewards card offers 1,000 free points for activation, which leaves the game for a website.",
+        "The narrator records not knowing what the rewards points are for."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O73",
+      "name": "Creator and esports links leading out of the app",
+      "section": "growth",
+      "observed": "A news panel carries the developer's own posts alongside links to named content creators and esports channels, which open externally.",
+      "detail": [
+        "Clicking a creator's link opened a video site.",
+        "All items in the panel originate from the product or from creators it selects; other players can't contribute to it."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O74",
+      "name": "In-app pop-up to an external video",
+      "section": "growth",
+      "observed": "During play, a pop-up appeared and took the user out of the app to a video for the current season.",
+      "detail": [
+        "The video was approximately one minute and 42 seconds.",
+        "The same season's theme is sold in the store as a scenery."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O75",
+      "name": "Motivation survey linked to the profile",
+      "section": "growth",
+      "observed": "Returning from the video, the app presented a two-question survey about play motivations, stating that answers may be retained and linked to the profile.",
+      "detail": [
+        "The consent text states responding is completely voluntary.",
+        "The two questions ask what's most important in a game and what the user most looks forward to, each with a long list of options."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O76",
+      "name": "Store page and shareable identity",
+      "section": "growth",
+      "observed": "The product surfaces outward through the store listing and a shareable player profile link.",
+      "detail": [
+        "The store listing features the current season as its headline promotion.",
+        "The profile carries a share button that copies or shares a link to the profile."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O77",
+      "name": "The shop opens on offers",
+      "section": "money",
+      "observed": "Whichever tab was last used, the shop reopens on the offers tab every time it's entered.",
+      "detail": [
+        "The shop's other tabs are league shop, shields, treasure, decorations, cosmetics, and buildings and traps.",
+        "Monetization first appears at the moment the shop is entered after the guided opening, not before it."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O78",
+      "name": "Timed starter offers",
+      "section": "money",
+      "observed": "The first offers carry low prices and countdowns, purchasable only once within the displayed period.",
+      "detail": [
+        "A builder pack sells a builder hut and 200 gems for $0.99, with no countdown shown.",
+        "Hero pride sells three hero potions for $0.99, with just under two days remaining.",
+        "Dynamic duo sells 500,000 gold, 100,000 elixir, a book of everything, and three builder potions for $2.99."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O79",
+      "name": "A pack per town hall level",
+      "section": "money",
+      "observed": "Each town hall upgrade brings a corresponding pack into the store.",
+      "detail": [
+        "A town hall 4 pack costs $1.49, lasts five days, and includes a million gold, a million elixir, two builder potions, and a level 2 air defense.",
+        "Town hall 5, 6, and 7 packs each appeared on reaching those levels."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O80",
+      "name": "Store contents change after a purchase",
+      "section": "money",
+      "observed": "After a purchase, the purchased pack is replaced by a different offer.",
+      "detail": [
+        "After a builder pack was bought, a thousand gems for $2.49 appeared in its place.",
+        "The town hall 5 pack disappeared as an option after the one held was acquired."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O81",
+      "name": "Offers priced against the earned alternative",
+      "section": "money",
+      "observed": "A quantity of resources sold for money sits alongside the same class of item priced in an earned currency the user doesn't hold.",
+      "detail": [
+        "The league shop sells 2.5 million gold for 15 league medals, against a balance of zero medals.",
+        "A separate offer sells a million gold and a million elixir for $1.49."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O82",
+      "name": "Cosmetics catalogue",
+      "section": "money",
+      "observed": "A cosmetics tab unlocked at town hall 4 sells alternative presentations of the village, the characters, and the boat.",
+      "detail": [
+        "Standard sceneries cost $3.49; two occasion-tied sceneries cost $16.99.",
+        "The current season's scenery is sold separately for $4.99 with an in-app preview.",
+        "Town hall 7 brought five named hero skins into the store.",
+        "No cosmetic was observed to change a rule, cost, or outcome."
+      ],
+      "tags": [
+        {
+          "name": "Cosmetic Customization",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "The product maintains named alternative presentations of the village, the heroes, the second village character, and the boat, applies one at a time, and previews the result before purchase (O82). Nothing observed tied a cosmetic to a rule, cost, eligibility, or outcome (O82). The product groups them under its own cosmetics tab, which is its framing of them as presentation content rather than configuration (O82).",
+          "alternativeConsidered": "No mechanic label, treating the decorations as village objects rather than cosmetics. Decorations occupy grid space like buildings, but no decoration was observed to change a rule or outcome and several are sold from the same catalogue as sceneries, so they sit inside the same presentation behavior.",
+          "role": "monetization, engagement\n\nThe catalogue is priced from $3.49 to $16.99 and a skin is the headline exclusive of the paid pass lane (O38, O82), while the selection itself is an in-session activity with a preview of how the village would look (O82)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O83",
+      "name": "Magic shields sold in gems",
+      "section": "money",
+      "observed": "Protection from resource loss is sold in gems, priced so longer durations cost proportionally less, with durations that combine.",
+      "detail": [
+        "One day costs 100 gems, two days 150 gems, one week 250 gems.",
+        "Shields don't affect ranked or legend league battles and don't stop revenge attacks.",
+        "Attacking doesn't reduce shield duration."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O84",
+      "name": "Gold pass price and perks",
+      "section": "money",
+      "observed": "The gold pass costs $4.99 and carries a list of standing perks in addition to its track rewards.",
+      "detail": [
+        "Perks include builder boost, auto forge, a clan castle troop request wait reduced by 90 percent, and the piggy bank multiplier.",
+        "Further benefits include a hero skin choice, full dark elixir storages, a wall ring, and capital gold."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O85",
+      "name": "Piggy bank",
+      "section": "money",
+      "observed": "A reserve accumulates bonus loot from battles during the season and is opened at the end of it, with the gold pass multiplying the payout five times.",
+      "detail": [
+        "Stated caps: 0 to 2 million gold, 0 to 2 million elixir, 0 to 20,000 dark elixir, and 0 to 800,000 of each second village currency.",
+        "The silver lane carries no multiplier.",
+        "The narrator hadn't encountered the reserve before seeing it on the pass screen."
+      ],
+      "tags": [
+        {
+          "name": "Piggy Bank",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "The product describes a reserve that saves bonus loot from battle, holds it separately under stated per-currency caps, and opens at the end of the season, which is a restricted accumulation released by a defined rule (O85). A season end message reading bank rewards collected was observed, showing the release occurring (O92). The reserve's ordinary contribution behavior was seen only as described on the pass screen, not in operation (O85).",
+          "alternativeConsidered": "No mechanic label, treating the surface as a season-end payout calculation. The screen states per-currency caps on a held amount and describes it as saved from battle and opened later, which is an accumulating restricted reserve rather than a computed payout.",
+          "role": "monetization, retention\n\nThe reserve's payout multiplier is one of the paid lane's stated perks (O84, O85), and the reserve fills from battles across the season and only opens at the season boundary (O85, O92)."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O86",
+      "name": "Purchase disclosure routed to a website",
+      "section": "money",
+      "observed": "The pass info button leads to the developer's website rather than an in-game explanation.",
+      "detail": [
+        "The page shown covers in-app purchases, discounts, and offers.",
+        "The same disclosure was made at launch, before play began."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O87",
+      "name": "No separate bonus observed on a first purchase",
+      "section": "money",
+      "observed": "A purchase was made during the sessions, and no benefit separate from the purchased contents was observed to follow from its being the first.",
+      "detail": [
+        "Session 2 records only the change in what the store offered after a builder pack was purchased.",
+        "No message, grant, or claim state tied to a first purchase was seen."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O88",
+      "name": "Return-from-absence flow",
+      "section": "returns",
+      "observed": "Reopening after time away produces a summary of what happened in the user's absence before play resumes.",
+      "detail": [
+        "The banner reads welcome back chief, followed by a list of upgrades that completed.",
+        "The same screen carries the current event with its remaining time."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O89",
+      "name": "Shield countdown on the main screen",
+      "section": "returns",
+      "observed": "A shield icon with a running countdown sits at the top of the screen from the first session, showing how long the village's resources remain protected.",
+      "detail": [
+        "The initial state was 2 days 23 hours, pulsing for attention.",
+        "The stated explanation is that magic shields protect resources from attacks in regular battles."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O90",
+      "name": "Eight-hour shield after being attacked",
+      "section": "returns",
+      "observed": "Being attacked grants an eight hour shield automatically.",
+      "detail": [
+        "The text reads you'll get an 8 hour magic shield after your village is attacked.",
+        "Attacking during that period doesn't shorten it."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O91",
+      "name": "Event calendar with current and upcoming events",
+      "section": "returns",
+      "observed": "A calendar lists what's running now, what starts next, and what's scheduled across the month.",
+      "detail": [
+        "Today's event was clan war leagues, with 8 days 9 hours remaining.",
+        "The upcoming event was a raid weekend starting in 8 hours 58 minutes.",
+        "None of the calendar's events was entered during the sessions."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O92",
+      "name": "Season boundary",
+      "section": "returns",
+      "observed": "A season ended during the sessions, paying out accumulated rewards, and a new one opened with its own countdown.",
+      "detail": [
+        "The end message granted gold, elixir, second village tokens, amethyst droplets, and bank rewards collected.",
+        "The new season was stated as ending in 27 days and 19 hours."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O93",
+      "name": "Notification permission",
+      "section": "returns",
+      "observed": "The app requests permission to send notifications during the first session, at the point the first town hall upgrade is started.",
+      "detail": [
+        "What notifications would be sent wasn't stated."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O94",
+      "name": "Offer countdowns",
+      "section": "returns",
+      "observed": "Most purchasable offers carry a visible countdown to their withdrawal.",
+      "detail": [
+        "Observed remaining times ranged from just under two days to five days.",
+        "The builder pack carried no countdown while the others did."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O95",
+      "name": "Long timers and idle builders",
+      "section": "returns",
+      "observed": "Once upgrade durations reach hours, play can't continue in the intended direction until they finish.",
+      "detail": [
+        "The narrator names a 30 minute upgrade as the first that would allow leaving and coming back.",
+        "Session 3 ends with the narrator stopping because there's nothing to do but wait."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O96",
+      "name": "Task card cooldown",
+      "section": "returns",
+      "observed": "The season track's next task card is released on a timer rather than on demand.",
+      "detail": [
+        "The card stated the next task card unlocks in 19 hours and 20 minutes.",
+        "Tasks on the current card can be completed any number of times in the meantime."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O97",
+      "name": "Rating prompt on the second visit",
+      "section": "returns",
+      "observed": "On the second session, the app asked whether the user was enjoying it.",
+      "detail": [
+        "The prompt appeared after most of the available surfaces had been seen.",
+        "What the prompt led to wasn't recorded."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    }
+  ],
+  "systemView": [
+    "Clash of Clans is a complex system. Town hall level is the spine: it gates nearly every other mechanic, sets the size of the resource problem the rest of the system exists to solve, and the pass, the clan requirements, and the reward structure all sit downstream of it. Everything else, the three resource routes, the shield that protects what's been built, the clan layer, and the monetization layered on top, exists either as a condition on reaching the next town hall level or as a way of getting there sooner."
+  ],
+  "mechanicWriteups": [
+    {
+      "name": "Achievement",
+      "observed": "Clash of Clans keeps a named achievement list across separate categories for the home village, the builder base, and the clan capital, each entry carrying up to three stars and paying experience points and gems on attainment. Observed criteria include connecting an account, upgrading the town hall to level 3, unlocking specific troops, and social actions like donating or requesting reinforcements. One criterion, linking the account, pays roughly ten times the experience and gems of an ordinary progression criterion sitting beside it.",
+      "presented": "The list sits in a profile view split by village, each entry showing its current star count and reward. Newly attained criteria don't always register immediately: the account-linking achievement didn't update until the app was closed and reopened.",
+      "noting": "Clash of Clans pays a single criterion, linking an external account, at roughly ten times the reward of an ordinary progression achievement next to it. Whatever a game rewards at ten times the going rate is worth reading as the action the product cares most about a new player taking.",
+      "findings": [
+        "Achievement lists exist separately for the home village, the builder base, and the clan capital.",
+        "Linking an account pays 100 experience points and 50 gems; upgrading the town hall to level 3 pays 10 experience points and 5 gems.",
+        "One criterion requires requesting reinforcements, which cannot be done without joining a clan.",
+        "The account-linking achievement did not register until the app was closed and reopened."
+      ],
+      "screenshotsNote": "the achievements list showing the linked-account criterion's reward beside an ordinary progression criterion."
+    },
+    {
+      "name": "Challenge",
+      "observed": "Clash of Clans runs two separate structures under this shape. A set of starter challenges pays points toward a single reward ladder for actions like buying wall pieces or destroying buildings in battle, with further challenges unlocked by raising the town hall level rather than by a calendar. Separately, a clan war is a two-day contest between two clans, scored in stars, with a stated tie rule and a concluded result that pays bonus loot to the winner and takes most of it from the loser.",
+      "presented": "Starter challenges sit behind a shield-marked button with a running point total, introduced by the game's guide character. A clan war shows both clans' running star totals and destroyed bases while in progress, with scouting, replays, and per-member records available alongside it.",
+      "noting": "Both structures are bounded objective instances with a tracked state, but neither renews on a calendar the way a daily or weekly quest would: starter challenges expand only when the town hall levels up, and a clan war ends after its own two-day window rather than resetting on a schedule.",
+      "findings": [
+        "Starter challenges are worth 1,050 points against a ladder running to 5,000; more unlock only by raising the town hall level.",
+        "Observed starter challenges include destroying 50 buildings in multiplayer battles for 125 points and upgrading two elixir collectors for 150 points.",
+        "A clan war runs a fixed two-day contest, scored in stars, with a stated tie-break by total destruction.",
+        "One live war showed the user's clan at 24 stars against the opponent's 3, with per-member records available."
+      ],
+      "screenshotsNote": "the starter challenges screen showing the point ladder, and the live clan war screen showing both clans' star totals."
+    },
+    {
+      "name": "Clan / Guild",
+      "observed": "A clan is a persistent group with its own roster, badge, settings, and state: a treasury, a war record and log, a level requirement structure, a position in ranked clan lists, and a clan capital funded by member contributions. Joining one requires rebuilding a ruined clan castle first, and membership unlocks troop donation, clan wars, clan games, the clan capital, and clan chat.",
+      "presented": "A clan finder opens by asking for a language, then lists clans with filters for location, war frequency, member requirements, and league. Creating a clan instead of joining one exposes the same attributes, set by the creator, for 40,000 gold. Chat carries its own rules notice, and the profile splits into home village, builder base, and clan capital views.",
+      "noting": "Clash of Clans requires rebuilding a specific structure, the clan castle, before any social surface becomes reachable at all, and the achievement list pushes toward that same rebuild by naming a reinforcement request as one of its criteria. The social layer isn't discoverable early; it's gated behind a repair the player has to prioritize on purpose.",
+      "findings": [
+        "Joining or creating a clan requires a rebuilt clan castle, itself gated behind an elixir storage upgrade.",
+        "Creating a clan costs 40,000 gold; joining one is free once the castle is rebuilt.",
+        "Clan chat carries a rules notice, and the first observed message was an unsolicited external promotion.",
+        "A clan capital exists, funded by member-contributed currency, but was never entered during the sessions."
+      ],
+      "screenshotsNote": "the clan finder with its filter list, and the clan war screen showing the treasury and war record."
+    },
+    {
+      "name": "Cosmetic Customization",
+      "observed": "A cosmetics tab, unlocked at town hall 4, sells alternative presentations for the village, the heroes, the second village's character, and the boat, priced from $3.49 to $16.99. A hero skin is presented as an exclusive reward on the paid pass lane, and the season's own theme is sold separately as a scenery with an in-app preview.",
+      "presented": "Sceneries are shown with a preview of how the village would look before purchase. Higher-priced sceneries are tied to specific occasions. Decorations are sold from the same catalogue, priced in whichever currency matches their tier.",
+      "noting": "Nothing observed tied a cosmetic to a rule, a cost, or an outcome, including the decorations that physically occupy grid space the way a functional building would; they're presentation content dressed as village objects, not configuration.",
+      "findings": [
+        "Standard sceneries cost $3.49; two occasion-tied sceneries cost $16.99.",
+        "The current season's own scenery is sold separately for $4.99 with a village preview.",
+        "A hero skin is the headline exclusive reward on the paid pass lane, offered as a choice between two named skins.",
+        "No cosmetic was observed to change a rule, cost, or outcome."
+      ],
+      "screenshotsNote": "the cosmetics tab showing scenery pricing and the village preview."
+    },
+    {
+      "name": "Experience Points",
+      "observed": "Clash of Clans grants a quantified amount of experience for stated actions, mostly achievement attainment, and accumulates it toward an account level that rose from 1 to 4 within a single session. The points were never observed to be spent on anything; their only stated function is advancing the account level.",
+      "presented": "Achievement entries state the exact experience figure attached to each criterion. The account level sits at the top of the screen with a partial-progress indicator, separate from every other progress marker in the game.",
+      "noting": "Experience points do double duty here without ever being exchangeable for anything: they're the accumulating value behind the account level, and the level they build toward is itself a gate on at least one purchase, a decoration priced at one million gold that also requires experience level 75.",
+      "findings": [
+        "Linking an account grants 100 experience points; an ordinary town hall upgrade grants 10.",
+        "The account level rose from 1 to 4 within a single session.",
+        "One decoration requires experience level 75 in addition to its stated price.",
+        "Experience points were never observed being spent directly."
+      ],
+      "screenshotsNote": "an achievement entry showing its stated experience grant, and the account level indicator with its partial-progress bar."
+    },
+    {
+      "name": "Gifting",
+      "observed": "Clan members can send troops and spells to one another, held in the receiving member's clan castle for use in that member's own battles and defenses. Both directions, donating and receiving, are counted as separate achievement criteria, and a paid pass perk shortens the wait on a troop request.",
+      "presented": "The clan castle description states it can hold reinforcement troops or spells sent by clanmates. A gold pass perk is listed as reducing the wait on a clan castle troop request by 90 percent.",
+      "noting": "The transfer itself was never performed during any session, so what's established here is the structure the game describes, a directed, non-reciprocal transfer between identified accounts, rather than its interface or its limits in practice.",
+      "findings": [
+        "Troops and spells sent by clanmates are held in the receiving member's own clan castle.",
+        "Achievement criteria exist separately for troops donated and troops received.",
+        "A paid pass perk reduces the wait on a clan castle troop request by 90 percent.",
+        "No donation or request was actually performed during the sessions."
+      ],
+      "screenshotsNote": "the clan castle screen showing its reinforcement-holding description."
+    },
+    {
+      "name": "Hard Currency",
+      "observed": "Gems are Clash of Clans' paid currency, sold in six packages from $0.49 to $49.99, and spent on builder huts, instant build completion, magic shields, decorations, and direct conversion into gold and elixir. Gems are also granted without payment through achievements and clan prizes.",
+      "presented": "Every waiting state in the game, a build timer, a busy builder, a training queue, carries its own gem price to end it immediately, shown on the same screen as the wait itself.",
+      "noting": "Gems sit at the center of a single substitution the whole game runs on: paying money buys gems, gems buy time back from every wait in the game, and the same gems convert directly into the two resources that raiding would otherwise take hours to gather.",
+      "findings": [
+        "Six gem packages range from $0.49 for 80 gems to $49.99 for 14,000.",
+        "Gems convert directly into gold and elixir at a stated rate.",
+        "A second builder hut costs 250 gems; up to five are buildable.",
+        "Gems are also earned for free through achievements and clan war league prizes."
+      ],
+      "screenshotsNote": "the gem package pricing screen, and a wait screen showing its gem-priced speed-up option."
+    },
+    {
+      "name": "Leaderboard",
+      "observed": "Four ordered views rank other identified players and clans by trophy count: top players globally, top players nationally, top clans globally, and top clans within a clan war league scope.",
+      "presented": "The leaderboard sits behind its own tab with four sub-views. The user's own absence from every list, shown as an unranked state on the profile, is itself part of what the screen communicates.",
+      "noting": "The game keeps its comparative-standing surface, the leaderboard, separate from its threshold-based tier surface, the league system: a player can hold a specific league tier without ever appearing on, or checking, a leaderboard populated by other named players and clans.",
+      "findings": [
+        "Four leaderboard views exist: top players globally, top players nationally, top clans globally, and top clans by war league.",
+        "The top global entry observed held 88 attacks won and roughly 5,814 trophies.",
+        "The user's own position was unranked and did not appear on any list."
+      ],
+      "screenshotsNote": "the four-tab leaderboard view."
+    },
+    {
+      "name": "Leveling",
+      "observed": "Clash of Clans maintains at least three separate leveled states. The town hall holds a numbered level running to 18 that decides what else in the product is available, advancing only once a resource cost and a prerequisite building checklist are both satisfied; the second village runs the identical structure on its own builder hall. A separate account level advances as experience points cross a threshold. Both villages also maintain an ordered league tier, from skeleton to legend in the home village and wood 5 to diamond in the second, that rises and falls with trophies won and lost and sets the rate battles pay.",
+      "presented": "Every town hall upgrade screen lists exactly what it unlocks and what capacity it raises before the player commits. The account level sits at the top of the screen with its own partial-progress indicator. League tier is shown as a named rank tied to a trophy count, with a dedicated screen showing what each tier pays.",
+      "noting": "The town hall level is the one that everything else in the game answers to, buildings, troops, spells, heroes, cosmetics, and even the pass are all conditioned on it, while the account level and the league tier run as smaller, parallel states that never gate anything beyond a single decoration and a single reward rate respectively. Three things in this game are called levels, but only one of them is load-bearing.",
+      "findings": [
+        "The town hall runs a numbered level to 18, gated by both a resource cost and a prerequisite building checklist.",
+        "The account level rose from 1 to 4 within a single session, driven by experience points.",
+        "League tiers run skeleton through legend in the home village and wood 5 through diamond in the second, with the stated rule that more trophies raise the tier.",
+        "The trophy thresholds separating league tiers were never shown; only the product's own statement of the rule was observed.",
+        "The second village runs its own town-hall-equivalent level, the builder hall, on the identical structure."
+      ],
+      "screenshotsNote": "a town hall upgrade screen listing its unlocks, and the league tier screen showing tier-by-tier reward rates."
+    },
+    {
+      "name": "Milestone",
+      "observed": "The starter challenge point total is one continuous measure, and Clash of Clans separately recognizes defined totals along it, from 100 to 5,000, releasing a reward each time one is crossed.",
+      "presented": "The reward ladder is shown alongside the point total, with claimed rewards, 2,000 gold, then elixir, then a builder's byte, visibly distinct from unclaimed ones further along.",
+      "noting": "The ladder pays out further than the challenges available at any one time can fund: the active challenges add up to 1,050 points against a ladder running to 5,000, so reaching the later thresholds requires the town hall to level up first, which is what unlocks more challenges to complete.",
+      "findings": [
+        "The reward ladder runs from 100 to 5,000 points.",
+        "Rewards claimed so far include 2,000 gold, 2,000 elixir, 1,000 gold, and a builder's byte.",
+        "The final listed reward instantly finishes any building upgrade in either village.",
+        "Active challenges total only 1,050 points, short of what the full ladder requires."
+      ],
+      "screenshotsNote": "the reward ladder showing claimed and unclaimed thresholds."
+    },
+    {
+      "name": "Passive Construction",
+      "observed": "Starting a build or upgrade creates an instance that advances on its own timer, without further input, and completes into a new persistent state with higher stated capacity or hit points, whether or not the app is open. How many instances can run at once is capped by the number of builder huts owned.",
+      "presented": "A builder figure appears at the structure while it works. Timers grow from seconds at the earliest levels to twelve hours by town hall 6, and returning after an absence lists everything that finished while away.",
+      "noting": "The same capacity that limits how many things can be under construction at once is itself for sale, a second builder hut costs gems, and so does skipping the wait on any one build directly, which means the game prices both dimensions of this mechanic, how many and how long, separately.",
+      "findings": [
+        "Construction advances on a timer without further input, including while the app is closed.",
+        "Build times grow from 10 seconds at town hall 2 to 12 hours at town hall 6.",
+        "The number of builder huts owned caps how many constructions can run at once, up to five.",
+        "Starting a third construction with two builders is blocked with a message that all builders are busy."
+      ],
+      "screenshotsNote": "an in-progress construction showing its builder figure and timer, and the return-from-absence summary listing completed upgrades."
+    },
+    {
+      "name": "Piggy Bank",
+      "observed": "Clash of Clans saves bonus loot from battles into a reserve across the season and releases it at the season's end, with separate stated caps for each of the game's five currencies. A paid pass perk multiplies the reserve's payout by five at release.",
+      "presented": "The reserve is described on the pass screen rather than its own dedicated surface, and a season-end message confirms a release occurred.",
+      "noting": "The reserve's own contribution behavior was never seen operating, only described and then confirmed as paid out at a season boundary, so what's established here is that the reserve exists and releases on schedule, not the rate at which battles actually fill it.",
+      "findings": [
+        "The reserve caps at 2 million gold, 2 million elixir, 20,000 dark elixir, and 800,000 of each second-village currency.",
+        "A paid pass perk multiplies the reserve's contents by five at release.",
+        "The free lane carries no such multiplier.",
+        "A season-end message confirmed a release occurred, paying out accumulated rewards."
+      ],
+      "screenshotsNote": "the pass screen describing the reserve and its multiplier perk."
+    },
+    {
+      "name": "Seasonal Progression Pass",
+      "observed": "A season track runs for a stated 27 days, advanced by completing task cards that name ordinary actions like starting a building upgrade, with the next card released on its own timer rather than on demand. The track carries two lanes attached to the same 40 positions on the paid side and 30 on the free side, with the paid lane costing $4.99 and unlocking exclusive items the free lane never offers.",
+      "presented": "The pass doesn't exist at all until town hall 7, appearing immediately once that upgrade completes. Its own info button opens the developer's website rather than an in-game explanation.",
+      "noting": "By the time this pass becomes available, the player already holds a village, a second village, a clan, and an account level, and the pass prices its perks against every one of them at once, builder speed, research, a clan castle request, both villages' currencies, and the piggy bank multiplier, rather than against any single system.",
+      "findings": [
+        "The pass costs $4.99 and doesn't appear until town hall 7, six or seven hours into play by the narrator's estimate.",
+        "The free lane carries 30 rewards; the paid lane carries 40, with every fourth position paying nothing on the free side.",
+        "The season itself runs 27 days, ending and paying out before a new one opens.",
+        "A hero skin choice is the pass's headline exclusive reward."
+      ],
+      "screenshotsNote": "the pass screen showing both reward lanes, and the season countdown at the top of the track."
+    },
+    {
+      "name": "Soft Currency",
+      "observed": "Gold and elixir are earned from collectors and raid loot, held in capped storage, and spent on nearly everything the player builds or trains; dark elixir joins them at town hall 7 with its own drill and storage. The second village runs two further currencies, earned and spent entirely within its own loop, never observed usable in the home village. A separate balance, league medals, buys items from its own shop tab and is stated to come from clan war leagues, though none were held or spent during the sessions.",
+      "presented": "Gold and elixir each show a stated maximum and production rate on tap. The second village's currencies carry their own icons and their own star-bonus payout table. League medals sit in a dedicated shop tab showing a balance of zero against priced items.",
+      "noting": "Clash of Clans keeps five separate earned currencies, three of them fully walled off from each other by village, and the fifth, league medals, sits priced and ready in its own shop despite the game never actually granting any during the sessions observed.",
+      "findings": [
+        "Gold, elixir, and dark elixir are earned from collectors and raids and spent on nearly every home-village action.",
+        "The second village runs two of its own currencies, not usable in the home village.",
+        "League medals are stated to come from clan war leagues; the balance observed was 0 of a possible 2,500.",
+        "Gems can also be converted directly into gold or elixir."
+      ],
+      "screenshotsNote": "the resource bar showing gold, elixir, and gems together, and the league shop showing the zero medal balance against priced items.\n\n---"
+    }
+  ],
+  "sectionLeadIns": {
+    "onboarding": "Clash of Clans opens with a fully scripted sequence, from the store listing through consent screens to a guided first attack, before naming the player or leaving them to explore on their own. This section covers that opening in full.",
+    "core-loop": "Clash of Clans settles into a repeating sequence almost immediately: collect, build, train, attack, and start the next upgrade with whatever the attack paid for. This section covers that loop and the systems, timers, and logs running underneath it.",
+    "goals": "Town hall level is what nearly every other goal in Clash of Clans points back to, but it isn't the only progression state the game maintains. This section covers the town hall, the account level, the starter challenge ladder, and the season track that opens once the town hall reaches level 7.",
+    "access": "Nearly every gate in Clash of Clans reads on the town hall level, with a smaller set of conditions layered on top for specific systems. This section covers what the town hall gates directly, and the separate requirements behind the clan, the second village, and the pass.",
+    "earning": "Clash of Clans runs five separate earned currencies across two villages, plus a paid one that converts into both. This section covers what each is spent on and the storage and treasury systems that hold them.",
+    "social": "Clash of Clans' social layer sits entirely behind a rebuilt clan castle: nothing here is reachable until that repair is paid for. This section covers clan membership, chat, wars, the game's ranked lists, and the two ways other players can interact outside a clan.",
+    "growth": "Clash of Clans' growth surfaces all run through one linked account, which doubles as a hub across the developer's other games and a route out to content the game itself doesn't host. This section covers all of it.",
+    "money": "Clash of Clans' shop reopens on the same tab every time, and prices change with the player's own progress rather than sitting still. This section covers the shop's offers, packs, and pass, and the pricing decisions underneath them.",
+    "returns": "Clash of Clans brings players back with a returning-player summary, a running shield countdown, and a calendar of events layered on top of the season boundary itself. This section covers all of it."
+  },
+  "sectionCards": {
+    "onboarding": "Clash of Clans scripts a cannon build, a defense, and an attack before naming the player, then reveals its interface in stages as the town hall levels up.",
+    "core-loop": "Clash of Clans repeats collecting resources, starting upgrades, training troops, and raiding another village for loot to fund the next upgrade.",
+    "goals": "Clash of Clans measures progress mainly by town hall level, gated behind a resource cost and a prerequisite building checklist, alongside a smaller account level and a starter challenge ladder.",
+    "access": "Clash of Clans gates nearly everything by town hall level, with a rebuilt clan castle, a repaired boat, and a signup window gating the clan, the second village, and clan war leagues.",
+    "earning": "Clash of Clans runs five earned currencies across two villages plus a paid currency that converts directly into two of them.",
+    "social": "Clash of Clans keeps its entire social layer, donation, chat, wars, and leaderboards, behind a clan castle that has to be rebuilt first.",
+    "growth": "Clash of Clans rewards linking an external account roughly ten times more than an ordinary achievement, and hosts its own rewards site behind that link.",
+    "money": "Clash of Clans sells a rotating shop of offers and town-hall-scaled packs alongside a season pass priced against the village, the second village, and the clan at once.",
+    "returns": "Clash of Clans runs a shield countdown, a return-from-absence summary, and an event calendar layered on top of its own season boundary."
+  },
+  "proposedTags": [
+    {
+      "name": "Contestable Holdings",
+      "sourceObservations": [
+        "O23",
+        "O24",
+        "O54",
+        "O55",
+        "O70",
+        "O70"
+      ],
+      "draftDefinition": "The product holds a user's accumulated resources in a state that other users can take a portion of through a product-sanctioned action, and gives the holder means to reduce how much is taken. Holding value is therefore a position that must be defended rather than a balance that only grows.",
+      "conditions": "a persistent accumulated balance visible to other users before they act; a product-sanctioned action by which another user removes part of it; disclosure to the attacker of how much is available; a record shown to the holder of what was taken and by whom; and means under the holder's control that change the amount taken, here defenses, walls, and layout.\n**Why it is not covered.** No approved entry describes value the user holds being removed by another user. Soft Currency and Spendable Credits and Tokens cover acquisition and deliberate exchange, not involuntary transfer. Gifting covers a directed transfer initiated by the giver, the opposite direction. Clan / Guild covers collective state, not the taking of individual holdings. Leaderboard and Comparative Rank cover standing, not holdings.\n**Recurrence elsewhere:** plausible. The structure is stated without reference to this product, and nothing in it depends on villages, troops, or a war theme; it requires only persistent balances and a sanctioned route for one user to take from another. Whether it recurs in practice was not tested here and cannot be settled from these transcripts.\n**Caveat.** The user's own holdings were taken at least once during the sessions (O70), but the rules governing how much can be taken, what proportion is protected, and what the attacker gains relative to what the holder loses were never displayed. The proposal rests on the structure being observable, not on its parameters being known.",
+      "whyNotCovered": "No approved entry describes value the user holds being removed by another user. Soft Currency and Spendable Credits and Tokens cover acquisition and deliberate exchange, not involuntary transfer. Gifting covers a directed transfer initiated by the giver, the opposite direction. Clan / Guild covers collective state, not the taking of individual holdings. Leaderboard and Comparative Rank cover standing, not holdings.\n**Recurrence elsewhere:** plausible. The structure is stated without reference to this product, and nothing in it depends on villages, troops, or a war theme; it requires only persistent balances and a sanctioned route for one user to take from another. Whether it recurs in practice was not tested here and cannot be settled from these transcripts.\n**Caveat.** The user's own holdings were taken at least once during the sessions (O70), but the rules governing how much can be taken, what proportion is protected, and what the attacker gains relative to what the holder loses were never displayed. The proposal rests on the structure being observable, not on its parameters being known.",
+      "recurrenceElsewhere": "plausible. The structure is stated without reference to this product, and nothing in it depends on villages, troops, or a war theme; it requires only persistent balances and a sanctioned route for one user to take from another. Whether it recurs in practice was not tested here and cannot be settled from these transcripts.\n**Caveat.** The user's own holdings were taken at least once during the sessions (O70), but the rules governing how much can be taken, what proportion is protected, and what the attacker gains relative to what the holder loses were never displayed. The proposal rests on the structure being observable, not on its parameters being known.",
+      "caveat": "The user's own holdings were taken at least once during the sessions (O70), but the rules governing how much can be taken, what proportion is protected, and what the attacker gains relative to what the holder loses were never displayed. The proposal rests on the structure being observable, not on its parameters being known."
+    },
+    {
+      "name": "Protection Window",
+      "sourceObservations": [
+        "O83",
+        "O89",
+        "O90",
+        "O90"
+      ],
+      "draftDefinition": "The product sells or grants a time-bounded state during which a defined class of loss cannot occur to the user, with the remaining duration displayed continuously and stated exceptions under which the protection does not hold.",
+      "conditions": "a loss the user can suffer while away; a purchasable or granted state that suspends it; a visible countdown to the state's expiry; a price structure that makes longer durations cheaper per unit of time; a stacking rule; and stated exceptions that keep some loss possible.\n**Why it is not covered.** No approved entry describes a purchased suspension of a loss condition. Hard Currency covers the balance the protection is bought with, not the protection. Energy and Lives cover capacities and continuation units consumed by the user's own actions, not a shield against another party. Daily Claim Pack covers entitlements that release rewards over intervals, not a state that withholds a loss.\n**Recurrence elsewhere:** plausible. The pattern can be stated generically as protecting any user-held state from a defined loss for a bought period, and does not depend on this product's subject matter. It presupposes Contestable Holdings or another loss condition, so its recurrence is tied to that pattern's recurrence.\n**Caveat.** The purchased form was priced and read but never bought, and the granted eight hour form was described in text rather than observed being applied (O90). What happens at expiry beyond the loss becoming possible again was not observed.",
+      "whyNotCovered": "No approved entry describes a purchased suspension of a loss condition. Hard Currency covers the balance the protection is bought with, not the protection. Energy and Lives cover capacities and continuation units consumed by the user's own actions, not a shield against another party. Daily Claim Pack covers entitlements that release rewards over intervals, not a state that withholds a loss.\n**Recurrence elsewhere:** plausible. The pattern can be stated generically as protecting any user-held state from a defined loss for a bought period, and does not depend on this product's subject matter. It presupposes Contestable Holdings or another loss condition, so its recurrence is tied to that pattern's recurrence.\n**Caveat.** The purchased form was priced and read but never bought, and the granted eight hour form was described in text rather than observed being applied (O90). What happens at expiry beyond the loss becoming possible again was not observed.",
+      "recurrenceElsewhere": "plausible. The pattern can be stated generically as protecting any user-held state from a defined loss for a bought period, and does not depend on this product's subject matter. It presupposes Contestable Holdings or another loss condition, so its recurrence is tied to that pattern's recurrence.\n**Caveat.** The purchased form was priced and read but never bought, and the granted eight hour form was described in text rather than observed being applied (O90). What happens at expiry beyond the loss becoming possible again was not observed.",
+      "caveat": "The purchased form was priced and read but never bought, and the granted eight hour form was described in text rather than observed being applied (O90). What happens at expiry beyond the loss becoming possible again was not observed."
+    },
+    {
+      "name": "Concurrent Work Slots",
+      "sourceObservations": [
+        "O6",
+        "O16",
+        "O19"
+      ],
+      "draftDefinition": "The product limits how many of its background processes can run at the same time to a number the user holds, sells additional units of that number, and offers to free an occupied slot immediately for payment.",
+      "conditions": "processes that advance on their own once started; a held count that caps how many may run at once; a message when the cap is reached; a purchasable route to raise the count permanently; and a separate purchasable route to end one running process and release its slot now.\n**Why it is not covered.** Passive Construction covers the process, including that it may be slot-limited and accelerable, but classifies the construction instance rather than the held capacity that gates how many may exist. No approved entry classifies that capacity, which behaves differently from the process: it is owned, permanent, expandable by purchase, and applies across all processes rather than to one.\n**Recurrence elsewhere:** plausible. Stated generically the pattern needs only self-advancing processes and a permanent owned limit on their concurrency, neither of which is specific to construction or to this product.\n**Caveat.** The overlap with Passive Construction is real and an alternative reading is that the slot limit is simply one variant of that entry, which already lists slot-limited construction as a variant. The case for a separate entry is that the slot count is a distinct owned and purchasable object, not a property of any one construction. This proposal should be weighed against amending Passive Construction instead.",
+      "whyNotCovered": "Passive Construction covers the process, including that it may be slot-limited and accelerable, but classifies the construction instance rather than the held capacity that gates how many may exist. No approved entry classifies that capacity, which behaves differently from the process: it is owned, permanent, expandable by purchase, and applies across all processes rather than to one.\n**Recurrence elsewhere:** plausible. Stated generically the pattern needs only self-advancing processes and a permanent owned limit on their concurrency, neither of which is specific to construction or to this product.\n**Caveat.** The overlap with Passive Construction is real and an alternative reading is that the slot limit is simply one variant of that entry, which already lists slot-limited construction as a variant. The case for a separate entry is that the slot count is a distinct owned and purchasable object, not a property of any one construction. This proposal should be weighed against amending Passive Construction instead.",
+      "recurrenceElsewhere": "plausible. Stated generically the pattern needs only self-advancing processes and a permanent owned limit on their concurrency, neither of which is specific to construction or to this product.\n**Caveat.** The overlap with Passive Construction is real and an alternative reading is that the slot limit is simply one variant of that entry, which already lists slot-limited construction as a variant. The case for a separate entry is that the slot count is a distinct owned and purchasable object, not a property of any one construction. This proposal should be weighed against amending Passive Construction instead.",
+      "caveat": "The overlap with Passive Construction is real and an alternative reading is that the slot limit is simply one variant of that entry, which already lists slot-limited construction as a variant. The case for a separate entry is that the slot count is a distinct owned and purchasable object, not a property of any one construction. This proposal should be weighed against amending Passive Construction instead."
+    },
+    {
+      "name": "Holding Ceiling",
+      "sourceObservations": [
+        "O54",
+        "O55",
+        "O59",
+        "O59",
+        "O54"
+      ],
+      "draftDefinition": "The product caps how much of a resource the user may hold in an upgradeable container, so that acquiring the next advance requires first raising the cap, and value arriving above the cap is converted into another resource rather than kept or lost.",
+      "conditions": "a cap on each holdable resource that is itself an upgradeable object; a next advance priced above the current cap; a conversion rule for value arriving above the cap; and a separate holding area whose transfer into the capped store fills it without discarding the remainder.\n**Why it is not covered.** Soft Currency lists capped-earning soft currency as a variant, which covers a limit on earning, not a structure in which raising the limit is itself a priced step on the progression path. No approved entry describes the overflow conversion or the way a cap inserts a mandatory intermediate purchase between the user and a stated goal.\n**Recurrence elsewhere:** plausible. The structure is describable without reference to this product and needs only a stored resource, an upgradeable cap, and a cost above it.\n**Caveat.** The conversion rate above the cap was never shown (O59), and only one direction of the pattern was seen in operation, where a town hall cost exceeded gold capacity (O54). Whether the cap is set deliberately below the next cost as a rule, or the two simply crossed once, cannot be settled from these transcripts.",
+      "whyNotCovered": "Soft Currency lists capped-earning soft currency as a variant, which covers a limit on earning, not a structure in which raising the limit is itself a priced step on the progression path. No approved entry describes the overflow conversion or the way a cap inserts a mandatory intermediate purchase between the user and a stated goal.\n**Recurrence elsewhere:** plausible. The structure is describable without reference to this product and needs only a stored resource, an upgradeable cap, and a cost above it.\n**Caveat.** The conversion rate above the cap was never shown (O59), and only one direction of the pattern was seen in operation, where a town hall cost exceeded gold capacity (O54). Whether the cap is set deliberately below the next cost as a rule, or the two simply crossed once, cannot be settled from these transcripts.",
+      "recurrenceElsewhere": "plausible. The structure is describable without reference to this product and needs only a stored resource, an upgradeable cap, and a cost above it.\n**Caveat.** The conversion rate above the cap was never shown (O59), and only one direction of the pattern was seen in operation, where a town hall cost exceeded gold capacity (O54). Whether the cap is set deliberately below the next cost as a rule, or the two simply crossed once, cannot be settled from these transcripts.",
+      "caveat": "The conversion rate above the cap was never shown (O59), and only one direction of the pattern was seen in operation, where a town hall cost exceeded gold capacity (O54). Whether the cap is set deliberately below the next cost as a rule, or the two simply crossed once, cannot be settled from these transcripts."
+    },
+    {
+      "name": "Advisory Progression Warning",
+      "sourceObservations": [
+        "O30",
+        "O30"
+      ],
+      "draftDefinition": "At the moment a user commits to an advance they are entitled to make, the product interrupts to state that the advance will make the experience harder and recommends a different action first, while leaving the original action available.",
+      "conditions": "an advance the user has already paid for or qualified for; a consequence of that advance that the product judges adverse at the user's current state; an interruption placed at the commit point rather than earlier; a named alternative action; and an unchanged route to proceed anyway.\n**Why it is not covered.** No approved entry describes the product arguing against a progression step. Contextual education, in the layer three patterns, covers teaching at the point of need; this is a recommendation against an action rather than an explanation of one. Leveling and Milestone classify the states involved, not the interruption.\n**Recurrence elsewhere:** plausible. The structure applies wherever advancing raises difficulty faster than the user's capability, which is not particular to this product, though the transcripts contain no evidence about other products.\n**Caveat.** One instance was observed (O30). A single occurrence establishes that the surface exists but not that it is a general behavior of the product, and the same warning was not seen at other town hall upgrades in the sessions.",
+      "whyNotCovered": "No approved entry describes the product arguing against a progression step. Contextual education, in the layer three patterns, covers teaching at the point of need; this is a recommendation against an action rather than an explanation of one. Leveling and Milestone classify the states involved, not the interruption.\n**Recurrence elsewhere:** plausible. The structure applies wherever advancing raises difficulty faster than the user's capability, which is not particular to this product, though the transcripts contain no evidence about other products.\n**Caveat.** One instance was observed (O30). A single occurrence establishes that the surface exists but not that it is a general behavior of the product, and the same warning was not seen at other town hall upgrades in the sessions.",
+      "recurrenceElsewhere": "plausible. The structure applies wherever advancing raises difficulty faster than the user's capability, which is not particular to this product, though the transcripts contain no evidence about other products.\n**Caveat.** One instance was observed (O30). A single occurrence establishes that the surface exists but not that it is a general behavior of the product, and the same warning was not seen at other town hall upgrades in the sessions.",
+      "caveat": "One instance was observed (O30). A single occurrence establishes that the surface exists but not that it is a general behavior of the product, and the same warning was not seen at other town hall upgrades in the sessions."
+    },
+    {
+      "name": "Parallel Second Track",
+      "sourceObservations": [
+        "O45",
+        "O46",
+        "O53",
+        "O57",
+        "O45"
+      ],
+      "draftDefinition": "Partway through a product's progression, a second self-contained instance of the core loop opens, with its own progression state, its own currencies, its own ranking ladder, and its own construction and research, connected to the first by a small number of shared items and by a shared premium balance.",
+      "conditions": "an unlock placed some way into the first track; a duplicated but distinct loop with its own rules, here defense earning resources and a longer planning window; separate currencies not usable in the first track; a separate ranking ladder; a shared premium balance and a small set of items that work in both; and a stated obligation to maintain both.\n**Why it is not covered.** No approved entry describes the duplication of a product's whole loop as a second parallel instance. Leveling classifies each track's states separately, and the entries for currencies classify each balance separately, but nothing classifies the relationship between the two instances or the demand it places on the user to maintain both.\n**Recurrence elsewhere:** plausible. The pattern is describable as a second instance of any core loop with its own economy, and does not depend on this product's subject matter.\n**Caveat.** The second track was played for part of one session only (O45). Whether it converges with the first track later, whether progress in one gates the other beyond the initial unlock, and what the shared items are beyond those observed were not established.",
+      "whyNotCovered": "No approved entry describes the duplication of a product's whole loop as a second parallel instance. Leveling classifies each track's states separately, and the entries for currencies classify each balance separately, but nothing classifies the relationship between the two instances or the demand it places on the user to maintain both.\n**Recurrence elsewhere:** plausible. The pattern is describable as a second instance of any core loop with its own economy, and does not depend on this product's subject matter.\n**Caveat.** The second track was played for part of one session only (O45). Whether it converges with the first track later, whether progress in one gates the other beyond the initial unlock, and what the shared items are beyond those observed were not established.",
+      "recurrenceElsewhere": "plausible. The pattern is describable as a second instance of any core loop with its own economy, and does not depend on this product's subject matter.\n**Caveat.** The second track was played for part of one session only (O45). Whether it converges with the first track later, whether progress in one gates the other beyond the initial unlock, and what the shared items are beyond those observed were not established.",
+      "caveat": "The second track was played for part of one session only (O45). Whether it converges with the first track later, whether progress in one gates the other beyond the initial unlock, and what the shared items are beyond those observed were not established."
+    }
+  ],
+  "system": {
+    "tagline": "A base-building game where town hall level is the spine: nearly everything else is a condition on it, a consequence of it, or a way of reaching it sooner.",
+    "overview": "Clash of Clans runs on a single escalating cost curve. The town hall holds a numbered level that gates buildings, troops, spells, heroes, cosmetics, leagues, and the game's own pass, and its upgrade cost rises sharply, from 4,000 gold at level 2 to a stated million by level 7. Three resource routes exist to solve that cost, collectors that fill on their own, raids that take resources from other players, and gems that convert directly into resources, and the game keeps all three open rather than favoring one. What's accumulated is also exposed: resources sit visible to other players until a timed shield runs out, and the same shield is sold in gems and granted automatically after being attacked. A clan, reachable only after repairing a ruined castle, layers a second, socially gated structure on top of the solo loop, including the one surface in the game where another person's decision, not the player's own progress, controls what happens next.",
+    "loop": "Collectors fill on their own and raids take resources from other players → both resource types raise storage caps and fund the next town hall upgrade → the upgrade itself runs as a timed construction instance, gated by a prerequisite building checklist as well as its cost → completing it raises the level, unlocking new buildings, troops, and modes, and often a new store pack → the achievement list tracks many of these same events separately, paying its own experience and gems, with account linking paid roughly ten times the going rate of an ordinary criterion → gems, bought for money, convert directly into the same resources raiding produces or end any wait immediately → a rebuilt clan castle opens a second, social layer, donation, wars, a war-scoped leaderboard, and a shared clan capital, run on its own multi-day cycles → reaching town hall 7 opens a season pass that prices its rewards against the village, the second village, and the clan all at once.",
+    "keyInsight": "The town hall level is not one mechanic among several, it's the thing every other mechanic in the system is either feeding, gating, or pricing. Resources exist to pay its cost. Construction exists to run its upgrade. Achievements exist to restate its milestones. The clan and the pass both wait behind specific levels of it. Nothing else in the product has to justify its own presence the way the town hall does; everything else justifies its presence by pointing back at it.",
+    "whatMakesItWork": "Because the town hall's cost curve is the one problem every system in the game claims to solve, none of the individual systems has to work hard to feel necessary: collecting, raiding, and buying gems are three answers to the same question asked at increasing scale, and the achievement list, the clan, and the pass all attach their own rewards to the same escalating target rather than competing with it for the player's attention.",
+    "roles": [
+      {
+        "id": "leveling",
+        "role": "The spine. The town hall holds a numbered level to 18 that gates nearly everything else in the product and sets the size of the resource problem the rest of the system exists to solve; the second village runs the identical structure on its own builder hall, and a much smaller account level and league tier run in parallel without gating anything beyond a single decoration and a single reward rate."
+      },
+      {
+        "id": "soft-currency",
+        "role": "Gold, elixir, and dark elixir are earned from collectors and raids and spent on nearly every construction, training, and research action in the game; the second village runs two further currencies of its own, walled off from the home village entirely."
+      },
+      {
+        "id": "hard-currency",
+        "role": "Gems, sold in six packages from $0.49 to $49.99, convert directly into gold and elixir and end any wait in the game immediately, making them a substitute for both raiding and time."
+      },
+      {
+        "id": "passive-construction",
+        "role": "Every building and upgrade advances on its own timer once started, growing from seconds at the earliest levels to twelve hours by town hall 6, capped by how many builder huts are owned, itself a purchasable number."
+      },
+      {
+        "id": "clans-guilds",
+        "role": "A persistent group reachable only after a specific building is repaired, holding its own treasury, war record, and clan capital; membership adds troop donation, a two-day war cycle, and the only gate in the game controlled by another person's decision rather than the player's own progress."
+      },
+      {
+        "id": "achievements",
+        "role": "A separately tracked, separately rewarded list that restates many of the same progression events, town hall levels, unlocked units, clan participation, and pays one criterion, linking an external account, at roughly ten times the rate of an ordinary one."
+      },
+      {
+        "id": "season-pass",
+        "role": "A two-lane, 27-day track that doesn't exist before town hall 7 and, once unlocked, prices its perks against the village, the second village, and the clan simultaneously, including a five-times multiplier on a separate loot reserve."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 6,
+      "label": "CLASH OF CLANS"
+    },
+    "nodes": [
+      {
+        "id": "leveling",
+        "x": 50,
+        "y": 22
+      },
+      {
+        "id": "soft-currency",
+        "x": 20,
+        "y": 42
+      },
+      {
+        "id": "hard-currency",
+        "x": 50,
+        "y": 42
+      },
+      {
+        "id": "passive-construction",
+        "x": 80,
+        "y": 42
+      },
+      {
+        "id": "clans-guilds",
+        "x": 20,
+        "y": 72
+      },
+      {
+        "id": "achievements",
+        "x": 50,
+        "y": 72
+      },
+      {
+        "id": "season-pass",
+        "x": 80,
+        "y": 72
+      }
+    ],
+    "connections": [
+      {
+        "from": "soft-currency",
+        "to": "leveling",
+        "title": "Resources raided and collected fund the next town hall level",
+        "desc": "Gold and elixir collected and raided are what the town hall's rising cost curve consumes, and storage built from the same currencies has to expand before that cost can even be held.",
+        "effect": "A player is never just building or just raiding, both feed the one number, the town hall level, that everything else in the game answers to."
+      },
+      {
+        "from": "hard-currency",
+        "to": "soft-currency",
+        "title": "Gems convert directly into the resources raiding would otherwise take hours to gather",
+        "desc": "A stated conversion rate turns gems into gold and elixir on demand, no shop trip or exchange screen required.",
+        "effect": "A player who doesn't want to raid or wait can buy the same resource position outright, in gems."
+      },
+      {
+        "from": "hard-currency",
+        "to": "passive-construction",
+        "title": "Every wait sells its own skip",
+        "desc": "Every build timer and busy builder carries a gem price to end it immediately, and an added builder slot is itself bought with gems.",
+        "effect": "The two dimensions of construction, how many things can be underway and how long each one takes, are each priced separately in the same currency."
+      },
+      {
+        "from": "passive-construction",
+        "to": "leveling",
+        "title": "The town hall's own upgrade is just another timed build",
+        "desc": "Town hall levels advance only once their own construction instance, gated by a resource cost and a prerequisite building checklist, finishes.",
+        "effect": "The spine of the whole game is subject to the same builder-slot and timer mechanics as any ordinary building."
+      },
+      {
+        "from": "achievements",
+        "to": "clans-guilds",
+        "title": "The achievement list pushes toward the clan castle repair",
+        "desc": "One criterion requires requesting reinforcements, reachable only after joining a clan, sitting beside account linking, the highest-paying criterion by far.",
+        "effect": "A player working through the achievement list is nudged toward the social layer well before the game requires it directly."
+      },
+      {
+        "from": "leveling",
+        "to": "season-pass",
+        "title": "The pass doesn't exist until a specific level is reached",
+        "desc": "No pass surface exists before town hall 7, appearing immediately once that upgrade completes.",
+        "effect": "The game's largest monetization surface is withheld entirely until the spine reaches a specific point, rather than being available from the start."
+      },
+      {
+        "from": "season-pass",
+        "to": "clans-guilds",
+        "title": "The pass reaches past the village it's sold from",
+        "desc": "Pass perks include a clan castle troop-request reduction and capital gold, spending against the clan layer as well as the solo one.",
+        "effect": "A single purchase prices benefits across the solo loop and the social loop at once, rather than staying inside whichever screen sold it."
+      }
+    ]
+  }
+}

@@ -1027,6 +1027,25 @@ const V41_APP_META = {
         "Capybara Go! runs a seven-day sign-in event and countdowns on nearly every timed surface, from energy to chests to events.",
     },
   },
+  "clash-of-clans": {
+    name: "Clash of Clans",
+    category: "Strategy",
+    type: "game",
+    sectionCards: {
+      onboarding:
+        "Clash of Clans scripts a cannon build, a defense, and an attack before naming the player, then reveals its interface in stages as the town hall levels up.",
+      "core-loop":
+        "Clash of Clans repeats collecting resources, starting upgrades, training troops, and raiding another village for loot to fund the next upgrade.",
+      goals: "Clash of Clans measures progress mainly by town hall level, gated behind a resource cost and a prerequisite building checklist, alongside a smaller account level and a starter challenge ladder.",
+      access: "Clash of Clans gates nearly everything by town hall level, with a rebuilt clan castle, a repaired boat, and a signup window gating the clan, the second village, and clan war leagues.",
+      earning: "Clash of Clans runs five earned currencies across two villages plus a paid currency that converts directly into two of them.",
+      social: "Clash of Clans keeps its entire social layer, donation, chat, wars, and leaderboards, behind a clan castle that has to be rebuilt first.",
+      growth: "Clash of Clans rewards linking an external account roughly ten times more than an ordinary achievement, and hosts its own rewards site behind that link.",
+      money: "Clash of Clans sells a rotating shop of offers and town-hall-scaled packs alongside a season pass priced against the village, the second village, and the clan at once.",
+      returns:
+        "Clash of Clans runs a shield countdown, a return-from-absence summary, and an event calendar layered on top of its own season boundary.",
+    },
+  },
 };
 
 for (const entry of ALL_APPS) {

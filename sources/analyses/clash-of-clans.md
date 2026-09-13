@@ -1164,212 +1164,401 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 ## Applied tags
 
 **Tag:** Achievement
+
 **Observations:** O33, O71.
+
 **Supporting observations:** O13, O32, O60.
-**Confidence:** directly observed.
+
+**Confidence:** directly observed
+
 **Role:** engagement
+
 The list is read and its entries are worked toward inside the session, with the linking criterion acted on directly (O13, O33, O71) and other criteria naming in-session actions such as unlocking units and upgrading the town hall (O33).
+
 **Rationale:** Named criteria change from unattained to attained, the attained state persists in a profile list, and attainment grants experience points and gems separately from the activity that satisfied the criterion (O33). Criteria are evaluated against activity the user performs elsewhere, and the attained state survives closing and reopening the app (O13).
+
 **Variants present:** Visible achievement, Tiered achievement, Progressive achievement, Cumulative achievement, Rewarded achievement, Single-condition achievement.
+
 **Variants not established:** Hidden achievement, Composite achievement, Sequence achievement, Constraint-based achievement, Retroactive achievement, Repeatable-instance achievement, Shared achievement, Comparative achievement, Collection achievement, Unrewarded achievement.
+
 **Alternative considered:** Milestone, since several criteria are thresholds within the town hall progression. The criteria are maintained as a separate list with their own attained states and rewards rather than as recognitions inside the progression itself, which is what the Achievement entry describes; the ladder that is a threshold set within an ongoing measure is tagged separately as Milestone.
 
+
 **Tag:** Challenge
+
 **Observations:** O12, O34.
+
 **Supporting observations:** O28, O39.
-**Confidence:** strongly supported.
+
+**Confidence:** strongly supported
+
 **Role:** engagement
+
 The objectives name actions performed inside a session, such as buying wall pieces, upgrading collectors, and destroying buildings in battles, and were pursued within the session in which they were issued (O12, O34).
+
 **Rationale:** Each starter challenge is a discrete instance with a stated success condition and a tracked completed state, and completion pays points where non-completion pays none (O12, O34). The scope boundary is the starter stage: the set is named for it and expands only as the town hall level rises, so the instance set is bounded by progression rather than remaining an open standing goal (O12, O34).
+
 **Variants present:** Automatically assigned challenge, Threshold challenge, Completion challenge, Rewarded challenge.
+
 **Variants not established:** Time-boxed challenge, Attempt-bounded challenge, Session challenge, Event-bounded challenge, Sequence challenge, Constraint challenge, Personal-benchmark challenge, Head-to-head challenge, Group challenge, Community challenge, Opt-in challenge, Recurring challenge, Adaptive challenge, Multi-stage challenge, Unrewarded challenge.
+
 **Alternative considered:** Daily / Weekly Quests, since the objectives resemble issued tasks. No daily or weekly issuance, refresh, or reset rule was observed for them; new ones arrive on town hall upgrades instead, which is not a recurring calendar cadence.
 
+
 **Tag:** Challenge
+
 **Observations:** O65.
+
 **Supporting observations:** O43, O55, O25.
-**Confidence:** strongly supported.
+
+**Confidence:** strongly supported
+
 **Role:** social, engagement
+
 The instance is contested by the clan as a unit against another clan with donation and base design contributed by members (O65), and the attacking within it is the ordinary in-session activity (O43).
+
 **Rationale:** A clan war is a bounded instance with a stated end boundary of two days, a stated success condition of scoring the most stars, a stated tie rule, and a concluded result that pays bonus loot and clan experience to the winner and withdraws most of the bonus loot from the loser (O65). The war in progress showed both clans' running star totals and destroyed bases, so the active state is maintained and observable (O65).
+
 **Variants present:** Head-to-head challenge, Group challenge, Time-boxed challenge, Multi-stage challenge, Rewarded challenge.
+
 **Variants not established:** Attempt-bounded challenge, Session challenge, Event-bounded challenge, Threshold challenge, Completion challenge, Sequence challenge, Constraint challenge, Personal-benchmark challenge, Community challenge, Opt-in challenge, Automatically assigned challenge, Recurring challenge, Adaptive challenge, Unrewarded challenge.
+
 **Alternative considered:** Leaderboard, since the war screen orders two clans by stars. The ordering there is the scoring of one bounded contest rather than a standing comparison surface; the standing ordered lists are tagged separately as Leaderboard.
 
+
 **Tag:** Clan / Guild
+
 **Observations:** O60, O61, O62, O63, O64, O65, O66, O67.
+
 **Supporting observations:** O33, O41, O55, O68.
-**Confidence:** directly observed.
+
+**Confidence:** directly observed
+
 **Role:** social, engagement, retention
+
 Membership brings other identified people into the product through chat, donation and war (O60, O63, O65); it changes what can be done in a session by adding reinforcements and war surfaces (O60, O65); and war schedules, league sign-up windows and the clan's own construction run on multi-day cycles that require coming back (O65, O66, O67).
+
 **Rationale:** The clan is a persistent entity with a roster, badge, description, and settings, and holds state of its own: clan experience, a treasury, war records and a war log, a clan level requirement structure, a position in ranked clan lists, and a clan capital with buildings and districts funded by member contributions (O62, O64, O65, O66, O67, O68). Member activity changes that collective state through donation, war attacks, and capital gold contribution (O60, O65, O67). Membership changes observable conditions: the clan castle can receive reinforcements, war surfaces appear, and clan chat opens (O60, O63, O65).
+
 **Variants present:** Cooperative clan, Competitive clan, Progression clan, Resource-sharing clan, Contribution clan, Role-structured clan, User-created clan, Request-to-join clan, Open clan, Persistent clan, Single-membership clan system, Shared-reward clan, Shared-identity clan.
+
 **Variants not established:** Social clan, Territorial clan, Invitation-only clan, Automatically assigned clan, System-created clan, Seasonal clan, Cross-season clan, Multi-membership clan system, Nested clan, Alliance-linked clan.
+
 **Alternative considered:** Group Membership and Community Space, its two mutually exclusive siblings. The decision ladder in the entry takes the most specific observed level: a collective group-owned state is present in the clan's experience, treasury, war record, ranking and capital (O65, O66, O67, O68), which selects Clan / Guild over both siblings.
 
+
 **Tag:** Cosmetic Customization
+
 **Observations:** O82.
+
 **Supporting observations:** O31, O38, O45, O74.
-**Confidence:** directly observed.
+
+**Confidence:** directly observed
+
 **Role:** monetization, engagement
+
 The catalogue is priced from $3.49 to $16.99 and a skin is the headline exclusive of the paid pass lane (O38, O82), while the selection itself is an in-session activity with a preview of how the village would look (O82).
+
 **Rationale:** The product maintains named alternative presentations of the village, the heroes, the second village character, and the boat, applies one at a time, and previews the result before purchase (O82). Nothing observed tied a cosmetic to a rule, cost, eligibility, or outcome (O82). The product groups them under its own cosmetics tab, which is its framing of them as presentation content rather than configuration (O82).
+
 **Variants present:** Environment cosmetic, Avatar cosmetic, Object cosmetic, Equipable cosmetic, Composite cosmetic.
+
 **Variants not established:** Acquired interface theme, Profile cosmetic, Animation cosmetic, Effect cosmetic, Audio cosmetic, Naming cosmetic, Emote cosmetic, Automatically applied cosmetic, Temporary cosmetic, Context-specific cosmetic, Shared cosmetic, Reactive cosmetic, Layered cosmetic.
+
 **Alternative considered:** No mechanic label, treating the decorations as village objects rather than cosmetics. Decorations occupy grid space like buildings, but no decoration was observed to change a rule or outcome and several are sold from the same catalogue as sceneries, so they sit inside the same presentation behavior.
 
+
 **Tag:** Experience Points
+
 **Observations:** O32, O33.
+
 **Supporting observations:** O40, O71.
-**Confidence:** directly observed.
+
+**Confidence:** directly observed
+
 **Role:** engagement
+
 Grants are attached to the actions taken during a session, with achievement entries stating an experience figure beside each criterion (O32, O33).
+
 **Rationale:** Quantified units are granted on stated qualifying events, accumulate across events, and advance an ordered account level that rose from 1 to 4 during one session (O32). The accumulated level also functions as an eligibility condition elsewhere, with one decoration requiring experience level 75 (O40). The units were never observed to be spendable (O32).
+
 **Variants present:** Account XP, Fixed-grant XP, Variable-grant XP, Source-specific XP, Unified XP.
+
 **Variants not established:** Character XP, Skill XP, Track XP, Shared XP, Threshold-reset XP, Cumulative-lifetime XP, Rollover XP, Expiring XP, Seasonal XP, Retroactive XP, Capped XP.
+
 **Alternative considered:** Spendable Credits and Tokens, since the same screens show several exchangeable balances. Experience was never offered in exchange for anything and only advanced the account level and gated one purchase, which is the boundary the entry draws.
 
+
 **Tag:** Gifting
+
 **Observations:** O60.
+
 **Supporting observations:** O33, O41, O65, O84.
-**Confidence:** strongly supported.
+
+**Confidence:** strongly supported
+
 **Role:** social, engagement
+
 The transfer runs between identified clan members in both directions and is counted separately for each (O33, O60), and the received troops are used in the receiving member's own battles and defenses (O60, O65).
+
 **Rationale:** The product describes clan members sending troops and spells to a member's clan castle, counts troops donated and troops received as separate achievement criteria, and sells a perk that shortens the wait on a request, all of which establish a directed non-reciprocal transfer of a product-defined benefit between identified accounts (O33, O60, O84). No reciprocal transfer is required of the recipient (O60). The transfer itself was not performed in any session, so its interface, limits, and timing are not described here (O60).
+
 **Variants present:** Existing-asset gift, Item gift, Group gift, Reciprocal-independent gifting.
+
 **Variants not established:** Purchased gift, System-funded gift, Currency gift, Access gift, Capacity gift, Discount gift, Immediate-delivery gift, Claimable gift, Scheduled gift, Conditional gift, Expiring gift, Anonymous gift, Message-attached gift, Multi-recipient gift, Limited gifting, Relationship-gated gift, Variable-outcome gift, Regiftable gift, Sender-rewarded gift.
+
 **Alternative considered:** No mechanic label, on the grounds that donation is a contribution to a shared clan pool. The clan castle that receives the troops belongs to one named member and the counters are per-member, which makes the recipient identifiable rather than a pool.
 
+
 **Tag:** Hard Currency
+
 **Observations:** O48, O50, O51.
+
 **Supporting observations:** O6, O16, O19, O46, O83.
-**Confidence:** directly observed.
+
+**Confidence:** directly observed
+
 **Role:** monetization, engagement
+
 Six money-priced packages feed the balance (O50), and spending it removes waits and adds builders inside the session (O16, O19).
+
 **Rationale:** Gems are a product-defined balance acquired through six money packages from $0.49 to $49.99, held after purchase, and later exchanged for builder huts, instant completion of builds, magic shields, decorations, and conversions into gold and elixir, with each exchange reducing the balance (O48, O50, O51, O83). Gems are also granted without payment through achievements and clan prizes, which the entry permits (O33, O66).
+
 **Variants present:** Direct-purchase hard currency, Bundled hard currency, Earnable hard currency, General-purpose hard currency, Convertible hard currency, Multi-currency hard-currency system.
+
 **Variants not established:** Subscription-granted hard currency, Converted hard currency, Promotional hard currency, Fixed-rate hard currency, Variable-rate hard currency, Bonus-package hard currency, Restricted hard currency, Single-sink hard currency, Transferable hard currency, Shared hard currency, Expiring hard currency, Locked hard currency, Platform hard currency.
+
 **Alternative considered:** Spendable Credits and Tokens, its parent entry. The paid acquisition path is observed directly in the treasure tab, so the more specific specialization applies.
 
+
 **Tag:** Leaderboard
+
 **Observations:** O68.
+
 **Supporting observations:** O36, O64, O66.
-**Confidence:** directly observed.
+
+**Confidence:** directly observed
+
 **Role:** social, engagement
+
 The lists are populated by other identified players and clans (O68) and sit beside the league surface that the user's own battles advance (O36).
+
 **Rationale:** Four ordered views present multiple comparable entities by trophy count within defined scopes: top players globally, top players nationally, top clans globally and nationally, and a clan war league scope (O68). The ordering is comparative rather than organizational, and the user's absence from the lists is itself the differential response (O68).
+
 **Variants present:** Individual leaderboard, Team leaderboard, Global leaderboard, Local leaderboard, Truncated leaderboard, Multi-metric leaderboard, Segmented leaderboard.
+
 **Variants not established:** Aggregate leaderboard, Network leaderboard, Group leaderboard, Event leaderboard, Session leaderboard, Periodic leaderboard, All-time leaderboard, Live leaderboard, Final leaderboard, Cumulative leaderboard, Best-result leaderboard, Average-result leaderboard, Tiered leaderboard, Anonymous leaderboard, Rewarded leaderboard, Promotion-and-relegation leaderboard, Resetting leaderboard, Persistent leaderboard.
+
 **Alternative considered:** Comparative Rank, which the Leaderboard entry names as the label for a position shown without other entities. The observed surfaces present many ordered entities at once, so the leaderboard label is the correct one; the user's own standing was an unranked state and a threshold-based league tier, neither of which is a position derived from ordering against others.
 
+
 **Tag:** Leveling
+
 **Observations:** O28, O46.
+
 **Supporting observations:** O18, O26, O29, O39, O47, O79.
-**Confidence:** directly observed.
+
+**Confidence:** directly observed
+
 **Role:** engagement, retention, monetization
+
 The level decides what can be built and attempted in any session (O28, O39); each step carries a wait measured in hours that ends outside the session (O18, O95); and a matching pack enters the store at each new level (O79).
+
 **Rationale:** The town hall holds a current numbered state within an ordered series running to 18, advances under a defined rule combining a resource cost with a prerequisite building checklist, and persists until the next advance (O28, O29). The second village runs the same structure on its own builder hall (O46). Individual troops hold their own ordered levels advanced through research (O26). Each advance changes observable conditions: unlocked buildings, raised storage caps, raised hit points, and new store contents (O28, O79).
+
 **Variants present:** Criteria-based leveling, Multi-track leveling, Expanding leveling, Capped leveling, Claimed leveling.
+
 **Variants not established:** XP-driven leveling, Count-driven leveling, Assessment-based leveling, Time-based leveling, Composite-rule leveling, Automatic leveling, Demotion-enabled leveling, Multi-level jump, Shared leveling, Seasonal leveling, Reset leveling, Prestige leveling, Hidden leveling, Personalized leveling.
+
 **Alternative considered:** Milestone, for each town hall level as a threshold within a broader progression. The entry excludes assigning a level number where no separate threshold recognition exists beyond the level-state update, and what was observed at each town hall level was the level state changing and its consequences, not a separate recognition event.
 
+
 **Tag:** Leveling
+
 **Observations:** O32.
+
 **Supporting observations:** O33, O40.
-**Confidence:** directly observed.
+
+**Confidence:** directly observed
+
 **Role:** engagement
+
 The level rose three times within one session as achievements and battles were completed (O32, O33).
+
 **Rationale:** A separate numbered account level is maintained with a visible partial-progress indicator, advances when accumulated experience points cross a threshold, and persists across sessions (O32). It carries an observable consequence at least once, as an eligibility condition on a decoration requiring level 75 (O40). The thresholds themselves were not shown (O32).
+
 **Variants present:** XP-driven leveling, Automatic leveling, Expanding leveling.
+
 **Variants not established:** Count-driven leveling, Criteria-based leveling, Assessment-based leveling, Time-based leveling, Composite-rule leveling, Claimed leveling, Demotion-enabled leveling, Multi-level jump, Multi-track leveling, Shared leveling, Seasonal leveling, Reset leveling, Prestige leveling, Capped leveling, Hidden leveling, Personalized leveling.
+
 **Alternative considered:** Experience Points alone, treating the level as a display of the balance. The two are separate behaviors under the library: the points are the accumulating progression value and the level is the discrete ordered state they advance, and both are tagged.
 
+
 **Tag:** Leveling
+
 **Observations:** O36.
+
 **Supporting observations:** O47, O53, O56, O68.
-**Confidence:** strongly supported.
+
+**Confidence:** strongly supported
+
 **Role:** engagement, retention
+
 The tier decides the rate at which battles pay (O36, O56), and battles are the repeated activity that moves it in both directions across sessions (O36).
+
 **Rationale:** Both villages maintain an ordered series of named tiers, running skeleton to legend in the home village and wood 5 to diamond in the second, with the stated advancement rule that more trophies won raise the tier and the stated consequence that a higher tier pays a larger league bonus and star bonus (O36, O56). The trophy thresholds that separate the tiers were never displayed, so the rule is asserted from the product's own statement of it rather than from observed threshold behavior (O36).
+
 **Variants present:** Count-driven leveling, Multi-track leveling, Expanding leveling.
+
 **Variants not established:** XP-driven leveling, Criteria-based leveling, Assessment-based leveling, Time-based leveling, Composite-rule leveling, Automatic leveling, Claimed leveling, Demotion-enabled leveling, Multi-level jump, Shared leveling, Seasonal leveling, Reset leveling, Prestige leveling, Capped leveling, Hidden leveling, Personalized leveling.
+
 **Alternative considered:** Comparative Rank, since leagues are populated by players competing for trophies. The tier observed is assigned from a trophy amount rather than from an ordering against other entities, and the entry excludes absolute tiers assigned from thresholds.
 
+
 **Tag:** Milestone
+
 **Observations:** O34.
+
 **Supporting observations:** O12, O27.
-**Confidence:** directly observed.
+
+**Confidence:** directly observed
+
 **Role:** engagement
+
 The thresholds are crossed by completing the in-session objectives that pay points, and the rewards they release are the gold, elixir, and boosts used in the same session (O12, O27, O34).
+
 **Rationale:** Challenge points accumulate as one ongoing measure, and defined totals along that measure from 100 to 5,000 are separately recognized by releasing a reward when crossed (O34). States exist before and after each defined point, and reward claims were observed at several of them (O34).
+
 **Variants present:** Threshold milestone, Cumulative milestone, Rewarded milestone, Intermediate milestone, Completion milestone.
+
 **Variants not established:** Stage milestone, Checkpoint milestone, Percentage milestone, Sequence milestone, Time-based milestone, Composite milestone, Unlocking milestone, Recorded milestone, Recurring milestone, Shared milestone, Hidden milestone.
+
 **Alternative considered:** Progression Fund, which also attaches ordered reward positions to an existing measure. That entry requires a second lane unlocked by purchase paying more at the same positions, and the starter challenge ladder has one lane only.
 
+
 **Tag:** Passive Construction
+
 **Observations:** O16, O17, O18.
+
 **Supporting observations:** O6, O19, O46, O88, O95.
-**Confidence:** directly observed.
+
+**Confidence:** directly observed
+
 **Role:** retention, monetization, engagement
+
 Durations reaching 12 hours end outside the session and produce the completed-while-away summary on return (O18, O88); every wait carries a gem price to end it (O19); and the builder count decides how much can be started in any one sitting (O16).
+
 **Rationale:** Starting a build or upgrade creates an active instance that advances on a timer without further construction input and completes into a persistent new or upgraded state with changed capacity and hit points (O17, O18). Progress continues while the app is closed (O17, O88). The number of builder huts owned limits how many instances can run at once (O16).
+
 **Variants present:** Real-time construction, Offline construction, Fixed-duration construction, Parallel construction, Slot-limited construction, Accelerable construction, Automatic-completion construction, Repeatable construction.
+
 **Variants not established:** Foreground construction, Activity-fed construction, Event-fed construction, Scheduled-step construction, Variable-duration construction, Queued construction, Pausable construction, Claim-complete construction, Sequential construction, Branching construction, Shared construction, Temporary construction.
+
 **Alternative considered:** Energy, for the builder slots as a bounded capacity consumed by starting a build. The slot is occupied for the duration of one construction and released on its completion rather than consumed and later restored under a refill rule, and the constraint belongs to the construction instance, which this entry already covers.
 
+
 **Tag:** Piggy Bank
+
 **Observations:** O85.
+
 **Supporting observations:** O38, O59, O84, O92.
-**Confidence:** directly observed.
+
+**Confidence:** directly observed
+
 **Role:** monetization, retention
+
 The reserve's payout multiplier is one of the paid lane's stated perks (O84, O85), and the reserve fills from battles across the season and only opens at the season boundary (O85, O92).
+
 **Rationale:** The product describes a reserve that saves bonus loot from battle, holds it separately under stated per-currency caps, and opens at the end of the season, which is a restricted accumulation released by a defined rule (O85). A season end message reading bank rewards collected was observed, showing the release occurring (O92). The reserve's ordinary contribution behavior was seen only as described on the pass screen, not in operation (O85).
+
 **Variants present:** Automatic-contribution piggy bank, Time-release piggy bank, Event-release piggy bank, Capacity-limited piggy bank, Multi-reserve piggy bank.
+
 **Variants not established:** Purchase-to-release piggy bank, User-withdrawal piggy bank, Threshold-release piggy bank, Direct-contribution piggy bank, Matched-contribution piggy bank, Mirrored-value piggy bank, Partial-release piggy bank, All-or-nothing piggy bank, Expiring piggy bank, Resetting piggy bank, Shared piggy bank, Hybrid variable-release piggy bank.
+
 **Alternative considered:** No mechanic label, treating the surface as a season-end payout calculation. The screen states per-currency caps on a held amount and describes it as saved from battle and opened later, which is an accumulating restricted reserve rather than a computed payout.
 
+
 **Tag:** Seasonal Progression Pass
+
 **Observations:** O37, O38.
+
 **Supporting observations:** O47, O84, O85, O92, O96.
-**Confidence:** directly observed.
+
+**Confidence:** directly observed
+
 **Role:** monetization, retention, engagement
+
 The gold lane is sold for $4.99 with its own exclusive rewards (O38, O84); the season runs 27 days with the next task card released on a timer (O38, O96); and the task cards name ordinary in-session actions such as starting an upgrade (O37).
+
 **Rationale:** The track is bounded by a stated season ending in 27 days and 19 hours, contains ordered positions counted at 40 on the gold lane and 30 on the silver, attaches rewards to those positions, and is advanced by completing task cards (O37, O38). A season boundary was observed closing and paying out, with a new season opening behind it (O92).
+
 **Variants present:** Dual-track pass, Premium seasonal pass, Free seasonal pass, Multi-tier pass, Quest-driven pass, Choice-reward pass, Time-gated pass, Recurring seasonal pass.
+
 **Variants not established:** Retroactive-upgrade pass, Activity-driven pass, Mixed-source pass, Branching pass, Hidden-reward pass, Shared progression pass, Personalized pass, Event-limited pass, Claim-limited pass, Post-season claim pass, Overflow pass, Repeatable-end pass, Resetting pass, Archived pass.
+
 **Alternative considered:** Progression Fund, whose two-lane structure this resembles. That entry excludes any track bounded by a season, and the season boundary here is stated on the pass and was observed operating at a season end.
 
+
 **Tag:** Soft Currency
+
 **Observations:** O48, O49.
+
 **Supporting observations:** O20, O23, O54, O55, O58.
-**Confidence:** directly observed.
+
+**Confidence:** directly observed
+
 **Role:** engagement
+
 Collecting and spending these balances is the activity the session consists of, with every build, upgrade, and raid denominated in them (O20, O23, O48).
+
 **Rationale:** Gold and elixir are quantified balances with stated caps and stated production per hour, added by collectors and by loot taken in raids, held in storage, and reduced by spending on buildings, upgrades, walls, troop training, research, obstacle removal, and decorations (O20, O23, O48, O58). Dark elixir joins them at town hall 7 with its own drill and storage (O49). Both can also be bought with gems, which the entry permits (O51).
+
 **Variants present:** Activity-earned soft currency, Achievement-earned soft currency, Fixed-grant soft currency, Variable-grant soft currency, General-purpose soft currency, Capped-earning soft currency, Dual-path soft currency, Multi-currency soft-currency system.
+
 **Variants not established:** Transaction-earned soft currency, Recurring-grant soft currency, Login-grant soft currency, Quest-earned soft currency, Advertisement-earned soft currency, Social-earned soft currency, System-compensation soft currency, Restricted soft currency, Single-sink soft currency, Convertible soft currency, Transferable soft currency, Shared soft currency, Expiring soft currency, Resetting soft currency.
+
 **Alternative considered:** Spendable Credits and Tokens, its parent entry. A repeatable non-paid acquisition path was observed directly in collectors and raid loot, so the more specific specialization applies.
 
-**Tag:** Soft Currency
-**Observations:** O53.
-**Supporting observations:** O36, O45, O56, O57.
-**Confidence:** directly observed.
-**Role:** engagement
-The two balances are earned and spent entirely inside the second village's own build and battle loop (O45, O53, O57).
-**Rationale:** The second village maintains two further quantified balances, earned through star bonuses from attacking, through successful defense, and through collectors, and spent on that village's buildings, defenses, and obstacle removal (O53, O57). They were not observed to be usable in the home village (O53).
-**Variants present:** Activity-earned soft currency, Restricted soft currency, Variable-grant soft currency, Multi-currency soft-currency system.
-**Variants not established:** Transaction-earned soft currency, Recurring-grant soft currency, Login-grant soft currency, Quest-earned soft currency, Achievement-earned soft currency, Advertisement-earned soft currency, Social-earned soft currency, System-compensation soft currency, Fixed-grant soft currency, General-purpose soft currency, Single-sink soft currency, Convertible soft currency, Transferable soft currency, Shared soft currency, Expiring soft currency, Capped-earning soft currency, Resetting soft currency, Dual-path soft currency.
-**Alternative considered:** Treating these as the same balances as gold and elixir under a different name. The second village's balances have their own icons, their own star bonus table, and their own piggy bank caps, and the home village balances were never shown to move between the two.
 
 **Tag:** Soft Currency
+
+**Observations:** O53.
+
+**Supporting observations:** O36, O45, O56, O57.
+
+**Confidence:** directly observed
+
+**Role:** engagement
+
+The two balances are earned and spent entirely inside the second village's own build and battle loop (O45, O53, O57).
+
+**Rationale:** The second village maintains two further quantified balances, earned through star bonuses from attacking, through successful defense, and through collectors, and spent on that village's buildings, defenses, and obstacle removal (O53, O57). They were not observed to be usable in the home village (O53).
+
+**Variants present:** Activity-earned soft currency, Restricted soft currency, Variable-grant soft currency, Multi-currency soft-currency system.
+
+**Variants not established:** Transaction-earned soft currency, Recurring-grant soft currency, Login-grant soft currency, Quest-earned soft currency, Achievement-earned soft currency, Advertisement-earned soft currency, Social-earned soft currency, System-compensation soft currency, Fixed-grant soft currency, General-purpose soft currency, Single-sink soft currency, Convertible soft currency, Transferable soft currency, Shared soft currency, Expiring soft currency, Capped-earning soft currency, Resetting soft currency, Dual-path soft currency.
+
+**Alternative considered:** Treating these as the same balances as gold and elixir under a different name. The second village's balances have their own icons, their own star bonus table, and their own piggy bank caps, and the home village balances were never shown to move between the two.
+
+
+**Tag:** Soft Currency
+
 **Observations:** O52.
+
 **Supporting observations:** O44, O66, O81.
-**Confidence:** strongly supported.
+
+**Confidence:** strongly supported
+
 **Role:** engagement, social
+
 The balance buys battle items used in attacks (O52), and its stated earning route runs through a clan event rather than solo play (O44, O52).
+
 **Rationale:** League medals are a quantified balance with a shown ceiling of 2,500 and stated prices across a dedicated shop tab, and the product states them as a reward from clan war leagues, which is a repeatable non-paid acquisition path (O44, O52). No medals were earned or spent during the sessions, so only the balance, its stated source, and its prices were observed (O52).
+
 **Variants present:** Restricted soft currency, Activity-earned soft currency, Capped-earning soft currency.
+
 **Variants not established:** Transaction-earned soft currency, Recurring-grant soft currency, Login-grant soft currency, Quest-earned soft currency, Achievement-earned soft currency, Advertisement-earned soft currency, Social-earned soft currency, System-compensation soft currency, Fixed-grant soft currency, Variable-grant soft currency, General-purpose soft currency, Single-sink soft currency, Convertible soft currency, Transferable soft currency, Shared soft currency, Expiring soft currency, Resetting soft currency, Dual-path soft currency, Multi-currency soft-currency system.
+
 **Alternative considered:** Spendable Credits and Tokens, its parent entry, since the earning path was described rather than exercised. The product states the earning route on the event screen and the entry's presence standard treats that framing as sufficient, so the specialization is reported with the gap in the behavior detail noted.
 
 ## Entries considered and not applied
