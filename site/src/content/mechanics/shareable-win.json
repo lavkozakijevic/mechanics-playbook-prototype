@@ -1,0 +1,34 @@
+{
+  "id": "shareable-win",
+  "n": "33",
+  "name": "Shareable Win",
+  "cat": "social",
+  "tagline": "A product-composed representation of a recorded accomplishment, built for a reader outside the product, with at least one route offered for sending it out.",
+  "desc": "A shareable win packages a record the product already holds about the user, a level reached, a streak kept, a total accumulated, into a form a stranger could read on its own, then offers a route for sending it out. The question that decides whether a control belongs here is what the representation is about: an export or share control on a finished design distributes the user's own work, while a card stating how many designs the user made this year distributes the product's record of the user. The underlying accomplishment can come from an achievement, a streak, a rank, or another record the product tracks; this entry covers only the packaging and the route out, not the record itself.",
+  "principle": "A record becomes evidence once someone who wasn't there can read it. Packaging what the product already holds turns a private state into something worth showing someone else.",
+  "players": [
+    "socializer",
+    "achiever"
+  ],
+  "warn": "The design risk sits in the separating question itself, not in execution: a share, export, or download control placed on the user's own work is not this mechanic, and reading it as one points design attention at a growth surface that was never built. Confirm the representation's subject is a record the product holds about the user before treating a share icon as this mechanic operating.",
+  "variants": [
+    "Verified win, carries an identifier or link a third party can check against the product",
+    "Recap win, composes a period's accumulated records into one summary rather than a single attained state",
+    "Shared-holder win, the underlying record belongs to a pair, team, or community rather than one person",
+    "Gated win, the representation or its sending route is held behind a purchase, plan, or eligibility condition"
+  ],
+  "lifecycle": "Needs an accomplishment already recorded before there's anything to package, so it has nothing to offer immediately after signup. Most valuable once the user has reached a result, a streak, or a total worth showing someone outside the product.",
+  "paired": [
+    "achievements",
+    "leaderboards",
+    "social-feed"
+  ],
+  "context": [
+    "retention"
+  ],
+  "sdt": [
+    "competence",
+    "relatedness"
+  ],
+  "visibility": "public"
+}
