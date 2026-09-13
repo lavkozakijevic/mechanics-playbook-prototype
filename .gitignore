@@ -18,3 +18,9 @@ site/playwright-report/
 # screenshots/ dirs on every build — never edit or commit these copies
 site/public/icons/
 site/public/screenshots/
+
+# convert-content.mjs's own scratch directories (beginRegenerate/
+# commitRegenerate): a crash mid-run leaves one of these orphaned rather
+# than the real collection directory it was about to replace. Harmless on
+# disk — the next run clears it before reuse — but never something to commit.
+site/src/content/.*.tmp/

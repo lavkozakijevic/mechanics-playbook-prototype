@@ -32,6 +32,45 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const repo = path.resolve(here, "../..");
 const out = path.resolve(here, "../src/content");
 
+// write() below resolves each collection's directory through this map,
+// falling back to out/<coll> when a collection has no override — the only
+// thing that ever sets one is beginRegenerate() below.
+const collDirs = {};
+
+// The apps and mechanics collections are fully regenerated on every run:
+// every file in the directory is expected to come from this script, so a
+// removed source app or mechanic must not leave a stale JSON behind. That
+// used to mean clearing the real directory up front and writing the new
+// files into it as parsing went — which meant a parse failure partway
+// through (a bad app, midway through the four v4.1 sections re-derivation,
+// or any future one) left the directory sitting empty, one clear away from
+// being committed in that state.
+//
+// Fixed by writing into a fresh sibling temp directory instead and only
+// swapping it in for the real one once every entry has parsed —
+// beginRegenerate() opens the temp directory, the existing generation loop
+// runs unchanged in between (write() sends its output there automatically
+// once collDirs has an entry for that collection), and commitRegenerate()
+// performs the swap. Nothing in this script catches a parse error, so a
+// throw partway through the loop unwinds straight out of the process
+// without ever reaching commitRegenerate() — the real directory, and
+// whatever was last committed to it, stays exactly as it was. A stale
+// `.name.tmp` left over from a previous crash is removed before a fresh
+// one is opened, so it can never be mistaken for a completed run.
+function beginRegenerate(name) {
+  const tmpDir = path.join(out, `.${name}.tmp`);
+  fs.rmSync(tmpDir, { recursive: true, force: true });
+  fs.mkdirSync(tmpDir, { recursive: true });
+  collDirs[name] = tmpDir;
+}
+function commitRegenerate(name) {
+  const finalDir = path.join(out, name);
+  const tmpDir = collDirs[name];
+  delete collDirs[name];
+  fs.rmSync(finalDir, { recursive: true, force: true });
+  fs.renameSync(tmpDir, finalDir);
+}
+
 // ---------------------------------------------------------------- data.js
 const dataJsSrc = fs.readFileSync(path.join(repo, "data.js"), "utf8");
 const ctx = {};
@@ -732,8 +771,6 @@ function splitWriteup(html) {
   return sections;
 }
 
-fs.rmSync(path.join(out, "mechanics"), { recursive: true, force: true });
-fs.mkdirSync(path.join(out, "mechanics"), { recursive: true });
 let mechanicCount = 0;
 // All mechanic entries carry declared visibility "public" (owner ruling,
 // preparing the library to go live as the site's search layer): the
@@ -757,6 +794,7 @@ let mechanicCount = 0;
 // HELD_BACK_MECHANIC_IDS (site/src/lib/content.ts) rather than visibility —
 // see that file for the exclusion and for how every other page renders a
 // reference to one of these six unlinked instead of routing to /subscribe/.
+beginRegenerate("mechanics");
 for (const m of MECHANICS) {
   // relationships live app-side only; libraryEntries is deferred-split
   // groundwork (sources/taxonomy-map.md) and never reaches the built site.
@@ -767,6 +805,7 @@ for (const m of MECHANICS) {
   });
   mechanicCount++;
 }
+commitRegenerate("mechanics");
 
 // ------------------------------------------------------------------ apps
 // Corrections §3: relationships = analysis observed sections (with depth)
@@ -907,9 +946,6 @@ const ALL_APPS = [
   { file: "starling-bank.md", id: "starling-bank", visibility: "report-only" },
   { file: "george-erste-bank.md", id: "george-app-erste-serbia", visibility: "report-only" },
 ];
-
-fs.rmSync(path.join(out, "apps"), { recursive: true, force: true });
-fs.mkdirSync(path.join(out, "apps"), { recursive: true });
 
 // Repo-relative asset paths (icons, screenshots) referenced by visible apps;
 // synced into site/public after the loop so the deployed site can serve them.
@@ -1060,6 +1096,7 @@ const V41_APP_META = {
   },
 };
 
+beginRegenerate("apps");
 for (const entry of ALL_APPS) {
   if (detectAnalysisFormat(entry.file) === "v4.1") {
     // Spec §1.7: the content file is what publishes, and there's no fallback
@@ -1268,6 +1305,7 @@ for (const entry of ALL_APPS) {
     system: buildSystemMap(entry.id),
   });
 }
+commitRegenerate("apps");
 
 function headerName(file) {
   const md = fs.readFileSync(path.join(repo, "sources/analyses", file), "utf8");
@@ -1359,7 +1397,8 @@ fs.writeFileSync(
 );
 
 function write(coll, id, obj) {
-  fs.writeFileSync(path.join(out, coll, id + ".json"), JSON.stringify(obj, null, 2));
+  const dir = collDirs[coll] ?? path.join(out, coll);
+  fs.writeFileSync(path.join(dir, id + ".json"), JSON.stringify(obj, null, 2));
 }
 
 // ------------------------------------------------------------- cheatsheets
