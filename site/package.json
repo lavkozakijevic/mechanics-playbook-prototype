@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/convert-content.mjs && node scripts/validate-content.mjs && astro build && node scripts/check-report-leak.mjs",
+    "build": "node scripts/convert-content.mjs && node scripts/validate-content.mjs && astro build && node scripts/check-report-leak.mjs && node scripts/check-analysis-leak.mjs",
     "preview": "astro preview",
     "convert": "node scripts/convert-content.mjs",
     "validate": "node scripts/validate-content.mjs",
