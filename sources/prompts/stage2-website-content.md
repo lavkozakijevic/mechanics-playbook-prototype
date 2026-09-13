@@ -78,6 +78,6 @@ This stage produces plain text for review. It does not build anything.
 
 Deliver in batches. The full record for a rich app runs past 10,000 words, so ask for the summary page plus two or three section pages at a time rather than everything at once.
 
-Corrections made at this stage flow back into `analysis-reviewed.md` after the content is approved. The page and the canonical record must not drift apart.
+Corrections made at this stage go directly into `sources/analyses/[app].md`. The behavioral-design copy is updated to match in the same sitting, so the two do not drift apart.
 
 This file exists in two copies: canonical at `/library/prompts/stage2-website-content.md`, mirrored in the repo at `sources/prompts/stage2-website-content.md`. When one is amended, the other is amended in the same sitting.

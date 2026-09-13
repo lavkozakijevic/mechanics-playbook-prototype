@@ -271,12 +271,18 @@ video") than to special-case.
   unsplit — none of that is machine-checked. It's caught, if at all, by the
   count-diff verification habit used when renumbering (below), or by a
   human re-read.
-- **`sources/prompts/stage2-website-content.md`'s own footnote** says
-  corrections made during review flow back into an `analysis-reviewed.md`
-  file. No such file exists anywhere in this repo; in practice, corrections
-  get made directly in `sources/analyses/<app>.md`. Don't go looking for
-  the reviewed-copy file — it's aspirational in the prompt, not how this
-  repo actually operates.
+- **Corrections found during content review go directly into
+  `sources/analyses/<app>.md`**, and the behavioral-design copy is updated
+  to match in the same sitting — this is what `stage2-website-content.md`'s
+  own footnote now says, and it's been the actual practice across six apps.
+  It used to say something else: an earlier pipeline order reviewed the
+  analysis before Stage 2 and wrote corrections to a separate
+  `analysis-reviewed.md`, but that file never existed in this repo even
+  when the footnote described it, because reviewing moved to the content
+  stage before this repo's Stage 2 apps existed. Nothing enforces that a
+  correction actually gets carried back into the analysis file, or that the
+  behavioral-design copy is kept in sync with it — that's still a human
+  step, just an accurately described one now.
 - **Two prompt generations exist, at different lifecycle stages.**
   `sources/prompts/superseded/website-content-rules.md` is the older prompt
   for the v3 fused-writeup model (references `/library/approved`, writes
