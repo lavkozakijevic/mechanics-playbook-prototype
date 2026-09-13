@@ -724,10 +724,10 @@ Capybara Go's Ranking screen lists players in order by their longest survived ru
 
 ### O47. Social features still locked
 
-Friends, Guilds, and Arena all appear as locked entries with their own stated unlock conditions, and the Black Market's own guild tab likewise requires membership to use. No feature letting the player interact with another identified player is reachable yet.
+Friends, Guilds, and Arena all appear as locked entries with their own stated unlock conditions, and the Black Market's own guild tab likewise requires membership to use. We did not cover a surface for interacting with another identified player in this analysis.
 
 - Friends, Guilds, and Arena all appear as locked entries with stated unlock conditions.
-- No surface for interacting with another identified player is reachable yet.
+- We did not cover a surface for interacting with another identified player in this analysis.
 
 ---
 

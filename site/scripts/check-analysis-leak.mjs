@@ -12,6 +12,25 @@
  * check makes the rule mechanical instead of relying on re-reading catching
  * it every time.
  *
+ * Permanent correction (see stage2-website-content.md): the rule above is
+ * about mechanics, not scope, and the two are not the same failure. A
+ * feature the app itself states exists (a locked entry with its own stated
+ * unlock condition, say) must never be written as absent from the app just
+ * because this analysis didn't reach it — that produced a real false
+ * statement about Capybara Go's Social section once already. The fix is a
+ * scope statement in the library's own voice: first person plural, about
+ * coverage only ("we did not cover X in this analysis"), never naming a
+ * narrator, a session, a recording, or what a session reached. That form is
+ * deliberately NOT caught by the patterns below — "analysis", "cover", and
+ * "available to us" are none of them banned words, on purpose, because
+ * "analysis" alone is also ordinary marketing copy elsewhere on this site
+ * (see Shortcasts.jsx, Subscribe.jsx) and banning it bare would flag pages
+ * that have nothing to do with this check. The two phrases in EXEMPT_PHRASES
+ * below that mention "this analysis" are the sanctioned templates, kept
+ * explicit here so a future tightening of PATTERNS (banning bare "review",
+ * say) doesn't silently re-criminalize the one form of this vocabulary the
+ * rule now requires.
+ *
  * Scans the VISIBLE TEXT of every rendered page in dist/ (script/style
  * bodies and HTML comments stripped first, then all tags stripped, so a
  * hit can only come from prose a reader actually sees — never a CSS class
@@ -19,13 +38,20 @@
  * "observedAttributes", both of which live inside a tag or inside a
  * <script> body and never survive the strip).
  *
- * Two fixed pieces of site chrome legitimately contain this vocabulary and
- * are carved out by exact phrase before the bare-word check runs:
+ * Fixed site chrome and sanctioned copy that legitimately contain this
+ * vocabulary are carved out by exact phrase before the bare-word check
+ * runs:
  *   - "What was observed" — the schema's own field-label heading, identical
  *     on every mechanic block on every app's page.
  *   - "Nothing observed here" — the empty-section placeholder shown on a
  *     summary page when a section has no content (see Dave and Cleo's
  *     Social sections).
+ *   - "in this analysis" / "during this analysis" — the sanctioned scope
+ *     statement described above. Carved out so it can never be masked by,
+ *     nor accidentally caught alongside, a real leak sitting in the same
+ *     text node; today's PATTERNS wouldn't catch either phrase anyway, but
+ *     they're listed here as the two forms actually in use so that stays
+ *     true on purpose rather than by accident.
  * Nothing else is exempt. A genuine in-app feature that happens to use one
  * of these words (Strava's own "Recording an activity", a game's own
  * "recorded play" counter) reads as a false positive here on purpose:
@@ -53,10 +79,16 @@ if (!fs.existsSync(dist)) {
 // has run with zero hits and the false-positive shape is understood.
 const HARD_FAIL = false;
 
-// Fixed site chrome that legitimately contains this vocabulary — stripped
-// out (once each) before the bare-word patterns run, so it can never mask
-// a real hit sitting right next to it in the same text node.
-const EXEMPT_PHRASES = ["What was observed", "Nothing observed here"];
+// Fixed site chrome, plus the sanctioned scope-statement wording, that
+// legitimately contains this vocabulary — stripped out (once each) before
+// the bare-word patterns run, so it can never mask a real hit sitting right
+// next to it in the same text node.
+const EXEMPT_PHRASES = [
+  "What was observed",
+  "Nothing observed here",
+  "in this analysis",
+  "during this analysis",
+];
 
 // [label, regex] — word-boundary, case-insensitive. "observed" is checked
 // as a bare word deliberately: after the two exemptions above are removed,
