@@ -413,8 +413,7 @@ const CONNECTIONS = {
     { from: "set-collection", to: "daily-login-reward", title: "Fisher's gate requires four consecutive returns", desc: "Fisher requires four consecutive days of expense tracking to unlock, the most behaviorally intentional content gate in the library.", effect: "Users motivated by seeing Fisher return for four consecutive days without any separate streak system. The collection gate does the streak's job." },
   ],
   tiimo: [
-    { from: "streak", to: "achievements", title: "Consecutive days unlock marbles", desc: "The marble collection tracks both consecutive days and tasks completed. Every streak day directly advances the marble ladder, the streak and achievement system share the same metric.", effect: "Users experience streak and achievement as a single integrated progression rather than two separate mechanics." },
-    { from: "achievements", to: "streak", title: "Marble unlocks reinforce streak continuation", desc: "When a marble unlocks at day 3, 7, or 10, the background gradient changes. The achievement reward arrives precisely at the streak milestone, making the milestone feel significant.", effect: "The gradient shift makes streak maintenance feel cumulative. Each new marble changes the daily environment, reinforcing that the streak is building something permanent." },
+    { from: "streak", to: "achievements", title: "The day count feeds the marker row", desc: "One of the row's two tracks is keyed directly to the streak day count, so a day maintained crosses the same thresholds the row displays.", effect: "The row's sense of standing depends on the streak's own continuity rule, which a single day of use can't show operating." },
   ],
   uptime: [
     { from: "streak", to: "achievements", title: "Daily return generates expertise badges", desc: "Returning daily to complete hacks in a topic generates 'expert in X' expertise badges automatically, without any explicit achievement hunting.", effect: "Users who maintain the streak for topic-specific reasons discover they have been accumulating expertise badges, achievements arrive as noticed facts rather than pursued goals." },
@@ -634,9 +633,11 @@ const POSITIONS = {
     "set-collection":        { x: 74, y: 70 },
   },
   "tiimo": {
-    center:                  { x: 50, y: 18, label: "TIIMO" },
-    "streak":                { x: 30, y: 60 },
-    "achievements":          { x: 70, y: 60 },
+    center:                  { x: 50, y: 8,  label: "TIIMO" },
+    "streak":                { x: 40, y: 32 },
+    "achievements":          { x: 60, y: 32 },
+    "cosmetics":             { x: 20, y: 65 },
+    "expert-guidance":       { x: 80, y: 65 },
   },
   "uptime": {
     center:                  { x: 50, y: 15, label: "UPTIME" },

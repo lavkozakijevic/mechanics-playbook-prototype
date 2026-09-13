@@ -1118,6 +1118,26 @@ const V41_APP_META = {
         "Canva previews its own notifications during onboarding, defaults every marketing channel to on, and interrupts active use with a rating prompt.",
     },
   },
+  tiimo: {
+    name: "Tiimo",
+    category: "Productivity / Planning",
+    type: "app",
+    sectionCards: {
+      onboarding:
+        "Tiimo asks for an account, a marketing preference, two profiling questions, and permission for four systems before showing any feature, then hands out a streak and a marker before a single task has been completed.",
+      "core-loop":
+        "Tiimo's day runs on a timeline of tasks created directly or through an AI assistant that turns spoken or typed intent into scheduled tasks, alongside separate to-do lists and a focus timer.",
+      goals: "Tiimo tracks a streak of days and a tally of completed tasks, and unlocks a row of named markers built from both.",
+      access:
+        "Tiimo's free tier covers planning and to-do basics, with the AI co-planner, focus timer, themes and several notification options locked behind its paid tier.",
+      economy: "Tiimo holds no currency, balance or tradable unit of any kind.",
+      social: "Tiimo has no social layer at all.",
+      reach: "Tiimo shares through a stats tab control, a screenshot-triggered social prompt, a knowledge library with expert courses, and a second surface on desktop and web.",
+      monetization: "Tiimo sells through one paywall, a persistent upgrade control, an upsell card on the stats tab, and paid notification timing.",
+      returns:
+        "Tiimo asks for a rating twice before a single task is completed, and runs a fixed daily and weekly notification schedule alongside a streak and level banner toggle.",
+    },
+  },
 };
 
 beginRegenerate("apps");
