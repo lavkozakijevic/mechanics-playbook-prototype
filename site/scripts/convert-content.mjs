@@ -204,6 +204,12 @@ function parseAnalysisV3(file) {
       if (!observed.some((o) => o.id === id)) observed.push({ id, depth: m[2].toLowerCase() });
     }
   }
+  // Zero is a legitimate result here — a report-only app can genuinely have
+  // no observed mechanics (e.g. orbit.md: "No mechanics from the 24-mechanic
+  // framework were observed in this session") — so this doesn't throw on an
+  // empty result. detectAnalysisFormat below is where format misdetection is
+  // actually caught, on the file's structural shape rather than its content.
+
   // Unrecognized mechanics: "### `working-name`" (may carry a trailing note)
   const unrecognized = [...md.matchAll(/^### `([a-z0-9-]+)`/gm)].map((m) => m[1]);
   // Screenshot suggestions per mechanic section: bracketed capture descriptions
@@ -227,9 +233,35 @@ function parseAnalysisV3(file) {
 // lives in v41-sections.mjs, shared with the template layer.
 const V41_SECTION_SLUG = new Map(V41_SECTIONS.map((s) => [s.name, s.slug]));
 
+// Both formats are matched positively — neither is a default. A file that
+// matches neither, or somehow both, throws instead of silently falling
+// through to v3, which is what let a heading-depth mistake in capybara-go.md
+// route through the wrong parser undetected (11 Sep 2026 incident): the v3
+// parser found no bold header fields, produced an empty analysisDate, and
+// nothing caught it until validate-content.mjs did, three steps later.
+const V41_SIGNATURE = /^# Pass one:/im;
+// "## Mechanics observed" rather than a mechanic heading itself: a v3 file
+// can legitimately observe zero mechanics (e.g. orbit.md, a report-only
+// utility app — "No mechanics from the 24-mechanic framework were observed
+// in this session"), so a signature keyed on mechanic count would misfire on
+// exactly the files most likely to have none. This section heading is part
+// of the v3 template regardless of what it contains, so it's there whether
+// or not any mechanic was found.
+const V3_SIGNATURE = /^## Mechanics observed\s*$/im;
+
 function detectAnalysisFormat(file) {
   const md = fs.readFileSync(path.join(repo, "sources/analyses", file), "utf8");
-  return /^# Pass one:/im.test(md) ? "v4.1" : "v3";
+  const isV41 = V41_SIGNATURE.test(md);
+  const isV3 = V3_SIGNATURE.test(md);
+  if (isV41 && isV3)
+    throw new Error(
+      `${file}: matches both the v4.1 signature ("# Pass one:") and the v3 signature ("## Mechanics observed") — ambiguous. Fix the file's headings before it can be parsed.`
+    );
+  if (isV41) return "v4.1";
+  if (isV3) return "v3";
+  throw new Error(
+    `${file}: could not determine analysis format. Found neither a level-1 "# Pass one:" heading (v4.1) nor a level-2 "## Mechanics observed" heading (v3). Check heading depth and wording against the analysis prompt.`
+  );
 }
 
 // Publishing bar (spec §1.3): tags publish only at confirmed or strongly
