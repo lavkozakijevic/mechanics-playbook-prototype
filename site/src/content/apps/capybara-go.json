@@ -59,9 +59,9 @@
           "confidences": [
             "directly observed"
           ],
-          "rationale": "Each case is tied to a position within a broader progression rather than a standalone criterion, and each produces a response beyond an ordinary progress update, so no exclusion applies (tier: directly observed). Reaching 10 on the talent progress bar granted 720 coins (tier: directly observed). Feature unlock pop-ups appear at chapter clears and survival-day thresholds and change access (tier: directly observed). Clearing Tower of Explorers floor 10 produced a congratulation message and a reward chest, and clearing Chapter 1 granted gold and moved the capybara to a new area (tier: directly observed). The talent progress bar in O25 and the Tower clear chest in O22 are surfaces of their own, separate from the funds attached to the same measures at T20, so the fund's precedence over Milestone does not reach them (tier: directly observed).",
+          "rationale": "Each case is tied to a position within a broader progression rather than a standalone criterion, and each produces a response beyond an ordinary progress update, so no exclusion applies (tier: directly observed). Reaching 10 on the talent progress bar granted 720 coins (tier: directly observed). Feature unlock pop-ups appear at chapter clears and survival-day thresholds and change access (tier: directly observed). Clearing Tower of Explorers floor 10 produced a congratulation message and a reward chest, and clearing Chapter 1 granted gold and moved the capybara to a new area (tier: directly observed). The talent progress bar in O30 and the Tower clear chest in O22 are surfaces of their own, separate from the funds attached to the same measures at T20, so the fund's precedence over Milestone does not reach them (tier: directly observed).",
           "alternativeConsidered": "Achievement. No surface records an attained criterion separately from the reward or access change (tier: directly observed).",
-          "role": "engagement\n\nO25 and O22 reward crossing defined points in talent and Tower progress, and O3 marks points in chapter progress by unlocking features."
+          "role": "engagement\n\nO30 and O22 reward crossing defined points in talent and Tower progress, and O3 marks points in chapter progress by unlocking features."
         }
       ],
       "crossRefs": [],
@@ -143,7 +143,7 @@
           ],
           "rationale": "Every opportunity resolves a result, so the Variable Reward Schedule exclusion applies to that entry rather than this one, and no visible fixed rule determines the results (tier: directly observed). Level-ups present changing sets of three skills from which the user picks one (tier: directly observed). The Forest Maiden wheel has several segments and landed differently in run one and run two (tier: directly observed). Golden chests present a set of three mythic skills (tier: directly observed). The mini-game wheel and card flip each resolve among several prize types (tier: directly observed). The free Adventure Supply Crate open and the ad-opened Hero Supply Crate and pet hatches draw from stated pools without consuming a held resource (tier: directly observed).\n\nEach day resolves an explicit event outcome, including results framed as bad luck, so the Variable Reward Schedule exclusion applies to that entry (tier: directly observed). The same day positions produced different events in run one and run two (tier: directly observed). Whether the variation comes from a selection rule or from the character's changed state is not shown, while no visible rule fixes the results (tier: strongly supported).",
           "alternativeConsidered": "Loot Box. These surfaces require no value commitment before resolution, which excludes the specialization (tier: directly observed).\n\nA fixed chapter script that differs only with character state, which would carry no mechanic label (tier: plausible). Two runs started at identical stats would separate the two.",
-          "role": "engagement\n\nO10, O12, O15 and O19 resolve rewards with differing results during a run, and O41 and O29 do the same for equipment and pets between runs. | engagement\n\nThe outcomes in O8 vary as the user advances day by day within a run."
+          "role": "engagement\n\nO10, O12, O15 and O19 resolve rewards with differing results during a run, and O42 and O34 do the same for equipment and pets between runs. | engagement\n\nThe outcomes in O8 vary as the user advances day by day within a run."
         }
       ],
       "crossRefs": [],
@@ -182,7 +182,7 @@
             "directly observed"
           ],
           "rationale": "The units are not exchanged for results and do not merely score a battle, so no exclusion applies (tier: directly observed). Events and battles grant quantified experience that accumulates across events, and crossing a threshold changes the character's level (tier: directly observed).",
-          "alternativeConsidered": "A separate Experience Points tag for the Battle Pass's pass experience in O57. It is the advancement value of the pass, never seen accumulating, and is described under T23 (tier: directly observed).",
+          "alternativeConsidered": "A separate Experience Points tag for the Battle Pass's pass experience in O55. It is the advancement value of the pass, never seen accumulating, and is described under T23 (tier: directly observed).",
           "role": "engagement\n\nThe experience in O10 accumulates during a run toward level-ups that present skill choices in the same session."
         },
         {
@@ -193,7 +193,7 @@
           ],
           "rationale": "The levels are maintained current states, not scores or purchased plans, so no exclusion applies (tier: directly observed). The character's in-run level is numbered, displayed and changes when experience crosses a threshold (tier: directly observed). Each talent holds a level raised by spending gold (tier: directly observed). The rank title tree orders titles with thresholds, the current title is displayed, and the change to Apprentice 2 added stats (tier: directly observed). Equipment levels out of 10, equipment quality raised by merging and pet levels raised with duplicates and food follow stated rules, though only equipment enhancement was seen changing a level (tier: strongly supported). The pet level is the ordered state this entry classifies, while the pet that holds it is classified under Companion at T2 (tier: directly observed).",
           "alternativeConsidered": "Milestone for the rank title change. The title is kept as a current state, which is this entry's invariant, and no recognition beyond the stat change was narrated (tier: directly observed). Leveling for chapters is addressed under T1.",
-          "role": "engagement\n\nThe in-run levels in O10 change skill options during a session, and the talent levels and rank titles in O24 and O26 carry stat gains into later runs."
+          "role": "engagement\n\nThe in-run levels in O10 change skill options during a session, and the talent levels and rank titles in O29 and O31 carry stat gains into later runs."
         },
         {
           "name": "Variable Reward Outcome",
@@ -204,7 +204,7 @@
           ],
           "rationale": "Every opportunity resolves a result, so the Variable Reward Schedule exclusion applies to that entry rather than this one, and no visible fixed rule determines the results (tier: directly observed). Level-ups present changing sets of three skills from which the user picks one (tier: directly observed). The Forest Maiden wheel has several segments and landed differently in run one and run two (tier: directly observed). Golden chests present a set of three mythic skills (tier: directly observed). The mini-game wheel and card flip each resolve among several prize types (tier: directly observed). The free Adventure Supply Crate open and the ad-opened Hero Supply Crate and pet hatches draw from stated pools without consuming a held resource (tier: directly observed).\n\nEach day resolves an explicit event outcome, including results framed as bad luck, so the Variable Reward Schedule exclusion applies to that entry (tier: directly observed). The same day positions produced different events in run one and run two (tier: directly observed). Whether the variation comes from a selection rule or from the character's changed state is not shown, while no visible rule fixes the results (tier: strongly supported).",
           "alternativeConsidered": "Loot Box. These surfaces require no value commitment before resolution, which excludes the specialization (tier: directly observed).\n\nA fixed chapter script that differs only with character state, which would carry no mechanic label (tier: plausible). Two runs started at identical stats would separate the two.",
-          "role": "engagement\n\nO10, O12, O15 and O19 resolve rewards with differing results during a run, and O41 and O29 do the same for equipment and pets between runs. | engagement\n\nThe outcomes in O8 vary as the user advances day by day within a run."
+          "role": "engagement\n\nO10, O12, O15 and O19 resolve rewards with differing results during a run, and O42 and O34 do the same for equipment and pets between runs. | engagement\n\nThe outcomes in O8 vary as the user advances day by day within a run."
         }
       ],
       "crossRefs": [],
@@ -245,7 +245,7 @@
           ],
           "rationale": "Every opportunity resolves a result, so the Variable Reward Schedule exclusion applies to that entry rather than this one, and no visible fixed rule determines the results (tier: directly observed). Level-ups present changing sets of three skills from which the user picks one (tier: directly observed). The Forest Maiden wheel has several segments and landed differently in run one and run two (tier: directly observed). Golden chests present a set of three mythic skills (tier: directly observed). The mini-game wheel and card flip each resolve among several prize types (tier: directly observed). The free Adventure Supply Crate open and the ad-opened Hero Supply Crate and pet hatches draw from stated pools without consuming a held resource (tier: directly observed).\n\nEach day resolves an explicit event outcome, including results framed as bad luck, so the Variable Reward Schedule exclusion applies to that entry (tier: directly observed). The same day positions produced different events in run one and run two (tier: directly observed). Whether the variation comes from a selection rule or from the character's changed state is not shown, while no visible rule fixes the results (tier: strongly supported).",
           "alternativeConsidered": "Loot Box. These surfaces require no value commitment before resolution, which excludes the specialization (tier: directly observed).\n\nA fixed chapter script that differs only with character state, which would carry no mechanic label (tier: plausible). Two runs started at identical stats would separate the two.",
-          "role": "engagement\n\nO10, O12, O15 and O19 resolve rewards with differing results during a run, and O41 and O29 do the same for equipment and pets between runs. | engagement\n\nThe outcomes in O8 vary as the user advances day by day within a run."
+          "role": "engagement\n\nO10, O12, O15 and O19 resolve rewards with differing results during a run, and O42 and O34 do the same for equipment and pets between runs. | engagement\n\nThe outcomes in O8 vary as the user advances day by day within a run."
         }
       ],
       "crossRefs": [],
@@ -299,7 +299,7 @@
           ],
           "rationale": "Every opportunity resolves a result, so the Variable Reward Schedule exclusion applies to that entry rather than this one, and no visible fixed rule determines the results (tier: directly observed). Level-ups present changing sets of three skills from which the user picks one (tier: directly observed). The Forest Maiden wheel has several segments and landed differently in run one and run two (tier: directly observed). Golden chests present a set of three mythic skills (tier: directly observed). The mini-game wheel and card flip each resolve among several prize types (tier: directly observed). The free Adventure Supply Crate open and the ad-opened Hero Supply Crate and pet hatches draw from stated pools without consuming a held resource (tier: directly observed).\n\nEach day resolves an explicit event outcome, including results framed as bad luck, so the Variable Reward Schedule exclusion applies to that entry (tier: directly observed). The same day positions produced different events in run one and run two (tier: directly observed). Whether the variation comes from a selection rule or from the character's changed state is not shown, while no visible rule fixes the results (tier: strongly supported).",
           "alternativeConsidered": "Loot Box. These surfaces require no value commitment before resolution, which excludes the specialization (tier: directly observed).\n\nA fixed chapter script that differs only with character state, which would carry no mechanic label (tier: plausible). Two runs started at identical stats would separate the two.",
-          "role": "engagement\n\nO10, O12, O15 and O19 resolve rewards with differing results during a run, and O41 and O29 do the same for equipment and pets between runs. | engagement\n\nThe outcomes in O8 vary as the user advances day by day within a run."
+          "role": "engagement\n\nO10, O12, O15 and O19 resolve rewards with differing results during a run, and O42 and O34 do the same for equipment and pets between runs. | engagement\n\nThe outcomes in O8 vary as the user advances day by day within a run."
         }
       ],
       "crossRefs": [],
@@ -367,7 +367,7 @@
           ],
           "rationale": "Every opportunity resolves a result, so the Variable Reward Schedule exclusion applies to that entry rather than this one, and no visible fixed rule determines the results (tier: directly observed). Level-ups present changing sets of three skills from which the user picks one (tier: directly observed). The Forest Maiden wheel has several segments and landed differently in run one and run two (tier: directly observed). Golden chests present a set of three mythic skills (tier: directly observed). The mini-game wheel and card flip each resolve among several prize types (tier: directly observed). The free Adventure Supply Crate open and the ad-opened Hero Supply Crate and pet hatches draw from stated pools without consuming a held resource (tier: directly observed).\n\nEach day resolves an explicit event outcome, including results framed as bad luck, so the Variable Reward Schedule exclusion applies to that entry (tier: directly observed). The same day positions produced different events in run one and run two (tier: directly observed). Whether the variation comes from a selection rule or from the character's changed state is not shown, while no visible rule fixes the results (tier: strongly supported).",
           "alternativeConsidered": "Loot Box. These surfaces require no value commitment before resolution, which excludes the specialization (tier: directly observed).\n\nA fixed chapter script that differs only with character state, which would carry no mechanic label (tier: plausible). Two runs started at identical stats would separate the two.",
-          "role": "engagement\n\nO10, O12, O15 and O19 resolve rewards with differing results during a run, and O41 and O29 do the same for equipment and pets between runs. | engagement\n\nThe outcomes in O8 vary as the user advances day by day within a run."
+          "role": "engagement\n\nO10, O12, O15 and O19 resolve rewards with differing results during a run, and O42 and O34 do the same for equipment and pets between runs. | engagement\n\nThe outcomes in O8 vary as the user advances day by day within a run."
         }
       ],
       "crossRefs": [],
@@ -413,9 +413,9 @@
           "confidences": [
             "directly observed"
           ],
-          "rationale": "Each case is tied to a position within a broader progression rather than a standalone criterion, and each produces a response beyond an ordinary progress update, so no exclusion applies (tier: directly observed). Reaching 10 on the talent progress bar granted 720 coins (tier: directly observed). Feature unlock pop-ups appear at chapter clears and survival-day thresholds and change access (tier: directly observed). Clearing Tower of Explorers floor 10 produced a congratulation message and a reward chest, and clearing Chapter 1 granted gold and moved the capybara to a new area (tier: directly observed). The talent progress bar in O25 and the Tower clear chest in O22 are surfaces of their own, separate from the funds attached to the same measures at T20, so the fund's precedence over Milestone does not reach them (tier: directly observed).",
+          "rationale": "Each case is tied to a position within a broader progression rather than a standalone criterion, and each produces a response beyond an ordinary progress update, so no exclusion applies (tier: directly observed). Reaching 10 on the talent progress bar granted 720 coins (tier: directly observed). Feature unlock pop-ups appear at chapter clears and survival-day thresholds and change access (tier: directly observed). Clearing Tower of Explorers floor 10 produced a congratulation message and a reward chest, and clearing Chapter 1 granted gold and moved the capybara to a new area (tier: directly observed). The talent progress bar in O30 and the Tower clear chest in O22 are surfaces of their own, separate from the funds attached to the same measures at T20, so the fund's precedence over Milestone does not reach them (tier: directly observed).",
           "alternativeConsidered": "Achievement. No surface records an attained criterion separately from the reward or access change (tier: directly observed).",
-          "role": "engagement\n\nO25 and O22 reward crossing defined points in talent and Tower progress, and O3 marks points in chapter progress by unlocking features."
+          "role": "engagement\n\nO30 and O22 reward crossing defined points in talent and Tower progress, and O3 marks points in chapter progress by unlocking features."
         }
       ],
       "crossRefs": [],
@@ -452,7 +452,7 @@
           ],
           "rationale": "The lists are ordered by performance, not alphabetically or by time, so no exclusion applies (tier: directly observed). Ranking orders players from first place by chapter and longest run, and the Tower leaderboard orders top players by highest floor reached (tier: directly observed). The social role is not assigned because whether players are shown by identity was not narrated (tier: unresolved).\n\nPet Auspice and Stage Growth each carry a leaderboard tab and ranking rewards by placement band from first place to 9,999 (tier: directly observed). The listed entries and the comparison measure were not narrated, so presence rests on the product's framing and placement rewards (tier: strongly supported).",
           "alternativeConsidered": "Comparative Rank for the user's position of 3,092 and the Tower's \"unranked\" state. The Leaderboard entry classifies a view that states the user's position alongside other ordered entries as a leaderboard, and here the position appears within the same view (tier: directly observed).\n\nComparative Rank alone. The app frames the tab as a leaderboard listing placements, and no single-position readout was narrated (tier: strongly supported).",
-          "role": "engagement\n\nO48 and O22 set the user's chapter, longest run and highest floor in order against other players' results. | engagement\n\nO45 ties rewards to placement within a five-day event."
+          "role": "engagement\n\nO46 and O22 set the user's chapter, longest run and highest floor in order against other players' results. | engagement\n\nO64 ties rewards to placement within a five-day event."
         },
         {
           "name": "Milestone",
@@ -460,9 +460,9 @@
           "confidences": [
             "directly observed"
           ],
-          "rationale": "Each case is tied to a position within a broader progression rather than a standalone criterion, and each produces a response beyond an ordinary progress update, so no exclusion applies (tier: directly observed). Reaching 10 on the talent progress bar granted 720 coins (tier: directly observed). Feature unlock pop-ups appear at chapter clears and survival-day thresholds and change access (tier: directly observed). Clearing Tower of Explorers floor 10 produced a congratulation message and a reward chest, and clearing Chapter 1 granted gold and moved the capybara to a new area (tier: directly observed). The talent progress bar in O25 and the Tower clear chest in O22 are surfaces of their own, separate from the funds attached to the same measures at T20, so the fund's precedence over Milestone does not reach them (tier: directly observed).",
+          "rationale": "Each case is tied to a position within a broader progression rather than a standalone criterion, and each produces a response beyond an ordinary progress update, so no exclusion applies (tier: directly observed). Reaching 10 on the talent progress bar granted 720 coins (tier: directly observed). Feature unlock pop-ups appear at chapter clears and survival-day thresholds and change access (tier: directly observed). Clearing Tower of Explorers floor 10 produced a congratulation message and a reward chest, and clearing Chapter 1 granted gold and moved the capybara to a new area (tier: directly observed). The talent progress bar in O30 and the Tower clear chest in O22 are surfaces of their own, separate from the funds attached to the same measures at T20, so the fund's precedence over Milestone does not reach them (tier: directly observed).",
           "alternativeConsidered": "Achievement. No surface records an attained criterion separately from the reward or access change (tier: directly observed).",
-          "role": "engagement\n\nO25 and O22 reward crossing defined points in talent and Tower progress, and O3 marks points in chapter progress by unlocking features."
+          "role": "engagement\n\nO30 and O22 reward crossing defined points in talent and Tower progress, and O3 marks points in chapter progress by unlocking features."
         }
       ],
       "crossRefs": [],
@@ -484,186 +484,8 @@
     },
     {
       "id": "O24",
-      "name": "Upgrading talents with gold",
-      "section": "goals",
-      "observed": "Capybara Go's Talents screen holds three stats, health, attack, and defense, each raised by spending gold coins. An attack upgrade costs 240 coins for 3 attack, a health upgrade adds 12 health, and a defense upgrade adds 1 defense, with costs rising as talents advance. The app's pointer guidance directs the first upgrade to attack, and tapping a talent without enough coins opens a gold-purchase offer instead.",
-      "detail": [
-        "An attack upgrade costs 240 coins for 3 attack.",
-        "A health upgrade adds 12 health; a defense upgrade adds 1 defense.",
-        "Tapping a talent without enough coins opens a gold-purchase offer."
-      ],
-      "tags": [
-        {
-          "name": "Leveling",
-          "confidence": "directly observed",
-          "confidences": [
-            "directly observed"
-          ],
-          "rationale": "The levels are maintained current states, not scores or purchased plans, so no exclusion applies (tier: directly observed). The character's in-run level is numbered, displayed and changes when experience crosses a threshold (tier: directly observed). Each talent holds a level raised by spending gold (tier: directly observed). The rank title tree orders titles with thresholds, the current title is displayed, and the change to Apprentice 2 added stats (tier: directly observed). Equipment levels out of 10, equipment quality raised by merging and pet levels raised with duplicates and food follow stated rules, though only equipment enhancement was seen changing a level (tier: strongly supported). The pet level is the ordered state this entry classifies, while the pet that holds it is classified under Companion at T2 (tier: directly observed).",
-          "alternativeConsidered": "Milestone for the rank title change. The title is kept as a current state, which is this entry's invariant, and no recognition beyond the stat change was narrated (tier: directly observed). Leveling for chapters is addressed under T1.",
-          "role": "engagement\n\nThe in-run levels in O10 change skill options during a session, and the talent levels and rank titles in O24 and O26 carry stat gains into later runs."
-        }
-      ],
-      "crossRefs": [],
-      "screenshots": []
-    },
-    {
-      "id": "O25",
-      "name": "A talent progress bar with milestones",
-      "section": "goals",
-      "observed": "The talents screen shows a bar counting combined talent levels, paying 720 gold coins at 10 points and an Adventure Badge at 20. Reaching 10 points pays out close to what it cost to get there. The Adventure Badge itself was never reached, so what it does isn't shown.",
-      "detail": [
-        "Reaching 10 combined talent points pays 720 gold coins.",
-        "Reaching 20 points grants an Adventure Badge, not yet reached.",
-        "The 720-coin reward roughly repays the coins spent reaching that point."
-      ],
-      "tags": [
-        {
-          "name": "Milestone",
-          "confidence": "directly observed",
-          "confidences": [
-            "directly observed"
-          ],
-          "rationale": "Each case is tied to a position within a broader progression rather than a standalone criterion, and each produces a response beyond an ordinary progress update, so no exclusion applies (tier: directly observed). Reaching 10 on the talent progress bar granted 720 coins (tier: directly observed). Feature unlock pop-ups appear at chapter clears and survival-day thresholds and change access (tier: directly observed). Clearing Tower of Explorers floor 10 produced a congratulation message and a reward chest, and clearing Chapter 1 granted gold and moved the capybara to a new area (tier: directly observed). The talent progress bar in O25 and the Tower clear chest in O22 are surfaces of their own, separate from the funds attached to the same measures at T20, so the fund's precedence over Milestone does not reach them (tier: directly observed).",
-          "alternativeConsidered": "Achievement. No surface records an attained criterion separately from the reward or access change (tier: directly observed).",
-          "role": "engagement\n\nO25 and O22 reward crossing defined points in talent and Tower progress, and O3 marks points in chapter progress by unlocking features."
-        }
-      ],
-      "crossRefs": [],
-      "screenshots": []
-    },
-    {
-      "id": "O26",
-      "name": "A rank title ladder",
-      "section": "goals",
-      "observed": "Capybara Go's profile shows the title \"Apprentice\" and a preview button opening a full ladder of ranks running from Apprentice through Adventurer, Elite, Master, Warrior, and Hero to Elite Legacy, each with its own point threshold. Reaching the second rank added a direct boost to attack, defense, and health. The app never names what unit the thresholds actually count, and the ladder sits on the talents screen, suggesting a tie to talent levels that the app doesn't state outright.",
-      "detail": [
-        "The rank ladder runs Apprentice, Adventurer, Elite, Master, Warrior, Hero, Elite Legacy.",
-        "Reaching Apprentice 2 added 12 attack, 1 defense, and 48 health.",
-        "The unit counted toward rank thresholds is never named."
-      ],
-      "tags": [
-        {
-          "name": "Leveling",
-          "confidence": "directly observed",
-          "confidences": [
-            "directly observed"
-          ],
-          "rationale": "The levels are maintained current states, not scores or purchased plans, so no exclusion applies (tier: directly observed). The character's in-run level is numbered, displayed and changes when experience crosses a threshold (tier: directly observed). Each talent holds a level raised by spending gold (tier: directly observed). The rank title tree orders titles with thresholds, the current title is displayed, and the change to Apprentice 2 added stats (tier: directly observed). Equipment levels out of 10, equipment quality raised by merging and pet levels raised with duplicates and food follow stated rules, though only equipment enhancement was seen changing a level (tier: strongly supported). The pet level is the ordered state this entry classifies, while the pet that holds it is classified under Companion at T2 (tier: directly observed).",
-          "alternativeConsidered": "Milestone for the rank title change. The title is kept as a current state, which is this entry's invariant, and no recognition beyond the stat change was narrated (tier: directly observed). Leveling for chapters is addressed under T1.",
-          "role": "engagement\n\nThe in-run levels in O10 change skill options during a session, and the talent levels and rank titles in O24 and O26 carry stat gains into later runs."
-        }
-      ],
-      "crossRefs": [],
-      "screenshots": []
-    },
-    {
-      "id": "O27",
-      "name": "Equipment slots and enhancement",
-      "section": "goals",
-      "observed": "Capybara Go gives the character six equipment slots, one weapon, one armor, two rings, and two necklaces, each item showing a quality, a level out of 10, basic stats, and four further effects shown locked. Items can be equipped, enhanced, or quick-enhanced using power stones. Replacing an equipped item doesn't offer a side-by-side comparison with what's already worn, though items can be sorted by quality and a separate screen lists the character's overall stats.",
-      "detail": [
-        "Six equipment slots exist: one weapon, one armor, two rings, two necklaces.",
-        "The first crate item, a common Guardian's Ring, showed level 0 of 10, with attack 10, defense 3, and health 10.",
-        "Replacing an item offers no side-by-side comparison with the currently equipped one."
-      ],
-      "tags": [],
-      "crossRefs": [],
-      "screenshots": []
-    },
-    {
-      "id": "O28",
-      "name": "Merging duplicate equipment",
-      "section": "goals",
-      "observed": "A workshop screen lets the player merge identical equipment items into a higher quality. Two additional copies of a given item are needed to raise it to the next tier, and the quality tiers run from common through great, rare, and epic up to S epic.",
-      "detail": [
-        "Merging requires two further copies of an identical item.",
-        "Quality tiers: common, great, rare, epic, S epic."
-      ],
-      "tags": [],
-      "crossRefs": [],
-      "screenshots": []
-    },
-    {
-      "id": "O29",
-      "name": "Unlocking and hatching pets",
-      "section": "goals",
-      "observed": "Pets unlock through their own feature pop-up once the player is far enough into the game. The pets screen shows three battle positions, one open and two locked, with the next stated to open at level four without saying which level it means. Eggs hatch through three routes: watching three ads, or paying 300 or 600 gems for larger quantities. Hatching by ad produced several pets in one sitting, and a hatched pet can be swiped into the open battle position to fight alongside the capybara.",
-      "detail": [
-        "Three battle positions exist; one open, two locked, next opening at level 4.",
-        "Egg hatch routes: three ads, 300 gems, or 600 gems for a larger batch.",
-        "Ad-based hatching produced several pets, including a parrot, mushrooms, an onion, and a frog, in one sitting."
-      ],
-      "tags": [
-        {
-          "name": "Companion",
-          "confidence": "directly observed",
-          "confidences": [
-            "directly observed"
-          ],
-          "rationale": "Pets are entities distinct from the capybara, held in a pet list between runs, and they act in the activity rather than modifying the character from an equipment slot, so the equipment exclusion does not apply (tier: directly observed). The pets screen maintains three battle positions, one open and two locked, and a hatched pet is swiped into the open position (tier: directly observed). Pets attack in battle and alongside the character in raid battles (tier: directly observed). Each pet holds a level, battle skills that unlock at higher levels, and an enhancement rule requiring further copies of the same pet together with pet food (tier: directly observed). The acquisition routes seen are egg hatches for three ads or for 300 or 600 gems (O29), the Growth Shop's ticket exchange (O47) and sign-in rewards of five Snowy pets and the mythic pet Flash (O62) (tier: directly observed). The size of a pet's contribution to a battle outcome was not shown (tier: unresolved). The stated condition for the next position, level 4, does not name which level it refers to (tier: unresolved).",
-          "alternativeConsidered": "Cosmetic Customization, which would apply if the pets changed presentation only. Pets attack in battle and in raids, which this entry separates from presentation (tier: directly observed). A battle that shows a pet's effect on the outcome is the separating evidence for the size of that contribution, and no such view was narrated (tier: unresolved). Set Collection was also considered: no member-level tracking of which distinct pets have been obtained was shown (tier: directly observed).",
-          "role": "engagement, monetization\n\nPets act in the battles and raids that make up play in O23 and O29, and their acquisition and development are priced in gems, paid for with ad views and sold in packs and event offers in O29, O45 and O53."
-        }
-      ],
-      "crossRefs": [],
-      "screenshots": []
-    },
-    {
-      "id": "O30",
-      "name": "Growing and merging pets",
-      "section": "goals",
-      "observed": "Each pet Capybara Go grants carries its own level, battle skills that unlock at higher levels, and an upgrade bar. Growing a pet consumes further copies of the same pet plus pet food. A separate synthesis screen states that surplus pet fragments will combine into a new pet, though no fragments were held to test it. A full list shows every held pet alongside its battle skills.",
-      "detail": [
-        "A sample pet, the Icewind Fox, is shown at level 1 with 400 health, 100 attack, and 25 defense.",
-        "Growing a pet requires further copies of itself plus pet food.",
-        "No fragments were held, so pet synthesis was not performed."
-      ],
-      "tags": [
-        {
-          "name": "Companion",
-          "confidence": "directly observed",
-          "confidences": [
-            "directly observed"
-          ],
-          "rationale": "Pets are entities distinct from the capybara, held in a pet list between runs, and they act in the activity rather than modifying the character from an equipment slot, so the equipment exclusion does not apply (tier: directly observed). The pets screen maintains three battle positions, one open and two locked, and a hatched pet is swiped into the open position (tier: directly observed). Pets attack in battle and alongside the character in raid battles (tier: directly observed). Each pet holds a level, battle skills that unlock at higher levels, and an enhancement rule requiring further copies of the same pet together with pet food (tier: directly observed). The acquisition routes seen are egg hatches for three ads or for 300 or 600 gems (O29), the Growth Shop's ticket exchange (O47) and sign-in rewards of five Snowy pets and the mythic pet Flash (O62) (tier: directly observed). The size of a pet's contribution to a battle outcome was not shown (tier: unresolved). The stated condition for the next position, level 4, does not name which level it refers to (tier: unresolved).",
-          "alternativeConsidered": "Cosmetic Customization, which would apply if the pets changed presentation only. Pets attack in battle and in raids, which this entry separates from presentation (tier: directly observed). A battle that shows a pet's effect on the outcome is the separating evidence for the size of that contribution, and no such view was narrated (tier: unresolved). Set Collection was also considered: no member-level tracking of which distinct pets have been obtained was shown (tier: directly observed).",
-          "role": "engagement, monetization\n\nPets act in the battles and raids that make up play in O23 and O29, and their acquisition and development are priced in gems, paid for with ad views and sold in packs and event offers in O29, O45 and O53."
-        }
-      ],
-      "crossRefs": [],
-      "screenshots": []
-    },
-    {
-      "id": "O31",
-      "name": "Losing routes back to upgrades",
-      "section": "goals",
-      "observed": "Losing a Tower Challenge floor shows a message telling the player to get stronger, with direct buttons to the Equip and Talents screens.",
-      "detail": [
-        "The loss screen routes directly to Equip and Talents."
-      ],
-      "tags": [],
-      "crossRefs": [],
-      "screenshots": []
-    },
-    {
-      "id": "O32",
-      "name": "A locked preview of mounts and artifacts",
-      "section": "goals",
-      "observed": "Capybara Go's backpack, unlocked once the first chapter clears, previews a mount and an artifact the player doesn't yet hold: a mount adding damage and speed bonuses, and an artifact adding attack and suppression bonuses. Mounts unlock after a much later chapter, and artifacts later still.",
-      "detail": [
-        "The previewed mount, Crocodile Overlord, lists a damage boost, damage reduction, and speed bonuses.",
-        "The previewed artifact lists an attack boost and a suppression bonus.",
-        "Mounts unlock after Chapter 4; artifacts after Chapter 6."
-      ],
-      "tags": [],
-      "crossRefs": [],
-      "screenshots": []
-    },
-    {
-      "id": "O33",
       "name": "Energy capacity and run cost",
-      "section": "access",
+      "section": "core-loop",
       "observed": "Capybara Go caps energy at 30 and shows it in the home screen's top bar with a countdown to the next point. Every run costs 5 energy, and the run-end screen itself states that further adventures require it. The regeneration rate behind that countdown is never stated outright.",
       "detail": [
         "Energy caps at 30, shown with a countdown to the next point.",
@@ -680,16 +502,16 @@
           ],
           "rationale": "Energy is consumed when a run starts regardless of its outcome, so the Lives exclusion does not apply, and the user does not choose a result to buy with it, so it is not a spendable balance (tier: directly observed). The app maintains a capacity of 30, each run consumes 5, the run end screen states that adventures require energy, and capacity returns through regeneration, ads, gems, a free daily pack and run end grants (tier: directly observed).\n\nTickets are consumed on entry, including after a win, rather than on failure, so the Lives exclusion does not apply (tier: directly observed). Each mode draws on its own ticket count, one ticket is consumed per Tower attempt, and running out of dragon tickets stops raid play until an ad restores one (tier: directly observed). Tickets are restored through rewards, ads and packs (tier: directly observed). No displayed maximum or time-based regeneration was shown, so the bounded capacity reading rests on how depletion constrains play (tier: strongly supported).",
           "alternativeConsidered": "Spendable Credits and Tokens. The units are consumed automatically by starting a run, which that entry assigns to Energy (tier: directly observed).\n\nSpendable Credits and Tokens. That entry's automatic entry charge case assigns single-purpose tokens consumed on entry to Energy or an attempt allowance unless they can be allocated among results, and these tickets serve one mode each (tier: directly observed).",
-          "role": "retention, monetization\n\nThe regeneration countdown in O33 makes runs available again after time passes, and O34 sells refills for gems and exchanges them for ad views. | engagement, monetization\n\nThe tickets in O36 limit how many Tower and raid attempts can be made in a session, and O23 and O53 exchange tickets for ads and money."
+          "role": "retention, monetization\n\nThe regeneration countdown in O24 makes runs available again after time passes, and O25 sells refills for gems and exchanges them for ad views. | engagement, monetization\n\nThe tickets in O27 limit how many Tower and raid attempts can be made in a session, and O23 and O51 exchange tickets for ads and money."
         }
       ],
       "crossRefs": [],
       "screenshots": []
     },
     {
-      "id": "O34",
+      "id": "O25",
       "name": "Four ways to refill energy",
-      "section": "access",
+      "section": "core-loop",
       "observed": "Tapping the energy counter opens every refill option at once: watching an ad for 15 energy with a daily limit, paying 90 gems for 15 energy with a separate daily limit, or claiming a free daily pack of 10 energy that refreshes every 5 hours. A separate \"purchase missed stamina\" option shows zero remaining purchases without explaining what missed stamina refers to. The Monthly and Lifetime cards each list 50 energy as part of their daily collectible benefits.",
       "detail": [
         "Watching an ad grants 15 energy, limited per day.",
@@ -707,16 +529,16 @@
           ],
           "rationale": "Energy is consumed when a run starts regardless of its outcome, so the Lives exclusion does not apply, and the user does not choose a result to buy with it, so it is not a spendable balance (tier: directly observed). The app maintains a capacity of 30, each run consumes 5, the run end screen states that adventures require energy, and capacity returns through regeneration, ads, gems, a free daily pack and run end grants (tier: directly observed).\n\nTickets are consumed on entry, including after a win, rather than on failure, so the Lives exclusion does not apply (tier: directly observed). Each mode draws on its own ticket count, one ticket is consumed per Tower attempt, and running out of dragon tickets stops raid play until an ad restores one (tier: directly observed). Tickets are restored through rewards, ads and packs (tier: directly observed). No displayed maximum or time-based regeneration was shown, so the bounded capacity reading rests on how depletion constrains play (tier: strongly supported).",
           "alternativeConsidered": "Spendable Credits and Tokens. The units are consumed automatically by starting a run, which that entry assigns to Energy (tier: directly observed).\n\nSpendable Credits and Tokens. That entry's automatic entry charge case assigns single-purpose tokens consumed on entry to Energy or an attempt allowance unless they can be allocated among results, and these tickets serve one mode each (tier: directly observed).",
-          "role": "retention, monetization\n\nThe regeneration countdown in O33 makes runs available again after time passes, and O34 sells refills for gems and exchanges them for ad views. | engagement, monetization\n\nThe tickets in O36 limit how many Tower and raid attempts can be made in a session, and O23 and O53 exchange tickets for ads and money."
+          "role": "retention, monetization\n\nThe regeneration countdown in O24 makes runs available again after time passes, and O25 sells refills for gems and exchanges them for ad views. | engagement, monetization\n\nThe tickets in O27 limit how many Tower and raid attempts can be made in a session, and O23 and O51 exchange tickets for ads and money."
         }
       ],
       "crossRefs": [],
       "screenshots": []
     },
     {
-      "id": "O35",
+      "id": "O26",
       "name": "Overflow energy arrives as mail",
-      "section": "access",
+      "section": "core-loop",
       "observed": "Once the first chapter clears, Capybara Go's mailbox starts receiving messages from an in-game association stating that stamina which overflowed past the cap during regeneration has been reissued, each with its own amount and a six-day claim window. Messages carry different ages, from two days old down to eighteen minutes, and claim-all and delete-all buttons handle them together. At one point the player held far more energy in these unclaimed messages than the cap itself allows.",
       "detail": [
         "Overflow messages carry amounts such as 60 or 17 stamina, each with a six-day claim window.",
@@ -728,9 +550,9 @@
       "screenshots": []
     },
     {
-      "id": "O36",
+      "id": "O27",
       "name": "Secondary modes use their own tickets",
-      "section": "access",
+      "section": "core-loop",
       "observed": "Tower Challenge, the two raid types, and Phantom Sword Island each draw on a separate ticket rather than shared energy. Every Tower Challenge attempt consumes one ticket, including one started immediately after a win, and running out of raid tickets offers restoring one per ad watched, up to two per day. A pack sold in the store includes one of each ticket type.",
       "detail": [
         "Every Tower Challenge attempt, including one started right after a win, consumes one ticket.",
@@ -747,14 +569,217 @@
           ],
           "rationale": "Energy is consumed when a run starts regardless of its outcome, so the Lives exclusion does not apply, and the user does not choose a result to buy with it, so it is not a spendable balance (tier: directly observed). The app maintains a capacity of 30, each run consumes 5, the run end screen states that adventures require energy, and capacity returns through regeneration, ads, gems, a free daily pack and run end grants (tier: directly observed).\n\nTickets are consumed on entry, including after a win, rather than on failure, so the Lives exclusion does not apply (tier: directly observed). Each mode draws on its own ticket count, one ticket is consumed per Tower attempt, and running out of dragon tickets stops raid play until an ad restores one (tier: directly observed). Tickets are restored through rewards, ads and packs (tier: directly observed). No displayed maximum or time-based regeneration was shown, so the bounded capacity reading rests on how depletion constrains play (tier: strongly supported).",
           "alternativeConsidered": "Spendable Credits and Tokens. The units are consumed automatically by starting a run, which that entry assigns to Energy (tier: directly observed).\n\nSpendable Credits and Tokens. That entry's automatic entry charge case assigns single-purpose tokens consumed on entry to Energy or an attempt allowance unless they can be allocated among results, and these tickets serve one mode each (tier: directly observed).",
-          "role": "retention, monetization\n\nThe regeneration countdown in O33 makes runs available again after time passes, and O34 sells refills for gems and exchanges them for ad views. | engagement, monetization\n\nThe tickets in O36 limit how many Tower and raid attempts can be made in a session, and O23 and O53 exchange tickets for ads and money."
+          "role": "retention, monetization\n\nThe regeneration countdown in O24 makes runs available again after time passes, and O25 sells refills for gems and exchanges them for ad views. | engagement, monetization\n\nThe tickets in O27 limit how many Tower and raid attempts can be made in a session, and O23 and O51 exchange tickets for ads and money."
         }
       ],
       "crossRefs": [],
       "screenshots": []
     },
     {
+      "id": "O28",
+      "name": "Daily and weekly tasks",
+      "section": "core-loop",
+      "observed": "Once available, Capybara Go's tasks screen splits into a daily section and a weekly section. Daily tasks ask for specific actions, a Black Market purchase, opening chests, clearing a stage, entering the Arena, and completing them advances a claimable daily reward track that also feeds a separate weekly track with its own levels to reach before the week resets. The daily list carries its own countdown.",
+      "detail": [
+        "Daily tasks include a Black Market purchase, opening three chests, and clearing a stage.",
+        "Daily completions also feed a separate weekly reward track.",
+        "The daily list showed a reset countdown of about one hour."
+      ],
+      "tags": [
+        {
+          "name": "Daily / Weekly Quests",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Accessing the app is not the qualifying condition, so the Daily Login Rewards exclusion does not apply (tier: directly observed). The tasks screen divides discrete objectives into daily and weekly sections with a reset countdown and separates completed tasks from remaining ones (tier: directly observed).",
+          "alternativeConsidered": "Challenge for individual tasks. No boundary for a task beyond the period reset is shown, and the period cadence is the behavior this entry specifies (tier: strongly supported).",
+          "role": "retention, engagement\n\nThe daily and weekly sections in O28, with the reset countdown in O61, create objectives that belong to the current period, and the task content directs play toward the Black Market, chests and raids within a session."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O29",
+      "name": "Upgrading talents with gold",
+      "section": "goals",
+      "observed": "Capybara Go's Talents screen holds three stats, health, attack, and defense, each raised by spending gold coins. An attack upgrade costs 240 coins for 3 attack, a health upgrade adds 12 health, and a defense upgrade adds 1 defense, with costs rising as talents advance. The app's pointer guidance directs the first upgrade to attack, and tapping a talent without enough coins opens a gold-purchase offer instead.",
+      "detail": [
+        "An attack upgrade costs 240 coins for 3 attack.",
+        "A health upgrade adds 12 health; a defense upgrade adds 1 defense.",
+        "Tapping a talent without enough coins opens a gold-purchase offer."
+      ],
+      "tags": [
+        {
+          "name": "Leveling",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "The levels are maintained current states, not scores or purchased plans, so no exclusion applies (tier: directly observed). The character's in-run level is numbered, displayed and changes when experience crosses a threshold (tier: directly observed). Each talent holds a level raised by spending gold (tier: directly observed). The rank title tree orders titles with thresholds, the current title is displayed, and the change to Apprentice 2 added stats (tier: directly observed). Equipment levels out of 10, equipment quality raised by merging and pet levels raised with duplicates and food follow stated rules, though only equipment enhancement was seen changing a level (tier: strongly supported). The pet level is the ordered state this entry classifies, while the pet that holds it is classified under Companion at T2 (tier: directly observed).",
+          "alternativeConsidered": "Milestone for the rank title change. The title is kept as a current state, which is this entry's invariant, and no recognition beyond the stat change was narrated (tier: directly observed). Leveling for chapters is addressed under T1.",
+          "role": "engagement\n\nThe in-run levels in O10 change skill options during a session, and the talent levels and rank titles in O29 and O31 carry stat gains into later runs."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O30",
+      "name": "A talent progress bar with milestones",
+      "section": "goals",
+      "observed": "The talents screen shows a bar counting combined talent levels, paying 720 gold coins at 10 points and an Adventure Badge at 20. Reaching 10 points pays out close to what it cost to get there. The Adventure Badge itself was never reached, so what it does isn't shown.",
+      "detail": [
+        "Reaching 10 combined talent points pays 720 gold coins.",
+        "Reaching 20 points grants an Adventure Badge, not yet reached.",
+        "The 720-coin reward roughly repays the coins spent reaching that point."
+      ],
+      "tags": [
+        {
+          "name": "Milestone",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Each case is tied to a position within a broader progression rather than a standalone criterion, and each produces a response beyond an ordinary progress update, so no exclusion applies (tier: directly observed). Reaching 10 on the talent progress bar granted 720 coins (tier: directly observed). Feature unlock pop-ups appear at chapter clears and survival-day thresholds and change access (tier: directly observed). Clearing Tower of Explorers floor 10 produced a congratulation message and a reward chest, and clearing Chapter 1 granted gold and moved the capybara to a new area (tier: directly observed). The talent progress bar in O30 and the Tower clear chest in O22 are surfaces of their own, separate from the funds attached to the same measures at T20, so the fund's precedence over Milestone does not reach them (tier: directly observed).",
+          "alternativeConsidered": "Achievement. No surface records an attained criterion separately from the reward or access change (tier: directly observed).",
+          "role": "engagement\n\nO30 and O22 reward crossing defined points in talent and Tower progress, and O3 marks points in chapter progress by unlocking features."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O31",
+      "name": "A rank title ladder",
+      "section": "goals",
+      "observed": "Capybara Go's profile shows the title \"Apprentice\" and a preview button opening a full ladder of ranks running from Apprentice through Adventurer, Elite, Master, Warrior, and Hero to Elite Legacy, each with its own point threshold. Reaching the second rank added a direct boost to attack, defense, and health. The app never names what unit the thresholds actually count, and the ladder sits on the talents screen, suggesting a tie to talent levels that the app doesn't state outright.",
+      "detail": [
+        "The rank ladder runs Apprentice, Adventurer, Elite, Master, Warrior, Hero, Elite Legacy.",
+        "Reaching Apprentice 2 added 12 attack, 1 defense, and 48 health.",
+        "The unit counted toward rank thresholds is never named."
+      ],
+      "tags": [
+        {
+          "name": "Leveling",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "The levels are maintained current states, not scores or purchased plans, so no exclusion applies (tier: directly observed). The character's in-run level is numbered, displayed and changes when experience crosses a threshold (tier: directly observed). Each talent holds a level raised by spending gold (tier: directly observed). The rank title tree orders titles with thresholds, the current title is displayed, and the change to Apprentice 2 added stats (tier: directly observed). Equipment levels out of 10, equipment quality raised by merging and pet levels raised with duplicates and food follow stated rules, though only equipment enhancement was seen changing a level (tier: strongly supported). The pet level is the ordered state this entry classifies, while the pet that holds it is classified under Companion at T2 (tier: directly observed).",
+          "alternativeConsidered": "Milestone for the rank title change. The title is kept as a current state, which is this entry's invariant, and no recognition beyond the stat change was narrated (tier: directly observed). Leveling for chapters is addressed under T1.",
+          "role": "engagement\n\nThe in-run levels in O10 change skill options during a session, and the talent levels and rank titles in O29 and O31 carry stat gains into later runs."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O32",
+      "name": "Equipment slots and enhancement",
+      "section": "goals",
+      "observed": "Capybara Go gives the character six equipment slots, one weapon, one armor, two rings, and two necklaces, each item showing a quality, a level out of 10, basic stats, and four further effects shown locked. Items can be equipped, enhanced, or quick-enhanced using power stones. Replacing an equipped item doesn't offer a side-by-side comparison with what's already worn, though items can be sorted by quality and a separate screen lists the character's overall stats.",
+      "detail": [
+        "Six equipment slots exist: one weapon, one armor, two rings, two necklaces.",
+        "The first crate item, a common Guardian's Ring, showed level 0 of 10, with attack 10, defense 3, and health 10.",
+        "Replacing an item offers no side-by-side comparison with the currently equipped one."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O33",
+      "name": "Merging duplicate equipment",
+      "section": "goals",
+      "observed": "A workshop screen lets the player merge identical equipment items into a higher quality. Two additional copies of a given item are needed to raise it to the next tier, and the quality tiers run from common through great, rare, and epic up to S epic.",
+      "detail": [
+        "Merging requires two further copies of an identical item.",
+        "Quality tiers: common, great, rare, epic, S epic."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O34",
+      "name": "Unlocking and hatching pets",
+      "section": "goals",
+      "observed": "Pets unlock through their own feature pop-up once the player is far enough into the game. The pets screen shows three battle positions, one open and two locked, with the next stated to open at level four without saying which level it means. Eggs hatch through three routes: watching three ads, or paying 300 or 600 gems for larger quantities. Hatching by ad produced several pets in one sitting, and a hatched pet can be swiped into the open battle position to fight alongside the capybara.",
+      "detail": [
+        "Three battle positions exist; one open, two locked, next opening at level 4.",
+        "Egg hatch routes: three ads, 300 gems, or 600 gems for a larger batch.",
+        "Ad-based hatching produced several pets, including a parrot, mushrooms, an onion, and a frog, in one sitting."
+      ],
+      "tags": [
+        {
+          "name": "Companion",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Pets are entities distinct from the capybara, held in a pet list between runs, and they act in the activity rather than modifying the character from an equipment slot, so the equipment exclusion does not apply (tier: directly observed). The pets screen maintains three battle positions, one open and two locked, and a hatched pet is swiped into the open position (tier: directly observed). Pets attack in battle and alongside the character in raid battles (tier: directly observed). Each pet holds a level, battle skills that unlock at higher levels, and an enhancement rule requiring further copies of the same pet together with pet food (tier: directly observed). The acquisition routes seen are egg hatches for three ads or for 300 or 600 gems (O34), the Growth Shop's ticket exchange (O45) and sign-in rewards of five Snowy pets and the mythic pet Flash (O60) (tier: directly observed). The size of a pet's contribution to a battle outcome was not shown (tier: unresolved). The stated condition for the next position, level 4, does not name which level it refers to (tier: unresolved).",
+          "alternativeConsidered": "Cosmetic Customization, which would apply if the pets changed presentation only. Pets attack in battle and in raids, which this entry separates from presentation (tier: directly observed). A battle that shows a pet's effect on the outcome is the separating evidence for the size of that contribution, and no such view was narrated (tier: unresolved). Set Collection was also considered: no member-level tracking of which distinct pets have been obtained was shown (tier: directly observed).",
+          "role": "engagement, monetization\n\nPets act in the battles and raids that make up play in O23 and O34, and their acquisition and development are priced in gems, paid for with ad views and sold in packs and event offers in O34, O64 and O51."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O35",
+      "name": "Growing and merging pets",
+      "section": "goals",
+      "observed": "Each pet Capybara Go grants carries its own level, battle skills that unlock at higher levels, and an upgrade bar. Growing a pet consumes further copies of the same pet plus pet food. A separate synthesis screen states that surplus pet fragments will combine into a new pet, though no fragments were held to test it. A full list shows every held pet alongside its battle skills.",
+      "detail": [
+        "A sample pet, the Icewind Fox, is shown at level 1 with 400 health, 100 attack, and 25 defense.",
+        "Growing a pet requires further copies of itself plus pet food.",
+        "No fragments were held, so pet synthesis was not performed."
+      ],
+      "tags": [
+        {
+          "name": "Companion",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Pets are entities distinct from the capybara, held in a pet list between runs, and they act in the activity rather than modifying the character from an equipment slot, so the equipment exclusion does not apply (tier: directly observed). The pets screen maintains three battle positions, one open and two locked, and a hatched pet is swiped into the open position (tier: directly observed). Pets attack in battle and alongside the character in raid battles (tier: directly observed). Each pet holds a level, battle skills that unlock at higher levels, and an enhancement rule requiring further copies of the same pet together with pet food (tier: directly observed). The acquisition routes seen are egg hatches for three ads or for 300 or 600 gems (O34), the Growth Shop's ticket exchange (O45) and sign-in rewards of five Snowy pets and the mythic pet Flash (O60) (tier: directly observed). The size of a pet's contribution to a battle outcome was not shown (tier: unresolved). The stated condition for the next position, level 4, does not name which level it refers to (tier: unresolved).",
+          "alternativeConsidered": "Cosmetic Customization, which would apply if the pets changed presentation only. Pets attack in battle and in raids, which this entry separates from presentation (tier: directly observed). A battle that shows a pet's effect on the outcome is the separating evidence for the size of that contribution, and no such view was narrated (tier: unresolved). Set Collection was also considered: no member-level tracking of which distinct pets have been obtained was shown (tier: directly observed).",
+          "role": "engagement, monetization\n\nPets act in the battles and raids that make up play in O23 and O34, and their acquisition and development are priced in gems, paid for with ad views and sold in packs and event offers in O34, O64 and O51."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O36",
+      "name": "Losing routes back to upgrades",
+      "section": "goals",
+      "observed": "Losing a Tower Challenge floor shows a message telling the player to get stronger, with direct buttons to the Equip and Talents screens.",
+      "detail": [
+        "The loss screen routes directly to Equip and Talents."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
       "id": "O37",
+      "name": "A locked preview of mounts and artifacts",
+      "section": "goals",
+      "observed": "Capybara Go's backpack, unlocked once the first chapter clears, previews a mount and an artifact the player doesn't yet hold: a mount adding damage and speed bonuses, and an artifact adding attack and suppression bonuses. Mounts unlock after a much later chapter, and artifacts later still.",
+      "detail": [
+        "The previewed mount, Crocodile Overlord, lists a damage boost, damage reduction, and speed bonuses.",
+        "The previewed artifact lists an attack boost and a suppression bonus.",
+        "Mounts unlock after Chapter 4; artifacts after Chapter 6."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O38",
       "name": "A long chain of chapter gates",
       "section": "access",
       "observed": "Capybara Go states each locked feature's unlock condition directly, almost always a chapter clear or a survival-day count in a named chapter. The backpack and mail open after the first chapter clears; pets after the second; collectibles after the third; mounts and artifacts after later chapters still. Tasks, the Black Market, and the sign-in event all open after the second chapter clears, while friends open after surviving a single day into it. Guilds, Tower Challenge auto-advance, faster battle speed, and a long list of further modes each carry their own stated chapter or survival-day condition, several of them far beyond anything reached so far.",
@@ -768,9 +793,9 @@
       "screenshots": []
     },
     {
-      "id": "O38",
+      "id": "O39",
       "name": "Gold coins",
-      "section": "earning",
+      "section": "economy",
       "observed": "Gold coins are earned inside runs, from events, battles, chests, chapter clears, and Tower floors, and are spent on talent upgrades and inside the Black Market. Gold is also sold directly for money in several packs.",
       "detail": [
         "Gold is earned from runs, battles, chests, chapter clears, and Tower floors.",
@@ -786,7 +811,7 @@
           ],
           "rationale": "Both balances are product-defined units rather than stored money, so the monetary balance exclusion does not apply (tier: directly observed). Gems have a paid path through Top Up, a stored balance and gem prices on refills, chests and eggs (tier: directly observed). Gold is included in the paid Chapter 1 Pack and Gold Supplies offer, is stored and is spent on talents (tier: directly observed). No gem spend was completed, so the gem balance reduction is stated as not observed (tier: directly observed).",
           "alternativeConsidered": "Spendable Credits and Tokens, the parent entry, noted here under the overlap rule. Soft Currency applies separately to the same balances because both acquisition paths are observable, which both entries permit (tier: directly observed).",
-          "role": "monetization\n\nO54, O55 and O61 sell gems and gold for money."
+          "role": "monetization\n\nO52, O53 and O59 sell gems and gold for money."
         },
         {
           "name": "Soft Currency",
@@ -796,16 +821,16 @@
           ],
           "rationale": "The units are deliberately exchanged rather than consumed by participation, and they are not progression values, so no exclusion applies (tier: directly observed). Gold is earned repeatedly from runs, battles and Tower floors, stored, and spent on talents with the balance falling (tier: directly observed). Power stones are earned from Tower floors and were spent on enhancement until exhausted (tier: directly observed). Gems are added free through the daily pack, the sign-in event and the carnival gift and carry prices across several surfaces, though no gem spend was completed (tier: directly observed).",
           "alternativeConsidered": "Spendable Credits and Tokens, the parent entry, noted here under the overlap rule (tier: directly observed).",
-          "role": "engagement\n\nO38 and O40 turn run and Tower results into gold and power stones that are spent on talents and enhancement between runs."
+          "role": "engagement\n\nO39 and O41 turn run and Tower results into gold and power stones that are spent on talents and enhancement between runs."
         }
       ],
       "crossRefs": [],
       "screenshots": []
     },
     {
-      "id": "O39",
+      "id": "O40",
       "name": "Gems and jade stones",
-      "section": "earning",
+      "section": "economy",
       "observed": "Capybara Go starts the player with 100 gems and grants more for free through the daily pack, the sign-in event, and the carnival's daily gift, while also selling them directly. Gem prices appear on energy refills, both equipment crates, the Limited Secret Chest, and pet egg hatches. Jade stones, a separate currency shown as green gems, are also sold directly, though no use for them appears anywhere else in the game.",
       "detail": [
         "The player starts with 100 gems.",
@@ -822,7 +847,7 @@
           ],
           "rationale": "Both balances are product-defined units rather than stored money, so the monetary balance exclusion does not apply (tier: directly observed). Gems have a paid path through Top Up, a stored balance and gem prices on refills, chests and eggs (tier: directly observed). Gold is included in the paid Chapter 1 Pack and Gold Supplies offer, is stored and is spent on talents (tier: directly observed). No gem spend was completed, so the gem balance reduction is stated as not observed (tier: directly observed).",
           "alternativeConsidered": "Spendable Credits and Tokens, the parent entry, noted here under the overlap rule. Soft Currency applies separately to the same balances because both acquisition paths are observable, which both entries permit (tier: directly observed).",
-          "role": "monetization\n\nO54, O55 and O61 sell gems and gold for money."
+          "role": "monetization\n\nO52, O53 and O59 sell gems and gold for money."
         },
         {
           "name": "Soft Currency",
@@ -832,16 +857,16 @@
           ],
           "rationale": "The units are deliberately exchanged rather than consumed by participation, and they are not progression values, so no exclusion applies (tier: directly observed). Gold is earned repeatedly from runs, battles and Tower floors, stored, and spent on talents with the balance falling (tier: directly observed). Power stones are earned from Tower floors and were spent on enhancement until exhausted (tier: directly observed). Gems are added free through the daily pack, the sign-in event and the carnival gift and carry prices across several surfaces, though no gem spend was completed (tier: directly observed).",
           "alternativeConsidered": "Spendable Credits and Tokens, the parent entry, noted here under the overlap rule (tier: directly observed).",
-          "role": "engagement\n\nO38 and O40 turn run and Tower results into gold and power stones that are spent on talents and enhancement between runs."
+          "role": "engagement\n\nO39 and O41 turn run and Tower results into gold and power stones that are spent on talents and enhancement between runs."
         }
       ],
       "crossRefs": [],
       "screenshots": []
     },
     {
-      "id": "O40",
+      "id": "O41",
       "name": "Single-purpose materials",
-      "section": "earning",
+      "section": "economy",
       "observed": "Beyond gold and gems, Capybara Go runs a long list of named, single-purpose resources, power stones for equipment enhancement, several kinds of keys for opening chests, equipment designs, pet food, gold horseshoes for mounts, divine hammers for artifacts, and tickets for each of its secondary modes, each named directly in pack descriptions alongside what it's used for.",
       "detail": [
         "Power stones are earned from Tower floors and spent on equipment enhancement.",
@@ -857,16 +882,16 @@
           ],
           "rationale": "The units are deliberately exchanged rather than consumed by participation, and they are not progression values, so no exclusion applies (tier: directly observed). Gold is earned repeatedly from runs, battles and Tower floors, stored, and spent on talents with the balance falling (tier: directly observed). Power stones are earned from Tower floors and were spent on enhancement until exhausted (tier: directly observed). Gems are added free through the daily pack, the sign-in event and the carnival gift and carry prices across several surfaces, though no gem spend was completed (tier: directly observed).",
           "alternativeConsidered": "Spendable Credits and Tokens, the parent entry, noted here under the overlap rule (tier: directly observed).",
-          "role": "engagement\n\nO38 and O40 turn run and Tower results into gold and power stones that are spent on talents and enhancement between runs."
+          "role": "engagement\n\nO39 and O41 turn run and Tower results into gold and power stones that are spent on talents and enhancement between runs."
         }
       ],
       "crossRefs": [],
       "screenshots": []
     },
     {
-      "id": "O41",
+      "id": "O42",
       "name": "Equipment chests priced three ways",
-      "section": "earning",
+      "section": "economy",
       "observed": "The Adventure Supply Crate opens free once and then costs 80 gems or three ad views, with roughly a 13.5-hour wait for the next free open, and states a guarantee of great-quality equipment within nine opens. The Hero Supply Crate opens with one ad view or a key and states a guarantee of epic equipment within ten opens; watching the ad opened it automatically in one instance and granted a rare item.",
       "detail": [
         "The Adventure Supply Crate's free open recurs roughly every 13.5 hours.",
@@ -882,7 +907,7 @@
           ],
           "rationale": "Opens paid for by watching an ad with no held resource consumed, the Hero Supply Crate ad open and the pet ad hatch, fall under this entry's exclusion and are tagged under T21 and T27 (tier: directly observed). Gem-priced Adventure Supply Crate opens, Limited Secret Chest and Event Chest draws, the key-opened Hero Supply Crate and gem-priced egg hatches all require gems or keys before the result is known and disclose several possible results, several with published probabilities (tier: directly observed). Chests sold in packs and in the Black Market are acquired and then opened (tier: plausible, no such opening was observed). No gem or key open was completed in the sessions (tier: directly observed). The parent entry is Variable Reward Outcome. The pets that egg hatches produce are classified under Companion at T2 (tier: directly observed).",
           "alternativeConsidered": "Variable Reward Outcome alone. A value commitment before resolution is present on these surfaces, which makes the specialization the applicable label (tier: directly observed).",
-          "role": "monetization, engagement\n\nO42 prices draws in gems sold for money, and O41 and O29 place draws inside the equipment and pet upgrade loops."
+          "role": "monetization, engagement\n\nO43 prices draws in gems sold for money, and O42 and O34 place draws inside the equipment and pet upgrade loops."
         },
         {
           "name": "Variable Reward Outcome",
@@ -893,16 +918,16 @@
           ],
           "rationale": "Every opportunity resolves a result, so the Variable Reward Schedule exclusion applies to that entry rather than this one, and no visible fixed rule determines the results (tier: directly observed). Level-ups present changing sets of three skills from which the user picks one (tier: directly observed). The Forest Maiden wheel has several segments and landed differently in run one and run two (tier: directly observed). Golden chests present a set of three mythic skills (tier: directly observed). The mini-game wheel and card flip each resolve among several prize types (tier: directly observed). The free Adventure Supply Crate open and the ad-opened Hero Supply Crate and pet hatches draw from stated pools without consuming a held resource (tier: directly observed).\n\nEach day resolves an explicit event outcome, including results framed as bad luck, so the Variable Reward Schedule exclusion applies to that entry (tier: directly observed). The same day positions produced different events in run one and run two (tier: directly observed). Whether the variation comes from a selection rule or from the character's changed state is not shown, while no visible rule fixes the results (tier: strongly supported).",
           "alternativeConsidered": "Loot Box. These surfaces require no value commitment before resolution, which excludes the specialization (tier: directly observed).\n\nA fixed chapter script that differs only with character state, which would carry no mechanic label (tier: plausible). Two runs started at identical stats would separate the two.",
-          "role": "engagement\n\nO10, O12, O15 and O19 resolve rewards with differing results during a run, and O41 and O29 do the same for equipment and pets between runs. | engagement\n\nThe outcomes in O8 vary as the user advances day by day within a run."
+          "role": "engagement\n\nO10, O12, O15 and O19 resolve rewards with differing results during a run, and O42 and O34 do the same for equipment and pets between runs. | engagement\n\nThe outcomes in O8 vary as the user advances day by day within a run."
         }
       ],
       "crossRefs": [],
       "screenshots": []
     },
     {
-      "id": "O42",
+      "id": "O43",
       "name": "The Limited Secret Chest",
-      "section": "earning",
+      "section": "economy",
       "observed": "Capybara Go's highest-priced chest costs 320 gems per pull or 2,980 for ten, and states a guarantee of epic equipment within 10 opens and a top-tier result within 60, with every guaranteed pull equally likely among the current rate-up set. A separate information button discloses exact odds without the guarantee applied: 0.65 percent for the top tier, down to 62.35 percent for the most common result. The rate-up set itself changes on its own countdown.",
       "detail": [
         "The chest costs 320 gems per pull, or 2,980 gems for ten.",
@@ -918,32 +943,7 @@
           ],
           "rationale": "Opens paid for by watching an ad with no held resource consumed, the Hero Supply Crate ad open and the pet ad hatch, fall under this entry's exclusion and are tagged under T21 and T27 (tier: directly observed). Gem-priced Adventure Supply Crate opens, Limited Secret Chest and Event Chest draws, the key-opened Hero Supply Crate and gem-priced egg hatches all require gems or keys before the result is known and disclose several possible results, several with published probabilities (tier: directly observed). Chests sold in packs and in the Black Market are acquired and then opened (tier: plausible, no such opening was observed). No gem or key open was completed in the sessions (tier: directly observed). The parent entry is Variable Reward Outcome. The pets that egg hatches produce are classified under Companion at T2 (tier: directly observed).",
           "alternativeConsidered": "Variable Reward Outcome alone. A value commitment before resolution is present on these surfaces, which makes the specialization the applicable label (tier: directly observed).",
-          "role": "monetization, engagement\n\nO42 prices draws in gems sold for money, and O41 and O29 place draws inside the equipment and pet upgrade loops."
-        }
-      ],
-      "crossRefs": [],
-      "screenshots": []
-    },
-    {
-      "id": "O43",
-      "name": "Daily and weekly tasks",
-      "section": "earning",
-      "observed": "Once available, Capybara Go's tasks screen splits into a daily section and a weekly section. Daily tasks ask for specific actions, a Black Market purchase, opening chests, clearing a stage, entering the Arena, and completing them advances a claimable daily reward track that also feeds a separate weekly track with its own levels to reach before the week resets. The daily list carries its own countdown.",
-      "detail": [
-        "Daily tasks include a Black Market purchase, opening three chests, and clearing a stage.",
-        "Daily completions also feed a separate weekly reward track.",
-        "The daily list showed a reset countdown of about one hour."
-      ],
-      "tags": [
-        {
-          "name": "Daily / Weekly Quests",
-          "confidence": "directly observed",
-          "confidences": [
-            "directly observed"
-          ],
-          "rationale": "Accessing the app is not the qualifying condition, so the Daily Login Rewards exclusion does not apply (tier: directly observed). The tasks screen divides discrete objectives into daily and weekly sections with a reset countdown and separates completed tasks from remaining ones (tier: directly observed).",
-          "alternativeConsidered": "Challenge for individual tasks. No boundary for a task beyond the period reset is shown, and the period cadence is the behavior this entry specifies (tier: strongly supported).",
-          "role": "retention, engagement\n\nThe daily and weekly sections in O43, with the reset countdown in O63, create objectives that belong to the current period, and the task content directs play toward the Black Market, chests and raids within a session."
+          "role": "monetization, engagement\n\nO43 prices draws in gems sold for money, and O42 and O34 place draws inside the equipment and pet upgrade loops."
         }
       ],
       "crossRefs": [],
@@ -951,69 +951,8 @@
     },
     {
       "id": "O44",
-      "name": "The Seven-Day Carnival",
-      "section": "earning",
-      "observed": "A ten-day carnival event runs a point bar from 0 to 150 with chest rewards at fixed thresholds, fed by a list of tasks assigned to each of the event's days and covering actions like clearing a stage or opening chests. A separate pack tab offers a free daily gift alongside paid packs that change what they sell depending on the day.",
-      "detail": [
-        "The carnival's activity bar runs from 0 to 150, with chest rewards at 30, 60, 90, and 120.",
-        "Tasks are assigned per day across twelve stages.",
-        "The pack tab's paid offerings change by day, equipment packs, pet packs, chest packs, and energy packs on different days."
-      ],
-      "tags": [
-        {
-          "name": "Seasonal Progression Pass",
-          "confidence": "directly observed",
-          "confidences": [
-            "directly observed"
-          ],
-          "rationale": "Each track is ordered and reward-bearing with a period boundary, and none is a content bundle or a single seasonal reward, so no exclusion applies (tier: directly observed). The Battle Pass has a season name, 30 ordered positions with free and pass lanes, pass experience from daily tasks and an end time (tier: directly observed). The Seven-Day Carnival has a 10-day end time and a 0 to 150 activity point bar with chests at thresholds, fed by tasks (tier: directly observed). Pet Auspice has a five-day duration, rewards at ordered egg-opening thresholds and a round count of 1 of 4 (tier: directly observed). No advancement on any of these tracks was observed (tier: directly observed).",
-          "alternativeConsidered": "Milestone for the threshold rewards. The thresholds sit on bounded ordered tracks, which is this entry's more specific structure, and no threshold was seen being reached (tier: directly observed). Challenge for the carnival tasks, which feed the track as the quest-driven variant and showed no completion state (tier: directly observed).",
-          "role": "engagement, retention\n\nO44 and O45 reward activity within event windows, and the end times in O64 tie that activity to periods spanning several days."
-        }
-      ],
-      "crossRefs": [],
-      "screenshots": []
-    },
-    {
-      "id": "O45",
-      "name": "Timed pet growth events",
-      "section": "earning",
-      "observed": "Two five-day events, Pet Auspice and Stage Growth, run pet-focused reward tracks. Pet Auspice pays out at cumulative thresholds of eggs opened, and both events carry their own leaderboard and ranking rewards, with Pet Auspice additionally offering a shop that exchanges event-specific tickets for pets.",
-      "detail": [
-        "Pet Auspice pays out at 500, 1,000, 2,000, 3,000, and 4,000 cumulative eggs opened.",
-        "Both events carry their own leaderboard and ranking rewards.",
-        "Pet Auspice's Growth Shop exchanges event tickets for specific pets."
-      ],
-      "tags": [
-        {
-          "name": "Leaderboard",
-          "confidence": "strongly supported",
-          "confidences": [
-            "directly observed",
-            "strongly supported"
-          ],
-          "rationale": "The lists are ordered by performance, not alphabetically or by time, so no exclusion applies (tier: directly observed). Ranking orders players from first place by chapter and longest run, and the Tower leaderboard orders top players by highest floor reached (tier: directly observed). The social role is not assigned because whether players are shown by identity was not narrated (tier: unresolved).\n\nPet Auspice and Stage Growth each carry a leaderboard tab and ranking rewards by placement band from first place to 9,999 (tier: directly observed). The listed entries and the comparison measure were not narrated, so presence rests on the product's framing and placement rewards (tier: strongly supported).",
-          "alternativeConsidered": "Comparative Rank for the user's position of 3,092 and the Tower's \"unranked\" state. The Leaderboard entry classifies a view that states the user's position alongside other ordered entries as a leaderboard, and here the position appears within the same view (tier: directly observed).\n\nComparative Rank alone. The app frames the tab as a leaderboard listing placements, and no single-position readout was narrated (tier: strongly supported).",
-          "role": "engagement\n\nO48 and O22 set the user's chapter, longest run and highest floor in order against other players' results. | engagement\n\nO45 ties rewards to placement within a five-day event."
-        },
-        {
-          "name": "Seasonal Progression Pass",
-          "confidence": "directly observed",
-          "confidences": [
-            "directly observed"
-          ],
-          "rationale": "Each track is ordered and reward-bearing with a period boundary, and none is a content bundle or a single seasonal reward, so no exclusion applies (tier: directly observed). The Battle Pass has a season name, 30 ordered positions with free and pass lanes, pass experience from daily tasks and an end time (tier: directly observed). The Seven-Day Carnival has a 10-day end time and a 0 to 150 activity point bar with chests at thresholds, fed by tasks (tier: directly observed). Pet Auspice has a five-day duration, rewards at ordered egg-opening thresholds and a round count of 1 of 4 (tier: directly observed). No advancement on any of these tracks was observed (tier: directly observed).",
-          "alternativeConsidered": "Milestone for the threshold rewards. The thresholds sit on bounded ordered tracks, which is this entry's more specific structure, and no threshold was seen being reached (tier: directly observed). Challenge for the carnival tasks, which feed the track as the quest-driven variant and showed no completion state (tier: directly observed).",
-          "role": "engagement, retention\n\nO44 and O45 reward activity within event windows, and the end times in O64 tie that activity to periods spanning several days."
-        }
-      ],
-      "crossRefs": [],
-      "screenshots": []
-    },
-    {
-      "id": "O46",
       "name": "The Black Market",
-      "section": "earning",
+      "section": "economy",
       "observed": "Capybara Go's Black Market states it is open only for a limited window at a time and sells chests, power stones, keys, pet-related materials, and pet food for gold or other items, most limited to one purchase each. Gold itself can be obtained here by watching an ad or paying gems, and a guild tab requires guild membership to use.",
       "detail": [
         "The Black Market states an open window as short as roughly one hour at a time.",
@@ -1025,9 +964,9 @@
       "screenshots": []
     },
     {
-      "id": "O47",
+      "id": "O45",
       "name": "A ticket-based pet shop",
-      "section": "earning",
+      "section": "economy",
       "observed": "Inside the Timed Growth area, a separate Growth Shop exchanges tickets collected from pet events for specific pets, though the prices of individual pets aren't stated.",
       "detail": [
         "The Growth Shop exchanges event tickets for pets.",
@@ -1038,7 +977,7 @@
       "screenshots": []
     },
     {
-      "id": "O48",
+      "id": "O46",
       "name": "The ranking list",
       "section": "social",
       "observed": "Capybara Go's Ranking screen lists players in order by their longest survived run, alongside each player's current chapter, and is available before any chapter has been cleared. The player's own position showed as 3,092nd. Whether the list shows other players by name isn't stated.",
@@ -1057,14 +996,14 @@
           ],
           "rationale": "The lists are ordered by performance, not alphabetically or by time, so no exclusion applies (tier: directly observed). Ranking orders players from first place by chapter and longest run, and the Tower leaderboard orders top players by highest floor reached (tier: directly observed). The social role is not assigned because whether players are shown by identity was not narrated (tier: unresolved).\n\nPet Auspice and Stage Growth each carry a leaderboard tab and ranking rewards by placement band from first place to 9,999 (tier: directly observed). The listed entries and the comparison measure were not narrated, so presence rests on the product's framing and placement rewards (tier: strongly supported).",
           "alternativeConsidered": "Comparative Rank for the user's position of 3,092 and the Tower's \"unranked\" state. The Leaderboard entry classifies a view that states the user's position alongside other ordered entries as a leaderboard, and here the position appears within the same view (tier: directly observed).\n\nComparative Rank alone. The app frames the tab as a leaderboard listing placements, and no single-position readout was narrated (tier: strongly supported).",
-          "role": "engagement\n\nO48 and O22 set the user's chapter, longest run and highest floor in order against other players' results. | engagement\n\nO45 ties rewards to placement within a five-day event."
+          "role": "engagement\n\nO46 and O22 set the user's chapter, longest run and highest floor in order against other players' results. | engagement\n\nO64 ties rewards to placement within a five-day event."
         }
       ],
       "crossRefs": [],
       "screenshots": []
     },
     {
-      "id": "O49",
+      "id": "O47",
       "name": "Social features still locked",
       "section": "social",
       "observed": "Friends, Guilds, and Arena all appear as locked entries with their own stated unlock conditions, and the Black Market's own guild tab likewise requires membership to use. No feature letting the player interact with another identified player is reachable yet.",
@@ -1077,9 +1016,9 @@
       "screenshots": []
     },
     {
-      "id": "O50",
+      "id": "O48",
       "name": "Linking an external account",
-      "section": "growth",
+      "section": "reach",
       "observed": "A badge on the profile leads to a prompt asking the player to link their game account to a Habby ID, which requires entering an email address and creating a separate account with the developer. This step is not completed here. The settings screen separately shows an account identifier alongside quality, language, and sound settings.",
       "detail": [
         "Linking requires an email address and a separate Habby ID account.",
@@ -1091,9 +1030,9 @@
       "screenshots": []
     },
     {
-      "id": "O51",
+      "id": "O49",
       "name": "Store sections",
-      "section": "money",
+      "section": "monetization",
       "observed": "The shop has four bottom tabs: Equipment Shop, Value Picks, Pack Shop, and Top Up, all visible together on first entry. On a later visit the shop opens directly on Top Up.",
       "detail": [
         "The shop has four tabs: Equipment Shop, Value Picks, Pack Shop, Top Up.",
@@ -1104,9 +1043,9 @@
       "screenshots": []
     },
     {
-      "id": "O52",
+      "id": "O50",
       "name": "Value Picks packs",
-      "section": "money",
+      "section": "monetization",
       "observed": "Value Picks lists four packs, each limited to one purchase and marked \"10x value.\"",
       "detail": [
         "Little Elf Pack 1: 360 gems, 5 little elves, 100 pet food for $2.99.",
@@ -1119,9 +1058,9 @@
       "screenshots": []
     },
     {
-      "id": "O53",
+      "id": "O51",
       "name": "Pack Shop daily, weekly, and monthly packs",
-      "section": "money",
+      "section": "monetization",
       "observed": "Pack Shop groups packs into daily packs with a refresh time of about 13 hours, weekly packs, and monthly packs that refresh in 20 days. The daily section includes a free pack of 30 gems marked 8x value, claimable once per day. Purchase limits are one for daily packs, three for weekly packs, and three or ten for monthly packs.",
       "detail": [
         "Daily packs include a free 30-gem pack and six paid packs from $0.99 to $9.99.",
@@ -1137,18 +1076,18 @@
             "directly observed",
             "strongly supported"
           ],
-          "rationale": "The app frames the surface as a sign-in event with one reward per day, and the day 1 reward was claimable on opening with no task required, so the substantive-task exclusion does not apply (tier: directly observed). No prior purchase or activation governs the rewards, so the Daily Claim Pack exclusion does not apply (tier: directly observed). The daily reset rule is part of the product's framing and was not seen operating across a day boundary (tier: directly observed).\n\nThe Pack Shop's daily section contains a free 30-gem pack with a purchase limit of one and a refresh timer, and Privilege Card daily benefits were claimed with a countdown to the end of the day (tier: directly observed). Opening the surface and tapping claim is the only condition shown, and no card had been purchased when the Privilege Card benefit was claimed, so no entitlement governs these claims (tier: directly observed). The free daily energy pack in O34 and the carnival's free daily gift in O44 follow the same form (tier: directly observed). That these refreshes are daily windows rather than elapsed-time timers rests on the product's \"daily\" framing, not on a reset seen in the sessions (tier: strongly supported).",
+          "rationale": "The app frames the surface as a sign-in event with one reward per day, and the day 1 reward was claimable on opening with no task required, so the substantive-task exclusion does not apply (tier: directly observed). No prior purchase or activation governs the rewards, so the Daily Claim Pack exclusion does not apply (tier: directly observed). The daily reset rule is part of the product's framing and was not seen operating across a day boundary (tier: directly observed).\n\nThe Pack Shop's daily section contains a free 30-gem pack with a purchase limit of one and a refresh timer, and Privilege Card daily benefits were claimed with a countdown to the end of the day (tier: directly observed). Opening the surface and tapping claim is the only condition shown, and no card had been purchased when the Privilege Card benefit was claimed, so no entitlement governs these claims (tier: directly observed). The free daily energy pack in O25 and the carnival's free daily gift in O63 follow the same form (tier: directly observed). That these refreshes are daily windows rather than elapsed-time timers rests on the product's \"daily\" framing, not on a reset seen in the sessions (tier: strongly supported).",
           "alternativeConsidered": "Streak. The event carries no continuity framing and the effect of a missed day was not shown, so no continuity state is established (tier: directly observed). A missed day that resets or ends the sequence would add Streak.\n\nDaily Claim Pack for the Privilege Card daily benefits. The benefits were claimed with no card purchased, so no prior entitlement governs them (tier: directly observed).",
-          "role": "retention\n\nO62 attaches a reward to each day of access across a seven-day event. | retention\n\nO53 and O59 offer free benefits limited to one claim per daily period, with countdowns in O63 to the next claim."
+          "role": "retention\n\nO60 attaches a reward to each day of access across a seven-day event. | retention\n\nO51 and O57 offer free benefits limited to one claim per daily period, with countdowns in O61 to the next claim."
         }
       ],
       "crossRefs": [],
       "screenshots": []
     },
     {
-      "id": "O54",
+      "id": "O52",
       "name": "Top Up currency packages and first top-up bonus",
-      "section": "money",
+      "section": "monetization",
       "observed": "Top Up sells jade stones and gems for money. Each gem package has its own name and carries a first top-up bonus that doubles the package amount.",
       "detail": [
         "Jade stones are sold from 100 for $0.99 up to 10,000 for $99.99.",
@@ -1164,16 +1103,16 @@
           ],
           "rationale": "The bonus adds units rather than reducing the price, so the discount exclusion does not apply (tier: strongly supported, narrated as doubling the package). Top Up labels each gem package with a first top-up bonus (tier: directly observed). The scope of \"first\" is each package (tier: strongly supported).",
           "alternativeConsidered": "The bonus-package variant of Hard Currency, which ties extra units to package size. The label ties the bonus to the first purchase of each package, which is the condition this entry specifies (tier: strongly supported).",
-          "role": "monetization\n\nO54 attaches the bonus to buying gem packages for money."
+          "role": "monetization\n\nO52 attaches the bonus to buying gem packages for money."
         }
       ],
       "crossRefs": [],
       "screenshots": []
     },
     {
-      "id": "O55",
+      "id": "O53",
       "name": "Chapter 1 Pack",
-      "section": "money",
+      "section": "monetization",
       "observed": "The Equipment Shop offers a Chapter 1 Pack for $2.99, marked 10x value, containing 5 legendary keys, 150 power stones, 10,000 gold coins, and 100 gems. Tapping it opens the platform's payment sheet.",
       "detail": [
         "The pack costs $2.99 and is marked 10x value.",
@@ -1185,9 +1124,9 @@
       "screenshots": []
     },
     {
-      "id": "O56",
+      "id": "O54",
       "name": "Rewarded ad prompts and Ad-Free Card cross-sell",
-      "section": "money",
+      "section": "monetization",
       "observed": "Ads are offered in exchange for specific benefits: 15 energy, an Adventure Supply Crate open for three ads, a Hero Supply Crate open for one ad, pet egg hatches for three ads, dragon tickets, and Black Market gold. Each ad offer opens a prompt with cancel and watch options, and beneath it Capybara Go shows the Ad-Free Card offer for $9.99. A sidebar video entry showed no video available at one point.",
       "detail": [
         "Ad offers carry daily limits, shown as a remaining-chances count.",
@@ -1203,16 +1142,16 @@
           ],
           "rationale": "The benefits are withheld until an ad is watched and are not already granted before it, so no exclusion applies (tier: directly observed). Watching ads granted 15 energy, a Hero Supply Crate open and pet hatches (tier: directly observed). In Session I the ad appeared not to play while the chest still opened, which leaves that one instance's engagement condition unclear without changing the classification (tier: strongly supported).",
           "alternativeConsidered": "Loot Box for ad-opened containers. The Loot Box entry excludes an uncertain reward opened directly by an ad with no held resource consumed (tier: directly observed).",
-          "role": "monetization, engagement\n\nO56 converts ad views into ad inventory and places the Ad-Free Card offer on every prompt, while O34, O41 and O29 turn those views into energy, chest opens and pet hatches used in play."
+          "role": "monetization, engagement\n\nO54 converts ad views into ad inventory and places the Ad-Free Card offer on every prompt, while O25, O42 and O34 turn those views into energy, chest opens and pet hatches used in play."
         }
       ],
       "crossRefs": [],
       "screenshots": []
     },
     {
-      "id": "O57",
+      "id": "O55",
       "name": "Battle Pass",
-      "section": "money",
+      "section": "monetization",
       "observed": "The Growth Fund screen features a Battle Pass, \"Season 1: Bad Guys,\" with the text \"complete daily tasks to gain pass experience\" and an end time of 15 days 2 hours. It shows 30 reward positions, with a free lane holding one item per position and a Battle Pass lane holding two, and carries an inactive badge.",
       "detail": [
         "The Battle Pass shows an end time of 15 days 2 hours.",
@@ -1228,16 +1167,16 @@
           ],
           "rationale": "Each track is ordered and reward-bearing with a period boundary, and none is a content bundle or a single seasonal reward, so no exclusion applies (tier: directly observed). The Battle Pass has a season name, 30 ordered positions with free and pass lanes, pass experience from daily tasks and an end time (tier: directly observed). The Seven-Day Carnival has a 10-day end time and a 0 to 150 activity point bar with chests at thresholds, fed by tasks (tier: directly observed). Pet Auspice has a five-day duration, rewards at ordered egg-opening thresholds and a round count of 1 of 4 (tier: directly observed). No advancement on any of these tracks was observed (tier: directly observed).",
           "alternativeConsidered": "Milestone for the threshold rewards. The thresholds sit on bounded ordered tracks, which is this entry's more specific structure, and no threshold was seen being reached (tier: directly observed). Challenge for the carnival tasks, which feed the track as the quest-driven variant and showed no completion state (tier: directly observed).",
-          "role": "engagement, retention\n\nO44 and O45 reward activity within event windows, and the end times in O64 tie that activity to periods spanning several days."
+          "role": "engagement, retention\n\nO63 and O64 reward activity within event windows, and the end times in O62 tie that activity to periods spanning several days."
         }
       ],
       "crossRefs": [],
       "screenshots": []
     },
     {
-      "id": "O58",
+      "id": "O56",
       "name": "Funds",
-      "section": "money",
+      "section": "monetization",
       "observed": "Growth Fund lists several funds, each a reward track tied to progress in one part of the app, with a free reward lane and a larger fund reward lane unlocked by purchase. The Growth Fund button features the Battle Pass, Talent Fund, Tower Challenge Fund, and Dungeon Fund, all marked inactive, with further funds listed at the bottom of each fund screen. Only the Battle Pass and the Main Quest Fund show end timers.",
       "detail": [
         "Six funds run alongside the Battle Pass: Talent, Tower Challenge, Dungeon, Main Quest, Adventure, Guru, and Mythic Treasure Funds.",
@@ -1254,16 +1193,16 @@
           ],
           "rationale": "None of these funds shows an end timer, so the boundary that would send them to Seasonal Progression Pass is absent (tier: directly observed). Their rewards follow advancement of a measure rather than the passage of intervals, which separates them from Daily Claim Pack, and each track carries a free lane alongside the purchased one, so the purchase-offer exclusion does not apply on the product's own presentation (tier: directly observed). Each fund attaches ordered reward positions to a measure the app already maintains for another purpose: talent level for the Talent Fund, Tower Challenge floors for the Tower Challenge Fund, Dungeon Dive floors for the Dungeon Fund, main story progress in hard mode for the Adventure Fund, guru exploration tickets used for the Guru Fund and mythic treasures collected for the Mythic Treasure Fund (tier: directly observed). Each states a price, the rewards at each position in both lanes and the total the purchased lane pays across the track (tier: directly observed). All funds are marked inactive and all rewards are shown locked, and no fund was seen advancing (tier: directly observed). Whether free lane rewards can be claimed without purchasing the fund was not shown, and if they cannot, the surface is a purchase offer carrying no mechanic label (tier: unresolved).",
           "alternativeConsidered": "Seasonal Progression Pass. The Main Quest Fund on the same screen states an end time and is tagged there at T24, while these funds state none, and an untimed track is what this entry specifies (tier: directly observed). If any of these funds is later shown to carry a closing boundary, it moves to that entry.",
-          "role": "monetization, engagement\n\nEach fund in O58 sells its larger lane for $9.99 to $29.99, and the measures those lanes sit on are the talent upgrades and Tower and dungeon clears the user is already playing in O22 and O24."
+          "role": "monetization, engagement\n\nEach fund in O56 sells its larger lane for $9.99 to $29.99, and the measures those lanes sit on are the talent upgrades and Tower and dungeon clears the user is already playing in O22 and O29."
         }
       ],
       "crossRefs": [],
       "screenshots": []
     },
     {
-      "id": "O59",
+      "id": "O57",
       "name": "Privilege Card",
-      "section": "money",
+      "section": "monetization",
       "observed": "Privilege Card opens with Daily Benefits, a daily reward claimable once per day, followed by a countdown to the end of the day after which it can be claimed again. Below it, an inactive Super Membership states that holding lifetime and monthly cards grants exclusive frames. The screen then lists four cards.",
       "detail": [
         "The Ad-Free Card costs $9.99, granting 2,400 gems immediately and 50 gems collectible daily.",
@@ -1281,8 +1220,8 @@
             "strongly supported"
           ],
           "rationale": "Each card is a single entitlement instance rather than a continuous access plan, and it produces separate rewards across recurring daily intervals rather than delivering its contents at once, so the subscription and one-time bundle exclusions do not apply (tier: directly observed). The rewards are released by days passing rather than by a measure advancing, which separates them from Progression Fund (tier: directly observed). The Monthly Card runs 30 days from one $4.99 purchase, grants 600 gems on purchase and lists 50 energy and 200 gems collectible daily (tier: directly observed). The Automine Card runs 30 days, grants 1,200 gems and 40 pickaxes on purchase and lists 50 pickaxes daily (tier: directly observed). Thirty daily intervals are far above the entry's floor of three (tier: directly observed). No card was purchased, so the daily claim behavior was not observed (tier: directly observed).\n\nOne $0.99 purchase establishes a pack whose stated period is three days, and the rewards are listed by day rather than as a single bundle, so the one-time bundle exclusion does not apply (tier: directly observed). Three daily intervals meet the entry's floor of three exactly, and the short period is a property of this instance rather than a ground for exclusion (tier: directly observed). Day 1 lists a magic ring, 10 silver keys, 5,000 coins and 120 gems; day 2 a yellow duck for the character's head and 10 silver keys; day 3 10 silver keys and 20,000 gold coins (tier: directly observed). That the day 2 and day 3 rewards become available on those later days rests on the pack's day-labelled listing and its three-day framing, with no competing account of what the day labels would otherwise mean (tier: strongly supported). No purchase was made and no release was observed (tier: directly observed).",
-          "alternativeConsidered": "The Lifetime Card and Ad-Free Card also produce daily collectible rewards from one purchase, but neither states an end to the daily collection, which fails this entry's bounded-entitlement condition; they carry no mechanic label and their daily collection is described in plain language at O59 (tier: directly observed).\n\nA one-time reward bundle delivered whole at purchase, which this entry excludes and which would leave the pack with no mechanic label (tier: plausible). O60 records the release of the day 2 and day 3 rewards as not observed, and a purchase followed across three days would separate the two.",
-          "role": "monetization, retention\n\nThe Monthly Card and Automine Card in O59 are sold for money, and each pays out only by being collected on each day of its 30-day period. | monetization, retention\n\nThe pack in O60 is sold for $0.99 at the end of a run and lists its rewards under day 1, day 2 and day 3, so collecting it in full requires returning on each of those days."
+          "alternativeConsidered": "The Lifetime Card and Ad-Free Card also produce daily collectible rewards from one purchase, but neither states an end to the daily collection, which fails this entry's bounded-entitlement condition; they carry no mechanic label and their daily collection is described in plain language at O57 (tier: directly observed).\n\nA one-time reward bundle delivered whole at purchase, which this entry excludes and which would leave the pack with no mechanic label (tier: plausible). O58 records the release of the day 2 and day 3 rewards as not observed, and a purchase followed across three days would separate the two.",
+          "role": "monetization, retention\n\nThe Monthly Card and Automine Card in O57 are sold for money, and each pays out only by being collected on each day of its 30-day period. | monetization, retention\n\nThe pack in O58 is sold for $0.99 at the end of a run and lists its rewards under day 1, day 2 and day 3, so collecting it in full requires returning on each of those days."
         },
         {
           "name": "Daily Login Rewards",
@@ -1291,18 +1230,18 @@
             "directly observed",
             "strongly supported"
           ],
-          "rationale": "The app frames the surface as a sign-in event with one reward per day, and the day 1 reward was claimable on opening with no task required, so the substantive-task exclusion does not apply (tier: directly observed). No prior purchase or activation governs the rewards, so the Daily Claim Pack exclusion does not apply (tier: directly observed). The daily reset rule is part of the product's framing and was not seen operating across a day boundary (tier: directly observed).\n\nThe Pack Shop's daily section contains a free 30-gem pack with a purchase limit of one and a refresh timer, and Privilege Card daily benefits were claimed with a countdown to the end of the day (tier: directly observed). Opening the surface and tapping claim is the only condition shown, and no card had been purchased when the Privilege Card benefit was claimed, so no entitlement governs these claims (tier: directly observed). The free daily energy pack in O34 and the carnival's free daily gift in O44 follow the same form (tier: directly observed). That these refreshes are daily windows rather than elapsed-time timers rests on the product's \"daily\" framing, not on a reset seen in the sessions (tier: strongly supported).",
+          "rationale": "The app frames the surface as a sign-in event with one reward per day, and the day 1 reward was claimable on opening with no task required, so the substantive-task exclusion does not apply (tier: directly observed). No prior purchase or activation governs the rewards, so the Daily Claim Pack exclusion does not apply (tier: directly observed). The daily reset rule is part of the product's framing and was not seen operating across a day boundary (tier: directly observed).\n\nThe Pack Shop's daily section contains a free 30-gem pack with a purchase limit of one and a refresh timer, and Privilege Card daily benefits were claimed with a countdown to the end of the day (tier: directly observed). Opening the surface and tapping claim is the only condition shown, and no card had been purchased when the Privilege Card benefit was claimed, so no entitlement governs these claims (tier: directly observed). The free daily energy pack in O25 and the carnival's free daily gift in O63 follow the same form (tier: directly observed). That these refreshes are daily windows rather than elapsed-time timers rests on the product's \"daily\" framing, not on a reset seen in the sessions (tier: strongly supported).",
           "alternativeConsidered": "Streak. The event carries no continuity framing and the effect of a missed day was not shown, so no continuity state is established (tier: directly observed). A missed day that resets or ends the sequence would add Streak.\n\nDaily Claim Pack for the Privilege Card daily benefits. The benefits were claimed with no card purchased, so no prior entitlement governs them (tier: directly observed).",
-          "role": "retention\n\nO62 attaches a reward to each day of access across a seven-day event. | retention\n\nO53 and O59 offer free benefits limited to one claim per daily period, with countdowns in O63 to the next claim."
+          "role": "retention\n\nO60 attaches a reward to each day of access across a seven-day event. | retention\n\nO51 and O57 offer free benefits limited to one claim per daily period, with countdowns in O61 to the next claim."
         }
       ],
       "crossRefs": [],
       "screenshots": []
     },
     {
-      "id": "O60",
+      "id": "O58",
       "name": "Newbie Gifts 3-Day Deluxe Pack",
-      "section": "money",
+      "section": "monetization",
       "observed": "When run two reached day 59, Capybara Go offered a 3-Day Deluxe Pack for $0.99. The pack lists rewards by day: day 1 a magic ring, 10 silver keys, 5,000 coins, and 120 gems; day 2 a cosmetic item and 10 silver keys; day 3 10 silver keys and 20,000 gold coins. The same offer opens from the Newbie Gifts button on the home screen.",
       "detail": [
         "The pack costs $0.99 and lists a different reward for each of its three days.",
@@ -1318,17 +1257,17 @@
             "strongly supported"
           ],
           "rationale": "Each card is a single entitlement instance rather than a continuous access plan, and it produces separate rewards across recurring daily intervals rather than delivering its contents at once, so the subscription and one-time bundle exclusions do not apply (tier: directly observed). The rewards are released by days passing rather than by a measure advancing, which separates them from Progression Fund (tier: directly observed). The Monthly Card runs 30 days from one $4.99 purchase, grants 600 gems on purchase and lists 50 energy and 200 gems collectible daily (tier: directly observed). The Automine Card runs 30 days, grants 1,200 gems and 40 pickaxes on purchase and lists 50 pickaxes daily (tier: directly observed). Thirty daily intervals are far above the entry's floor of three (tier: directly observed). No card was purchased, so the daily claim behavior was not observed (tier: directly observed).\n\nOne $0.99 purchase establishes a pack whose stated period is three days, and the rewards are listed by day rather than as a single bundle, so the one-time bundle exclusion does not apply (tier: directly observed). Three daily intervals meet the entry's floor of three exactly, and the short period is a property of this instance rather than a ground for exclusion (tier: directly observed). Day 1 lists a magic ring, 10 silver keys, 5,000 coins and 120 gems; day 2 a yellow duck for the character's head and 10 silver keys; day 3 10 silver keys and 20,000 gold coins (tier: directly observed). That the day 2 and day 3 rewards become available on those later days rests on the pack's day-labelled listing and its three-day framing, with no competing account of what the day labels would otherwise mean (tier: strongly supported). No purchase was made and no release was observed (tier: directly observed).",
-          "alternativeConsidered": "The Lifetime Card and Ad-Free Card also produce daily collectible rewards from one purchase, but neither states an end to the daily collection, which fails this entry's bounded-entitlement condition; they carry no mechanic label and their daily collection is described in plain language at O59 (tier: directly observed).\n\nA one-time reward bundle delivered whole at purchase, which this entry excludes and which would leave the pack with no mechanic label (tier: plausible). O60 records the release of the day 2 and day 3 rewards as not observed, and a purchase followed across three days would separate the two.",
-          "role": "monetization, retention\n\nThe Monthly Card and Automine Card in O59 are sold for money, and each pays out only by being collected on each day of its 30-day period. | monetization, retention\n\nThe pack in O60 is sold for $0.99 at the end of a run and lists its rewards under day 1, day 2 and day 3, so collecting it in full requires returning on each of those days."
+          "alternativeConsidered": "The Lifetime Card and Ad-Free Card also produce daily collectible rewards from one purchase, but neither states an end to the daily collection, which fails this entry's bounded-entitlement condition; they carry no mechanic label and their daily collection is described in plain language at O57 (tier: directly observed).\n\nA one-time reward bundle delivered whole at purchase, which this entry excludes and which would leave the pack with no mechanic label (tier: plausible). O58 records the release of the day 2 and day 3 rewards as not observed, and a purchase followed across three days would separate the two.",
+          "role": "monetization, retention\n\nThe Monthly Card and Automine Card in O57 are sold for money, and each pays out only by being collected on each day of its 30-day period. | monetization, retention\n\nThe pack in O58 is sold for $0.99 at the end of a run and lists its rewards under day 1, day 2 and day 3, so collecting it in full requires returning on each of those days."
         }
       ],
       "crossRefs": [],
       "screenshots": []
     },
     {
-      "id": "O61",
+      "id": "O59",
       "name": "Triggered offers",
-      "section": "money",
+      "section": "monetization",
       "observed": "After clearing Chapter 2, Capybara Go shows a Weapon Special Offer Pack pop-up with a purchase time of 2 hours 51 minutes, offering a choice of one of seven weapons plus 600 gems for $4.99. Tapping a talent without enough gold opens an item acquisition screen showing the current gold quantity, a Gold Supplies offer of 62,000 gold and 600 gems for $4.99, and alternative sources of Black Market purchase and travel.",
       "detail": [
         "The Weapon Special Offer Pack carries a purchase window of 2 hours 51 minutes.",
@@ -1340,7 +1279,7 @@
       "screenshots": []
     },
     {
-      "id": "O62",
+      "id": "O60",
       "name": "The Seven-Day Sign-In Event",
       "section": "returns",
       "observed": "Once the second chapter clears, Capybara Go opens a seven-day sign-in event with a different reward for each day, from 50 gems on day one, claimable immediately, up to a named mythic pet and a chest on day seven. What happens after a missed day isn't shown, and which of two middle days holds a stated 100-gem reward isn't clear from the event's own listing.",
@@ -1357,16 +1296,16 @@
             "directly observed",
             "strongly supported"
           ],
-          "rationale": "The app frames the surface as a sign-in event with one reward per day, and the day 1 reward was claimable on opening with no task required, so the substantive-task exclusion does not apply (tier: directly observed). No prior purchase or activation governs the rewards, so the Daily Claim Pack exclusion does not apply (tier: directly observed). The daily reset rule is part of the product's framing and was not seen operating across a day boundary (tier: directly observed).\n\nThe Pack Shop's daily section contains a free 30-gem pack with a purchase limit of one and a refresh timer, and Privilege Card daily benefits were claimed with a countdown to the end of the day (tier: directly observed). Opening the surface and tapping claim is the only condition shown, and no card had been purchased when the Privilege Card benefit was claimed, so no entitlement governs these claims (tier: directly observed). The free daily energy pack in O34 and the carnival's free daily gift in O44 follow the same form (tier: directly observed). That these refreshes are daily windows rather than elapsed-time timers rests on the product's \"daily\" framing, not on a reset seen in the sessions (tier: strongly supported).",
+          "rationale": "The app frames the surface as a sign-in event with one reward per day, and the day 1 reward was claimable on opening with no task required, so the substantive-task exclusion does not apply (tier: directly observed). No prior purchase or activation governs the rewards, so the Daily Claim Pack exclusion does not apply (tier: directly observed). The daily reset rule is part of the product's framing and was not seen operating across a day boundary (tier: directly observed).\n\nThe Pack Shop's daily section contains a free 30-gem pack with a purchase limit of one and a refresh timer, and Privilege Card daily benefits were claimed with a countdown to the end of the day (tier: directly observed). Opening the surface and tapping claim is the only condition shown, and no card had been purchased when the Privilege Card benefit was claimed, so no entitlement governs these claims (tier: directly observed). The free daily energy pack in O25 and the carnival's free daily gift in O63 follow the same form (tier: directly observed). That these refreshes are daily windows rather than elapsed-time timers rests on the product's \"daily\" framing, not on a reset seen in the sessions (tier: strongly supported).",
           "alternativeConsidered": "Streak. The event carries no continuity framing and the effect of a missed day was not shown, so no continuity state is established (tier: directly observed). A missed day that resets or ends the sequence would add Streak.\n\nDaily Claim Pack for the Privilege Card daily benefits. The benefits were claimed with no card purchased, so no prior entitlement governs them (tier: directly observed).",
-          "role": "retention\n\nO62 attaches a reward to each day of access across a seven-day event. | retention\n\nO53 and O59 offer free benefits limited to one claim per daily period, with countdowns in O63 to the next claim."
+          "role": "retention\n\nO60 attaches a reward to each day of access across a seven-day event. | retention\n\nO51 and O57 offer free benefits limited to one claim per daily period, with countdowns in O61 to the next claim."
         }
       ],
       "crossRefs": [],
       "screenshots": []
     },
     {
-      "id": "O63",
+      "id": "O61",
       "name": "Countdowns across the app",
       "section": "returns",
       "observed": "Capybara Go runs countdowns on nearly every timed surface at once: energy regeneration, the free daily energy pack, the Pack Shop's daily and monthly refreshes, the Adventure Supply Crate's free open, the Limited Secret Chest's rate-up rotation, the Black Market's open window, the daily task reset, the Privilege Card's daily benefit, and the six-day window on overflow stamina mail. A notification permission is requested at first launch, though no notification arrives afterward.",
@@ -1380,7 +1319,7 @@
       "screenshots": []
     },
     {
-      "id": "O64",
+      "id": "O62",
       "name": "Stated end times across events and offers",
       "section": "returns",
       "observed": "Every time-limited surface in Capybara Go states its own end time or duration: seven days for Newbie Gifts, ten for the Carnival, fifteen days and two hours for the Battle Pass, eight days and two hours for the Main Quest Fund, five days each for the two pet events, under three hours for the Weapon Special Offer Pack, and a fixed calendar day for Goblin Miner's opening.",
@@ -1390,6 +1329,67 @@
         "Weapon Special Offer Pack: 2 hours 51 minutes. Goblin Miner: opens on day seven of server opening."
       ],
       "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O63",
+      "name": "The Seven-Day Carnival",
+      "section": "returns",
+      "observed": "A ten-day carnival event runs a point bar from 0 to 150 with chest rewards at fixed thresholds, fed by a list of tasks assigned to each of the event's days and covering actions like clearing a stage or opening chests. A separate pack tab offers a free daily gift alongside paid packs that change what they sell depending on the day.",
+      "detail": [
+        "The carnival's activity bar runs from 0 to 150, with chest rewards at 30, 60, 90, and 120.",
+        "Tasks are assigned per day across twelve stages.",
+        "The pack tab's paid offerings change by day, equipment packs, pet packs, chest packs, and energy packs on different days."
+      ],
+      "tags": [
+        {
+          "name": "Seasonal Progression Pass",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Each track is ordered and reward-bearing with a period boundary, and none is a content bundle or a single seasonal reward, so no exclusion applies (tier: directly observed). The Battle Pass has a season name, 30 ordered positions with free and pass lanes, pass experience from daily tasks and an end time (tier: directly observed). The Seven-Day Carnival has a 10-day end time and a 0 to 150 activity point bar with chests at thresholds, fed by tasks (tier: directly observed). Pet Auspice has a five-day duration, rewards at ordered egg-opening thresholds and a round count of 1 of 4 (tier: directly observed). No advancement on any of these tracks was observed (tier: directly observed).",
+          "alternativeConsidered": "Milestone for the threshold rewards. The thresholds sit on bounded ordered tracks, which is this entry's more specific structure, and no threshold was seen being reached (tier: directly observed). Challenge for the carnival tasks, which feed the track as the quest-driven variant and showed no completion state (tier: directly observed).",
+          "role": "engagement, retention\n\nO63 and O64 reward activity within event windows, and the end times in O62 tie that activity to periods spanning several days."
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O64",
+      "name": "Timed pet growth events",
+      "section": "returns",
+      "observed": "Two five-day events, Pet Auspice and Stage Growth, run pet-focused reward tracks. Pet Auspice pays out at cumulative thresholds of eggs opened, and both events carry their own leaderboard and ranking rewards, with Pet Auspice additionally offering a shop that exchanges event-specific tickets for pets.",
+      "detail": [
+        "Pet Auspice pays out at 500, 1,000, 2,000, 3,000, and 4,000 cumulative eggs opened.",
+        "Both events carry their own leaderboard and ranking rewards.",
+        "Pet Auspice's Growth Shop exchanges event tickets for specific pets."
+      ],
+      "tags": [
+        {
+          "name": "Leaderboard",
+          "confidence": "strongly supported",
+          "confidences": [
+            "directly observed",
+            "strongly supported"
+          ],
+          "rationale": "The lists are ordered by performance, not alphabetically or by time, so no exclusion applies (tier: directly observed). Ranking orders players from first place by chapter and longest run, and the Tower leaderboard orders top players by highest floor reached (tier: directly observed). The social role is not assigned because whether players are shown by identity was not narrated (tier: unresolved).\n\nPet Auspice and Stage Growth each carry a leaderboard tab and ranking rewards by placement band from first place to 9,999 (tier: directly observed). The listed entries and the comparison measure were not narrated, so presence rests on the product's framing and placement rewards (tier: strongly supported).",
+          "alternativeConsidered": "Comparative Rank for the user's position of 3,092 and the Tower's \"unranked\" state. The Leaderboard entry classifies a view that states the user's position alongside other ordered entries as a leaderboard, and here the position appears within the same view (tier: directly observed).\n\nComparative Rank alone. The app frames the tab as a leaderboard listing placements, and no single-position readout was narrated (tier: strongly supported).",
+          "role": "engagement\n\nO46 and O22 set the user's chapter, longest run and highest floor in order against other players' results. | engagement\n\nO64 ties rewards to placement within a five-day event."
+        },
+        {
+          "name": "Seasonal Progression Pass",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Each track is ordered and reward-bearing with a period boundary, and none is a content bundle or a single seasonal reward, so no exclusion applies (tier: directly observed). The Battle Pass has a season name, 30 ordered positions with free and pass lanes, pass experience from daily tasks and an end time (tier: directly observed). The Seven-Day Carnival has a 10-day end time and a 0 to 150 activity point bar with chests at thresholds, fed by tasks (tier: directly observed). Pet Auspice has a five-day duration, rewards at ordered egg-opening thresholds and a round count of 1 of 4 (tier: directly observed). No advancement on any of these tracks was observed (tier: directly observed).",
+          "alternativeConsidered": "Milestone for the threshold rewards. The thresholds sit on bounded ordered tracks, which is this entry's more specific structure, and no threshold was seen being reached (tier: directly observed). Challenge for the carnival tasks, which feed the track as the quest-driven variant and showed no completion state (tier: directly observed).",
+          "role": "engagement, retention\n\nO63 and O64 reward activity within event windows, and the end times in O62 tie that activity to periods spanning several days."
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     }
@@ -1633,51 +1633,51 @@
   ],
   "sectionLeadIns": {
     "onboarding": "Capybara Go!'s first minutes run without any explanation: a stack of permission prompts, a long asset download, and then a single uninterrupted run before anything else in the app becomes visible. This section covers that opening sequence and the pop-up-and-pointer pattern the app repeats every time a new feature unlocks afterward.",
-    "core-loop": "Capybara Go!'s core loop runs day by day inside a run: the app resolves one event after another until a battle interrupts it, and each level gained during that run opens a skill choice. This section covers how a run advances, how battles and elite fights resolve, and the secondary attempt-based modes that open once early chapters clear.",
+    "core-loop": "Capybara Go!'s core loop runs day by day inside a run: the app resolves one event after another until a battle interrupts it, and each level gained during that run opens a skill choice. This section covers how a run advances, how battles and elite fights resolve, the secondary attempt-based modes that open once early chapters clear, the energy and ticket limits that govern how often any of it can be run, and the daily and weekly tasks built around it.",
     "goals": "Between runs, Capybara Go turns gold and materials into permanent strength: talent levels, a rank title, equipment, and pets. This section covers how each of those systems is unlocked, upgraded, and shown to the player.",
-    "access": "Capybara Go gates nearly everything behind two things: an energy balance that limits how many runs can be made before it's exhausted, and a long sequence of chapter and survival-day conditions that unlock the rest of the app. This section covers both.",
-    "earning": "Capybara Go runs an unusually large number of named currencies and materials, each earned and spent on a different part of the game, plus the chests, tasks, and events built around collecting them. This section covers all of it.",
+    "access": "Capybara Go gates nearly everything behind a long sequence of chapter and survival-day conditions. This section covers what each one unlocks.",
+    "economy": "Capybara Go runs an unusually large number of named currencies and materials, each earned and spent on a different part of the game, plus the chests and shops built around collecting and spending them. This section covers all of it.",
     "social": "Capybara Go's social surface is small: one ranking list available from the very start, and a handful of features still waiting behind later chapters. This section covers both.",
-    "growth": "Capybara Go's only growth-facing feature ties the game account to an external developer account.",
-    "money": "This section covers Capybara Go's store: its four sections, its packs, and the ads, cards, and offers sold alongside them.",
-    "returns": "Capybara Go surfaces countdowns almost everywhere, and times its biggest offers to specific moments rather than showing them all at once. This section covers the sign-in event and the timers that run across the rest of the app."
+    "reach": "Capybara Go's only feature that connects a user to something outside the app ties the game account to an external developer account.",
+    "monetization": "This section covers Capybara Go's store: its four sections, its packs, and the ads, cards, and offers sold alongside them.",
+    "returns": "Capybara Go surfaces countdowns almost everywhere, and times its biggest offers to specific moments rather than showing them all at once. This section covers the sign-in event, the timers that run across the rest of the app, and the two timed events that reward activity within their own multi-day windows."
   },
   "sectionCards": {
     "onboarding": "Capybara Go! opens with permission prompts and a long asset download, then drops the player into an unexplained run for almost 20 minutes before anything else is visible.",
-    "core-loop": "Capybara Go! advances a run day by day through automatic battles, in-run choices, and level-up skill picks, then carries gold and materials into permanent upgrades between runs.",
+    "core-loop": "Capybara Go! advances a run day by day through automatic battles, in-run choices, and level-up skill picks, then carries gold and materials into permanent upgrades between runs, all gated by an energy and ticket balance and layered with daily and weekly tasks.",
     "goals": "Capybara Go! turns gold and materials into talent levels, a rank title, equipment, and pets, each with its own upgrade path.",
-    "access": "Capybara Go! gates runs behind an energy balance and gates nearly everything else behind chapter clears and survival-day thresholds.",
-    "earning": "Capybara Go! runs a large number of named currencies and materials alongside chests, tasks, and timed events built around collecting them.",
+    "access": "Capybara Go! gates nearly everything behind a long sequence of chapter clears and survival-day thresholds.",
+    "economy": "Capybara Go! runs a large number of named currencies and materials alongside the chests and shops built around collecting and spending them.",
     "social": "Capybara Go! offers one ranking list available from the very start, with Friends, Guilds, and Arena still locked behind later chapters.",
-    "growth": "Capybara Go! offers one growth-facing feature, linking the game account to an external Habby ID.",
-    "money": "Capybara Go! charges through packs, cards, and triggered offers across a four-tab store, alongside ads and a permanent ad-removal purchase.",
-    "returns": "Capybara Go! runs a seven-day sign-in event and countdowns on nearly every timed surface, from energy to chests to events."
+    "reach": "Capybara Go! offers one feature connecting a user outside the app, linking the game account to an external Habby ID.",
+    "monetization": "Capybara Go! charges through packs, cards, and triggered offers across a four-tab store, alongside ads and a permanent ad-removal purchase.",
+    "returns": "Capybara Go! runs a seven-day sign-in event, two further timed events, and countdowns on nearly every timed surface in the game."
   },
   "proposedTags": [
     {
       "name": "P1. Companion Units",
       "sourceObservations": [
         "O23",
-        "O29",
-        "O30",
-        "O47"
+        "O34",
+        "O35",
+        "O45"
       ],
       "draftDefinition": "A companion unit is a persistent secondary entity, separate from the user's primary character, that the product lets the user acquire, assign to a limited number of active positions and develop over time, and that acts alongside the primary character within the core activity.",
-      "conditions": "A route for acquiring units, here egg hatches and a ticket shop (O29, O47); a limited number of active positions that open with progress (O29); participation of the unit in the core activity, here battles and raids (O23, O29); progression that belongs to the unit, here levels, battle skills, duplicate copies and pet food (O30).",
+      "conditions": "A route for acquiring units, here egg hatches and a ticket shop (O34, O45); a limited number of active positions that open with progress (O34); participation of the unit in the core activity, here battles and raids (O23, O34); progression that belongs to the unit, here levels, battle skills, duplicate copies and pet food (O35).",
       "whyNotCovered": "Leveling describes the pet level state and Loot Box and Variable Reward Outcome describe how eggs resolve, but no entry describes a secondary entity that is slotted, developed and active in the core activity as a unit. Set Collection requires member-level completeness tracking, which was not shown for pets. Cosmetic Customization is excluded because pets act in battle.",
       "recurrenceElsewhere": "The structure would recur in any product that lets users hold helpers, pets or secondary characters that take part in its main activity and grow separately from the user's own progression.",
-      "caveat": "The size of a pet's contribution in battle was not shown, and the \"level 4\" condition for the next slot does not name what level it refers to (O29)."
+      "caveat": "The size of a pet's contribution in battle was not shown, and the \"level 4\" condition for the next slot does not name what level it refers to (O34)."
     },
     {
       "name": "P4. Progression Fund",
       "sourceObservations": [
-        "O58"
+        "O56"
       ],
       "draftDefinition": "A progression fund is a reward track with no end date whose positions are reached by advancing a progression measure that already exists elsewhere in the product, with a free lane and a purchasable lane that pays larger rewards at the same positions.",
-      "conditions": "An existing measure to attach to, here talent level, Tower Challenge floors, Dungeon Dive floors, hard mode progress, guru tickets used and mythic treasures collected (O58); ordered reward positions; a free lane and a purchasable lane; no end timer.",
+      "conditions": "An existing measure to attach to, here talent level, Tower Challenge floors, Dungeon Dive floors, hard mode progress, guru tickets used and mythic treasures collected (O56); ordered reward positions; a free lane and a purchasable lane; no end timer.",
       "whyNotCovered": "Seasonal Progression Pass requires a seasonal boundary and excludes ordered reward tracks without one. Milestone recognizes individual thresholds but not a parallel track across the same measure. Monthly Reward Card releases rewards by time interval rather than by progress.",
       "recurrenceElsewhere": "The structure would recur wherever a product attaches a reward track to progress it already measures and offers a larger lane for purchase.",
-      "caveat": "The designed experience rests on the free lane and its link to progress. Whether free rewards can be claimed without buying the fund was not shown (O58); if they cannot, the surface is a purchase offer and fails the commerce test. No fund was seen advancing."
+      "caveat": "The designed experience rests on the free lane and its link to progress. Whether free rewards can be claimed without buying the fund was not shown (O56); if they cannot, the surface is a purchase offer and fails the commerce test. No fund was seen advancing."
     }
   ],
   "system": {

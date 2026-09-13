@@ -641,9 +641,9 @@ No pass surface existed at town hall 4, 5, or 6; it appeared immediately after t
 
 ---
 
-## Earning and utility
+## Economy and resources
 
-Clash of Clans runs five separate earned currencies across two villages, plus a paid one that converts into both. This section covers what each is spent on and the storage and treasury systems that hold them.
+Clash of Clans runs five earned currencies across two villages, each with its own storage, sinks, and overflow rule. This section covers what each is spent on and the storage and treasury systems that hold them; the paid currency's own price list is covered under Monetization.
 
 ### O48. Three home village resources
 
@@ -660,20 +660,14 @@ A fourth home village resource, dark elixir, appears with the town hall 7 upgrad
 - It appears first in the treasury, then as buildable resource buildings in the shop.
 - The pass lists filling dark elixir storages as a gold lane reward, and a piggy bank cap of 20,000 dark elixir.
 
-### O50. Gem packages priced in money
-
-Gems are sold in six packages ranging from $0.49 to $49.99.
-
-- 80 gems for $0.49, 500 for $2.49, 1,200 for $4.99, 2,500 for $9.99, 6,500 for $24.99, 14,000 for $49.99.
-
-### O51. Gems convert into resources
+### O50. Gems convert into resources
 
 Gold and elixir can't be bought with money directly; they're bought with gems, which are bought with money.
 
 - Stated conversions: 400 gold for two gems, 1,531 gold for six gems, 400 elixir for two gems, 1,049 elixir for five gems.
 - The conversion is framed on screen as filling storages by a percentage.
 
-### O52. League medals and the league shop
+### O51. League medals and the league shop
 
 A further balance, league medals, buys items from a dedicated shop tab, and the user held none of it.
 
@@ -681,7 +675,7 @@ A further balance, league medals, buys items from a dedicated shop tab, and the 
 - Prices include a giant gauntlet at 750 medals and 2.5 million gold for 15 medals.
 - Medals are stated as a reward from clan war leagues, so the earning path was described but not exercised.
 
-### O53. Second village currencies
+### O52. Second village currencies
 
 The second village runs its own currencies, square gold tokens and amethyst droplets.
 
@@ -689,42 +683,42 @@ The second village runs its own currencies, square gold tokens and amethyst drop
 - The piggy bank lists caps of 800,000 for each of the two second village currencies.
 - Gems are shared across both villages; the second village currencies are not usable in the home village.
 
-### O54. Storage capacity constrains progression
+### O53. Storage capacity constrains progression
 
 The amount that can be held is capped by storage buildings, so an upgrade costing more than current capacity can't be paid for until storage is raised first.
 
 - A bigger gold storage is the blocker on a 25,000 gold town hall upgrade until it's raised.
 - A storage upgrade is described as increasing capacity by 3,000 and raising hit points.
 
-### O55. Treasury holds bonus loot separately
+### O54. Treasury holds bonus loot separately
 
 Bonus loot is paid into a treasury held in the clan castle rather than ordinary storage, transferred to storage by a separate action.
 
 - The transfer prompt reads transfer all resources from treasury to your storages.
 - War bonus loot is delivered to the treasury at the end of a war, mostly lost if the clan loses.
 
-### O56. Star bonus scales with league
+### O55. Star bonus scales with league
 
 Winning multiplayer attacks pays a star bonus into the treasury, at a rate stated to depend on the current league.
 
 - The stated rule in the second village is that a higher league pays more gold per star.
 - A town hall 4 boost multiplied the star bonus by four for three days.
 
-### O57. Defending earns resources in the second village
+### O56. Defending earns resources in the second village
 
 In the second village, successful defense pays a resource; the home village has no equivalent reward for defending.
 
 - The message reads each star we win on defense earns us elixir.
 - A repelled attack that reaches only 90 percent destruction still counts as a successful defense.
 
-### O58. Obstacles occupy space and cost resources to clear
+### O57. Obstacles occupy space and cost resources to clear
 
 Trees, stumps, and stones occupy buildable grid space and are removed only by paying.
 
 - Costs include 100 elixir for mushrooms, 1,000 elixir for a trunk, and 20,000 gold for a stone.
 - The same condition exists in the second village, additionally gated on the builder hall level.
 
-### O59. Overflow converts into gems
+### O58. Overflow converts into gems
 
 Reward value exceeding what the user can hold is converted into gems rather than discarded.
 
@@ -737,7 +731,7 @@ Reward value exceeding what the user can hold is converted into gems rather than
 
 Clash of Clans' social layer sits entirely behind a rebuilt clan castle: nothing here is reachable until that repair is paid for. This section covers clan membership, chat, wars, the game's ranked lists, and the two ways other players can interact outside a clan.
 
-### O60. Clan castle reinforcements and donation
+### O59. Clan castle reinforcements and donation
 
 Clan members can send troops and spells to one another, and the receiving member holds them in the clan castle. The war information text states that troops are donated and enemies scouted on preparation day, and separate achievement criteria exist for troops donated and troops received, counting both directions. One achievement requires requesting reinforcements, which can't be done without joining a clan. A gold pass perk reduces the wait for a clan castle troop request by 90 percent.
 
@@ -745,7 +739,7 @@ Clan members can send troops and spells to one another, and the receiving member
 - Requesting reinforcements requires clan membership.
 - A gold pass perk cuts the troop request wait by 90 percent.
 
-### O61. Clan discovery and filters
+### O60. Clan discovery and filters
 
 The clan finder opens by asking for a language, then lists clans by recent notices alongside bookmarks and a filtered search. Filters include location, whether the user can join, family-friendly status, war frequency, member count, league requirement, builder base league, and clan labels. Bookmarks can be added from a clan notice or a clan info page.
 
@@ -753,7 +747,7 @@ The clan finder opens by asking for a language, then lists clans by recent notic
 - Filters include location, war frequency, member count, league requirement, and a family-friendly flag.
 - A clan can be joined directly from the notice list.
 
-### O62. Clan creation settings
+### O61. Clan creation settings
 
 Creating a clan exposes the same attributes the finder searches on, set by the creator: name, description, badge, who may join, war frequency, required builder base and home leagues, a minimum town hall level from 1 to 18, location, chat language, a family-friendly flag, and labels. War frequency options include always, not set, never, and rarely.
 
@@ -761,7 +755,7 @@ Creating a clan exposes the same attributes the finder searches on, set by the c
 - Minimum town hall level for joining can be set anywhere from 1 to 18.
 - War frequency options are always, not set, never, and rarely.
 
-### O63. Clan chat and its rules
+### O62. Clan chat and its rules
 
 Joining a clan opens a chat carrying a rules notice, asking members to respect each other, keep private information private, and report offensive players, with misconduct risking a ban. The first message in it was an unsolicited promotion of an external site offering free gems, consistent with a scam attempt. Clan membership was shown as 2 of 15 online.
 
@@ -769,7 +763,7 @@ Joining a clan opens a chat carrying a rules notice, asking members to respect e
 - The first chat message was an unsolicited promotion consistent with a scam attempt.
 - The clan showed 2 of 15 members online.
 
-### O64. Player profile and social settings
+### O63. Player profile and social settings
 
 The profile controls how much contact other players may make: clan invites can be set to receive invites or no invites. Up to three labels can be chosen to describe play style, from a list including talkative, teacher, competitive, amateur attacker, newbie, veteran, and others tied to specific game modes. The profile carries a share link, a clan badge where one applies, and the current ranking, shown as unranked, and splits into home village, builder base, and clan capital views.
 
@@ -777,7 +771,7 @@ The profile controls how much contact other players may make: clan invites can b
 - Up to three play-style labels can be chosen from a fixed list.
 - The profile splits into home village, builder base, and clan capital views.
 
-### O65. Clan wars
+### O64. Clan wars
 
 A clan war is a two-day contest between two clans scored in stars, with a preparation day and a battle day, decided by whichever clan scores more stars and, in a tie, by total destruction. On preparation day, war bases are open for donation and can be redesigned. On battle day, only the best attack against each enemy base counts. War attacks don't reduce the shield or affect trophies, and bonus loot goes to the treasury at the end, mostly lost if the clan loses. A clan war in progress showed the user's clan at 24 stars against the opponent's 3.
 
@@ -786,7 +780,7 @@ A clan war is a two-day contest between two clans scored in stars, with a prepar
 - War attacks don't affect trophies or reduce the shield.
 - A clan war in progress showed a 24-to-3 star lead for the user's clan.
 
-### O66. Clan war leagues and clan prizes
+### O65. Clan war leagues and clan prizes
 
 A recurring event places clans in a group of eight, paying glory, bonus loot, clan XP, and league medals; it was shown with 8 days 9 hours remaining. A separate clan tournament pays gem prizes divided among a clan's top members: 45,000 gems for first place, 30,000 for second, and 15,000 for third, split among the top 30 players.
 
@@ -794,14 +788,14 @@ A recurring event places clans in a group of eight, paying glory, bonus loot, cl
 - Clan war league rewards include glory, bonus loot, clan XP, and league medals.
 - A clan tournament divides gem prizes among a clan's top 30 members.
 
-### O67. Clan capital
+### O66. Clan capital
 
 A third shared construction context, the clan capital, is funded by a currency members contribute. Capital gold is stated to construct and upgrade buildings and unlock districts, and a clan capital tab appears in the profile's achievements view.
 
 - Capital gold, contributed by members, funds clan capital construction.
 - A clan capital tab exists in the profile, separate from the home village and builder base tabs.
 
-### O68. Top players and top clans
+### O67. Top players and top clans
 
 Ranked lists present other players and clans in order, in both global and national scopes, plus a clan war league scope for clans. The leaderboard view holds four tabs: my league, my town hall, top players, and top clans. The global top entry showed 88 attacks won and roughly 5,814 trophies. The user's own position was unranked and did not appear on any list.
 
@@ -809,7 +803,7 @@ Ranked lists present other players and clans in order, in both global and nation
 - The global top player entry showed 88 attacks won and about 5,814 trophies.
 - The user did not appear on any ranked list.
 
-### O69. Friends and cross-game identity
+### O68. Friends and cross-game identity
 
 A social tab holds friends, friend requests, and player search, stating that Game Center and linked-account friends appear automatically once logged in. Friends can be added from a player profile, and the linked account hub states that friends' progress and online status can be seen.
 
@@ -817,7 +811,7 @@ A social tab holds friends, friend requests, and player search, stating that Gam
 - Logging into a linked account surfaces existing friends automatically.
 - The linked account hub shows friends' progress and online status.
 
-### O70. Revenge attacks
+### O69. Revenge attacks
 
 An attacker logged in the defense log can be attacked back under different rules from an ordinary attack: targets are chosen from the defense log, magic shields don't stop revenge attacks, and the target will hold at least the same resources that were taken. The defense log also records other players' completed attacks against the user's own village, each available to replay.
 
@@ -828,18 +822,18 @@ An attacker logged in the defense log can be attacked back under different rules
 
 ---
 
-## Growth
+## Reach beyond the app
 
-Clash of Clans' growth surfaces all run through one linked account, which doubles as a hub across the developer's other games and a route out to content the game itself doesn't host. This section covers all of it.
+Clash of Clans' outward-facing surfaces all run through one linked account, which doubles as a hub across the developer's other games and a route out to content the game itself doesn't host. This section covers all of it.
 
-### O71. Account linking rewarded far above comparable actions
+### O70. Account linking rewarded far above comparable actions
 
 The achievement for linking an account pays around ten times the reward of the ordinary progression achievements sitting beside it.
 
 - Linking pays 100 experience points and 50 gems; upgrading the town hall to level 3 pays 10 experience points and 5 gems.
 - The reward didn't appear until the app was relaunched, at which point it was granted with three stars.
 
-### O72. Cross-game identity hub and external rewards site
+### O71. Cross-game identity hub and external rewards site
 
 The linked account is presented as a hub across the developer's other games, with its own rewards programme hosted outside the app.
 
@@ -847,28 +841,28 @@ The linked account is presented as a hub across the developer's other games, wit
 - After linking, an ID rewards card offers 1,000 free points for activation, which leaves the game for a website.
 - What the reward points are actually redeemable for isn't stated.
 
-### O73. Creator and esports links leading out of the app
+### O72. Creator and esports links leading out of the app
 
 A news panel carries the developer's own posts alongside links to named content creators and esports channels, which open externally.
 
 - Clicking a creator's link opened a video site.
 - All items in the panel originate from the product or from creators it selects; other players can't contribute to it.
 
-### O74. In-app pop-up to an external video
+### O73. In-app pop-up to an external video
 
 During play, a pop-up appeared and took the user out of the app to a video for the current season.
 
 - The video was approximately one minute and 42 seconds.
 - The same season's theme is sold in the store as a scenery.
 
-### O75. Motivation survey linked to the profile
+### O74. Motivation survey linked to the profile
 
 Returning from the video, the app presented a two-question survey about play motivations, stating that answers may be retained and linked to the profile.
 
 - The consent text states responding is completely voluntary.
 - The two questions ask what's most important in a game and what the user most looks forward to, each with a long list of options.
 
-### O76. Store page and shareable identity
+### O75. Store page and shareable identity
 
 The product surfaces outward through the store listing and a shareable player profile link.
 
@@ -877,16 +871,22 @@ The product surfaces outward through the store listing and a shareable player pr
 
 ---
 
-## Money
+## Monetization
 
-Clash of Clans' shop reopens on the same tab every time, and prices change with the player's own progress rather than sitting still. This section covers the shop's offers, packs, and pass, and the pricing decisions underneath them.
+Clash of Clans' shop reopens on the same tab every time, and prices change with the player's own progress rather than sitting still. This section covers the shop's offers, packs, and pass, the gem packages that fund all of it, and the pricing decisions underneath them.
 
-### O77. The shop opens on offers
+### O76. The shop opens on offers
 
 Whichever tab was last used, the shop reopens on the offers tab every time it's entered.
 
 - The shop's other tabs are league shop, shields, treasure, decorations, cosmetics, and buildings and traps.
 - Monetization first appears at the moment the shop is entered after the guided opening, not before it.
+
+### O77. Gem packages priced in money
+
+Gems are sold in six packages ranging from $0.49 to $49.99.
+
+- 80 gems for $0.49, 500 for $2.49, 1,200 for $4.99, 2,500 for $9.99, 6,500 for $24.99, 14,000 for $49.99.
 
 ### O78. Timed starter offers
 
@@ -1036,3 +1036,4 @@ The season track's next task card is released on a timer rather than on demand.
 The app asks whether the user is enjoying it, appearing on a return visit rather than at first launch.
 
 - The prompt appears after most of the app's other surfaces have already been shown.
+

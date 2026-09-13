@@ -15,10 +15,10 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 2. Core loop and automation: O15 to O27
 3. Goals and progression: O28 to O38
 4. Access and eligibility: O39 to O47
-5. Earning and utility: O48 to O59
-6. Social: O60 to O70
-7. Growth: O71 to O76
-8. Money: O77 to O87
+5. Economy and resources: O48 to O58
+6. Social: O59 to O69
+7. Reach beyond the app: O70 to O75
+8. Monetization: O76 to O87
 9. Return triggers: O88 to O97
 
 ## Onboarding and first run
@@ -34,7 +34,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - The narrator states that updates arrive a couple of times per month, sometimes three or four (tier: plausible, the narrator's characterisation of the update history shown on the page rather than a figure the page states).
 - The review summary shown on the page reports that users find the game fun and engaging and appreciate its strategic gameplay, graphics, and progression (tier: directly observed).
 
-*Cross-reference: O76, O92.*
+*Cross-reference: O75, O92.*
 
 **O2. Launch disclosure and consent sequence.**
 
@@ -106,7 +106,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - Reinforcements are described as requiring the ruined clan castle to be rebuilt in order to join forces with other players (tier: directly observed).
 - Barracks upgrades are greyed out with the message that the town hall must reach level 2 first (tier: directly observed).
 
-*Cross-reference: O39, O41, O60.*
+*Cross-reference: O39, O41, O59.*
 
 **O8. Naming after the first self-directed attack.**
 
@@ -170,7 +170,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - After linking, an avatar and a display name are chosen (tier: directly observed).
 - The corresponding achievement did not register until the app was closed and reopened (tier: directly observed, the narrator checks twice and records it as unchanged before the relaunch).
 
-*Cross-reference: O33, O71, O72.*
+*Cross-reference: O33, O70, O71.*
 
 **O14. Village obstacles present from the start.**
 
@@ -181,7 +181,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - The narrator records that there are a lot of them and that they take up space on the base (tier: directly observed).
 - A ruined clan castle and a boat are present in the same starting state, each requiring payment to restore (tier: directly observed).
 
-*Cross-reference: O41, O45, O58.*
+*Cross-reference: O41, O45, O57.*
 
 ## Core loop and automation
 
@@ -193,7 +193,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - Loot taken from an attack is the input to the next upgrade; upgrades raise storage and production, which raise what can be afforded (tier: strongly supported, repeatedly recorded as the reason for each attack).
 - The loop is interrupted by waits rather than by any per-attempt limit on attacking (tier: strongly supported, the narrator repeatedly attacks in sequence and is blocked only by resources and builder availability).
 
-*Cross-reference: O16, O23, O54.*
+*Cross-reference: O16, O23, O53.*
 
 **O16. Builder slots limit parallel construction.**
 
@@ -238,7 +238,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - In sessions 3 and 4 the narrator uses gems to complete the town hall upgrades rather than wait (tier: directly observed).
 - The narrator records speeding up builds as an extremely important mechanic in this game (tier: plausible, an assessment by the narrator rather than an observed system behavior).
 
-*Cross-reference: O16, O18, O50.*
+*Cross-reference: O16, O18, O77.*
 
 **O20. Collectors accumulate and require manual collection.**
 
@@ -248,7 +248,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - Tapping a currency display shows its maximum and its production per hour (tier: directly observed).
 - Production continues while the user is away and is waiting to be collected on return (tier: strongly supported, resources are available to collect immediately on the session 3 return).
 
-*Cross-reference: O54, O88.*
+*Cross-reference: O53, O88.*
 
 **O21. Deployment rules and absence of target control.**
 
@@ -282,7 +282,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - The overview text states that regular battles do not cost trophies (tier: directly observed).
 - The narrator records that some villages have more resources than others (tier: directly observed, from the overview text).
 
-*Cross-reference: O56, O70.*
+*Cross-reference: O55, O69.*
 
 **O24. Defense log, replays, and live viewing.**
 
@@ -294,7 +294,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - In the second village a you are being attacked notice allows watching live; the outcome of that defense is reported as a percentage (tier: directly observed).
 - War attacks can also be replayed after the war, and older wars are available in a war log (tier: directly observed, from the war information text).
 
-*Cross-reference: O65, O70.*
+*Cross-reference: O64, O69.*
 
 **O25. Layout editor.**
 
@@ -304,7 +304,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - The editor offers an active village selection and the ability to move buildings (tier: directly observed).
 - War bases are redesignable separately during a war preparation day (tier: directly observed, from the war information text).
 
-*Cross-reference: O65.*
+*Cross-reference: O64.*
 
 **O26. Laboratory research.**
 
@@ -315,7 +315,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - The user selects which unit to research, and the cost is paid in elixir (tier: directly observed).
 - The second village has its own research facility, described as a star laboratory, giving troops special abilities (tier: directly observed).
 
-*Cross-reference: O45, O53.*
+*Cross-reference: O45, O52.*
 
 **O27. Temporary boosts and magic items.**
 
@@ -345,7 +345,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - The character's standing instruction is upgrade the town hall to unlock new things, if you're short on gold, battle for more (tier: directly observed).
 - The narrator reaches town hall 4 in session 1, 5 in session 2, 6 in session 3, and 7 in session 4 (tier: directly observed).
 
-*Cross-reference: O39, O47, O54.*
+*Cross-reference: O39, O47, O53.*
 
 **O29. Prerequisite buildings gate the next town hall level.**
 
@@ -356,7 +356,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - In session 1 the listed prerequisites were another cannon and an archer tower (tier: directly observed).
 - Meeting the checklist consumed the resources that had been saved for the upgrade itself, delaying it further (tier: directly observed).
 
-*Cross-reference: O28, O54.*
+*Cross-reference: O28, O53.*
 
 **O30. Advisory warning before a town hall upgrade.**
 
@@ -404,7 +404,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - One achievement requires requesting reinforcements, which cannot be done without belonging to a clan (tier: directly observed).
 - The narrator concludes that the achievements are set up in such a way as to get the user to improve (tier: plausible, an interpretation of the list rather than an observed system behavior).
 
-*Cross-reference: O13, O32, O60.*
+*Cross-reference: O13, O32, O59.*
 
 **O34. Starter challenge points and the reward ladder.**
 
@@ -441,7 +441,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - A league screen shows what star bonus is paid at each tier in each of the second village currencies (tier: directly observed).
 - The narrator did not observe the trophy thresholds themselves (tier: directly observed, the figures were never shown).
 
-*Cross-reference: O47, O52, O56.*
+*Cross-reference: O47, O51, O55.*
 
 **O37. Season track and task cards.**
 
@@ -505,7 +505,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - The narrator records having to increase capacity before the cost could even be held (tier: directly observed).
 - Once rebuilt, the clan castle is described as holding the treasury and any reinforcement troops or spells sent by clanmates (tier: directly observed).
 
-*Cross-reference: O54, O55, O60.*
+*Cross-reference: O53, O54, O59.*
 
 **O42. Creating a clan costs resources.**
 
@@ -514,7 +514,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 **Detail:**
 - The narrator notes this as a second reason, beyond the town hall, to grow storage and gather resources (tier: plausible, the narrator's stated motivation rather than a system behavior).
 
-*Cross-reference: O62.*
+*Cross-reference: O61.*
 
 **O43. War participation gated by clan leadership.**
 
@@ -525,7 +525,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - Scouting enemy bases, viewing war stats, and watching replays remain available to a spectator (tier: directly observed).
 - The war information text states that attacks are limited during a war, so a bounded allowance exists that the session could not exercise (tier: directly observed, from the text only).
 
-*Cross-reference: O65.*
+*Cross-reference: O64.*
 
 **O44. Clan war leagues gated by clan size and a signup window.**
 
@@ -536,7 +536,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - Sign-up was shown as ending in 8 hours and 20 minutes, with clan leaders given two days from the event start (tier: directly observed).
 - Normal clan wars are stated to be available to non-participating clans while league sign-up is open (tier: directly observed).
 
-*Cross-reference: O52, O66, O91.*
+*Cross-reference: O51, O65, O91.*
 
 **O45. The second village gated behind repairing the boat.**
 
@@ -549,7 +549,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - The narrator records having to work out how to return, and that the boat is the route back (tier: directly observed).
 - The closing instruction is that both villages now need attention (tier: directly observed).
 
-*Cross-reference: O46, O53, O57.*
+*Cross-reference: O46, O52, O56.*
 
 **O46. Builder hall levels gate the second village.**
 
@@ -575,7 +575,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 
 *Cross-reference: O36, O38, O79.*
 
-## Earning and utility
+## Economy and resources
 
 **O48. Three home village resources.**
 
@@ -587,7 +587,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - Gems are spent on speed-ups, builder huts, magic shields, decorations, and conversion into gold and elixir (tier: directly observed).
 - The narrator notes early that there are three in-game currencies and that this is important to note (tier: directly observed).
 
-*Cross-reference: O50, O51.*
+*Cross-reference: O77, O50.*
 
 **O49. Dark elixir added at town hall 7.**
 
@@ -599,17 +599,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 
 *Cross-reference: O38, O85.*
 
-**O50. Gem packages priced in money.**
-
-**Observed:** Gems are sold in six packages ranging from $0.49 to $49.99 (tier: directly observed).
-
-**Detail:**
-- 80 gems for $0.49, 500 for $2.49, 1,200 for $4.99, 2,500 for $9.99, 6,500 for $24.99, 14,000 for $49.99 (tier: directly observed).
-- The narrator notes it would be interesting to see how the economy and costs work, indicating the exchange rates were not worked through in session (tier: directly observed).
-
-*Cross-reference: O48, O51.*
-
-**O51. Gems convert into resources.**
+**O50. Gems convert into resources.**
 
 **Observed:** Gold and elixir cannot be bought with money directly; they are bought with gems, which are bought with money (tier: directly observed).
 
@@ -618,9 +608,9 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - The conversion is framed on screen as filling storages by a percentage (tier: directly observed).
 - The narrator states the split plainly: gold and elixir are resources and gems are gems (tier: directly observed).
 
-*Cross-reference: O48, O50.*
+*Cross-reference: O48, O77.*
 
-**O52. League medals and the league shop.**
+**O51. League medals and the league shop.**
 
 **Observed:** A further balance called league medals buys items from a dedicated shop tab, and the user held none of it (tier: directly observed).
 
@@ -633,7 +623,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 
 *Cross-reference: O44, O81.*
 
-**O53. Second village currencies.**
+**O52. Second village currencies.**
 
 **Observed:** The second village runs its own currencies, described by the narrator as square gold tokens and amethyst droplets (tier: directly observed).
 
@@ -645,7 +635,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 
 *Cross-reference: O45, O46, O85.*
 
-**O54. Storage capacity constrains progression.**
+**O53. Storage capacity constrains progression.**
 
 **Observed:** The amount that can be held is capped by storage buildings, so an upgrade that costs more than current capacity cannot be paid for until storage is raised first (tier: directly observed).
 
@@ -656,7 +646,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 
 *Cross-reference: O28, O29, O41.*
 
-**O55. Treasury holds bonus loot separately.**
+**O54. Treasury holds bonus loot separately.**
 
 **Observed:** Bonus loot is paid into a treasury held in the clan castle rather than into ordinary storage, and is transferred to storage by a separate action (tier: directly observed).
 
@@ -666,9 +656,9 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - War bonus loot is stated to be delivered to the treasury at the end of a war, and most of it lost if the clan loses the war (tier: directly observed, from the war information text).
 - The clan castle is described as guarding the treasury (tier: directly observed).
 
-*Cross-reference: O41, O56, O65.*
+*Cross-reference: O41, O55, O64.*
 
-**O56. Star bonus scales with league.**
+**O55. Star bonus scales with league.**
 
 **Observed:** Winning multiplayer attacks pays a star bonus into the treasury, at a rate stated to depend on the current league (tier: directly observed).
 
@@ -678,9 +668,9 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - The narrator records receiving star bonuses without being sure what triggered each one (tier: directly observed).
 - A town hall 4 boost multiplied the star bonus by four for three days (tier: directly observed).
 
-*Cross-reference: O27, O36, O55.*
+*Cross-reference: O27, O36, O54.*
 
-**O57. Defending earns resources in the second village.**
+**O56. Defending earns resources in the second village.**
 
 **Observed:** In the second village, successful defense pays a resource, which the home village was not observed to do (tier: directly observed).
 
@@ -691,7 +681,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 
 *Cross-reference: O24, O45.*
 
-**O58. Obstacles occupy space and cost resources to clear.**
+**O57. Obstacles occupy space and cost resources to clear.**
 
 **Observed:** Trees, stumps, and stones occupy buildable grid space and are removed only by paying (tier: directly observed).
 
@@ -702,7 +692,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 
 *Cross-reference: O14, O38, O46.*
 
-**O59. Overflow converts into gems.**
+**O58. Overflow converts into gems.**
 
 **Observed:** Reward value that exceeds what the user can hold is converted into gems rather than discarded (tier: directly observed).
 
@@ -711,11 +701,11 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - The narrator restates the same rule for pass rewards received while storage is full (tier: directly observed).
 - The conversion rate was not shown (tier: directly observed).
 
-*Cross-reference: O54, O85, O92.*
+*Cross-reference: O53, O85, O92.*
 
 ## Social
 
-**O60. Clan castle reinforcements and donation.**
+**O59. Clan castle reinforcements and donation.**
 
 **Observed:** Clan members can send troops and spells to one another, and the receiving member holds them in the clan castle (tier: directly observed, from the clan castle description and the war information text).
 
@@ -729,7 +719,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 
 *Cross-reference: O33, O41, O84.*
 
-**O61. Clan discovery and filters.**
+**O60. Clan discovery and filters.**
 
 **Observed:** The clan finder opens by asking for a language, then lists clans by recent notices, with bookmarks and a filtered search alongside (tier: directly observed).
 
@@ -740,9 +730,9 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - Bookmarks can be added from a clan notice or a clan info page (tier: directly observed).
 - The narrator joins a clan directly from this list (tier: directly observed).
 
-*Cross-reference: O42, O62.*
+*Cross-reference: O42, O61.*
 
-**O62. Clan creation settings.**
+**O61. Clan creation settings.**
 
 **Observed:** Creating a clan exposes the same attributes the finder searches on, set by the creator (tier: directly observed).
 
@@ -750,9 +740,9 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - Settings observed: name, description, badge, who may join, war frequency, required builder base league, required home league, minimum town hall level from 1 to 18, location, chat language, family friendly flag, and labels (tier: directly observed).
 - War frequency options include always, not set, never, and rarely (tier: directly observed).
 
-*Cross-reference: O42, O61.*
+*Cross-reference: O42, O60.*
 
-**O63. Clan chat and its rules.**
+**O62. Clan chat and its rules.**
 
 **Observed:** Joining a clan opens a chat carrying a rules notice, and the first message observed in it was an unsolicited promotion of an external site (tier: directly observed).
 
@@ -761,9 +751,9 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - The observed message offered free gems from a named external site; the narrator judges it an attempted scam (tier: plausible, the narrator's read of an unverified message).
 - Clan membership is shown as 2 of 15 online (tier: directly observed).
 
-*Cross-reference: O61.*
+*Cross-reference: O60.*
 
-**O64. Player profile and social settings.**
+**O63. Player profile and social settings.**
 
 **Observed:** The profile holds the user's identity toward other players and controls how much contact they may make (tier: directly observed).
 
@@ -775,7 +765,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 
 *Cross-reference: O8, O33.*
 
-**O65. Clan wars.**
+**O64. Clan wars.**
 
 **Observed:** A clan war is a two-day contest between two clans, scored in stars, with a preparation day and a battle day and a stated winner (tier: directly observed, from the war information text and the live war in progress).
 
@@ -788,9 +778,9 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - The live war showed the user's clan on 24 stars and the opposing clan on 3, with destroyed bases marked on both sides (tier: directly observed).
 - Scouting, war stats, war events, per-member attack and defense records, and replays were all available (tier: directly observed).
 
-*Cross-reference: O25, O43, O55, O67.*
+*Cross-reference: O25, O43, O54, O66.*
 
-**O66. Clan war leagues and clan prizes.**
+**O65. Clan war leagues and clan prizes.**
 
 **Observed:** A larger recurring event places clans in a group of eight and pays league medals, and a separate clan tournament pays gem prizes divided among a clan's top members (tier: directly observed).
 
@@ -799,9 +789,9 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - Stated rewards are glory, bonus loot, clan XP, and league medals (tier: directly observed).
 - A clan tournament ending in 17 days and 6 hours lists 45,000 gems for first place, 30,000 for second, and 15,000 for third, divided equally among the top 30 players of the clan (tier: directly observed).
 
-*Cross-reference: O44, O52, O68, O91.*
+*Cross-reference: O44, O51, O67, O91.*
 
-**O67. Clan capital.**
+**O66. Clan capital.**
 
 **Observed:** A third shared construction context exists, funded by a currency contributed by members (tier: directly observed, from the pass reward description and the profile tabs).
 
@@ -810,9 +800,9 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - A clan capital tab appears in the player profile achievements view (tier: directly observed).
 - The clan capital itself was never entered during any session (tier: directly observed).
 
-*Cross-reference: O38, O64.*
+*Cross-reference: O38, O63.*
 
-**O68. Top players and top clans.**
+**O67. Top players and top clans.**
 
 **Observed:** Ranked lists present other players and other clans in order, in both global and national scopes (tier: directly observed).
 
@@ -822,9 +812,9 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - Top clans are listed globally, nationally, and in a war league scope, each with member counts (tier: directly observed).
 - The user's own position was unranked and the user did not appear on any of these lists (tier: directly observed).
 
-*Cross-reference: O36, O64, O66.*
+*Cross-reference: O36, O63, O65.*
 
-**O69. Friends and cross-game identity.**
+**O68. Friends and cross-game identity.**
 
 **Observed:** A social tab holds friends, friend requests, and player search, and states that Game Center and account friends appear automatically once logged in (tier: directly observed).
 
@@ -832,9 +822,9 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - Friends can be added from a player profile (tier: directly observed).
 - The linked account hub states that friends' game progress and online status can be seen (tier: directly observed).
 
-*Cross-reference: O13, O72.*
+*Cross-reference: O13, O71.*
 
-**O70. Revenge attacks.**
+**O69. Revenge attacks.**
 
 **Observed:** An attacker recorded in the defense log can be attacked back under rules that differ from ordinary attacks (tier: directly observed).
 
@@ -844,9 +834,9 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 
 *Cross-reference: O24, O83.*
 
-## Growth
+## Reach beyond the app
 
-**O71. Account linking rewarded far above comparable actions.**
+**O70. Account linking rewarded far above comparable actions.**
 
 **Observed:** The achievement for linking an account pays around ten times the reward of the ordinary progression achievements sitting beside it (tier: directly observed).
 
@@ -857,7 +847,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 
 *Cross-reference: O13, O33.*
 
-**O72. Cross-game identity hub and external rewards site.**
+**O71. Cross-game identity hub and external rewards site.**
 
 **Observed:** The linked account is presented as a hub across the developer's other games, and its rewards programme is hosted outside the app (tier: directly observed).
 
@@ -868,9 +858,9 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - A my games view shows which of the developer's games have been played (tier: directly observed).
 - The narrator records not knowing what the rewards points are for (tier: directly observed).
 
-*Cross-reference: O13, O69.*
+*Cross-reference: O13, O68.*
 
-**O73. Creator and esports links leading out of the app.**
+**O72. Creator and esports links leading out of the app.**
 
 **Observed:** A news panel carries the developer's own posts alongside links to named content creators and to esports channels, which open externally (tier: directly observed).
 
@@ -882,7 +872,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 
 *Cross-reference: O91.*
 
-**O74. In-app pop-up to an external video.**
+**O73. In-app pop-up to an external video.**
 
 **Observed:** During play a pop-up appeared and took the user out of the app to a video for the current season (tier: directly observed).
 
@@ -891,9 +881,9 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - The video was approximately one minute and 42 seconds (tier: directly observed).
 - The same season's theme is sold in the store as a scenery (tier: directly observed).
 
-*Cross-reference: O75, O82.*
+*Cross-reference: O74, O82.*
 
-**O75. Motivation survey linked to the profile.**
+**O74. Motivation survey linked to the profile.**
 
 **Observed:** Returning from the video, the app presented a two-question survey about play motivations and stated that answers may be retained and linked to the player profile (tier: directly observed).
 
@@ -902,9 +892,9 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - Question one asks which of a list is most important in a game, up to three choices, with options covering chatting and teaming up, competing against and defeating other players, becoming as powerful as possible, fast paced excitement, collecting everything, challenging oneself, exploring, creativity and customisation, destruction, strategic decision making, immersion in a fantasy, appealing characters and stories, and completing every mission and achievement (tier: directly observed).
 - Question two asks what the user most looks forward to in this game, again up to three, with options including quick matches, three starring battles, upgrading, completing achievements and tasks, improving trophy and league ranking, leveling and unlocking content, mastering a strategy or troop composition, customising with skins and sceneries and decorations, playing with the clan, playing events and game modes, strategising defense layout, chatting with clanmates, and experimenting with compositions (tier: directly observed).
 
-*Cross-reference: O74.*
+*Cross-reference: O73.*
 
-**O76. Store page and shareable identity.**
+**O75. Store page and shareable identity.**
 
 **Observed:** The product surfaces outward through the store listing and through a shareable player profile link (tier: directly observed).
 
@@ -913,11 +903,11 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - The profile carries a share button that copies or shares a link to the profile (tier: directly observed).
 - The chosen player name is stated to be shown to other players (tier: directly observed).
 
-*Cross-reference: O1, O8, O64.*
+*Cross-reference: O1, O8, O63.*
 
-## Money
+## Monetization
 
-**O77. The shop opens on offers.**
+**O76. The shop opens on offers.**
 
 **Observed:** Whichever tab was last used, the shop reopens on the offers tab (tier: directly observed).
 
@@ -927,6 +917,16 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - Monetization first appears at the moment the shop is entered after the guided opening, not before it (tier: directly observed).
 
 *Cross-reference: O3, O78.*
+
+**O77. Gem packages priced in money.**
+
+**Observed:** Gems are sold in six packages ranging from $0.49 to $49.99 (tier: directly observed).
+
+**Detail:**
+- 80 gems for $0.49, 500 for $2.49, 1,200 for $4.99, 2,500 for $9.99, 6,500 for $24.99, 14,000 for $49.99 (tier: directly observed).
+- The narrator notes it would be interesting to see how the economy and costs work, indicating the exchange rates were not worked through in session (tier: directly observed).
+
+*Cross-reference: O48, O50.*
 
 **O78. Timed starter offers.**
 
@@ -974,7 +974,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - An offer sells a million gold and a million elixir for $1.49 (tier: directly observed).
 - The narrator lays the two side by side and notes the earned route would require medals that are not held (tier: directly observed).
 
-*Cross-reference: O52.*
+*Cross-reference: O51.*
 
 **O82. Cosmetics catalogue.**
 
@@ -1002,7 +1002,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - Shields do not affect ranked or legend league battles and do not stop revenge attacks (tier: directly observed).
 - Attacking does not reduce shield duration (tier: directly observed).
 
-*Cross-reference: O70, O89, O90.*
+*Cross-reference: O69, O89, O90.*
 
 **O84. Gold pass price and perks.**
 
@@ -1014,7 +1014,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - The purchase framing on the screen reads unlock amazing perks, boost your village with gold pass (tier: directly observed).
 - The narrator notes the pass reaches beyond the home village into the second village and the clan (tier: directly observed).
 
-*Cross-reference: O38, O60, O67, O85.*
+*Cross-reference: O38, O59, O66, O85.*
 
 **O85. Piggy bank.**
 
@@ -1028,7 +1028,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - The narrator had not encountered the reserve before seeing it on the pass screen and records not fully knowing how it works (tier: directly observed).
 - A separate season end message read bank rewards collected, indicating a release had occurred at the season boundary (tier: directly observed).
 
-*Cross-reference: O38, O59, O84, O92.*
+*Cross-reference: O38, O58, O84, O92.*
 
 **O86. Purchase disclosure routed to a website.**
 
@@ -1096,7 +1096,7 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - In session 3 the current event showed 27 days 23 hours remaining (tier: directly observed).
 - None of these events was entered during the sessions (tier: directly observed).
 
-*Cross-reference: O44, O66, O73.*
+*Cross-reference: O44, O65, O72.*
 
 **O92. Season boundary.**
 
@@ -1159,21 +1159,22 @@ Source: four walkthrough sessions recorded in Granola. Session 1 (02 Apr 2026) c
 - The narrator records being prompted to say whether they were enjoying the game on the second visit, after most of the available surfaces had been seen (tier: directly observed).
 - What the prompt led to was not recorded (tier: directly observed).
 
+
 # Pass two: tagging
 
 ## Applied tags
 
 **Tag:** Achievement
 
-**Observations:** O33, O71.
+**Observations:** O33, O70.
 
-**Supporting observations:** O13, O32, O60.
+**Supporting observations:** O13, O32, O59.
 
 **Confidence:** directly observed
 
 **Role:** engagement
 
-The list is read and its entries are worked toward inside the session, with the linking criterion acted on directly (O13, O33, O71) and other criteria naming in-session actions such as unlocking units and upgrading the town hall (O33).
+The list is read and its entries are worked toward inside the session, with the linking criterion acted on directly (O13, O33, O70) and other criteria naming in-session actions such as unlocking units and upgrading the town hall (O33).
 
 **Rationale:** Named criteria change from unattained to attained, the attained state persists in a profile list, and attainment grants experience points and gems separately from the activity that satisfied the criterion (O33). Criteria are evaluated against activity the user performs elsewhere, and the attained state survives closing and reopening the app (O13).
 
@@ -1207,17 +1208,17 @@ The objectives name actions performed inside a session, such as buying wall piec
 
 **Tag:** Challenge
 
-**Observations:** O65.
+**Observations:** O64.
 
-**Supporting observations:** O43, O55, O25.
+**Supporting observations:** O43, O54, O25.
 
 **Confidence:** strongly supported
 
 **Role:** social, engagement
 
-The instance is contested by the clan as a unit against another clan with donation and base design contributed by members (O65), and the attacking within it is the ordinary in-session activity (O43).
+The instance is contested by the clan as a unit against another clan with donation and base design contributed by members (O64), and the attacking within it is the ordinary in-session activity (O43).
 
-**Rationale:** A clan war is a bounded instance with a stated end boundary of two days, a stated success condition of scoring the most stars, a stated tie rule, and a concluded result that pays bonus loot and clan experience to the winner and withdraws most of the bonus loot from the loser (O65). The war in progress showed both clans' running star totals and destroyed bases, so the active state is maintained and observable (O65).
+**Rationale:** A clan war is a bounded instance with a stated end boundary of two days, a stated success condition of scoring the most stars, a stated tie rule, and a concluded result that pays bonus loot and clan experience to the winner and withdraws most of the bonus loot from the loser (O64). The war in progress showed both clans' running star totals and destroyed bases, so the active state is maintained and observable (O64).
 
 **Variants present:** Head-to-head challenge, Group challenge, Time-boxed challenge, Multi-stage challenge, Rewarded challenge.
 
@@ -1228,30 +1229,30 @@ The instance is contested by the clan as a unit against another clan with donati
 
 **Tag:** Clan / Guild
 
-**Observations:** O60, O61, O62, O63, O64, O65, O66, O67.
+**Observations:** O59, O60, O61, O62, O63, O64, O65, O66.
 
-**Supporting observations:** O33, O41, O55, O68.
+**Supporting observations:** O33, O41, O54, O67.
 
 **Confidence:** directly observed
 
 **Role:** social, engagement, retention
 
-Membership brings other identified people into the product through chat, donation and war (O60, O63, O65); it changes what can be done in a session by adding reinforcements and war surfaces (O60, O65); and war schedules, league sign-up windows and the clan's own construction run on multi-day cycles that require coming back (O65, O66, O67).
+Membership brings other identified people into the product through chat, donation and war (O59, O62, O64); it changes what can be done in a session by adding reinforcements and war surfaces (O59, O64); and war schedules, league sign-up windows and the clan's own construction run on multi-day cycles that require coming back (O64, O65, O66).
 
-**Rationale:** The clan is a persistent entity with a roster, badge, description, and settings, and holds state of its own: clan experience, a treasury, war records and a war log, a clan level requirement structure, a position in ranked clan lists, and a clan capital with buildings and districts funded by member contributions (O62, O64, O65, O66, O67, O68). Member activity changes that collective state through donation, war attacks, and capital gold contribution (O60, O65, O67). Membership changes observable conditions: the clan castle can receive reinforcements, war surfaces appear, and clan chat opens (O60, O63, O65).
+**Rationale:** The clan is a persistent entity with a roster, badge, description, and settings, and holds state of its own: clan experience, a treasury, war records and a war log, a clan level requirement structure, a position in ranked clan lists, and a clan capital with buildings and districts funded by member contributions (O61, O63, O64, O65, O66, O67). Member activity changes that collective state through donation, war attacks, and capital gold contribution (O59, O64, O66). Membership changes observable conditions: the clan castle can receive reinforcements, war surfaces appear, and clan chat opens (O59, O62, O64).
 
 **Variants present:** Cooperative clan, Competitive clan, Progression clan, Resource-sharing clan, Contribution clan, Role-structured clan, User-created clan, Request-to-join clan, Open clan, Persistent clan, Single-membership clan system, Shared-reward clan, Shared-identity clan.
 
 **Variants not established:** Social clan, Territorial clan, Invitation-only clan, Automatically assigned clan, System-created clan, Seasonal clan, Cross-season clan, Multi-membership clan system, Nested clan, Alliance-linked clan.
 
-**Alternative considered:** Group Membership and Community Space, its two mutually exclusive siblings. The decision ladder in the entry takes the most specific observed level: a collective group-owned state is present in the clan's experience, treasury, war record, ranking and capital (O65, O66, O67, O68), which selects Clan / Guild over both siblings.
+**Alternative considered:** Group Membership and Community Space, its two mutually exclusive siblings. The decision ladder in the entry takes the most specific observed level: a collective group-owned state is present in the clan's experience, treasury, war record, ranking and capital (O64, O65, O66, O67), which selects Clan / Guild over both siblings.
 
 
 **Tag:** Cosmetic Customization
 
 **Observations:** O82.
 
-**Supporting observations:** O31, O38, O45, O74.
+**Supporting observations:** O31, O38, O45, O73.
 
 **Confidence:** directly observed
 
@@ -1272,7 +1273,7 @@ The catalogue is priced from $3.49 to $16.99 and a skin is the headline exclusiv
 
 **Observations:** O32, O33.
 
-**Supporting observations:** O40, O71.
+**Supporting observations:** O40, O70.
 
 **Confidence:** directly observed
 
@@ -1291,17 +1292,17 @@ Grants are attached to the actions taken during a session, with achievement entr
 
 **Tag:** Gifting
 
-**Observations:** O60.
+**Observations:** O59.
 
-**Supporting observations:** O33, O41, O65, O84.
+**Supporting observations:** O33, O41, O64, O84.
 
 **Confidence:** strongly supported
 
 **Role:** social, engagement
 
-The transfer runs between identified clan members in both directions and is counted separately for each (O33, O60), and the received troops are used in the receiving member's own battles and defenses (O60, O65).
+The transfer runs between identified clan members in both directions and is counted separately for each (O33, O59), and the received troops are used in the receiving member's own battles and defenses (O59, O64).
 
-**Rationale:** The product describes clan members sending troops and spells to a member's clan castle, counts troops donated and troops received as separate achievement criteria, and sells a perk that shortens the wait on a request, all of which establish a directed non-reciprocal transfer of a product-defined benefit between identified accounts (O33, O60, O84). No reciprocal transfer is required of the recipient (O60). The transfer itself was not performed in any session, so its interface, limits, and timing are not described here (O60).
+**Rationale:** The product describes clan members sending troops and spells to a member's clan castle, counts troops donated and troops received as separate achievement criteria, and sells a perk that shortens the wait on a request, all of which establish a directed non-reciprocal transfer of a product-defined benefit between identified accounts (O33, O59, O84). No reciprocal transfer is required of the recipient (O59). The transfer itself was not performed in any session, so its interface, limits, and timing are not described here (O59).
 
 **Variants present:** Existing-asset gift, Item gift, Group gift, Reciprocal-independent gifting.
 
@@ -1312,7 +1313,7 @@ The transfer runs between identified clan members in both directions and is coun
 
 **Tag:** Hard Currency
 
-**Observations:** O48, O50, O51.
+**Observations:** O48, O77, O50.
 
 **Supporting observations:** O6, O16, O19, O46, O83.
 
@@ -1320,9 +1321,9 @@ The transfer runs between identified clan members in both directions and is coun
 
 **Role:** monetization, engagement
 
-Six money-priced packages feed the balance (O50), and spending it removes waits and adds builders inside the session (O16, O19).
+Six money-priced packages feed the balance (O77), and spending it removes waits and adds builders inside the session (O16, O19).
 
-**Rationale:** Gems are a product-defined balance acquired through six money packages from $0.49 to $49.99, held after purchase, and later exchanged for builder huts, instant completion of builds, magic shields, decorations, and conversions into gold and elixir, with each exchange reducing the balance (O48, O50, O51, O83). Gems are also granted without payment through achievements and clan prizes, which the entry permits (O33, O66).
+**Rationale:** Gems are a product-defined balance acquired through six money packages from $0.49 to $49.99, held after purchase, and later exchanged for builder huts, instant completion of builds, magic shields, decorations, and conversions into gold and elixir, with each exchange reducing the balance (O48, O77, O50, O83). Gems are also granted without payment through achievements and clan prizes, which the entry permits (O33, O65).
 
 **Variants present:** Direct-purchase hard currency, Bundled hard currency, Earnable hard currency, General-purpose hard currency, Convertible hard currency, Multi-currency hard-currency system.
 
@@ -1333,17 +1334,17 @@ Six money-priced packages feed the balance (O50), and spending it removes waits 
 
 **Tag:** Leaderboard
 
-**Observations:** O68.
+**Observations:** O67.
 
-**Supporting observations:** O36, O64, O66.
+**Supporting observations:** O36, O63, O65.
 
 **Confidence:** directly observed
 
 **Role:** social, engagement
 
-The lists are populated by other identified players and clans (O68) and sit beside the league surface that the user's own battles advance (O36).
+The lists are populated by other identified players and clans (O67) and sit beside the league surface that the user's own battles advance (O36).
 
-**Rationale:** Four ordered views present multiple comparable entities by trophy count within defined scopes: top players globally, top players nationally, top clans globally and nationally, and a clan war league scope (O68). The ordering is comparative rather than organizational, and the user's absence from the lists is itself the differential response (O68).
+**Rationale:** Four ordered views present multiple comparable entities by trophy count within defined scopes: top players globally, top players nationally, top clans globally and nationally, and a clan war league scope (O67). The ordering is comparative rather than organizational, and the user's absence from the lists is itself the differential response (O67).
 
 **Variants present:** Individual leaderboard, Team leaderboard, Global leaderboard, Local leaderboard, Truncated leaderboard, Multi-metric leaderboard, Segmented leaderboard.
 
@@ -1398,15 +1399,15 @@ The level rose three times within one session as achievements and battles were c
 
 **Observations:** O36.
 
-**Supporting observations:** O47, O53, O56, O68.
+**Supporting observations:** O47, O52, O55, O67.
 
 **Confidence:** strongly supported
 
 **Role:** engagement, retention
 
-The tier decides the rate at which battles pay (O36, O56), and battles are the repeated activity that moves it in both directions across sessions (O36).
+The tier decides the rate at which battles pay (O36, O55), and battles are the repeated activity that moves it in both directions across sessions (O36).
 
-**Rationale:** Both villages maintain an ordered series of named tiers, running skeleton to legend in the home village and wood 5 to diamond in the second, with the stated advancement rule that more trophies won raise the tier and the stated consequence that a higher tier pays a larger league bonus and star bonus (O36, O56). The trophy thresholds that separate the tiers were never displayed, so the rule is asserted from the product's own statement of it rather than from observed threshold behavior (O36).
+**Rationale:** Both villages maintain an ordered series of named tiers, running skeleton to legend in the home village and wood 5 to diamond in the second, with the stated advancement rule that more trophies won raise the tier and the stated consequence that a higher tier pays a larger league bonus and star bonus (O36, O55). The trophy thresholds that separate the tiers were never displayed, so the rule is asserted from the product's own statement of it rather than from observed threshold behavior (O36).
 
 **Variants present:** Count-driven leveling, Multi-track leveling, Expanding leveling.
 
@@ -1461,7 +1462,7 @@ Durations reaching 12 hours end outside the session and produce the completed-wh
 
 **Observations:** O85.
 
-**Supporting observations:** O38, O59, O84, O92.
+**Supporting observations:** O38, O58, O84, O92.
 
 **Confidence:** directly observed
 
@@ -1503,7 +1504,7 @@ The gold lane is sold for $4.99 with its own exclusive rewards (O38, O84); the s
 
 **Observations:** O48, O49.
 
-**Supporting observations:** O20, O23, O54, O55, O58.
+**Supporting observations:** O20, O23, O53, O54, O57.
 
 **Confidence:** directly observed
 
@@ -1511,7 +1512,7 @@ The gold lane is sold for $4.99 with its own exclusive rewards (O38, O84); the s
 
 Collecting and spending these balances is the activity the session consists of, with every build, upgrade, and raid denominated in them (O20, O23, O48).
 
-**Rationale:** Gold and elixir are quantified balances with stated caps and stated production per hour, added by collectors and by loot taken in raids, held in storage, and reduced by spending on buildings, upgrades, walls, troop training, research, obstacle removal, and decorations (O20, O23, O48, O58). Dark elixir joins them at town hall 7 with its own drill and storage (O49). Both can also be bought with gems, which the entry permits (O51).
+**Rationale:** Gold and elixir are quantified balances with stated caps and stated production per hour, added by collectors and by loot taken in raids, held in storage, and reduced by spending on buildings, upgrades, walls, troop training, research, obstacle removal, and decorations (O20, O23, O48, O57). Dark elixir joins them at town hall 7 with its own drill and storage (O49). Both can also be bought with gems, which the entry permits (O50).
 
 **Variants present:** Activity-earned soft currency, Achievement-earned soft currency, Fixed-grant soft currency, Variable-grant soft currency, General-purpose soft currency, Capped-earning soft currency, Dual-path soft currency, Multi-currency soft-currency system.
 
@@ -1522,17 +1523,17 @@ Collecting and spending these balances is the activity the session consists of, 
 
 **Tag:** Soft Currency
 
-**Observations:** O53.
+**Observations:** O52.
 
-**Supporting observations:** O36, O45, O56, O57.
+**Supporting observations:** O36, O45, O55, O56.
 
 **Confidence:** directly observed
 
 **Role:** engagement
 
-The two balances are earned and spent entirely inside the second village's own build and battle loop (O45, O53, O57).
+The two balances are earned and spent entirely inside the second village's own build and battle loop (O45, O52, O56).
 
-**Rationale:** The second village maintains two further quantified balances, earned through star bonuses from attacking, through successful defense, and through collectors, and spent on that village's buildings, defenses, and obstacle removal (O53, O57). They were not observed to be usable in the home village (O53).
+**Rationale:** The second village maintains two further quantified balances, earned through star bonuses from attacking, through successful defense, and through collectors, and spent on that village's buildings, defenses, and obstacle removal (O52, O56). They were not observed to be usable in the home village (O52).
 
 **Variants present:** Activity-earned soft currency, Restricted soft currency, Variable-grant soft currency, Multi-currency soft-currency system.
 
@@ -1543,17 +1544,17 @@ The two balances are earned and spent entirely inside the second village's own b
 
 **Tag:** Soft Currency
 
-**Observations:** O52.
+**Observations:** O51.
 
-**Supporting observations:** O44, O66, O81.
+**Supporting observations:** O44, O65, O81.
 
 **Confidence:** strongly supported
 
 **Role:** engagement, social
 
-The balance buys battle items used in attacks (O52), and its stated earning route runs through a clan event rather than solo play (O44, O52).
+The balance buys battle items used in attacks (O51), and its stated earning route runs through a clan event rather than solo play (O44, O51).
 
-**Rationale:** League medals are a quantified balance with a shown ceiling of 2,500 and stated prices across a dedicated shop tab, and the product states them as a reward from clan war leagues, which is a repeatable non-paid acquisition path (O44, O52). No medals were earned or spent during the sessions, so only the balance, its stated source, and its prices were observed (O52).
+**Rationale:** League medals are a quantified balance with a shown ceiling of 2,500 and stated prices across a dedicated shop tab, and the product states them as a reward from clan war leagues, which is a repeatable non-paid acquisition path (O44, O51). No medals were earned or spent during the sessions, so only the balance, its stated source, and its prices were observed (O51).
 
 **Variants present:** Restricted soft currency, Activity-earned soft currency, Capped-earning soft currency.
 
@@ -1563,33 +1564,33 @@ The balance buys battle items used in attacks (O52), and its stated earning rout
 
 ## Entries considered and not applied
 
-- Community Space. The clan chat is a persistent shared context in which several members can contribute (O63), but Community Space, Group Membership and Clan / Guild are mutually exclusive siblings and the decision ladder takes the most specific observed level; the clan holds collective state of its own, so Clan / Guild applies to that surface and this entry does not.
-- Comparative Rank. The user's own standing was observed twice: as unranked on the profile (O64) and as a league tier assigned from a trophy amount (O36). The entry excludes absolute tiers assigned from thresholds, and the surfaces that do order entities against one another present several of them at once, which is Leaderboard (O68).
+- Community Space. The clan chat is a persistent shared context in which several members can contribute (O62), but Community Space, Group Membership and Clan / Guild are mutually exclusive siblings and the decision ladder takes the most specific observed level; the clan holds collective state of its own, so Clan / Guild applies to that surface and this entry does not.
+- Comparative Rank. The user's own standing was observed twice: as unranked on the profile (O63) and as a league tier assigned from a trophy amount (O36). The entry excludes absolute tiers assigned from thresholds, and the surfaces that do order entities against one another present several of them at once, which is Leaderboard (O67).
 - Daily / Weekly Quests. The starter challenges and the season task cards are both issued objectives with tracked completion (O12, O37), but no daily or weekly issuance, refresh, or reset rule was observed for either; starter challenges expand on town hall upgrades (O34) and the task card showed a single countdown of 19 hours and 20 minutes (O96). The open question about the task cards is recorded under Unresolved.
 - Daily Claim Pack. The store sells bundles at each town hall level and several timed offers (O78, O79), but each delivers its contents on purchase rather than releasing rewards across three or more recurring intervals, which the entry requires.
 - Daily Login Rewards. Returning after an absence produces a welcome back summary of completed upgrades and the current event (O88), but no benefit was granted or made claimable for the access itself, and no daily reset boundary on such a benefit was observed.
 - Energy. Troops are a bounded capacity, capped by army camps at 20 units at the start and expanded by upgrades, and are consumed when deployed (O7, O21). They are consumed by the user's deployment decisions within a battle rather than by the attempt, and no capacity state was observed to gate whether an attack could be started: battles were entered, abandoned, and re-entered freely (O22). The builder slots were considered under Passive Construction and rejected there for the same kind of reason. The war attack allowance is a separate case and is recorded under Unresolved.
 - First-Purchase Bonus. A purchase was made during the sessions and the store's contents changed afterwards (O80), but no benefit separate from the purchased contents was granted, and nothing in the observed behavior distinguished a first purchase from a later one (O87).
-- Group Membership. Clan membership is maintained, governed by join rules and roles, and changes observable conditions (O61, O62, O63), but the sibling decision ladder assigns the surface to Clan / Guild because a collective group-owned state is also present (O65, O66, O67).
+- Group Membership. Clan membership is maintained, governed by join rules and roles, and changes observable conditions (O60, O61, O62), but the sibling decision ladder assigns the surface to Clan / Guild because a collective group-owned state is also present (O64, O65, O66).
 - Loot Box. Chests appear as named rewards on the pass reward list (O38), but no acquisition of a container with unresolved contents was observed, and no value was committed to open one. The narrator's own review of the first session records no chest, spin, or draw surface encountered (O47).
 - Progression Fund. Two structures were tested against this entry. The pass has two lanes with a purchasable upgrade but is bounded by a season, which the entry excludes in favor of Seasonal Progression Pass (O38). The starter challenge reward ladder has no ending boundary but has only one lane, with no purchasable lane paying more at the same positions (O34).
 - Season Content Pass. The gold pass is an entitlement bought for money that covers a defined season (O38), but access to its rewards depends on advancing an ordered track rather than on holding the entitlement, which the entry excludes in favor of Seasonal Progression Pass.
-- Social Feed. The news panel presents a stream of dated items with creator and esports links (O73), but every item originates from the product or from creators it selects, and no other social actor can contribute to it, which the entry excludes.
-- Spendable Credits and Tokens. Every exchangeable balance observed also showed the acquisition path of a more specific specialization: gems through payment (O50), and gold, elixir, dark elixir, the two second village currencies, and league medals through repeatable non-paid routes (O48, O52, O53). Under the overlap rule the more specific label is reported in each case and this parent entry is noted rather than applied.
-- Variable Reward Outcome. Three candidate surfaces were tested. Raid loot is disclosed before the attack is committed (O23). The star bonus is stated to follow from the current league (O56), so its size follows a stated rule even though the narrator did not always know why a particular bonus arrived. Season end and pass rewards were itemised on a reward list before being received (O38, O92). No reward-resolution event with multiple materially distinct possible results was observed.
-- Variable Reward Schedule. Rewards were observed arriving at points the narrator did not always anticipate, particularly star bonuses (O56), but the entry excludes inferring variable scheduling from irregular-looking timing where a fixed condition may simply not have been observed. Each observed grant followed a stated qualifying condition.
+- Social Feed. The news panel presents a stream of dated items with creator and esports links (O72), but every item originates from the product or from creators it selects, and no other social actor can contribute to it, which the entry excludes.
+- Spendable Credits and Tokens. Every exchangeable balance observed also showed the acquisition path of a more specific specialization: gems through payment (O77), and gold, elixir, dark elixir, the two second village currencies, and league medals through repeatable non-paid routes (O48, O51, O52). Under the overlap rule the more specific label is reported in each case and this parent entry is noted rather than applied.
+- Variable Reward Outcome. Three candidate surfaces were tested. Raid loot is disclosed before the attack is committed (O23). The star bonus is stated to follow from the current league (O55), so its size follows a stated rule even though the narrator did not always know why a particular bonus arrived. Season end and pass rewards were itemised on a reward list before being received (O38, O92). No reward-resolution event with multiple materially distinct possible results was observed.
+- Variable Reward Schedule. Rewards were observed arriving at points the narrator did not always anticipate, particularly star bonuses (O55), but the entry excludes inferring variable scheduling from irregular-looking timing where a fixed condition may simply not have been observed. Each observed grant followed a stated qualifying condition.
 
 ## Unresolved
 
-**War attack allowance (O43, O65).** The war information text states that attacks are limited during a war, which is a bounded allowance consumed by attempts and would be a candidate for Energy. The session held war spectator status throughout and was never selected to attack, so the size of the allowance, what consumes it, and whether it restores were not observable. The mechanic is recorded as present behind the clan leadership gate, not classified.
+**War attack allowance (O43, O64).** The war information text states that attacks are limited during a war, which is a bounded allowance consumed by attempts and would be a candidate for Energy. The session held war spectator status throughout and was never selected to attack, so the size of the allowance, what consumes it, and whether it restores were not observable. The mechanic is recorded as present behind the clan leadership gate, not classified.
 
 **Heroes (O7, O39, O82).** Units held separately from the army are named across several surfaces: a hero available at town hall 7 in the army board, hero potions sold in the store, hero skins appearing at town hall 7, achievement criteria naming heroes and named royal units, and a battle machine in the second village. These are candidates for Companion, which requires an entity held between battles, assigned to a limited position, acting in the activity, and carrying progression of its own. No hero was acquired, assigned, or fielded in any session, so none of those conditions could be checked.
 
 **Season task card cadence (O37, O96).** The season track is advanced by task cards, and the card in view stated that the next one unlocks in 19 hours and 20 minutes. Whether cards are issued on a daily or weekly cadence, which would additionally satisfy Daily / Weekly Quests, or on a rolling timer that does not recur on a calendar boundary, was not observable from a single countdown. The Daily / Weekly Quests entry directs unresolved where the recurring issuance rule is not established.
 
-**Scheduled events not entered (O44, O66, O91).** The calendar named clan war leagues, a raid weekend, clan games, a medal event, and a treasure hunt, each with dates and some with stated rewards. None was entered: clan war leagues requires 15 clan members and a leader signing up, and the others had not started or were not reached. Their surfaces are recorded as announced; their structures are not classified.
+**Scheduled events not entered (O44, O65, O91).** The calendar named clan war leagues, a raid weekend, clan games, a medal event, and a treasure hunt, each with dates and some with stated rewards. None was entered: clan war leagues requires 15 clan members and a leader signing up, and the others had not started or were not reached. Their surfaces are recorded as announced; their structures are not classified.
 
-**Clan capital (O67).** Capital gold is described as funding construction of buildings and unlocking districts in a clan capital, and a clan capital tab exists in the profile. The area itself was never opened, so whether it runs its own construction, currency, and progression structures was not observable.
+**Clan capital (O66).** Capital gold is described as funding construction of buildings and unlocking districts in a clan capital, and a clan capital tab exists in the profile. The area itself was never opened, so whether it runs its own construction, currency, and progression structures was not observable.
 
 **Home village leagues and ranked battles (O36, O39, O47).** Both are stated to unlock at town hall 7. Town hall 7 was reached at the end of session 4, but neither surface was opened before the sessions ended, so the league tiers, their thresholds, and the rules of ranked battle remain unobserved beyond the descriptions read earlier.
 
@@ -1609,11 +1610,11 @@ The balance buys battle items used in attacks (O52), and its stated earning rout
 
 **Draft definition.** The product holds a user's accumulated resources in a state that other users can take a portion of through a product-sanctioned action, and gives the holder means to reduce how much is taken. Holding value is therefore a position that must be defended rather than a balance that only grows.
 
-**Source observations:** O23, O24, O54, O55, O70.
+**Source observations:** O23, O24, O53, O54, O69.
 **Conditions it appears to depend on:** a persistent accumulated balance visible to other users before they act; a product-sanctioned action by which another user removes part of it; disclosure to the attacker of how much is available; a record shown to the holder of what was taken and by whom; and means under the holder's control that change the amount taken, here defenses, walls, and layout.
 **Why it is not covered.** No approved entry describes value the user holds being removed by another user. Soft Currency and Spendable Credits and Tokens cover acquisition and deliberate exchange, not involuntary transfer. Gifting covers a directed transfer initiated by the giver, the opposite direction. Clan / Guild covers collective state, not the taking of individual holdings. Leaderboard and Comparative Rank cover standing, not holdings.
 **Recurrence elsewhere:** plausible. The structure is stated without reference to this product, and nothing in it depends on villages, troops, or a war theme; it requires only persistent balances and a sanctioned route for one user to take from another. Whether it recurs in practice was not tested here and cannot be settled from these transcripts.
-**Caveat.** The user's own holdings were taken at least once during the sessions (O70), but the rules governing how much can be taken, what proportion is protected, and what the attacker gains relative to what the holder loses were never displayed. The proposal rests on the structure being observable, not on its parameters being known.
+**Caveat.** The user's own holdings were taken at least once during the sessions (O69), but the rules governing how much can be taken, what proportion is protected, and what the attacker gains relative to what the holder loses were never displayed. The proposal rests on the structure being observable, not on its parameters being known.
 
 ### Protection Window
 
@@ -1639,11 +1640,11 @@ The balance buys battle items used in attacks (O52), and its stated earning rout
 
 **Draft definition.** The product caps how much of a resource the user may hold in an upgradeable container, so that acquiring the next advance requires first raising the cap, and value arriving above the cap is converted into another resource rather than kept or lost.
 
-**Source observations:** O54, O55, O59.
+**Source observations:** O53, O54, O58.
 **Conditions it appears to depend on:** a cap on each holdable resource that is itself an upgradeable object; a next advance priced above the current cap; a conversion rule for value arriving above the cap; and a separate holding area whose transfer into the capped store fills it without discarding the remainder.
 **Why it is not covered.** Soft Currency lists capped-earning soft currency as a variant, which covers a limit on earning, not a structure in which raising the limit is itself a priced step on the progression path. No approved entry describes the overflow conversion or the way a cap inserts a mandatory intermediate purchase between the user and a stated goal.
 **Recurrence elsewhere:** plausible. The structure is describable without reference to this product and needs only a stored resource, an upgradeable cap, and a cost above it.
-**Caveat.** The conversion rate above the cap was never shown (O59), and only one direction of the pattern was seen in operation, where a town hall cost exceeded gold capacity (O54). Whether the cap is set deliberately below the next cost as a rule, or the two simply crossed once, cannot be settled from these transcripts.
+**Caveat.** The conversion rate above the cap was never shown (O58), and only one direction of the pattern was seen in operation, where a town hall cost exceeded gold capacity (O53). Whether the cap is set deliberately below the next cost as a rule, or the two simply crossed once, cannot be settled from these transcripts.
 
 ### Advisory Progression Warning
 
@@ -1659,7 +1660,7 @@ The balance buys battle items used in attacks (O52), and its stated earning rout
 
 **Draft definition.** Partway through a product's progression, a second self-contained instance of the core loop opens, with its own progression state, its own currencies, its own ranking ladder, and its own construction and research, connected to the first by a small number of shared items and by a shared premium balance.
 
-**Source observations:** O45, O46, O53, O57.
+**Source observations:** O45, O46, O52, O56.
 **Conditions it appears to depend on:** an unlock placed some way into the first track; a duplicated but distinct loop with its own rules, here defense earning resources and a longer planning window; separate currencies not usable in the first track; a separate ranking ladder; a shared premium balance and a small set of items that work in both; and a stated obligation to maintain both.
 **Why it is not covered.** No approved entry describes the duplication of a product's whole loop as a second parallel instance. Leveling classifies each track's states separately, and the entries for currencies classify each balance separately, but nothing classifies the relationship between the two instances or the demand it places on the user to maintain both.
 **Recurrence elsewhere:** plausible. The pattern is describable as a second instance of any core loop with its own economy, and does not depend on this product's subject matter.
@@ -1669,14 +1670,14 @@ The balance buys battle items used in attacks (O52), and its stated earning rout
 
 The town hall level is the spine. Almost everything else in the product is either a condition on it, a consequence of it, or a way of reaching it sooner. Buildings, troops, spells, heroes, modes, cosmetics, decorations, leagues, and the pass itself are all gated on it (O39, O47), and every screen that offers the user a next action points back toward it (O28, O35). The cost curve is steep, from 4,000 gold at level 2 to a stated million at level 7 (O28), so the level sets the size of the resource problem the rest of the system exists to solve.
 
-That problem is solved in three ways, and the product keeps all three open at once. Resources accumulate on their own in collectors (O20); they are taken from other players in raids (O23); and they are bought, indirectly, by converting purchased gems (O51). The three routes are not separate systems but one substitution: gems replace time, and time replaces raiding. The same substitution appears at every wait, where the gem price of ending a wait sits on the screen that announces it (O19), and at the builder slot, where the number of waits that can run at once is itself sold (O16).
+That problem is solved in three ways, and the product keeps all three open at once. Resources accumulate on their own in collectors (O20); they are taken from other players in raids (O23); and they are bought, indirectly, by converting purchased gems (O50). The three routes are not separate systems but one substitution: gems replace time, and time replaces raiding. The same substitution appears at every wait, where the gem price of ending a wait sits on the screen that announces it (O19), and at the builder slot, where the number of waits that can run at once is itself sold (O16).
 
-Against accumulation sits loss. What the user holds is visible to other players and can be taken (O23, O70), and the countdown on the shield at the top of the screen states how long that is not true for (O89). The shield is sold in gems (O83), and being attacked grants a short one automatically (O90), so the loss condition is both the reason to come back and a reason to buy. The treasury, the piggy bank, and the storage caps all sit on the same axis: value held in some places is safe and value held in others is not, and moving value between them is a decision the user makes repeatedly (O54, O55, O85).
+Against accumulation sits loss. What the user holds is visible to other players and can be taken (O23, O69), and the countdown on the shield at the top of the screen states how long that is not true for (O89). The shield is sold in gems (O83), and being attacked grants a short one automatically (O90), so the loss condition is both the reason to come back and a reason to buy. The treasury, the piggy bank, and the storage caps all sit on the same axis: value held in some places is safe and value held in others is not, and moving value between them is a decision the user makes repeatedly (O53, O54, O85).
 
 The waits are what structure the sessions. They are short enough during the guided opening to be invisible, and by town hall 6 they are twelve hours (O18), which is long enough to end a session and produce the completed-while-away summary on the next one (O88). Once the builders are occupied there is nothing left to do but attack, and once the attack is done there is nothing left to do but wait, which is where both recorded sessions after the first one ended (O95).
 
-The social layer is late and gated. The clan castle must be rebuilt before any of it exists (O41), and the achievement list pushes toward it by making reinforcement requests a criterion (O33, O60). Once inside, the clan supplies things the solo loop does not: troops that cost the user nothing (O60), a war with a two-day rhythm of its own (O65), an event calendar that runs on multi-day cycles (O91), and a second shared construction project in the clan capital (O67). It also supplies the only observed gate that another person controls, since war participation depends on a leader choosing the user (O43).
+The social layer is late and gated. The clan castle must be rebuilt before any of it exists (O41), and the achievement list pushes toward it by making reinforcement requests a criterion (O33, O59). Once inside, the clan supplies things the solo loop does not: troops that cost the user nothing (O59), a war with a two-day rhythm of its own (O64), an event calendar that runs on multi-day cycles (O91), and a second shared construction project in the clan capital (O66). It also supplies the only observed gate that another person controls, since war participation depends on a leader choosing the user (O43).
 
-Monetization is layered behind the same progression. The store opens on offers every time (O77), the offers carry countdowns (O94), and a new pack arrives at each town hall level (O79), so the offer set tracks the user's state rather than sitting still. The pass, the largest offer, is withheld entirely until town hall 7 (O47), which the narrator estimates at six or seven hours of play (O47). By the time it appears, the user holds a village, a second village, a clan, an account level, and a set of partially filled tracks, and the pass prices benefits against all of them at once: builders, research, clan castle requests, both villages' currencies, the clan capital, and a five times multiplier on a reserve that has been filling from battles the whole time (O84, O85).
+Monetization is layered behind the same progression. The store opens on offers every time (O76), the offers carry countdowns (O94), and a new pack arrives at each town hall level (O79), so the offer set tracks the user's state rather than sitting still. The pass, the largest offer, is withheld entirely until town hall 7 (O47), which the narrator estimates at six or seven hours of play (O47). By the time it appears, the user holds a village, a second village, a clan, an account level, and a set of partially filled tracks, and the pass prices benefits against all of them at once: builders, research, clan castle requests, both villages' currencies, the clan capital, and a five times multiplier on a reserve that has been filling from battles the whole time (O84, O85).
 
 The dependencies run in one direction almost everywhere. Storage capacity gates resources, resources gate the town hall, the town hall gates content, content gates the pass, and the pass prices the things the town hall made necessary. The two places where the direction reverses are the clan, where another person's decision gates the user (O43), and the advisory warning, where the product itself argues against the advance it has spent the whole session pushing toward (O30).
