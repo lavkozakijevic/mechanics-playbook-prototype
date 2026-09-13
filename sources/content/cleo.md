@@ -8,7 +8,7 @@ Cleo is a US personal finance app that introduces itself as a way to save money 
 
 ## System view
 
-Cleo is a medium complexity system built around one connection made during onboarding: linking a bank account through Plaid. That connection supplies the real account figures that the roast, the budget, the bill and category views, income suggestions, hype mode, the money game's answer key, and the spending reviews all read from afterward. Rather than one chain that gates the next step, Cleo branches from its chat home into routes that don't depend on each other: budgeting, a habits tab added only once onboarding finishes, and a money section covering the cash advance and credit-builder plans, each running its own sequence off the same shared connection.
+Cleo is a medium complexity system built around one connection made during onboarding: linking a bank account through Plaid. That connection supplies the real account figures that the roast, the budget, the bill and category views, income suggestions, hype mode, the money game's answer key, and the spending reviews all read from afterward. Rather than one chain that gates the next step, Cleo branches from its chat home into routes that don't depend on each other: budgeting, a habits tab added only once onboarding finishes, and a borrow tab offering a cash advance alongside a credit-builder plan, each running its own sequence off the same shared connection.
 
 ---
 
@@ -157,7 +157,7 @@ A "track your bills" screen offers to make bills "suck less" if the user confirm
 
 ## Core loop and automation
 
-This section covers the chat home and the wider set of features it opens into once the budget exists: the spend and budget tabs, bill and subscription management, categorization, affordability checks, balance views, hype mode, and the money game.
+This section covers the chat home and the wider set of features it opens into once the budget exists: the spend and budget tabs, bill and subscription management, categorization, affordability checks, balance views, hype mode, and the money game, plus the save tab's autosave and wallet setup and the borrow tab's own credit product.
 
 ### O11. Spend tab overview
 
@@ -277,20 +277,37 @@ Starting a review opens a practice round of three cards asking the user to rate 
 - The loading sequence includes lines about the user's loves and regrets before "summarizing those spends".
 - The summary shown counts 11 loved items.
 
+### O27. Save tab quick actions
+
+The save tab opens on a "yum, savings" screen with cake illustrations and a quick actions list: an autosave setup pitched as taking two minutes, and a cashback item marked incomplete that routes to signing up for Plus.
+
+- The incomplete tag marks cashback as something the user hasn't set up.
+
+### O28. Wallet pitch
+
+The wallet screen offers to help the user put money aside automatically, describing it as cornering off spare change, with a "get started" button.
+
+- The onboarding carousel describes this same feature as automatic transfers to a savings wallet.
+- How money actually moves into or out of the wallet, and whether it can be spent directly, isn't shown, since setup isn't completed.
+
+### O29. Borrow tab intro
+
+The borrow tab opens with Cleo greeting the user as "angel face" beside an illustration of a piggy with a key, then asks where to start: getting a cash advance, building credit, or both.
+
 ---
 
 ## Goals and progression
 
 This section covers how Cleo's monthly spending limit gets set and tracked, and the 21-day habit challenge previewed in the habits tab.
 
-### O27. Setting the monthly limit
+### O30. Setting the monthly limit
 
 Tapping the budget's "until" figure opens "set your limit for the month", stated as including all bills, with a toggle for setting limits by category, listed "based on your average spending" and each adjustable with plus and minus controls. The sheet closes with "all right, I can do this".
 
 - Categories listed include transfer out, general, bank charges, transport, cash, bills, savings, shopping, holidays, groceries, eating out, loans and expenses.
 - The overall limit and any category limits are both set by the user in this one sheet.
 
-### O28. On-track and overspent states
+### O31. On-track and overspent states
 
 The user can switch between months by tapping the dates. A month that stays on track shows a thumbs-up under the coin stacks; an overspent month shows a skull instead, turns the line under the month red, and reads "rip budget", with a past overspent month keeping its result labeled "overspent".
 
@@ -298,21 +315,21 @@ The user can switch between months by tapping the dates. A month that stays on t
 - The stay-on-top chat card restates the same amount left and end date.
 - Whether a month that finished within its limit keeps a distinct result of its own, and whether the limit carries forward or has to be set again, aren't shown.
 
-### O29. 21-day challenge preview
+### O32. 21-day challenge preview
 
 The habits tab opens on a pitch to "turn vices into savings" and shows a preview reading "21 of 21, on track" alongside a widget for an eating-out limit, with a progress bar and a line about staying on track to save $85. This preview is a mock-up of what an active challenge would look like, not something running on the account.
 
 - The "21 of 21" reading is a day count within a 21-day period.
 - The preview frames a challenge as a limit on one spending category over a fixed period, with a savings amount attached to it.
 
-### O30. Starting a challenge
+### O33. Starting a challenge
 
 The start screen reads "start challenges and save money" and lists three activities: challenging a vice by picking a spending habit to test willpower against, starting to save by tracking challenges, and spotting trends by reviewing spending for saving tips. Tapping through leads to the spending review screen rather than to an active vice challenge.
 
 - Whether the three listed activities are things to select or just descriptions of what the feature does isn't settled by the screen itself.
 - No vice challenge is actually started.
 
-### O31. Game stats
+### O34. Game stats
 
 Game stats shows a knowledge score of 0%, one play, a second counter also at zero, and a streak of one, followed by a game FAQ.
 
@@ -320,7 +337,7 @@ Game stats shows a knowledge score of 0%, one play, a second counter also at zer
 - The streak reads one even though the knowledge score is 0%.
 - What increases or resets the streak isn't shown.
 
-### O32. Review streak
+### O35. Review streak
 
 Before any review, the habits screen shows a review streak of zero. After completing the first review, the streak reads one, the review is marked done, and the screen shows counts of loved and regretted spends alongside a "tips and truths" section commenting on specific purchases, closing with "play again tomorrow to remain a spending review legend".
 
@@ -334,27 +351,27 @@ Before any review, the habits screen shows a review streak of zero. After comple
 
 This section covers the state-law restriction on Cleo's paid features, the habits tab's arrival after onboarding, and the identity and age checks gating wallet setup.
 
-### O33. State restriction notice
+### O36. State restriction notice
 
 After email verification, a screen states that, due to the user's state's laws, cash advances on subscriptions like Plus or Builder aren't available, while insights, budget and savings tools are "good to go", laid out in chat bubbles with an "explore the app" button.
 
 - The restriction follows from the US state chosen during sign-up.
 - This notice names Plus and Builder before either plan is shown on its own screen.
 
-### O34. Habits tab appears
+### O37. Habits tab appears
 
 During onboarding the nav bar shows spend, budget, chat, save and borrow; once onboarding is finished, habits appears as a sixth, final item.
 
 - The change is tied to completing onboarding rather than to any specific screen.
 - No on-screen message announces the new tab.
 
-### O35. Paid plans unusable here
+### O38. Paid plans unusable here
 
 Because of the state laws that apply to this account, neither Cleo Plus nor Cleo Builder can actually be used, though both plan screens remain browsable.
 
 - Whether the plan screens themselves display a restriction message isn't described.
 
-### O36. Cleo wallet setup
+### O39. Cleo wallet setup
 
 Setting up autosave opens a wallet form asking for the name as it appears on a government ID, email, mobile number, date of birth with a note that the user must be 18 or over, address, and the last four digits of a Social Security number, with terms requiring agreement to Cleo's own terms and to a second party the transcript renders as "Dwolla". Setup isn't completed here.
 
@@ -362,22 +379,9 @@ Setting up autosave opens a wallet form asking for the name as it appears on a g
 
 ---
 
-## Earning and utility
+## Economy and resources
 
-This section covers the save tab's automatic saving features: autosave, cashback, and the Cleo wallet.
-
-### O37. Save tab quick actions
-
-The save tab opens on a "yum, savings" screen with cake illustrations and a quick actions list: an autosave setup pitched as taking two minutes, and a cashback item marked incomplete that routes to signing up for Plus.
-
-- The incomplete tag marks cashback as something the user hasn't set up.
-
-### O38. Wallet pitch
-
-The wallet screen offers to help the user put money aside automatically, describing it as cornering off spare change, with a "get started" button.
-
-- The onboarding carousel describes this same feature as automatic transfers to a savings wallet.
-- How money actually moves into or out of the wallet, and whether it can be spent directly, isn't shown, since setup isn't completed.
+(No observations in this app.)
 
 ---
 
@@ -387,35 +391,23 @@ The wallet screen offers to help the user put money aside automatically, describ
 
 ---
 
-## Growth
+## Reach beyond the app
 
-This section covers the app store review requests that close out Cleo's roast and hype mode sequences.
-
-### O39. Review requests
-
-The roast ends with a request to share the joy and leave a review, answered affirmatively; hype mode closes the same way, with "we're done here" followed by a review request answered "bring it".
-
-- Both requests arrive as the very next chat message after each sequence's final figure.
-- The only reply shown for either request is affirmative.
-- Where either reply actually leads, beyond leaving a review, isn't described.
+(No observations in this app.)
 
 ---
 
-## Money
+## Monetization
 
-This section covers the borrow tab and Cleo's two paid plans, Plus and Builder, neither usable under this account's state restriction.
+This section covers Cleo's two paid plans, Plus and Builder, neither usable under this account's state restriction.
 
-### O40. Borrow tab intro
-
-The borrow tab opens with Cleo greeting the user as "angel face" beside an illustration of a piggy with a key, then asks where to start: getting a cash advance, building credit, or both.
-
-### O41. Choose your fighter
+### O40. Choose your fighter
 
 Scrolling the borrow tab reaches "choose your fighter", comparing two plans: Cleo Builder, pitched as everything in Plus plus a "best credit life", and Cleo Plus, pitched around avoiding overdraft fees with an interest-free cash advance, each with a learn-more link.
 
 - Builder is listed before Plus.
 
-### O42. Plan comparison checklist
+### O41. Plan comparison checklist
 
 "Take a closer look" compares Free, Plus and Builder in checklist form. Builder is described as everything in Free and Plus, plus a cash advance up to $250 if eligible, interest-free and available whenever needed, a credit builder card, cashback at some stores, 24/7 VIP support from a dedicated team, and credit history and coaching, followed by a "get Cleo Builder" button, an FAQ and customer testimonials.
 
@@ -428,24 +420,33 @@ Scrolling the borrow tab reaches "choose your fighter", comparing two plans: Cle
 
 ## Return triggers
 
-This section covers what Cleo uses to bring users back: a notification opt-in, daily check-in copy, and a spending review schedule.
+This section covers what Cleo uses to bring users back: a notification opt-in, daily check-in copy, a spending review schedule, and the review requests that close out its roast and hype mode sequences.
 
-### O43. Notification opt-in
+### O42. Notification opt-in
 
 After the state notice, a screen reads "never miss a dollar" with a sample notification reading "you smashed yet another target. Stick to $50 today to stay on track", alongside three points, tailored coaching, watching savings grow, and reminders that the user is "only human", with "not now" and "turn on notifications" options.
 
 - Not now sits on the same screen as turn on notifications.
 - Which option the user picks, and any system-level permission prompt, aren't shown.
 
-### O44. Reviews scheduled ahead
+### O43. Reviews scheduled ahead
 
 Before the first review, the habits screen lists the current review alongside one due tomorrow and another in three days. After completing a review, the next one is shown as due tomorrow, with a line encouraging the user to play again to remain a "spending review legend".
 
 - The schedule reads roughly as a review every couple of days.
 - What happens to a scheduled review if it's missed isn't shown.
 
-### O45. Daily check-in copy
+### O44. Daily check-in copy
 
 Onboarding describes the daily spending limit as something the user checks on their phone to stay on track, and the "where's it going" chat card carries the same idea directly, reading "good to check every day".
 
 - The sample notification in the opt-in screen pairs a daily amount with the same "stay on track" framing.
+
+### O45. Review requests
+
+The roast ends with a request to share the joy and leave a review, answered affirmatively; hype mode closes the same way, with "we're done here" followed by a review request answered "bring it".
+
+- Both requests arrive as the very next chat message after each sequence's final figure.
+- The only reply shown for either request is affirmative.
+- Where either reply actually leads, beyond leaving a review, isn't described.
+

@@ -1045,16 +1045,18 @@ const V41_APP_META = {
       onboarding:
         "Cleo walks new users through sign up, a state-law restriction, and connecting a bank account before the chat opens with a habits quiz and a roast.",
       "core-loop":
-        "Cleo runs its budget, bills, categorization, and chat-persona features through a set of swipeable cards on its chat home.",
+        "Cleo runs its budget, bills, categorization, and chat-persona features through a set of swipeable cards on its chat home, alongside the save tab's autosave and wallet setup and the borrow tab's own credit product.",
       goals: "Cleo sets a monthly spending limit with category limits, and previews a 21-day challenge against one spending habit.",
       access: "Cleo restricts its cash advance and paid plans by the user's state, and gates its wallet behind an identity and age check.",
-      economy: "Cleo offers automatic saving through its wallet and save tab, gated behind setup that isn't completed here.",
+      economy:
+        "Cleo holds no currency or resource inventory of its own; the autosave and wallet features that could look like one are covered under Core loop and automation instead.",
       social:
         "Cleo has no feature that lets a user see, interact with, compare against, or team up with another identified person.",
-      reach: "Cleo asks for an app store review at the end of its roast and hype sequences.",
+      reach:
+        "Cleo has no feature that connects a user to something outside the app; its one app store review request is covered under Return triggers instead.",
       monetization: "Cleo pitches Cleo Plus and Cleo Builder with a plan comparison and FAQ, neither purchasable under this account's state restriction.",
       returns:
-        "Cleo asks to send notifications and tells users to check in daily, before scheduling spending reviews days apart.",
+        "Cleo asks to send notifications, tells users to check in daily, schedules spending reviews days apart, and asks for an app store review at the end of its roast and hype sequences.",
     },
   },
   "capybara-go": {
