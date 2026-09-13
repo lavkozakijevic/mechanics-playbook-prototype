@@ -64,6 +64,7 @@ export const CANONICAL_MECHANIC_IDS = {
   "Daily Login Rewards": "daily-login-reward",
   "Earning Tasks": "earning-tasks",
   "Energy": "energy-lives", // merges with Lives below
+  "Expert Guidance": "expert-guidance",
   "First-Purchase Bonus": "first-purchase-bonus",
   "Gifting": "gifting",
   "Hard Currency": "hard-currency",
