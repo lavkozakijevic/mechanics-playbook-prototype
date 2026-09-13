@@ -23,7 +23,9 @@
         ]
       },
       "screenshots": [],
-      "suggestedShots": []
+      "suggestedShots": [
+        "Body rank overview screen showing multiple muscle groups each with their own Bronze/Silver/Gold rank indicator and percentage fill bars, with the \"body graph\" visual showing which muscles are high-ranked vs. lagging"
+      ]
     },
     {
       "id": "leaderboards",
@@ -33,7 +35,7 @@
       "suggestedShots": []
     },
     {
-      "id": "achievements",
+      "id": "achievement",
       "depth": "supporting",
       "writeup": null,
       "screenshots": [],
@@ -128,7 +130,7 @@
         "role": "Post-workout reward tied to performance metrics. Outcome varies based on workout quality rather than requiring separate spending."
       },
       {
-        "id": "achievements",
+        "id": "achievement",
         "role": "Milestone badges for rank thresholds, consistency records, and personal bests across individual exercises and muscle groups."
       },
       {

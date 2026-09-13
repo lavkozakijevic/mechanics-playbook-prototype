@@ -19,7 +19,7 @@
   ],
   "lifecycle": "Needs an accomplishment already recorded before there's anything to package, so it has nothing to offer immediately after signup. Most valuable once the user has reached a result, a streak, or a total worth showing someone outside the product.",
   "paired": [
-    "achievements",
+    "achievement",
     "leaderboards",
     "social-feed"
   ],

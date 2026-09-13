@@ -341,23 +341,23 @@ const CONNECTIONS = {
   ],
   "subway-surfers": [
     { from: "ads", to: "daily-login-reward", title: "Ads monetize every missed day", desc: "Missed daily login calendar days can be claimed by watching an ad or spending 5 keys. The daily rewards screen has five slots, each requiring an ad watch to unlock.", effect: "The ad economy extends into the daily login system, every gap in the streak, and every slot in the daily rewards screen, becomes an ad placement. Return cadence and ad engagement are fully interlinked." },
-    { from: "ads", to: "achievements", title: "Ad watching advances the score multiplier", desc: "Daily tasks including ad watching contribute to mission completion. Missions advance the score multiplier. The multiplier is the primary long-horizon progression axis in the game.", effect: "Ad engagement contributes to the game's only meaningful progression system, giving regular ad watchers a concrete advancement rationale that goes beyond the immediate reward." },
+    { from: "ads", to: "achievement", title: "Ad watching advances the score multiplier", desc: "Daily tasks including ad watching contribute to mission completion. Missions advance the score multiplier. The multiplier is the primary long-horizon progression axis in the game.", effect: "Ad engagement contributes to the game's only meaningful progression system, giving regular ad watchers a concrete advancement rationale that goes beyond the immediate reward." },
     { from: "daily-login-reward", to: "cosmetics", title: "Login milestone rewards cosmetics", desc: "The 20-login milestone on the login calendar rewards the Freebird hoverboard, a direct cosmetic reward for consistent daily return over 20 sessions.", effect: "The daily login system has a cosmetics endpoint rather than just currency rewards, giving players who are not motivated by coins a concrete item goal that requires sustained daily return." },
     { from: "cosmetics", to: "variable-reward", title: "Character tokens are run-variable rewards", desc: "Character and hoverboard tokens appear randomly during runs. Token accumulation toward specific cosmetics makes each run a potential collection advance, the variable reward outcome is filtered through a cosmetic goal.", effect: "Players who are motivated by cosmetics rather than scores have an intrinsic reason to keep running, each run might advance their target character's token count. Variable reward and cosmetics share the same delivery mechanism." },
-    { from: "achievements", to: "variable-reward", title: "Multiplier scales card pack quality", desc: "The score multiplier increases gem yield, which funds card pack pulls. A higher multiplier means more and better variable reward outcomes per session.", effect: "Long-term progression through mission completion directly improves the quality of variable reward outcomes, giving players who invest in the multiplier tangibly better reward experiences." },
+    { from: "achievement", to: "variable-reward", title: "Multiplier scales card pack quality", desc: "The score multiplier increases gem yield, which funds card pack pulls. A higher multiplier means more and better variable reward outcomes per session.", effect: "Long-term progression through mission completion directly improves the quality of variable reward outcomes, giving players who invest in the multiplier tangibly better reward experiences." },
   ],
   "fifa-panini-collection": [
     { from: "set-collection", to: "daily-login-reward", title: "Album drives daily pack consumption", desc: "The daily pack limit (4 for registered users) and daily free packs exist entirely to serve album completion. The login reward is pack fuel for the collection, not an independent engagement mechanic.", effect: "Players experience the daily login not as a general reward but as the primary means of advancing toward a personally meaningful goal. The return motivation is the album, not the reward itself." },
     { from: "set-collection", to: "challenges", title: "Stickers must be glued to count", desc: "Challenges require stickers to be glued into the album before they count toward challenge progress. The challenge system reinforces the album as the organizing hub rather than allowing inventory to count directly.", effect: "Challenges create a structured reason to engage with the gluing mechanic, the core activity of album building. The two mechanics are inseparable: challenge progress requires album progress." },
-    { from: "daily-login-reward", to: "achievements", title: "Coca-Cola scans are counted achievements", desc: "Scanning a Coca-Cola product grants a daily pack equivalent and advances the Coke Scans achievement tier (1 / 10 / 25 items). The physical scanning behaviour is tracked, milestoned, and rewarded.", effect: "The physical product interaction is integrated into the achievement system, making real-world brand engagement part of the in-app progression. The partnership is measurable, not decorative." },
-    { from: "challenges", to: "achievements", title: "Challenges surface collection milestones", desc: "Completing challenges (collect team captains, collect host country stickers) aligns with album completion milestones. Both systems point toward the same underlying goal.", effect: "Players pursuing challenges are simultaneously advancing toward album completion milestones. The two systems reinforce each other without requiring separate engagement tracks." },
+    { from: "daily-login-reward", to: "achievement", title: "Coca-Cola scans are counted achievements", desc: "Scanning a Coca-Cola product grants a daily pack equivalent and advances the Coke Scans achievement tier (1 / 10 / 25 items). The physical scanning behaviour is tracked, milestoned, and rewarded.", effect: "The physical product interaction is integrated into the achievement system, making real-world brand engagement part of the in-app progression. The partnership is measurable, not decorative." },
+    { from: "challenges", to: "achievement", title: "Challenges surface collection milestones", desc: "Completing challenges (collect team captains, collect host country stickers) aligns with album completion milestones. Both systems point toward the same underlying goal.", effect: "Players pursuing challenges are simultaneously advancing toward album completion milestones. The two systems reinforce each other without requiring separate engagement tracks." },
   ],
   "insight-timer": [
-    { from: "streak", to: "achievements", title: "Day 7 streak triggers the first gift", desc: "The first milestone (7 consecutive days) triggers a trial extension from 7 to 30 days, framed as a gift the user unlocked. The achievement reward is more product time, the most relevant possible prize for a user building a meditation habit.", effect: "The first milestone creates a moment where the user's commitment is explicitly recognized and rewarded with exactly what they need: more time to develop the habit the streak is tracking." },
+    { from: "streak", to: "milestone", title: "Day 7 streak triggers the first gift", desc: "The first milestone (7 consecutive days) triggers a trial extension from 7 to 30 days, framed as a gift the user unlocked. The achievement reward is more product time, the most relevant possible prize for a user building a meditation habit.", effect: "The first milestone creates a moment where the user's commitment is explicitly recognized and rewarded with exactly what they need: more time to develop the habit the streak is tracking." },
     { from: "streak", to: "challenges", title: "Streak is the self-made challenge", desc: "The goal-setting screen during onboarding (3 / 5 / 7 / 10 consecutive days) establishes the streak as a challenge the user created. The 'I'm committed' button post-session reinforces this framing.", effect: "The streak is not experienced as an app-imposed retention mechanic but as a personal commitment made before the first session. The user is accountable to themselves, which is more durable than accountability to an external system." },
-    { from: "challenges", to: "achievements", title: "Commitment prompt leads to milestone", desc: "The 'I'm committed' behavioral commitment after session 1 establishes an expectation. The achievement at day 7 fulfills it. The arc from commitment to recognition is contained within the first week.", effect: "The system creates a complete emotional arc, set goal, commit, return, achieve, within the first week of use. Users who complete this arc have a qualitatively different relationship with the app than those who don't." },
+    { from: "challenges", to: "milestone", title: "Commitment prompt leads to milestone", desc: "The 'I'm committed' behavioral commitment after session 1 establishes an expectation. The achievement at day 7 fulfills it. The arc from commitment to recognition is contained within the first week.", effect: "The system creates a complete emotional arc, set goal, commit, return, achieve, within the first week of use. Users who complete this arc have a qualitatively different relationship with the app than those who don't." },
     { from: "social-feed", to: "community-groups", title: "Real-time counter makes community feel live", desc: "The '594,622 people here today' counter converts the solo meditation experience into a perceived communal practice. It is the entry point to the community layer for users who have not yet found the groups section.", effect: "Users who engage with the counter are primed to discover that the community infrastructure exists. The number creates curiosity about who those people are, making the hidden groups section a discovery worth seeking." },
-    { from: "achievements", to: "social-feed", title: "Milestone sharing distributes the achievement", desc: "Streak milestones generate pre-formatted Instagram Stories and messaging shares. The achievement's social distribution is designed into the sharing UI.", effect: "Every milestone is a potential acquisition moment. The share converts a private habit marker into a public product impression at the moment the user's satisfaction is highest." },
+    { from: "milestone", to: "social-feed", title: "Milestone sharing distributes the achievement", desc: "Streak milestones generate pre-formatted Instagram Stories and messaging shares. The achievement's social distribution is designed into the sharing UI.", effect: "Every milestone is a potential acquisition moment. The share converts a private habit marker into a public product impression at the moment the user's satisfaction is highest." },
   ],
   strava: [
     { from: "challenges", to: "leaderboards", title: "Every challenge page carries its own leaderboard", desc: "Each challenge has a leaderboard of the users taking part, ordered by the measure that challenge is built on.", effect: "Joining a challenge places a participant in a ranked set for the length of that challenge." },
@@ -380,8 +380,8 @@ const CONNECTIONS = {
     { from: "challenges", to: "credits-tokens", title: "Challenge wins fund premium tool access", desc: "Winning a platform challenge awards 50 credits, equivalent to 10 weeks of the free tier's allocation. Community participation and the credit economy are directly linked.", effect: "Free users who win challenges can access premium AI tools they could not otherwise afford. Community participation becomes the primary free path to premium features." },
   ],
   "wispr-flow": [
-    { from: "streak", to: "achievements", title: "Five days unlocks the ranking", desc: "The streak's stated purpose, dictate for five days so Flow can adapt, coincides with the 500-word threshold where the speaking speed stat and percentile ranking unlock.", effect: "The streak and the milestone reward are aligned. Completing the streak produces the achievement, making the functional justification and the reward arrive at the same moment." },
-    { from: "achievements", to: "streak", title: "Percentile ranking reinforces streak continuation", desc: "The 'top 2% of all Flow users' percentile delivered passively at 500 words frames the user as already exceptional, which strengthens motivation to maintain the streak.", effect: "The achievement reward arrives as affirmation, the user is told they are already performing well, making continuation feel natural rather than effortful." },
+    { from: "streak", to: "milestone", title: "Five days unlocks the ranking", desc: "The streak's stated purpose, dictate for five days so Flow can adapt, coincides with the 500-word threshold where the speaking speed stat and percentile ranking unlock.", effect: "The streak and the milestone reward are aligned. Completing the streak produces the achievement, making the functional justification and the reward arrive at the same moment." },
+    { from: "milestone", to: "streak", title: "Percentile ranking reinforces streak continuation", desc: "The 'top 2% of all Flow users' percentile delivered passively at 500 words frames the user as already exceptional, which strengthens motivation to maintain the streak.", effect: "The achievement reward arrives as affirmation, the user is told they are already performing well, making continuation feel natural rather than effortful." },
   ],
   "dave": [
     { from: "earning-tasks", to: "piggy-bank", title: "Survey earnings land in the same account round-ups draw from", desc: "Survey earnings inside the Grow tab are paid into the same Dave Checking account that round-ups draw from and that an advance settles against.", effect: "A user earning through surveys is funding the same account balance that round-ups pull from and that Extra Cash settlement depends on, so two of Dave's three mechanics share funding without needing a direct relationship to each other." },
@@ -392,8 +392,8 @@ const CONNECTIONS = {
     { from: "streak", to: "gifting", title: "Streak milestones generate shareable cards", desc: "Streak milestones generate pre-formatted Instagram Stories cards. Each milestone is a referral moment framed as personal achievement sharing rather than recruitment.", effect: "The streak milestone card is unsolicited and personal; the guest pass is solicited and generous. Together they cover different referral contexts." },
   ],
   canva: [
-    { from: "challenges", to: "achievements", title: "The test produces the badge", desc: "Passing the certification test flips a badge from unattained to attained, evaluated the moment the test's stated success condition is met.", effect: "The badge fires directly from the test result, not from any broader course progress, so completing the course itself is not required to receive it." },
-    { from: "achievements", to: "shareable-win", title: "The same result composes the certificate", desc: "The same passed test that produces the badge also composes a certificate, presented in a second screen immediately after the badge.", effect: "A cheap, checkable credential is available as soon as the test is passed, which is what makes it easy to hand out and easy to share." },
+    { from: "challenges", to: "achievement", title: "The test produces the badge", desc: "Passing the certification test flips a badge from unattained to attained, evaluated the moment the test's stated success condition is met.", effect: "The badge fires directly from the test result, not from any broader course progress, so completing the course itself is not required to receive it." },
+    { from: "achievement", to: "shareable-win", title: "The same result composes the certificate", desc: "The same passed test that produces the badge also composes a certificate, presented in a second screen immediately after the badge.", effect: "A cheap, checkable credential is available as soon as the test is passed, which is what makes it easy to hand out and easy to share." },
   ],
   steam: [
     { from: "cosmetics", to: "experience-points", title: "Seasonal badges feed profile XP", desc: "Seasonal badges available in the Points Shop contribute towards profile XP. The cosmetics system and the leveling system share the same seasonal badge item.", effect: "Acquiring seasonal badges advances both the cosmetic display layer and the profile level simultaneously, giving the same item two progression roles." },
@@ -408,16 +408,16 @@ const CONNECTIONS = {
     { from: "daily-login-reward", to: "piggy-bank", title: "Daily returns fill the piggy bank", desc: "The farm delivery bonus requires daily return to maximize value. The piggy bank fills with every level played during those daily sessions.", effect: "A player who returns daily for the login reward is also filling the piggy bank, making the eventual unlock feel more earned with each visit." },
   ],
   "fortune-city": [
-    { from: "achievements", to: "ads", title: "Achievement track makes ad watching a progression goal", desc: "The Watch Ads to Help the Salesman track scales from 5 to 1,000 watches, ending in Charitable Superstar. Ad watching is the subject of a named, tiered achievement system.", effect: "Users who care about achievement completion have a 1,000-interaction engagement arc anchored to a single ad placement." },
+    { from: "achievement", to: "ads", title: "Achievement track makes ad watching a progression goal", desc: "The Watch Ads to Help the Salesman track scales from 5 to 1,000 watches, ending in Charitable Superstar. Ad watching is the subject of a named, tiered achievement system.", effect: "Users who care about achievement completion have a 1,000-interaction engagement arc anchored to a single ad placement." },
     { from: "ads", to: "daily-login-reward", title: "Ad doubling is integrated into the daily claim", desc: "Every daily login reward popup includes a 'watch an ad to double your reward' option. The daily login moment and the ad monetization moment are the same interaction.", effect: "The daily reward claim is also a daily ad monetization surface at the user's highest-engagement daily moment." },
     { from: "set-collection", to: "daily-login-reward", title: "Fisher's gate requires four consecutive returns", desc: "Fisher requires four consecutive days of expense tracking to unlock, the most behaviorally intentional content gate in the library.", effect: "Users motivated by seeing Fisher return for four consecutive days without any separate streak system. The collection gate does the streak's job." },
   ],
   tiimo: [
-    { from: "streak", to: "achievements", title: "The day count feeds the marker row", desc: "One of the row's two tracks is keyed directly to the streak day count, so a day maintained crosses the same thresholds the row displays.", effect: "The row's sense of standing depends on the streak's own continuity rule, which a single day of use can't show operating." },
+    { from: "streak", to: "milestone", title: "The day count feeds the marker row", desc: "One of the row's two tracks is keyed directly to the streak day count, so a day maintained crosses the same thresholds the row displays.", effect: "The row's sense of standing depends on the streak's own continuity rule, which a single day of use can't show operating." },
   ],
   uptime: [
-    { from: "streak", to: "achievements", title: "Daily return generates expertise badges", desc: "Returning daily to complete hacks in a topic generates 'expert in X' expertise badges automatically, without any explicit achievement hunting.", effect: "Users who maintain the streak for topic-specific reasons discover they have been accumulating expertise badges, achievements arrive as noticed facts rather than pursued goals." },
-    { from: "achievements", to: "gifting", title: "Achievement cards are referral content", desc: "Pre-formatted achievement cards, 'you're saving time by hacking knowledge', are the primary social sharing content. Sharing an achievement card is functionally a referral.", effect: "Every achievement milestone is a potential user acquisition moment. The achievement and referral mechanisms share the same shareable image assets." },
+    { from: "streak", to: "achievement", title: "Daily return generates expertise badges", desc: "Returning daily to complete hacks in a topic generates 'expert in X' expertise badges automatically, without any explicit achievement hunting.", effect: "Users who maintain the streak for topic-specific reasons discover they have been accumulating expertise badges, achievements arrive as noticed facts rather than pursued goals." },
+    { from: "achievement", to: "gifting", title: "Achievement cards are referral content", desc: "Pre-formatted achievement cards, 'you're saving time by hacking knowledge', are the primary social sharing content. Sharing an achievement card is functionally a referral.", effect: "Every achievement milestone is a potential user acquisition moment. The achievement and referral mechanisms share the same shareable image assets." },
     { from: "streak", to: "gifting", title: "Post-hack screen captures both mechanics", desc: "The post-first-hack screen surfaces the streak counter, reminder setup, and referral gift at the same moment, the peak engagement point of the first session.", effect: "The highest-intent moment captures three retention and acquisition actions simultaneously: streak habit formation, reminder installation, and referral sharing." },
   ],
     "ladder": [
@@ -440,7 +440,7 @@ const CONNECTIONS = {
   ],
   "gymverse": [
     { from: "daily-weekly-quests", to: "streak", title: "Completing today's workout advances both plan and streak", desc: "The daily workout log is the action that advances the sequential plan and maintains the streak calendar. One action, two systems.", effect: "Users who show up for the plan are maintaining the streak without thinking about it as a separate goal. The streak is a byproduct of plan adherence." },
-    { from: "streak", to: "achievements", title: "Streak milestones unlock named achievement badges", desc: "The achievement system includes streak-based badges at specific consecutive day counts. The streak counter and the achievement system share the same underlying metric.", effect: "Streak maintenance is also achievement hunting. Users tracking their streak are simultaneously progressing through the achievement catalogue." },
+    { from: "streak", to: "achievement", title: "Streak milestones unlock named achievement badges", desc: "The achievement system includes streak-based badges at specific consecutive day counts. The streak counter and the achievement system share the same underlying metric.", effect: "Streak maintenance is also achievement hunting. Users tracking their streak are simultaneously progressing through the achievement catalogue." },
   ],
   "ladder": [
     { from: "streak", to: "challenges", title: "Weekly streak threshold matches challenge completion cadence", desc: "Three workouts per week earns the streak. The get-started challenge requires those same workouts as checkboxes. The streak and the onboarding challenge share the same behavioral unit.", effect: "Users who pursue the streak are simultaneously progressing the get-started challenge. One behavior completes two tracking systems." },
@@ -453,27 +453,27 @@ const CONNECTIONS = {
     { from: "hard-currency", to: "soft-currency", title: "Gems convert directly into the resources raiding would otherwise take hours to gather", desc: "A stated conversion rate turns gems into gold and elixir on demand, no shop trip or exchange screen required.", effect: "A player who doesn't want to raid or wait can buy the same resource position outright, in gems." },
     { from: "hard-currency", to: "passive-construction", title: "Every wait sells its own skip", desc: "Every build timer and busy builder carries a gem price to end it immediately, and an added builder slot is itself bought with gems.", effect: "The two dimensions of construction, how many things can be underway and how long each one takes, are each priced separately in the same currency." },
     { from: "passive-construction", to: "leveling", title: "The town hall's own upgrade is just another timed build", desc: "Town hall levels advance only once their own construction instance, gated by a resource cost and a prerequisite building checklist, finishes.", effect: "The spine of the whole game is subject to the same builder-slot and timer mechanics as any ordinary building." },
-    { from: "achievements", to: "clans-guilds", title: "The achievement list pushes toward the clan castle repair", desc: "One criterion requires requesting reinforcements, reachable only after joining a clan, sitting beside account linking, the highest-paying criterion by far.", effect: "A player working through the achievement list is nudged toward the social layer well before the game requires it directly." },
+    { from: "achievement", to: "clans-guilds", title: "The achievement list pushes toward the clan castle repair", desc: "One criterion requires requesting reinforcements, reachable only after joining a clan, sitting beside account linking, the highest-paying criterion by far.", effect: "A player working through the achievement list is nudged toward the social layer well before the game requires it directly." },
     { from: "leveling", to: "season-pass", title: "The pass doesn't exist until a specific level is reached", desc: "No pass surface exists before town hall 7, appearing immediately once that upgrade completes.", effect: "The game's largest monetization surface is withheld entirely until the spine reaches a specific point, rather than being available from the start." },
     { from: "season-pass", to: "clans-guilds", title: "The pass reaches past the village it's sold from", desc: "Pass perks include a clan castle troop-request reduction and capital gold, spending against the clan layer as well as the solo one.", effect: "A single purchase prices benefits across the solo loop and the social loop at once, rather than staying inside whichever screen sold it." },
   ],
   "fiton": [
     { from: "community-groups", to: "streak", title: "Group feeds surface streak activity from other members", desc: "The Friends tab feed shows workout completions and streak milestones from group members. Seeing others maintain streaks creates social proof for the behavior.", effect: "Streak maintenance is visible to the community. The social observation of others maintaining theirs applies return pressure independent of personal motivation." },
-    { from: "streak", to: "achievements", title: "CR Streak milestones unlock named badges", desc: "Streak milestones appear as achievement categories in the profile badge catalogue alongside workout count, calorie, and exercise-type badges.", effect: "The streak produces two outputs simultaneously: a maintained counter and progress toward a badge threshold." },
+    { from: "streak", to: "achievement", title: "CR Streak milestones unlock named badges", desc: "Streak milestones appear as achievement categories in the profile badge catalogue alongside workout count, calorie, and exercise-type badges.", effect: "The streak produces two outputs simultaneously: a maintained counter and progress toward a badge threshold." },
     { from: "challenges", to: "community-groups", title: "Program challenges are socially anchored to groups", desc: "Challenge participation appears in the group feed, making individual challenge progress visible to community members who share the same group.", effect: "Challenge completion becomes a social signal within the relevant group rather than a private milestone." },
   ],
   "freeletics": [
     { from: "challenges", to: "leaderboards", title: "Challenge participation generates leaderboard position", desc: "Challenge completions are ranked within the challenge leaderboard. The same action (completing a workout during the challenge window) advances both the challenge and the competitive rank.", effect: "The leaderboard gives the challenge a competitive dimension beyond personal completion. Users are not just finishing the challenge, they are finishing it relative to others." },
-    { from: "leveling", to: "achievements", title: "Reaching named level tiers unlocks achievement milestones", desc: "God level tier crossings are recognized as achievement events in the progression system.", effect: "Level advancement produces two outputs: a new rank label and a badge. The same progression is tracked by two parallel systems." },
+    { from: "leveling", to: "achievement", title: "Reaching named level tiers unlocks achievement milestones", desc: "God level tier crossings are recognized as achievement events in the progression system.", effect: "Level advancement produces two outputs: a new rank label and a badge. The same progression is tracked by two parallel systems." },
     { from: "social-feed", to: "challenges", title: "Feed visibility of challenge participation creates social pull", desc: "Challenge participation by followed users appears in the community feed, making the challenge visible to members who have not joined it.", effect: "Challenge discovery happens through social observation rather than requiring navigation to a challenge tab." },
   ],
   "liftoff": [
     { from: "leveling", to: "leaderboards", title: "Volume-based XP determines leaderboard position", desc: "The same logged workout volume that advances rank also determines position on volume leaderboards. One logging action serves both systems.", effect: "Logging workouts carefully is both a personal progression behavior and a competitive one. The motivation to record every set has a leaderboard dimension." },
     { from: "variable-reward", to: "leveling", title: "Post-workout reward quality scales with performance", desc: "The variable reward at workout completion is tied to performance metrics. Better workout quality produces better rewards, which also correlates with higher volume, which advances rank faster.", effect: "Effort produces a compounding return: better performance generates better rewards and faster rank advancement simultaneously." },
-    { from: "achievements", to: "cosmetics", title: "Rank threshold achievements unlock cosmetic customization", desc: "Cosmetics including avatar elements and profile themes unlock through rank progression rather than purchase.", effect: "Cosmetics are a visible output of the leveling system. The achievement that marks a rank crossing and the cosmetic that unlocks with it arrive together." },
+    { from: "achievement", to: "cosmetics", title: "Rank threshold achievements unlock cosmetic customization", desc: "Cosmetics including avatar elements and profile themes unlock through rank progression rather than purchase.", effect: "Cosmetics are a visible output of the leveling system. The achievement that marks a rank crossing and the cosmetic that unlocks with it arrive together." },
   ],
   "gymverse": [
-    { from: "streak", to: "achievements", title: "Streak milestones are named achievement targets", desc: "Consecutive day badges appear in the Explore tab alongside the active streak display. The streak is both a counter and an achievement progression input.", effect: "Users see both how many days they have maintained and which badge that count is approaching. The streak has a dual display." },
+    { from: "streak", to: "achievement", title: "Streak milestones are named achievement targets", desc: "Consecutive day badges appear in the Explore tab alongside the active streak display. The streak is both a counter and an achievement progression input.", effect: "Users see both how many days they have maintained and which badge that count is approaching. The streak has a dual display." },
     { from: "daily-weekly-quests", to: "streak", title: "Day-locked workout calendar enforces streak cadence", desc: "Future workout days are inaccessible until the current day is logged. The calendar structure prevents skipping ahead and enforces sequential completion.", effect: "The streak is not just a habit suggestion. The app's day-locking makes it the only way to progress through the plan." },
   ],
     "chrome-valley-customs": [
@@ -483,8 +483,8 @@ const CONNECTIONS = {
   ],
   "match-creek-motors": [
     { from: "energy-lives", to: "variable-reward", title: "Energy gates the episode's variable outcome", desc: "Match-3 levels cost hearts. Each completed level produces a variable wrench yield that funds the next restoration task. The energy system determines how many attempts at the variable outcome are available.", effect: "Heart scarcity is also yield scarcity. Players who exhaust hearts before completing a task have to wait or pay, increasing the perceived value of each successful level." },
-    { from: "variable-reward", to: "achievements", title: "Win streaks and first-try wins emerge from level runs", desc: "High Win Streak and First Try Wins are the two achievement categories. Both measure match-3 performance quality. Variable level difficulty means neither is guaranteed.", effect: "Players aware of the streak achievement play more carefully, attending to level quality rather than rushing. The achievement system gives the variable reward surface a second layer of stakes." },
-    { from: "achievements", to: "leaderboards", title: "Achievement metrics feed the leaderboards", desc: "High Win Streak and First Try Wins are both achievement categories and leaderboard metrics. The same performance tracked for personal achievement is also tracked for competitive ranking.", effect: "Players competing on leaderboards are simultaneously advancing achievement categories. The two systems share the same underlying metric, making each tracked behaviour count twice." },
+    { from: "variable-reward", to: "achievement", title: "Win streaks and first-try wins emerge from level runs", desc: "High Win Streak and First Try Wins are the two achievement categories. Both measure match-3 performance quality. Variable level difficulty means neither is guaranteed.", effect: "Players aware of the streak achievement play more carefully, attending to level quality rather than rushing. The achievement system gives the variable reward surface a second layer of stakes." },
+    { from: "achievement", to: "leaderboards", title: "Achievement metrics feed the leaderboards", desc: "High Win Streak and First Try Wins are both achievement categories and leaderboard metrics. The same performance tracked for personal achievement is also tracked for competitive ranking.", effect: "Players competing on leaderboards are simultaneously advancing achievement categories. The two systems share the same underlying metric, making each tracked behaviour count twice." },
   ],
   "swgoh": [
     { from: "set-collection", to: "variable-reward", title: "Character shards arrive through variable pulls", desc: "Every data card pull, campaign battle, and store purchase produces character shards as part of the variable reward output. The collection system is fed entirely by the variable reward surfaces.", effect: "Progress toward any character goal is visible in the collection inventory. Players who pull toward a specific character feel the variable reward's uncertainty as proximity to a concrete named outcome." },
@@ -528,19 +528,19 @@ const POSITIONS = {
     "daily-login-reward":    { x: 22, y: 56 },
     "variable-reward":       { x: 78, y: 56 },
     "cosmetics":             { x: 30, y: 80 },
-    "achievements":          { x: 70, y: 80 },
+    "achievement":          { x: 70, y: 80 },
   },
   "fifa-panini-collection": {
     center:                  { x: 50, y: 10, label: "FIFA PANINI" },
     "set-collection":        { x: 50, y: 30 },
     "daily-login-reward":    { x: 22, y: 56 },
     "challenges":            { x: 78, y: 56 },
-    "achievements":          { x: 50, y: 80 },
+    "achievement":          { x: 50, y: 80 },
   },
   "insight-timer": {
     center:                  { x: 50, y: 10, label: "INSIGHT TIMER" },
     "streak":                { x: 50, y: 30 },
-    "achievements":          { x: 22, y: 55 },
+    "milestone":          { x: 22, y: 55 },
     "challenges":            { x: 78, y: 55 },
     "social-feed":           { x: 22, y: 80 },
     "community-groups":      { x: 78, y: 80 },
@@ -552,7 +552,8 @@ const POSITIONS = {
     "challenges":            { x: 50, y: 47 },
     "social-feed":           { x: 17, y: 78 },
     "community-groups":      { x: 50, y: 78 },
-    "achievements":          { x: 83, y: 78 },
+    "milestone":             { x: 83, y: 78 },
+    "achievement":           { x: 60, y: 61 },
   },
   "fc-mobile": {
     center:                  { x: 50, y: 8,  label: "FC MOBILE" },
@@ -585,7 +586,7 @@ const POSITIONS = {
   "wispr-flow": {
     center:                  { x: 50, y: 18, label: "WISPR FLOW" },
     "streak":                { x: 32, y: 58 },
-    "achievements":          { x: 68, y: 58 },
+    "milestone":          { x: 68, y: 58 },
   },
   "dave": {
     center:                  { x: 50, y: 15, label: "DAVE" },
@@ -602,7 +603,7 @@ const POSITIONS = {
   "canva": {
     center:                  { x: 50, y: 8,  label: "CANVA" },
     "challenges":            { x: 28, y: 30 },
-    "achievements":          { x: 28, y: 52 },
+    "achievement":          { x: 28, y: 52 },
     "shareable-win":         { x: 28, y: 74 },
     "hard-currency":         { x: 72, y: 40 },
     "community-groups":      { x: 72, y: 74 },
@@ -627,7 +628,7 @@ const POSITIONS = {
   },
   "fortune-city": {
     center:                  { x: 50, y: 8,  label: "FORTUNE CITY" },
-    "achievements":          { x: 50, y: 30 },
+    "achievement":          { x: 50, y: 30 },
     "ads":                   { x: 26, y: 58 },
     "daily-login-reward":    { x: 26, y: 82 },
     "set-collection":        { x: 74, y: 70 },
@@ -635,14 +636,15 @@ const POSITIONS = {
   "tiimo": {
     center:                  { x: 50, y: 8,  label: "TIIMO" },
     "streak":                { x: 40, y: 32 },
-    "achievements":          { x: 60, y: 32 },
+    "milestone":             { x: 60, y: 32 },
+    "achievement":           { x: 60, y: 50 },
     "cosmetics":             { x: 20, y: 65 },
     "expert-guidance":       { x: 80, y: 65 },
   },
   "uptime": {
     center:                  { x: 50, y: 15, label: "UPTIME" },
     "streak":                { x: 50, y: 38 },
-    "achievements":          { x: 26, y: 68 },
+    "achievement":          { x: 26, y: 68 },
     "gifting":               { x: 74, y: 68 },
   },
   "ladder": {
@@ -675,7 +677,7 @@ const POSITIONS = {
     center:               { x: 50, y: 15, label: "GYMVERSE" },
     "daily-weekly-quests":{ x: 50, y: 42 },
     "streak":             { x: 28, y: 72 },
-    "achievements":       { x: 72, y: 72 },
+    "achievement":       { x: 72, y: 72 },
   },
   "ladder": {
     center:             { x: 50, y: 10, label: "LADDER" },
@@ -689,7 +691,7 @@ const POSITIONS = {
     center:             { x: 50, y: 12, label: "FITON" },
     "community-groups": { x: 50, y: 34 },
     "streak":           { x: 26, y: 62 },
-    "achievements":     { x: 74, y: 62 },
+    "achievement":     { x: 74, y: 62 },
     "challenges":       { x: 50, y: 86 },
   },
   "freeletics": {
@@ -704,13 +706,13 @@ const POSITIONS = {
     "leveling":    { x: 50, y: 30 },
     "leaderboards":   { x: 22, y: 56 },
     "variable-reward":{ x: 78, y: 56 },
-    "achievements":   { x: 30, y: 80 },
+    "achievement":   { x: 30, y: 80 },
     "cosmetics":      { x: 70, y: 80 },
   },
   "gymverse": {
     center:                { x: 50, y: 18, label: "GYMVERSE" },
     "streak":              { x: 50, y: 42 },
-    "achievements":        { x: 26, y: 72 },
+    "achievement":        { x: 26, y: 72 },
     "daily-weekly-quests": { x: 74, y: 72 },
   },
     "chrome-valley-customs": {
@@ -723,7 +725,7 @@ const POSITIONS = {
     center:                  { x: 50, y: 15, label: "MATCH CREEK" },
     "energy-lives":          { x: 50, y: 38 },
     "variable-reward":       { x: 20, y: 65 },
-    "achievements":          { x: 50, y: 65 },
+    "achievement":          { x: 50, y: 65 },
     "leaderboards":          { x: 80, y: 65 },
   },
   "swgoh": {
@@ -741,14 +743,14 @@ const POSITIONS = {
     "streak":           { x: 50, y: 26 },
     "challenges":       { x: 22, y: 50 },
     "community-groups": { x: 78, y: 50 },
-    "achievements":     { x: 22, y: 76 },
+    "achievement":     { x: 22, y: 76 },
     "social-feed":      { x: 78, y: 76 },
     "gifting":          { x: 50, y: 90 },
   },
   "fiton": {
     center:             { x: 50, y: 15, label: "FITON" },
     "community-groups": { x: 50, y: 36 },
-    "achievements":     { x: 22, y: 62 },
+    "achievement":     { x: 22, y: 62 },
     "social-feed":      { x: 78, y: 62 },
     "streak":           { x: 50, y: 84 },
   },
@@ -757,7 +759,7 @@ const POSITIONS = {
     "challenges":       { x: 28, y: 50 },
     "social-feed":      { x: 72, y: 50 },
     "leaderboards":     { x: 28, y: 78 },
-    "achievements":     { x: 72, y: 78 },
+    "achievement":     { x: 72, y: 78 },
   },
   "liftoff": {
     center:             { x: 50, y: 8,  label: "LIFTOFF" },
@@ -771,7 +773,7 @@ const POSITIONS = {
     center:             { x: 50, y: 18, label: "GYMVERSE" },
     "daily-weekly-quests": { x: 32, y: 55 },
     "streak":           { x: 68, y: 55 },
-    "achievements":     { x: 50, y: 84 },
+    "achievement":     { x: 50, y: 84 },
   },
   "clash-of-clans": {
     center:                { x: 50, y: 6,  label: "CLASH OF CLANS" },
@@ -780,7 +782,8 @@ const POSITIONS = {
     "hard-currency":       { x: 50, y: 42 },
     "passive-construction":{ x: 80, y: 42 },
     "clans-guilds":        { x: 20, y: 72 },
-    "achievements":        { x: 50, y: 72 },
+    "achievement":         { x: 50, y: 72 },
+    "milestone":           { x: 50, y: 90 },
     "season-pass":         { x: 80, y: 72 },
   },
   };

@@ -19,7 +19,7 @@
   ],
   "lifecycle": "Grows in value as the social graph expands. Low value days 1–7; high value from day 30+.",
   "paired": [
-    "achievements",
+    "achievement",
     "challenges",
     "leaderboards"
   ],

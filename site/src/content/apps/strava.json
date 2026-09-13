@@ -111,25 +111,17 @@
       "suggestedShots": []
     },
     {
-      "id": "achievements",
+      "id": "milestone",
       "depth": "supporting",
-      "writeup": {
-        "observed": "Strava places its first recognitions close to the start. The trophy case opens with the 1st activity, then the 3rd, the 5th, and the 10th, and the same ladder continues up to 1,000. The first trophy arrives immediately after the first activity is saved, as a pop up welcoming the user and marking the activity, offering a choice between viewing the activity and viewing the new trophy in the case. Alongside these count based trophies, Strava marks personal records against a user's own history, and after the first saved ride the app showed a personal record badge reading new best effort, longest ride ever. Completing a named challenge adds a digital trophy to the same case. Other users' profiles display how many trophies they hold and at what grade, with counts such as 53 trophies and 10 silver among the ones we saw.",
-        "presented": "The trophy case sits at the bottom of the profile, with a view all listing that runs the thresholds up to 1,000 activities. A personal record attaches to the activity that earned it rather than living only in the case. The first activity is marked with a celebratory animation and the welcome pop up, which offers the trophy case as one of its two next steps.",
-        "noting": "The spacing of the early thresholds is the notable part. 1st, 3rd, 5th, and 10th activity sit close together at the beginning of a ladder that runs to 1,000. Strava also runs two kinds of recognition next to each other. The trophy case counts activities, a measure that only accumulates. The personal record compares a result against the user's own previous results, so that recognition does not depend on how the user compares with other users. The first trophy is given for the first activity, which puts the first recognition at the same moment as the first use of the core action.",
-        "findings": [
-          "Strava's trophy case starts at the 1st activity and marks the 3rd, 5th, and 10th before continuing to 1,000.",
-          "The first trophy is awarded for the first saved activity, so recognition begins at the same moment as the core action.",
-          "Personal records are measured against a user's own previous results, so this recognition does not depend on comparison with others.",
-          "Challenge completions add their digital trophies to the same case, putting two sources of recognition in one place."
-        ]
-      },
-      "screenshots": [
-        {
-          "src": "/screenshots/achievements/strava/01.jpg",
-          "caption": null
-        }
-      ],
+      "writeup": null,
+      "screenshots": [],
+      "suggestedShots": []
+    },
+    {
+      "id": "achievement",
+      "depth": "supporting",
+      "writeup": null,
+      "screenshots": [],
       "suggestedShots": []
     },
     {
@@ -175,8 +167,12 @@
         "role": "Month bounded goals with stated success conditions, joined in one tap and rewarded with digital trophies or partner trials."
       },
       {
-        "id": "achievements",
-        "role": "Trophies for activity count thresholds from the first activity upward, and personal records measured against a user's own history."
+        "id": "milestone",
+        "role": "Trophies mark activity count thresholds from the first activity upward, each a recognized point along a runner's own ongoing count."
+      },
+      {
+        "id": "achievement",
+        "role": "A personal record is preserved and stays fixed at a user's own best effort, apart from whatever later activity keeps happening around it."
       },
       {
         "id": "community-groups",
@@ -219,9 +215,14 @@
         "y": 78
       },
       {
-        "id": "achievements",
+        "id": "milestone",
         "x": 83,
         "y": 78
+      },
+      {
+        "id": "achievement",
+        "x": 60,
+        "y": 61
       }
     ],
     "connections": [

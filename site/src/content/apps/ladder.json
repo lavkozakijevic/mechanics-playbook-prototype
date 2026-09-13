@@ -63,15 +63,9 @@
       ]
     },
     {
-      "id": "achievements",
+      "id": "achievement",
       "depth": "supporting",
-      "writeup": {
-        "observed": "A badge was awarded on completing the welcome workout. The badge is spinnable in 3D and reactive to touch. A five-star rating prompt appeared before the badge award, with the rating functioning as the badge-unlock trigger. Profile stats are permanently visible: workouts completed, minutes exercised, calories burned, and cheers given and received. The badge is shareable directly from the award screen.",
-        "findings": [
-          "The five-star rating prompt as a badge-unlock trigger is the only observed case in the library where an achievement reward is earned by rating the content rather than completing it. The design collects useful feedback data while rewarding the user for providing it.",
-          "The shareable badge from the first workout completion is a designed acquisition moment: sharing a workout badge is also a branded Ladder ad in the recipient's social feed."
-        ]
-      },
+      "writeup": null,
       "screenshots": [],
       "suggestedShots": []
     },
@@ -147,7 +141,7 @@
         "y": 50
       },
       {
-        "id": "achievements",
+        "id": "achievement",
         "x": 22,
         "y": 76
       },

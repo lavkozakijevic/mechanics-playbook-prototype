@@ -52,17 +52,9 @@
       ]
     },
     {
-      "id": "achievements",
+      "id": "achievement",
       "depth": "supporting",
-      "writeup": {
-        "observed": "Achievements are accessible via Settings → Account → Achievements, which opens Apple Game Center's interface. Named achievement categories: \"High Win Streak\" and \"First Try Wins.\" Both Global and Friends leaderboards are accessible through the same path. Player profile (character avatar and stats) unlocks at level 14. The current player level was not displayed anywhere on screen, making the distance to the level 14 profile unlock uncalculable.",
-        "presented": "Achievements require navigating Settings → Account → Achievements, a three-tap path from the home screen. No achievement progress is visible during normal gameplay. No popup fires when an achievement is earned in-session.",
-        "findings": [
-          "Delegating achievements to Apple Game Center with no in-game surface makes the achievement system effectively invisible during normal play, a player who does not navigate to Settings will not encounter it during Episode 1 or likely beyond.",
-          "The \"High Win Streak\" and \"First Try Wins\" achievement categories are pure match-3 skill metrics, no narrative or restoration-based achievements were described.",
-          "The player profile unlocking at level 14 with no level counter visible creates an unknown unlock horizon, a player cannot know how close they are to the profile without external research."
-        ]
-      },
+      "writeup": null,
       "screenshots": [],
       "suggestedShots": []
     },
@@ -118,7 +110,7 @@
         "role": "The buyer negotiation at episode end is the primary variable-adjacent mechanic: three buyers with concealed offer values, each requiring an accept or reject decision without knowing what comes next."
       },
       {
-        "id": "achievements",
+        "id": "achievement",
         "role": "High Win Streak and First Try Wins achievement categories route entirely through Apple Game Center, invisible during normal play, accessible only via Settings → Account → Achievements."
       },
       {
@@ -143,7 +135,7 @@
         "y": 65
       },
       {
-        "id": "achievements",
+        "id": "achievement",
         "x": 50,
         "y": 65
       },
@@ -163,13 +155,13 @@
       },
       {
         "from": "variable-reward",
-        "to": "achievements",
+        "to": "achievement",
         "title": "Win streaks and first-try wins emerge from level runs",
         "desc": "High Win Streak and First Try Wins are the two achievement categories. Both measure match-3 performance quality. Variable level difficulty means neither is guaranteed.",
         "effect": "Players aware of the streak achievement play more carefully, attending to level quality rather than rushing. The achievement system gives the variable reward surface a second layer of stakes."
       },
       {
-        "from": "achievements",
+        "from": "achievement",
         "to": "leaderboards",
         "title": "Achievement metrics feed the leaderboards",
         "desc": "High Win Streak and First Try Wins are both achievement categories and leaderboard metrics. The same performance tracked for personal achievement is also tracked for competitive ranking.",

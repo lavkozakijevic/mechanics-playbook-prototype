@@ -1,0 +1,37 @@
+{
+  "id": "achievement",
+  "n": "35",
+  "name": "Achievements",
+  "cat": "retention",
+  "tagline": "A defined criterion the system marks as attained once its conditions are satisfied, kept as a standing record apart from whatever activity, count, or score produced it.",
+  "desc": "An achievement is a defined criterion, one action or several combined, that the system evaluates and then marks attained, permanently and apart from whatever count, score, or balance was used to satisfy it. Nothing about the definition requires a badge, a reward, or even advance disclosure of the criterion: what makes it an achievement is that the product records or otherwise recognizes the exact moment a state changes from unattained to attained, and keeps that record standing afterward. The activity that produced it can keep moving without touching the achievement itself, an account level can keep rising, a task count can keep climbing, since the two are tracked as separate facts by design.",
+  "principle": "The record outlives the activity that created it. Whatever produced the achievement can go on changing afterward; the achievement itself stays fixed at the exact moment its criterion was satisfied.",
+  "players": [
+    "achiever",
+    "explorer"
+  ],
+  "warn": "The label is easy to misapply to an ordinary progress display: a rising level, a running score, or a subscription tier reflects current state rather than a recorded attainment, and none of them qualify unless the product separately marks a defined criterion as satisfied and keeps that record standing afterward. The same risk runs the other way: a badge or a celebratory animation is not itself evidence of an achievement without a defined criterion behind it that actually changed from unattained to attained.",
+  "variants": [
+    "Hidden achievement, the criterion is undisclosed until or after it's attained",
+    "Composite achievement, several distinct conditions must be satisfied together rather than one",
+    "Retroactive achievement, the system awards the attained state for qualifying activity that happened before the achievement existed",
+    "Shared achievement, a pair, team, organization, or community collectively satisfies the criterion",
+    "Rewarded achievement, attaining the criterion also grants a separate benefit"
+  ],
+  "lifecycle": "Effective across all lifecycle stages once at least one criterion is defined, since attaining it needs no prior account history. Most consequential once a user holds enough of them that the record itself becomes something worth returning to see.",
+  "paired": [
+    "milestone",
+    "streak",
+    "leaderboards"
+  ],
+  "context": [
+    "activation",
+    "retention"
+  ],
+  "sdt": [
+    "mastery",
+    "competence",
+    "relatedness"
+  ],
+  "visibility": "public"
+}

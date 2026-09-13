@@ -71,18 +71,9 @@
       ]
     },
     {
-      "id": "achievements",
+      "id": "achievement",
       "depth": "supporting",
-      "writeup": {
-        "observed": "The app tracks collection milestones including Coca-Cola scan achievements (1 / 10 / 25 Coke scans), swap milestones, and album completion milestones. All achievements feed the public profile, making collection progress, swap history, and Coca-Cola scan activity visible to other collectors. Completing all Cosmic Stickers unlocks a 100% discount on the digital FIFA World Cup 2026 keepsake album. Reaching 100% album completion triggers a personalized collection recap animation (noted as 'coming soon' at time of analysis).",
-        "presented": "Achievements are visible on the public profile. Deluxe Pack purchase milestones (20 and 25 packs) unlock physical and digital coupons. Completion rewards are disclosed throughout the app.",
-        "findings": [
-          "Coke Scans is a named achievement category with three tiers (1 / 10 / 25 items), making the physical product integration trackable as a named achievement separate from standard collection milestones.",
-          "Completing all Cosmic Stickers unlocks a 100% discount on the digital keepsake album, the most valuable single-item completion reward in the app.",
-          "20 Deluxe Pack purchases unlock a physical print coupon, bridging the digital collection to a physical reward.",
-          "The 100% album completion recap animation was listed as 'coming soon' during analysis, a milestone reward not yet implemented at the time of the session."
-        ]
-      },
+      "writeup": null,
       "screenshots": [],
       "suggestedShots": [
         "The achievements page in the album showing the full grid of named achievement categories with their three-tier structure and earned/unearned badge status"
@@ -130,7 +121,7 @@
         "role": "Opt-in structured objectives tied to real-world events (2022 World Cup winner, hosting countries, team captains). Challenges require stickers to be glued into the album before counting, reinforcing the album as the organizing hub. Challenges are calendar-based rather than recurring weekly, two of three observed had already expired."
       },
       {
-        "id": "achievements",
+        "id": "achievement",
         "role": "Tracks collection milestones including Coca-Cola scan tiers (1 / 10 / 25 scans), swap history, and album completion. Completing all Cosmic Stickers unlocks a 100% discount on the digital keepsake album, the most valuable single-item completion reward in the app."
       }
     ],
@@ -156,7 +147,7 @@
         "y": 56
       },
       {
-        "id": "achievements",
+        "id": "achievement",
         "x": 50,
         "y": 80
       }
@@ -178,14 +169,14 @@
       },
       {
         "from": "daily-login-reward",
-        "to": "achievements",
+        "to": "achievement",
         "title": "Coca-Cola scans are counted achievements",
         "desc": "Scanning a Coca-Cola product grants a daily pack equivalent and advances the Coke Scans achievement tier (1 / 10 / 25 items). The physical scanning behaviour is tracked, milestoned, and rewarded.",
         "effect": "The physical product interaction is integrated into the achievement system, making real-world brand engagement part of the in-app progression. The partnership is measurable, not decorative."
       },
       {
         "from": "challenges",
-        "to": "achievements",
+        "to": "achievement",
         "title": "Challenges surface collection milestones",
         "desc": "Completing challenges (collect team captains, collect host country stickers) aligns with album completion milestones. Both systems point toward the same underlying goal.",
         "effect": "Players pursuing challenges are simultaneously advancing toward album completion milestones. The two systems reinforce each other without requiring separate engagement tracks."

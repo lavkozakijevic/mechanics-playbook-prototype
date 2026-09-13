@@ -6,7 +6,8 @@
     "experience-points",
     "leveling",
     "streak",
-    "achievements"
+    "achievement",
+    "milestone"
   ],
   "visibility": "public"
 }

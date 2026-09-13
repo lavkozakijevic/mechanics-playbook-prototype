@@ -19,7 +19,7 @@
   "lifecycle": "Effective from the very first use, since the material doesn't depend on any account history or accumulated activity. Its actual pull depends on something the product doesn't control: whether the user's underlying difficulty is live enough at that moment to make opening a library feel worth it.",
   "paired": [
     "personal-data-reflection",
-    "achievements",
+    "achievement",
     "set-collection"
   ],
   "context": [

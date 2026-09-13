@@ -30,21 +30,23 @@ export const CAT_LABEL: Record<string, string> = {
   social: "Social",
 };
 
-/** The six site mechanics that fuse two or three entries from the 36-entry
+/** The five site mechanics that fuse two or three entries from the 37-entry
  *  mechanics library under the site's older, coarser taxonomy
  *  (sources/taxonomy-map.md has the full mapping, the per-merge split
- *  condition, and which apps currently carry each one). "ads" was a seventh
+ *  condition, and which apps currently carry each one). "ads" was a sixth
  *  until Advertisement Exposure was retired from the library on 13 Sep
- *  2026, and "xp-leveling" was an eighth until Capybara Go and Clash of
- *  Clans each applied Experience Points and Leveling as distinct v4.1 tags,
- *  clearing the split condition the same day — it split into two clean
- *  one-to-one mappings, experience-points and leveling, and both came out
- *  of this set.
+ *  2026; "xp-leveling" was a seventh until Capybara Go and Clash of Clans
+ *  each applied Experience Points and Leveling as distinct v4.1 tags; and
+ *  "achievements" was an eighth until Clash of Clans and Tiimo each applied
+ *  Achievement and Milestone as distinct v4.1 tags, clearing the split
+ *  condition the same day — each split into two clean one-to-one mappings
+ *  (experience-points/leveling, then achievement/milestone) and both halves
+ *  came out of this set.
  *
  *  Publishing one of their pages would assert a taxonomy the library has
  *  already moved past, which has nothing to do with subscriptions — so this
  *  is deliberately not a visibility distinction. It's unconditional:
- *  independent of each mechanic's own declared visibility (all six are
+ *  independent of each mechanic's own declared visibility (all five are
  *  declared "public", same as everything else) and independent of
  *  REVIEW_WINDOW_OPEN. A "subscriber" declaration would make the page
  *  locked rather than absent once the review window closes, and a
@@ -53,7 +55,7 @@ export const CAT_LABEL: Record<string, string> = {
  *  getStaticPaths directly against this set — the page simply does not
  *  exist until the merge splits, in either window state. */
 export const HELD_BACK_MECHANIC_IDS = new Set([
-  "achievements", "leaderboards", "community-groups",
+  "leaderboards", "community-groups",
   "energy-lives", "season-pass", "variable-reward",
 ]);
 

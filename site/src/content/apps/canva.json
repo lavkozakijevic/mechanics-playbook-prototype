@@ -887,7 +887,7 @@
         "role": "The certification test is a bounded, stated instance, 14 questions, 30 minutes, that can be entered and finished without ever completing the course it certifies. It's the single entry point into everything Design School accumulates."
       },
       {
-        "id": "achievements",
+        "id": "achievement",
         "role": "Passing the test flips a badge from unattained to attained and unlocks a stored certificate. Six further badges, stepping at one, three and five completions, stay greyed out as the next reasons to return, but the record is kept behind the Design School sidebar specifically, not the account area."
       },
       {
@@ -911,7 +911,7 @@
         "y": 30
       },
       {
-        "id": "achievements",
+        "id": "achievement",
         "x": 28,
         "y": 52
       },
@@ -934,13 +934,13 @@
     "connections": [
       {
         "from": "challenges",
-        "to": "achievements",
+        "to": "achievement",
         "title": "The test produces the badge",
         "desc": "Passing the certification test flips a badge from unattained to attained, evaluated the moment the test's stated success condition is met.",
         "effect": "The badge fires directly from the test result, not from any broader course progress, so completing the course itself is not required to receive it."
       },
       {
-        "from": "achievements",
+        "from": "achievement",
         "to": "shareable-win",
         "title": "The same result composes the certificate",
         "desc": "The same passed test that produces the badge also composes a certificate, presented in a second screen immediately after the badge.",

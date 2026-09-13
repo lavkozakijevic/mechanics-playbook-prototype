@@ -12,19 +12,9 @@
   "heroImage": null,
   "mechanics": [
     {
-      "id": "achievements",
+      "id": "achievement",
       "depth": "core",
-      "writeup": {
-        "observed": "Fortune City has 100 named achievements organized into themed groups, accessible via the hamburger menu under Your City. The groups cover behavioral milestones (consecutive tracking days), city progression (prosperity levels, population counts), expense category tracking (Foodie Paradise, Beverage Bay, Shopping Mecca, each scaling from 10 to 100 recorded expenses), ad engagement (Watch Ads to Help the Salesman, 5 to 1,000 watches), social behaviors (City Photographer, sharing photos 5 to 50 times), and cross-app installs (Best Apps, downloading Plant Nanny, To Do Adventure, and other Sparkful titles). Achievement popups appear automatically after triggering actions and can fire in quick succession after a single expense entry.",
-        "presented": "Achievement popups appear as overlay cards with the achievement name, badge, diamond reward, and a share button. The full list is browsable in the Achievements tab, organized by group, with earned badges visually distinct from locked ones. The diamond reward is visible on each card. Two achievements completed in the first session.",
-        "noting": "The achievement system does three jobs simultaneously: it rewards core behavior (expense logging), it rewards platform-beneficial behavior (ad watching, app downloads, social sharing), and it distributes the premium currency (diamonds) that funds citizen recruitment and city themes. The 100-achievement count makes this the most expansive achievement system in the library, large enough that no two users will complete the same subset in the same order.",
-        "findings": [
-          "The Watch Ads to Help the Salesman achievement track (5 to 1,000 watches, ending in Charitable Superstar) is the only achievement system in the library that makes ad watching a named, tiered progression goal.",
-          "The Best Apps achievement group directly rewards downloading other Sparkful titles with diamonds, using the achievement system to drive cross-app installs from the same developer.",
-          "Achievements are the primary free mechanism for earning diamonds, meaning the decision to engage with any achievement is also an economic decision about currency accumulation.",
-          "Multiple achievements can trigger in quick succession after a single expense entry, the first building, the first merge trigger, and the first Mayor Certificate can all fire from one action."
-        ]
-      },
+      "writeup": null,
       "screenshots": [],
       "suggestedShots": [
         "Achievements tab showing Great Habits group (1-day, 3-day, 7-day, 30-day, 90-day consecutive tracking badges) with earned badges lit and unearned grayed, diamond reward amounts visible",
@@ -115,7 +105,7 @@
     "whatMakesItWork": "The system works because every expense record simultaneously advances five parallel systems: builds a city (immediate visual reward), generates coins (economic reward), advances achievements (milestone reward), contributes to Fisher's unlock gate (habit reward), and provides data for the subscription's analytics (utility reward). The single input, recording an expense, produces five outputs across five systems.",
     "roles": [
       {
-        "id": "achievements",
+        "id": "achievement",
         "role": "100 achievements including Watch Ads to Help the Salesman (5 to 1,000 ad watches) and Best Apps (install other Sparkful titles), the achievement system drives both platform-beneficial behavior and player progression simultaneously."
       },
       {
@@ -138,7 +128,7 @@
     },
     "nodes": [
       {
-        "id": "achievements",
+        "id": "achievement",
         "x": 50,
         "y": 30
       },
@@ -160,7 +150,7 @@
     ],
     "connections": [
       {
-        "from": "achievements",
+        "from": "achievement",
         "to": "ads",
         "title": "Achievement track makes ad watching a progression goal",
         "desc": "The Watch Ads to Help the Salesman track scales from 5 to 1,000 watches, ending in Charitable Superstar. Ad watching is the subject of a named, tiered achievement system.",

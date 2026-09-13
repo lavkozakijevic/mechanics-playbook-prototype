@@ -29,19 +29,9 @@
       "suggestedShots": []
     },
     {
-      "id": "achievements",
+      "id": "milestone",
       "depth": "core",
-      "writeup": {
-        "observed": "The same watts that build toward the day's target also cross a threshold Wakeout marks on its own, separately from the number simply climbing. On the first screen after subscribing, we had already met the day's goal: a pop up read \"daily goal achieved,\" with a notification stating \"613 watts, like discovering a new planet, you've conquered your active goal.\" Wakeout had pulled our Apple Health history during onboarding, and our analyst had been moving that day before opening the app, so the credit arrived before we had set eyes on any target. The same crossing also marks a check mark on the home screen bar. A second, higher threshold sits above the first, introduced in onboarding as a super active day and tracked in its own counters alongside the ones for ordinary active days.",
-        "presented": "Crossing the first threshold produces a full screen pop up shown immediately, before we had otherwise opened the app that day. Beyond that single moment, the state is kept quietly: the check mark on the home screen bar, a calendar on the progress screen recording which days were active, and the day-state counters described above.",
-        "noting": "Two different thresholds sit on the same watts total, and only the first one comes with an explanation. Reaching the ordinary goal is celebrated immediately with a name for what happened, while the super active status is only ever a counter and a line of onboarding copy, with no equivalent celebration attached to it. That gap leaves a second goal standing behind the first, visible but undefined, once the one that was explained has already been met.",
-        "findings": [
-          "Crossing the daily goal produces a full screen pop up naming the achievement, distinct from the bar simply filling further.",
-          "A second, higher threshold, called a super active day, sits in the same counters with no explanation attached anywhere in the app.",
-          "The progress screen keeps separate day-state counts for ordinary and super active days, plus the longest streak reached at each level.",
-          "We had already met the threshold on the first screen after subscribing, credited from movement Wakeout had pulled from Apple Health before we set a goal."
-        ]
-      },
+      "writeup": null,
       "screenshots": [],
       "suggestedShots": []
     },

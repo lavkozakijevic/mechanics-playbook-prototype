@@ -6,7 +6,8 @@
   "mechanics": [
     "streak",
     "daily-login-reward",
-    "achievements"
+    "achievement",
+    "milestone"
   ],
   "apps": [
     "wispr-flow",

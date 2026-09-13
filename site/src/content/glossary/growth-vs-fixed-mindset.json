@@ -5,7 +5,8 @@
   "related": [
     "experience-points",
     "leveling",
-    "achievements"
+    "achievement",
+    "milestone"
   ],
   "visibility": "public"
 }

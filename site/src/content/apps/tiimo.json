@@ -934,7 +934,7 @@
     "tagline": "One completed task moves two counters, and everything the product calls progress, retention or social standing is a threshold on one of them.",
     "overview": "Tiimo runs one loop and hangs everything else off it. Completing a task plays a celebration and moves two counters, a lifetime tally of tasks and a streak of days, and those two counters are the only progression the product has. Both feed a single row of named markers on the stats tab, thresholds on one counter or the other, and notifications sit directly on top of the asymmetry between them: the task count can be advanced without limit inside one sitting, while the day count only moves by coming back tomorrow. Monetization runs beside this loop rather than through it, since there's no economy for a purchase to touch, and the social layer is absent by design, with the marker row and an expert knowledge library standing in for the comparison and authority a social layer would otherwise supply.",
     "loop": "The loop runs: complete a task → confetti plays → the task tally and, on a new day, the streak both advance → a threshold is crossed on one of the two counters → a marker unlocks with its own banner and a background color change → the marker stays in the row as a permanent record. Notifications are built around the same two counters rather than around anything else: four time-of-day reminders and a daily review sit on the task tally's bands, while the weekly review and the streak's own banner toggle sit on the day count, the one number in the product that requires a return to move at all. The paid tier sells density and reach around this same loop, more notification timing, an AI assistant, a desktop surface, and most interface themes, without ever touching the loop's two counters directly.",
-    "keyInsight": "Milestone and Achievement resolve to the same marker row because Tiimo never separated the two behaviors the entries describe: crossing a threshold and preserving the record of having crossed it happen on the exact same object at the exact same moment. That fusion is also what makes the streak the single load-bearing dependency in the system: every marker on the day-keyed track, and the sense of standing the whole row supplies in place of a social layer, rests on a continuity rule the product never actually shows operating within a single day.",
+    "keyInsight": "Milestone and Achievement sit on the exact same object at the exact same moment in Tiimo's marker row: crossing a threshold and preserving the record of having crossed it happen together, with nothing in the app separating the two events. That fusion is also what makes the streak the single load-bearing dependency in the system: every marker on the day-keyed track, and the sense of standing the whole row supplies in place of a social layer, rests on a continuity rule the product never actually shows operating within a single day.",
     "whatMakesItWork": "The system needs no wiring between its parts because there's only one loop for anything to attach to. Notifications, the marker row, and even the paid tier's upsells all sit on top of the same two counters rather than requiring a separate connection to each other, so adding a new reminder or a new marker threshold costs the product nothing structurally. The tradeoff runs the same way in reverse: because nothing else is wired into the streak, its continuity rule carries the entire retention side of the product alone, untested by anything else in the system.",
     "roles": [
       {
@@ -942,8 +942,12 @@
         "role": "The day count is the only number in the product that can't be advanced inside a single sitting, since it only moves by returning on a later day. It's announced during onboarding before a full day has passed, and it directly feeds the day-keyed half of the marker row."
       },
       {
-        "id": "achievements",
-        "role": "One merged row of named markers covers two library entries, Milestone's threshold recognition and Achievement's preserved attained state, since both apply to the same markers: named criteria that flip from unattained to attained and stay fixed in place afterward. Every position is a disclosed function of the task tally or the streak day count, nothing is purchasable, and the row supplies the sense of standing the product's absent social layer would otherwise carry."
+        "id": "milestone",
+        "role": "Each row position is a disclosed threshold on the task tally or the streak day count, locked with its exact unlock condition stated until reached."
+      },
+      {
+        "id": "achievement",
+        "role": "The same markers preserve a named, individually designed attained state once crossed, staying fixed in the row afterward and supplying the sense of standing the product's absent social layer would otherwise carry."
       },
       {
         "id": "cosmetics",
@@ -966,9 +970,14 @@
         "y": 32
       },
       {
-        "id": "achievements",
+        "id": "milestone",
         "x": 60,
         "y": 32
+      },
+      {
+        "id": "achievement",
+        "x": 60,
+        "y": 50
       },
       {
         "id": "cosmetics",
@@ -984,7 +993,7 @@
     "connections": [
       {
         "from": "streak",
-        "to": "achievements",
+        "to": "milestone",
         "title": "The day count feeds the marker row",
         "desc": "One of the row's two tracks is keyed directly to the streak day count, so a day maintained crosses the same thresholds the row displays.",
         "effect": "The row's sense of standing depends on the streak's own continuity rule, which a single day of use can't show operating."

@@ -36,14 +36,9 @@
       ]
     },
     {
-      "id": "achievements",
+      "id": "achievement",
       "depth": "supporting",
-      "writeup": {
-        "observed": "The profile screen shows a badge area alongside workouts completed, post count, follower and following counts. Achievement details were not described beyond their presence. A Daily Athlete Score is visible on the profile but requires a subscription to view the full metric. The score implies ongoing performance tracking that accumulates over time.",
-        "findings": [
-          "Gating the Daily Athlete Score behind subscription while showing its existence on the free profile creates a persistent visibility of a metric the user cannot fully access, which is a recurring conversion prompt embedded in the core navigation."
-        ]
-      },
+      "writeup": null,
       "screenshots": [],
       "suggestedShots": []
     },
@@ -85,7 +80,7 @@
         "role": "Challenge leaderboards rank participants by workout completions and performance metrics within the challenge window."
       },
       {
-        "id": "achievements",
+        "id": "achievement",
         "role": "Badge-based milestones for workout completions, challenge participations, and consistency targets."
       },
       {
@@ -119,7 +114,7 @@
         "y": 78
       },
       {
-        "id": "achievements",
+        "id": "achievement",
         "x": 72,
         "y": 78
       }

@@ -2037,7 +2037,7 @@
     "tagline": "A base-building game where town hall level is the spine: nearly everything else is a condition on it, a consequence of it, or a way of reaching it sooner.",
     "overview": "Clash of Clans runs on a single escalating cost curve. The town hall holds a numbered level that gates buildings, troops, spells, heroes, cosmetics, leagues, and the game's own pass, and its upgrade cost rises sharply, from 4,000 gold at level 2 to a stated million by level 7. Three resource routes exist to solve that cost, collectors that fill on their own, raids that take resources from other players, and gems that convert directly into resources, and the game keeps all three open rather than favoring one. What's accumulated is also exposed: resources sit visible to other players until a timed shield runs out, and the same shield is sold in gems and granted automatically after being attacked. A clan, reachable only after repairing a ruined castle, layers a second, socially gated structure on top of the solo loop, including the one surface in the game where another person's decision, not the player's own progress, controls what happens next.",
     "loop": "Collectors fill on their own and raids take resources from other players → both resource types raise storage caps and fund the next town hall upgrade → the upgrade itself runs as a timed construction instance, gated by a prerequisite building checklist as well as its cost → completing it raises the level, unlocking new buildings, troops, and modes, and often a new store pack → the achievement list tracks many of these same events separately, paying its own experience and gems, with account linking paid roughly ten times the going rate of an ordinary criterion → gems, bought for money, convert directly into the same resources raiding produces or end any wait immediately → a rebuilt clan castle opens a second, social layer, donation, wars, a war-scoped leaderboard, and a shared clan capital, run on its own multi-day cycles → reaching town hall 7 opens a season pass that prices its rewards against the village, the second village, and the clan all at once.",
-    "keyInsight": "The town hall level is not one mechanic among several, it's the thing every other mechanic in the system is either feeding, gating, or pricing. Resources exist to pay its cost. Construction exists to run its upgrade. Achievements exist to restate its milestones. The clan and the pass both wait behind specific levels of it. Nothing else in the product has to justify its own presence the way the town hall does; everything else justifies its presence by pointing back at it.",
+    "keyInsight": "The town hall level is not one mechanic among several, it's the thing every other mechanic in the system is either feeding, gating, or pricing. Resources exist to pay its cost. Construction exists to run its upgrade. The achievement list restates its progress and the trophy leagues recognize battle wins earned along the way. The clan and the pass both wait behind specific levels of it. Nothing else in the product has to justify its own presence the way the town hall does; everything else justifies its presence by pointing back at it.",
     "whatMakesItWork": "Because the town hall's cost curve is the one problem every system in the game claims to solve, none of the individual systems has to work hard to feel necessary: collecting, raiding, and buying gems are three answers to the same question asked at increasing scale, and the achievement list, the clan, and the pass all attach their own rewards to the same escalating target rather than competing with it for the player's attention.",
     "roles": [
       {
@@ -2061,8 +2061,12 @@
         "role": "A persistent group reachable only after a specific building is repaired, holding its own treasury, war record, and clan capital; membership adds troop donation, a two-day war cycle, and the only gate in the game controlled by another person's decision rather than the player's own progress."
       },
       {
-        "id": "achievements",
+        "id": "achievement",
         "role": "A separately tracked, separately rewarded list that restates many of the same progression events, town hall levels, unlocked units, clan participation, and pays one criterion, linking an external account, at roughly ten times the rate of an ordinary one."
+      },
+      {
+        "id": "milestone",
+        "role": "Trophy leagues in both villages recognize named tiers crossed by winning battles, skeleton to legend at home and wood to diamond in the second village, each tier paying a larger bonus than the last."
       },
       {
         "id": "season-pass",
@@ -2101,9 +2105,14 @@
         "y": 72
       },
       {
-        "id": "achievements",
+        "id": "achievement",
         "x": 50,
         "y": 72
+      },
+      {
+        "id": "milestone",
+        "x": 50,
+        "y": 90
       },
       {
         "id": "season-pass",
@@ -2141,7 +2150,7 @@
         "effect": "The spine of the whole game is subject to the same builder-slot and timer mechanics as any ordinary building."
       },
       {
-        "from": "achievements",
+        "from": "achievement",
         "to": "clans-guilds",
         "title": "The achievement list pushes toward the clan castle repair",
         "desc": "One criterion requires requesting reinforcements, reachable only after joining a clan, sitting beside account linking, the highest-paying criterion by far.",

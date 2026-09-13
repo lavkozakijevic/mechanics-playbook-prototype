@@ -11,8 +11,8 @@ originally wrote up together on one page, because at the time nothing
 forced the distinction. Energy and Lives are both "what happens when
 attempts run out"; Season Content Pass and Seasonal Progression Pass are
 both battle-pass shapes; Achievement and Milestone are both permanent
-progress markers. Six site mechanics carry this kind of fused writing
-today, together covering two or three library entries apiece.
+progress markers. Five site mechanics still carry this kind of fused
+writing today, together covering two or three library entries apiece.
 
 Splitting a merged page is not a formatting exercise. The existing prose
 leans on whichever side of the merge the original app analyses actually
@@ -48,7 +48,8 @@ mappings were empirically forced versus reasoned out, which is what
 | daily-weekly-quests | Daily / Weekly Quests | confirmed |
 | set-collection | Set Collection | inferred |
 | limited-time-events | *(none — see "Site mechanics with no library entry" below)* | — |
-| achievements | Achievement, Milestone | confirmed |
+| achievement | Achievement | confirmed |
+| milestone | Milestone | confirmed |
 | challenges | Challenge | confirmed |
 | experience-points | Experience Points | confirmed |
 | leveling | Leveling | confirmed |
@@ -88,13 +89,17 @@ and `leveling` on 13 Sep 2026 (see "The xp-leveling split" below), a
 one-into-two split that adds one to the total while removing one merge.
 Both new mechanics are clean, one-to-one mappings and neither is held back.
 
-## The six merged mechanics (split deferred)
+One more than the count above states, not one fewer — `achievements`
+split into `achievement` and `milestone` on 13 Sep 2026 (see "The
+achievements split" below), the same one-into-two shape as the
+xp-leveling split. Both new mechanics are clean, one-to-one mappings and
+neither is held back. This document's own running count was already out
+of date before this split (two more recent library-grounded additions,
+Shareable Win and Expert Guidance, aren't in the table above at all yet);
+this note corrects only what the achievements split itself changes,
+not that separate gap.
 
-**achievements** — Achievement, Milestone. The two are treated as
-synonyms, not distinguished: *"Each completed milestone is a named,
-permanent record of accomplishment"* uses "milestone" as the definition of
-what an achievement is. Splitting means deciding a distinction the current
-text doesn't draw, not dividing existing text.
+## The five merged mechanics (split deferred)
 
 **leaderboards** — Leaderboard, Comparative Rank. The tagline is pure
 list-framing (*"a ranked list... publicly comparable"*), but the
@@ -212,6 +217,83 @@ redirect would assert that one of the two new pages is "the same content
 at a new address," which isn't true of either — the page didn't move, it
 split into two different things.
 
+## The achievements split (13 Sep 2026)
+
+`achievements` split into two clean, one-to-one mechanics: `achievement`
+(Achievement) and `milestone` (Milestone). The split condition fired on
+real evidence: Clash of Clans and Tiimo each apply Achievement and
+Milestone as separate, independently-evidenced tags under the current
+(v4.1) model — Clash of Clans' analysis carries the achievement list and
+trophy leagues as distinct observations under distinct tags, and Tiimo's
+carries its marker row tagged with both, the badge state and the
+threshold recognition landing on the exact same object at the exact same
+moment. Two apps meeting the condition independently is what moved both
+mappings from *inferred* to *confirmed* in the table above.
+
+The old fused page treated the two as synonyms rather than separating
+them (*"Each completed milestone is a named, permanent record of
+accomplishment"* uses "milestone" to define what an achievement is), so
+the two new pages were written fresh against each library entry's own
+definition rather than divided from the old prose (both entries were
+shown for review before writing, including the reasoning for which of
+each library entry's 16 variants earned a page). Both new mechanics carry
+the old fused entry's app list unchanged, since re-deriving which of the
+19 already-listed apps exhibited which specific concept would mean
+re-reading each analysis, which is out of scope for an id split; it
+resolves the same way the xp-leveling split's app list did, as each app
+is re-run.
+
+19 older v3 analysis files still carry the literal `achievements` inline
+id in a `### Achievements (\`achievements\`) · Depth` heading,
+unrewritten: calm, gymverse, ladder, fc-mobile, liftoff, swgoh,
+freeletics, uptime, fiton, fortune-city, match-creek-motors,
+fifa-panini-collection, and subway-surfers resolve to `achievement`;
+insight-timer, chrome-valley-customs, acorns, royal-match, wispr-flow, and
+solitaire-grand-harvest resolve to `milestone`. Each was decided from that
+file's own observed text (a discrete criterion preserved once satisfied,
+apart from whatever activity produced it, versus a recognized point within
+an ongoing measure), and is handled by a per-app entry in `REMAPS`
+(`site/scripts/convert-content.mjs`) rather than by editing the analysis
+files. Several of the 19 describe both shapes at once (fc-mobile, uptime,
+fifa-panini-collection); the remap follows whichever framing the file's
+own words lead with, since REMAPS can only carry one id per app per
+heading. Without it, any of the 19 would throw "unknown mechanic
+achievements" the moment the id stopped being registered.
+
+Strava's and Wakeout's analyses were not among the 19: both use the
+reviewed canonical-name heading form (`### Milestone · ...`, `###
+Achievement · ...`) rather than the inline id, resolved through
+`CANONICAL_MECHANIC_IDS` directly. This incidentally fixes a live bug
+rather than just avoiding a new one: Strava's analysis carries both
+headings, and because both collapsed onto the single id `achievements`
+before this split, the parser's own dedupe silently dropped whichever one
+it saw second — Strava's Achievement evidence was being discarded on the
+published page. Splitting the map recovers it with no other change
+needed. Neither Clash of Clans, Canva, Tiimo, Capybara Go, Dave, nor Cleo
+appears in `REMAPS` for this split — all six are v4.1 and never reach the
+v3 parsing path at all; Canva applies Achievement only (no Milestone),
+and Capybara Go applies Milestone only (no Achievement), per each app's
+own v4.1 tags.
+
+A separate, longstanding bug surfaced while tracing this split rather
+than being caused by it: the per-app `suggestedShots` (screenshot
+suggestions parsed from an analysis file's own bracketed text) were being
+looked up by the post-remap id, while they're stored keyed by the file's
+literal pre-remap heading id — silently returning empty for every
+remapped app, the same failure mode the xp-leveling split's own comments
+already named but didn't fix. Fixed in the same pass by keeping the
+original id alongside the remapped one specifically for that lookup
+(`site/scripts/convert-content.mjs`). The composite-keyed `RICH_DESCRIPTIONS`
+and `SCREENSHOTS` entries (`data.js`, keyed `achievements_<app>`) are a
+different, larger gap left deliberately alone: those need the fused prose
+itself rewritten per app, not just a lookup key changed, and that's what
+each app's own v4.1 re-run handles.
+
+The old `/mechanics/achievements/` URL 404s rather than redirects, for the
+same reason as `/mechanics/xp-leveling/`: the page didn't move, it split
+into two different things, and neither successor is "the same content at
+a new address."
+
 ## When each merge splits
 
 A merged page splits when at least two apps analysed under the current
@@ -224,29 +306,22 @@ alone, without real implementations to draw the dividing line from, would
 produce two new pages that get rewritten again the moment real evidence
 arrives. Two independent v4.1 observations turn the split into a lookup
 against actual analysis rather than a guess. Each pair unlocks on its own
-evidence — the six do not move together.
+evidence — the five do not move together.
 
 As of this document, one app analysed under the current model, Capybara
-Go, carries several of the six merged ids — Milestone (achievements),
-Leaderboard (leaderboards), Energy (energy-lives), Seasonal Progression
-Pass (season-pass), and both Loot Box and Variable Reward Outcome
-(variable-reward) — but none of the six has cleared its split condition
+Go, carries several of the remaining five merged ids — Leaderboard
+(leaderboards), Energy (energy-lives), Seasonal Progression Pass
+(season-pass), and both Loot Box and Variable Reward Outcome
+(variable-reward) — but none of the five has cleared its split condition
 yet, since that needs two apps each independently carrying both sides
 distinctly. Capybara Go carries both sides of variable-reward alone (Loot
 Box and Variable Reward Outcome as separate, independently-evidenced
 tags), so that merge needs exactly one more v4.1 app doing the same to
-split; the other five merges have only one side evidenced by Capybara Go
+split; the other four merges have only one side evidenced by Capybara Go
 so far. Every other occurrence below is from the old (v3) model, and none
 of it counts toward the threshold; it is recorded here so that checking
 progress, once v4.1 re-analysis reaches these apps, is a lookup rather
 than a recount.
-
-**achievements** (Achievement, Milestone) — 25 apps: capybara-go (v4.1,
-Milestone only), and 24 more, all v3: acorns, calm, canva,
-chrome-valley-customs, clash-of-clans, fc-mobile, fifa-panini-collection,
-fiton, fortune-city, freeletics, gymverse, insight-timer, ladder, liftoff,
-match-creek-motors, royal-match, solitaire-grand-harvest, strava,
-subway-surfers, swgoh, tiimo, uptime, wakeout, wispr-flow.
 
 **leaderboards** (Leaderboard, Comparative Rank) — 11 apps: capybara-go
 (v4.1, Leaderboard only), and 10 more, all v3: chrome-valley-customs,
@@ -274,8 +349,8 @@ solitaire-grand-harvest, subway-surfers, swgoh.
 
 ## Visibility, pending the split
 
-This is deliberately not a visibility distinction. All 31 mechanics,
-including the six merged ones, carry declared visibility `public` — the
+This is deliberately not a visibility distinction. All mechanics,
+including the five still-merged ones, carry declared visibility `public` — the
 same as before this work. Publishing a merged page would assert a taxonomy
 the library has already moved past, which has nothing to do with
 subscriptions: declaring a merge `subscriber` instead would only make its
@@ -285,21 +360,21 @@ subscriber read a page that isn't supposed to exist at all yet (an earlier
 draft of this work made exactly that mistake and was corrected before
 shipping).
 
-Instead, the six merged mechanics are excluded outright from
+Instead, the five merged mechanics are excluded outright from
 `getStaticPaths` in `mechanics/[id].astro`, against `HELD_BACK_MECHANIC_IDS`
-(`site/src/lib/content.ts`) — a plain set of the six ids, unconditional
+(`site/src/lib/content.ts`) — a plain set of the five ids, unconditional
 and independent of both each mechanic's own declared visibility and of
 `REVIEW_WINDOW_OPEN`. The page does not exist, in either window state,
 until the merge clears the split condition above; verified directly by
 building with the window both open and closed and confirming zero links to
-any of the six in either output. Real gating (a locked page like
+any of the five in either output. Real gating (a locked page like
 subscriber apps and case studies get) was considered and rejected: it's
 auth-adjacent work that would be discarded the moment a merge splits and
 both sides go public, and shipping the pages live-but-unlinked would leave
 the fused content readable at its direct URL regardless — exactly what
 holding them back is meant to avoid.
 
-Every other page that can reference one of the six (the 27 v3 case
+Every other page that can reference one of the five (the 27 v3 case
 studies, the mechanics index, paired-mechanic sidebars on glossary and
 cheatsheet pages, the homepage's featured-mechanics strip, v4.1 case study
 tag chips and system-map nodes) resolves its href through the same shared
@@ -362,7 +437,7 @@ six renames established a blanket rule that site names should always match
 library names — they don't; each of the eight was judged on its own name,
 not on a rule that public copy must track the library's taxonomy.
 
-The six held-back merged mechanics (`achievements`, `leaderboards`,
+The five held-back merged mechanics (`leaderboards`,
 `community-groups`, `energy-lives`, `season-pass`, `variable-reward`) keep
 their current names for now. `ads` came out of this set on 13 Sep 2026
 when Advertisement Exposure was retired, but its name was not revisited as

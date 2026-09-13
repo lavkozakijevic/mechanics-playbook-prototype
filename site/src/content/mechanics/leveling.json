@@ -21,7 +21,7 @@
   "lifecycle": "Effective across all lifecycle stages once at least two ordered states exist. Most consequential once the user has enough history for a level change, an advancement or a demotion, to actually be visible.",
   "paired": [
     "experience-points",
-    "achievements",
+    "milestone",
     "leaderboards"
   ],
   "context": [

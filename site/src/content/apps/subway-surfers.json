@@ -99,18 +99,9 @@
       ]
     },
     {
-      "id": "achievements",
+      "id": "achievement",
       "depth": "supporting",
-      "writeup": {
-        "observed": "The score multiplier is the primary progression axis, increasing permanently with mission completion. The multiplier also gates content: multiplier 4 unlocks quests, multiplier 7 unlocks collections. A $4.99 bundle instantly adds 5 levels. The 20-login calendar milestone (Freebird hoverboard) functions as a long-horizon achievement requiring consistent daily return.",
-        "presented": "The score multiplier displays on the home screen and on the pre-run screen. Mission progress is shown in the missions tab. The 20-login calendar milestone is visible on the login calendar at any time.",
-        "findings": [
-          "The score multiplier permanently increases with mission completion, a persistent account-level progression stat that compounds across every session.",
-          "Multiplier levels gate content: level 4 unlocks quests, level 7 unlocks collections, making multiplier progression a prerequisite for full game access.",
-          "A $4.99 bundle adds 5 multiplier levels instantly, creating a direct purchase path to content gated behind progression.",
-          "Top Run weekly leaderboard ranks players by highest run score, making multiplier level a competitive advantage in the weekly ranking."
-        ]
-      },
+      "writeup": null,
       "screenshots": [],
       "suggestedShots": []
     },
@@ -186,7 +177,7 @@
         "role": "Characters and hoverboards accessible through coins, keys, event currencies, direct purchase, or friend-adding bonuses. No single acquisition path dominates, the catalogue is accessible at multiple spend levels. Boombot unlocks on any purchase, making the cosmetics catalogue the first visible benefit of becoming a paying player."
       },
       {
-        "id": "achievements",
+        "id": "achievement",
         "role": "The score multiplier increases permanently with mission completion, gating content (multiplier 4: quests, multiplier 7: collections) and scaling all downstream rewards. It is the only long-horizon progression axis in a game without a character level or XP system."
       }
     ],
@@ -217,7 +208,7 @@
         "y": 80
       },
       {
-        "id": "achievements",
+        "id": "achievement",
         "x": 70,
         "y": 80
       }
@@ -232,7 +223,7 @@
       },
       {
         "from": "ads",
-        "to": "achievements",
+        "to": "achievement",
         "title": "Ad watching advances the score multiplier",
         "desc": "Daily tasks including ad watching contribute to mission completion. Missions advance the score multiplier. The multiplier is the primary long-horizon progression axis in the game.",
         "effect": "Ad engagement contributes to the game's only meaningful progression system, giving regular ad watchers a concrete advancement rationale that goes beyond the immediate reward."
@@ -252,7 +243,7 @@
         "effect": "Players who are motivated by cosmetics rather than scores have an intrinsic reason to keep running, each run might advance their target character's token count. Variable reward and cosmetics share the same delivery mechanism."
       },
       {
-        "from": "achievements",
+        "from": "achievement",
         "to": "variable-reward",
         "title": "Multiplier scales card pack quality",
         "desc": "The score multiplier increases gem yield, which funds card pack pulls. A higher multiplier means more and better variable reward outcomes per session.",

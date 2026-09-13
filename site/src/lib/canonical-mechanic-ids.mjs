@@ -4,8 +4,12 @@
  * mechanic id. This is the single source of truth for that mapping —
  * sources/taxonomy-map.md records the full reasoning per entry, including
  * which of these were forced by real analysis usage versus reasoned out from
- * the library entry's own definition, and the six site mechanics that fuse
- * two or three library entries under the site's older taxonomy.
+ * the library entry's own definition, and the five site mechanics that still
+ * fuse two or three library entries under the site's older taxonomy
+ * ("achievements" was a sixth until Clash of Clans and Tiimo each applied
+ * Achievement and Milestone as separate v4.1 tags, clearing the split
+ * condition on 13 Sep 2026 — it split into achievement and milestone, two
+ * clean one-to-one mappings, the same way xp-leveling split earlier).
  *
  * Plain .mjs with no astro:content dependency so both the Node conversion
  * script (convert-content.mjs) and the Astro/TS template layer (v41.ts,
@@ -27,9 +31,12 @@ export const CANONICAL_MECHANIC_IDS = {
   // This library carries one ranking entry; the analysis separates the ordered
   // list from the user's own standing. Both are written up under leaderboards.
   "Comparative Rank": "leaderboards",
-  // This library's entry is "Achievements / Milestones" and covers both.
-  "Milestone": "achievements",
-  "Achievement": "achievements",
+  // Split 13 Sep 2026 (sources/taxonomy-map.md): Clash of Clans and Tiimo
+  // each apply Achievement and Milestone as separate, independently
+  // evidenced v4.1 tags, clearing the split condition. Each now resolves to
+  // its own site mechanic rather than both collapsing onto "achievements".
+  "Milestone": "milestone",
+  "Achievement": "achievement",
   "Group Membership": "community-groups",
   // Wakeout's analysis classifies Wake Out Watts as "Experience Points",
   // which is now this entry's own site mechanic directly — no translation

@@ -75,20 +75,10 @@
       ]
     },
     {
-      "id": "achievements",
+      "id": "milestone",
       "depth": "supporting",
       "provisionalDepth": true,
-      "writeup": {
-        "observed": "Milestone thresholds: 7 consecutive days (first milestone), 50 non-consecutive days, 1 milestone, 5 milestones, 25 milestones, 100 milestones. Each milestone unlock triggers a 'you've unlocked a gift' screen framing the reward as something the user earned. The trial extension at the first milestone extends from 7 to 30 days. Stats accumulate permanently: total sessions, total minutes, milestones count, longest streak.",
-        "presented": "Milestones appear in the streak detail screen. Each achievement triggers a 'gift you've unlocked' screen. The full stats history is visible in the profile sidebar.",
-        "noting": "The trial extension at the first milestone is the most structurally sophisticated achievement design in the library, it rewards reaching a milestone with more time inside the product, making the achievement's value inseparable from continued engagement. The 'gift' framing uses reciprocity rather than reward language.",
-        "findings": [
-          "The first milestone (7 consecutive days) triggers a trial extension from 7 to 30 days, the achievement reward is more product access, making continued engagement the most natural next action.",
-          "The 'gift you've unlocked' framing uses reciprocity language rather than reward language, positioning the extension as a gift from the app rather than a mechanical bonus.",
-          "Stats accumulate permanently across all session types, the achievement layer covers every use case rather than a single content type.",
-          "Widget installation prompts are framed with a stated behavioral rationale rather than a feature description, 'you're more likely to be consistent' rather than 'install the widget.'"
-        ]
-      },
+      "writeup": null,
       "screenshots": [],
       "suggestedShots": [
         "Streak screen showing the milestones ladder — 7 consecutive days / 50 non-consecutive days / 1 milestone / 5 milestones / 25 milestones / 100 milestones — with the current 0 milestones state"
@@ -126,7 +116,7 @@
         "role": "The daily retention spine. Displayed as a flower icon on the home screen, tracking consecutive days. The goal was set by the user during onboarding (3–10 days), making the streak a self-made commitment rather than an app-imposed requirement. The 'I'm committed' button after each session reinforces this framing."
       },
       {
-        "id": "achievements",
+        "id": "milestone",
         "role": "Milestone thresholds at 7 consecutive days, 50 non-consecutive days, then escalating milestone counts. The first milestone (7 days) triggers a trial extension from 7 to 30 days, framed as 'a gift you've unlocked.' The achievement reward is more product time, making continued engagement the most natural next action."
       },
       {
@@ -154,7 +144,7 @@
         "y": 30
       },
       {
-        "id": "achievements",
+        "id": "milestone",
         "x": 22,
         "y": 55
       },
@@ -177,7 +167,7 @@
     "connections": [
       {
         "from": "streak",
-        "to": "achievements",
+        "to": "milestone",
         "title": "Day 7 streak triggers the first gift",
         "desc": "The first milestone (7 consecutive days) triggers a trial extension from 7 to 30 days, framed as a gift the user unlocked. The achievement reward is more product time, the most relevant possible prize for a user building a meditation habit.",
         "effect": "The first milestone creates a moment where the user's commitment is explicitly recognized and rewarded with exactly what they need: more time to develop the habit the streak is tracking."
@@ -191,7 +181,7 @@
       },
       {
         "from": "challenges",
-        "to": "achievements",
+        "to": "milestone",
         "title": "Commitment prompt leads to milestone",
         "desc": "The 'I'm committed' behavioral commitment after session 1 establishes an expectation. The achievement at day 7 fulfills it. The arc from commitment to recognition is contained within the first week.",
         "effect": "The system creates a complete emotional arc, set goal, commit, return, achieve, within the first week of use. Users who complete this arc have a qualitatively different relationship with the app than those who don't."
@@ -204,7 +194,7 @@
         "effect": "Users who engage with the counter are primed to discover that the community infrastructure exists. The number creates curiosity about who those people are, making the hidden groups section a discovery worth seeking."
       },
       {
-        "from": "achievements",
+        "from": "milestone",
         "to": "social-feed",
         "title": "Milestone sharing distributes the achievement",
         "desc": "Streak milestones generate pre-formatted Instagram Stories and messaging shares. The achievement's social distribution is designed into the sharing UI.",

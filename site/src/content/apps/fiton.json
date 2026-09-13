@@ -12,15 +12,9 @@
   "heroImage": null,
   "mechanics": [
     {
-      "id": "achievements",
+      "id": "achievement",
       "depth": "core",
-      "writeup": {
-        "observed": "The profile tab contains dozens of browsable badges organized in a grid, accessible after one completed workout. The scale was notable in the session: \"dozens and dozens and dozens and dozens of badges.\" A post-workout shareable graphic showing muscle groups and calories burned functions as a completion marker that can be shared externally. Before-and-after photo upload is co-located with the badge display on the profile screen.",
-        "findings": [
-          "Mandatory workout rating before continuing means the achievement system is seeded by a gate that cannot be bypassed, ensuring completion data is always captured.",
-          "The scale of the badge catalogue communicates a long engagement arc from the very first session, even before the user has earned any of them."
-        ]
-      },
+      "writeup": null,
       "screenshots": [],
       "suggestedShots": [
         "Profile tab showing the workout count, calorie summary, activity calendar, and the badge grid with multiple unlocked badges visible after one completed session"
@@ -94,7 +88,7 @@
     "whatMakesItWork": "The free tier is genuinely free with no time limit and unlimited workouts. The community groups selected during onboarding create a social investment before the user has done anything, making the app feel established from the first session rather than empty.",
     "roles": [
       {
-        "id": "achievements",
+        "id": "achievement",
         "role": "Dozens of badges browsable by category in the profile tab, with the catalogue visible after one completed workout."
       },
       {
@@ -126,7 +120,7 @@
         "y": 36
       },
       {
-        "id": "achievements",
+        "id": "achievement",
         "x": 22,
         "y": 62
       },
@@ -151,7 +145,7 @@
       },
       {
         "from": "streak",
-        "to": "achievements",
+        "to": "achievement",
         "title": "CR Streak milestones unlock named badges",
         "desc": "Streak milestones appear as achievement categories in the profile badge catalogue alongside workout count, calorie, and exercise-type badges.",
         "effect": "The streak produces two outputs simultaneously: a maintained counter and progress toward a badge threshold."

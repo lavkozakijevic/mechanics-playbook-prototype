@@ -37,19 +37,9 @@
       ]
     },
     {
-      "id": "achievements",
+      "id": "milestone",
       "depth": "supporting",
-      "writeup": {
-        "observed": "Two achievement-adjacent surfaces were observed. The word count milestone: after crossing 500 words dictated, the speaking speed stat (words per minute) unlocks on the home screen, accompanied by a percentile ranking, 'top 2% of all Flow users', at 674 words dictated during analysis. The session also displayed '674 words, you've written 13 postcards,' translating the raw word count into a real-world equivalence anchor.",
-        "presented": "The milestone is previewed in advance as a progress prompt: '276 more words to unlock your speaking speed.' After crossing the threshold, the stat appears on the home screen card alongside the day streak. The percentile ranking appears as a named comparative result, not a badge.",
-        "noting": "The user didn't enter a competition, they just used the product. After crossing 500 words, a percentile ranking appeared that positioned their speaking speed favorably among all users. This is a social comparison metric delivered passively through usage, rewarding engagement with a flattering comparative signal without requiring any deliberate performance.",
-        "findings": [
-          "The 'top 2% of all Flow users' percentile emerges from hitting a word-count threshold during normal use, not from any competitive entry, a social comparison delivered passively.",
-          "The '13 postcards' framing converts a raw word count into a tangible real-world equivalent, making the metric feel meaningful without requiring the user to understand word-count norms.",
-          "Two onboarding bugs were observed: the test dictation breaking on scroll, and the settings screen opening multiple times in the navigation stack, friction points at the point of first use.",
-          "Privacy is asserted early then complicated mid-onboarding, 'we never store or sell what you say' appears before a later opt-in screen for sharing audio and transcripts for model training."
-        ]
-      },
+      "writeup": null,
       "screenshots": [],
       "suggestedShots": [
         "Home screen word count card showing \"674 words dictated — you've written 13 postcards\" alongside the 129 wpm card with \"top 2% of all Flow users\" label"
@@ -75,7 +65,7 @@
         "role": "Framed as a product improvement mechanism ('so Flow can adapt to you') rather than a retention incentive, the only streak in the library with a stated functional justification rather than a behavioral one."
       },
       {
-        "id": "achievements",
+        "id": "milestone",
         "role": "The 500-word milestone unlocks a speaking speed stat and a percentile ranking delivered passively through normal use, a social comparison metric that appears as a discovered fact about the user rather than a pursued achievement."
       }
     ],
@@ -91,7 +81,7 @@
         "y": 58
       },
       {
-        "id": "achievements",
+        "id": "milestone",
         "x": 68,
         "y": 58
       }
@@ -99,13 +89,13 @@
     "connections": [
       {
         "from": "streak",
-        "to": "achievements",
+        "to": "milestone",
         "title": "Five days unlocks the ranking",
         "desc": "The streak's stated purpose, dictate for five days so Flow can adapt, coincides with the 500-word threshold where the speaking speed stat and percentile ranking unlock.",
         "effect": "The streak and the milestone reward are aligned. Completing the streak produces the achievement, making the functional justification and the reward arrive at the same moment."
       },
       {
-        "from": "achievements",
+        "from": "milestone",
         "to": "streak",
         "title": "Percentile ranking reinforces streak continuation",
         "desc": "The 'top 2% of all Flow users' percentile delivered passively at 500 words frames the user as already exceptional, which strengthens motivation to maintain the streak.",

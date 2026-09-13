@@ -862,15 +862,50 @@ const ADDITIONS = {
 // analysis already uses the reviewed canonical name "Experience Points"
 // rather than the inline id, which resolves through
 // CANONICAL_MECHANIC_IDS directly.
+// achievements split into achievement and milestone on 13 Sep 2026
+// (sources/taxonomy-map.md), the same day and for the same reason as the
+// xp-leveling split above: Clash of Clans and Tiimo each applied Achievement
+// and Milestone as separate, independently evidenced v4.1 tags, clearing the
+// split condition. 19 v3 files still carry the old inline id in a
+// "### Achievements (`achievements`) · Depth" heading and were not
+// rewritten — remapped here instead, decided from each file's own observed
+// text using the same test the library entries draw: Achievement is a
+// discrete criterion preserved once satisfied, apart from whatever activity
+// produced it (a badge, a medal, a claimable reward); Milestone is a
+// recognized point within an ongoing measure (a threshold ladder, a level
+// crossing, a named stage). Several of these files describe both shapes at
+// once (fc-mobile, uptime, fifa-panini-collection); the remap follows
+// whichever framing the file's own words lead with, since one file can only
+// remap to one id. Neither clash-of-clans, canva, tiimo, capybara-go, dave,
+// nor cleo appears below: all six are v4.1 and never reach this path.
+//   -> achievement: calm, gymverse, ladder, fc-mobile, liftoff, swgoh,
+//      freeletics, uptime, fiton, fortune-city, match-creek-motors,
+//      fifa-panini-collection, subway-surfers.
+//   -> milestone: insight-timer, chrome-valley-customs, acorns, royal-match,
+//      wispr-flow, solitaire-grand-harvest.
 const REMAPS = {
   "clash-of-clans": { "xp-leveling": "leveling" },
-  "fc-mobile": { "xp-leveling": "leveling" },
-  "freeletics": { "xp-leveling": "leveling" },
-  "gymverse": { "xp-leveling": "leveling" },
-  "liftoff": { "xp-leveling": "leveling" },
-  "solitaire-grand-harvest": { "xp-leveling": "experience-points" },
+  "fc-mobile": { "xp-leveling": "leveling", "achievements": "achievement" },
+  "freeletics": { "xp-leveling": "leveling", "achievements": "achievement" },
+  "gymverse": { "xp-leveling": "leveling", "achievements": "achievement" },
+  "liftoff": { "xp-leveling": "leveling", "achievements": "achievement" },
+  "solitaire-grand-harvest": { "xp-leveling": "experience-points", "achievements": "milestone" },
   "steam": { "xp-leveling": "experience-points" },
   "tiimo": { "xp-leveling": "experience-points" },
+  "calm": { "achievements": "achievement" },
+  "ladder": { "achievements": "achievement" },
+  "swgoh": { "achievements": "achievement" },
+  "uptime": { "achievements": "achievement" },
+  "fiton": { "achievements": "achievement" },
+  "fortune-city": { "achievements": "achievement" },
+  "match-creek-motors": { "achievements": "achievement" },
+  "fifa-panini-collection": { "achievements": "achievement" },
+  "subway-surfers": { "achievements": "achievement" },
+  "insight-timer": { "achievements": "milestone" },
+  "chrome-valley-customs": { "achievements": "milestone" },
+  "acorns": { "achievements": "milestone" },
+  "royal-match": { "achievements": "milestone" },
+  "wispr-flow": { "achievements": "milestone" },
 };
 // Strava's unrecognized "hard-currency" section is about the subscription
 // model and explicitly says it does NOT map to hard currency — exclude it
@@ -1281,8 +1316,14 @@ for (const entry of ALL_APPS) {
   const a = parseAnalysisV3(entry.file);
   const v44 = APPS.find((x) => x.id === entry.id) ?? null;
 
-  // relationship set
-  const rels = a.observed.map((r) => ({ ...r, id: REMAPS[entry.id]?.[r.id] ?? r.id }));
+  // relationship set. originalId is kept alongside the remapped id
+  // specifically for the a.shots lookup below: a.shots is populated by
+  // parseAnalysisV3 keyed on the file's own literal heading id, before any
+  // REMAPS translation, so looking it up by the post-remap id (as this used
+  // to) silently came back empty for every remapped app the moment a split
+  // (xp-leveling, then achievements) took effect — the suggested-screenshot
+  // text was still sitting under the old id and nothing ever found it again.
+  const rels = a.observed.map((r) => ({ ...r, originalId: r.id, id: REMAPS[entry.id]?.[r.id] ?? r.id }));
   for (const add of ADDITIONS[entry.id] ?? []) {
     if (!rels.some((r) => r.id === add.id)) rels.push(add);
   }
@@ -1316,7 +1357,7 @@ for (const entry of ALL_APPS) {
         ...(r.note ? { note: r.note } : {}),
         writeup,
         screenshots: registered.map((p) => ({ src: "/" + p.src, caption: p.caption })),
-        suggestedShots: (a.shots[r.id] ?? []).slice(0, 3),
+        suggestedShots: (a.shots[r.originalId ?? r.id] ?? []).slice(0, 3),
       };
     });
 

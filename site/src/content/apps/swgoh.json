@@ -121,16 +121,9 @@
       "suggestedShots": []
     },
     {
-      "id": "achievements",
+      "id": "achievement",
       "depth": "supporting",
-      "writeup": {
-        "observed": "Achievements appear as a subtab in the Quests section unlocking at player level 5. Five achievements were claimable at first discovery. Each achievement provides specific rewards (gear, credits, items) with individual claim buttons. The session noted the achievements interface \"routes through Apple Game Center.\" The guide introduced achievements: \"you unlocked achievements, gain gear, credits and other valuable items each time you complete an achievement.\"",
-        "findings": [
-          "Achievements appear in the Quests tab as a native subtab (not requiring a separate navigation path), more visible than Match Creek Motors' Settings → Account → Achievements routing, though still Apple Game Center-backed.",
-          "Five achievements were claimable at first discovery (level 5), an early milestone designed to make the achievement reward feel immediately accessible.",
-          "Achievements provide functional rewards (gear, credits) rather than cosmetic markers, making them directly relevant to the core progression economy rather than purely symbolic."
-        ]
-      },
+      "writeup": null,
       "screenshots": [],
       "suggestedShots": []
     },

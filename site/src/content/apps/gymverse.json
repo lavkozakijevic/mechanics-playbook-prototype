@@ -27,7 +27,7 @@
       ]
     },
     {
-      "id": "achievements",
+      "id": "achievement",
       "depth": "core",
       "writeup": null,
       "screenshots": [],
@@ -55,7 +55,7 @@
         "role": "Displayed in the Explore tab alongside longest streak and days completed. The streak restore feature requires a two-day streak to unlock, making it unavailable to users who break their first streak."
       },
       {
-        "id": "achievements",
+        "id": "achievement",
         "role": "Badges organized by category in the Explore tab: streak milestones, weight loss, total calories, exercise categories, exercise time, and login days. The 28-day login badge names an exact target."
       },
       {
@@ -80,7 +80,7 @@
         "y": 55
       },
       {
-        "id": "achievements",
+        "id": "achievement",
         "x": 50,
         "y": 84
       }
@@ -88,7 +88,7 @@
     "connections": [
       {
         "from": "streak",
-        "to": "achievements",
+        "to": "achievement",
         "title": "Streak milestones are named achievement targets",
         "desc": "Consecutive day badges appear in the Explore tab alongside the active streak display. The streak is both a counter and an achievement progression input.",
         "effect": "Users see both how many days they have maintained and which badge that count is approaching. The streak has a dual display."

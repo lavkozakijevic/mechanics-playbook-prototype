@@ -172,7 +172,7 @@
       ]
     },
     {
-      "id": "achievements",
+      "id": "achievement",
       "depth": "supporting",
       "writeup": null,
       "screenshots": [],
@@ -195,7 +195,9 @@
         ]
       },
       "screenshots": [],
-      "suggestedShots": []
+      "suggestedShots": [
+        "Level-up interstitial showing \"Level 8 reached — lineup slot added\" alongside the Level Up Pack animation"
+      ]
     },
     {
       "id": "set-collection",

@@ -20,7 +20,7 @@
   "lifecycle": "High value days 0–30. Identity marker from day 30+.",
   "paired": [
     "daily-login-reward",
-    "achievements",
+    "milestone",
     "season-pass"
   ],
   "context": [

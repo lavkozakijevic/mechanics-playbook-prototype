@@ -37,25 +37,10 @@
       ]
     },
     {
-      "id": "achievements",
+      "id": "achievement",
       "depth": "supporting",
-      "writeup": {
-        "observed": "My Stats on the You tab contains a horizontally scrollable row of pre-formatted shareable achievement cards. Achievements earned in one session: 1 Day (streak milestone), 3 Insights Learned, 10 Hours Saved, Arts and Design (topic expertise badge), 6 Topics Covered. Each card has a distinct design and motivational label. Two types are interleaved: engagement milestones (days, insights, hours saved) and content expertise markers generated automatically from consumption behavior (completing hacks in a topic produces an \"expert in X\" badge). Tapping an expertise badge opens content in that topic rather than showing an achievement detail screen.",
-        "presented": "Achievements display as a card row in My Stats, no badge icons, locked future milestones, or progress bars. Cards appear only once earned. Each card has an individual share button generating a branded shareable image.",
-        "noting": "The achievement system's primary output is social media content. Each card is pre-formatted and branded as a shareable image, \"10 hours saved, you're saving time by hacking knowledge\", designed to be posted rather than to be displayed in the app. The expertise markers (\"you're an expert in arts and design\") are automatically generated from consumption behavior without any explicit achievement hunting, making them feel like discovered facts about the user rather than manufactured rewards.",
-        "findings": [
-          "Achievement cards are designed as social media assets first, pre-formatted, branded, shareable images with motivational copy, and progress markers second.",
-          "Expertise badges (\"you're an expert in X\") are generated automatically from content consumption behavior, without explicit achievement hunting, they feel like the app noticing something true about the user.",
-          "Tapping an expertise badge opens filtered content in that topic, achievements function as content discovery entry points rather than trophy displays.",
-          "No locked future milestones are visible, the achievement system shows only earned cards, creating a pure record of past behavior rather than a visible progression ladder ahead."
-        ]
-      },
-      "screenshots": [
-        {
-          "src": "/screenshots/achievements/uptime/01.jpg",
-          "caption": null
-        }
-      ],
+      "writeup": null,
+      "screenshots": [],
       "suggestedShots": [
         "My Stats achievement card row showing the streak card (1 day), insights card (3 learned), hours saved card (10 hours), and arts and design expertise card — all shareable"
       ]
@@ -101,7 +86,7 @@
         "role": "One insight per day from any hack, the lowest streak bar in the library. The reminder setup button appears at the post-hack congratulations screen at peak motivation rather than during onboarding."
       },
       {
-        "id": "achievements",
+        "id": "achievement",
         "role": "Pre-formatted shareable image cards generated automatically from consumption behavior, expertise badges appear without explicit achievement hunting and function as content discovery entry points and social sharing assets."
       },
       {
@@ -121,7 +106,7 @@
         "y": 38
       },
       {
-        "id": "achievements",
+        "id": "achievement",
         "x": 26,
         "y": 68
       },
@@ -134,13 +119,13 @@
     "connections": [
       {
         "from": "streak",
-        "to": "achievements",
+        "to": "achievement",
         "title": "Daily return generates expertise badges",
         "desc": "Returning daily to complete hacks in a topic generates 'expert in X' expertise badges automatically, without any explicit achievement hunting.",
         "effect": "Users who maintain the streak for topic-specific reasons discover they have been accumulating expertise badges, achievements arrive as noticed facts rather than pursued goals."
       },
       {
-        "from": "achievements",
+        "from": "achievement",
         "to": "gifting",
         "title": "Achievement cards are referral content",
         "desc": "Pre-formatted achievement cards, 'you're saving time by hacking knowledge', are the primary social sharing content. Sharing an achievement card is functionally a referral.",
