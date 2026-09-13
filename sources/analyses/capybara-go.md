@@ -1,16 +1,16 @@
 # Capybara Go!: App Analysis
 
-Session date: 12 May 2026
+**Session date:** 12 May 2026
 
-Additional sessions: 13 May 2026, 15 May 2026
+**Additional sessions:** 13 May 2026, 15 May 2026
 
-As observed: 12 May 2026
+**As observed:** 12 May 2026
 
-App version: 1812
+**App version:** 1812
 
-Analysis date: 11 Sep 2026
+**Analysis date:** 11 Sep 2026
 
-Last updated: 13 Sep 2026
+**Last updated:** 13 Sep 2026
 
 **Source.** This analysis is built from three Granola walkthrough sessions recorded by a single narrator and retrieved as full transcripts: "Capybara Go! I" (12 May 2026), "Capybara Go! II" (13 May 2026) and "Capybara Go! III" (15 May 2026). Session I covers first launch, the first run through its defeat on day 40, the first home screen, talents, the store and equipment. Session II reopens the app more than 24 hours later and covers energy, the sidebar, rewarded ads and a second run that reaches day 59. Session III begins after Chapter 1 has been cleared and covers mail, Growth Fund, Privilege Card, the Seven-Day Carnival, Tower Challenge, pets, raids, tasks, the sign-in event, Timed Growth events and the Black Market, ending in Chapter 3. The transcripts are machine speech-to-text of live narration; names and numbers are reported as transcribed, and passages where the narration is fragmented are marked at the relevant observation. The sessions contain no typed notes. The app version is reported as spoken in Session I.
 

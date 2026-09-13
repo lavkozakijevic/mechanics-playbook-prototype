@@ -923,6 +923,25 @@ const V41_APP_META = {
         "Cleo asks to send notifications and tells users to check in daily, before scheduling spending reviews days apart.",
     },
   },
+  "capybara-go": {
+    name: "Capybara Go!",
+    category: "Roguelite",
+    type: "game",
+    sectionCards: {
+      onboarding:
+        "Capybara Go! opens with permission prompts and a long asset download, then drops the player into an unexplained run for almost 20 minutes before anything else is visible.",
+      "core-loop":
+        "Capybara Go! advances a run day by day through automatic battles, in-run choices, and level-up skill picks, then carries gold and materials into permanent upgrades between runs.",
+      goals: "Capybara Go! turns gold and materials into talent levels, a rank title, equipment, and pets, each with its own upgrade path.",
+      access: "Capybara Go! gates runs behind an energy balance and gates nearly everything else behind chapter clears and survival-day thresholds.",
+      earning: "Capybara Go! runs a large number of named currencies and materials alongside chests, tasks, and timed events built around collecting them.",
+      social: "Capybara Go! offers one ranking list from the first session, with Friends, Guilds, and Arena still locked behind later chapters.",
+      growth: "Capybara Go! offers one growth-facing feature, linking the game account to an external Habby ID.",
+      money: "Capybara Go! charges through packs, cards, and triggered offers across a four-tab store, alongside ads and a permanent ad-removal purchase.",
+      returns:
+        "Capybara Go! runs a seven-day sign-in event and countdowns on nearly every timed surface, from energy to chests to events.",
+    },
+  },
 };
 
 for (const entry of ALL_APPS) {
