@@ -9,9 +9,9 @@ export const V41_SECTIONS = [
   { slug: "core-loop", name: "Core loop and automation" },
   { slug: "goals", name: "Goals and progression" },
   { slug: "access", name: "Access and eligibility" },
-  { slug: "earning", name: "Earning and utility" },
+  { slug: "economy", name: "Economy and resources" },
   { slug: "social", name: "Social" },
-  { slug: "growth", name: "Growth" },
-  { slug: "money", name: "Money" },
+  { slug: "reach", name: "Reach beyond the app" },
+  { slug: "monetization", name: "Monetization" },
   { slug: "returns", name: "Return triggers" },
 ];

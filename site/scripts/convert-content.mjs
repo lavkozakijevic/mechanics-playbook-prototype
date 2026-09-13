@@ -534,7 +534,19 @@ function parseAnalysisV41(file) {
     caveat: field(body, "Caveat") || field(body, "Caveat on the third test"),
   }));
 
-  return { analysisDate, lastUpdated, asObserved, appVersion, tagsById, proposedTags };
+  // ---- Pass one: section headings, kept only to cross-check against the
+  // content file's (see the call site). These headings are prose only —
+  // spec §1.7 moved authoritative section content to the content file, so
+  // nothing before this parsed them at all, which meant nothing ever
+  // noticed an analysis file's own section names drifting out of step with
+  // the (enforced) content file next to it. Both numbered ("## 5. Earning
+  // and utility", capybara-go's own style) and unnumbered ("## Earning and
+  // utility") heading forms appear across existing files, so a leading
+  // ordinal is stripped before the name is used for comparison.
+  const passOne = h1Section(md, "Pass one: observation record") ?? "";
+  const sectionNames = headingChunks(passOne, 2).map((c) => c.heading.replace(/^\d+\.\s*/, ""));
+
+  return { analysisDate, lastUpdated, asObserved, appVersion, tagsById, proposedTags, sectionNames };
 }
 
 // Reads the content file (spec §1.7) for everything that renders: the app
@@ -977,12 +989,12 @@ const V41_APP_META = {
         "Dave runs everything through the checking account once it exists: adding money, moving money, direct deposit, round-ups, checks, cash, and bill pay.",
       goals: "Dave creates, personalizes, extends, and ends a user's savings goals.",
       access: "Dave pitches, explains, and gates the Extra Cash advance behind eligibility.",
-      earning:
+      economy:
         "Dave pays users for surveys and a profiling questionnaire, and points them to outside jobs through a board of its own.",
       social:
         "Dave has no feature that lets a user see, interact with, compare against, or team up with another identified person.",
-      growth: "Dave runs its referral program from settings and pays it out as a bigger future advance.",
-      money:
+      reach: "Dave runs its referral program from settings and pays it out as a bigger future advance.",
+      monetization:
         "Dave charges for membership, advance delivery, funding, cash and check handling, and pays interest on two of its accounts.",
       returns:
         "Dave brings users back through notifications, balance alerts, and a marketing consent gathered during signup.",
@@ -999,11 +1011,11 @@ const V41_APP_META = {
         "Cleo runs its budget, bills, categorization, and chat-persona features through a set of swipeable cards on its chat home.",
       goals: "Cleo sets a monthly spending limit with category limits, and previews a 21-day challenge against one spending habit.",
       access: "Cleo restricts its cash advance and paid plans by the user's state, and gates its wallet behind an identity and age check.",
-      earning: "Cleo offers automatic saving through its wallet and save tab, gated behind setup that isn't completed here.",
+      economy: "Cleo offers automatic saving through its wallet and save tab, gated behind setup that isn't completed here.",
       social:
         "Cleo has no feature that lets a user see, interact with, compare against, or team up with another identified person.",
-      growth: "Cleo asks for an app store review at the end of its roast and hype sequences.",
-      money: "Cleo pitches Cleo Plus and Cleo Builder with a plan comparison and FAQ, neither purchasable under this account's state restriction.",
+      reach: "Cleo asks for an app store review at the end of its roast and hype sequences.",
+      monetization: "Cleo pitches Cleo Plus and Cleo Builder with a plan comparison and FAQ, neither purchasable under this account's state restriction.",
       returns:
         "Cleo asks to send notifications and tells users to check in daily, before scheduling spending reviews days apart.",
     },
@@ -1019,10 +1031,10 @@ const V41_APP_META = {
         "Capybara Go! advances a run day by day through automatic battles, in-run choices, and level-up skill picks, then carries gold and materials into permanent upgrades between runs.",
       goals: "Capybara Go! turns gold and materials into talent levels, a rank title, equipment, and pets, each with its own upgrade path.",
       access: "Capybara Go! gates runs behind an energy balance and gates nearly everything else behind chapter clears and survival-day thresholds.",
-      earning: "Capybara Go! runs a large number of named currencies and materials alongside chests, tasks, and timed events built around collecting them.",
+      economy: "Capybara Go! runs a large number of named currencies and materials alongside chests, tasks, and timed events built around collecting them.",
       social: "Capybara Go! offers one ranking list available from the very start, with Friends, Guilds, and Arena still locked behind later chapters.",
-      growth: "Capybara Go! offers one growth-facing feature, linking the game account to an external Habby ID.",
-      money: "Capybara Go! charges through packs, cards, and triggered offers across a four-tab store, alongside ads and a permanent ad-removal purchase.",
+      reach: "Capybara Go! offers one growth-facing feature, linking the game account to an external Habby ID.",
+      monetization: "Capybara Go! charges through packs, cards, and triggered offers across a four-tab store, alongside ads and a permanent ad-removal purchase.",
       returns:
         "Capybara Go! runs a seven-day sign-in event and countdowns on nearly every timed surface, from energy to chests to events.",
     },
@@ -1038,10 +1050,10 @@ const V41_APP_META = {
         "Clash of Clans repeats collecting resources, starting upgrades, training troops, and raiding another village for loot to fund the next upgrade.",
       goals: "Clash of Clans measures progress mainly by town hall level, gated behind a resource cost and a prerequisite building checklist, alongside a smaller account level and a starter challenge ladder.",
       access: "Clash of Clans gates nearly everything by town hall level, with a rebuilt clan castle, a repaired boat, and a signup window gating the clan, the second village, and clan war leagues.",
-      earning: "Clash of Clans runs five earned currencies across two villages plus a paid currency that converts directly into two of them.",
+      economy: "Clash of Clans runs five earned currencies across two villages plus a paid currency that converts directly into two of them.",
       social: "Clash of Clans keeps its entire social layer, donation, chat, wars, and leaderboards, behind a clan castle that has to be rebuilt first.",
-      growth: "Clash of Clans rewards linking an external account roughly ten times more than an ordinary achievement, and hosts its own rewards site behind that link.",
-      money: "Clash of Clans sells a rotating shop of offers and town-hall-scaled packs alongside a season pass priced against the village, the second village, and the clan at once.",
+      reach: "Clash of Clans rewards linking an external account roughly ten times more than an ordinary achievement, and hosts its own rewards site behind that link.",
+      monetization: "Clash of Clans sells a rotating shop of offers and town-hall-scaled packs alongside a season pass priced against the village, the second village, and the clan at once.",
       returns:
         "Clash of Clans runs a shield countdown, a return-from-absence summary, and an event calendar layered on top of its own season boundary.",
     },
@@ -1060,11 +1072,56 @@ for (const entry of ALL_APPS) {
     const meta = V41_APP_META[entry.id];
     if (!meta) throw new Error(`${entry.id}: no catalog metadata registered in V41_APP_META for this v4.1 app`);
 
+    // sectionCards is z.record-typed in content.config.ts, not the
+    // section-slug enum (deliberately, so lead-ins can be written section
+    // by section — see that schema's own comment) — which means a stale or
+    // mistyped key here doesn't throw anywhere else. It just silently stops
+    // matching at render time and the section card blurb quietly renders
+    // as an empty string. Checked here instead, at the one place all four
+    // apps' sectionCards objects are hand-authored, so a rename or a typo
+    // fails the build instead of shipping a blank card.
+    const currentSlugs = new Set(V41_SECTIONS.map((s) => s.slug));
+    for (const key of Object.keys(meta.sectionCards ?? {})) {
+      if (!currentSlugs.has(key))
+        throw new Error(`${entry.id}: sectionCards has key "${key}", which is not a current section slug`);
+    }
+
     // The analysis supplies only the applied tags and the header dates
     // (spec §1.7); ids are the join back onto the content file's
     // observations. A tag naming an id the content file doesn't have is a
     // real mismatch between the two files, not something to skip silently.
     const a = parseAnalysisV41(entry.file);
+
+    // Analysis-to-content section cross-check: an analysis file's own Pass
+    // one section headings are prose only, never parsed into the published
+    // model, so nothing previously noticed the two documents drifting
+    // apart on section names — same bug class as the v3/v4.1 format
+    // detector and the confidence-tier enum, both of which used to fail
+    // silently too before each got a check of its own. Warned rather than
+    // thrown: the content file above already hard-rejects any section name
+    // it doesn't recognize, so the content file is never wrong here, only
+    // the analysis file can be stale — and while the section definitions
+    // are mid-migration across all four existing apps, throwing on this
+    // would block a build that the content-file check above hasn't
+    // already blocked, before there's been any chance to fix the analysis
+    // file's prose to match.
+    const canonicalNames = new Set(V41_SECTIONS.map((s) => s.name));
+    const analysisNames = new Set(a.sectionNames);
+    const unexpected = a.sectionNames.filter((n) => !canonicalNames.has(n));
+    const missing = V41_SECTIONS.map((s) => s.name).filter((n) => !analysisNames.has(n));
+    if (unexpected.length || missing.length) {
+      console.warn(
+        `\n=== ANALYSIS/CONTENT SECTION DRIFT: ${entry.file} ===\n` +
+          (unexpected.length
+            ? `Analysis has section heading(s) that don't match a current section name: ${unexpected.join(", ")}\n`
+            : "") +
+          (missing.length
+            ? `Current section(s) missing from the analysis file's own headings: ${missing.join(", ")}\n`
+            : "") +
+          `The content file is the enforced source of truth; the analysis file's Pass one headings should still match it. Update the analysis file to close this gap.\n`
+      );
+    }
+
     for (const id of a.tagsById.keys()) {
       if (!content.obsById.has(id))
         throw new Error(`${entry.file}: analysis applies a tag to observation ${id}, which is not in the content file`);

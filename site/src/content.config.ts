@@ -1,5 +1,6 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
+import { V41_SECTIONS } from "./lib/v41-sections.mjs";
 
 const visibility = z.enum(["public", "subscriber", "report-only"]);
 
@@ -45,17 +46,14 @@ const observationTag = z.object({
   role: z.string().optional(),
 });
 
-const V41_SECTION_SLUGS = [
-  "onboarding",
-  "core-loop",
-  "goals",
-  "access",
-  "earning",
-  "social",
-  "growth",
-  "money",
-  "returns",
-] as const;
+// Derived from the single source of truth in v41-sections.mjs rather than
+// hand-copied here — two independently maintained copies of the same list
+// is exactly how they drift, which is what this replaces: this array used
+// to be its own hand-typed literal, kept in sync with v41-sections.mjs by
+// hand rather than by construction. The `as` assertion only tells
+// TypeScript the array is non-empty, which z.enum requires syntactically;
+// the values themselves still come from the one shared source at runtime.
+const V41_SECTION_SLUGS = V41_SECTIONS.map((s) => s.slug) as [string, ...string[]];
 
 const observation = z.object({
   id: z.string(),
