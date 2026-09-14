@@ -581,25 +581,43 @@ No observations. No other identified person appears anywhere in the session: no 
 ## Applied tags
 
 **Tag:** Achievement
+
 **Observations:** O33.
+
 **Supporting observations:** O32, O38.
-**Confidence:** directly observed.
+
+**Confidence:** directly observed
+
 **Role:** engagement.
+
 The surface sits in the progress area beside the activity totals and the achievements are described as things to work through inside the product (O32, O33); nothing in the session shows it acting on return, on money or on other people.
+
 **Rationale:** Gymverse carries a surface it names Achievements and describes it as holding things the user can follow through and complete (O33). Presence is asserted on the product's own framing of the mechanic as that mechanic, which is what the presence standard allows. Behavior detail is not asserted: the surface was named twice and never opened, so no criterion, no unattained or attained state, no attainment event, no record and no reward were observed (O33). Everything about how the mechanic operates is therefore left as not observed, and the label goes no further than the surface.
+
 **Variants present:** None.
+
 **Variants not established:** visible, hidden, single-condition, composite, cumulative, sequence, constraint-based, tiered, progressive, retroactive, repeatable-instance, shared, comparative, collection, rewarded and unrewarded achievement were not observed.
+
 **Alternative considered:** that the surface is a second display of the activity totals at O32 under a different name, with no defined criterion and no attained state behind it, which the entry excludes. Nothing in the session separates the two readings; the label rests on the product's naming and on nothing else. The separating evidence is a single session that opens the surface and shows either a criterion in an unattained state or a preserved attained one.
 
 **Tag:** Shareable Win
+
 **Observations:** O36, O37, O38.
+
 **Supporting observations:** O31, O32.
-**Confidence:** directly observed.
+
+**Confidence:** directly observed
+
 **Role:** social, engagement.
+
 All three routes address people outside the product rather than the user (O36, O37, O38), and the composer is a surface the user works inside, choosing stats and adding stickers, text and photographs before sending (O36).
+
 **Rationale:** Gymverse composes records it holds about the user into self-contained images and offers routes by which they leave the product. The composer at O36 takes workout stats the product holds, lets the user assemble them into an image with stickers and text, and offers to send it to anyone. The completion screen at O37 is composed by the product at the end of the session and carries the muscle groups worked, the next week's progression and the next workout. The total activity figure at O38 carries its own route out. In each case the subject is the product's record of the user rather than anything the user made, which is what separates this entry from an ordinary content share. The underlying records are described in plain language at O31 and O32; this tag covers only the composed representations and the routes.
+
 **Variants present:** result win, the completion image carries the outcome of one workout (O37); recap win, the composer and the total activity item assemble accumulated records (O36, O38); editable win, the composer accepts text, images, backgrounds and the user's own photographs and lets the user choose which stats appear (O36); open-destination win, no destination is named and the offer is to share with anyone (O36); unverified win, the images state the record with nothing a reader can check against the product (O36, O37); prompted win, the completion image is presented at the end of the session without being requested (O37); on-demand win, the composer loads in response to the user's own screenshot (O36).
+
 **Variants not established:** credential, badge, streak, rank, verified, platform-named, downloadable, delivered, hosted, scheduled, rewarded sharing, multi-format, shared-holder and gated wins were not observed.
+
 **Alternative considered:** that the composer at O36 is an ordinary screenshot tool distributing what is on the user's screen, which the entry excludes as content sharing. What rules it out is that Gymverse substitutes its own composed version for the screenshot, selects which of its stored stats appear on it, and brands it to match the app; the subject of the image is the record the product holds, not an artifact the user produced. A second alternative, that the composer at first launch is promotional rather than a record, is weakened by its stats being drawn from the user's own account, though at that moment the account held none.
 
 ## Entries considered and not applied

@@ -442,8 +442,7 @@ const CONNECTIONS = {
     { from: "leveling", to: "daily-weekly-quests", title: "Daily quests target specific muscles", desc: "Daily quests are muscle-group specific, directing training toward rank advancement in named areas. Quest completion advances both the quest system and the muscle rank simultaneously.", effect: "Quests function as rank advancement guidance rather than arbitrary tasks. A user following daily quests is being directed toward a balanced rank profile." },
   ],
   "gymverse": [
-    { from: "daily-weekly-quests", to: "streak", title: "Completing today's workout advances both plan and streak", desc: "The daily workout log is the action that advances the sequential plan and maintains the streak calendar. One action, two systems.", effect: "Users who show up for the plan are maintaining the streak without thinking about it as a separate goal. The streak is a byproduct of plan adherence." },
-    { from: "streak", to: "achievement", title: "Streak milestones unlock named achievement badges", desc: "The achievement system includes streak-based badges at specific consecutive day counts. The streak counter and the achievement system share the same underlying metric.", effect: "Streak maintenance is also achievement hunting. Users tracking their streak are simultaneously progressing through the achievement catalogue." },
+    { from: "achievement", to: "shareable-win", title: "Named beside the very thing that leaves", desc: "The Achievements surface sits in the progress area right next to the activity totals, and that same total activity figure is what carries its own route to share outside the app.", effect: "The one mechanic with nothing confirmed behind it sits one screen away from the one built entirely to leave the product." },
   ],
   "ladder": [
     { from: "streak", to: "challenges", title: "Weekly streak threshold matches challenge completion cadence", desc: "Three workouts per week earns the streak. The get-started challenge requires those same workouts as checkboxes. The streak and the onboarding challenge share the same behavioral unit.", effect: "Users who pursue the streak are simultaneously progressing the get-started challenge. One behavior completes two tracking systems." },
@@ -474,10 +473,6 @@ const CONNECTIONS = {
     { from: "leveling", to: "leaderboards", title: "Volume-based XP determines leaderboard position", desc: "The same logged workout volume that advances rank also determines position on volume leaderboards. One logging action serves both systems.", effect: "Logging workouts carefully is both a personal progression behavior and a competitive one. The motivation to record every set has a leaderboard dimension." },
     { from: "variable-reward", to: "leveling", title: "Post-workout reward quality scales with performance", desc: "The variable reward at workout completion is tied to performance metrics. Better workout quality produces better rewards, which also correlates with higher volume, which advances rank faster.", effect: "Effort produces a compounding return: better performance generates better rewards and faster rank advancement simultaneously." },
     { from: "achievement", to: "cosmetics", title: "Rank threshold achievements unlock cosmetic customization", desc: "Cosmetics including avatar elements and profile themes unlock through rank progression rather than purchase.", effect: "Cosmetics are a visible output of the leveling system. The achievement that marks a rank crossing and the cosmetic that unlocks with it arrive together." },
-  ],
-  "gymverse": [
-    { from: "streak", to: "achievement", title: "Streak milestones are named achievement targets", desc: "Consecutive day badges appear in the Explore tab alongside the active streak display. The streak is both a counter and an achievement progression input.", effect: "Users see both how many days they have maintained and which badge that count is approaching. The streak has a dual display." },
-    { from: "daily-weekly-quests", to: "streak", title: "Day-locked workout calendar enforces streak cadence", desc: "Future workout days are inaccessible until the current day is logged. The calendar structure prevents skipping ahead and enforces sequential completion.", effect: "The streak is not just a habit suggestion. The app's day-locking makes it the only way to progress through the plan." },
   ],
     "chrome-valley-customs": [
     { from: "energy-lives", to: "variable-reward", title: "Energy cost makes variable yield feel earned", desc: "Each heart spent on a match-3 level produces a variable coin and gem yield. The energy cost makes the variable outcome feel like an investment rather than a free spin.", effect: "Players who deplete energy on a low-yield level are motivated to try again on the next session, sustaining return without requiring an explicit re-engagement mechanic." },
@@ -680,10 +675,9 @@ const POSITIONS = {
     "variable-reward":    { x: 80, y: 52 },
   },
   "gymverse": {
-    center:               { x: 50, y: 15, label: "GYMVERSE" },
-    "daily-weekly-quests":{ x: 50, y: 42 },
-    "streak":             { x: 28, y: 72 },
-    "achievement":       { x: 72, y: 72 },
+    center:            { x: 50, y: 15, label: "GYMVERSE" },
+    "achievement":     { x: 30, y: 55 },
+    "shareable-win":   { x: 70, y: 55 },
   },
   "ladder": {
     center:             { x: 50, y: 10, label: "LADDER" },
@@ -714,12 +708,6 @@ const POSITIONS = {
     "variable-reward":{ x: 78, y: 56 },
     "achievement":   { x: 30, y: 80 },
     "cosmetics":      { x: 70, y: 80 },
-  },
-  "gymverse": {
-    center:                { x: 50, y: 18, label: "GYMVERSE" },
-    "streak":              { x: 50, y: 42 },
-    "achievement":        { x: 26, y: 72 },
-    "daily-weekly-quests": { x: 74, y: 72 },
   },
     "chrome-valley-customs": {
     center:                  { x: 50, y: 15, label: "CHROME VALLEY" },
@@ -774,12 +762,6 @@ const POSITIONS = {
     "daily-weekly-quests": { x: 78, y: 50 },
     "credits-tokens":   { x: 22, y: 76 },
     "cosmetics":        { x: 78, y: 76 },
-  },
-  "gymverse": {
-    center:             { x: 50, y: 18, label: "GYMVERSE" },
-    "daily-weekly-quests": { x: 32, y: 55 },
-    "streak":           { x: 68, y: 55 },
-    "achievement":     { x: 50, y: 84 },
   },
   "clash-of-clans": {
     center:                { x: 50, y: 6,  label: "CLASH OF CLANS" },

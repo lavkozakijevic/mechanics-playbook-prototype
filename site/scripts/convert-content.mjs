@@ -168,8 +168,11 @@ function topLevelKeys(objectLiteralSrc) {
 // along. Resolving those means deciding how to merge two real, differing
 // accounts of the same app, an editorial call outside this fix's scope, so
 // failing the build here now would block on content this check doesn't
-// itself know how to reconcile. Promote this to `throw` once those six are
-// resolved, so a *new* accidental duplicate can't slip in the same way again.
+// itself know how to reconcile. Promote this to `throw` once the rest are
+// resolved, so a *new* accidental duplicate can't slip in the same way
+// again. clash-of-clans and gymverse are already down to one copy each,
+// resolved during their own v4.1 onboarding — four remain: ladder, fiton,
+// freeletics, liftoff.
 function assertNoDuplicateKeys(name, src) {
   const counts = new Map();
   for (const k of topLevelKeys(src)) counts.set(k, (counts.get(k) ?? 0) + 1);
@@ -851,16 +854,17 @@ const ADDITIONS = {
 // inline id in a "### ... (`xp-leveling`) · Depth" heading and were not
 // rewritten — remapped here instead, onto whichever of the two split
 // concepts that app's own write-up is actually about, decided from each
-// file's own observed text: clash-of-clans, fc-mobile, freeletics, gymverse,
+// file's own observed text: clash-of-clans, fc-mobile, freeletics,
 // and liftoff each describe a level or rank state as the thing observed
 // (leveling); solitaire-grand-harvest, steam, and tiimo each describe a
 // running accumulation toward a threshold with no named level state
-// (experience-points). Without this, any of these eight would throw
+// (experience-points). Without this, any of these seven would throw
 // "unknown mechanic xp-leveling" the moment xp-leveling stopped being a
 // registered id. capybara-go is not remapped here: its analysis was
-// migrated to v4.1 and never reaches this v3 path at all, and wakeout's
-// analysis already uses the reviewed canonical name "Experience Points"
-// rather than the inline id, which resolves through
+// migrated to v4.1 and never reaches this v3 path at all, gymverse carried
+// an entry here before its own migration to v4.1 on 14 Sep 2026, and
+// wakeout's analysis already uses the reviewed canonical name "Experience
+// Points" rather than the inline id, which resolves through
 // CANONICAL_MECHANIC_IDS directly.
 // achievements split into achievement and milestone on 13 Sep 2026
 // (sources/taxonomy-map.md), the same day and for the same reason as the
@@ -877,11 +881,11 @@ const ADDITIONS = {
 // once (fc-mobile, uptime, fifa-panini-collection); the remap follows
 // whichever framing the file's own words lead with, since one file can only
 // remap to one id. Neither clash-of-clans, canva, tiimo, capybara-go, dave,
-// cleo, nor royal-match appears below: all seven are v4.1 and never reach
-// this path (royal-match carried an entry here before its own migration
-// to v4.1 on 14 Sep 2026, removed once its analysis stopped using the v3
-// inline-id form).
-//   -> achievement: calm, gymverse, ladder, fc-mobile, liftoff, swgoh,
+// cleo, royal-match, nor gymverse appears below: all eight are v4.1 and
+// never reach this path (royal-match and gymverse each carried an entry
+// here before their own migration to v4.1, removed once each analysis
+// stopped using the v3 inline-id form).
+//   -> achievement: calm, ladder, fc-mobile, liftoff, swgoh,
 //      freeletics, uptime, fiton, fortune-city, match-creek-motors,
 //      fifa-panini-collection, subway-surfers.
 //   -> milestone: insight-timer, chrome-valley-customs, acorns,
@@ -890,7 +894,6 @@ const REMAPS = {
   "clash-of-clans": { "xp-leveling": "leveling" },
   "fc-mobile": { "xp-leveling": "leveling", "achievements": "achievement" },
   "freeletics": { "xp-leveling": "leveling", "achievements": "achievement" },
-  "gymverse": { "xp-leveling": "leveling", "achievements": "achievement" },
   "liftoff": { "xp-leveling": "leveling", "achievements": "achievement" },
   "solitaire-grand-harvest": { "xp-leveling": "experience-points", "achievements": "milestone" },
   "steam": { "xp-leveling": "experience-points" },
@@ -924,7 +927,6 @@ const DROPS = new Set([
   "daily-login-reward|clash-of-clans",
   "limited-time-events|strava",
   "challenges|clash-of-clans",
-  "leveling|gymverse", // was "xp-leveling|gymverse" before the 13 Sep 2026 split; DROPS is checked after REMAPS, so this key has to track the remapped id, not the analysis file's own literal one.
   "credits-tokens|liftoff",
   "ads|chrome-valley-customs",
   "ads|match-creek-motors",
@@ -1198,6 +1200,29 @@ const V41_APP_META = {
         "Royal Match prices its offers directly against the two moments a level fails, layering a shop, named treasure bundles, and a seasonal pass on top of the same 900-coin shortfall.",
       returns:
         "Royal Match times a notification prompt to the user's return, a rating prompt to an early clean run, and a countdown to every one of its five running events.",
+    },
+  },
+  gymverse: {
+    name: "Gymverse",
+    category: "Fitness / Gym Training",
+    type: "app",
+    sectionCards: {
+      onboarding:
+        "Gymverse numbers nineteen onboarding screens that build a personalized plan, pairing two population statistics with copy that answers several questions the same way regardless of what's chosen.",
+      "core-loop":
+        "Gymverse's workout runs as a fixed warm-up, exercise, and stretch sequence, with a rest countdown that opens automatically between sets and a calendar that fixes which days carry a workout.",
+      goals:
+        "Gymverse projects a weekly weight adjustment before any training happens, reports muscles worked and what's next on the completion screen, and names an Achievements surface that stays unopened.",
+      access:
+        "Gymverse's seven-day free pass opens every surface it reaches, with no lock, gate, or upgrade prompt found anywhere in the product.",
+      economy: "Gymverse holds no currency, points balance, material, or resource of any kind.",
+      social: "Gymverse has no social layer at all; no other identified person appears anywhere in the product.",
+      reach:
+        "Gymverse composes its own records of the user into shareable images, triggered by a screenshot, a workout completion, and a total activity figure.",
+      monetization:
+        "Gymverse prices its plan before a single exercise is seen, then grants a seven-day free pass with no payment details the moment the paywall is declined.",
+      returns:
+        "Gymverse asks for notification permission with a loss-framed heading, sends a message addressing lapsed training, and keeps workout reminders in settings.",
     },
   },
 };
