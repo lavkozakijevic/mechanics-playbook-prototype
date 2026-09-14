@@ -363,10 +363,11 @@ const CONNECTIONS = {
     { from: "milestone", to: "social-feed", title: "Milestone sharing distributes the achievement", desc: "Streak milestones generate pre-formatted Instagram Stories and messaging shares. The achievement's social distribution is designed into the sharing UI.", effect: "Every milestone is a potential acquisition moment. The share converts a private habit marker into a public product impression at the moment the user's satisfaction is highest." },
   ],
   strava: [
-    { from: "challenges", to: "leaderboards", title: "Every challenge page carries its own leaderboard", desc: "Each challenge has a leaderboard of the users taking part, ordered by the measure that challenge is built on.", effect: "Joining a challenge places a participant in a ranked set for the length of that challenge." },
-    { from: "community-groups", to: "challenges", title: "Clubs organise and host challenges", desc: "Many of the challenges are organised by clubs, and a challenge page names the club running it.", effect: "Club membership is one of the routes through which challenges reach a user." },
-    { from: "community-groups", to: "social-feed", title: "Clubs carry their own feed", desc: "A club has a feed of its own alongside the home feed, and the activity visibility controls name both.", effect: "A club gives its members a posting surface separate from the main feed." },
     { from: "streak", to: "challenges", title: "One logged activity advances both", desc: "The streak advances when a user logs an activity, and the same saved activity counts toward any challenge they have joined.", effect: "A single recorded activity moves more than one part of the system at once." },
+    { from: "challenges", to: "achievement", title: "Completing a challenge produces a held record", desc: "Completing a challenge produces a digital trophy or badge in most cases, held apart from the challenge instance itself.", effect: "The same objective produces both a completed challenge and a separately preserved achievement." },
+    { from: "challenges", to: "leaderboards", title: "Every challenge page carries its own leaderboard", desc: "Each challenge has a leaderboard of the users taking part, ordered by the measure that challenge is built on.", effect: "Joining a challenge places a participant in a ranked set for the length of that challenge." },
+    { from: "community-groups", to: "challenges", title: "The Strava Club organises most challenges", desc: "Most of the featured and promoted challenges are organised by the Strava Club, a club the product runs itself.", effect: "Club membership is one of the routes through which challenges reach a user." },
+    { from: "community-groups", to: "social-feed", title: "Clubs carry their own feed", desc: "A club has a feed of its own alongside the home feed, and the activity visibility controls name both.", effect: "A club gives its members a posting surface separate from the main feed." },
   ],
   "fc-mobile": [
     { from: "experience-points", to: "leveling", title: "Every activity feeds one number", desc: "XP from matches, missions, drafts and skill games all advance the same account level, with nothing else in the interface treating that level as worth naming.", effect: "The level becomes the product's real spine without ever being presented as one: a bare number crossed as a side effect of doing almost anything." },
@@ -549,7 +550,7 @@ const POSITIONS = {
     "community-groups":      { x: 78, y: 80 },
   },
   "strava": {
-    center:                  { x: 50, y: 8,  label: "STRAVA" },
+    center:                  { x: 50, y: 8,  label: "STRAVA'S SOCIAL LAYER" },
     "streak":                { x: 17, y: 24 },
     "leaderboards":          { x: 83, y: 24 },
     "challenges":            { x: 50, y: 47 },

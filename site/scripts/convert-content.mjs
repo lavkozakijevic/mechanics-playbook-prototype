@@ -1274,6 +1274,31 @@ const V41_APP_META = {
         "Royal Match times a notification prompt to the user's return, a rating prompt to an early clean run, and a countdown to every one of its five running events.",
     },
   },
+  strava: {
+    name: "Strava",
+    category: "Fitness / Activity Tracking and Social",
+    type: "app",
+    sectionCards: {
+      onboarding:
+        "Strava walks new users through an auto-scrolling carousel, account creation, a run of profiling questions tied to leaderboards and safety, and a subscription pitch, before pushing straight into a first recording.",
+      "core-loop":
+        "Strava's loop is recording an activity and saving it, with a grouped sport selector, a live recording screen, and a save flow that composes the activity for other people to see.",
+      goals:
+        "Strava runs a user-set weekly goal, a profile-completion meter, a fixed thousand-position trophy ladder, graded achievements, browsable segments, and a large challenge catalogue in parallel.",
+      access:
+        "Strava spreads its paywall across the map, the activity, the profile, and the groups area, each met at the point of use rather than declared in advance.",
+      economy:
+        "Strava holds no currency, points balance, or spendable resource of any kind; every incentive is a recorded state, another person's attention, or the subscription.",
+      social:
+        "Strava opens on a populated feed and suggested people before the user follows anyone, and adds clubs, messaging, and segment standing on top.",
+      reach:
+        "Strava's reach outside the app runs mainly through a Runna partnership, brand-run challenges, sharing to outside platforms, and device connections.",
+      monetization:
+        "Strava's paywall is met at nine points with copy matched to each one, behind trial and pricing terms that are stated differently across screens.",
+      returns:
+        "Strava brings users back through a long notification catalogue, a streak at the top of the dashboard, and deadlines tied to challenges and events.",
+    },
+  },
   gymverse: {
     name: "Gymverse",
     category: "Fitness / Gym Training",

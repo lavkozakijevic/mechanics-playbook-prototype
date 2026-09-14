@@ -63,7 +63,13 @@ const spotlight = {
   href: `/case-studies/${spotlightApp.id}/`,
   imageSrc: spotlightApp.heroImage,
   imageAlt: `${spotlightApp.name} screenshots`,
-  screenLabel: shortShot(spotlightApp.mechanics.find((r) => r.depth === "core")?.suggestedShots[0]),
+  // v4.1 apps carry no `mechanics` array (same gap the carousel above already
+  // handles) — pull a screen label from the first composed mechanic block's
+  // own screenshots note instead of a v3 "core" relationship's suggestedShots.
+  screenLabel:
+    spotlightApp.contentFormat === "v4.1"
+      ? shortShot(spotlightApp.mechanicWriteups?.[0]?.screenshotsNote)
+      : shortShot(spotlightApp.mechanics.find((r) => r.depth === "core")?.suggestedShots[0]),
   date: formatDate(spotlightApp.analysisDate),
 };
 
