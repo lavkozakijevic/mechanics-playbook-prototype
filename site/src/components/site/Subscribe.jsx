@@ -159,7 +159,7 @@ export function SubscribePage() {
       <section className="band sp-offer" aria-labelledby="offer-h">
         <div className="container container--narrow">
           <div className="eyebrow">Subscribe</div>
-          <h1 className="sp-offer__h" id="offer-h">Documented breakdowns of how real apps build engagement, mechanic by mechanic</h1>
+          <h1 className="sp-offer__h" id="offer-h">Weekly breakdowns of how real apps build engagement.</h1>
 
           <SubscribeCard onSubscribe={() => setModalOpen(true)} />
         </div>
