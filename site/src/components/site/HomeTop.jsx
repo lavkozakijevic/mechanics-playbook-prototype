@@ -46,19 +46,19 @@ export function Hero({ carousel, heroImage, eyebrow, headline, sub, ctas, classN
   const loop = items.concat(items);
   const buttons = ctas || [
     { label: "Subscribe", href: "/subscribe/", variant: "primary" },
-    { label: "Gamify your app", href: "/work-with-us/", variant: "secondary" },
+    { label: "Explore case studies", href: "/case-studies/", variant: "secondary" },
   ];
   const sectionClass = ["hero", className].filter(Boolean).join(" ");
   // No eyebrow prop at all keeps the homepage's default kicker; an explicit
   // empty string (category pages that want no kicker line) suppresses it.
-  const eyebrowText = eyebrow === undefined ? "Explore gamification options for your app" : eyebrow;
+  const eyebrowText = eyebrow === undefined ? "Documented breakdowns of real apps" : eyebrow;
   return (
     <section className={sectionClass} id="top" aria-labelledby="hero-h">
       <div className="container hero__grid">
         <div className="hero__body">
           {eyebrowText && <div className="eyebrow hero__eyebrow">{eyebrowText}</div>}
           <h1 id="hero-h">{headline ?? "Power up your app with proven game mechanics"}</h1>
-          <p className="hero__sub">{sub ?? "See how the best apps use gamification to turn everyday features into habits. We break down each mechanic, map how they fit together, and help your team apply the ones that suit your product."}</p>
+          <p className="hero__sub">{sub ?? "A library of how real apps build engagement, mechanic by mechanic: what each one does, how it's presented, and how it fits with the mechanics around it."}</p>
           <div className="hero__cta">
             {buttons.map(({ label, variant, href, ...rest }) => (
               <Button key={label} variant={variant} size="lg" as="a" href={href} {...rest}>{label}</Button>

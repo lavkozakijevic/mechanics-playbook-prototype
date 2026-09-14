@@ -10,9 +10,9 @@ const CheckIcon = (
 
 const UNLOCKS = [
   "Unlock all of the content.",
-  "An in-depth gamification case study every week, 52 a year.",
+  "An in-depth case study every week, 52 a year.",
   "Access to all examples of mechanic application.",
-  "Access to all gamification systems across dozens of best-in-class apps.",
+  "Access to all systems across dozens of best-in-class apps.",
 ];
 
 const VALUE = [
@@ -159,7 +159,7 @@ export function SubscribePage() {
       <section className="band sp-offer" aria-labelledby="offer-h">
         <div className="container container--narrow">
           <div className="eyebrow">Subscribe</div>
-          <h1 className="sp-offer__h" id="offer-h">Get weekly gamification case studies and examples</h1>
+          <h1 className="sp-offer__h" id="offer-h">Documented breakdowns of how real apps build engagement, mechanic by mechanic</h1>
 
           <SubscribeCard onSubscribe={() => setModalOpen(true)} />
         </div>

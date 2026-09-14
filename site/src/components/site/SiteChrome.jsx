@@ -175,7 +175,7 @@ export function NewsletterBlock() {
             </div>
             <label className="newsletter__consent">
               <input type="checkbox" className="newsletter__check" checked={consent} onChange={(e) => setConsent(e.target.checked)} />
-              <span>I agree to receive occasional relevant emails from Appservatory about behavioral design and gamification.</span>
+              <span>I agree to receive occasional relevant emails from Appservatory about behavioral design and engagement mechanics.</span>
             </label>
             {status === "error" && <p className="newsletter__err">Something went wrong — please try again.</p>}
           </form>
