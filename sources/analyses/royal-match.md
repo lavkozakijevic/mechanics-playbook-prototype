@@ -725,7 +725,7 @@
 
 **O59. The Easter Treasures ladder places one paid rung among free ones.**
 
-**Observed:** Royal Match presents Easter Treasures with two days and 12 hours remaining and the instruction to claim each offer to unlock free rewards (tier: directly observed). The rungs are mostly free, with one priced at 2.99, and the paid rung must be taken to reach the free rungs beyond it (tier: directly observed).
+**Observed:** Royal Match presents Easter Treasures with two days and 12 hours remaining and the instruction to claim each offer to unlock free rewards (tier: directly observed). The rungs are mostly free, with one priced at 2.99 (tier: directly observed). The paid rung must be taken to reach the free rungs beyond it (tier: strongly supported, the surface's claim-each-to-unlock framing and the narration's reading of the paid rung as blocking the rest; the rung was never bought).
 
 **Detail:**
 - The observed sequence is a free hammer, 100 free gold coins, a free chest, then the 2.99 rung containing one TNT, 3,000 gold coins and one hammer, then 200 free gold coins, free doubled boosters, a free bow and arrow, a free cannon and a free jester (tier: directly observed).
@@ -825,7 +825,7 @@
 
 **Supporting observations:** O10, O12, O14, O31, O50, O57, O63.
 
-**Confidence:** directly observed
+**Confidence:** directly observed.
 
 **Role:** engagement, retention, monetization.
 
@@ -845,7 +845,7 @@ Hearts decide whether the next attempt can begin at all (O13), the regeneration 
 
 **Supporting observations:** O7, O12, O21, O24, O31, O36, O57, O58, O59.
 
-**Confidence:** directly observed
+**Confidence:** directly observed.
 
 **Role:** engagement, monetization.
 
@@ -865,7 +865,7 @@ The items are selected and spent inside levels, including one spent at level 36 
 
 **Supporting observations:** O7, O11, O12, O14, O64.
 
-**Confidence:** directly observed
+**Confidence:** directly observed.
 
 **Role:** engagement, retention.
 
@@ -885,7 +885,7 @@ The level instance is the unit of activity the user repeats inside a session (O1
 
 **Supporting observations:** O9, O10, O34, O35, O36, O46.
 
-**Confidence:** directly observed
+**Confidence:** directly observed.
 
 **Role:** engagement, retention.
 
@@ -905,7 +905,7 @@ The level is what advances each time the user plays a level (O10, O26), and the 
 
 **Supporting observations:** O7, O26, O32, O48.
 
-**Confidence:** directly observed
+**Confidence:** directly observed.
 
 **Role:** retention, engagement.
 
@@ -925,7 +925,7 @@ The two feature gates state a level the user does not hold and can reach only by
 
 **Supporting observations:** O13, O14, O18, O23, O24, O56.
 
-**Confidence:** directly observed
+**Confidence:** directly observed.
 
 **Role:** engagement, monetization.
 
@@ -945,7 +945,7 @@ Stars are what the user plays levels to obtain and spends on the castle inside a
 
 **Supporting observations:** O14, O55, O57, O61.
 
-**Confidence:** directly observed
+**Confidence:** directly observed.
 
 **Role:** monetization, engagement.
 
@@ -965,7 +965,7 @@ Money enters the game as coins rather than as the thing the user wants, and the 
 
 **Supporting observations:** O23, O27, O26.
 
-**Confidence:** directly observed
+**Confidence:** directly observed.
 
 **Role:** engagement, retention.
 
@@ -985,7 +985,7 @@ Area completion is the point the castle work is aimed at and the moment a new ar
 
 **Supporting observations:** O29, O30, O31, O33.
 
-**Confidence:** strongly supported
+**Confidence:** strongly supported.
 
 **Role:** engagement, retention.
 
@@ -1005,7 +1005,7 @@ The event units are what makes an ordinary level worth playing now rather than l
 
 **Supporting observations:** O24, O32, O42, O59.
 
-**Confidence:** directly observed
+**Confidence:** directly observed.
 
 **Role:** engagement, retention.
 
@@ -1025,7 +1025,7 @@ The chests and card packs are the payoff at the end of each area and each event 
 
 **Supporting observations:** O17, O25, O29, O33, O42, O64.
 
-**Confidence:** directly observed
+**Confidence:** directly observed.
 
 **Role:** engagement.
 
@@ -1045,7 +1045,7 @@ Both modifiers change what the level in front of the user pays without changing 
 
 **Supporting observations:** O15, O16, O28.
 
-**Confidence:** strongly supported
+**Confidence:** strongly supported.
 
 **Role:** engagement.
 
@@ -1065,7 +1065,7 @@ The state is what makes the narrator spend a power-up to avoid failing a level h
 
 **Supporting observations:** O25, O41, O42, O45, O64, O66.
 
-**Confidence:** directly observed
+**Confidence:** directly observed.
 
 **Role:** monetization, retention, engagement.
 
@@ -1085,7 +1085,7 @@ The activated lane is sold for a stated price at the moment the track appears (O
 
 **Supporting observations:** O24, O44, O51, O64.
 
-**Confidence:** directly observed
+**Confidence:** directly observed.
 
 **Role:** engagement, social, retention.
 
@@ -1105,7 +1105,7 @@ Completing sets is what the cards are for and what the card requests to teammate
 
 **Supporting observations:** O34, O37, O47, O49, O50, O51, O52, O58.
 
-**Confidence:** directly observed
+**Confidence:** directly observed.
 
 **Role:** social, retention, monetization.
 
@@ -1125,7 +1125,7 @@ The team is where other identified players appear, send lives and cards, and sta
 
 **Supporting observations:** O13, O41, O49, O51, O58, O60.
 
-**Confidence:** directly observed
+**Confidence:** directly observed.
 
 **Role:** social, engagement, monetization.
 
@@ -1145,7 +1145,7 @@ A life is directed to an identified teammate who asked for it and the sender is 
 
 **Supporting observations:** O26, O38, O43, O48, O52.
 
-**Confidence:** directly observed
+**Confidence:** directly observed.
 
 **Role:** social, engagement.
 
@@ -1165,7 +1165,7 @@ The lists are populated by other identified players and teams with names and pic
 
 **Supporting observations:** O43, O46, O47, O52.
 
-**Confidence:** directly observed
+**Confidence:** directly observed.
 
 **Role:** social, engagement.
 
@@ -1185,7 +1185,7 @@ The position the app tells the user about is their team's place among other team
 
 **Supporting observations:** O31, O32, O46, O47.
 
-**Confidence:** directly observed
+**Confidence:** directly observed.
 
 **Role:** social, monetization.
 
@@ -1198,6 +1198,27 @@ The avatar, frame and name are what other identified players see beside the user
 **Variants not established:** environment cosmetic; audio cosmetic; animation cosmetic; automatically applied cosmetic; shared cosmetic; layered cosmetic.
 
 **Alternative considered:** the castle and area decorations, which are the most visible presentation change in the game. They are not tagged here: the built state is the direct visible consequence of spending stars on the current task, no alternative presentation is offered for any task, and the appearance cannot be applied independently of that progression state. The star sink is described in plain language at O23 and O40 instead.
+
+**Tag:** Purchase Ladder
+
+**Observations:** O59.
+
+**Supporting observations:** O15, O61, O64.
+
+**Confidence:** strongly supported.
+
+**Role:** monetization.
+
+The ordering exists to put one priced rung in the path of the free rungs above it (O59), and the surface sits in the offer stack on the home screen and again in the shop rather than anywhere the game is played (O61).
+
+**Rationale:** Easter Treasures presents nine rewards as an ordered sequence under the instruction to claim each offer to unlock the free rewards, and claiming a rung reveals the next one (tier: directly observed). Eight rungs cost nothing and the fourth is priced at 2.99, and the free rungs above it cannot be claimed until it is taken (tier: strongly supported, the surface's own claim-each-to-unlock framing together with the narration's reading of the paid rung as blocking the rest). That lock is the entry's invariant: the sequence is not a list of offers the user may take in any order but a chain in which one purchase stands between the user and the remainder. The confidence is strongly supported rather than directly observed because the paid rung was never bought, so the lock was read from the surface's framing rather than met. The record carries the same claim at two tiers, directly observed in the Observed paragraph of O59 and strongly supported in its Detail, and the lower of the two governs here.
+
+**Variants present:** mixed ladder, free-entry ladder (three free rungs precede the paid one), free-endpoint ladder (the terminal rung is a free jester reached only past the paid rung), revealed-position ladder, windowed ladder (two days and 12 hours remaining), themed ladder (an Easter event).
+
+**Variants not established:** fully paid ladder; paid-endpoint ladder; threshold ladder; escalating-price ladder and uniform-price ladder, since only one rung carries a price; escalating-reward ladder, since the contents do not rise in any observed order; recurring ladder; parallel ladders; variable-content ladder; limited-position ladder; shared ladder. Whether the whole sequence is visible while locked or disclosed only as each rung is claimed is not separated by the record, which enumerates all nine rungs while also stating that claiming a rung reveals the next. What happens to unreached rungs when the window closes is not observed (O64).
+
+**Alternative considered:** an ordinary offer placed among free rewards, which would carry no mechanic label; rejected because the surface states the claim-each-to-unlock rule itself, and it is the lock rather than the arrangement that the entry turns on. Daily Claim Pack was considered and does not apply, since no single acquisition governs the sequence and the rungs are released by being claimed rather than by intervals passing. Seasonal Progression Pass was considered and does not apply, since nothing the user does in the game advances the ladder; it is not the Easter Pass, which is tagged separately at O31 and O60 and does run on keys earned by play.
+
 
 ## Entries considered and not applied
 
@@ -1217,7 +1238,6 @@ The avatar, frame and name are what other identified players see beside the user
 - Rewarded Advertisement. No advertisement appears anywhere in the session. The King's Nightmare interludes resemble advertising creative for the game, which is the reverse relationship, and the coins they pay are conditional on playing a mini-activity rather than on engaging with an advertisement (O17).
 - Variable Reward Schedule. Considered for the arrival of the interludes, the unlocks and the events. Every observed arrival is tied to a level number, which is consistent with a fixed rule the session simply did not see stated; the entry directs that irregular-looking timing is not enough to separate variable scheduling from a hidden fixed rule (O15, O17, O22, O29, O31, O32).
 - Personal Data Reflection. Considered for the profile's general stats. The stats are displayed for viewing; no step requires a response from the user, which the entry requires (O28).
-- Paywalled Reward Ladder. Not a library entry. It was proposed from this analysis on 13 Sep 2026 and rejected on 14 Sep 2026, and it is recorded here so it is not proposed again. The Easter Treasures surface reveals each rung by claiming the previous one, most rungs cost nothing, and one rung must be purchased before the free rungs beyond it can be reached (O59). The structure exists to place a purchase in the user's path, and a commercial or billing arrangement is not a tag however it is presented, so the ladder is described in plain language in the observation record and carries no label. A future analyst meeting this shape in another app should record the claim sequence, the paid rung and the window in Pass one and stop there.
 
 ## Unresolved
 
@@ -1244,7 +1264,7 @@ The avatar, frame and name are what other identified players see beside the user
 
 # Pass three: proposed new tags
 
-All five proposals from this run were ruled on on 14 Sep 2026: Progression Gate, Consumable Assist Item and Timed Reward Multiplier were approved as the library entries Progression Gate, Boosters and Reward Multiplier, Interlude Minigame was approved as Minigame, and Paywalled Reward Ladder was rejected and is recorded above under entries considered and not applied.
+All five proposals from this run were ruled on on 14 Sep 2026: Progression Gate, Consumable Assist Item and Timed Reward Multiplier were approved as the library entries Progression Gate, Boosters and Reward Multiplier, Interlude Minigame was approved as Minigame, and Paywalled Reward Ladder was rejected. That rejection was overturned on 14 Sep 2026, after the same pattern was proposed again from the FC Mobile analysis, and the behavior is now the approved library entry Purchase Ladder. The bullet recording the rejection has been removed from entries considered and not applied, and the Easter Treasures ladder at O59 has been re-tagged under that entry in Pass two.
 
 # Close: system view
 
