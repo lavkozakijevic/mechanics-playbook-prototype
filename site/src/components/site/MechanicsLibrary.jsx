@@ -1,6 +1,7 @@
-/* Website kit — Mechanics Library: filter sidebar only.
- * Rows and cards are pre-rendered by Astro in pages/mechanics/index.astro;
- * this island adds show/hide filtering via DOM data attributes.
+/* Website kit — Mechanics Library: filter sidebar and pill selection.
+ * Pills and card grids are pre-rendered by Astro in pages/mechanics/index.astro;
+ * this island adds show/hide filtering and the pill-tap reveal via DOM data
+ * attributes. It never renders row/card content itself.
  *
  * Two filters, doing different jobs (spec §3.4), each with its own heading
  * and a one-line explanation rather than a bare word — Category, Role, and
@@ -11,17 +12,30 @@
  * the pre-library freeform context vocabulary, never a defined list (spec
  * §6.4 flags exactly this), and its values duplicate Category and Role.
  *
- * Category filters whole rows: it's a property of the mechanic, read from
- * data-cat on [data-tag-row] itself. User type filters rows the same way,
- * from data-players. Role is different on purpose: it's a property of the
- * implementation, not the mechanic, so it filters individual
- * [data-role-card] elements within a row rather than the row's own data
- * attributes, multi-select OR (any selected role present on the card's own
- * data-roles matches), and a row left with zero visible cards after that
- * hides too — but only once a role filter is actually active; a row's own
- * natural zero-implementations state is not itself a filter result and
- * stays visible until one is. */
-import React, { useState, useEffect, useCallback } from "react";
+ * Category and search both narrow which *pills* show (owner instruction,
+ * 16 Sep 2026): both are properties of the mechanic, read from data-cat and
+ * data-search on [data-pill] itself — search matches mechanic name,
+ * definition, and every one of its cards' implementation summaries (spec
+ * §3.4's "implementation content"), all folded into data-search at build
+ * time. User type filters pills the same way, from data-players. Role is
+ * different on purpose: it's a property of the implementation, not the
+ * mechanic, so it filters individual [data-role-card] elements inside the
+ * currently-open grid rather than a pill's own data attributes,
+ * multi-select OR (any selected role present on the card's own data-roles
+ * matches). Hidden grids get filtered too since it's cheap and harmless —
+ * nothing depends on it not running there.
+ *
+ * Pill selection (spec §3.2/§3.3): tapping a pill shows its grid and hides
+ * every other one; tapping the active pill again clears back to the
+ * landing state (the empty-state line), the same toggle-off behavior
+ * Category's own "All" button already uses. Deep-linked via `?m=<id>`
+ * (owner instruction, 16 Sep 2026 — a shareable mechanic matters for a
+ * library): read on mount to open a pill pre-selected, written with
+ * replaceState on every selection change so sharing the current view is a
+ * copy-paste of the address bar without cluttering back/forward history
+ * with every pill tapped along the way. If a filter hides the selected
+ * pill, selection clears the same way tapping it again would. */
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Input } from "../ds/Input.jsx";
 
 const CATS = {
@@ -55,16 +69,19 @@ function FilterRow({ active, dot, label, onClick }) {
 }
 
 /**
- * Filter sidebar for the mechanics library.
- * Reads pre-rendered [data-tag-row] rows (and the [data-role-card] cards
- * inside each) from the DOM and toggles `hidden` based on the active filter
- * state. Never re-renders the row/card list — JavaScript is additive only.
+ * Filter sidebar and pill-selection controller for the mechanics library.
+ * Reads pre-rendered [data-pill] buttons and [data-mech-cards] grids (with
+ * [data-role-card] cards inside) from the DOM and toggles `hidden`/
+ * `aria-pressed` based on filter and selection state. Never re-renders pill
+ * or card content — JavaScript is additive only.
  */
 export function MechanicsFilters({ playerOptions, roleOptions, total }) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("all");
   const [users, setUsers] = useState([]);
   const [roles, setRoles] = useState([]);
+  const [selected, setSelected] = useState(null);
+  const mounted = useRef(false);
 
   const active = !!(query || category !== "all" || users.length || roles.length);
 
@@ -76,52 +93,77 @@ export function MechanicsFilters({ playerOptions, roleOptions, total }) {
     setList(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
   const pickCategory = (key) => setCategory((c) => (c === key ? "all" : key));
 
-  // Filter the pre-rendered row/card grid by updating DOM visibility
+  // Read the deep-linked pill once on mount — before the filter effect
+  // below runs, so a linked-to mechanic that a filter would otherwise hide
+  // still opens (nothing is filtered yet at this point).
+  useEffect(() => {
+    const id = new URLSearchParams(window.location.search).get("m");
+    if (id && document.querySelector(`[data-pill="${id}"]`)) setSelected(id);
+  }, []);
+
+  // Pill click handling: delegated to the pill container so it works for
+  // every pill without per-pill React state or re-rendering their content.
+  useEffect(() => {
+    const container = document.getElementById("mech-pills");
+    if (!container) return;
+    const onClick = (e) => {
+      const pill = e.target.closest("[data-pill]");
+      if (!pill) return;
+      const id = pill.dataset.pill;
+      setSelected((cur) => (cur === id ? null : id));
+    };
+    container.addEventListener("click", onClick);
+    return () => container.removeEventListener("click", onClick);
+  }, []);
+
+  // Selection: show the chosen grid, hide every other, mark the active
+  // pill, show/hide the landing-state line, and sync the URL.
+  useEffect(() => {
+    document.querySelectorAll("[data-mech-cards]").forEach((grid) => {
+      grid.hidden = grid.dataset.mechCards !== selected;
+    });
+    document.querySelectorAll("[data-pill]").forEach((pill) => {
+      pill.setAttribute("aria-pressed", String(pill.dataset.pill === selected));
+    });
+    const emptyEl = document.getElementById("mech-empty");
+    if (emptyEl) emptyEl.hidden = !!selected;
+
+    // Skip the very first run: don't overwrite a URL a reader arrived on
+    // (e.g. one with other query params) before anything's actually changed.
+    if (!mounted.current) { mounted.current = true; return; }
+    const url = new URL(window.location.href);
+    if (selected) url.searchParams.set("m", selected);
+    else url.searchParams.delete("m");
+    window.history.replaceState(null, "", url);
+  }, [selected]);
+
+  // Filter the pre-rendered pill list by updating DOM visibility
   useEffect(() => {
     const q = query.trim().toLowerCase();
-    const rows = document.querySelectorAll("[data-tag-row]");
+    const pills = document.querySelectorAll("[data-pill]");
     let shown = 0;
 
-    rows.forEach((row) => {
-      const cat = row.dataset.cat ?? "";
-      const players = JSON.parse(row.dataset.players ?? "[]");
-      const name = row.dataset.name ?? "";
-      const def = row.dataset.def ?? "";
+    pills.forEach((pill) => {
+      const cat = pill.dataset.cat ?? "";
+      const players = JSON.parse(pill.dataset.players ?? "[]");
+      const search = pill.dataset.search ?? "";
 
       let visible = true;
-      if (q && !(name.includes(q) || def.includes(q))) visible = false;
+      if (q && !search.includes(q)) visible = false;
       if (category !== "all" && cat !== category) visible = false;
       if (users.length && !players.some((u) => users.includes(u))) visible = false;
 
-      // Role filters cards, not the row itself — multi-select OR, any
-      // selected role present on the card's own roles is a match. Only
-      // touches a row that otherwise passed every row-level filter above;
-      // a row already hidden by category/search/context/player stays
-      // hidden regardless of what its cards carry.
-      if (visible && roles.length) {
-        const cards = row.querySelectorAll("[data-role-card]");
-        let anyCardVisible = false;
-        cards.forEach((card) => {
-          const cardRoles = JSON.parse(card.dataset.roles ?? "[]");
-          const cardVisible = cardRoles.some((r) => roles.includes(r));
-          card.hidden = !cardVisible;
-          if (cardVisible) anyCardVisible = true;
-        });
-        if (!anyCardVisible) visible = false;
-      } else {
-        row.querySelectorAll("[data-role-card]").forEach((card) => { card.hidden = false; });
-      }
-
-      row.hidden = !visible;
+      pill.hidden = !visible;
       if (visible) shown++;
-
-      // The jump list at the top stays in sync with the rows it points to —
-      // a tag hidden by a filter isn't worth a link that would scroll to
-      // nothing currently on screen.
-      const rowId = row.dataset.tagRow;
-      const link = document.querySelector(`[data-tag-link="${rowId}"]`);
-      if (link) link.hidden = !visible;
     });
+
+    // A filter that hides the selected pill clears the selection, the same
+    // as tapping it again would — an open grid whose pill just vanished
+    // isn't a state a reader can get back to by looking at the page.
+    if (selected) {
+      const pill = document.querySelector(`[data-pill="${selected}"]`);
+      if (!pill || pill.hidden) setSelected(null);
+    }
 
     const countEl = document.getElementById("lib-shown");
     if (countEl) countEl.textContent = String(shown);
@@ -133,7 +175,19 @@ export function MechanicsFilters({ playerOptions, roleOptions, total }) {
 
     const emptyEl = document.getElementById("lib-empty");
     if (emptyEl) emptyEl.hidden = shown > 0;
-  }, [query, category, users, roles, active]);
+  }, [query, category, users, active, selected]);
+
+  // Role filters cards inside whichever grid is open — multi-select OR, any
+  // selected role present on the card's own roles is a match. Runs over
+  // every grid, not just the visible one; a hidden grid's cards filtering
+  // internally has no visible effect, so there's no need to scope this.
+  useEffect(() => {
+    document.querySelectorAll("[data-role-card]").forEach((card) => {
+      if (!roles.length) { card.hidden = false; return; }
+      const cardRoles = JSON.parse(card.dataset.roles ?? "[]");
+      card.hidden = !cardRoles.some((r) => roles.includes(r));
+    });
+  }, [roles]);
 
   // Wire the resultbar's reset button to the same clearAll
   useEffect(() => {

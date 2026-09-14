@@ -155,15 +155,17 @@ Mechanic cards are removed from this page. Tags replace them.
 
 ### 3.2 Landing state
 
-One card per mechanic, showing the first implementation of that mechanic. A reader arriving cold sees the breadth of the library rather than depth in one mechanic.
-
-"First implementation" means first in the list. No curation field. This makes list order a content decision, since whatever sits first becomes the public face of that mechanic.
+No card, no default selection. The right column holds nothing but a single line — "Pick a mechanic to see how apps use it." — until a pill is tapped. (Revised 16 Sep 2026: this section previously specified one card per mechanic, showing the first implementation, as the landing state. That was replaced before being built — a reader arriving cold now sees the full breadth of the library as pills, alphabetical, rather than a page of unrequested cards.)
 
 ### 3.3 Tag selected
 
-Cards below become every implementation of that mechanic across apps. The first is open. The rest are locked, each showing the app name and a subscribe prompt.
+Tapping a pill shows every implementation of that mechanic across apps in the column below, and hides every other mechanic's cards. Tapping the same pill again clears the selection back to the landing state in §3.2.
+
+The first card, in the same app-alphabetical order the cards themselves are always shown in, is open. The rest are locked. "First" means first in the list — no curation field, so list order is a content decision, since whatever sits first becomes the public face of that mechanic in the un-authenticated view.
 
 Until authentication exists this is what every visitor sees. When authentication ships, subscribers see all cards unlocked and nothing else about the page changes.
+
+Deep-linked via `?m=<mechanic-id>` — a shareable mechanic matters for a library. Loading the page with a valid id pre-selects that pill; selecting or clearing a pill updates the query string to match, so the address bar always reflects what's on screen.
 
 ### 3.4 Filters and search
 
@@ -178,16 +180,18 @@ Search runs across mechanic names, definitions, and implementation content.
 ### 3.5 An implementation card
 
 - App icon and name
-- Mechanic name
-- The observations carrying that tag for that app, in the app's section order
-- The role that mechanic plays in that app
-- A link through to that app's case study
+- The implementation summary — one sentence, under 25 words, naming what this app specifically does with the mechanic (see the Stage 2 amendment, `stage2-website-content.md`)
+- A link through to that mechanic's block in the app's case study
 
-Locked cards show the app name and the subscribe prompt only.
+(Revised 16 Sep 2026: this section previously listed mechanic name, the tag's observations in section order, and role as separate card fields. The mechanic name is redundant with the selected pill and isn't repeated on the card; the observations list and role are both superseded by the implementation summary, which didn't exist when this section was first written.)
+
+**Locked cards show the app icon, name, and implementation summary — the same as an open card — with a subscribe prompt in place of the working link.** Not the app name and prompt alone: the summary is one sentence, it's the reason to subscribe, and hiding it makes the card meaningless. What's withheld is the click-through, not the hook.
 
 ### 3.6 Held-back mechanics
 
-Some applied tags resolve to mechanics that are held back pending a merge split, so they have a tag and no reference page. Those implementations still exist and still belong in the index. The card renders, the mechanic name renders unlinked, per the same `mechanicHref()` rule the case study pages use.
+Some applied tags resolve to mechanics that are held back pending a merge split, so they have a tag and no reference page. Those implementations still exist and still belong in the index: the pill and its cards render exactly like any other mechanic's.
+
+(Revised 16 Sep 2026: this section previously said the mechanic name renders unlinked, per the same `mechanicHref()` rule the case study pages use. That described the row-heading link the pre-pill build had. Pills are buttons, not links, for every mechanic regardless of held-back status — nothing on this page links to a mechanic's own reference page anymore, so there's no distinction left for held-back mechanics to lose.)
 
 ---
 

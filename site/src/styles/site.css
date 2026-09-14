@@ -335,46 +335,54 @@
 .pillchip { display: inline-flex; align-items: center; height: 30px; padding: 0 14px; border-radius: var(--radius-pill);
   background: var(--ink-100); color: var(--ink-700); font: var(--type-body-sm); font-weight: var(--weight-medium); }
 
-/* Tag nav (spec §3.1, "tags across the top... above the cards", added 15
-   Sep 2026): a jump list to each row below, alphabetical like the rows
-   themselves. Anchor-scroll, not a filter — see the markup comment in
-   mechanics/index.astro for why. */
-.tag-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-.tag-nav__item { display: inline-flex; align-items: center; height: 30px; padding: 0 14px; border-radius: var(--radius-pill);
-  background: var(--ink-100); color: var(--ink-700); font: var(--type-body-sm); font-weight: var(--weight-medium);
-  text-decoration: none; transition: background var(--duration-base) var(--ease-standard), color var(--duration-base) var(--ease-standard); }
-.tag-nav__item:hover { background: var(--ink-200); color: var(--ink-900); }
+/* Mechanic pills (spec §3.1/§3.2, rebuilt 16 Sep 2026) — one per mechanic
+   with at least one implementation, alphabetical, replacing both the old
+   flat .mlc card grid and the jump-list/always-open-rows build that came
+   before this one. A pill is a button, not a link: it toggles the card
+   grid below rather than navigating (see the markup comment in
+   mechanics/index.astro). Sized and spaced for scanning at the current
+   ~34-pill count and comfortably past it — wraps onto as many lines as it
+   needs rather than truncating or scrolling, so a longer mechanic name
+   never gets clipped. */
+.mech-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.mech-pill { display: inline-flex; align-items: center; height: 34px; padding: 0 16px; border-radius: var(--radius-pill);
+  border: 1px solid var(--border-subtle); background: var(--surface-card); color: var(--ink-700);
+  font: var(--type-body-sm); font-weight: var(--weight-medium); cursor: pointer;
+  transition: background var(--duration-base) var(--ease-standard), border-color var(--duration-base) var(--ease-standard), color var(--duration-base) var(--ease-standard); }
+.mech-pill:hover { border-color: var(--border-strong); color: var(--ink-900); }
+.mech-pill:focus-visible { outline: none; box-shadow: var(--ring); }
+.mech-pill[aria-pressed="true"] { background: var(--ink-900); border-color: var(--ink-900); color: var(--paper); }
 
-/* Tag rows (spec §3 rebuild, 14 Sep 2026) — one row per mechanic, replacing
-   the old flat .mlc card grid now that the index is built on tags/
-   implementations instead of the v3 `mechanics` array. */
-.tag-rows { display: flex; flex-direction: column; gap: 20px; }
-.tag-row { background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-xs); padding: clamp(20px, 2.4vw, 28px); scroll-margin-top: calc(var(--nav-h) + 16px); }
-.tag-row__head { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
-.tag-row__lead { display: flex; align-items: center; gap: 12px; }
-.tag-row__num { font-family: var(--font-mono); font-size: 13px; font-weight: var(--weight-medium); letter-spacing: 0.1em; color: var(--text-faint); }
-.tag-row__name { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: clamp(19px, 2vw, 22px);
-  letter-spacing: var(--tracking-heading); color: var(--ink-900); text-decoration: none; }
-a.tag-row__name:hover { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
-.tag-row__name--locked { color: var(--text-muted); cursor: default; }
-.tag-row__count { margin-left: auto; font: var(--type-body-sm); color: var(--text-muted); white-space: nowrap; }
-.tag-row__def { font: var(--type-body); color: var(--text-secondary); line-height: 1.55; margin-top: 8px; text-wrap: pretty; max-width: 68ch; }
-.tag-row__empty { margin-top: 16px; padding: 16px 18px; border: 1px dashed var(--border-default); border-radius: var(--radius-md);
-  color: var(--text-muted); font: var(--type-body-sm); }
-.tag-row__cards { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 18px; }
+/* Landing state (spec §3.2) — the only thing in the right column until a
+   pill is tapped. */
+.mech-empty { padding: 48px 24px; text-align: center; border: 1px dashed var(--border-default); border-radius: var(--radius-lg);
+  color: var(--text-muted); font: var(--type-body); }
+
+/* One grid per pill (spec §3.3), all present at build time, all hidden
+   except the selected one. */
+.mech-cards { display: grid; grid-template-columns: 1fr; gap: 14px; }
 @media (min-width: 600px) {
-  .tag-row__cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mech-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (min-width: 1000px) {
-  .tag-row__cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .mech-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
-/* .csc/.csc--locked reused verbatim for the implementation card (owner
+/* .csc/.csc--locked reused verbatim for the open implementation card (owner
    instruction, 14 Sep 2026) — .csc--impl only trims the padding and icon
    size for this denser, three-up grid, not a new card language. */
 .csc--impl { padding: 16px 18px; gap: 12px; }
 .csc--impl .csc__icon { width: 32px; height: 32px; font-size: 13px; border-radius: 8px; }
 .csc--impl .csc__name { font-size: 16px; }
+/* A locked card is a different, smaller amount of real markup (icon, name,
+   summary, subscribe prompt — no working link), not the fuller card dimmed
+   by opacity the way .csc--locked works elsewhere (spec §3.5, owner
+   correction 16 Sep 2026: the summary is the reason to subscribe, so it
+   renders at full strength rather than being hidden or faded). A plain
+   div, not a link, since there's nothing to click through to. */
+.csc--locked-strict { cursor: default; }
+.csc--locked-strict:hover { border-color: var(--border-subtle); box-shadow: var(--shadow-xs); transform: none; }
+.csc--locked-strict .csc__go { color: var(--text-accent); text-decoration: none; }
+.csc--locked-strict .csc__go:hover { text-decoration: underline; text-underline-offset: 2px; }
 
 /* =================== MECHANIC DETAIL =================== */
 .mech-head { padding-block: clamp(28px, 4vw, 52px) clamp(22px, 3vw, 34px); border-bottom: var(--rule-hairline); }

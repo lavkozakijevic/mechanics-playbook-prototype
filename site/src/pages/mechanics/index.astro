@@ -1,74 +1,58 @@
 ---
 import Base from "../../layouts/Base.astro";
 import { MechanicsFilters } from "../../components/site/MechanicsLibrary.jsx";
-import { publishedApps, publishedMechanics, titleCase } from "../../lib/content";
+import { publishedApps, publishedMechanics } from "../../lib/content";
 import { mechanicCard, initials, EXAMPLE_EXCLUDED } from "../../lib/props";
 import { tagBlocks } from "../../lib/v41";
-import { PREVIEW_UNLOCK } from "../../lib/preview";
 
 const mechanics = await publishedMechanics();
 const apps = await publishedApps();
 const mechanicsById = new Map(mechanics.map((m) => [m.data.id, m.data]));
 
-// Rebuilt on tags/implementations (spec §3): a row per mechanic, a card per
-// app that applies it as a real tag, sourced from tagBlocks() rather than
-// the old flat `mechanics: [{id}]` array. v3 apps contribute nothing here
-// (owner decision, 14 Sep 2026) — their write-ups carry no per-tag role
-// text, only a depth tier, and standing in a depth tier for a role would
-// misrepresent what "role" means for an actually-analysed implementation.
-// This is the same exclusion tagBlocks() itself already applies (v3 apps
-// carry no `observations`), just made deliberate here rather than
-// incidental. It clears as each app is re-analysed under the current model.
+// Rebuilt as pills-and-reveal (spec §3 rebuild, 16 Sep 2026): a pill per
+// mechanic with at least one implementation, nothing below until one is
+// tapped. v3 apps contribute nothing here (owner decision, 14 Sep 2026) —
+// their write-ups carry no per-tag role text or implementation summary,
+// only a depth tier, and standing a depth tier in for either would
+// misrepresent an actually-analysed implementation. This clears as each
+// app is re-analysed under the current model.
 //
 // Also excludes EXAMPLE_EXCLUDED (owner ruling, 17 Jun 2026 — Cleo, Acorns,
 // and three finance apps not yet in this collection at all): the same bar
 // mechanicStudies() already applies on a mechanic's own detail page, so a
-// barred app can't surface here either, one row-per-app-implementation at a
-// time, as an end run around a rule written for the one-example-per-app
-// list. check-report-leak.mjs's Example-block guard checks for exactly this.
+// barred app can't surface here either. check-report-leak.mjs's
+// Example-block guard checks for exactly this.
 const v41Apps = apps.filter((a) => a.data.contentFormat === "v4.1" && !EXAMPLE_EXCLUDED.has(a.data.id));
 
 interface Card {
   appId: string;
   appName: string;
   appIcon: string | null;
-  role: string;
+  summary: string | undefined;
   roleTokens: string[];
-  locked: boolean;
   mechanicId: string;
+  locked: boolean;
 }
 
-// Role is a property of the implementation, not the mechanic (owner
-// correction, 14 Sep 2026) — it lives on the card, one per (app, applied
-// tag) pair, never rolled up onto the row. Two different library entries
-// resolving to the same site mechanic in the same app (the merged-taxonomy
-// case, e.g. Leaderboard and Comparative Rank both landing on
-// `leaderboards`) still get two separate cards here, same as they get two
-// separate blocks on that app's own summary page — not a mistake to fold
-// together (v41.ts).
-const cardsByMechanic = new Map<string, Card[]>();
+// Role is a property of the implementation, not the mechanic — kept only
+// as filter data now (owner instruction, 16 Sep 2026: the card itself no
+// longer displays it, the implementation summary carries the distinguishing
+// detail instead). Two different library entries resolving to the same
+// site mechanic in the same app (the merged-taxonomy case, e.g.
+// Leaderboard and Comparative Rank both landing on `leaderboards`) still
+// get two separate cards here, same as they get two separate blocks on
+// that app's own summary page — not a mistake to fold together (v41.ts).
+const cardsByMechanic = new Map<string, Omit<Card, "locked">[]>();
 for (const app of v41Apps) {
   const blocks = tagBlocks(app.data, mechanicsById);
-  // Declared visibility, not REVIEW_WINDOW_OPEN (owner instruction, 14 Sep
-  // 2026) — reads the same already-resolved `app.data.visibility` field
-  // CaseStudySummaryV41.astro/CaseStudySectionV41.astro gate on, rather than
-  // importing REVIEW_WINDOW_OPEN a second time and re-deriving it here.
-  // PREVIEW_UNLOCK kept for the same reason those two do: a local-preview-
-  // only override, off by default, that would otherwise leave this index
-  // locked while the case study it links to is unlocked.
-  const locked = app.data.visibility !== "public" && !PREVIEW_UNLOCK;
   for (const block of blocks) {
-    if (!block.mechanic) continue; // no resolved site mechanic — no row to index it under
+    if (!block.mechanic) continue; // no resolved site mechanic — nothing to index it under
     const list = cardsByMechanic.get(block.mechanic.id) ?? [];
     list.push({
       appId: app.data.id,
       appName: app.data.name,
       appIcon: app.data.icon ?? null,
-      role: block.role || "",
-      // Role text is free prose ("engagement, retention.", "monetization,
-      // engagement") drawn from exactly four vocabulary words shared with
-      // `cat` — tokenized here only for the filter's own matching, never
-      // for display (the card still shows the source string as written).
+      summary: block.writeup?.summary,
       roleTokens: [...new Set(
         (block.role || "")
           .toLowerCase()
@@ -77,7 +61,6 @@ for (const app of v41Apps) {
           .map((s) => s.trim())
           .filter(Boolean)
       )],
-      locked,
       mechanicId: block.mechanicId,
     });
     cardsByMechanic.set(block.mechanic.id, list);
@@ -86,30 +69,31 @@ for (const app of v41Apps) {
 
 const ROLE_OPTIONS = ["engagement", "retention", "monetization", "social"];
 
-// Tag rows alphabetical by name; cards within a row app-alphabetical
-// (owner answers, 14 Sep 2026) — neither reuses the old index's number-
-// ordered (`n`) card order, which was about the library's own reading
-// order, not a reader scanning for a specific mechanic or app by name.
-const rows = mechanics
+// Pills alphabetical by mechanic name; cards within a pill app-alphabetical
+// (owner answers, 14 Sep 2026). "First" for locking purposes (spec §3.3)
+// means first in this same app-alphabetical order — no curation field, so
+// list order is the only content decision here, same as the spec's own
+// "first in the list" reading.
+//
+// A mechanic with zero implementations gets no pill at all (spec §3.0: "not
+// as an empty tag, not as a disabled one" — a permanent rule, not a
+// migration workaround). Locking is positional (spec §3.3: "the first is
+// open, the rest are locked"), not app-visibility-based — the earlier build
+// of this page locked by `app.data.visibility`, which this rebuild
+// corrects; a mechanic's index card is about what the library is willing
+// to show for free on this page, not about what's public elsewhere on the
+// site.
+const pills = mechanics
   .map((m) => {
-    const cards = (cardsByMechanic.get(m.data.id) ?? []).sort((a, b) => a.appName.localeCompare(b.appName));
+    const sorted = (cardsByMechanic.get(m.data.id) ?? []).sort((a, b) => a.appName.localeCompare(b.appName));
+    const cards: Card[] = sorted.map((c, i) => ({ ...c, locked: i > 0 }));
     return { card: mechanicCard(m.data, cards.length), cat: m.data.cat, cards };
   })
+  .filter((p) => p.cards.length > 0)
   .sort((a, b) => a.card.name.localeCompare(b.card.name));
 
 const playerOptions = [...new Set(mechanics.flatMap((m) => m.data.players ?? []))];
 
-const CATS: Record<string, { label: string; color: string }> = {
-  retention:    { label: "Retention",    color: "var(--cat-retention)" },
-  monetization: { label: "Monetization", color: "var(--cat-monetization)" },
-  social:       { label: "Social",       color: "var(--cat-social)" },
-};
-const ROLE_LABEL: Record<string, string> = {
-  engagement: "Engagement",
-  retention: "Retention",
-  monetization: "Monetization",
-  social: "Social",
-};
 ---
 
 <Base
@@ -129,110 +113,114 @@ const ROLE_LABEL: Record<string, string> = {
     <div class="container">
       <div class="mechanics-layout">
         <aside class="lib-filters">
-          <!-- React island: filter controls only — no row/card rendering -->
+          <!-- React island: filter controls and pill selection only — no
+               row/card content rendering; everything below is Astro output
+               at build time, this island only toggles `hidden`. -->
           <MechanicsFilters
             client:load
             playerOptions={playerOptions}
             roleOptions={ROLE_OPTIONS}
-            total={rows.length}
+            total={pills.length}
           />
         </aside>
 
         <section aria-label="Mechanics">
           <div class="lib-resultbar">
             <span class="lib-resultbar__count">
-              <b id="lib-shown">{rows.length}</b> of {rows.length} mechanics
+              <b id="lib-shown">{pills.length}</b> of {pills.length} mechanics
             </span>
             <span id="lib-hint" class="lib-resultbar__hint">Updated weekly</span>
             <button type="button" id="lib-reset" class="filters__clear" hidden>Reset filters</button>
           </div>
 
           <!--
-            Tags across the top (spec §3.1), above the cards — a jump list,
-            alphabetical like the rows themselves, so a reader can reach a
-            mechanic without scrolling past the other 39. Selecting one
-            scrolls to that mechanic's row rather than filtering the page
-            down to it: the row grid below already shows every mechanic's
-            full card set at once (no landing/selected distinction yet, spec
-            §3.2/§3.3), so filtering to one row would be a bigger behavior
-            change than this jump list is meant to be, and .cs-toc's own
-            anchor-nav pattern (case study section pages) is the sitewide
-            precedent for exactly this "list at the top, click one, land on
-            it further down" shape. Kept in sync with the active filters via
-            data-tag-link, hidden alongside its row by the same effect.
+            Pills across the top (spec §3.1), one per mechanic with at
+            least one implementation, alphabetical. A button, not a link —
+            it toggles which card grid below is visible rather than
+            navigating anywhere (spec §3 rebuild, 16 Sep 2026: the earlier
+            build's row heading linked to the mechanic's own reference
+            page; pills don't carry that link at all now, held-back or
+            not — see the plan note on spec §3.6). data-search carries the
+            mechanic's name, definition, and every one of its cards'
+            implementation summaries, lowercased, for the search filter
+            (spec §3.4: "implementation content").
           -->
-          <nav class="tag-nav" aria-label="Jump to a mechanic">
-            {rows.map(({ card }) => (
-              <a class="tag-nav__item" href={`#tag-row-${card.id}`} data-tag-link={card.id}>{card.name}</a>
+          <div class="mech-pills" id="mech-pills" role="group" aria-label="Mechanics">
+            {pills.map(({ card, cat, cards }) => (
+              <button
+                type="button"
+                class="mech-pill"
+                data-pill={card.id}
+                data-cat={cat}
+                data-players={JSON.stringify(card.players ?? [])}
+                data-search={[card.name, card.definition, ...cards.map((c) => c.summary ?? "")].join(" ").toLowerCase()}
+                aria-pressed="false"
+              >
+                {card.name}
+              </button>
             ))}
-          </nav>
+          </div>
 
           <!--
-            Every row and card is rendered here by Astro at build time —
-            JavaScript is layered on top only for show/hide filtering
-            (data-tag-row for a row's own search/category/player match,
-            data-roles on each card for the role filter, which hides cards
-            individually and then hides a row left with none visible).
+            Landing state (spec §3.2, rewritten 16 Sep 2026): no card, no
+            default selection — just this one line, replaced by the
+            selected mechanic's card grid the moment a pill is tapped.
           -->
-          <div class="tag-rows" id="tag-rows">
-            {rows.map(({ card, cat, cards }) => {
-              const RowTag = card.href ? "a" : "span";
-              return (
-                <div
-                  id={`tag-row-${card.id}`}
-                  class="tag-row"
-                  data-tag-row={card.id}
-                  data-cat={cat}
-                  data-players={JSON.stringify(card.players ?? [])}
-                  data-name={card.name.toLowerCase()}
-                  data-def={card.definition.toLowerCase()}
-                >
-                  <div class="tag-row__head">
-                    <span class="tag-row__lead">
-                      <span class="tag-row__num">{String(card.n).padStart(2, "0")}</span>
-                      <span class:list={["gb-tag", `gb-tag--${cat}`]}>{CATS[cat]?.label ?? cat}</span>
-                    </span>
-                    <RowTag class:list={["tag-row__name", !card.href && "tag-row__name--locked"]} href={card.href || undefined}>
-                      {card.name}
-                    </RowTag>
-                    <span class="tag-row__count">{cards.length} {cards.length === 1 ? "implementation" : "implementations"}</span>
-                  </div>
-                  <p class="tag-row__def">{card.definition}</p>
+          <p class="mech-empty" id="mech-empty">Pick a mechanic to see how apps use it.</p>
 
-                  {cards.length > 0 ? (
-                    <div class="tag-row__cards">
-                      {cards.map((c) => (
-                        <a
-                          class:list={["csc", "csc--impl", c.locked && "csc--locked"]}
-                          href={c.locked ? "/subscribe/" : `/case-studies/${c.appId}/#mechanic-${c.mechanicId}`}
-                          data-role-card
-                          data-roles={JSON.stringify(c.roleTokens)}
-                        >
-                          <div class="csc__head">
-                            {c.appIcon ? (
-                              <div class="csc__icon" aria-hidden="true"><img src={c.appIcon} alt="" style="width:100%;height:100%;object-fit:cover;" /></div>
-                            ) : (
-                              <div class="csc__icon" aria-hidden="true">{initials(c.appName)}</div>
-                            )}
-                            <h3 class="csc__name">{c.appName}</h3>
-                          </div>
-                          {c.role && (
-                            <div class="csc__tags">
-                              {c.roleTokens.map((r) => <span class="pillchip">{ROLE_LABEL[r] ?? titleCase(r)}</span>)}
-                            </div>
-                          )}
-                          <div class="csc__foot">
-                            <span class="csc__go">{c.locked ? "Subscribe to explore" : "View in context"}</span>
-                          </div>
-                        </a>
-                      ))}
+          <!--
+            One grid per pill, all rendered here at build time, all hidden
+            until their pill is tapped — the same "Astro renders
+            everything, JS only shows/hides" discipline the filters
+            already use. Role filters cards inside whichever grid is
+            currently visible (spec §3.4); since every other grid stays
+            hidden regardless, there's no need to scope that filtering to
+            "only the open one" in code — hidden cards filtering
+            internally has no visible effect.
+          -->
+          <div id="mech-grids">
+            {pills.map(({ card, cards }) => (
+              <div class="mech-cards" data-mech-cards={card.id} hidden>
+                {cards.map((c) => (
+                  c.locked ? (
+                    <div class="csc csc--impl csc--locked-strict" data-role-card data-roles={JSON.stringify(c.roleTokens)}>
+                      <div class="csc__head">
+                        {c.appIcon ? (
+                          <div class="csc__icon" aria-hidden="true"><img src={c.appIcon} alt="" style="width:100%;height:100%;object-fit:cover;" /></div>
+                        ) : (
+                          <div class="csc__icon" aria-hidden="true">{initials(c.appName)}</div>
+                        )}
+                        <h3 class="csc__name">{c.appName}</h3>
+                      </div>
+                      {c.summary && <p class="csc__desc">{c.summary}</p>}
+                      <div class="csc__foot">
+                        <a class="csc__go" href="/subscribe/">Subscribe to see this in context</a>
+                      </div>
                     </div>
                   ) : (
-                    <p class="tag-row__empty">No implementations to show under the current model yet.</p>
-                  )}
-                </div>
-              );
-            })}
+                    <a
+                      class="csc csc--impl"
+                      href={`/case-studies/${c.appId}/#mechanic-${c.mechanicId}`}
+                      data-role-card
+                      data-roles={JSON.stringify(c.roleTokens)}
+                    >
+                      <div class="csc__head">
+                        {c.appIcon ? (
+                          <div class="csc__icon" aria-hidden="true"><img src={c.appIcon} alt="" style="width:100%;height:100%;object-fit:cover;" /></div>
+                        ) : (
+                          <div class="csc__icon" aria-hidden="true">{initials(c.appName)}</div>
+                        )}
+                        <h3 class="csc__name">{c.appName}</h3>
+                      </div>
+                      {c.summary && <p class="csc__desc">{c.summary}</p>}
+                      <div class="csc__foot">
+                        <span class="csc__go">View in context</span>
+                      </div>
+                    </a>
+                  )
+                ))}
+              </div>
+            ))}
           </div>
 
           <div class="lib-empty" id="lib-empty" hidden>No mechanics match those filters. Try removing one.</div>
