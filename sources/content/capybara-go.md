@@ -16,6 +16,8 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 
 ### Challenge
 
+**Implementation summary:** Capybara Go withholds the chapter's actual survival target until after the first run ends in defeat.
+
 **What was observed:** Capybara Go organizes both its main run and its Tower Challenge floors as bounded attempts with a stated success condition. A chapter run ends when the capybara is defeated or survives to the chapter's day threshold, sixty days for Chapter 1, and clearing it grants gold and moves the capybara into a new area, while a defeat instead records the days survived and the longest run reached. Tower Challenge floors work the same way at a smaller scale: entering a floor costs one ticket, victory shows a reward pop-up and a button that starts the next floor immediately, and each floor's enemies grow stronger than the last. Clearing ten floors of a tower triggers its own congratulations screen and a separate reward chest.
 
 **How it is presented:** The chapter target is never stated up front; Capybara Go drops the player into day one with no goal or run-length screen, and the day threshold only becomes visible once a run has ended. Tower floors are shown as a vertical ladder with a bar running from floor one to floor ten and a clear-reward chest waiting at the top.
@@ -32,6 +34,8 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 **Screenshots needed:** the day-one run screen with no stated goal, the defeat screen showing days survived, and the Tower floor ladder with its floor-ten clear chest.
 
 ### Companion
+
+**Implementation summary:** Capybara Go never isolates a single pet's battle contribution, leaving a player no way to judge which pet is worth developing.
 
 **What was observed:** Pets are a persistent roster the capybara sends into battle. Capybara Go hatches them from eggs, bought with gems or watched ads, or awards them from events and the sign-in event, and holds them in a pet list separate from the character. Only one battle position is open at first, with a second stated to unlock at level four, and a pet swiped into that position fights alongside the capybara in runs and raids. Each pet carries its own level, battle skills that unlock as it levels, and a growth path that consumes further copies of the same pet plus pet food; a synthesis screen also promises to convert surplus pet fragments into a new pet, though none were held to test it.
 
@@ -51,6 +55,8 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 
 ### Daily / Weekly Quests
 
+**Implementation summary:** Capybara Go's daily task list can name an objective, entering the Arena, two chapters before that feature actually unlocks.
+
 **What was observed:** Once the tasks section unlocks, Capybara Go runs two parallel objective tracks. Daily tasks ask for specific actions, a Black Market purchase, opening three chests, clearing a stage, entering the Arena, and completing them advances a daily reward track with its own claimable prizes. Those same daily completions also count toward a separate weekly track with its own levels to reach before the week ends.
 
 **How it is presented:** The tasks screen sits behind the sidebar's hamburger menu and separates completed tasks from open ones, with a toggle switching between the daily and weekly views and a countdown to the next reset.
@@ -68,6 +74,8 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 
 ### Daily Claim Pack
 
+**Implementation summary:** Capybara Go frames its three-day claim pack as an urgent post-loss offer, while the identical thirty-day version sits routine and unadvertised.
+
 **What was observed:** Capybara Go sells two shapes of the same pattern, a single purchase that pays out across a run of days rather than all at once. The Monthly Card and Automine Card each cost a flat price and release a fixed daily amount, gems, energy, or pickaxes, for thirty days after purchase, on top of a one-time grant delivered immediately. A smaller 3-Day Deluxe Pack does the same over three days: its listing names a different reward for day one, day two, and day three, including a cosmetic item on day two, rather than handing over everything at once.
 
 **How it is presented:** The Monthly and Lifetime cards sit together in the Privilege Card section alongside a locked Automine Card that only becomes purchasable once its own feature unlocks. The 3-Day Deluxe Pack instead appears as a triggered offer after a long run ends, and is also parked permanently under the home screen's Newbie Gifts button.
@@ -83,6 +91,8 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 **Screenshots needed:** the Privilege Card screen showing the Monthly, Lifetime, and locked Automine cards together, and the 3-Day Deluxe Pack's day-by-day listing.
 
 ### Daily Login Rewards
+
+**Implementation summary:** Capybara Go's daily claims require nothing beyond opening and tapping, except the seven-day sign-in event's fixed structured list.
 
 **What was observed:** Capybara Go runs a seven-day sign-in event once the second chapter clears, handing out a different reward for each day up to a named pet on day seven. Separately, several surfaces offer a smaller reward simply for opening them once within the current day: a free pack in the Pack Shop, a daily benefit in the Privilege Card section, a free energy claim, and a daily gift inside the Seven-Day Carnival.
 
@@ -101,6 +111,8 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 
 ### Energy
 
+**Implementation summary:** Capybara Go reissues overflow energy above the cap through mail rather than losing it, claimable for six days.
+
 **What was observed:** Every run costs energy, capped at thirty and spent five at a time, and every secondary mode, Tower Challenge, the two raids, Phantom Sword Island, draws on its own separate ticket instead. Energy refills through regeneration, a free daily claim, watching ads, or paying gems, and any energy that regenerates past the cap isn't lost: Capybara Go reissues it through the mailbox as claimable parcels good for six days. Mode tickets refill through rewards, ads, and packs, with no stated cap or regeneration rate of their own.
 
 **How it is presented:** Energy sits permanently in the home screen's top bar with a countdown to the next point, and tapping it opens every refill option on one screen. Overflow energy shows up as mail from an in-universe association rather than as a silent loss; mode tickets are only visible on the screen for the mode they unlock.
@@ -118,6 +130,8 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 
 ### Experience Points
 
+**Implementation summary:** Capybara Go never states its level-up threshold, so a player can infer pace only from how often skill screens appear.
+
 **What was observed:** Inside a run, Capybara Go accumulates experience from combat and narrative events, and reaching a threshold opens a full-screen skill choice. One run showed at least five level-ups by its later days, with experience awarded in varying amounts, from ten points for a minor event up to a hundred for a big win.
 
 **How it is presented:** Experience isn't shown as a running number the player watches climb; it surfaces only at the moment a level-up screen interrupts the run to offer a skill choice.
@@ -132,6 +146,8 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 **Screenshots needed:** a level-up skill choice screen showing the experience gained leading up to it.
 
 ### First-Purchase Bonus
+
+**Implementation summary:** Capybara Go scopes its first-purchase bonus to each individual gem package rather than once across the whole store.
 
 **What was observed:** Every individual gem package in Top Up carries its own first-purchase bonus, doubling the amount of gems delivered the first time that specific package is bought.
 
@@ -149,6 +165,8 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 
 ### Hard Currency
 
+**Implementation summary:** Capybara Go sells gold coins directly for money even though the same balance is also earned freely from ordinary runs.
+
 **What was observed:** Gems are Capybara Go's primary paid currency, sold directly in Top Up and included in most packs, and spent on chest opens, egg hatches, and energy refills across the game. Gold coins are also sold for money, bundled into packs like the Chapter 1 Pack, in addition to being earned through play.
 
 **How it is presented:** Gem prices appear directly on the surfaces that spend them, energy refills, chest opens, egg hatches, rather than requiring a trip to the store first.
@@ -164,6 +182,8 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 **Screenshots needed:** the Top Up screen showing gem package pricing, and a spending surface showing its gem price in place.
 
 ### Leaderboard
+
+**Implementation summary:** Capybara Go's pet-event leaderboards reward every player from position 101 through 9,999, not only top finishers.
 
 **What was observed:** Capybara Go runs three separate ranking surfaces. A Ranking screen orders all players by their longest survived run and shows the user's own position among them. A Tower Challenge leaderboard separately orders players by highest floor reached. Two time-limited pet events each carry their own leaderboard with reward bands running from first place down to a shared band covering positions 101 through 9,999.
 
@@ -181,6 +201,8 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 **Screenshots needed:** the main Ranking screen showing the ordered list and the user's own position, and a pet event leaderboard showing its reward bands.
 
 ### Leveling
+
+**Implementation summary:** Capybara Go's rank title is its only leveling state shown outside its own screen, displayed permanently on the profile icon.
 
 **What was observed:** Capybara Go layers several separate leveling states on top of each other. The character's in-run level resets every run. Talents carry a level raised by spending gold that persists across runs. A rank title, Apprentice through Elite Legacy, advances on a points bar shown on the player's profile icon, and moving up a rank grants a direct stat boost. Equipment carries a level out of ten raised through enhancement, and pets level up through duplicates and food.
 
@@ -200,6 +222,8 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 
 ### Loot Box
 
+**Implementation summary:** Capybara Go discloses its lowest-odds chest, under one percent, in the most exact detail of any draw in the game.
+
 **What was observed:** Capybara Go gates several containers behind a cost paid before the result is known. The Adventure Supply Crate opens free once and then costs gems or ad views; the Limited Secret Chest costs gems per pull and discloses exact probabilities down to a fraction of a percent for its rarest result, alongside a guarantee after a stated number of pulls. Egg hatches, priced in gems, work the same way.
 
 **How it is presented:** Chest odds are disclosed behind a tappable button rather than shown by default, and the guaranteed-pull mechanic is described without explaining exactly what triggers it.
@@ -217,6 +241,8 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 
 ### Milestone
 
+**Implementation summary:** Capybara Go's chapter and survival-day milestones gate access to most later content, not just pay out a reward.
+
 **What was observed:** Capybara Go treats several separate progress points as milestones. Reaching ten combined talent points grants a coin reward; reaching twenty grants a named badge. Clearing a Tower Challenge tier produces a congratulations message and its own reward chest on top of per-floor rewards. Clearing a chapter or crossing a stated survival-day threshold unlocks whichever feature is gated behind it.
 
 **How it is presented:** Each milestone response takes a different form: a coin grant on the talents screen, a congratulations pop-up on the Tower screen, and a feature-unlock pop-up with pointer guidance on the home screen.
@@ -232,6 +258,8 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 **Screenshots needed:** the talents progress bar showing its milestone rewards, and a chapter-clear feature-unlock pop-up.
 
 ### Progression Fund
+
+**Implementation summary:** Capybara Go's six growth funds each pay a different free-to-paid ratio, with no consistent multiplier across any of them.
 
 **What was observed:** Capybara Go's Growth Fund section lists six funds, each attaching a free reward lane and a larger purchased lane to a different measure the player is already advancing: talent level, Tower Challenge floors, Dungeon Dive floors, hard-mode story progress, guru tickets used, and mythic treasures collected. None of the six carries a countdown timer. Each fund states its price, its per-position rewards in both lanes, and the total the purchased lane pays out across the track.
 
@@ -250,6 +278,8 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 
 ### Rewarded Advertisement
 
+**Implementation summary:** Capybara Go pitches its permanent ad-removal offer beneath every single rewarded ad rather than only in a settings menu.
+
 **What was observed:** Capybara Go offers a rewarded ad in place of currency at several points: energy refills, opening the Adventure and Hero supply crates, hatching pet eggs, restoring dragon tickets, and getting gold in the Black Market. Every one of those ad prompts also displays the Ad-Free Card offer directly beneath it.
 
 **How it is presented:** Each ad offer opens the same watch-or-cancel prompt, and the Ad-Free Card banner sits immediately below it every time, regardless of which reward the ad is attached to.
@@ -266,6 +296,8 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 **Screenshots needed:** a rewarded-ad prompt with the Ad-Free Card offer shown directly beneath it.
 
 ### Seasonal Progression Pass
+
+**Implementation summary:** Capybara Go's Main Quest Fund states an end time without saying whether it closes the whole track or just the purchase window.
 
 **What was observed:** Capybara Go runs several time-bounded reward tracks alongside its untimed funds. The Battle Pass carries a named season, thirty ordered reward positions, a free lane paying one item per position against a paid lane paying two, and an end time measured in days. The Seven-Day Carnival runs a point bar with chest rewards at fixed thresholds, fed by a list of daily tasks tied to a specific day of the event. Two further events, Pet Auspice and Stage Growth, run five days each and pay out at cumulative thresholds of eggs opened, each with its own leaderboard. A separate Main Quest Fund also states an end time on top of the fund structure it otherwise shares with the untimed funds, and the daily and weekly task tracks described elsewhere carry a comparable reset-bound reward shape of their own.
 
@@ -284,6 +316,8 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 
 ### Soft Currency
 
+**Implementation summary:** Capybara Go earns its primary paid currency, gems, through the same small recurring grants as its purely earned currency.
+
 **What was observed:** Gold coins are Capybara Go's main earned currency, paid out from runs, battles, chapter clears, and Tower floors, and spent on talent upgrades. Gems, while primarily sold for money, are also granted free through the daily pack, the sign-in event, and the carnival's daily gift.
 
 **How it is presented:** Gold appears as a running balance on the home screen's top bar, rising after every run and falling as it's spent on talents.
@@ -298,6 +332,8 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 **Screenshots needed:** the home screen top bar showing the gold balance alongside the gem balance.
 
 ### Variable Reward Outcome
+
+**Implementation summary:** Capybara Go's narrative-event wheel is the only variable outcome in the game that can produce an actual losing result.
 
 **What was observed:** Capybara Go resolves many smaller moments without asking for anything up front. Level-up screens offer three skills drawn from a changing pool, with no cost to see the options before picking one. A recurring wheel at a narrative event landed on a losing outcome that reduced the character's health in one run and a favorable outcome in another. Golden chests dropped by strong enemies open with a tap for no cost and offer a further skill choice. Day-to-day events during a run resolve differently between separate playthroughs of the same early days, including outcomes framed as good or bad luck.
 
