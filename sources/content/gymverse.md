@@ -16,6 +16,8 @@ Gymverse is a simple system whose spine is the plan: nineteen onboarding screens
 
 ### Achievement
 
+**Implementation summary:** Gymverse names an Achievements surface in its progress area but never opens it, leaving criteria and rewards entirely unshown.
+
 **What was observed:** Gymverse names an Achievements surface inside its progress area and mentions it as something the user can work through and complete, but the surface is never opened. Nothing about how it operates, what criteria it sets, or what it grants is shown.
 
 **How it is presented:** Achievements sits in the same progress area as the workout totals and calendar, named on its own but not visually distinguished from the app's other running counts beyond its label.
@@ -32,6 +34,8 @@ Gymverse is a simple system whose spine is the plan: nineteen onboarding screens
 **Screenshots needed:** the progress area showing the Achievements entry point alongside the activity totals.
 
 ### Shareable Win
+
+**Implementation summary:** Gymverse intercepts a screenshot attempt to substitute its own branded composer, and auto-composes a shareable image after every workout.
 
 **What was observed:** Gymverse turns its own records of the user into images meant to leave the product. A composer opens the moment the user takes a screenshot, letting them choose which stored stats appear and add stickers, text, or their own photo before sending. At the end of every workout, a second image is composed automatically, carrying the muscle groups worked, next week's plan, and the next scheduled workout. A separate activity total elsewhere in the app carries its own route out.
 

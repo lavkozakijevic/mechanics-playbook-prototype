@@ -920,6 +920,7 @@
   "mechanicWriteups": [
     {
       "name": "Achievement",
+      "summary": "Canva's achievements live only inside Design School's sidebar, and its certification badge can be earned without completing the course.",
       "observed": "Canva runs an achievement system inside Design School: passing a certification test produces a badge, then a separately stored certificate carrying a credential ID and issue date. Six further badges sit greyed out until earned, three for completed courses and three for completed certificates, each family stepping at one, three and five.",
       "presented": "Design School sits in its own section with its own sidebar, and finishing the certification test triggers a two-step reveal, a badge pop-up first, then the certificate screen. An achievements overview inside that same sidebar tracks running counts for skills, lessons completed and courses completed, and a separate badges tab shows each tier greyed out or earned. Both live only inside Design School, not the account area.",
       "noting": "The test that earns the first certificate and badge can be passed without ever completing the course it certifies, so the credential is available for the time it takes to answer 14 questions rather than the one and a half hours the certificate itself claims as the course's length. Canva's achievements area is also reachable only through the Design School sidebar rather than the account area, so attaining the record and finding your way back to it are two separate problems with two separate answers.",
@@ -934,6 +935,7 @@
     },
     {
       "name": "Challenge",
+      "summary": "Canva discloses the test's terms fully upfront but never states what happens on a wrong answer or failed attempt.",
       "observed": "Canva frames its Design School certification test as a bounded, opt-in activity, a stated 14 questions and a stated 30-minute limit, with the reward for finishing disclosed before the user starts.",
       "presented": "The terms appear twice, first on the course card, whether it carries a certificate, its length, difficulty and lesson count, and again on the test's own entry screen, which restates the question count, time limit and reward in one line ahead of the start action. Progress is visible question by question, and each correct answer returns immediate confirmation with an explanation.",
       "noting": "The test can be entered and finished with no prerequisite, which makes it an independent gateway to the certificate rather than a capstone on the course it's nominally attached to. Canva doesn't state what happens on a wrong answer, whether a failed attempt can be retaken, or what the pass threshold is, so the entire failure path of this Challenge is undocumented.",
@@ -947,6 +949,7 @@
     },
     {
       "name": "Hard Currency",
+      "summary": "Canva prices three separate routes, subscription, one-off licence, and credits, to the same export result, credits costing roughly double.",
       "observed": "Canva sells a credit balance priced one to one against premium elements, in eight packages from a single credit up to a hundred, with no way to earn credits without paying for them.",
       "presented": "Credits surface at the point a design already contains premium content, on the same screen offering to remove a watermark, alongside a stated running balance and the exact requirement for that design, one credit for one premium image. The balance is sold directly from that screen rather than only through a subscription.",
       "noting": "Canva runs three separately priced routes to the same result at export, a subscription trial, a one-off per-design licence and the credit balance, and prices a single credit at roughly double the one-off licence for the identical outcome. The per-credit price falls steadily as package size grows, from just under two dollars down toward about one dollar at the hundred-credit tier, which pushes toward buying more credits than any one design needs.",
@@ -961,6 +964,7 @@
     },
     {
       "name": "Shareable Win",
+      "summary": "Canva's certificate carries a checkable credential ID, and a dedicated badge names LinkedIn specifically as where to share it.",
       "observed": "Canva composes a passed certification test into a certificate stating the course, the holder, the date and a credential ID, then offers more than one way to send it out, sharing to social, downloading as an image, and an automatic emailed copy.",
       "presented": "The certificate appears right after the badge, at the moment the test is passed, already carrying its share and download controls. Two Design School badges reward sending it further, one for sharing to social in general, and one, LinkedIn Official, naming that platform specifically.",
       "noting": "The credential ID and issue date make the certificate checkable outside Canva, which is what separates it from an ordinary share control: it's a record Canva composed about the user, not the user's own design output. It's also cheap to obtain, since the test that produces it can be passed without completing its course, so a shareable, checkable credential costs about the time it takes to answer 14 questions. Naming LinkedIn specifically, rather than leaving the destination generic, is a direct instruction about where the credential is meant to travel.",

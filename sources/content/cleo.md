@@ -16,6 +16,8 @@ Cleo is a medium complexity system built around one connection made during onboa
 
 ### Challenge
 
+**Implementation summary:** Cleo's monthly spending limit is a real tracked state; its 21-day challenge is only a mock-up preview that never actually starts.
+
 **What was observed:** Cleo runs two surfaces that give the user a bounded goal it can judge as met or not. The core one is the monthly spending limit: the user sets an overall amount that includes all bills, plus optional limits across 14 spending categories based on their average spending, and each month becomes its own tracked state, one that either stays on track or goes over. A thumbs-up shows under the two coin stacks while spending stays inside the limit; going over swaps in a skull, turns the line under the month red, and marks the month "overspent", a result that stays attached to that month even after it's passed. The second surface is a 21-day challenge previewed in the habits tab, framed around picking one spending habit to cut and tracking a savings amount against it. It's shown only as a mock-up of what an active challenge would look like, and starting one leads instead to the spending review screen rather than to a live instance.
 
 **How it is presented:** The monthly limit lives on its own budget tab but is also echoed on the chat home as a running card stating how much of the budget is left and when it ends. Its two outcomes show up as an emoji swap, a colour change on the line under the month, and short copy rather than any longer explanation. The 21-day challenge, by contrast, gets its own headline spot at the top of the habits tab, styled the same way whether or not an instance is actually running.
@@ -34,6 +36,8 @@ Cleo is a medium complexity system built around one connection made during onboa
 
 ### Streak
 
+**Implementation summary:** Cleo tracks two separate streaks, a habit review streak and a money-game streak, without ever showing what breaks either one.
+
 **What was observed:** Cleo tracks two separate counters it labels streaks. In the habits tab, a review streak sits at zero before the user's first spending review, then reads one immediately after it's completed, next to a line encouraging the user to play again tomorrow to keep it going. On the money game's stats screen, a separate streak reads one, shown alongside a knowledge score of zero percent and a single recorded play.
 
 **How it is presented:** Both streaks are plain numbers sitting inside the surface they belong to, the review streak at the top of the habits list next to the reviews it's counting, and the game streak inside the game's own stats screen next to its other counters.
@@ -49,6 +53,8 @@ Cleo is a medium complexity system built around one connection made during onboa
 **Screenshots needed:** the habits header showing the review streak at zero before the first review; the same header after it moves to one; the game stats screen showing the streak next to knowledge score and play count.
 
 ### Personal Data Reflection
+
+**Implementation summary:** Cleo turns the user's own account activity into five separate interactions, from a comedic roast to a subscription keep-or-ditch swipe.
 
 **What was observed:** Cleo runs a cluster of interactions that all hand the user's own account activity back to them as something to respond to. The roast turns the month's account figures into a joke sequence, stating what was spent this month, what came in over the last two weeks, and a total across the last 13 months, one figure at a time, each advanced by the user's own reply. Hype mode does something similar in a celebratory register, working through the month's spend, this month's bank charges, total money made and the biggest recent purchase. The money game asks direct questions about the user's own recent activity, whether bills were paid this week, how much was spent in the last seven days, and checks each answer against what Cleo actually has on record, marking it right or wrong before moving on. The spending review asks the user to rate their own past payments as loved, regretted or don't know, opening with a short three-card practice round before running through real transactions and closing with a summary of totals. A fifth interaction, deciding whether to keep or ditch a subscription, presents the user's own subscriptions as swipeable cards with no correct answer attached to either direction.
 

@@ -16,6 +16,8 @@ Tiimo is a simple system whose spine is task completion: every completed task mo
 
 ### Streak
 
+**Implementation summary:** Tiimo starts the streak during onboarding, before a full day has passed, handing new users a current streak immediately.
+
 **What was observed:** Tiimo announces a streak before the user has completed a single day, during onboarding, then displays it as a flame with a day count on every main screen. The stats tab expresses the same count as a position against the next threshold on a day-keyed marker track, and notification settings carry a toggle specifically naming streaks.
 
 **How it is presented:** The flame and day count sit in the header of the home, to-do and focus tabs, next to a second counter for completed tasks. The stats tab restates it as a progress bar under a day-count label, matching the next unlock on the day-keyed marker row.
@@ -33,6 +35,8 @@ Tiimo is a simple system whose spine is task completion: every completed task mo
 **Screenshots needed:** the header flame and day counter on the home tab; the stats tab's streak progress bar showing the day count against its next threshold.
 
 ### Milestone
+
+**Implementation summary:** Tiimo runs two threshold tracks, tasks and streak days, disclosing every future marker's unlock condition in advance.
 
 **What was observed:** Tiimo runs two ordered threshold tracks, one keyed to completed tasks and one to streak days, shown as a row of named markers on the stats tab. Crossing a threshold produces a banner naming what was crossed, separate from the ordinary counter update, and changes the color behind the row to match the marker just unlocked.
 
@@ -52,6 +56,8 @@ Tiimo is a simple system whose spine is task completion: every completed task mo
 
 ### Achievement
 
+**Implementation summary:** Tiimo's markers are individually named and stay permanently visible, and the first requires a deliberate swipe gesture to claim.
+
 **What was observed:** Each marker in Tiimo's row is a named, individually designed criterion that flips from unattained to attained and then stays in the row permanently. The first one requires a deliberate swipe gesture to claim rather than being granted automatically.
 
 **How it is presented:** The markers sit on the same stats tab row used for the threshold tracks, each with its own name and design, persisting in place after being unlocked rather than being consumed or dismissed.
@@ -69,6 +75,8 @@ Tiimo is a simple system whose spine is task completion: every completed task mo
 
 ### Cosmetic Customization
 
+**Implementation summary:** Tiimo locks its interface themes behind payment alone, while leaving the app icon and dyslexia-friendly font choice unlocked.
+
 **What was observed:** Tiimo offers a set of alternative interface themes, most of which are locked behind the paid tier rather than any usage or progression condition.
 
 **How it is presented:** Themes sit in settings alongside an app icon choice, a font choice, and a light, dark or system appearance setting. Selecting a locked theme opens the same paywall as other paid features.
@@ -85,6 +93,8 @@ Tiimo is a simple system whose spine is task completion: every completed task mo
 **Screenshots needed:** the settings theme picker showing locked and unlocked options; the font choice screen showing the dyslexia-friendly option.
 
 ### Expert Guidance
+
+**Implementation summary:** Tiimo's Knowledge area teaches ADHD and planning subjects rather than product usage, and no core function depends on it.
 
 **What was observed:** Tiimo carries a Knowledge area with articles, videos and expert-led courses on subjects like prioritizing tasks with ADHD, mental load in planning, and task initiation, attributed to named ADHD, autism and planning experts. The featured course is broken into an introduction, an application section and a summary.
 

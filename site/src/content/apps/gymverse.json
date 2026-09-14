@@ -722,6 +722,7 @@
   "mechanicWriteups": [
     {
       "name": "Achievement",
+      "summary": "Gymverse names an Achievements surface in its progress area but never opens it, leaving criteria and rewards entirely unshown.",
       "observed": "Gymverse names an Achievements surface inside its progress area and mentions it as something the user can work through and complete, but the surface is never opened. Nothing about how it operates, what criteria it sets, or what it grants is shown.",
       "presented": "Achievements sits in the same progress area as the workout totals and calendar, named on its own but not visually distinguished from the app's other running counts beyond its label.",
       "noting": "This is presence without behavior. Gymverse states it has an Achievements system, and that statement alone is what the record can support. Nothing here confirms a defined criterion, an unattained-to-attained state, or a reward behind it, because the surface was never opened. That is a real gap in what is known about the app, not a claim being made cautiously.",
@@ -735,6 +736,7 @@
     },
     {
       "name": "Shareable Win",
+      "summary": "Gymverse intercepts a screenshot attempt to substitute its own branded composer, and auto-composes a shareable image after every workout.",
       "observed": "Gymverse turns its own records of the user into images meant to leave the product. A composer opens the moment the user takes a screenshot, letting them choose which stored stats appear and add stickers, text, or their own photo before sending. At the end of every workout, a second image is composed automatically, carrying the muscle groups worked, next week's plan, and the next scheduled workout. A separate activity total elsewhere in the app carries its own route out.",
       "presented": "The composer replaces an ordinary screenshot with its own branded version the moment one is attempted, and appeared for the first time before the user had done anything in the app at all. The end-of-workout image appears unprompted, right after the completion screen.",
       "noting": "Every one of these images is built from what Gymverse already holds about the user, not from anything the user made. That distinction is what separates this from an ordinary share button: a design that substitutes its own composed record for the screenshot someone was already trying to take is asking to be shared before there is a photo, a design, or a result of the user's own to share instead.",

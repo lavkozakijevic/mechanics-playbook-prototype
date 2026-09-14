@@ -16,6 +16,8 @@ Canva is a medium complexity system whose spine is export: the production loop, 
 
 ### Achievement
 
+**Implementation summary:** Canva's achievements live only inside Design School's sidebar, and its certification badge can be earned without completing the course.
+
 **What was observed:** Canva runs an achievement system inside Design School: passing a certification test produces a badge, then a separately stored certificate carrying a credential ID and issue date. Six further badges sit greyed out until earned, three for completed courses and three for completed certificates, each family stepping at one, three and five.
 
 **How it is presented:** Design School sits in its own section with its own sidebar, and finishing the certification test triggers a two-step reveal, a badge pop-up first, then the certificate screen. An achievements overview inside that same sidebar tracks running counts for skills, lessons completed and courses completed, and a separate badges tab shows each tier greyed out or earned. Both live only inside Design School, not the account area.
@@ -34,6 +36,8 @@ Canva is a medium complexity system whose spine is export: the production loop, 
 
 ### Challenge
 
+**Implementation summary:** Canva discloses the test's terms fully upfront but never states what happens on a wrong answer or failed attempt.
+
 **What was observed:** Canva frames its Design School certification test as a bounded, opt-in activity, a stated 14 questions and a stated 30-minute limit, with the reward for finishing disclosed before the user starts.
 
 **How it is presented:** The terms appear twice, first on the course card, whether it carries a certificate, its length, difficulty and lesson count, and again on the test's own entry screen, which restates the question count, time limit and reward in one line ahead of the start action. Progress is visible question by question, and each correct answer returns immediate confirmation with an explanation.
@@ -50,6 +54,8 @@ Canva is a medium complexity system whose spine is export: the production loop, 
 **Screenshots needed:** the course card showing its certificate, duration and difficulty terms; the test's entry screen stating question count and time limit; an in-progress question with its feedback.
 
 ### Hard Currency
+
+**Implementation summary:** Canva prices three separate routes, subscription, one-off licence, and credits, to the same export result, credits costing roughly double.
 
 **What was observed:** Canva sells a credit balance priced one to one against premium elements, in eight packages from a single credit up to a hundred, with no way to earn credits without paying for them.
 
@@ -68,6 +74,8 @@ Canva is a medium complexity system whose spine is export: the production loop, 
 **Screenshots needed:** the credit purchase screen with its eight-package price ladder; the zero-balance state next to the one-credit requirement.
 
 ### Shareable Win
+
+**Implementation summary:** Canva's certificate carries a checkable credential ID, and a dedicated badge names LinkedIn specifically as where to share it.
 
 **What was observed:** Canva composes a passed certification test into a certificate stating the course, the holder, the date and a credential ID, then offers more than one way to send it out, sharing to social, downloading as an image, and an automatic emailed copy.
 

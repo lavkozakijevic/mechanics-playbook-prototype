@@ -978,6 +978,7 @@
   "mechanicWriteups": [
     {
       "name": "Streak",
+      "summary": "Tiimo starts the streak during onboarding, before a full day has passed, handing new users a current streak immediately.",
       "observed": "Tiimo announces a streak before the user has completed a single day, during onboarding, then displays it as a flame with a day count on every main screen. The stats tab expresses the same count as a position against the next threshold on a day-keyed marker track, and notification settings carry a toggle specifically naming streaks.",
       "presented": "The flame and day count sit in the header of the home, to-do and focus tabs, next to a second counter for completed tasks. The stats tab restates it as a progress bar under a day-count label, matching the next unlock on the day-keyed marker row.",
       "noting": "The streak starts on day one rather than after a day has actually passed, so a brand new user is handed a current streak before returning has ever happened. Tiimo doesn't state what qualifies a day toward the count, what happens to it after a missed day, or whether any protection exists, since settling any of that needs a stretch of use longer than one day.",
@@ -992,6 +993,7 @@
     },
     {
       "name": "Milestone",
+      "summary": "Tiimo runs two threshold tracks, tasks and streak days, disclosing every future marker's unlock condition in advance.",
       "observed": "Tiimo runs two ordered threshold tracks, one keyed to completed tasks and one to streak days, shown as a row of named markers on the stats tab. Crossing a threshold produces a banner naming what was crossed, separate from the ordinary counter update, and changes the color behind the row to match the marker just unlocked.",
       "presented": "The marker row sits on the stats tab beside the two counters it's built from. Positions not yet reached are shown in place, locked, with their exact unlock condition stated up front.",
       "noting": "Every marker is a fixed function of a single number the app already tracks, so nothing about the row can be earned out of order, purchased, or granted independent of ordinary use. Tiimo discloses every future threshold in advance rather than keeping any of them hidden, so the entire progression path, tasks and days both, is visible from the very first day.",
@@ -1006,6 +1008,7 @@
     },
     {
       "name": "Achievement",
+      "summary": "Tiimo's markers are individually named and stay permanently visible, and the first requires a deliberate swipe gesture to claim.",
       "observed": "Each marker in Tiimo's row is a named, individually designed criterion that flips from unattained to attained and then stays in the row permanently. The first one requires a deliberate swipe gesture to claim rather than being granted automatically.",
       "presented": "The markers sit on the same stats tab row used for the threshold tracks, each with its own name and design, persisting in place after being unlocked rather than being consumed or dismissed.",
       "noting": "The preserved, individually named state is what separates this from the counters underneath it. Task count and day count keep moving after a marker unlocks, but the marker itself stays fixed at the exact criterion it marks, so the row works as a permanent record of specific past moments rather than just a display of current totals.",
@@ -1019,6 +1022,7 @@
     },
     {
       "name": "Cosmetic Customization",
+      "summary": "Tiimo locks its interface themes behind payment alone, while leaving the app icon and dyslexia-friendly font choice unlocked.",
       "observed": "Tiimo offers a set of alternative interface themes, most of which are locked behind the paid tier rather than any usage or progression condition.",
       "presented": "Themes sit in settings alongside an app icon choice, a font choice, and a light, dark or system appearance setting. Selecting a locked theme opens the same paywall as other paid features.",
       "noting": "The lock on the themes is tied to payment rather than to anything the user does in the product, which is what makes them customization content rather than ordinary configuration. Tiimo doesn't lock the app icon choice or the font choice, including its dyslexia-friendly option, the same way, so the paid gate sits specifically on visual identity rather than on accessibility or basic personalization.",
@@ -1032,6 +1036,7 @@
     },
     {
       "name": "Expert Guidance",
+      "summary": "Tiimo's Knowledge area teaches ADHD and planning subjects rather than product usage, and no core function depends on it.",
       "observed": "Tiimo carries a Knowledge area with articles, videos and expert-led courses on subjects like prioritizing tasks with ADHD, mental load in planning, and task initiation, attributed to named ADHD, autism and planning experts. The featured course is broken into an introduction, an application section and a summary.",
       "presented": "The Knowledge area sits inside the stats tab, opening on the product's own website rather than rendering inside the app, and closes with links out to a podcast on Spotify and a guided Pomodoro video on YouTube.",
       "noting": "The material teaches the user's own underlying difficulty rather than how to use Tiimo, which is what separates it from the \"Plan like a pro\" carousel in the same tab, a walkthrough of the product's own widgets and views that stays product content rather than this. Nothing about planning, task creation or the focus timer depends on any of it, so the whole area can be ignored without losing any function.",
