@@ -877,11 +877,14 @@ const ADDITIONS = {
 // once (fc-mobile, uptime, fifa-panini-collection); the remap follows
 // whichever framing the file's own words lead with, since one file can only
 // remap to one id. Neither clash-of-clans, canva, tiimo, capybara-go, dave,
-// nor cleo appears below: all six are v4.1 and never reach this path.
+// cleo, nor royal-match appears below: all seven are v4.1 and never reach
+// this path (royal-match carried an entry here before its own migration
+// to v4.1 on 14 Sep 2026, removed once its analysis stopped using the v3
+// inline-id form).
 //   -> achievement: calm, gymverse, ladder, fc-mobile, liftoff, swgoh,
 //      freeletics, uptime, fiton, fortune-city, match-creek-motors,
 //      fifa-panini-collection, subway-surfers.
-//   -> milestone: insight-timer, chrome-valley-customs, acorns, royal-match,
+//   -> milestone: insight-timer, chrome-valley-customs, acorns,
 //      wispr-flow, solitaire-grand-harvest.
 const REMAPS = {
   "clash-of-clans": { "xp-leveling": "leveling" },
@@ -904,7 +907,6 @@ const REMAPS = {
   "insight-timer": { "achievements": "milestone" },
   "chrome-valley-customs": { "achievements": "milestone" },
   "acorns": { "achievements": "milestone" },
-  "royal-match": { "achievements": "milestone" },
   "wispr-flow": { "achievements": "milestone" },
 };
 // Strava's unrecognized "hard-currency" section is about the subscription
@@ -1171,6 +1173,31 @@ const V41_APP_META = {
       monetization: "Tiimo sells through one paywall, a persistent upgrade control, an upsell card on the stats tab, and paid notification timing.",
       returns:
         "Tiimo asks for a rating twice before a single task is completed, and runs a fixed daily and weekly notification schedule alongside a streak and level banner toggle.",
+    },
+  },
+  "royal-match": {
+    name: "Royal Match",
+    category: "Casual / Match-three",
+    type: "game",
+    sectionCards: {
+      onboarding:
+        "Royal Match asks for tracking permission before anything else, then teaches its match-three action directly on the board and hands the user a castle to build before a second level is even cleared.",
+      "core-loop":
+        "Royal Match repeats one bounded level with a target and a move limit, layering assist items, King's Nightmare interludes, and bonus levels on top of the same match-three board.",
+      goals:
+        "Royal Match advances a player level with every cleared level, tracks 152 areas and a set of running profile stats, and stages five separate timed events one after another starting at level 27.",
+      access:
+        "Royal Match withholds teams, the collection, and each assist item behind stated player-level requirements, disclosed unevenly from a full explanation down to a single bare number.",
+      economy:
+        "Royal Match runs two earned balances, stars for the castle and coins for undoing failure, alongside several separate event units that only ever move toward their own next threshold.",
+      social:
+        "Royal Match ranks players and teams on two leaderboards, and inside a joined team, teammates trade lives and card requests under a tournament that pays only the ones who contribute.",
+      reach:
+        "Royal Match saves progress only through a Facebook, Google or Apple sign-in, and gates its one social surface, the friends list, behind that same Facebook connection.",
+      monetization:
+        "Royal Match prices its offers directly against the two moments a level fails, layering a shop, named treasure bundles, and a seasonal pass on top of the same 900-coin shortfall.",
+      returns:
+        "Royal Match times a notification prompt to the user's return, a rating prompt to an early clean run, and a countdown to every one of its five running events.",
     },
   },
 };
