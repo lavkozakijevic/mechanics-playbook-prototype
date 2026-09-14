@@ -221,7 +221,7 @@ export function SiteFooter({ lastUpdated, categories }) {
         <div className="footer__top">
           <div>
             <img className="footer__brand-logo" src={LOGO_INK} alt="Appservatory" width="119" height="24" />
-            <p className="footer__desc">We study how the best apps and games keep their players, mechanic by mechanic, and help your team apply what fits your product, so your users stay, engage, and grow.</p>
+            <p className="footer__desc">We study how the best apps and games keep their players, mechanic by mechanic, documented for product teams to draw from.</p>
           </div>
           <div className="footer__cols">
             {footerCols.map((c) => (
