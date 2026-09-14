@@ -81,8 +81,19 @@ const observation = z.object({
 // tag, not a rendering of them — those stay in `observations` above for the
 // tag index (spec §6.3) to use later. Joined to a tag by `name` matching the
 // same display string in `observations[].tags[].name`.
+//
+// `summary` (added 16 Sep 2026, stage2-website-content.md amendment): one
+// sentence under 25 words naming what this specific app does with the
+// mechanic — not a definition of the mechanic and not a summary of the
+// four parts below, what tells this app's implementation apart from every
+// other app's on the mechanics index, which renders it as the card content
+// (spec §3.5). Optional, not required like the four parts above: the nine
+// existing v4.1 apps are being backfilled one at a time rather than all at
+// once, and a future app re-run under an older prompt version shouldn't
+// hard-fail the whole build over one missing sentence.
 const mechanicWriteup = z.object({
   name: z.string(),
+  summary: z.string().optional(),
   observed: z.string(),
   presented: z.string(),
   noting: z.string(),

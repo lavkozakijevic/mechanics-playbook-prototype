@@ -671,6 +671,11 @@ function parseContentV41(file) {
   let fixedSectionChunks = h2s.slice(1);
   if (h2s[1] && h2s[1].heading.toLowerCase() === "mechanics") {
     mechanicWriteups = headingChunks(h2s[1].body, 3).map(({ heading: name, body: block }) => {
+      // Optional (stage2-website-content.md amendment, 16 Sep 2026): not
+      // one of the four required composed parts below, and not present at
+      // all until each app's write-up is backfilled with it — see the
+      // schema comment on mechanicWriteup (content.config.ts).
+      const summary = field(block, "Implementation summary") || undefined;
       const observed = field(block, "What was observed");
       const presented = field(block, "How it is presented");
       const noting = field(block, "What is worth noting");
@@ -679,7 +684,7 @@ function parseContentV41(file) {
       const screenshotsNote = field(block, "Screenshots needed");
       if (!observed || !presented || !noting || !findings.length)
         throw new Error(`${file}: mechanic block "${name}" is missing one of its four composed parts`);
-      return { name: name.trim(), observed, presented, noting, findings, screenshotsNote };
+      return { name: name.trim(), summary, observed, presented, noting, findings, screenshotsNote };
     });
     fixedSectionChunks = h2s.slice(2);
   }

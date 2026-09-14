@@ -23,7 +23,7 @@ This stage produces plain text for review. It does not build anything.
 > 1. App description. Three or four sentences on what [app] is and what its design is organised around, drawn from the system view.
 > 2. A one-line teaser.
 > 3. The system view, as one short paragraph only. State whether this is a simple, medium or complex system, and name the spine, meaning the decision or action the rest of the product hangs from. That is all. The full system account and its diagram live on the systems page and are written separately. Do not write the full narrative here.
-> 4. Mechanics. One block per applied tag, headed by the mechanic name alone. **Each block is composed prose, not a list of observations.** Write it as a piece about that mechanic in this app, in four labelled parts:
+> 4. Mechanics. One block per applied tag, headed by the mechanic name alone. Open each block with **an implementation summary:** one sentence, under 25 words, naming what [app] specifically does with this mechanic. It is not a definition of the mechanic and not a summary of the block that follows, it is what separates this app's version from every other app's — a reader scanning eight implementations of the same mechanic should be able to tell them apart from this line alone. **Each block is composed prose, not a list of observations.** After the summary, write the block as a piece about that mechanic in this app, in four labelled parts:
 >
 >    **What was observed.** What the app does with this mechanic, as continuous prose.
 >
@@ -36,7 +36,7 @@ This stage produces plain text for review. It does not build anything.
 >    Write these from the observations carrying the tag. Do not reproduce the observations, do not keep their headings, and do not stack them one after another. The observations appear in full on their section pages. This block is where someone reads about the mechanic.
 >
 >    End each block with a note naming which screenshots it needs.
-> 5. The full record. Nine section cards, each with the section name, a one-line description, and its observation count. Empty sections appear as such and are not linked.
+> 5. The full record. Nine section cards, each with the section name and a one-line description. Empty sections appear as such and are not linked.
 >
 > Target around 1,500 words for the summary page.
 >
