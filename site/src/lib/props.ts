@@ -109,7 +109,7 @@ export function mechanicDetailProps(mech: Mechanic) {
 // bank/orbit/george are barred on the same ground. cleo and acorns are
 // published as finance hero logos / case studies but must not surface as
 // examples until the owner says otherwise.
-const EXAMPLE_EXCLUDED = new Set([
+export const EXAMPLE_EXCLUDED = new Set([
   "cleo",
   "acorns",
   "starling-bank",

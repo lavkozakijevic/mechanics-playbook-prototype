@@ -504,12 +504,28 @@ function parseAnalysisV41(file) {
     if (!obsLine || !confidence) throw new Error(`${file}: tag "${tagName}" is missing Observations or Confidence`);
     if (!supportingLine) throw new Error(`${file}: tag "${tagName}" is missing Supporting observations`);
 
+    // Role is a short, single-line categorical value ("engagement,
+    // retention"), never multi-paragraph prose like Rationale or
+    // Alternative considered — but several blocks place an unlabeled
+    // elaboration paragraph directly after the Role line and before
+    // **Rationale:**, with a blank line on each side, e.g. capybara-go's
+    // Loot Box block: "**Role:** monetization, engagement" then a blank
+    // line then "O43 prices draws in gems sold for money..." then another
+    // blank line then "**Rationale:**". field()'s generic "capture until the
+    // next **Label**" regex, correct for Rationale and Alternative
+    // considered, was pulling that whole paragraph into `role` too — silent
+    // until something actually rendered role (this index's cards, and every
+    // "ROLE DISAGREEMENT ACROSS BLOCKS" build warning, which has been
+    // printing this same polluted text all along). Fixed by reading only
+    // the Role line itself.
+    const roleLine = block.match(/\*\*Role:\*\*\s*(.+)/);
+
     if (!blocksByName.has(tagName)) blocksByName.set(tagName, []);
     blocksByName.get(tagName).push({
       confidence,
       rationale: field(block, "Rationale"),
       alternativeConsidered: field(block, "Alternative considered"),
-      role: field(block, "Role"),
+      role: roleLine ? roleLine[1].trim() : "",
       obsIds: [...new Set([...idsIn(obsLine[1]), ...idsIn(supportingLine[1])])],
     });
   }

@@ -1,6 +1,19 @@
 /* Website kit — Mechanics Library: filter sidebar only.
- * Cards are pre-rendered by Astro in pages/mechanics/index.astro;
- * this island adds show/hide filtering via DOM data attributes. */
+ * Rows and cards are pre-rendered by Astro in pages/mechanics/index.astro;
+ * this island adds show/hide filtering via DOM data attributes.
+ *
+ * Category, product context, and user type all filter whole rows (spec §3
+ * rebuild, 14 Sep 2026, owner correction): each is a property of the
+ * mechanic, read from data-cat/data-contexts/data-players on [data-tag-row]
+ * itself, same as before this rebuild — the only thing that changed under
+ * them is that a row now holds a card grid instead of being the card.
+ * Role is different on purpose: it's a property of the implementation, not
+ * the mechanic, so it filters individual [data-role-card] elements within a
+ * row rather than the row's own data attributes, multi-select OR (any
+ * selected role present on the card's own data-roles matches), and a row
+ * left with zero visible cards after that hides too — but only once a role
+ * filter is actually active; a row's own natural zero-implementations state
+ * is not itself a filter result and stays visible until one is. */
 import React, { useState, useEffect, useCallback } from "react";
 import { Input } from "../ds/Input.jsx";
 
@@ -36,46 +49,66 @@ function FilterRow({ active, dot, label, onClick }) {
 
 /**
  * Filter sidebar for the mechanics library.
- * Reads pre-rendered [data-mechanic-card] elements from the DOM and
- * toggles their `hidden` attribute based on the active filter state.
- * Never re-renders the card list — JavaScript is additive only.
+ * Reads pre-rendered [data-tag-row] rows (and the [data-role-card] cards
+ * inside each) from the DOM and toggles `hidden` based on the active filter
+ * state. Never re-renders the row/card list — JavaScript is additive only.
  */
-export function MechanicsFilters({ contextOptions, playerOptions, total }) {
+export function MechanicsFilters({ contextOptions, playerOptions, roleOptions, total }) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("all");
   const [contexts, setContexts] = useState([]);
   const [users, setUsers] = useState([]);
+  const [roles, setRoles] = useState([]);
 
-  const active = !!(query || category !== "all" || contexts.length || users.length);
+  const active = !!(query || category !== "all" || contexts.length || users.length || roles.length);
 
   const clearAll = useCallback(() => {
-    setQuery(""); setCategory("all"); setContexts([]); setUsers([]);
+    setQuery(""); setCategory("all"); setContexts([]); setUsers([]); setRoles([]);
   }, []);
 
   const toggle = (list, setList, value) =>
     setList(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
   const pickCategory = (key) => setCategory((c) => (c === key ? "all" : key));
 
-  // Filter the pre-rendered card grid by updating DOM visibility
+  // Filter the pre-rendered row/card grid by updating DOM visibility
   useEffect(() => {
     const q = query.trim().toLowerCase();
-    const cards = document.querySelectorAll("[data-mechanic-card]");
+    const rows = document.querySelectorAll("[data-tag-row]");
     let shown = 0;
 
-    cards.forEach((card) => {
-      const cats = JSON.parse(card.dataset.cats ?? "[]");
-      const ctxs = JSON.parse(card.dataset.contexts ?? "[]");
-      const players = JSON.parse(card.dataset.players ?? "[]");
-      const name = card.dataset.name ?? "";
-      const def = card.dataset.def ?? "";
+    rows.forEach((row) => {
+      const cat = row.dataset.cat ?? "";
+      const ctxs = JSON.parse(row.dataset.contexts ?? "[]");
+      const players = JSON.parse(row.dataset.players ?? "[]");
+      const name = row.dataset.name ?? "";
+      const def = row.dataset.def ?? "";
 
       let visible = true;
       if (q && !(name.includes(q) || def.includes(q))) visible = false;
-      if (category !== "all" && !cats.includes(category)) visible = false;
+      if (category !== "all" && cat !== category) visible = false;
       if (contexts.length && !ctxs.some((t) => contexts.includes(t))) visible = false;
       if (users.length && !players.some((u) => users.includes(u))) visible = false;
 
-      card.hidden = !visible;
+      // Role filters cards, not the row itself — multi-select OR, any
+      // selected role present on the card's own roles is a match. Only
+      // touches a row that otherwise passed every row-level filter above;
+      // a row already hidden by category/search/context/player stays
+      // hidden regardless of what its cards carry.
+      if (visible && roles.length) {
+        const cards = row.querySelectorAll("[data-role-card]");
+        let anyCardVisible = false;
+        cards.forEach((card) => {
+          const cardRoles = JSON.parse(card.dataset.roles ?? "[]");
+          const cardVisible = cardRoles.some((r) => roles.includes(r));
+          card.hidden = !cardVisible;
+          if (cardVisible) anyCardVisible = true;
+        });
+        if (!anyCardVisible) visible = false;
+      } else {
+        row.querySelectorAll("[data-role-card]").forEach((card) => { card.hidden = false; });
+      }
+
+      row.hidden = !visible;
       if (visible) shown++;
     });
 
@@ -89,7 +122,7 @@ export function MechanicsFilters({ contextOptions, playerOptions, total }) {
 
     const emptyEl = document.getElementById("lib-empty");
     if (emptyEl) emptyEl.hidden = shown > 0;
-  }, [query, category, contexts, users, active]);
+  }, [query, category, contexts, users, roles, active]);
 
   // Wire the resultbar's reset button to the same clearAll
   useEffect(() => {
@@ -119,6 +152,13 @@ export function MechanicsFilters({ contextOptions, playerOptions, total }) {
         <FilterRow active={category === "all"} dot="var(--ink-400)" label="All" onClick={() => setCategory("all")} />
         {Object.entries(CATS).map(([key, c]) => (
           <FilterRow key={key} active={category === key} dot={c.color} label={c.label} onClick={() => pickCategory(key)} />
+        ))}
+      </div>
+
+      <div className="fgroup" role="group" aria-label="Role">
+        <span className="fgroup__label">Role</span>
+        {(roleOptions || []).map((r) => (
+          <FilterRow key={r} active={roles.includes(r)} label={fmt(r)} onClick={() => toggle(roles, setRoles, r)} />
         ))}
       </div>
 

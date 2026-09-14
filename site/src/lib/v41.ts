@@ -89,6 +89,15 @@ export interface TagBlock {
   // page no longer renders these directly, `writeup` below is what it reads.
   observations: Observation[];
   writeup: MechanicWriteup | null;
+  // What this mechanic does in this app (engagement/retention/monetization/
+  // social, free text, possibly several) — a property of the implementation,
+  // not of the mechanic (spec §3 rebuild, 14 Sep 2026), read from any one of
+  // the block's own observations' matching tag entry rather than stored a
+  // second time here: convert-content.mjs already reconciles one role per
+  // tag per app (or joins disagreeing blocks with " | "), so every
+  // observation carrying this tag holds the same value in its own `tags[]`
+  // entry — the first is as good as any.
+  role: string;
 }
 
 /** One block per applied tag (spec §2.1): the composed write-up plus every
@@ -125,13 +134,16 @@ export function tagBlocks(app: App, mechanicsById: Map<string, Mechanic>): TagBl
     const canonicalId = resolveMechanicId(name);
     const mechanicId = canonicalId ?? kebabId(name);
     const mechanic = canonicalId ? mechanicsById.get(canonicalId) ?? null : null;
+    const observations = byName.get(name)!;
+    const role = observations.flatMap((o) => o.tags).find((t) => t.name === name)?.role ?? "";
     return {
       name,
       displayName: mechanic?.name ?? name,
       mechanicId,
       mechanic,
-      observations: byName.get(name)!,
+      observations,
       writeup: writeupsByName.get(name) ?? null,
+      role,
     };
   });
 

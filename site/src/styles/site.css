@@ -296,7 +296,7 @@
   color: var(--ink-900); margin-bottom: 12px; max-width: 18ch; text-wrap: balance; }
 .lib-head p { font: var(--type-body-lg); font-size: clamp(16px, 1.5vw, 18px); color: var(--text-secondary); max-width: 56ch; }
 
-.lib-layout { display: grid; grid-template-columns: 1fr; gap: 28px; padding-block: clamp(28px, 4vw, 44px); align-items: start; }
+.mechanics-layout { display: grid; grid-template-columns: 1fr; gap: 28px; padding-block: clamp(28px, 4vw, 44px); align-items: start; }
 
 /* Floating filter panel */
 .lib-filters { position: static; }
@@ -325,43 +325,41 @@
 .lib-resultbar__count { font: var(--type-h4); font-size: 16px; color: var(--ink-900); }
 .lib-resultbar__count b { color: var(--text-accent); }
 .lib-resultbar__hint { font: var(--type-body-sm); color: var(--text-muted); }
-.lib-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
 .lib-empty { padding: 48px 24px; text-align: center; border: 1px dashed var(--border-default); border-radius: var(--radius-lg);
   color: var(--text-muted); font: var(--type-body); }
-
-/* Library mechanic card (per reference) */
-.mlc { display: flex; flex-direction: column; gap: 14px; background: var(--surface-card);
-  border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); box-shadow: var(--shadow-xs);
-  padding: clamp(20px, 2.4vw, 28px); text-decoration: none; color: inherit;
-  transition: border-color var(--duration-base) var(--ease-standard), box-shadow var(--duration-base) var(--ease-standard), transform var(--duration-base) var(--ease-standard); }
-.mlc:hover { border-color: var(--border-strong); box-shadow: var(--shadow-md); transform: translateY(-2px); }
-.mlc:focus-visible { outline: none; box-shadow: var(--ring); }
-.mlc__top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.mlc__lead { display: flex; align-items: center; gap: 12px; min-width: 0; }
-.mlc__badge { flex: none; }
-/* Locked preview: the number, category tag and access badge stay crisp; the
-   title and content below dim to half so the card reads as a closed drawer. */
-.mlc--locked .mlc__name,
-.mlc--locked .mlc__desc,
-.mlc--locked .mlc__tags,
-.mlc--locked .mlc__foot { opacity: 0.5; transition: opacity var(--duration-base) var(--ease-standard); }
-.mlc--locked:hover .mlc__name,
-.mlc--locked:hover .mlc__desc,
-.mlc--locked:hover .mlc__tags,
-.mlc--locked:hover .mlc__foot { opacity: 0.62; }
-.mlc__num { font-family: var(--font-mono); font-size: 13px; font-weight: var(--weight-medium); letter-spacing: 0.1em; color: var(--text-faint); }
-.mlc__name { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: clamp(20px, 2.2vw, 24px);
-  line-height: 1.2; letter-spacing: var(--tracking-heading); color: var(--ink-900); margin: 0; text-wrap: balance; }
-.mlc:hover .mlc__name { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 2px; }
-.mlc__desc { font: var(--type-body); color: var(--text-secondary); line-height: 1.55; margin: 0; text-wrap: pretty; flex: 1; }
-.mlc__tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .pillchip { display: inline-flex; align-items: center; height: 30px; padding: 0 14px; border-radius: var(--radius-pill);
   background: var(--ink-100); color: var(--ink-700); font: var(--type-body-sm); font-weight: var(--weight-medium); }
-.mlc__foot { display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  margin-top: auto; padding-top: 16px; border-top: var(--rule-hairline); }
-.mlc__dots { display: flex; align-items: center; gap: 6px; }
-.mlc__dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
-.mlc__examples { font: var(--type-body-sm); color: var(--text-muted); white-space: nowrap; }
+
+/* Tag rows (spec §3 rebuild, 14 Sep 2026) — one row per mechanic, replacing
+   the old flat .mlc card grid now that the index is built on tags/
+   implementations instead of the v3 `mechanics` array. */
+.tag-rows { display: flex; flex-direction: column; gap: 20px; }
+.tag-row { background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xs); padding: clamp(20px, 2.4vw, 28px); }
+.tag-row__head { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.tag-row__lead { display: flex; align-items: center; gap: 12px; }
+.tag-row__num { font-family: var(--font-mono); font-size: 13px; font-weight: var(--weight-medium); letter-spacing: 0.1em; color: var(--text-faint); }
+.tag-row__name { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: clamp(19px, 2vw, 22px);
+  letter-spacing: var(--tracking-heading); color: var(--ink-900); text-decoration: none; }
+a.tag-row__name:hover { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.tag-row__name--locked { color: var(--text-muted); cursor: default; }
+.tag-row__count { margin-left: auto; font: var(--type-body-sm); color: var(--text-muted); white-space: nowrap; }
+.tag-row__def { font: var(--type-body); color: var(--text-secondary); line-height: 1.55; margin-top: 8px; text-wrap: pretty; max-width: 68ch; }
+.tag-row__empty { margin-top: 16px; padding: 16px 18px; border: 1px dashed var(--border-default); border-radius: var(--radius-md);
+  color: var(--text-muted); font: var(--type-body-sm); }
+.tag-row__cards { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 18px; }
+@media (min-width: 600px) {
+  .tag-row__cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1000px) {
+  .tag-row__cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+/* .csc/.csc--locked reused verbatim for the implementation card (owner
+   instruction, 14 Sep 2026) — .csc--impl only trims the padding and icon
+   size for this denser, three-up grid, not a new card language. */
+.csc--impl { padding: 16px 18px; gap: 12px; }
+.csc--impl .csc__icon { width: 32px; height: 32px; font-size: 13px; border-radius: 8px; }
+.csc--impl .csc__name { font-size: 16px; }
 
 /* =================== MECHANIC DETAIL =================== */
 .mech-head { padding-block: clamp(28px, 4vw, 52px) clamp(22px, 3vw, 34px); border-bottom: var(--rule-hairline); }
@@ -555,7 +553,6 @@ a.amod__item:hover .amod__name { text-decoration: underline; text-decoration-col
 @media (min-width: 600px) {
   :root { --site-gutter: 28px; }
   .cardgrid { grid-template-columns: 1fr 1fr; }
-  .lib-grid { grid-template-columns: 1fr 1fr; }
   .libgrid { grid-template-columns: repeat(3, 1fr); }
   .footer__cols { grid-template-columns: repeat(3, 1fr); }
 }
@@ -570,7 +567,7 @@ a.amod__item:hover .amod__name { text-decoration: underline; text-decoration-col
   .cardgrid { grid-template-columns: repeat(3, 1fr); }
   .footer__top { grid-template-columns: 1.3fr 2fr; gap: 56px; }
   .footer__cols { grid-template-columns: repeat(3, 1fr); }
-  .lib-layout { grid-template-columns: 268px 1fr; gap: 36px; }
+  .mechanics-layout { grid-template-columns: 268px 1fr; gap: 36px; }
   .lib-filters { position: sticky; top: calc(var(--nav-h) + 24px); }
 }
 

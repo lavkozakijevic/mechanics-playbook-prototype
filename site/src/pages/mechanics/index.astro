@@ -2,24 +2,114 @@
 import Base from "../../layouts/Base.astro";
 import { MechanicsFilters } from "../../components/site/MechanicsLibrary.jsx";
 import { publishedApps, publishedMechanics, titleCase } from "../../lib/content";
-import { mechanicCard } from "../../lib/props";
+import { mechanicCard, initials, EXAMPLE_EXCLUDED } from "../../lib/props";
+import { tagBlocks } from "../../lib/v41";
+import { PREVIEW_UNLOCK } from "../../lib/preview";
 
 const mechanics = await publishedMechanics();
 const apps = await publishedApps();
-// (a.data.mechanics ?? []) guards v4.1 apps, which carry no `mechanics`
-// array — they contribute nothing to this count until the mechanics index
-// itself is rebuilt on tags/implementations (spec §3), a later step.
-const count = (id: string) => apps.filter((a) => (a.data.mechanics ?? []).some((m) => m.id === id)).length;
+const mechanicsById = new Map(mechanics.map((m) => [m.data.id, m.data]));
 
-const cards = mechanics.map((m) => mechanicCard(m.data, count(m.data.id)));
+// Rebuilt on tags/implementations (spec §3): a row per mechanic, a card per
+// app that applies it as a real tag, sourced from tagBlocks() rather than
+// the old flat `mechanics: [{id}]` array. v3 apps contribute nothing here
+// (owner decision, 14 Sep 2026) — their write-ups carry no per-tag role
+// text, only a depth tier, and standing in a depth tier for a role would
+// misrepresent what "role" means for an actually-analysed implementation.
+// This is the same exclusion tagBlocks() itself already applies (v3 apps
+// carry no `observations`), just made deliberate here rather than
+// incidental. It clears as each app is re-analysed under the current model.
+//
+// Also excludes EXAMPLE_EXCLUDED (owner ruling, 17 Jun 2026 — Cleo, Acorns,
+// and three finance apps not yet in this collection at all): the same bar
+// mechanicStudies() already applies on a mechanic's own detail page, so a
+// barred app can't surface here either, one row-per-app-implementation at a
+// time, as an end run around a rule written for the one-example-per-app
+// list. check-report-leak.mjs's Example-block guard checks for exactly this.
+const v41Apps = apps.filter((a) => a.data.contentFormat === "v4.1" && !EXAMPLE_EXCLUDED.has(a.data.id));
+
+interface Card {
+  appId: string;
+  appName: string;
+  appIcon: string | null;
+  role: string;
+  roleTokens: string[];
+  locked: boolean;
+  mechanicId: string;
+}
+
+// Role is a property of the implementation, not the mechanic (owner
+// correction, 14 Sep 2026) — it lives on the card, one per (app, applied
+// tag) pair, never rolled up onto the row. Two different library entries
+// resolving to the same site mechanic in the same app (the merged-taxonomy
+// case, e.g. Leaderboard and Comparative Rank both landing on
+// `leaderboards`) still get two separate cards here, same as they get two
+// separate blocks on that app's own summary page — not a mistake to fold
+// together (v41.ts).
+const cardsByMechanic = new Map<string, Card[]>();
+for (const app of v41Apps) {
+  const blocks = tagBlocks(app.data, mechanicsById);
+  // Declared visibility, not REVIEW_WINDOW_OPEN (owner instruction, 14 Sep
+  // 2026) — reads the same already-resolved `app.data.visibility` field
+  // CaseStudySummaryV41.astro/CaseStudySectionV41.astro gate on, rather than
+  // importing REVIEW_WINDOW_OPEN a second time and re-deriving it here.
+  // PREVIEW_UNLOCK kept for the same reason those two do: a local-preview-
+  // only override, off by default, that would otherwise leave this index
+  // locked while the case study it links to is unlocked.
+  const locked = app.data.visibility !== "public" && !PREVIEW_UNLOCK;
+  for (const block of blocks) {
+    if (!block.mechanic) continue; // no resolved site mechanic — no row to index it under
+    const list = cardsByMechanic.get(block.mechanic.id) ?? [];
+    list.push({
+      appId: app.data.id,
+      appName: app.data.name,
+      appIcon: app.data.icon ?? null,
+      role: block.role || "",
+      // Role text is free prose ("engagement, retention.", "monetization,
+      // engagement") drawn from exactly four vocabulary words shared with
+      // `cat` — tokenized here only for the filter's own matching, never
+      // for display (the card still shows the source string as written).
+      roleTokens: [...new Set(
+        (block.role || "")
+          .toLowerCase()
+          .replace(/\./g, "")
+          .split(",")
+          .map((s) => s.trim())
+          .filter(Boolean)
+      )],
+      locked,
+      mechanicId: block.mechanicId,
+    });
+    cardsByMechanic.set(block.mechanic.id, list);
+  }
+}
+
+const ROLE_OPTIONS = ["engagement", "retention", "monetization", "social"];
+
+// Tag rows alphabetical by name; cards within a row app-alphabetical
+// (owner answers, 14 Sep 2026) — neither reuses the old index's number-
+// ordered (`n`) card order, which was about the library's own reading
+// order, not a reader scanning for a specific mechanic or app by name.
+const rows = mechanics
+  .map((m) => {
+    const cards = (cardsByMechanic.get(m.data.id) ?? []).sort((a, b) => a.appName.localeCompare(b.appName));
+    return { card: mechanicCard(m.data, cards.length), cat: m.data.cat, cards };
+  })
+  .sort((a, b) => a.card.name.localeCompare(b.card.name));
+
 const contextOptions = [...new Set(mechanics.flatMap((m) => m.data.context ?? []))].map(titleCase);
-// Keep player options as lowercase keys so they match the lowercase values in data-players
 const playerOptions = [...new Set(mechanics.flatMap((m) => m.data.players ?? []))];
 
 const CATS: Record<string, { label: string; color: string }> = {
   retention:    { label: "Retention",    color: "var(--cat-retention)" },
   monetization: { label: "Monetization", color: "var(--cat-monetization)" },
   social:       { label: "Social",       color: "var(--cat-social)" },
+};
+const ROLE_LABEL: Record<string, string> = {
+  engagement: "Engagement",
+  retention: "Retention",
+  monetization: "Monetization",
+  social: "Social",
 };
 ---
 
@@ -38,91 +128,91 @@ const CATS: Record<string, { label: string; color: string }> = {
     </section>
 
     <div class="container">
-      <div class="lib-layout">
+      <div class="mechanics-layout">
         <aside class="lib-filters">
-          <!-- React island: filter controls only — no card rendering -->
+          <!-- React island: filter controls only — no row/card rendering -->
           <MechanicsFilters
             client:load
             contextOptions={contextOptions}
             playerOptions={playerOptions}
-            total={cards.length}
+            roleOptions={ROLE_OPTIONS}
+            total={rows.length}
           />
         </aside>
 
         <section aria-label="Mechanics">
           <div class="lib-resultbar">
             <span class="lib-resultbar__count">
-              <b id="lib-shown">{cards.length}</b> of {cards.length} mechanics
+              <b id="lib-shown">{rows.length}</b> of {rows.length} mechanics
             </span>
             <span id="lib-hint" class="lib-resultbar__hint">Updated weekly</span>
             <button type="button" id="lib-reset" class="filters__clear" hidden>Reset filters</button>
           </div>
 
           <!--
-            All cards are rendered here by Astro at build time — JavaScript
-            is layered on top only for show/hide filtering. The data-mechanic-card
-            attribute is the stable selector for both tests and the filter island.
+            Every row and card is rendered here by Astro at build time —
+            JavaScript is layered on top only for show/hide filtering
+            (data-tag-row for a row's own search/category/context/player
+            match, data-roles on each card for the role filter, which hides
+            cards individually and then hides a row left with none visible).
           -->
-          <div class="lib-grid" id="lib-grid">
-            {cards.map((m) => {
-              const cats: string[] = Array.isArray(m.category) ? m.category : [m.category];
-              const primary = cats[0];
-              const locked = m.locked;
-              // A held-back mechanic (the eight merges, sources/taxonomy-map.md)
-              // has no page — the card renders unlinked (a plain div) rather
-              // than pointing at /subscribe/ or a URL that doesn't exist.
-              const CardTag = m.href ? "a" : "div";
+          <div class="tag-rows" id="tag-rows">
+            {rows.map(({ card, cat, cards }) => {
+              const RowTag = card.href ? "a" : "span";
               return (
-                <CardTag
-                  class:list={["mlc", locked && "mlc--locked"]}
-                  href={m.href || undefined}
-                  data-mechanic-card={m.id}
-                  data-cats={JSON.stringify(cats)}
-                  data-contexts={JSON.stringify(m.contextTags ?? [])}
-                  data-players={JSON.stringify(m.players ?? [])}
-                  data-name={m.name.toLowerCase()}
-                  data-def={m.definition.toLowerCase()}
+                <div
+                  class="tag-row"
+                  data-tag-row={card.id}
+                  data-cat={cat}
+                  data-contexts={JSON.stringify(card.contextTags ?? [])}
+                  data-players={JSON.stringify(card.players ?? [])}
+                  data-name={card.name.toLowerCase()}
+                  data-def={card.definition.toLowerCase()}
                 >
-                  <div class="mlc__top">
-                    <span class="mlc__lead">
-                      <span class="mlc__num">{String(m.n).padStart(2, "0")}</span>
-                      <span class:list={["gb-tag", `gb-tag--${primary}`]}>
-                        {CATS[primary]?.label ?? primary}
-                      </span>
+                  <div class="tag-row__head">
+                    <span class="tag-row__lead">
+                      <span class="tag-row__num">{String(card.n).padStart(2, "0")}</span>
+                      <span class:list={["gb-tag", `gb-tag--${cat}`]}>{CATS[cat]?.label ?? cat}</span>
                     </span>
-                    <span class="mlc__badge">
-                      {locked ? (
-                        <span class="gb-badge gb-badge--neutral gb-badge--outline">
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:12px;height:12px;stroke-width:2.25;flex:none;margin-right:3px">
-                            <rect x="4" y="11" width="16" height="10" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" />
-                          </svg>
-                          For subscribers
-                        </span>
-                      ) : (
-                        <span class="gb-badge gb-badge--ok">Free</span>
-                      )}
-                    </span>
+                    <RowTag class:list={["tag-row__name", !card.href && "tag-row__name--locked"]} href={card.href || undefined}>
+                      {card.name}
+                    </RowTag>
+                    <span class="tag-row__count">{cards.length} {cards.length === 1 ? "implementation" : "implementations"}</span>
                   </div>
-                  <h3 class="mlc__name">{m.name}</h3>
-                  <p class="mlc__desc">{m.definition}</p>
-                  <div class="mlc__tags">
-                    {(m.contextTags ?? []).map((t: string) => (
-                      <span class="pillchip">{t}</span>
-                    ))}
-                  </div>
-                  <div class="mlc__foot">
-                    <span class="mlc__dots">
-                      {cats.map((c: string) => (
-                        <span
-                          class="mlc__dot"
-                          style={`background:${CATS[c]?.color ?? "var(--ink-500)"}`}
-                          title={CATS[c]?.label ?? c}
-                        />
+                  <p class="tag-row__def">{card.definition}</p>
+
+                  {cards.length > 0 ? (
+                    <div class="tag-row__cards">
+                      {cards.map((c) => (
+                        <a
+                          class:list={["csc", "csc--impl", c.locked && "csc--locked"]}
+                          href={c.locked ? "/subscribe/" : `/case-studies/${c.appId}/#mechanic-${c.mechanicId}`}
+                          data-role-card
+                          data-roles={JSON.stringify(c.roleTokens)}
+                        >
+                          <div class="csc__head">
+                            {c.appIcon ? (
+                              <div class="csc__icon" aria-hidden="true"><img src={c.appIcon} alt="" style="width:100%;height:100%;object-fit:cover;" /></div>
+                            ) : (
+                              <div class="csc__icon" aria-hidden="true">{initials(c.appName)}</div>
+                            )}
+                            <h3 class="csc__name">{c.appName}</h3>
+                          </div>
+                          {c.role && (
+                            <div class="csc__tags">
+                              {c.roleTokens.map((r) => <span class="pillchip">{ROLE_LABEL[r] ?? titleCase(r)}</span>)}
+                            </div>
+                          )}
+                          <div class="csc__foot">
+                            <span class="csc__go">{c.locked ? "Subscribe to explore" : "View in context"}</span>
+                          </div>
+                        </a>
                       ))}
-                    </span>
-                    <span class="mlc__examples">{m.exampleCount} examples</span>
-                  </div>
-                </CardTag>
+                    </div>
+                  ) : (
+                    <p class="tag-row__empty">No implementations to show under the current model yet.</p>
+                  )}
+                </div>
               );
             })}
           </div>
