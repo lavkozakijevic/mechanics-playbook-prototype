@@ -1258,7 +1258,18 @@
         "The paid rung sits in the middle of the sequence, and reaching the free rungs beyond it requires buying that one first.",
         "The ladder applies no pressure of its own beyond its countdown."
       ],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Purchase Ladder",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "Easter Treasures presents nine rewards as an ordered sequence under the instruction to claim each offer to unlock the free rewards, and claiming a rung reveals the next one (tier: directly observed). Eight rungs cost nothing and the fourth is priced at 2.99, and the free rungs above it cannot be claimed until it is taken (tier: strongly supported, the surface's own claim-each-to-unlock framing together with the narration's reading of the paid rung as blocking the rest). That lock is the entry's invariant: the sequence is not a list of offers the user may take in any order but a chain in which one purchase stands between the user and the remainder. The confidence is strongly supported rather than directly observed because the paid rung was never bought, so the lock was read from the surface's framing rather than met. The record carries the same claim at two tiers, directly observed in the Observed paragraph of O59 and strongly supported in its Detail, and the lower of the two governs here.",
+          "alternativeConsidered": "an ordinary offer placed among free rewards, which would carry no mechanic label; rejected because the surface states the claim-each-to-unlock rule itself, and it is the lock rather than the arrangement that the entry turns on. Daily Claim Pack was considered and does not apply, since no single acquisition governs the sequence and the rungs are released by being claimed rather than by intervals passing. Seasonal Progression Pass was considered and does not apply, since nothing the user does in the game advances the ladder; it is not the Easter Pass, which is tagged separately at O31 and O60 and does run on keys earned by play.",
+          "role": "monetization.\n\nThe ordering exists to put one priced rung in the path of the free rungs above it (O59), and the surface sits in the offer stack on the home screen and again in the shop rather than anywhere the game is played (O61)."
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -1645,7 +1656,21 @@
         "The golden items sit at the first position of the paid lane, alongside a gift for teammates.",
         "Chosen identity items appear on the leaderboards and inside the team once set."
       ],
-      "screenshotsNote": "the identity-selection screen showing avatar, frame and name options; the golden frame and username sold in the paid pass lane.\n\n---"
+      "screenshotsNote": "the identity-selection screen showing avatar, frame and name options; the golden frame and username sold in the paid pass lane."
+    },
+    {
+      "name": "Purchase Ladder",
+      "observed": "Royal Match's Easter Treasures surface presents nine rewards in a fixed order, instructing the user to claim each one to reveal the next. The sequence opens with a free hammer, coins and a chest, reaches a 2.99 rung paying a TNT, coins and a hammer, then continues through five more free rewards, coins, doubled boosters, a bow and arrow, a cannon and a jester, that sit beyond the paid position in the sequence.",
+      "presented": "the ladder sits inside the same offer stack Royal Match uses for its other live events, appearing on the home screen and again in the shop, with a two-day twelve-hour countdown attached and each claimed rung revealing the next.",
+      "noting": "the instruction to claim each rung to unlock the next states the lock plainly, but the paid rung is never actually bought in this record, so what carries the tag is the surface's own claim-each-to-unlock framing rather than the lock being met directly. That's enough to apply the label, but not enough to call it more than a good read of the surface's own rule: what actually happens to the five free rewards beyond the paid rung for a player who never buys it is stated by Royal Match, not confirmed by anything shown happening.",
+      "findings": [
+        "Easter Treasures presents nine rewards in a fixed claim-to-unlock order.",
+        "Eight rungs are free; the fourth costs 2.99.",
+        "The five rewards beyond the paid rung are reachable only by claiming it first, per the surface's own stated rule.",
+        "The ladder sits in the same offer stack as Royal Match's other live events, on the home screen and in the shop.",
+        "The paid rung is never purchased in this record, so the lock is read from the surface's framing rather than met directly."
+      ],
+      "screenshotsNote": "the Easter Treasures ladder showing the free rungs, the priced rung, and the claim-to-unlock instruction.\n\n---"
     }
   ],
   "sectionLeadIns": {

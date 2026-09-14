@@ -356,6 +356,24 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 
 **Screenshots needed:** the identity-selection screen showing avatar, frame and name options; the golden frame and username sold in the paid pass lane.
 
+### Purchase Ladder
+
+**What was observed:** Royal Match's Easter Treasures surface presents nine rewards in a fixed order, instructing the user to claim each one to reveal the next. The sequence opens with a free hammer, coins and a chest, reaches a 2.99 rung paying a TNT, coins and a hammer, then continues through five more free rewards, coins, doubled boosters, a bow and arrow, a cannon and a jester, that sit beyond the paid position in the sequence.
+
+**How it is presented:** the ladder sits inside the same offer stack Royal Match uses for its other live events, appearing on the home screen and again in the shop, with a two-day twelve-hour countdown attached and each claimed rung revealing the next.
+
+**What is worth noting:** the instruction to claim each rung to unlock the next states the lock plainly, but the paid rung is never actually bought in this record, so what carries the tag is the surface's own claim-each-to-unlock framing rather than the lock being met directly. That's enough to apply the label, but not enough to call it more than a good read of the surface's own rule: what actually happens to the five free rewards beyond the paid rung for a player who never buys it is stated by Royal Match, not confirmed by anything shown happening.
+
+**Key findings:**
+
+- Easter Treasures presents nine rewards in a fixed claim-to-unlock order.
+- Eight rungs are free; the fourth costs 2.99.
+- The five rewards beyond the paid rung are reachable only by claiming it first, per the surface's own stated rule.
+- The ladder sits in the same offer stack as Royal Match's other live events, on the home screen and in the shop.
+- The paid rung is never purchased in this record, so the lock is read from the surface's framing rather than met directly.
+
+**Screenshots needed:** the Easter Treasures ladder showing the free rungs, the priced rung, and the claim-to-unlock instruction.
+
 ---
 
 ## Onboarding and first run

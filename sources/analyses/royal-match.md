@@ -825,7 +825,7 @@
 
 **Supporting observations:** O10, O12, O14, O31, O50, O57, O63.
 
-**Confidence:** directly observed.
+**Confidence:** directly observed
 
 **Role:** engagement, retention, monetization.
 
@@ -845,7 +845,7 @@ Hearts decide whether the next attempt can begin at all (O13), the regeneration 
 
 **Supporting observations:** O7, O12, O21, O24, O31, O36, O57, O58, O59.
 
-**Confidence:** directly observed.
+**Confidence:** directly observed
 
 **Role:** engagement, monetization.
 
@@ -865,7 +865,7 @@ The items are selected and spent inside levels, including one spent at level 36 
 
 **Supporting observations:** O7, O11, O12, O14, O64.
 
-**Confidence:** directly observed.
+**Confidence:** directly observed
 
 **Role:** engagement, retention.
 
@@ -885,7 +885,7 @@ The level instance is the unit of activity the user repeats inside a session (O1
 
 **Supporting observations:** O9, O10, O34, O35, O36, O46.
 
-**Confidence:** directly observed.
+**Confidence:** directly observed
 
 **Role:** engagement, retention.
 
@@ -905,7 +905,7 @@ The level is what advances each time the user plays a level (O10, O26), and the 
 
 **Supporting observations:** O7, O26, O32, O48.
 
-**Confidence:** directly observed.
+**Confidence:** directly observed
 
 **Role:** retention, engagement.
 
@@ -925,7 +925,7 @@ The two feature gates state a level the user does not hold and can reach only by
 
 **Supporting observations:** O13, O14, O18, O23, O24, O56.
 
-**Confidence:** directly observed.
+**Confidence:** directly observed
 
 **Role:** engagement, monetization.
 
@@ -945,7 +945,7 @@ Stars are what the user plays levels to obtain and spends on the castle inside a
 
 **Supporting observations:** O14, O55, O57, O61.
 
-**Confidence:** directly observed.
+**Confidence:** directly observed
 
 **Role:** monetization, engagement.
 
@@ -965,7 +965,7 @@ Money enters the game as coins rather than as the thing the user wants, and the 
 
 **Supporting observations:** O23, O27, O26.
 
-**Confidence:** directly observed.
+**Confidence:** directly observed
 
 **Role:** engagement, retention.
 
@@ -985,7 +985,7 @@ Area completion is the point the castle work is aimed at and the moment a new ar
 
 **Supporting observations:** O29, O30, O31, O33.
 
-**Confidence:** strongly supported.
+**Confidence:** strongly supported
 
 **Role:** engagement, retention.
 
@@ -1005,7 +1005,7 @@ The event units are what makes an ordinary level worth playing now rather than l
 
 **Supporting observations:** O24, O32, O42, O59.
 
-**Confidence:** directly observed.
+**Confidence:** directly observed
 
 **Role:** engagement, retention.
 
@@ -1025,7 +1025,7 @@ The chests and card packs are the payoff at the end of each area and each event 
 
 **Supporting observations:** O17, O25, O29, O33, O42, O64.
 
-**Confidence:** directly observed.
+**Confidence:** directly observed
 
 **Role:** engagement.
 
@@ -1045,7 +1045,7 @@ Both modifiers change what the level in front of the user pays without changing 
 
 **Supporting observations:** O15, O16, O28.
 
-**Confidence:** strongly supported.
+**Confidence:** strongly supported
 
 **Role:** engagement.
 
@@ -1065,7 +1065,7 @@ The state is what makes the narrator spend a power-up to avoid failing a level h
 
 **Supporting observations:** O25, O41, O42, O45, O64, O66.
 
-**Confidence:** directly observed.
+**Confidence:** directly observed
 
 **Role:** monetization, retention, engagement.
 
@@ -1085,7 +1085,7 @@ The activated lane is sold for a stated price at the moment the track appears (O
 
 **Supporting observations:** O24, O44, O51, O64.
 
-**Confidence:** directly observed.
+**Confidence:** directly observed
 
 **Role:** engagement, social, retention.
 
@@ -1105,7 +1105,7 @@ Completing sets is what the cards are for and what the card requests to teammate
 
 **Supporting observations:** O34, O37, O47, O49, O50, O51, O52, O58.
 
-**Confidence:** directly observed.
+**Confidence:** directly observed
 
 **Role:** social, retention, monetization.
 
@@ -1125,7 +1125,7 @@ The team is where other identified players appear, send lives and cards, and sta
 
 **Supporting observations:** O13, O41, O49, O51, O58, O60.
 
-**Confidence:** directly observed.
+**Confidence:** directly observed
 
 **Role:** social, engagement, monetization.
 
@@ -1145,7 +1145,7 @@ A life is directed to an identified teammate who asked for it and the sender is 
 
 **Supporting observations:** O26, O38, O43, O48, O52.
 
-**Confidence:** directly observed.
+**Confidence:** directly observed
 
 **Role:** social, engagement.
 
@@ -1165,7 +1165,7 @@ The lists are populated by other identified players and teams with names and pic
 
 **Supporting observations:** O43, O46, O47, O52.
 
-**Confidence:** directly observed.
+**Confidence:** directly observed
 
 **Role:** social, engagement.
 
@@ -1185,7 +1185,7 @@ The position the app tells the user about is their team's place among other team
 
 **Supporting observations:** O31, O32, O46, O47.
 
-**Confidence:** directly observed.
+**Confidence:** directly observed
 
 **Role:** social, monetization.
 
@@ -1205,7 +1205,7 @@ The avatar, frame and name are what other identified players see beside the user
 
 **Supporting observations:** O15, O61, O64.
 
-**Confidence:** strongly supported.
+**Confidence:** strongly supported
 
 **Role:** monetization.
 

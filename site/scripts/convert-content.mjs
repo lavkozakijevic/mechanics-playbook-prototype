@@ -850,22 +850,24 @@ const ADDITIONS = {
 // name map resolves to community-groups directly, so no remap is needed.
 //
 // xp-leveling split into experience-points and leveling on 13 Sep 2026
-// (sources/taxonomy-map.md). These eight v3 files still carry the old
+// (sources/taxonomy-map.md). These four v3 files still carry the old
 // inline id in a "### ... (`xp-leveling`) · Depth" heading and were not
 // rewritten — remapped here instead, onto whichever of the two split
 // concepts that app's own write-up is actually about, decided from each
-// file's own observed text: clash-of-clans, fc-mobile, freeletics,
-// and liftoff each describe a level or rank state as the thing observed
-// (leveling); solitaire-grand-harvest, steam, and tiimo each describe a
-// running accumulation toward a threshold with no named level state
-// (experience-points). Without this, any of these seven would throw
-// "unknown mechanic xp-leveling" the moment xp-leveling stopped being a
-// registered id. capybara-go is not remapped here: its analysis was
-// migrated to v4.1 and never reaches this v3 path at all, gymverse carried
-// an entry here before its own migration to v4.1 on 14 Sep 2026, and
-// wakeout's analysis already uses the reviewed canonical name "Experience
-// Points" rather than the inline id, which resolves through
-// CANONICAL_MECHANIC_IDS directly.
+// file's own observed text: freeletics and liftoff each describe a level
+// or rank state as the thing observed (leveling); solitaire-grand-harvest
+// and steam each describe a running accumulation toward a threshold with
+// no named level state (experience-points). Without this, any of these
+// four would throw "unknown mechanic xp-leveling" the moment xp-leveling
+// stopped being a registered id. capybara-go is not remapped here: its
+// analysis was migrated to v4.1 and never reaches this v3 path at all.
+// clash-of-clans, tiimo, gymverse and fc-mobile each carried an entry
+// here before their own migration to v4.1 — this section wasn't updated
+// when clash-of-clans and tiimo migrated, so their entries sat dead for a
+// while before this cleanup caught them the same way it caught gymverse's
+// and fc-mobile's. wakeout's analysis already uses the reviewed canonical
+// name "Experience Points" rather than the inline id, which resolves
+// through CANONICAL_MECHANIC_IDS directly.
 // achievements split into achievement and milestone on 13 Sep 2026
 // (sources/taxonomy-map.md), the same day and for the same reason as the
 // xp-leveling split above: Clash of Clans and Tiimo each applied Achievement
@@ -878,26 +880,23 @@ const ADDITIONS = {
 // produced it (a badge, a medal, a claimable reward); Milestone is a
 // recognized point within an ongoing measure (a threshold ladder, a level
 // crossing, a named stage). Several of these files describe both shapes at
-// once (fc-mobile, uptime, fifa-panini-collection); the remap follows
-// whichever framing the file's own words lead with, since one file can only
-// remap to one id. Neither clash-of-clans, canva, tiimo, capybara-go, dave,
-// cleo, royal-match, nor gymverse appears below: all eight are v4.1 and
-// never reach this path (royal-match and gymverse each carried an entry
-// here before their own migration to v4.1, removed once each analysis
-// stopped using the v3 inline-id form).
-//   -> achievement: calm, ladder, fc-mobile, liftoff, swgoh,
+// once (uptime, fifa-panini-collection); the remap follows whichever framing
+// the file's own words lead with, since one file can only remap to one id.
+// Neither clash-of-clans, canva, tiimo, capybara-go, dave, cleo,
+// royal-match, gymverse, nor fc-mobile appears below: all nine are v4.1 and
+// never reach this path (royal-match, gymverse and fc-mobile each carried an
+// entry here before their own migration to v4.1, removed once each
+// analysis stopped using the v3 inline-id form).
+//   -> achievement: calm, ladder, liftoff, swgoh,
 //      freeletics, uptime, fiton, fortune-city, match-creek-motors,
 //      fifa-panini-collection, subway-surfers.
 //   -> milestone: insight-timer, chrome-valley-customs, acorns,
 //      wispr-flow, solitaire-grand-harvest.
 const REMAPS = {
-  "clash-of-clans": { "xp-leveling": "leveling" },
-  "fc-mobile": { "xp-leveling": "leveling", "achievements": "achievement" },
   "freeletics": { "xp-leveling": "leveling", "achievements": "achievement" },
   "liftoff": { "xp-leveling": "leveling", "achievements": "achievement" },
   "solitaire-grand-harvest": { "xp-leveling": "experience-points", "achievements": "milestone" },
   "steam": { "xp-leveling": "experience-points" },
-  "tiimo": { "xp-leveling": "experience-points" },
   "calm": { "achievements": "achievement" },
   "ladder": { "achievements": "achievement" },
   "swgoh": { "achievements": "achievement" },
@@ -924,9 +923,7 @@ const DROPS = new Set([
   "energy-lives|solitaire-grand-harvest",
   "streak|freeletics",
   "daily-login-reward|fiton",
-  "daily-login-reward|clash-of-clans",
   "limited-time-events|strava",
-  "challenges|clash-of-clans",
   "credits-tokens|liftoff",
   "ads|chrome-valley-customs",
   "ads|match-creek-motors",
@@ -1223,6 +1220,31 @@ const V41_APP_META = {
         "Gymverse prices its plan before a single exercise is seen, then grants a seven-day free pass with no payment details the moment the paywall is declined.",
       returns:
         "Gymverse asks for notification permission with a loss-framed heading, sends a message addressing lapsed training, and keeps workout reminders in settings.",
+    },
+  },
+  "fc-mobile": {
+    name: "FC Mobile",
+    category: "Sports / Football management",
+    type: "game",
+    sectionCards: {
+      onboarding:
+        "FC Mobile scripts a returning account through a tutorial, a squad build and a first match already won, leaving one control live at a time until the sequence ends without a next step.",
+      "core-loop":
+        "FC Mobile repeats football matches across a dozen named modes, automating movement when the stick is released, on top of a squad developed through training, rank-ups and skill assignments.",
+      goals:
+        "FC Mobile advances an account level, a head-to-head division ladder, a roughly sixty-position Star Pass, league season points, and three named player collections, all at once.",
+      access:
+        "FC Mobile gates the market, leagues, challenge mode and several other features behind stated account levels or match counts, and conditions league membership on team overall and not already belonging to one.",
+      economy:
+        "FC Mobile runs more than a dozen named currencies, most earned through play and spent across a transfer market, two exchanges and a four-part store.",
+      social:
+        "FC Mobile's leagues hold their own season level, quests, tournament and two leaderboard positions, advanced entirely by members' combined activity.",
+      reach:
+        "FC Mobile links out to a promotional website, an offerwall paying for other companies' games, another publisher's advertisement, an outside esports competition, and a video hub.",
+      monetization:
+        "FC Mobile runs a four-part store with three locked purchase ladders, two monthly cards, and probability disclosure that appears on some packs and not others.",
+      returns:
+        "FC Mobile runs two separate daily login calendars, countdowns on nearly every surface, and notifications naming exactly what a return would show.",
     },
   },
 };

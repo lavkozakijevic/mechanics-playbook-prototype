@@ -1366,268 +1366,483 @@ Source. This analysis is built from seven Granola walkthrough sessions and from 
 ## Applied tags
 
 **Tag:** Experience Points
+
 **Observations:** O44, O17
+
 **Supporting observations:** O29, O42, O45, O47, O54, O58
+
 **Confidence:** directly observed
+
 **Role:** engagement, retention
+
 The product grants XP for the activity it wants repeated (O29, O42) and spends it on unlocks that arrive over days rather than within a session (O45).
+
 **Rationale:** The app states the rule itself: "XP is used to increase your account level. Each level unlocks new content" (O17). XP is granted by matches, missions, drafts and skill games, accumulates across events, and crosses thresholds that change the account level (O44). It is never spent on a user-selected result, which separates it from the currency entries. Star Pass credits satisfy the same invariant on a separate track: they are granted for playing Division Rivals and live events, accumulate toward numbered positions (789 of 900 observed), and reset at the season boundary (O47). League points do the same at the collective level, accumulating toward the league's next season level (O54).
+
 **Variants present:** account XP, track XP, seasonal XP, shared XP, source-specific XP, variable-grant XP
+
 **Variants not established:** whether the account XP balance carries over past a threshold or resets at it was not observed; whether league points expire at the season boundary was not observed; capped XP was not observed.
+
 **Alternative considered:** Spendable Credits and Tokens, rejected because none of these three values can be exchanged for a selected result; Star Pass credits release positions on a fixed track rather than buying anything.
 
 **Tag:** Leveling
+
 **Observations:** O44, O46, O54
+
 **Supporting observations:** O27, O45, O55, O56, O58, O80
+
 **Confidence:** directly observed
+
 **Role:** engagement, retention
+
 Levels release the features that make further sessions possible (O45), and divisions reset on a stated seventeen-day cycle that brings the user back before it closes (O46).
+
 **Rationale:** Several ordered state series run at once. The account level is a current discrete state advanced by XP and announced at each crossing (O44, O58). The head-to-head division ladder runs Amateur 3 through Semi Pro, Pro and World Class, with the rule stated outright: a win earns a star, a loss removes one, draws change nothing, promotion is automatic at the required star count and losing stars causes demotion (O46). Manager mode holds its own rank starting at Amateur 3 (O27). Leagues hold a season level advanced by collective points (O54). Player items hold their own training level 0 to 30 and rank up level (O56). The division ladder is an absolute state reached from a star count against fixed thresholds rather than an ordering against other players, which is why it is classified here and not as a comparative position.
+
 **Variants present:** XP-driven leveling, count-driven leveling, demotion-enabled leveling, multi-level jump, multi-track leveling, shared leveling, seasonal leveling
+
 **Variants not established:** what happens to a division at the end of the seventeen-day period, whether the ladder resets or is preserved, was not observed; a capped highest level was not observed.
+
 **Alternative considered:** Comparative Rank for the division ladder, rejected because the entry excludes an absolute tier assigned from fixed thresholds; the user's division does not move when other players' results change.
 
 **Tag:** Progression Gate
+
 **Observations:** O61, O45
+
 **Supporting observations:** O23, O33, O37, O62
+
 **Confidence:** directly observed
+
 **Role:** engagement, retention
+
 The gates hold back features until the user has played enough of the loop to reach them (O61), which spreads first-week discovery across sessions rather than within one (O45).
+
 **Rationale:** Requirements are stated in the terms of measures the product advances through the user's own activity, and the withheld part is observable before it is satisfied. The market reads "locked, unlocked after reaching level nine"; VS Attack "unlocks after playing one Head to Head match"; Manager Mode "unlocks after playing two Division Rivals matches"; a formation requires level 20; stadiums and weather options state "you can unlock this by progressing in the Star Pass" and can be previewed while locked (O61). Level crossings then release named parts: leagues and football center at 4, challenge mode at 5, scouting camp at 6, a lineup slot at 8, the market at 9, club challenge at 10 (O45).
+
 **Variants present:** level gate, count gate, stage gate, browsable gate, previewed gate, staggered gates, announced unlock gate, per-position gate
+
 **Variants not established:** whether any gated part offers an alternative purchase route was not observed, except that a further lineup can be bought outright after the level-8 slot is granted; no gate was seen being reinstated.
+
 **Alternative considered:** the age declaration, the sign-in requirement and the league's required-overall condition were tested against this entry. The first two are eligibility conditions the user cannot satisfy by using the product and carry no label; they are recorded in plain language in Access and eligibility. The week-three and week-four event releases are a schedule rather than a measure and are likewise recorded in plain language.
 
 **Tag:** Milestone
+
 **Observations:** O53, O37
+
 **Supporting observations:** O45, O52, O55
+
 **Confidence:** strongly supported
+
 **Role:** engagement
+
 Both recognised thresholds sit inside activities the user performs within a session and pay on reaching a stated point in them (O37, O53).
+
 **Rationale:** Two defined points inside broader progressions are recognised with their own rewards. The guess-the-player activity carries a track labelled "Milestone. Guess the player and earn extra rewards based on correct guesses", with eight correct guesses as the full set and named rewards attached (O53). Icon Chronicles carries "Becoming Zlatan. Read and complete the Zlatan stories of each photo and earn the milestone reward", paying three player items at the point the chapter set is completed (O37). Level-up announcements name specific unlocks at specific levels rather than only updating the number, which the entry treats as separate threshold recognition (O45). Confidence is strongly supported rather than directly observed because neither milestone was reached during the sessions; the tracks and their stated rewards were seen, the crossing was not.
+
 **Variants present:** threshold milestone, cumulative milestone, sequence milestone, unlocking milestone, rewarded milestone
+
 **Variants not established:** whether reaching a milestone is preserved as a record afterwards was not observed; recurring and shared milestones were not observed.
+
 **Alternative considered:** Achievement, which would apply if the crossing were preserved as an attained state; that was not observed, and the entries divide on preservation rather than on the reward. The milestone programme announced in the news (O52) could not be located in the app at all and is not the basis of this tag.
 
 **Tag:** Achievement
+
 **Observations:** O51
+
 **Supporting observations:** O22, O55
+
 **Confidence:** plausible
+
 **Role:** engagement
+
 The criteria name actions inside the product that the user would otherwise not reach for, such as joining a league or trying each match mode (O51).
+
 **Rationale:** The app maintains a quest family it calls achievement quests, holding one-time criteria distinct from the recurring task lists: join a league, team building, go head to head, go VS attack, matchmaster, striver, training master (O51). Completion notifications fire for them by name, on joining a league and on raising team overall to 86 and again to 88 (O22, O55). The club challenge family works the same way, with "First try", "First win" and "Win and master. Win 10 leagues" (O51). Under the presence standard the product's own framing carries the label. Confidence is plausible rather than higher because the distinguishing condition of the entry, that the attained state is preserved or observably recognised after completion, was not seen: no completed achievement quest was revisited in any session.
+
 **Variants present:** visible achievement, single-condition achievement, cumulative achievement, composite achievement, rewarded achievement
+
 **Variants not established:** persistence of the attained state after completion; whether the criteria are the same for every user; whether any are hidden.
+
 **Alternative considered:** Challenge, which would apply instead if these entries are assigned, completed and removed without any preserved state. The separating evidence is a session that revisits the quest screen after an achievement quest is completed and claimed. Until then the label rests on framing alone and the tier says so.
 
 **Tag:** Challenge
+
 **Observations:** O29, O37, O36
+
 **Supporting observations:** O7, O13, O41, O49, O51
+
 **Confidence:** directly observed
+
 **Role:** engagement, retention
+
 Skill games and chapter tasks are the bounded units played inside a session (O29, O37), while the duels close on a real fixture's kickoff and so set a return deadline (O36).
+
 **Rationale:** The product creates bounded objective instances with defined success conditions and end boundaries throughout. Skill games state three point targets determining a one-, two- or three-star result, under a timer and a stated attempt count (O29). Chapter tasks state an objective, a difficulty, a completion count and a guaranteed reward, for example "Free Kick. Hit the areas. Amateur difficulty. Completed 0 out of 1. Guaranteed rewards 200,000 coins" (O37). Duels close at a stated time, after which the boundary passes (O36). Theme challenges inside the event set named conditions such as comeback, heroism and all goals (O49). Even the tutorial and the warm-up match are framed this way, with completion counts and stated expiries (O7, O13).
+
 **Variants present:** time-boxed challenge, attempt-bounded challenge, session challenge, event-bounded challenge, threshold challenge, completion challenge, multi-stage challenge, rewarded challenge, automatically assigned challenge
+
 **Variants not established:** head-to-head and group challenge forms were not observed; no challenge was seen concluding as failed and closing.
+
 **Alternative considered:** Minigame for the skill games and the trivia, rejected because every one of them pays XP, gems, packs or tokens into the product's own economy, which the entry excludes regardless of how different the rules are or where the activity sits.
 
 **Tag:** Daily / Weekly Quests
+
 **Observations:** O41, O42
+
 **Supporting observations:** O22, O43, O77
+
 **Confidence:** directly observed
+
 **Role:** retention, engagement
+
 Each day's set is issued on a timer that only the next day satisfies (O41), and the day-by-day mission programme pays its largest rewards at day six and day seven (O42).
+
 **Rationale:** Discrete objectives are issued under a recurring daily boundary and tracked to completion. The daily task list carries four tasks with counters and rewards, with day two shown as unlocking in eight hours and day three stating "complete all tasks to move to those of the next day" (O41). Kickoff missions issue a separate set for each of seven days with stated unlock intervals of 8 hours, 32 hours, 3, 4 and 5 days (O42). A parallel Dream Chasers Celebration set runs five days over the same period and records completions independently of the kickoff set (O42). A task can be exchanged for a new one at a price of 10 gems, which the entry treats as a replacement variant (O41).
+
 **Variants present:** daily quest, selected-from-pool quest, cumulative-period quest, stacking quest, replacement quest, event-limited recurring quest, rewarded quest, shared quest
+
 **Variants not established:** whether an uncompleted daily task expires at the boundary or persists was not observed; whether the pool differs between users was not observed.
+
 **Alternative considered:** Challenge, which describes the individual task's bounded shape; the recurring issuance rule is what selects this entry, and Challenge is applied separately to the bounded playable instances the tasks send the user into. The claimability of future days' rewards (O43) is recorded as unestablished rather than treated as evidence against the recurring rule.
 
 **Tag:** Seasonal Progression Pass
+
 **Observations:** O47, O48
+
 **Supporting observations:** O17, O23, O61, O106, O121
+
 **Confidence:** directly observed
+
 **Role:** monetization, engagement, retention
+
 The paid lane is the pass's purpose (O106), the track pays for playing the modes that feed it (O47), and the season boundary ends the instance on a stated date (O121).
+
 **Rationale:** The Star Pass is a bounded track of roughly sixty ordered positions advanced by Star Pass credits earned in Division Rivals and live events, with a free lane and a purchasable lane paying different amounts at the same positions (O47). The seasonal boundary is stated by the product itself: "the duration of this season shows here. Your Star Pass credits will be reset when a new season starts" (O47), alongside "season 14 ends in 16 days" (O121). The Songkran Splash event runs a second pass of the same shape inside a nine-day event (O48). Positions also gate content elsewhere: stadiums and weather state "you can unlock this by progressing in the Star Pass" (O61).
+
 **Variants present:** dual-track pass, premium seasonal pass, free seasonal pass, activity-driven pass, recurring seasonal pass, event-limited pass, resetting pass
+
 **Variants not established:** whether purchasing the lane pays retroactively for positions already passed was not observed; whether unclaimed rewards survive the season boundary was not observed; the number of positions the bundled 6,000 credits buys is not stated anywhere.
+
 **Alternative considered:** Progression Fund, rejected because the entry requires no boundary that ends the track, and this track states one and resets its measure at it. Season Content Pass, rejected because the entitlement releases rewards at positions reached rather than granting access to a bundle of content items.
 
 **Tag:** Set Collection
+
 **Observations:** O50
+
 **Supporting observations:** O35, O57, O72
+
 **Confidence:** directly observed
+
 **Role:** engagement, monetization
+
 Completeness is the stated reason to acquire more player items (O50), and the routes to acquiring them are the drafts and packs the store sells (O57, O72).
+
 **Rationale:** Three defined sets track member-level acquisition. UEFA Dream Chasers reads 0 of 71 players and 0 of 2 groups, Capped Legends holds 100 players and 4 groups, Team of the Year 2026 holds 145 players and 3 groups (O50). Sub-groups name their required members individually, for example Heroes requiring Hazard, Carragher and Ljungberg for 3,000 gems, and Right Flank Attack requiring Bale, Salgado and Makelele for 20 million coins (O50). Each set carries an expiry, and completed sets from earlier seasons are preserved in a history tab where their players can still be activated (O35). The set state drives a separate badge level that boosts the lineup, which is the reward structure sitting on the collection rather than the collection itself.
+
 **Variants present:** multi-set collection, nested collection, time-limited collection, ordered collection, duplicate-bearing collection, open-catalog collection, completion-tier collection
+
 **Variants not established:** whether a duplicate of an already collected member changes anything was not observed; whether full completion of a set is recognised was not observed; shared and personalized collections were not observed.
+
 **Alternative considered:** Achievement for the group quests, rejected because the group quests track which distinct named members have been acquired rather than recording an attained criterion separately from that tracking.
 
 **Tag:** Companion
+
 **Observations:** O56, O33, O31
+
 **Supporting observations:** O9, O12, O32, O35, O57, O64, O74
+
 **Confidence:** directly observed
+
 **Role:** engagement, monetization
+
 Held players are what the user develops between sessions (O31, O32) and what every purchase route ultimately sells (O57, O74).
+
 **Rationale:** Player items satisfy the entry's conditions without needing its familiar framing. They are entities distinct from the user's own account representation; they persist between matches; they are acquired through several defined routes, including the home team grant, packs, drafts, exchanges and the transfer market (O9, O57, O72, O74); a limited number of active positions determines which of them take part, with eleven starting positions plus substitutes and a lineup slot granted at level 8 and a further lineup purchasable (O33); an assigned player acts within the core activity by playing the match; and each carries progression state of its own in the form of an overall rating, a training level 0 to 30, a rank up level, allocatable skill points, traits and a skill move level (O56). Development consumes other player items as training material and rank up points as a resource (O31, O32).
+
 **Variants present:** multi-position roster, expanding roster, draw-acquired companion, purchased companion, earned companion, shop-exchanged companion, levelled companion, skill-bearing companion, duplicate-fed companion, resource-fed companion, graded companion, transferable companion, automatic companion
+
 **Variants not established:** the size of an individual player's effect on a match outcome was not stated anywhere and was not observed; whether player items can be lost or consumed involuntarily was not observed; equipment held by a player was not observed.
+
 **Alternative considered:** treating players only as inventory and describing them in plain language, rejected because the entry's separating test is whether the entity acts within the core activity and carries progression of its own, and both are directly observed. Cosmetic Customization, rejected for the same reason, and applied separately to the appearance options layered on top of players.
 
 **Tag:** Loot Box
+
 **Observations:** O57, O102, O73
+
 **Supporting observations:** O11, O15, O98, O100, O109
+
 **Confidence:** directly observed
+
 **Role:** monetization, engagement
+
 Value is committed before the contents are known on every paid pack and voucher-fed draw (O57, O102), and the same shape is used for the free reward flow that keeps the loop moving (O11).
+
 **Rationale:** Loot Box is reported as the most specific applicable label, with Variable Reward Outcome as its parent. Drafts consume a voucher held in the user's inventory and resolve to one of a stated pool, with pity rules published outright: "Pool B or higher, guaranteed in 11 drafts. Pool A guaranteed in 51 drafts" (O57). Store packs commit money or currency before the contents resolve, several publishing probabilities: the Easter egg hunt offer at 99 FC coins guarantees 100,000 coins and two base players while listing around 20 untradable 117-rated players as unguaranteed possibilities, with per-pack probabilities available (O102); the UCL pack publishes 100% and 1.55% lines (O98); the welcome pack lists 20 possible bonus players, none guaranteed (O100); the rank up daily pack states a 1% chance of its largest result (O108). The Easter box consumes six crafted tickets and resolves to one of a displayed pool with no probabilities published at all (O73).
+
 **Variants present:** real-money loot box, hard-currency loot box, soft-currency loot box, key-gated loot box, earned-key loot box, purchased-key loot box, multi-item pack, guaranteed-minimum loot box, guaranteed-category loot box, weighted-pool loot box, pity-protected loot box, time-limited loot box, tiered loot box
+
 **Variants not established:** duplicate protection was not established; the draws produced repeat players, which suggests none, but this was seen only once (O57). Whether the pity counters are per draft type or shared was not observed.
+
 **Alternative considered:** Variable Reward Outcome alone, which applies where no value is committed; that case is tagged separately below rather than folded in here.
 
 **Tag:** Variable Reward Outcome
+
 **Observations:** O75
+
 **Supporting observations:** O73, O102
+
 **Confidence:** directly observed
+
 **Role:** retention, engagement
+
 The free daily pack is claimed on a daily cycle and its undisclosed portion is the reason to open it rather than ignore it (O75).
+
 **Rationale:** The free daily resource pack costs nothing, holds no consumed entitlement, and states its own variability: "guaranteed rewards, 10,000 coins. And possible rewards: a mixed version player, FC draft voucher, rank up point 50, gems 50, training transfer point 100. None of these items are guaranteed" (O75). Because no product-defined value is committed to acquire or open it, the Loot Box specialization does not apply and the parent entry does. The observed claim resolved to 50 gems and 10,000 coins, one of several possible results under the stated pool.
+
 **Variants present:** variable-identity outcome, variable-composition outcome, guaranteed-minimum outcome, bounded-range outcome
+
 **Variants not established:** the weights behind the pool were not published and were not observed; whether the pool changes between days was not observed.
+
 **Alternative considered:** Loot Box, rejected on the entry's own boundary because nothing of product-defined value is surrendered to open this pack.
 
 **Tag:** Soft Currency
+
 **Observations:** O66, O67, O70
+
 **Supporting observations:** O68, O69, O65, O72
+
 **Confidence:** directly observed
+
 **Role:** engagement, monetization
+
 The earned balances are what ordinary play pays out (O66, O67), and they are also the denomination in which most store prices are quoted, which keeps the price of the paid route legible in earned terms (O67).
+
 **Rationale:** Several balances are granted through repeatable non-paid activity and later exchanged for product-defined results. FC coins come from matches, packs, daily rewards and player sales, and are spent in the transfer market and the exchanges (O66). Gems come from rewards, packs, advertisements and trivia, and buy task refreshes at 10, an extra lineup at 250, a skill move at 1,000, league creation at 3,000 and drafts at 3,000 (O67). League tokens are "earned from league tournaments, league quests and league season rewards" and spent in a league store (O70). UEFA Dream Chasers tokens are "earned from chapters and division rivals and used to exchange for rewards in chapters" (O69). Universal tokens are "earned from skill games and matches in Icon Chronicles as well as division rivals" and convert into the other campaign tokens (O68). Extra time tokens are obtained by exchanging surplus player items (O72).
+
 **Variants present:** activity-earned soft currency, quest-earned soft currency, achievement-earned soft currency, advertisement-earned soft currency, login-grant soft currency, recurring-grant soft currency, social-earned soft currency, general-purpose soft currency, restricted soft currency, convertible soft currency, dual-path soft currency, multi-currency soft-currency system, capped-earning soft currency
+
 **Variants not established:** expiry of any of these balances was not observed; transferability between users was not observed for any of them.
+
 **Alternative considered:** Spendable Credits and Tokens, the parent entry, which is noted here rather than applied separately under the overlap-by-type rule.
 
 **Tag:** Hard Currency
+
 **Observations:** O95, O66, O71
+
 **Supporting observations:** O67, O96, O97, O104, O107, O108, O110
+
 **Confidence:** directly observed
+
 **Role:** monetization
+
 Money enters the product as FC points and silver and is then spent inside it on packs, vouchers, materials and lanes (O95, O71, O107).
+
 **Rationale:** FC points are sold directly for money across seven price points in each of two tabs, remain stored, and are spent on packs, draft vouchers, rank up points, coin packs, an extra lineup and gems (O95, O66, O107, O108). Silver is the same shape with a different source: "silver can be earned from third party payment store or in game purchase and used to purchase packs in the silver category" (O71). Gems and FC coins also carry paid acquisition paths, through a gems pack at 25 gems for 10 FC points and coin packs from 250,000 for 100 FC points up to 50 million for 20,000 (O66, O67); both balances therefore satisfy this entry as well as the earned one, which the library treats as two observable acquisition behaviors rather than competing labels. Every balance in the top bar is itself a route into the store section that sells it (O110).
+
 **Variants present:** direct-purchase hard currency, bundled hard currency, converted hard currency, earnable hard currency, bonus-package hard currency, variable-rate hard currency, general-purpose hard currency, restricted hard currency, multi-currency hard-currency system, promotional hard currency
+
 **Variants not established:** the third-party payment store that sells silver was never located, so silver's paid route rests on the product's own statement rather than on an observed purchase; expiring and transferable forms were not observed.
+
 **Alternative considered:** Spendable Credits and Tokens, the parent entry, noted here rather than applied separately.
 
 **Tag:** Rewarded Advertisement
+
 **Observations:** O41, O67
+
 **Supporting observations:** O38, O77
+
 **Confidence:** directly observed
+
 **Role:** monetization, engagement
+
 Advertisement viewing is one of the four tasks issued each day (O41) and one of the league's collective quests (O77), which places it inside the product's ordinary activity rather than beside it.
+
 **Rationale:** A product-defined benefit is conditional on completing an advertisement, in several places. One of the four daily tasks is "watch one ad", and completing it paid 60 gems, 225 Star Pass credit, one blue egg piece, one red egg piece and two yellow egg pieces (O41). A gems ads pack pays 100 gems for watching an advertisement, up to three times a day, with its own 16-hour expiry (O67). The guess-the-player activity offers an additional hint for watching an advertisement (O38). A league quest, "ad veteran", requires league members to watch advertisements, which routes the same behavior into collective progress (O77).
+
 **Variants present:** view-to-reward advertisement, currency-reward advertisement, item-reward advertisement, fixed-limit rewarded advertisement, shared rewarded advertisement
+
 **Variants not established:** the length or format of the advertisements was not described; whether the offer appears only under defined conditions was not observed.
+
 **Alternative considered:** for the Diablo Immortal unit inside the activities list (O91), this entry was tested and not applied, because whether the neighbouring reward claim depended on the advertisement was not established; that case is listed under Unresolved.
 
 **Tag:** Daily Login Rewards
+
 **Observations:** O112, O113
+
 **Supporting observations:** O42, O73, O117, O120
+
 **Confidence:** directly observed
+
 **Role:** retention
+
 Both calendars pay for the act of opening the app on a new day and for nothing else (O112, O113).
+
 **Rationale:** Two separate surfaces grant a benefit for accessing the product during a daily window. The calendar states "log in every day to get daily and special rewards", shows a per-date reward, granted 200,000 gold coins on 6 April, greys out and closes past days, and previews the coming month (O112). A second panel counts down 16 hours to its refresh across a ten-day set and paid a Dream Chasers draft voucher on its first day (O113). The Easter event's "log in daily to collect egg pieces" and the "one egg per day keeps the magic alive" entry work the same way inside an event (O73, O117). The kickoff mission "Login to FC Mobile" and its "login for two days" successor are objectives rather than this entry, and are tagged under the quest entry.
+
 **Variants present:** sequential daily reward, rotating daily reward, event-limited daily reward, fixed daily reward, tiered daily reward
+
 **Variants not established:** what a missed day does to the sequence was not observed, so neither the accumulating nor the expiring variant is established, and no continuity state was seen; whether the reward differs between users was not observed.
+
 **Alternative considered:** Streak, which would apply if a missed day reset or altered the sequence; nothing in any session established that, and the entry is explicit that daily login rewards may operate independently of continuity.
 
 **Tag:** Daily Claim Pack
+
 **Observations:** O97, O98
+
 **Supporting observations:** O32, O112
+
 **Confidence:** directly observed
+
 **Role:** monetization, retention
+
 One purchase buys thirty days of reasons to open the app (O97), and the UCL calendar ties that stretch to a real fixture's date (O98).
+
 **Rationale:** Two purchases create bounded entitlements that release rewards across far more than three recurring intervals. The monthly supply card at $1.99 grants 200 FC points immediately and then "a thousand gems every day for 30 days"; the elite card at $4.99 grants 500 FC points immediately and then "1500 gems and 30 rank up points every day for 30 days" (O97). The UCL final countdown requires a $10 pack purchase, after which a further reward unlocks on each of 28 remaining days until the stated final date (O98). In each case one activation governs the whole period, the interval rewards are separate from the immediate grant, and the entitlement carries an observable end.
+
 **Variants present:** month-length pack, fixed-duration pack, daily reward pack, upfront-and-recurring pack, purchasable pack, stackable pack, automatic-grant pack
+
 **Variants not established:** whether an unclaimed day's reward accumulates or expires was not observed; whether the daily amount requires the user to open the app is not stated on the monthly cards, and the UCL calendar's statement that rewards unlock regardless of login was read from the panel rather than tested across a missed day.
+
 **Alternative considered:** Daily Login Rewards, rejected because these rewards follow from a prior purchase rather than from access; the entry's boundary between the two turns on exactly that.
 
 **Tag:** Purchase Ladder
+
 **Observations:** O99, O100, O101
+
 **Supporting observations:** O94, O103, O110
+
 **Confidence:** directly observed
+
 **Role:** monetization
+
 Each of the three sequences conditions a further purchase on the one before it (O99, O100, O101), and none of them pays anything for activity inside the product.
+
 **Rationale:** Three separate sequences order their offers and lock each position on the acquisition of the one below it. The monthly streak packs run ten positions from $0.39 to $29.99, with the rule stated outright: "to buy monthly Streak Pack 2, we have to buy monthly Streak Pack 1 and then so on" (O99). The bestseller welcome packs run four positions at $0.99, $4.99 and $9.99 followed by a free gift, each available only after the one before it, so that the free position costs more than $15 to reach (O100). A Nation's Story runs the threshold form: a free selectable gift unlocks after five shard packs at 100 FC points each, and a free ultimate gift after ten bundles at 250 FC points each (O101). In each case the endpoint is visible from the start and reachable only by paying for the positions beneath it.
+
 **Variants present:** fully paid ladder, free-endpoint ladder, escalating-price ladder, escalating-reward ladder, disclosed-sequence ladder, threshold ladder, windowed ladder, themed ladder, parallel ladders, limited-position ladder
+
 **Variants not established:** no position was purchased in any session, so each lock was read from its stated condition rather than tested; whether the ladders reissue in a later event was not observed, so the recurring variant is unestablished; whether unreached positions close at the stated window is not observed.
+
 **Alternative considered:** an ordinary tiered price list, which the entry excludes and which would carry no label; rejected because each sequence names the prior purchase as the condition on the next, which is the lock the entry turns on rather than the arrangement of the offers on the screen. The contents of the individual positions are classified separately under Loot Box where the pack's contents are unresolved before purchase.
 
-
 **Tag:** First-Purchase Bonus
+
 **Observations:** O96, O95
+
 **Supporting observations:** O19, O100, O110
+
 **Confidence:** directly observed
+
 **Role:** monetization
+
 Both offers exist to convert the first payment specifically, and the sidebar entry is styled to stand out from its neighbours until it is taken (O96).
+
 **Rationale:** A benefit separate from the purchased goods is attached to a first qualifying purchase within a defined scope. The home sidebar carries a gold, animated "bonus" entry reading "first top up. Buy FC points to get one of the four players as the reward", offering a choice of four 119-rated players (O96). Separately, a whole store tab prices FC points at double the ordinary rate and prints "first purchase bonus" on the packages, delivering 200 FC points for the $0.99 that otherwise buys 100 (O95). The doubled units are a benefit beyond the advertised package rather than a reduction in its price, which keeps it inside this entry rather than outside it as a discount.
+
 **Variants present:** account-lifetime first-purchase bonus, currency first-purchase bonus, item first-purchase bonus, choice-based benefit, claimable first-purchase bonus
+
 **Variants not established:** whether the doubled rate is consumed once overall or once per package was not observed and is not stated in the interface; whether taking the sidebar bonus removes it was not observed.
+
 **Alternative considered:** a plain price promotion, which would carry no label; rejected for the sidebar entry because the player item is plainly separate from the FC points bought, and for the 2x tab because the extra units are granted in addition to the package rather than by lowering its price.
 
 **Tag:** Cosmetic Customization
+
 **Observations:** O23, O61
+
 **Supporting observations:** O33, O34, O48, O86
+
 **Confidence:** directly observed
+
 **Role:** engagement, social
+
 The customization surfaces are framed around what other players see, with the profile theme stated to appear "during matchmaking" (O23), and the acquisition routes run through the Star Pass and events (O61).
+
 **Rationale:** The locker room maintains alternative presentation states that do not change mechanically relevant behavior. Options observed: ball (FC Mobile or a named Nike model), kits (a No Room For Racism kit, FC Mobile home and away, the home club's home and away), emotes, kit numbers, and per-player appearance covering sleeve length, jersey fit, waist fit, socks and shoes; plus user logo, profile banner and profile theme (O23). The kit's lack of mechanical effect is stated by the user against the product's own presentation: "we didn't get any upgrades like your players wearing this kit will get plus two on their overall" (O23). Stadiums and weather are the same kind of option, acquired rather than configured: locked entries state "you can unlock this by progressing in the Star Pass" and separate event tabs list Winter Wonders, Neon, Aqua vs Inferno and Ragnarok as earnable from named events (O61). Emotes double as an in-match expressive action (O86).
+
 **Variants present:** avatar cosmetic, object cosmetic, environment cosmetic, profile cosmetic, emote cosmetic, equipable cosmetic, context-specific cosmetic, layered cosmetic
+
 **Variants not established:** whether other players actually see the profile theme and banner was not observed; whether any cosmetic expires was not observed; the stale user logos offered, including "World Cancer Day 2020", were not explained.
+
 **Alternative considered:** treating the stadium and weather selection as a product setting, rejected because the entries are acquired content unlocked through the pass and events rather than configuration options available to everyone. Team skill moves and formations were tested and excluded, because both change what the team can do.
 
 **Tag:** Clan / Guild
+
 **Observations:** O76, O77, O78
+
 **Supporting observations:** O54, O62, O70, O79, O80, O81, O84, O85
+
 **Confidence:** directly observed
+
 **Role:** social, retention, engagement
+
 The league holds state that only members' combined activity can move (O77, O78), it holds that state across seasons of stated length (O54), and its quests name specific in-product actions for members to perform (O77).
+
 **Rationale:** Leagues are persistent member-based collectives with state belonging to the collective rather than to individuals. A league holds a name, badge, motto, tags, region, founding date, privacy setting, required overall, total league overall, a season level, a league point total, a hundred-position reward track, its own token currency and store, a tournament entry, and two leaderboard positions (O76, O78, O70, O79, O80). Member activity moves that state: league quests are completed by members collectively and pay season points to the league, and the rewards are then claimable by all members ("after completing the quests, all members can claim rewards. The honor belongs to every league member") (O77). Under the sibling decision ladder the collective group-owned state is the most specific level present, so this entry takes the label rather than Group Membership or Community Space.
+
 **Variants present:** competitive clan, cooperative clan, progression clan, resource-sharing clan, contribution clan, user-created clan, request-to-join clan, single-membership clan system, seasonal clan, shared-reward clan, shared-identity clan, role-structured clan
+
 **Variants not established:** the full role structure was not observed beyond the creator managing applications and invitations; whether a league can be dissolved was not observed; whether members can be removed was not observed.
+
 **Alternative considered:** Group Membership and Community Space, both rejected under the decision ladder in each entry: maintained membership and a persistent shared context are both present, but the collective group-owned state is more specific and takes the single label.
 
 **Tag:** Leaderboard
+
 **Observations:** O80, O82
+
 **Supporting observations:** O76, O81
+
 **Confidence:** directly observed
+
 **Role:** social, retention
+
 Both boards order identified others and attach rewards to position, with the head-to-head board closing on a weekly countdown that dates the next visit (O82).
+
 **Rationale:** Multiple entities are presented in relative order in several places. The league group leaderboard orders leagues within a group of twenty, with the user's league at 19th, and states the rule: "on the group leaderboard, leagues compete within their group with promotions and demotions based on their rankings. Higher ranks lead to better weekly rewards" (O80). A ranked leaderboard orders the top leagues worldwide, showing first, second and third and allowing each to be opened to see members and their overalls (O80). The head-to-head weekly leaderboard "opens when there are enough competitors for a week long ranking contest", updates on match wins, runs to a countdown, and pays by final position with reward tiers listed for top 1, top 8 and top 20 (O82).
+
 **Variants present:** team leaderboard, individual leaderboard, group leaderboard, global leaderboard, periodic leaderboard, live leaderboard, rewarded leaderboard, promotion-and-relegation leaderboard, truncated leaderboard, resetting leaderboard
+
 **Variants not established:** the head-to-head board was never entered while ranked, so its ordering was not seen operating; whether the boards can be filtered to friends was not observed.
+
 **Alternative considered:** Comparative Rank alone, rejected because ordered lists of multiple entities were shown, not only the user's own position; the two behaviors are tagged separately.
 
 **Tag:** Comparative Rank
+
 **Observations:** O80, O81
+
 **Supporting observations:** O46, O82
+
 **Confidence:** directly observed
+
 **Role:** social
+
 Each position is a standing against other identified leagues or members, and the product surfaces the user's own number rather than only a full ordering (O80, O81).
+
 **Rationale:** The product assigns and communicates positions that depend on other entities' results. The user's league is placed at roughly 600,000 on a global measure, with 22,000 league points against 1,281,000 for the leading league (O80). The league season summary assigns members a "current player contribution ranking" with a "season reward for current rank" (O81). Before the user played, the head-to-head state read "not ranked. Complete a match to join the leaderboard", which is a position state withheld pending eligibility (O82). These positions move when other entities' values move, which is what separates them from the division ladder tagged under Leveling.
+
 **Variants present:** team rank, individual rank, global rank, group rank, periodic rank, cumulative rank, provisional rank, rewarded rank, promotion-and-relegation rank
+
 **Variants not established:** the ordering rule behind the contribution ranking was not stated; whether ties are shown was not observed.
+
 **Alternative considered:** Leaderboard for the same surfaces, applied separately to the ordered lists; this entry is applied to the positions the product assigns and communicates on their own.
 
 **Tag:** Shareable Win
+
 **Observations:** O85
+
 **Supporting observations:** O76, O80
+
 **Confidence:** directly observed
+
 **Role:** social
+
 The card carries the league's record outward to people who are not in it, and the surface offers no in-product destination for it (O85).
+
 **Rationale:** The league badge screen composes the collective's record into a self-contained representation and hands it to the device's own sending options: the card states the founding date, total league overall, highest activity, number of goals, total quests, league tournament wins and the league's position, and the user can "choose which modes of communication we want" (O85). A reader outside the product can read what the league has done without holding an account. The route out of the product and the composed representation are both present, which is what this entry requires.
+
 **Variants present:** recap win, rank win, shared-holder win, open-destination win, on-demand win, unverified win
+
 **Variants not established:** whether the card can be edited before sending was not observed; whether the product grants any benefit for sending it was not observed; no equivalent card was found for the individual account.
+
 **Alternative considered:** the "share with league" control on a finished match (O40, O85), which posts a result and a replay into the product's own league rather than out of it; the entry excludes in-product publication, so that behavior is described in plain language and is not the basis of this tag.
 
 ## Entries considered and not applied
