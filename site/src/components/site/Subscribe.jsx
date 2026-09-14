@@ -181,7 +181,7 @@ export function SubscribePage() {
       {/* 3. Closing call */}
       <section className="band band--ink sp-close" aria-labelledby="close-h">
         <div className="container container--narrow">
-          <h2 className="sp-close__h" id="close-h">Power up your app with proven game mechanics</h2>
+          <h2 className="sp-close__h" id="close-h">Every mechanic here actually shipped. None of it is theory.</h2>
           <Button variant="accent" size="lg" onClick={() => setModalOpen(true)}>Subscribe</Button>
         </div>
       </section>
