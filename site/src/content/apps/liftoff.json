@@ -51,7 +51,7 @@
       "suggestedShots": []
     },
     {
-      "id": "variable-reward",
+      "id": "loot-box",
       "depth": "supporting",
       "writeup": null,
       "screenshots": [],
@@ -126,8 +126,8 @@
         "role": "Rankings across multiple metrics and time windows. Per-muscle leaderboards create competitive surfaces beyond total volume."
       },
       {
-        "id": "variable-reward",
-        "role": "Post-workout reward tied to performance metrics. Outcome varies based on workout quality rather than requiring separate spending."
+        "id": "loot-box",
+        "role": "Refreshing Store deals costs 10 eggs for an unresolved new set of deals, eggs are committed before the refreshed contents are known."
       },
       {
         "id": "achievement",

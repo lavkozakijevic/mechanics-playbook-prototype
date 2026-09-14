@@ -30,23 +30,28 @@ export const CAT_LABEL: Record<string, string> = {
   social: "Social",
 };
 
-/** The five site mechanics that fuse two or three entries from the 37-entry
+/** The four site mechanics that fuse two or three entries from the 37-entry
  *  mechanics library under the site's older, coarser taxonomy
  *  (sources/taxonomy-map.md has the full mapping, the per-merge split
- *  condition, and which apps currently carry each one). "ads" was a sixth
+ *  condition, and which apps currently carry each one). "ads" was a fifth
  *  until Advertisement Exposure was retired from the library on 13 Sep
- *  2026; "xp-leveling" was a seventh until Capybara Go and Clash of Clans
- *  each applied Experience Points and Leveling as distinct v4.1 tags; and
- *  "achievements" was an eighth until Clash of Clans and Tiimo each applied
+ *  2026; "xp-leveling" was a sixth until Capybara Go and Clash of Clans
+ *  each applied Experience Points and Leveling as distinct v4.1 tags;
+ *  "achievements" was a seventh until Clash of Clans and Tiimo each applied
  *  Achievement and Milestone as distinct v4.1 tags, clearing the split
- *  condition the same day — each split into two clean one-to-one mappings
- *  (experience-points/leveling, then achievement/milestone) and both halves
- *  came out of this set.
+ *  condition the same day; and "variable-reward" was an eighth until
+ *  Capybara Go and FC Mobile each applied Loot Box and Variable Reward
+ *  Outcome as distinct v4.1 tags — that one split into "loot-box" (new id)
+ *  and "variable-reward" (kept, renamed from Variable Reward Schedule to
+ *  Variable Reward), with the third fused entry, Variable Reward Schedule,
+ *  retired rather than carried forward since no app under the current
+ *  model has ever applied it. Each split came out of this set as clean
+ *  one-to-one (or one-to-two) mappings.
  *
  *  Publishing one of their pages would assert a taxonomy the library has
  *  already moved past, which has nothing to do with subscriptions — so this
  *  is deliberately not a visibility distinction. It's unconditional:
- *  independent of each mechanic's own declared visibility (all five are
+ *  independent of each mechanic's own declared visibility (all four are
  *  declared "public", same as everything else) and independent of
  *  REVIEW_WINDOW_OPEN. A "subscriber" declaration would make the page
  *  locked rather than absent once the review window closes, and a
@@ -56,7 +61,7 @@ export const CAT_LABEL: Record<string, string> = {
  *  exist until the merge splits, in either window state. */
 export const HELD_BACK_MECHANIC_IDS = new Set([
   "leaderboards", "community-groups",
-  "energy-lives", "season-pass", "variable-reward",
+  "energy-lives", "season-pass",
 ]);
 
 /** A mechanic's href, or null if there is nothing to link to — the single

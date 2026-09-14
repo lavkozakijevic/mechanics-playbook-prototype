@@ -1704,8 +1704,12 @@
         "role": "Gems price nearly every chest, hatch, and refill in the game, and the same gold that funds routine talent upgrades is also sold outright in packs."
       },
       {
+        "id": "loot-box",
+        "role": "Golden chests and every gem- or ad-priced container in the game: value is committed before contents are known."
+      },
+      {
         "id": "variable-reward",
-        "role": "The resolution shape behind almost everything: skill offers, narrative-event wheels, golden chests, and every gem- or ad-priced container in the game."
+        "role": "Skill offers at level-up show three random options from a rarity-tiered pool before the player commits, and the Forest Maiden's narrative wheel resolves without a stated cost."
       },
       {
         "id": "ads",
@@ -1751,7 +1755,7 @@
         "y": 42
       },
       {
-        "id": "variable-reward",
+        "id": "loot-box",
         "x": 85,
         "y": 42
       },
@@ -1793,7 +1797,7 @@
       },
       {
         "from": "hard-currency",
-        "to": "variable-reward",
+        "to": "loot-box",
         "title": "Currency buys a chance, not a result",
         "desc": "Gems and keys pay to open chests and hatch eggs whose contents are picked from a disclosed pool rather than chosen.",
         "effect": "Spending currency on equipment or pets is a bet on the pool's odds, not a direct purchase of a specific item."

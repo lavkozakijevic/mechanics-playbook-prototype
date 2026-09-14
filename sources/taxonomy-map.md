@@ -37,14 +37,15 @@ resolvable in code either way; that code change does not change which
 mappings were empirically forced versus reasoned out, which is what
 "confirmed" and "inferred" track here.
 
-## Site mechanic → library entry mapping (34 site mechanics)
+## Site mechanic → library entry mapping (35 site mechanics)
 
 | site mechanic (`id`) | library entry / entries covered | evidence |
 |---|---|---|
 | streak | Streak | confirmed |
 | energy-lives | Energy, Lives | inferred |
 | daily-login-reward | Daily Login Rewards | inferred |
-| variable-reward | Variable Reward Schedule, Variable Reward Outcome, Loot Box | inferred |
+| loot-box | Loot Box | confirmed |
+| variable-reward | Variable Reward Outcome | confirmed |
 | daily-weekly-quests | Daily / Weekly Quests | confirmed |
 | set-collection | Set Collection | inferred |
 | limited-time-events | *(none — see "Site mechanics with no library entry" below)* | — |
@@ -105,7 +106,15 @@ and Tiimo applies Expert Guidance, each as its own tag under the current
 from the table as a known gap rather than closing it; this entry replaces
 that flag.
 
-## The five merged mechanics (split deferred)
+35 site mechanics, not 34 — `variable-reward` split into `loot-box` and
+`variable-reward` on 14 Sep 2026 (see "The variable-reward split" below), a
+one-into-two split that adds one to the total while removing one merge,
+the same shape as the xp-leveling and achievements splits. Both new
+mechanics are *confirmed* rather than *inferred*: Capybara Go and FC
+Mobile each apply Loot Box and Variable Reward Outcome as separate,
+independently-evidenced tags under the current (v4.1) model.
+
+## The four merged mechanics (split deferred)
 
 **leaderboards** — Leaderboard, Comparative Rank. The tagline is pure
 list-framing (*"a ranked list... publicly comparable"*), but the
@@ -132,18 +141,16 @@ and description both frame this as a progression/reward-track system
 Progression Pass. Nothing in the text represents a content-delivery framing
 (Season Content Pass).
 
-**variable-reward** — Variable Reward Schedule, Variable Reward Outcome,
-Loot Box. The tagline fuses timing uncertainty (Schedule) and result
-uncertainty (Outcome) into one indivisible mechanism (*"slot machines...
-unpredictability"*), never separating them. The four variants (loot boxes,
-spin wheels, mystery packs, gacha pulls) are all concrete Loot Box
-implementations — making Loot Box the best-represented of the three at the
-variant level, despite having no dedicated prose of its own.
-
 ## Library entries with no site mechanic
 
-None, as of this document. Personal Data Reflection was the only one and
-now has a page (`personal-data-reflection`).
+**Variable Reward Schedule.** Retired from the `variable-reward` merge
+table on 14 Sep 2026 rather than carried forward as a permanently
+unmeetable open item: no app under the current model, v3 or v4.1, has ever
+applied it, and a schedule page with no evidence, no remap source and no
+app list would be worse than an empty page with a tested definition. It
+becomes a page when an app under the current model carries it. Personal
+Data Reflection was the prior case in this section and now has a page
+(`personal-data-reflection`).
 
 ## Site mechanics with no library entry
 
@@ -300,6 +307,94 @@ same reason as `/mechanics/xp-leveling/`: the page didn't move, it split
 into two different things, and neither successor is "the same content at
 a new address."
 
+## The variable-reward split (14 Sep 2026)
+
+`variable-reward` fused three library entries: Variable Reward Schedule,
+Variable Reward Outcome, and Loot Box. The split condition fired on real
+evidence: Capybara Go and FC Mobile each apply Loot Box and Variable
+Reward Outcome as separate, independently-evidenced tags under the current
+(v4.1) model. Before writing anything, the shape question had to be
+answered first: was this a two-way or three-way split? Variable Reward
+Schedule has no evidence in any app under the current model, v3 or v4.1 —
+confirmed by an exhaustive search across every analysis file for both the
+canonical-name heading and the applied tag, turning up zero instances. The
+split is two-way: `loot-box` (Loot Box) and `variable-reward` (Variable
+Reward Outcome). Variable Reward Schedule is retired rather than given an
+empty third page (see "Library entries with no site mechanic" above).
+
+The old fused page fused uncertainty of outcome (Variable Reward Outcome)
+with uncertainty of timing (Variable Reward Schedule) and with the
+container that delivers them (Loot Box) into one indivisible mechanism
+(*"slot machines... unpredictability"*), so very little of it survived —
+both new pages were written fresh against each library entry's own
+definition rather than divided from the old prose (both entries, the name
+choices, and the REMAPS classifications were shown for review before
+writing). Names are what a product person would say: **Loot Box** takes
+its library entry's name directly, the same way `companion` and
+`progression-fund` did as brand-new mechanics; **Variable Reward** drops
+the library's "Outcome" suffix, the same pattern as `cosmetics` (Cosmetic
+Customization) and `credits-tokens` (Spendable Credits and Tokens) above —
+a shorter, product-register name on the site while `libraryEntries` keeps
+the fuller library name for internal tracking.
+
+Unlike the xp-leveling and achievements splits, this one does not give
+both successors fresh ids: `variable-reward` keeps the old fused entry's
+exact id, since "Variable Reward" is the name a product person would use
+and that name's natural id collides with the id the fused mechanic already
+holds. This is a deliberate, flagged departure from the "old URL 404s
+rather than redirects" pattern those two splits established:
+`/mechanics/variable-reward/` does not 404, it silently repoints to
+different (though genuinely rewritten) content. The alternative, a fresh
+id for the kept entry, was considered and rejected — it would have meant
+either an artificial id divorced from the display name, or "Variable
+Reward Outcome" as the display name itself, which is exactly the
+taxonomist register the site-name-vs-library-name precedent above exists
+to avoid.
+
+Both new mechanics carry the old fused entry's app list, but not
+unchanged: unlike the xp-leveling and achievements splits, direct reads of
+every listed app's own analysis were available and used, rather than
+copying the list blindly across both successors. `fortune-city` and
+`clash-of-clans` are dropped from both entirely — fortune-city's analysis
+never mentions any of the three concepts, and clash-of-clans' analysis
+explicitly considers and rejects all three in its own "Entries considered
+and not applied" section; both were stale carryovers on the old fused
+entry's app list rather than real evidence. `royal-match`,
+`solitaire-grand-harvest`, `chrome-valley-customs`, and
+`match-creek-motors` carry `variable-reward` only, evidenced by
+non-acquisitive outcome variance (a concealed sequential offer, a
+duplicate-to-crown conversion, a per-level currency yield). `capybara-go`
+and `fc-mobile` carry both, the two apps whose evidence cleared the split
+condition. `subway-surfers`, `liftoff`, and `swgoh` carry `loot-box` only,
+each evidenced by a value commitment (coins, keys, eggs, crystals, or ally
+points) made before a discrete container's contents are known.
+
+Eight older v3 analysis files still carry the literal `variable-reward`
+inline id in a `### Variable Reward (\`variable-reward\`) · Depth`
+heading, unrewritten. Because the kept id, `variable-reward`, is still a
+registered mechanic, five of the eight need no remap at all and simply
+fall through unchanged: acorns, chrome-valley-customs, match-creek-motors,
+and solitaire-grand-harvest, each decided from that file's own observed
+text the same way the app list above was (solitaire-grand-harvest's $2.99
+second spin is loot-box-shaped on its own, but its free first spin and
+free Crop Master pick dominate the section, and REMAPS carries only one id
+per app). The fifth, fifa-panini-collection, has no observed text under
+this heading at all ("Write-up pending") — rather than invent evidence or
+leave the id unmapped, it defaults to the kept id, flagged explicitly in
+`REMAPS` as an unevidenced default pending its own write-up, not a real
+classification decision. Only the remaining three needed an actual entry
+in `REMAPS` (`site/scripts/convert-content.mjs`), since their evidence
+belongs to the other successor: liftoff (paying eggs to refresh Store
+deals with unknown contents), swgoh (Bronzium/Chromium pulls paid in ally
+points or crystals), and subway-surfers (the coin-priced Mystery Box and
+the ad-or-key-gated token box). Without a `loot-box` entry, these three
+would silently fall through to the kept id, `variable-reward`, by the same
+default-resolution mechanism as the five above — no build error, since
+`variable-reward` is still a registered id, just a wrong classification
+for evidence that belongs to the other successor. Neither royal-match,
+capybara-go, nor fc-mobile appears in `REMAPS` for this split — all three
+are v4.1 and never reach the v3 parsing path at all.
+
 ## When each merge splits
 
 A merged page splits when at least two apps analysed under the current
@@ -312,22 +407,22 @@ alone, without real implementations to draw the dividing line from, would
 produce two new pages that get rewritten again the moment real evidence
 arrives. Two independent v4.1 observations turn the split into a lookup
 against actual analysis rather than a guess. Each pair unlocks on its own
-evidence — the five do not move together.
+evidence — the four do not move together.
 
-As of this document, one app analysed under the current model, Capybara
-Go, carries several of the remaining five merged ids — Leaderboard
-(leaderboards), Energy (energy-lives), Seasonal Progression Pass
-(season-pass), and both Loot Box and Variable Reward Outcome
-(variable-reward) — but none of the five has cleared its split condition
-yet, since that needs two apps each independently carrying both sides
-distinctly. Capybara Go carries both sides of variable-reward alone (Loot
-Box and Variable Reward Outcome as separate, independently-evidenced
-tags), so that merge needs exactly one more v4.1 app doing the same to
-split; the other four merges have only one side evidenced by Capybara Go
-so far. Every other occurrence below is from the old (v3) model, and none
-of it counts toward the threshold; it is recorded here so that checking
-progress, once v4.1 re-analysis reaches these apps, is a lookup rather
-than a recount.
+`variable-reward` cleared this condition on 14 Sep 2026 (see "The
+variable-reward split" above) once Capybara Go and FC Mobile each applied
+Loot Box and Variable Reward Outcome as separate, independently-evidenced
+tags — the third merge to split out of this set, after xp-leveling and
+achievements. As of this document, one app analysed under
+the current model, Capybara Go, carries several of the remaining four
+merged ids — Leaderboard (leaderboards), Energy (energy-lives), and
+Seasonal Progression Pass (season-pass) — but none of the four has cleared
+its split condition yet, since that needs two apps each independently
+carrying both sides distinctly, and each merge so far has only one side
+evidenced by Capybara Go. Every other occurrence below is from the old
+(v3) model, and none of it counts toward the threshold; it is recorded
+here so that checking progress, once v4.1 re-analysis reaches these apps,
+is a lookup rather than a recount.
 
 **leaderboards** (Leaderboard, Comparative Rank) — 11 apps: capybara-go
 (v4.1, Leaderboard only), and 10 more, all v3: chrome-valley-customs,
@@ -346,17 +441,10 @@ fortune-city, match-creek-motors, royal-match, swgoh.
 capybara-go (v4.1, Seasonal Progression Pass only), and 4 more, all v3:
 fc-mobile, royal-match, solitaire-grand-harvest, swgoh.
 
-**variable-reward** (Variable Reward Schedule, Variable Reward Outcome,
-Loot Box) — 13 apps: capybara-go (v4.1, both Loot Box and Variable Reward
-Outcome — one app short of the split condition), and 12 more, all v3:
-acorns, canva, chrome-valley-customs, clash-of-clans, fc-mobile,
-fifa-panini-collection, liftoff, match-creek-motors, royal-match,
-solitaire-grand-harvest, subway-surfers, swgoh.
-
 ## Visibility, pending the split
 
 This is deliberately not a visibility distinction. All mechanics,
-including the five still-merged ones, carry declared visibility `public` — the
+including the four still-merged ones, carry declared visibility `public` — the
 same as before this work. Publishing a merged page would assert a taxonomy
 the library has already moved past, which has nothing to do with
 subscriptions: declaring a merge `subscriber` instead would only make its
@@ -366,21 +454,21 @@ subscriber read a page that isn't supposed to exist at all yet (an earlier
 draft of this work made exactly that mistake and was corrected before
 shipping).
 
-Instead, the five merged mechanics are excluded outright from
+Instead, the four merged mechanics are excluded outright from
 `getStaticPaths` in `mechanics/[id].astro`, against `HELD_BACK_MECHANIC_IDS`
-(`site/src/lib/content.ts`) — a plain set of the five ids, unconditional
+(`site/src/lib/content.ts`) — a plain set of the four ids, unconditional
 and independent of both each mechanic's own declared visibility and of
 `REVIEW_WINDOW_OPEN`. The page does not exist, in either window state,
 until the merge clears the split condition above; verified directly by
 building with the window both open and closed and confirming zero links to
-any of the five in either output. Real gating (a locked page like
+any of the four in either output. Real gating (a locked page like
 subscriber apps and case studies get) was considered and rejected: it's
 auth-adjacent work that would be discarded the moment a merge splits and
 both sides go public, and shipping the pages live-but-unlinked would leave
 the fused content readable at its direct URL regardless — exactly what
 holding them back is meant to avoid.
 
-Every other page that can reference one of the five (the 27 v3 case
+Every other page that can reference one of the four (the 27 v3 case
 studies, the mechanics index, paired-mechanic sidebars on glossary and
 cheatsheet pages, the homepage's featured-mechanics strip, v4.1 case study
 tag chips and system-map nodes) resolves its href through the same shared
@@ -390,14 +478,16 @@ can't be missed in one spot and linked from another. It renders the
 reference unlinked — the name and category still show, there's simply no
 link to click — reusing the fallback already built for a mechanic with no
 reference page at all, rather than a broken link or a misleading
-`/subscribe/` CTA. The other 29 mechanics — the 19 original clean
+`/subscribe/` CTA. The other 31 mechanics — the 19 original clean
 one-to-one mappings, `personal-data-reflection`, `companion`,
 `progression-fund`, and `ads` now that Advertisement Exposure's retirement
 has left it a clean one-to-one mapping too, `experience-points` and
 `leveling` now that the xp-leveling split has left them clean one-to-one
 mappings as well, `achievement` and `milestone` now that the achievements
-split has done the same, and `shareable-win` and `expert-guidance`, two
-more one-to-one mappings added alongside that split — are unaffected. A merge gets
+split has done the same, `shareable-win` and `expert-guidance`, two
+more one-to-one mappings added alongside that split, and `loot-box` and
+`variable-reward` now that the variable-reward split has done the same —
+are unaffected. A merge gets
 its own page back, for both sides, once it clears the split condition
 above.
 
@@ -445,8 +535,8 @@ six renames established a blanket rule that site names should always match
 library names — they don't; each of the eight was judged on its own name,
 not on a rule that public copy must track the library's taxonomy.
 
-The five held-back merged mechanics (`leaderboards`,
-`community-groups`, `energy-lives`, `season-pass`, `variable-reward`) keep
+The four held-back merged mechanics (`leaderboards`,
+`community-groups`, `energy-lives`, `season-pass`) keep
 their current names for now. `ads` came out of this set on 13 Sep 2026
 when Advertisement Exposure was retired, but its name was not revisited as
 part of that change — it wasn't one of the six renamed or two
@@ -463,4 +553,18 @@ rather than by losing a merged side the way `ads` did. Its two successors,
 `experience-points` and `leveling`, aren't renames of anything — each
 takes its library entry's own name directly, the same way `companion` and
 `progression-fund` did as brand-new mechanics, so neither belongs on the
-six-renamed or two-kept-as-is lists above.
+six-renamed or two-kept-as-is lists above. `achievement` and `milestone`,
+the achievements split's two successors, are the same shape.
+
+`variable-reward` came out of this set on 14 Sep 2026, splitting rather
+than losing a side, the same shape as `xp-leveling` and `achievements` —
+but its two successors split across both naming patterns above rather than
+just one. `loot-box` takes its library entry's name directly, like
+`experience-points` and `leveling` before it. `variable-reward` does not:
+it keeps the old fused id (see "The variable-reward split" above for why)
+and its name drops the library's "Outcome" suffix, the same deliberate
+site-name-vs-library-name departure as `cosmetics` and `credits-tokens`
+above, so it belongs on neither the six-renamed nor the two-kept-as-is
+lists either — it was never renamed away from an old site name, and it
+isn't keeping an old site name against the library's, it's a new name
+chosen fresh at the moment of the split.

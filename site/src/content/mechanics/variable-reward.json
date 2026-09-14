@@ -1,22 +1,23 @@
 {
   "id": "variable-reward",
-  "n": "04",
-  "name": "Variable Reward Schedule",
+  "n": "43",
+  "name": "Variable Reward",
   "cat": "retention",
-  "tagline": "A reward system where the outcome of an action is uncertain, the user knows they will receive something, but not exactly what.",
-  "desc": "Variable rewards exploit the same psychological mechanism as slot machines: unpredictability makes the reward loop more compelling than fixed outcomes. The anticipation of the reveal is part of the reward. Explorers track drop patterns and build mental models of the probability structure.",
-  "principle": "Unpredictability sustains engagement beyond what fixed rewards can achieve.",
+  "tagline": "A reward event whose specific result, what's granted, how much, or what quality, isn't fixed until the moment it resolves.",
+  "desc": "Variable reward outcome covers any reward-resolution event where the system can produce more than one materially different result under otherwise comparable conditions. It requires no container, no acquisition step, and no payment, only that the specific identity, quantity, quality, or composition of the reward stays open until the system resolves it. A cashback amount that varies purchase to purchase, a level-completion payout that isn't fixed, a buyer's concealed offer, a skill choice generated fresh each time, all count. The anticipation lives in not knowing which of several real possibilities will land, not in unwrapping a container to find out.",
+  "principle": "Unpredictability in what a reward turns out to be sustains attention past what a fixed, disclosed payout can.",
   "players": [
     "explorer"
   ],
-  "warn": "Variable rewards require careful calibration. If the perceived drop rate feels manipulated or low-tier rewards feel worthless, users develop distrust. Many markets require transparency on probabilities.",
+  "warn": "The label collapses the moment a rule fully determines the result in advance, a disclosed percentage, a tier table, a fixed conversion. If comparable actions always produce the same visible outcome, there's no variable reward outcome to name, whatever the marketing calls it.",
   "variants": [
-    "Loot boxes / chests",
-    "Spin wheels",
-    "Mystery packs",
-    "Gacha pulls"
+    "Variable-amount payout",
+    "Variable-quality payout",
+    "Concealed sequential offer",
+    "Visible-set generated choice",
+    "Duplicate-converted payout"
   ],
-  "lifecycle": "Effective across all lifecycle stages when paired with ongoing content.",
+  "lifecycle": "Effective across all lifecycle stages once a resolvable, comparable action exists to attach variability to.",
   "paired": [
     "set-collection",
     "season-pass",

@@ -1,0 +1,35 @@
+{
+  "id": "loot-box",
+  "n": "42",
+  "name": "Loot Box",
+  "cat": "monetization",
+  "tagline": "A container or draw the user pays or spends an earned resource to open, without knowing what's inside until it resolves.",
+  "desc": "A loot box requires committing something of defined value, money, a currency, a key, an earned entitlement, to acquire or open a discrete resolution instance before its specific contents are known. The system then grants whatever it resolves to. That value commitment is what separates a loot box from a variable reward outcome with no acquisition step: a free spin that costs nothing and varies is a variable reward outcome; the same wheel is a loot box the moment a price attaches to spinning it. Probability disclosure, guarantees, and pity systems change how a loot box behaves, not whether it is one.",
+  "principle": "Value is paid before the specific result is known. The anticipation between commitment and reveal is the product.",
+  "players": [
+    "explorer"
+  ],
+  "warn": "Several jurisdictions regulate loot boxes as a form of gambling and require published drop-rate odds. Undisclosed probabilities and pity systems that never surface to the player are the two complaints that turn a loot box into a trust problem rather than an engagement mechanic.",
+  "variants": [
+    "Currency-purchased loot box",
+    "Key-gated loot box",
+    "Pity-protected loot box",
+    "Tiered loot box",
+    "Ad-earned loot box"
+  ],
+  "lifecycle": "Effective across all lifecycle stages once a currency or earned entitlement exists to spend on it.",
+  "paired": [
+    "set-collection",
+    "credits-tokens",
+    "piggy-bank"
+  ],
+  "context": [
+    "monetization",
+    "retention"
+  ],
+  "sdt": [
+    "unpredictability",
+    "scarcity"
+  ],
+  "visibility": "public"
+}

@@ -81,18 +81,9 @@
       ]
     },
     {
-      "id": "variable-reward",
+      "id": "loot-box",
       "depth": "supporting",
-      "writeup": {
-        "observed": "The post-run prize popup delivers 1,000 coins with a 2x ad offer, a disclosed-value reward at the highest-traffic moment in the session (appearing before the home screen loads after every run). Character and hoverboard token collection mechanics create a run-integrated variable reward loop, specific tokens for characters and boards appear randomly during runs and accumulate toward completion. Daily Gifts in the store contain variable contents. Token boxes are unlockable by watching an ad.",
-        "presented": "Variable rewards surface at natural pause points throughout the session. The post-run prize popup is the highest-traffic ad placement in the game, appearing before the home screen loads after a run.",
-        "noting": "Variable rewards are embedded in the session rhythm rather than concentrated at a single pull surface. The post-run moment captures the player at the transition between runs, when they are most engaged and ready to act on a prompt.",
-        "findings": [
-          "The post-run prize popup appears before the home screen loads after every run, the highest-traffic moment in the session, ensuring maximum exposure to the 2x ad offer.",
-          "Character and hoverboard token collection creates a long-horizon variable reward loop, specific tokens appear randomly in runs, making each run a potential collection advance.",
-          "The Mystery Box Mania event (watch 10 ads to earn a prize) aggregates ad watches from anywhere in the game into a single milestone counter, spreading engagement across the full session."
-        ]
-      },
+      "writeup": null,
       "screenshots": [],
       "suggestedShots": [
         "Store showing the Mystery Box (500 coins) and token box (ad or keys) side by side with their acquisition paths"
@@ -169,8 +160,8 @@
         "role": "Two parallel daily systems: the login calendar (20-login milestone: Freebird hoverboard) and the five-slot daily rewards screen where every slot requires an ad. Missed calendar days are claimable by watching an ad or paying 5 keys, converting every gap in the streak into a monetization surface."
       },
       {
-        "id": "variable-reward",
-        "role": "Post-run prize popup, character and hoverboard token collection through runs, and the Mystery Box Mania event (10 ads = prize). Variable rewards are embedded in the session rhythm rather than concentrated at a single pull surface."
+        "id": "loot-box",
+        "role": "The Mystery Box (500 coins) and the token box (ad-watch or key-spend to open) are discrete paid-or-earned containers with unresolved contents; card packs are tiered by purchase level with contents undisclosed."
       },
       {
         "id": "cosmetics",
@@ -198,7 +189,7 @@
         "y": 56
       },
       {
-        "id": "variable-reward",
+        "id": "loot-box",
         "x": 78,
         "y": 56
       },
@@ -237,17 +228,17 @@
       },
       {
         "from": "cosmetics",
-        "to": "variable-reward",
-        "title": "Character tokens are run-variable rewards",
-        "desc": "Character and hoverboard tokens appear randomly during runs. Token accumulation toward specific cosmetics makes each run a potential collection advance, the variable reward outcome is filtered through a cosmetic goal.",
-        "effect": "Players who are motivated by cosmetics rather than scores have an intrinsic reason to keep running, each run might advance their target character's token count. Variable reward and cosmetics share the same delivery mechanism."
+        "to": "loot-box",
+        "title": "Character tokens fund the token box",
+        "desc": "Character and hoverboard tokens accumulate toward specific cosmetics, and the store's token box is opened by spending them or watching an ad. Token accumulation toward a cosmetic goal is what the loot box draws on.",
+        "effect": "Players who are motivated by cosmetics rather than scores have an intrinsic reason to keep running, each run might advance their target character's token count and their next box open."
       },
       {
         "from": "achievement",
-        "to": "variable-reward",
+        "to": "loot-box",
         "title": "Multiplier scales card pack quality",
-        "desc": "The score multiplier increases gem yield, which funds card pack pulls. A higher multiplier means more and better variable reward outcomes per session.",
-        "effect": "Long-term progression through mission completion directly improves the quality of variable reward outcomes, giving players who invest in the multiplier tangibly better reward experiences."
+        "desc": "The score multiplier increases gem yield, which funds card pack pulls tiered by purchase level. A higher multiplier means access to better-tier packs per session.",
+        "effect": "Long-term progression through mission completion directly improves the quality of loot boxes a player can afford, giving players who invest in the multiplier tangibly better pack access."
       }
     ]
   }

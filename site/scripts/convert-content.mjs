@@ -892,20 +892,61 @@ const ADDITIONS = {
 //      fifa-panini-collection, subway-surfers.
 //   -> milestone: insight-timer, chrome-valley-customs, acorns,
 //      wispr-flow, solitaire-grand-harvest.
+//
+// variable-reward split into loot-box and variable-reward (kept, renamed
+// from Variable Reward Schedule) on 14 Sep 2026 (sources/taxonomy-map.md):
+// Capybara Go and FC Mobile each applied Loot Box and Variable Reward
+// Outcome as separate, independently evidenced v4.1 tags, clearing the
+// split condition. Unlike the xp-leveling and achievements splits above,
+// this one keeps its old fused id (variable-reward) on one of the two
+// successors rather than retiring it, so a v3 file's inline
+// "### Variable Reward (`variable-reward`) · Depth" heading still resolves
+// correctly with NO remap needed whenever that file's own evidence belongs
+// to the kept id: acorns (variable-amount survey payouts, no acquisition
+// step), chrome-valley-customs (variable per-level currency yields),
+// match-creek-motors (the buyer negotiation's concealed sequential offers),
+// solitaire-grand-harvest (a free Lucky Wheel spin and a free Crop Master
+// pick dominate the section, even though its $2.99 second spin is
+// loot-box-shaped on its own — REMAPS holds one id per app, so the file's
+// dominant, free-to-resolve framing wins) and fifa-panini-collection
+// (see below) all fall through unmapped, by design. Only files whose
+// evidence belongs to the other successor, loot-box, need an actual entry
+// below: liftoff (paying eggs to refresh Store deals with unknown
+// contents), swgoh (Bronzium/Chromium pulls paid in ally points or
+// crystals) and subway-surfers (the coin-priced Mystery Box and the
+// ad-or-key-gated token box) each describe a value commitment before an
+// unresolved container resolves. The third fused entry, Variable Reward
+// Schedule, has no remap target anywhere below — no app under the current
+// model, v3 or v4.1, has ever applied it, so it was retired rather than
+// carried forward (see "Library entries with no site mechanic" in
+// taxonomy-map.md). fifa-panini-collection's own write-up under the
+// Variable Reward heading reads "Write-up pending" — no observed text to
+// classify from — so it falls through unmapped to the kept id
+// (variable-reward) by the same no-remap-needed mechanism as the others
+// above, but flagged here explicitly as an unevidenced default rather than
+// a real classification decision, pending its own write-up. Neither
+// fortune-city nor clash-of-clans appears below: fortune-city's own
+// analysis never mentions this concept at all, and clash-of-clans's analysis
+// explicitly considers and rejects all three fused library entries in its
+// "Entries considered and not applied" section — both were stale carryovers
+// on the old fused mechanic's apps[] list rather than real evidence, and
+// neither reaches this v3 path in any case (both are v4.1). royal-match,
+// capybara-go and fc-mobile don't appear below either: all three are v4.1
+// and never reach this path.
 const REMAPS = {
   "freeletics": { "xp-leveling": "leveling", "achievements": "achievement" },
-  "liftoff": { "xp-leveling": "leveling", "achievements": "achievement" },
+  "liftoff": { "xp-leveling": "leveling", "achievements": "achievement", "variable-reward": "loot-box" },
   "solitaire-grand-harvest": { "xp-leveling": "experience-points", "achievements": "milestone" },
   "steam": { "xp-leveling": "experience-points" },
   "calm": { "achievements": "achievement" },
   "ladder": { "achievements": "achievement" },
-  "swgoh": { "achievements": "achievement" },
+  "swgoh": { "achievements": "achievement", "variable-reward": "loot-box" },
   "uptime": { "achievements": "achievement" },
   "fiton": { "achievements": "achievement" },
   "fortune-city": { "achievements": "achievement" },
   "match-creek-motors": { "achievements": "achievement" },
   "fifa-panini-collection": { "achievements": "achievement" },
-  "subway-surfers": { "achievements": "achievement" },
+  "subway-surfers": { "achievements": "achievement", "variable-reward": "loot-box" },
   "insight-timer": { "achievements": "milestone" },
   "chrome-valley-customs": { "achievements": "milestone" },
   "acorns": { "achievements": "milestone" },

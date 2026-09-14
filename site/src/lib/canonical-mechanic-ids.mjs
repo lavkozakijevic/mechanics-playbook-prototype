@@ -78,7 +78,7 @@ export const CANONICAL_MECHANIC_IDS = {
   "Hard Currency": "hard-currency",
   "Leveling": "leveling",
   "Lives": "energy-lives", // merges with Energy above
-  "Loot Box": "variable-reward", // merges with Variable Reward Schedule/Outcome below
+  "Loot Box": "loot-box",
   "Minigame": "minigame",
   "Passive Construction": "passive-construction",
   "Personal Data Reflection": "personal-data-reflection",
@@ -95,8 +95,7 @@ export const CANONICAL_MECHANIC_IDS = {
   "Shareable Win": "shareable-win",
   "Soft Currency": "soft-currency",
   "Spendable Credits and Tokens": "credits-tokens",
-  "Variable Reward Outcome": "variable-reward", // merges with Variable Reward Schedule and Loot Box
-  "Variable Reward Schedule": "variable-reward", // merges with Variable Reward Outcome and Loot Box
+  "Variable Reward Outcome": "variable-reward", // site displays the shorter "Variable Reward"; library keeps the fuller name (same pattern as Cosmetics / Credits-Tokens)
 };
 
 /**

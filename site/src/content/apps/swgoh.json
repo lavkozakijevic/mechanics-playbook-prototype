@@ -32,18 +32,9 @@
       ]
     },
     {
-      "id": "variable-reward",
+      "id": "loot-box",
       "depth": "core",
-      "writeup": {
-        "observed": "Three distinct variable reward surfaces: the Bronzium Data Card (free 10 times daily on a 10-minute refresh, 33+ characters and 200+ items in the pool, 250 ally points per additional pull), the Chromium Mega Pack (2,520 crystals for 8 cards with full probability disclosure: 20% character, 80% shard set, all shard quantity probabilities listed), and the Chromium Data Card (350 crystals, no guarantee, no probability disclosure). The Bronzium card's 10-minute refresh cycle is the most frequent variable reward surface in the library.",
-        "presented": "Bronzium card in the store's Featured tab with countdown timer showing next free claim. Chromium packs show full probability tables expandable in the card detail. The distinction between disclosed (Chromium Mega) and undisclosed (Chromium Data Card) probabilities exists within the same store in the same session.",
-        "noting": "The Bronzium card's 10-minute refresh creates a return incentive operating on a sub-hourly cadence, the most frequent engagement mechanic in the library. The Chromium Mega Pack's full probability disclosure is notable precisely because the lower-tier Chromium Data Card does not disclose the same information, creating a transparency inconsistency that benefits neither player trust nor purchase confidence for the cheaper product.",
-        "findings": [
-          "The Bronzium Data Card refreshing every 10 minutes (10 times daily) is the most frequent variable reward surface in the library, creating up to 10 return incentives per day from a single mechanic.",
-          "The Chromium Mega Pack provides full probability disclosure (all shard quantities and their percentages listed) while the cheaper Chromium Data Card provides no probability disclosure, an inconsistency within the same store session.",
-          "Ally Points earned from borrowing ally heroes fund Bronzium card purchases beyond the daily free limit, the social system (allies) feeds directly into the variable reward economy (Bronzium cards) through a currency chain."
-        ]
-      },
+      "writeup": null,
       "screenshots": [],
       "suggestedShots": [
         "Chromium Mega Pack store listing showing the full probability table — 20% character, 80% shard set, with all shard quantity probabilities listed — and the 2,520 crystal cost",
@@ -209,7 +200,7 @@
         "role": "300+ characters visible from the first session, each with a Find button showing every acquisition source. Faction synergies create incentives to collect characters beyond individual desire."
       },
       {
-        "id": "variable-reward",
+        "id": "loot-box",
         "role": "Bronzium Data Card refreshing every 10 minutes (10 times daily) is the most frequent variable reward surface in the library. Chromium Mega Packs provide full probability disclosure; the cheaper Chromium Data Card does not."
       },
       {
@@ -245,7 +236,7 @@
         "y": 24
       },
       {
-        "id": "variable-reward",
+        "id": "loot-box",
         "x": 18,
         "y": 46
       },
@@ -278,16 +269,16 @@
     "connections": [
       {
         "from": "set-collection",
-        "to": "variable-reward",
-        "title": "Character shards arrive through variable pulls",
-        "desc": "Every data card pull, campaign battle, and store purchase produces character shards as part of the variable reward output. The collection system is fed entirely by the variable reward surfaces.",
-        "effect": "Progress toward any character goal is visible in the collection inventory. Players who pull toward a specific character feel the variable reward's uncertainty as proximity to a concrete named outcome."
+        "to": "loot-box",
+        "title": "Character shards arrive through paid or earned pulls",
+        "desc": "Every data card pull and store purchase produces character shards, committing ally points or crystals before the pull resolves. The collection system is fed entirely by these loot-box surfaces.",
+        "effect": "Progress toward any character goal is visible in the collection inventory. Players who pull toward a specific character feel each pull's uncertainty as proximity to a concrete named outcome."
       },
       {
-        "from": "variable-reward",
+        "from": "loot-box",
         "to": "daily-login-reward",
-        "title": "Bronzium card bridges daily return and variable reward",
-        "desc": "The Bronzium data card refreshes every 10 minutes, free up to 10 times per day. It is simultaneously the daily return mechanic and the most frequent variable reward surface.",
+        "title": "Bronzium card bridges daily return and loot boxes",
+        "desc": "The Bronzium data card refreshes every 10 minutes, free up to 10 times per day. It is simultaneously the daily return mechanic and the most frequent loot-box surface.",
         "effect": "The 10-minute refresh creates a return pressure operating at sub-hourly cadence. Players who exhaust their free pulls have a timed reason to return that is more frequent than any daily calendar."
       },
       {

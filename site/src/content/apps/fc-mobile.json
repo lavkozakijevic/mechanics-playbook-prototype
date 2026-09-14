@@ -2461,7 +2461,7 @@
         "role": "The squad is what all of that progression acts on: players held separately from the account, developed by consuming other held players and a purchased material, and assigned to a limited number of active positions."
       },
       {
-        "id": "variable-reward",
+        "id": "loot-box",
         "role": "Drafts and packs are how the squad is actually acquired, resolving to a stated player pool with published pity rules on some offers and none at all on others."
       },
       {
@@ -2520,7 +2520,7 @@
         "y": 38
       },
       {
-        "id": "variable-reward",
+        "id": "loot-box",
         "x": 85,
         "y": 38
       },
@@ -2584,13 +2584,13 @@
       },
       {
         "from": "companion",
-        "to": "variable-reward",
+        "to": "loot-box",
         "title": "Packs and drafts are how the squad grows",
         "desc": "Player items are acquired through packs and drafts that resolve to one of a stated pool, several publishing exact odds and some publishing none at all.",
         "effect": "Building the squad and gambling on a pack's contents are, in this product, the same action."
       },
       {
-        "from": "variable-reward",
+        "from": "loot-box",
         "to": "hard-currency",
         "title": "The undisclosed pool is priced in real money",
         "desc": "Store packs commit FC points or silver before their contents resolve, with FC points sold directly for money across seven price points.",
