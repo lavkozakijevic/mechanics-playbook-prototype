@@ -16,6 +16,8 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 
 ### Lives
 
+**Implementation summary:** Royal Match takes a heart only on failure, never on starting or retrying, so cautious play barely touches the balance.
+
 **What was observed:** Royal Match gives the user five hearts and takes one away only when a level is failed, not when one is started or retried. A spent heart comes back on its own after 24 to 25 minutes, and the panel that shows this also offers a 900-coin refill or a request to teammates. Losing a level and running out of moves both point back to this same balance: the app also offers five extra moves for 900 coins, the same price as a refill, rather than just letting the level end.
 
 **How it is presented:** The heart count sits on the home screen as one of three visible balances, and the countdown to the next heart only becomes visible once the panel is opened, at a shortage. The refill and teammate-request options sit side by side on that same screen.
@@ -33,6 +35,8 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 **Screenshots needed:** the lives panel showing the countdown to the next heart alongside the refill and teammate-request options; the paid-offer screen showing a period of unlimited hearts.
 
 ### Boosters
+
+**Implementation summary:** Royal Match sells unlimited-use time periods for its assist items, suspending the counted balance rather than selling more units.
 
 **What was observed:** Royal Match holds four assist items as separate counted quantities, unlocking one at a time as the user clears levels: a hammer that clears any object, an arrow that clears a row, a cannon that clears a column and a jester's hat that shuffles the board. Each is chosen before a level starts or applied mid-level to a specific target, and using one reduces the count. At level 36 the user spends one specifically to avoid failing a level and losing a separate ongoing state.
 
@@ -52,6 +56,8 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 
 ### Challenge
 
+**Implementation summary:** Royal Match marks level 39 as hard before entry, stating its tripled reward in advance rather than after failure.
+
 **What was observed:** The level is Royal Match's basic bounded activity: a stated target, a move limit, and a different result for reaching the target than for running out of moves. The King's Nightmare interludes are their own bounded activities with their own objectives and time or move limits, and the running events, Propeller Madness, the Egg Hunt and the team tournament, are each bounded by a stated success condition and remaining time.
 
 **How it is presented:** The level's target and moves remaining are visible throughout play, with no countdown clock anywhere on that screen. The interludes replace the ordinary play button when they're active and can be skipped. The events show their own condition and countdown on a persistent home-screen item alongside their own entry screen.
@@ -69,6 +75,8 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 **Screenshots needed:** a level screen showing its target and remaining moves; the level-39 hard marking shown before entry.
 
 ### Leveling
+
+**Implementation summary:** Royal Match's player level steps by one with no progress bar, while the team tournament tracks a separate armour-colour state.
 
 **What was observed:** Royal Match keeps a running level for the user that goes up by one every time a level is cleared, shows it on the home screen and on the leaderboards, and uses it as the condition for unlocking other parts of the game. By the account's current point it has moved from level one past level 41, and the highest level shown on the world leaderboard is 13,401. The team tournament keeps a second, separate advancing state for the same user: an armour colour that moves from silver to gold as contribution grows.
 
@@ -88,6 +96,8 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 
 ### Progression Gate
 
+**Implementation summary:** Royal Match's teams gate discloses its requirement and allows browsing, while the collection gate states only a number and nothing else.
+
 **What was observed:** Royal Match withholds three things behind a stated player level: teams at level 21, the collection at level 41, and each assist item at the specific level where it first becomes usable. Each requirement is stated before it's met. The teams screen can be browsed while locked and simply repeats the requirement when the user tries to join; the collection tab states its level requirement and nothing else about what it contains; a locked assist item is shown in its selection row but can't be tapped.
 
 **How it is presented:** The teams and collection requirements sit on their own navigation tabs, visible from the very first launch even though they can't be used yet. The item locks sit inside the pre-level selection row alongside whichever items are already unlocked.
@@ -105,6 +115,8 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 **Screenshots needed:** the teams screen's stated level-21 requirement; the collection tab's undescribed level-41 lock.
 
 ### Soft Currency
+
+**Implementation summary:** Royal Match's gold stars have exactly one sink, area-building, while coins compete across heart refills and extra moves.
 
 **What was observed:** Royal Match runs two earned balances side by side. Gold stars come one per cleared level and are spent only on area-building tasks, one or two stars at a time. Gold coins come from level play, interludes, bonus levels, chests and event rewards, and are spent on a 900-coin heart refill, 900 coins for five extra moves, and nothing else outside offer-granted items.
 
@@ -124,6 +136,8 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 
 ### Hard Currency
 
+**Implementation summary:** Royal Match's coin purchases top up the same pool earned through play rather than buying a specific benefit directly.
+
 **What was observed:** The same gold coin balance that's earned through play is also sold directly for money, in packs running from 1,000 coins at 1.99 up to 100,000 coins at 99.99, with more coins per dollar at the higher prices. Coins also appear bundled inside every named offer and treasure bundle in the shop.
 
 **How it is presented:** The coin packs sit in the plain shop view, reached by tapping the coin balance, with the named bundles and special offers placed above them.
@@ -141,6 +155,8 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 **Screenshots needed:** the plain coin-pack price ladder in the shop.
 
 ### Milestone
+
+**Implementation summary:** Royal Match's area, bonus-level and knight-title milestones each keep advancing afterward rather than acting as a finish line.
 
 **What was observed:** Royal Match recognizes specific points inside two ongoing measures rather than just letting them run. Completing one of 152 areas produces a chest, a celebration and the unlock of the next area. Levels 20 and 40 are both marked as bonus levels, a recognized point at every twentieth level. The team tournament names a knight title at a stated token threshold, separate from the position ranking itself.
 
@@ -160,6 +176,8 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 
 ### Experience Points
 
+**Implementation summary:** Royal Match's event currencies show only the finish line toward the next reward, never how much a single level contributes.
+
 **What was observed:** Royal Match runs several separate counted values, each tied to one running event and each fed by clearing an ordinary level: tournament tokens that convert into lances, Easter Pass keys, Egg Hunt eggs, and the propellers and coins that move Propeller Madness forward. None of them can be spent on anything the user chooses; each one only moves an event forward toward its own stated threshold.
 
 **How it is presented:** Every one of these values shows as a remaining amount toward the next reward on its own surface, a pop-up and a persistent home-screen item, rather than as a plain balance sitting on the home screen the way coins and stars do.
@@ -176,6 +194,8 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 **Screenshots needed:** the persistent home-screen items showing progress toward the next threshold for two different events.
 
 ### Variable Reward Outcome
+
+**Implementation summary:** Royal Match's chests and card packs arrive as rewards for something already done, with no value committed beforehand.
 
 **What was observed:** Area chests and Culinary Collection card packs both hold contents that aren't disclosed before opening and that differ from one instance to the next. The area-one chest pays 250 coins and four kinds of items; the area-three chest pays 250 coins, further items and four cards; two card packs shown yield four different named cards each.
 
@@ -195,6 +215,8 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 
 ### Reward Multiplier
 
+**Implementation summary:** Royal Match discloses its doubling and tripling reward factors in advance, but never explains what actually triggers the level-33 window.
+
 **What was observed:** Royal Match states two reward factors directly. At level 33 a doubling marker appears with a 15-minute countdown, and during that window both the tokens paid to the team and the progress paid to Propeller Madness move at twice their normal rate. Level 39 is marked as a hard level before entry and states that passing it triples the ordinary reward and pays 30 points to the Egg Hunt.
 
 **How it is presented:** The doubling window shows as a marker next to the level along with its own countdown; the hard-level tripling is stated on the level's own entry screen before the user commits to playing it.
@@ -212,6 +234,8 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 **Screenshots needed:** the level-33 doubling marker and countdown; the level-39 hard-level entry screen stating its tripled reward.
 
 ### Streak
+
+**Implementation summary:** Royal Match's Butler's Gift rewards first-try clearances with power-ups, valuable enough that a booster gets spent just to protect it.
 
 **What was observed:** Royal Match introduces Butler's Gift as a rule tied to first-try clearances: beat levels on the first attempt to start the next one already holding power-ups. The state is later shown active for two out of the last three levels. At level 36 the user spends a power-up specifically to avoid failing and losing that state, rather than to avoid retrying the level itself.
 
@@ -231,6 +255,8 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 
 ### Seasonal Progression Pass
 
+**Implementation summary:** Royal Match's Easter Pass hides its end-of-track bonus reward entirely until the user scrolls all the way down.
+
 **What was observed:** The Easter Pass appears at level 37 as a 30-position reward track running on a 27-day 12-hour countdown, advanced by clearing levels and collecting keys. A free lane pays a reward at every position; a second lane, unlocked by a stated purchase, pays more at every one of those same positions and adds items exclusive to the paid lane.
 
 **How it is presented:** The pass opens with a full-screen introduction and a first reward ready to claim, then sits as a persistent icon carrying a marker whenever a reached position is waiting to be collected. It's also offered a second time, from the bottom of the lives panel.
@@ -248,6 +274,8 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 **Screenshots needed:** the pass track showing the free and paid lanes side by side; the end-of-track bonus reward.
 
 ### Set Collection
+
+**Implementation summary:** Royal Match's Culinary Collection requires 135 cards inside one 27-day window, leaning on teammate requests and duplicate-to-star conversion.
 
 **What was observed:** The Culinary Collection holds 15 named sets of nine cards each, running on a 27-day 12-hour window. Cards arrive from card packs, chests and teammates, and completing a set pays a stated reward, with a further grand prize for completing every set. A duplicate card converts into a card star rather than being wasted.
 
@@ -267,6 +295,8 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 
 ### Clan / Guild
 
+**Implementation summary:** Royal Match allows only one team membership at a time, making team choice a real decision rather than a free collection.
+
 **What was observed:** Royal Match's teams are persistent groups with a badge, a name, a description, a roster, a capacity of 50, a required level and their own activity marker. Beyond membership, a team holds its own state: a team score and a tournament position that belong to the team rather than to any one member, fed by tokens each member contributes.
 
 **How it is presented:** The team surface sits behind its own navigation tab, showing the roster, the message board and the tournament standing together, separately from the two leaderboards.
@@ -284,6 +314,8 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 **Screenshots needed:** the team surface showing its roster and tournament standing; the join and leave flow.
 
 ### Gifting
+
+**Implementation summary:** Royal Match pays the sender five coins for answering a teammate's life request, making gifting a two-sided exchange.
 
 **What was observed:** A teammate's request for a life can be answered directly, sending a life to that named teammate and paying the sender five coins for doing so. The app blocks a second answer to the same request. The user can also request lives from the team, with a sent request stated to last four hours. Purchased team offers extend the same idea to the whole roster at once, granting every member a period of unlimited hearts rather than a single sender-to-recipient transfer.
 
@@ -303,6 +335,8 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 
 ### Leaderboard
 
+**Implementation summary:** Royal Match closes its leaderboard's friends tab behind a Facebook connection framed as saving progress rather than as unlocking friends.
+
 **What was observed:** Royal Match runs ordered lists in several scopes at once: players by level and by a separate value called crowns, for the world and for the user's own country; teams by team score, also for the world and for the country; and, inside the team tournament, teams ranked by position against each other and members ranked by their own contribution.
 
 **How it is presented:** The players and teams lists sit behind the golden cup navigation item, each with world and country tabs; the tournament's own ranking sits inside the team surface instead.
@@ -320,6 +354,8 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 **Screenshots needed:** the players leaderboard's world and country tabs; the team tournament's position and contribution ranking.
 
 ### Comparative Rank
+
+**Implementation summary:** Royal Match actively states the user's and team's tournament standing unprompted, distinct from the leaderboard's browsable list.
 
 **What was observed:** Inside the team tournament, Royal Match states the team's own position against other teams and the user's own position against named teammates, both next to the reward that position earns. The team is shown at position nine at one point and reported moving between positions eight and nine. The user's own standing inside the team is shown as second place, marked by an armour colour that changes as that standing improves.
 
@@ -339,6 +375,8 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 
 ### Cosmetic Customization
 
+**Implementation summary:** Royal Match's identity options gain value only once leaderboards make them visible to others, which is exactly where paid golden versions sell.
+
 **What was observed:** Royal Match lets the user pick a profile picture, use a Facebook photo or select an avatar, choose a frame, and set a name, all of which change nothing about cost, rules or outcome. None of this is prompted; the user finds these options on their own. The Easter Pass's paid lane replaces the ordinary frame and username with golden versions for as long as the event runs.
 
 **How it is presented:** The identity options sit behind the profile icon in the top left of the home screen, reached only if the user taps it. The golden versions are shown as part of the paid lane's first reward position on the pass track.
@@ -356,6 +394,8 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 **Screenshots needed:** the identity-selection screen showing avatar, frame and name options; the golden frame and username sold in the paid pass lane.
 
 ### Purchase Ladder
+
+**Implementation summary:** Royal Match's nine-reward ladder gates five rewards behind one paid rung, though the lock is read from its own framing, never tested.
 
 **What was observed:** Royal Match's Easter Treasures surface presents nine rewards in a fixed order, instructing the user to claim each one to reveal the next. The sequence opens with a free hammer, coins and a chest, reaches a 2.99 rung paying a TNT, coins and a hammer, then continues through five more free rewards, coins, doubled boosters, a bow and arrow, a cannon and a jester, that sit beyond the paid position in the sequence.
 
