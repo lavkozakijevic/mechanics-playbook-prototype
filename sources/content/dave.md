@@ -16,6 +16,8 @@ Dave is a medium complexity system built around one decision made during onboard
 
 ### Piggy Bank
 
+**Implementation summary:** Dave auto-creates a $75 goal with round-ups already on the moment the feature is turned on.
+
 **What was observed:** Dave rounds up every purchase made on its own debit card to the nearest dollar and rolls the difference into a Goals account. The Goals account isn't optional plumbing the user sets up separately, it's a precondition Dave creates automatically the moment round-ups are turned on, arriving already configured with a $75 default target and round-ups already switched on. From there the account behaves like its own small bank: it carries a stated 4% APY, shows a progress bar against the target, and sits alongside Dave Checking and Extra Cash as one of three accounts Dave itself holds, distinct from the external bank account the user connected during onboarding.
 
 **How it is presented:** Dave introduces round-ups well before they're something to opt into, mentioning them in the pitch for opening a checking account, then again, with more detail, once the account exists. Before asking the user to turn the feature on, Dave states upfront that money can be added at any pace and taken out or paused whenever the user likes. The first deposit prompt offers presets starting at $5, a custom amount, and the option to defer. A second goal is capped by a shared $25,000 ceiling across all goals, quietly reduced by whatever's already committed to an existing one, so the room Dave offers to save more shrinks the more a user has already saved.
@@ -35,6 +37,8 @@ Dave is a medium complexity system built around one decision made during onboard
 
 ### Earning Tasks
 
+**Implementation summary:** Dave discloses upfront that disqualifying partway through a survey still pays a partial reward.
+
 **What was observed:** Inside its Grow tab, Dave runs a catalogue of paid surveys supplied by a third party, inBrain AI, with earnings paid directly into the Dave checking account. Every survey in the list carries a payout and an estimated completion time before the user opens it: two quick surveys paid $0.45 for about 8 minutes and $0.50 for about 10, and three recommended surveys ran roughly 40, 14 and 20 minutes, though their payout amounts aren't legible in the list. A running total of the month's earnings sits above the list, and the catalogue itself is split into a recommended set and a quick set.
 
 **How it is presented:** The survey feature sits at the top of the Grow tab, carrying a "new" tag and pitched as earning cash instantly, with the user's savings goals below it and a larger side hustle section further down. Before any survey begins, Dave frames it as three steps: start with an intro survey, unlock higher paying surveys by continuing, and watch earnings land in checking, though it doesn't say what actually triggers that unlock. Every survey opens with a warning that answering carefully secures the full reward, followed by the topic and approximate length restated right before starting.
@@ -53,6 +57,8 @@ Dave is a medium complexity system built around one decision made during onboard
 **Screenshots needed:** the survey list showing payout, duration and the monthly total; the intro questionnaire or its closing animation; the mid-survey disqualification message; the Grow tab's job board with the survey feature featured first.
 
 ### Referral Boost
+
+**Implementation summary:** Dave's referral pays a 20% boost, up to $100, on the referrer's next advance once both sides repay one.
 
 **What was observed:** Dave's referral offer promises up to $100 more on the user's second Extra Cash advance rather than a cash payment, an increase of 20% once the user and the friend they referred have each repaid an advance of their own. Dave lays the sequence out as four steps: take an advance and spend it, share a referral link to help a friend, wait for that friend to repay an advance of their own, then collect the 20% increase on the next advance. Referral sits at the very top of the settings screen, above the account, profile, app settings and support groups that follow it.
 
