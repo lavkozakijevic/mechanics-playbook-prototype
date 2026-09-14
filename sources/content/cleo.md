@@ -106,7 +106,6 @@ A "link your account" screen tells the user that Plaid connects Cleo securely an
 
 - The connect screen's alternative option is framed as wanting more information about security, not as a way to decline.
 - The Plaid pop-up covers connecting effortlessly, states that Plaid doesn't sell personal information and uses it only with permission, and describes fraud reduction using account, transaction and connection history.
-- No option to skip the bank connection is shown.
 - This connected account is what supplies the balances, transactions, bills and income suggestions Cleo uses throughout.
 
 ### O5. Ready to launch
@@ -128,7 +127,6 @@ Choosing "control my spending" opens a five-question quiz about money habits, in
 - One question asks how much of the user's income was usually spent over the last six months, counting paychecks, government support and student loans, with five options from not much up to all of it and then a lot more.
 - Another question asks what the user is like with bills, with options including "I'm on top of them" and "they're on top of me".
 - Cleo responds to one answer with "okay, not here to judge you".
-- The remaining questions in the set of five aren't individually described.
 
 ### O8. The roast
 
@@ -151,7 +149,6 @@ After the roast, Cleo says the user's "overview is ready" and explains how it wo
 A "track your bills" screen offers to make bills "suck less" if the user confirms them, opening a pop-up asking "are these your bills?", defining a bill as any recurring or fixed payment, and listing payments drawn from the connected account with instructions to tap to edit or swipe to remove. The next screen congratulates the user, "like a boss", for having "fully customized" their budget, with a "take a look" button opening the finished budget.
 
 - The congratulation screen uses background illustrations.
-- No separate step in which the user manually sets a limit amount happens before the "fully customized" message; that comes later.
 
 ---
 
@@ -246,7 +243,6 @@ The upcoming bills conversation opens with an animated "bills" screen, states th
 
 Opening the gambling addiction card starts a short chat introduction in which Cleo calls it "not a super fun topic but a v real one", cites a figure of 46 million people in the US, and points to a five-minute blog read for ways to help, with options to go to the blog or back to insights.
 
-- The linked blog article's own content isn't described.
 
 ### O23. Balance and dashboard views
 
@@ -266,7 +262,6 @@ The balance view shows the connected bank's balance and an overall figure in cha
 Playing opens a chat quiz about the user's own recent account activity, asking, for instance, whether any bills were paid this week and how much was spent in the last seven days, judging each answer against the connected account's actual data. A wrong answer to the bills question returns "sadly not correct" with a route to add bills, and a wrong spending guess returns "nope", before a "next question" button advances the quiz.
 
 - The bills question is yes or no; the spending question offers three amounts to choose from.
-- The total number of questions in a play isn't stated.
 - Game stats sits as the last option after several questions.
 
 ### O26. Spending review
@@ -363,13 +358,11 @@ After email verification, a screen states that, due to the user's state's laws, 
 During onboarding the nav bar shows spend, budget, chat, save and borrow; once onboarding is finished, habits appears as a sixth, final item.
 
 - The change is tied to completing onboarding rather than to any specific screen.
-- No on-screen message announces the new tab.
 
 ### O38. Paid plans unusable here
 
 Because of the state laws that apply to this account, neither Cleo Plus nor Cleo Builder can actually be used, though both plan screens remain browsable.
 
-- Whether the plan screens themselves display a restriction message isn't described.
 
 ### O39. Cleo wallet setup
 
@@ -427,7 +420,6 @@ This section covers what Cleo uses to bring users back: a notification opt-in, d
 After the state notice, a screen reads "never miss a dollar" with a sample notification reading "you smashed yet another target. Stick to $50 today to stay on track", alongside three points, tailored coaching, watching savings grow, and reminders that the user is "only human", with "not now" and "turn on notifications" options.
 
 - Not now sits on the same screen as turn on notifications.
-- Which option the user picks, and any system-level permission prompt, aren't shown.
 
 ### O43. Reviews scheduled ahead
 

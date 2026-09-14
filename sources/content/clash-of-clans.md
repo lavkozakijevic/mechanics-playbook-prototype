@@ -162,7 +162,6 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 - The town hall runs a numbered level to 18, gated by both a resource cost and a prerequisite building checklist.
 - The account level rose from 1 to 4 early on, driven by experience points.
 - League tiers run skeleton through legend in the home village and wood 5 through diamond in the second, with the stated rule that more trophies raise the tier.
-- The trophy thresholds separating league tiers aren't shown; only the product's own stated rule, that more trophies raise the tier, is given.
 - The second village runs its own town-hall-equivalent level, the builder hall, on the identical structure.
 
 **Screenshots needed:** a town hall upgrade screen listing its unlocks, and the league tier screen showing tier-by-tier reward rates.
@@ -329,7 +328,6 @@ Clash of Clans asks the player to choose a name only after the first attack they
 
 The system notification prompt appears during the guided sequence with no preceding explanation screen, directly after the instruction to upgrade the town hall and battle for more gold.
 
-- No pre-prompt or preparation screen precedes the system request.
 - It appears right after the instruction to upgrade the town hall.
 
 ### O10. Tracking re-prompt after device-level refusal
@@ -546,7 +544,6 @@ Both villages maintain an ordered series of named leagues the user moves through
 
 - The home village list runs skeleton, barbarian, archer, and onward to legend, locked until town hall 7.
 - The second village list runs wood 5 through diamond, in five steps at the lower tiers and three at several higher ones.
-- The trophy thresholds themselves aren't shown.
 
 ### O37. Season track and task cards
 
@@ -605,7 +602,6 @@ The war surface is fully visible while attacking within it is withheld, with the
 
 - Spectator status still allows scouting, war stats, and replays.
 - Being picked to attack in a war rests on a clan leader or co-leader's decision.
-- War attacks are stated to be limited in number, though the exact limit isn't given.
 
 ### O44. Clan war leagues gated by clan size and a signup window
 

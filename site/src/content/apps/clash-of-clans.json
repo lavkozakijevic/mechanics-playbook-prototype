@@ -156,7 +156,6 @@
       "section": "onboarding",
       "observed": "The system notification prompt appears during the guided sequence with no preceding explanation screen, directly after the instruction to upgrade the town hall and battle for more gold.",
       "detail": [
-        "No pre-prompt or preparation screen precedes the system request.",
         "It appears right after the instruction to upgrade the town hall."
       ],
       "tags": [],
@@ -849,8 +848,7 @@
       "observed": "Both villages maintain an ordered series of named leagues the user moves through by winning trophies, with the league determining reward rates.",
       "detail": [
         "The home village list runs skeleton, barbarian, archer, and onward to legend, locked until town hall 7.",
-        "The second village list runs wood 5 through diamond, in five steps at the lower tiers and three at several higher ones.",
-        "The trophy thresholds themselves aren't shown."
+        "The second village list runs wood 5 through diamond, in five steps at the lower tiers and three at several higher ones."
       ],
       "tags": [
         {
@@ -1089,8 +1087,7 @@
       "observed": "The war surface is fully visible while attacking within it is withheld, with the decision resting on another person: the status shown is war spectator, with a note to ask a clan leader or co-leader to be picked next time. Scouting, war stats, and replays remain available to a spectator. The war information text states that attacks are limited during a war, without giving the exact number.",
       "detail": [
         "Spectator status still allows scouting, war stats, and replays.",
-        "Being picked to attack in a war rests on a clan leader or co-leader's decision.",
-        "War attacks are stated to be limited in number, though the exact limit isn't given."
+        "Being picked to attack in a war rests on a clan leader or co-leader's decision."
       ],
       "tags": [
         {
@@ -2638,7 +2635,6 @@
         "The town hall runs a numbered level to 18, gated by both a resource cost and a prerequisite building checklist.",
         "The account level rose from 1 to 4 early on, driven by experience points.",
         "League tiers run skeleton through legend in the home village and wood 5 through diamond in the second, with the stated rule that more trophies raise the tier.",
-        "The trophy thresholds separating league tiers aren't shown; only the product's own stated rule, that more trophies raise the tier, is given.",
         "The second village runs its own town-hall-equivalent level, the builder hall, on the identical structure."
       ],
       "screenshotsNote": "a town hall upgrade screen listing its unlocks, and the league tier screen showing tier-by-tier reward rates."

@@ -18,9 +18,9 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 **What was observed:** FC Mobile grants XP from nearly every activity, matches, missions, drafts and skill games, and spends it entirely on advancing one account level; nothing about it lets the user choose what to buy with it. Star Pass credits and league points run the same shape on two further tracks: credits accumulate from Division Rivals and live events toward roughly sixty ordered positions and reset when a new season starts, and league points accumulate from members' combined activity toward the league's own next season level.
 
-**How it is presented:** the account level sits without a name or identity beyond its number, credited the moment a threshold is crossed, sometimes twice in immediate succession. Star Pass credits and league points each show a running total against the next position on their own track screens.
+**How it is presented:** The account level sits without a name or identity beyond its number, credited the moment a threshold is crossed, sometimes twice in immediate succession. Star Pass credits and league points each show a running total against the next position on their own track screens.
 
-**What is worth noting:** none of these three values can ever be spent on something the user picks; every one of them exists purely to cross a threshold. That's what keeps this distinct from the game's several currencies, and it's also why crossing two account levels back to back reads as a strange, almost accidental event rather than a designed one, since nothing else about the interface treats the level as something worth naming.
+**What is worth noting:** None of these three values can ever be spent on something the user picks; every one of them exists purely to cross a threshold. That's what keeps this distinct from the game's several currencies, and it's also why crossing two account levels back to back reads as a strange, almost accidental event rather than a designed one, since nothing else about the interface treats the level as something worth naming.
 
 **Key findings:**
 
@@ -36,9 +36,9 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 **What was observed:** FC Mobile runs several ordered state series at once. The account level is a single current number advanced by XP and announced at each crossing. The head-to-head division ladder runs from Amateur 3 up through Semi Pro, Pro and World Class, rising by one star per win and falling by one per loss, with promotion automatic at a required star count. Manager mode holds its own separate rank, and every player item separately holds a training level from 0 to 30 and its own rank-up level.
 
-**How it is presented:** the account level appears as a bare number with no name attached. The division ladder shows a star count and the current division name together, and moves automatically the moment enough stars accumulate in either direction.
+**How it is presented:** The account level appears as a bare number with no name attached. The division ladder shows a star count and the current division name together, and moves automatically the moment enough stars accumulate in either direction.
 
-**What is worth noting:** the division ladder is an absolute tier read off a fixed star count, not a position relative to other players, which is what keeps it here rather than under the game's comparative-ranking mechanics even though it looks similar to one. Multiple state series advancing independently, the account, the division, manager rank, and every individual player, means "leveling up" means a different thing depending which screen it's said on.
+**What is worth noting:** The division ladder is an absolute tier read off a fixed star count, not a position relative to other players, which is what keeps it here rather than under the game's comparative-ranking mechanics even though it looks similar to one. Multiple state series advancing independently, the account, the division, manager rank, and every individual player, means "leveling up" means a different thing depending which screen it's said on.
 
 **Key findings:**
 
@@ -54,9 +54,9 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 **What was observed:** FC Mobile withholds several named parts of the product behind the account level: the market at level 9, leagues and the football center at level 4, challenge mode at level 5, the scouting camp at level 6, a lineup slot at level 8, club challenge at level 10, and one formation at level 20. Other gates read against activity rather than level: VS Attack unlocks after one Head to Head match played, and Manager Mode after two Division Rivals matches.
 
-**How it is presented:** a locked feature states its exact requirement in place, in the terms of the level or match count that opens it, and several stated requirements can be previewed before they're met, like stadiums that show "unlock this by progressing in the Star Pass" while remaining unselectable.
+**How it is presented:** A locked feature states its exact requirement in place, in the terms of the level or match count that opens it, and several stated requirements can be previewed before they're met, like stadiums that show "unlock this by progressing in the Star Pass" while remaining unselectable.
 
-**What is worth noting:** because a single account level gates several unrelated features at once, the level determines the order in which the whole product opens itself to a new player, and that order isn't something the player is choosing, it's a side effect of playing anything at all, since every activity feeds the same number.
+**What is worth noting:** Because a single account level gates several unrelated features at once, the level determines the order in which the whole product opens itself to a new player, and that order isn't something the player is choosing, it's a side effect of playing anything at all, since every activity feeds the same number.
 
 **Key findings:**
 
@@ -72,7 +72,7 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 **What was observed:** FC Mobile recognizes two defined points inside broader activities with their own named rewards. The guess-the-player game carries its own milestone track, paying rewards for a stated count of correct guesses out of a full set of eight. Icon Chronicles pays three player items specifically for completing every entry in one chapter's set of stories, on top of whatever each individual entry already paid.
 
-**How it is presented:** both milestones are named directly on their own tracks, guess-the-player states its progress toward the full set, and the Icon Chronicles chapter states its own completion reward separately from its ordinary per-task rewards.
+**How it is presented:** Both milestones are named directly on their own tracks, guess-the-player states its progress toward the full set, and the Icon Chronicles chapter states its own completion reward separately from its ordinary per-task rewards.
 
 **What is worth noting:** FC Mobile also announces a whole separate milestone program in its news feed, inviting the user to start a "milestone journey," but the program itself was never found anywhere in the product. That gap between the announcement and the actual feature is worth treating as a fact about the product rather than a hidden mechanic: what's confirmed here is the two working milestones on the guess-the-player and Icon Chronicles tracks, not the announced program.
 
@@ -90,9 +90,9 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 **What was observed:** FC Mobile builds bounded, scored activities throughout the product. Skill games set three point targets that decide a one-, two- or three-star result, timed and limited to a stated number of attempts. Chapter tasks inside Icon Chronicles state an objective, a difficulty and a completion count against a guaranteed reward. Real-world duels close at a stated kickoff time, after which the window to choose closes for good.
 
-**How it is presented:** every one of these states its condition, its boundary and its reward together, before the user commits: a skill game shows its three thresholds up front, a chapter task shows its guaranteed reward and expiry, and a duel shows a countdown to the real match it's tied to.
+**How it is presented:** Every one of these states its condition, its boundary and its reward together, before the user commits: a skill game shows its three thresholds up front, a chapter task shows its guaranteed reward and expiry, and a duel shows a countdown to the real match it's tied to.
 
-**What is worth noting:** even the tutorial and the very first warm-up match are built this way, with a completion count and a guaranteed reward attached, which means a first-time player's very first minutes in the product are already structured as a bounded challenge rather than free play.
+**What is worth noting:** Even the tutorial and the very first warm-up match are built this way, with a completion count and a guaranteed reward attached, which means a first-time player's very first minutes in the product are already structured as a bounded challenge rather than free play.
 
 **Key findings:**
 
@@ -108,9 +108,9 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 **What was observed:** FC Mobile issues a set of four daily tasks that reset on a recurring boundary, with any single task swappable for a small gem cost. Alongside it, a seven-day kickoff mission program issues a fresh set of tasks each day on its own unlock schedule, running in parallel with a separate five-day event mission set that tracks completions of some of the same actions independently.
 
-**How it is presented:** each day's tasks show a live completion counter and reward, with the next day's set stated to unlock on its own timer, from eight hours out to several days for the later ones in the kickoff sequence.
+**How it is presented:** Each day's tasks show a live completion counter and reward, with the next day's set stated to unlock on its own timer, from eight hours out to several days for the later ones in the kickoff sequence.
 
-**What is worth noting:** running two mission programs in parallel, the kickoff set and the event set, over the same actions but tracking their completion separately, is worth flagging as a design choice with a real cost: the product's own record shows one action being counted by one program and not the other, which is exactly the kind of mismatch a player has no way to reconcile from the interface alone.
+**What is worth noting:** Running two mission programs in parallel, the kickoff set and the event set, over the same actions but tracking their completion separately, is worth flagging as a design choice with a real cost: the product's own record shows one action being counted by one program and not the other, which is exactly the kind of mismatch a player has no way to reconcile from the interface alone.
 
 **Key findings:**
 
@@ -126,9 +126,9 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 **What was observed:** FC Mobile's Star Pass runs roughly sixty ordered reward positions advanced by credits earned in Division Rivals and live events, paying a free reward at each position and a larger one on a second, purchased lane. The pass states its own season boundary directly, resetting the credit count when a new season starts. A second, similarly shaped pass runs for nine days inside a themed event alongside it.
 
-**How it is presented:** the track shows every position's reward and the credit total needed to reach it, with the purchase control for the paid lane routed out to a separate store screen rather than offered on the pass itself.
+**How it is presented:** The track shows every position's reward and the credit total needed to reach it, with the purchase control for the paid lane routed out to a separate store screen rather than offered on the pass itself.
 
-**What is worth noting:** sending the purchase control to a different screen than the one it's advertised on is a real point of friction worth naming, since it's also where the product loses a piece of information a buyer would want: nothing anywhere states how many of the sixty-odd positions a bundled credit purchase actually buys.
+**What is worth noting:** Sending the purchase control to a different screen than the one it's advertised on is a real point of friction worth naming, since it's also where the product loses a piece of information a buyer would want: nothing anywhere states how many of the sixty-odd positions a bundled credit purchase actually buys.
 
 **Key findings:**
 
@@ -144,9 +144,9 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 **What was observed:** FC Mobile tracks three named player collections member by member: one with 71 players across 2 groups, one with 100 players across 4 groups, and one with 145 players across 3 groups. Sub-groups inside each set name their required members individually, with their own reward for completing that specific group. Completed sets from past seasons stay visible in a history tab, where their players can still be activated even after the set's own boost has expired.
 
-**How it is presented:** each collection shows a running count of members held against the full set, with sub-groups listed by name and required members shown individually rather than only as a total.
+**How it is presented:** Each collection shows a running count of members held against the full set, with sub-groups listed by name and required members shown individually rather than only as a total.
 
-**What is worth noting:** preserving old, expired sets in a browsable history rather than removing them once their season ends is a specific design choice worth noting on its own: it keeps a completed collection meaningful to look at even after the reward attached to it has stopped paying anything.
+**What is worth noting:** Preserving old, expired sets in a browsable history rather than removing them once their season ends is a specific design choice worth noting on its own: it keeps a completed collection meaningful to look at even after the reward attached to it has stopped paying anything.
 
 **Key findings:**
 
@@ -160,11 +160,11 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 ### Companion
 
-**What was observed:** player items in FC Mobile are held separately from the account, persist between matches, and are acquired through the starting-squad grant, packs, drafts, exchanges and the transfer market. A limited number of active positions, eleven starters plus substitutes and a purchasable extra lineup, determines which held players actually take part, and each one carries its own overall rating, training level, rank-up level, allocatable skill points, traits and skill-move level.
+**What was observed:** Player items in FC Mobile are held separately from the account, persist between matches, and are acquired through the starting-squad grant, packs, drafts, exchanges and the transfer market. A limited number of active positions, eleven starters plus substitutes and a purchasable extra lineup, determines which held players actually take part, and each one carries its own overall rating, training level, rank-up level, allocatable skill points, traits and skill-move level.
 
-**How it is presented:** a player's detail screen holds its own summary, attributes, traits and transfer tabs, with training and rank-up spending other players and a purchased material to raise those numbers.
+**How it is presented:** A player's detail screen holds its own summary, attributes, traits and transfer tabs, with training and rank-up spending other players and a purchased material to raise those numbers.
 
-**What is worth noting:** the fact that developing one player consumes other players as material is worth stating plainly, since it turns the whole squad into one interconnected resource rather than a set of separately owned items: acquiring a low-value player is also acquiring training material for a different one.
+**What is worth noting:** The fact that developing one player consumes other players as material is worth stating plainly, since it turns the whole squad into one interconnected resource rather than a set of separately owned items: acquiring a low-value player is also acquiring training material for a different one.
 
 **Key findings:**
 
@@ -180,9 +180,9 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 **What was observed:** FC Mobile's drafts consume a voucher and resolve to one of a stated player pool, publishing pity rules directly, such as a guaranteed pool-B-or-higher result within eleven draws. Store packs commit money or currency before their contents resolve, and several of them publish per-item odds; one event pack states a 1.55 percent chance at its top result, while a separate box built from crafted tickets publishes no odds for its contents at all.
 
-**How it is presented:** a pack or draft states its price and its guarantee, sometimes alongside a full probability breakdown, before the user commits, and resolves through a tap-to-open animation regardless of how the contents were paid for.
+**How it is presented:** A pack or draft states its price and its guarantee, sometimes alongside a full probability breakdown, before the user commits, and resolves through a tap-to-open animation regardless of how the contents were paid for.
 
-**What is worth noting:** publishing exact odds on some packs while publishing none at all on others, inside the same product, is worth flagging directly: a player comparing two offers has real information for one and none for the other, with no way to tell that difference until they've already looked.
+**What is worth noting:** Publishing exact odds on some packs while publishing none at all on others, inside the same product, is worth flagging directly: a player comparing two offers has real information for one and none for the other, with no way to tell that difference until they've already looked.
 
 **Key findings:**
 
@@ -198,9 +198,9 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 **What was observed:** FC Mobile's free daily resource pack costs nothing and states its own variability directly: a guaranteed 10,000 coins, plus a list of further possible rewards, a player item, a voucher, points, gems, none of which are guaranteed. No value of any kind is committed to open it.
 
-**How it is presented:** the pack's guarantee and its list of possible extras are both stated on the claim screen before it's opened, then delivered through the same tap-to-reveal animation the game uses for every reward regardless of size.
+**How it is presented:** The pack's guarantee and its list of possible extras are both stated on the claim screen before it's opened, then delivered through the same tap-to-reveal animation the game uses for every reward regardless of size.
 
-**What is worth noting:** keeping this free pack outside the game's more specific paid-loot-box entries is the right distinction to draw, since nothing is surrendered to open it: the same undisclosed-contents shape that would need real odds and guarantees on a paid pack is here just a wrapper on something already free.
+**What is worth noting:** Keeping this free pack outside the game's more specific paid-loot-box entries is the right distinction to draw, since nothing is surrendered to open it: the same undisclosed-contents shape that would need real odds and guarantees on a paid pack is here just a wrapper on something already free.
 
 **Key findings:**
 
@@ -216,9 +216,9 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 **What was observed:** FC Mobile runs several balances earned through ordinary play and spent on product-defined results. Coins come from matches, packs, daily rewards and player sales, and are spent in the market and exchanges. Gems come from rewards, packs, advertisements and trivia, and price task refreshes, an extra lineup slot, skill moves, league creation and drafts. League tokens, UEFA Dream Chasers tokens and universal tokens each run the same earn-and-spend shape on their own separate scope.
 
-**How it is presented:** each balance appears in its own dedicated exchange or store tab, priced against specific named purchases, with several of the campaign-specific tokens only appearing in the interface once an offer priced in them is actually opened.
+**How it is presented:** Each balance appears in its own dedicated exchange or store tab, priced against specific named purchases, with several of the campaign-specific tokens only appearing in the interface once an offer priced in them is actually opened.
 
-**What is worth noting:** a token only becoming visible once an offer priced in it is opened is worth stating directly as a real gap: a player can hold, or be offered, a balance that never actually appears anywhere on their own screen until that exact moment.
+**What is worth noting:** A token only becoming visible once an offer priced in it is opened is worth stating directly as a real gap: a player can hold, or be offered, a balance that never actually appears anywhere on their own screen until that exact moment.
 
 **Key findings:**
 
@@ -236,7 +236,7 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 **How it is presented:** FC points appear in their own store tab priced against real money at fixed tiers, while silver's own tab mirrors the same offers priced in silver instead, with no purchase route into silver visible anywhere in the interface.
 
-**What is worth noting:** selling a whole tab of offers in a currency the product itself never shows a way to buy is worth naming precisely: it isn't a hidden feature so much as a currency whose only observable behavior is what it costs to spend, with its acquisition route resting entirely on the product's own unverified statement.
+**What is worth noting:** Selling a whole tab of offers in a currency the product itself never shows a way to buy is worth naming precisely: it isn't a hidden feature so much as a currency whose only observable behavior is what it costs to spend, with its acquisition route resting entirely on the product's own unverified statement.
 
 **Key findings:**
 
@@ -250,11 +250,11 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 ### Rewarded Advertisement
 
-**What was observed:** watching an advertisement is one of FC Mobile's four daily tasks, paying gems, Star Pass credit and event pieces on completion. A separate gems pack pays for watching an ad up to three times a day. A league quest specifically requires members to watch advertisements as a collective task, and the guess-the-player game offers an extra hint for watching one.
+**What was observed:** Watching an advertisement is one of FC Mobile's four daily tasks, paying gems, Star Pass credit and event pieces on completion. A separate gems pack pays for watching an ad up to three times a day. A league quest specifically requires members to watch advertisements as a collective task, and the guess-the-player game offers an extra hint for watching one.
 
-**How it is presented:** each of these sits inside the product's ordinary task and quest lists rather than as a separate advertising surface, stated alongside its exact reward before the user watches.
+**How it is presented:** Each of these sits inside the product's ordinary task and quest lists rather than as a separate advertising surface, stated alongside its exact reward before the user watches.
 
-**What is worth noting:** putting "watch one ad" inside the same daily task list as ordinary play, and inside a league quest that other members are counting on, treats advertisement viewing as regular product activity rather than something set apart, which is worth stating as a specific design choice rather than an incidental placement.
+**What is worth noting:** Putting "watch one ad" inside the same daily task list as ordinary play, and inside a league quest that other members are counting on, treats advertisement viewing as regular product activity rather than something set apart, which is worth stating as a specific design choice rather than an incidental placement.
 
 **Key findings:**
 
@@ -262,7 +262,6 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 - A separate gems pack pays for watching an ad up to three times a day.
 - A league quest requires members to watch advertisements as a collective task.
 - The guess-the-player game offers an extra hint for watching an ad.
-- Advertisement length and format aren't described anywhere.
 
 **Screenshots needed:** the daily task list showing the watch-an-ad entry and its reward.
 
@@ -270,9 +269,9 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 **What was observed:** FC Mobile runs two separate login calendars in parallel. One grants a reward for each day the app is opened, showing extra rewards at set positions and greying out past days once they're gone. A second panel counts down to its own refresh and lists a further ten days of rewards on its own schedule.
 
-**How it is presented:** both calendars show the current day's reward and the days ahead, with the first delivering its reward through the game's usual pack-opening animation on some days and a plain tap on others.
+**How it is presented:** Both calendars show the current day's reward and the days ahead, with the first delivering its reward through the game's usual pack-opening animation on some days and a plain tap on others.
 
-**What is worth noting:** running two separate login calendars with two separate schedules, rather than one, means a player checking one has no way to know from that screen alone whether the other one is also waiting, which is a real cost of splitting one kind of reward across two surfaces.
+**What is worth noting:** Running two separate login calendars with two separate schedules, rather than one, means a player checking one has no way to know from that screen alone whether the other one is also waiting, which is a real cost of splitting one kind of reward across two surfaces.
 
 **Key findings:**
 
@@ -286,11 +285,11 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 ### Daily Claim Pack
 
-**What was observed:** two purchased cards each grant an immediate reward and then a further daily reward for the following thirty days: one paying 200 FC points immediately and 1,000 gems a day, the other 500 FC points immediately and 1,500 gems plus 30 rank-up points a day. A separate ten-dollar purchase opens a similar thirty-day reward calendar tied to the real date of an upcoming tournament final.
+**What was observed:** Two purchased cards each grant an immediate reward and then a further daily reward for the following thirty days: one paying 200 FC points immediately and 1,000 gems a day, the other 500 FC points immediately and 1,500 gems plus 30 rank-up points a day. A separate ten-dollar purchase opens a similar thirty-day reward calendar tied to the real date of an upcoming tournament final.
 
-**How it is presented:** each is sold as a single purchase in the store, stating its immediate grant and its daily amount together, with the tournament-tied version framed around the calendar's remaining days rather than around the purchase itself.
+**How it is presented:** Each is sold as a single purchase in the store, stating its immediate grant and its daily amount together, with the tournament-tied version framed around the calendar's remaining days rather than around the purchase itself.
 
-**What is worth noting:** the product's own stated framing for the tournament-tied calendar is that every day's reward unlocks whether or not the user logs in, which is worth carrying forward as the product's claim rather than a confirmed behavior, since no missed day actually appears in this record.
+**What is worth noting:** The product's own stated framing for the tournament-tied calendar is that every day's reward unlocks whether or not the user logs in, which is worth carrying forward as the product's claim rather than a confirmed behavior, since no missed day actually appears in this record.
 
 **Key findings:**
 
@@ -306,9 +305,9 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 **What was observed:** FC Mobile runs three separate locked purchase sequences. Ten monthly streak packs from $0.39 to $29.99 must be bought strictly in order, with the product stating the rule outright. Four bestseller packs must be bought in ascending order, $0.99 through $9.99, before a free fifth position opens, so the free reward costs more than fifteen dollars to reach. A third sequence unlocks a free selectable gift only after five shard packs are bought, and a further free gift after ten bundles.
 
-**How it is presented:** each sequence shows its full set of positions up front, stating plainly that a given position can only be bought once the one before it has been.
+**How it is presented:** Each sequence shows its full set of positions up front, stating plainly that a given position can only be bought once the one before it has been.
 
-**What is worth noting:** naming a fully-paid, no-continuity sequence a "streak" is worth stating directly as a naming choice rather than a mechanic: nothing about the sequence resets, protects, or depends on consecutive days in any way, and the product's own copy states the rule as pure purchase order rather than habit.
+**What is worth noting:** Naming a fully-paid, no-continuity sequence a "streak" is worth stating directly as a naming choice rather than a mechanic: nothing about the sequence resets, protects, or depends on consecutive days in any way, and the product's own copy states the rule as pure purchase order rather than habit.
 
 **Key findings:**
 
@@ -316,17 +315,16 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 - Four bestseller packs must be bought in ascending order before a free fifth position opens, costing over $15 to reach.
 - A shard-pack sequence unlocks free selectable gifts after five purchases, and again after ten.
 - Every locked position is visible from the start, with its condition stated in place.
-- No position in any of the three sequences was purchased in this record, so each lock is read from its stated condition rather than tested.
 
 **Screenshots needed:** the monthly streak pack ladder showing its ten locked positions; the bestseller pack sequence ending in its free gift.
 
 ### First-Purchase Bonus
 
-**What was observed:** a gold, animated sidebar entry offers a choice of four top-rated players specifically for a user's first currency purchase. Separately, a whole store tab prices FC points at exactly double the ordinary rate and labels the packages "first purchase bonus" directly, so the same 0.99 that buys 100 points elsewhere buys 200 there.
+**What was observed:** A gold, animated sidebar entry offers a choice of four top-rated players specifically for a user's first currency purchase. Separately, a whole store tab prices FC points at exactly double the ordinary rate and labels the packages "first purchase bonus" directly, so the same 0.99 that buys 100 points elsewhere buys 200 there.
 
-**How it is presented:** the sidebar entry is visually distinguished from its neighbors by color and animation, while the doubled-rate tab sits alongside the ordinary FC points tab with the same package sizes and prices, differing only in what they deliver.
+**How it is presented:** The sidebar entry is visually distinguished from its neighbors by color and animation, while the doubled-rate tab sits alongside the ordinary FC points tab with the same package sizes and prices, differing only in what they deliver.
 
-**What is worth noting:** the doubled tab isn't a discount so much as a bonus stacked on top of the normal package, since the flat doubling rate means the largest package gets no extra benefit over the smallest one, unlike the ordinary tab where the rate improves at larger sizes.
+**What is worth noting:** The doubled tab isn't a discount so much as a bonus stacked on top of the normal package, since the flat doubling rate means the largest package gets no extra benefit over the smallest one, unlike the ordinary tab where the rate improves at larger sizes.
 
 **Key findings:**
 
@@ -342,9 +340,9 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 **What was observed:** FC Mobile's locker room offers alternative presentations with no stated mechanical effect: kits, balls, emotes, kit numbers, per-player appearance details, a user logo, a profile banner and a profile theme. Stadiums and weather options work the same way but are acquired rather than freely chosen, unlocked by progressing the Star Pass or earned from named events.
 
-**How it is presented:** the product states the boundary of these options itself, that a kit choice affects appearance only, and the profile theme is stated to appear specifically during matchmaking.
+**How it is presented:** The product states the boundary of these options itself, that a kit choice affects appearance only, and the profile theme is stated to appear specifically during matchmaking.
 
-**What is worth noting:** the product's own comparison is the clearest evidence here: a player notes that wearing a specific kit gets no stat bonus of any kind, which is exactly the test that separates decoration from anything that changes what the team can do, and every option here stays on the decoration side of that line.
+**What is worth noting:** The product's own comparison is the clearest evidence here: a player notes that wearing a specific kit gets no stat bonus of any kind, which is exactly the test that separates decoration from anything that changes what the team can do, and every option here stays on the decoration side of that line.
 
 **Key findings:**
 
@@ -358,11 +356,11 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 ### Clan / Guild
 
-**What was observed:** leagues in FC Mobile are persistent groups of up to 100 members holding their own name, badge, motto, season level, point total, hundred-position reward track, token currency, store and two separate leaderboard positions. Members' combined activity is what advances all of that collective state; league quests are completed together and their rewards are then claimable by every member.
+**What was observed:** Leagues in FC Mobile are persistent groups of up to 100 members holding their own name, badge, motto, season level, point total, hundred-position reward track, token currency, store and two separate leaderboard positions. Members' combined activity is what advances all of that collective state; league quests are completed together and their rewards are then claimable by every member.
 
-**How it is presented:** the league's own screen carries separate tabs for chat, matches, info, members, quests, rewards, tournament and leaderboards, each showing state that belongs to the group rather than to any one member.
+**How it is presented:** The league's own screen carries separate tabs for chat, matches, info, members, quests, rewards, tournament and leaderboards, each showing state that belongs to the group rather than to any one member.
 
-**What is worth noting:** because league quests are satisfied by combined member activity rather than individual completion, an inactive roster stalls the whole structure at once, which the record shows directly: a league with members not playing friendly matches, not organizing, and not watching ads simply doesn't advance, with no individual able to fix that alone.
+**What is worth noting:** Because league quests are satisfied by combined member activity rather than individual completion, an inactive roster stalls the whole structure at once, which the record shows directly: a league with members not playing friendly matches, not organizing, and not watching ads simply doesn't advance, with no individual able to fix that alone.
 
 **Key findings:**
 
@@ -378,9 +376,9 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 **What was observed:** FC Mobile orders leagues against each other twice over, on a group leaderboard of twenty leagues with promotion and relegation, and on a worldwide ranked leaderboard showing the top leagues globally. A separate weekly leaderboard orders head-to-head players by match wins once enough competitors exist, closing on a countdown and paying by final position.
 
-**How it is presented:** each leaderboard shows a full ordered list rather than only the user's own position, with the group and worldwide league boards each showing rank, score and, when opened, a league's own member list.
+**How it is presented:** Each leaderboard shows a full ordered list rather than only the user's own position, with the group and worldwide league boards each showing rank, score and, when opened, a league's own member list.
 
-**What is worth noting:** running a group leaderboard with promotion and relegation alongside a separate global leaderboard means a league's standing has two different, independently meaningful numbers behind it at once, worth keeping distinct rather than treating as one ranking.
+**What is worth noting:** Running a group leaderboard with promotion and relegation alongside a separate global leaderboard means a league's standing has two different, independently meaningful numbers behind it at once, worth keeping distinct rather than treating as one ranking.
 
 **Key findings:**
 
@@ -396,9 +394,9 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 **What was observed:** FC Mobile states specific standings that depend on other entities' results. The user's own league sits at roughly 600,000th globally, with its point total shown directly against the leading league's. Inside the league, a season summary states each member's own contribution ranking. Before a first head-to-head match, the state reads plainly that the user isn't ranked yet.
 
-**How it is presented:** each of these states the position as a fact on its own screen, alongside the value it's measured against, rather than requiring the user to compare it themselves against a full list.
+**How it is presented:** Each of these states the position as a fact on its own screen, alongside the value it's measured against, rather than requiring the user to compare it themselves against a full list.
 
-**What is worth noting:** showing the pre-ranked state explicitly, rather than just hiding the ranking screen until a first match is played, is worth noting as a distinct choice: the product tells the user directly that they don't have a position yet rather than leaving that absence to be inferred.
+**What is worth noting:** Showing the pre-ranked state explicitly, rather than just hiding the ranking screen until a first match is played, is worth noting as a distinct choice: the product tells the user directly that they don't have a position yet rather than leaving that absence to be inferred.
 
 **Key findings:**
 
@@ -414,9 +412,9 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 **What was observed:** FC Mobile composes a league's own record, its founding date, total overall, activity, goals, quests, tournament wins and standing, into a single card and hands it to the device's own sending options, letting the user choose which app to send it through. No destination inside the product is offered for it.
 
-**How it is presented:** the card is built from the league's badge screen through its own dedicated share control, distinct from the separate control that posts a finished match's result into the league itself.
+**How it is presented:** The card is built from the league's badge screen through its own dedicated share control, distinct from the separate control that posts a finished match's result into the league itself.
 
-**What is worth noting:** the distinction between the two share routes on this same screen is worth stating precisely, since they point in opposite directions: posting a match result stays inside the product for other league members to see, while this card is built specifically to leave the product for people who aren't in the league at all.
+**What is worth noting:** The distinction between the two share routes on this same screen is worth stating precisely, since they point in opposite directions: posting a match result stays inside the product for other league members to see, while this card is built specifically to leave the product for people who aren't in the league at all.
 
 **Key findings:**
 
@@ -438,7 +436,6 @@ This section covers a guided restart for a returning account, with a scripted tu
 
 After an update download, the first screen asks for the user's birth month and year before any play, tying that entry to acceptance of the user agreement.
 
-- No alternative route past the screen is shown.
 
 ### O2. The tracking prompt hides its accept button
 
@@ -670,7 +667,6 @@ Collecting players activates a team badge whose level provides stated boosts equ
 
 Duels ask the user to pick the winner of an upcoming real match, then let the user play that fixture in-game before it happens in real life, paying a stated token amount for a win.
 
-- The product states that rewards follow from the real match's actual result, though how that settlement actually works wasn't confirmed in this record.
 
 ### O37. Icon Chronicles: a career told in ordered chapters
 
@@ -715,7 +711,6 @@ A seven-day kickoff mission program issues a separate task set for each day, wit
 
 Rewards belonging to mission days that haven't arrived yet could be claimed early, without waiting for those days to actually pass.
 
-- Whether this is the intended rule or a fault wasn't established.
 
 ---
 
@@ -832,8 +827,6 @@ This section covers the account-level and match-count gates standing in front of
 ### O59. Age declaration as an entry condition
 
 Birth month and year must be entered, tied to the user agreement, before any play is possible.
-
-- No alternative route past the screen is shown.
 
 ### O60. An account state is required, guest included
 
@@ -952,7 +945,6 @@ This section covers leagues, their quests, tournaments and leaderboards, plus fr
 
 A league is a named group of up to 100 members carrying its own level, points, quests, tournament, store, leaderboard position and identity.
 
-- Roles are implied by the creator managing applications and invitations; a fuller role structure wasn't established.
 
 ### O77. League quests are satisfied by combined activity
 
@@ -1000,7 +992,6 @@ A friends list holds up to 32 people, filled chiefly by playing matches together
 
 The league home holds a chat where members can write messages and a separate announcements area.
 
-- The ordering and attribution of a broader activity feed weren't established.
 
 ### O85. Two sharing routes: a match into the league, a league card out
 
@@ -1024,7 +1015,6 @@ This section covers links out to a promotional website, an offerwall, another pu
 
 Once a day's login reward is claimed, its place on the calendar is taken by a promotional panel that opens an external website.
 
-- No warning is given that the app is being left.
 
 ### O88. News entries point to the website for offers
 

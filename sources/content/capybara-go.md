@@ -79,7 +79,6 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 - The Monthly Card costs $4.99 for thirty days of daily gems and other benefits, plus an immediate gem grant.
 - The Automine Card follows the same thirty-day shape but pays out in pickaxes and can't be bought until its own feature unlocks.
 - The 3-Day Deluxe Pack costs $0.99 and lists a different reward for each of its three days, including a cosmetic on day two.
-- None of the three has been purchased, so the day-by-day claim sequence itself isn't confirmed.
 
 **Screenshots needed:** the Privilege Card screen showing the Monthly, Lifetime, and locked Automine cards together, and the 3-Day Deluxe Pack's day-by-day listing.
 
@@ -129,7 +128,6 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 
 - Experience is awarded by both events and battles within a run, from ten up to a hundred points at a time.
 - At least five level-ups occurred within a single run.
-- No experience threshold values are ever stated to the player.
 
 **Screenshots needed:** a level-up skill choice screen showing the experience gained leading up to it.
 
@@ -162,7 +160,6 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 - Gems are sold directly in Top Up and bundled into nearly every purchasable pack.
 - Gold coins, normally earned from runs, are also sold directly in several packs.
 - Gem prices are shown on the spending surface itself: 90 for an energy refill, 80 for a chest open, 300 or 600 for an egg hatch.
-- No gem purchase or gem spend takes place; the game's own prices are shown but not exercised firsthand.
 
 **Screenshots needed:** the Top Up screen showing gem package pricing, and a spending surface showing its gem price in place.
 
@@ -231,7 +228,6 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 - Reaching ten combined talent points pays 720 gold coins; twenty points grants a named badge.
 - Clearing Tower of Explorers floor ten produced its own congratulations screen and reward chest.
 - Clearing a chapter or a stated survival-day count is what unlocks most later features.
-- No single screen records milestones as a list separate from their individual rewards or unlocks.
 
 **Screenshots needed:** the talents progress bar showing its milestone rewards, and a chapter-clear feature-unlock pop-up.
 
@@ -409,7 +405,6 @@ Experience from events and battles accumulates during a run, and crossing a leve
 - Level 2 and level 3 both offered only legendary skills.
 - A later level-up offered only common skills.
 - Experience grants include 10, 20, 30, 53, 64, and 100 points.
-- No experience threshold value is ever stated.
 
 ### O11. Skill rarity and the skill book
 
@@ -522,7 +517,6 @@ Capybara Go caps energy at 30 and shows it in the home screen's top bar with a c
 
 - Energy caps at 30, shown with a countdown to the next point.
 - Every run costs 5 energy.
-- The regeneration rate itself is never stated.
 
 ### O25. Four ways to refill energy
 
@@ -616,7 +610,6 @@ Each pet Capybara Go grants carries its own level, battle skills that unlock at 
 
 - A sample pet, the Icewind Fox, is shown at level 1 with 400 health, 100 attack, and 25 defense.
 - Growing a pet requires further copies of itself plus pet food.
-- No fragments were held, so pet synthesis was not performed.
 
 ### O36. Losing routes back to upgrades
 
@@ -666,7 +659,6 @@ Capybara Go starts the player with 100 gems and grants more for free through the
 
 - The player starts with 100 gems.
 - Free gem grants come from the daily pack, sign-in event, and carnival gift.
-- No gem purchase or gem spend takes place.
 - Jade stones are sold directly, with no spending use shown anywhere.
 
 ### O41. Single-purpose materials
@@ -812,7 +804,6 @@ Growth Fund lists several funds, each a reward track tied to progress in one par
 
 - Six funds run alongside the Battle Pass: Talent, Tower Challenge, Dungeon, Main Quest, Adventure, Guru, and Mythic Treasure Funds.
 - Prices range from $9.99 to $29.99; stated totals range from 125 legendary keys to nearly 75,000 gems.
-- No fund states a consistent multiplier between its two lanes.
 - Whether free-lane rewards can be claimed without purchasing the fund is not shown.
 
 ### O57. Privilege Card
@@ -823,7 +814,6 @@ Privilege Card opens with Daily Benefits, a daily reward claimable once per day,
 - The Monthly Card costs $4.99 for 30 days, granting 600 gems immediately and 50 energy plus 200 gems daily.
 - The Lifetime Card costs $29.99, granting 3,600 gems immediately and 50 energy plus 200 gems daily for the card's lifetime.
 - The Automine Card costs 1,200 gems and 40 pickaxes on purchase and cannot be bought until Goblin Miner unlocks.
-- No card is purchased here.
 
 ### O58. Newbie Gifts 3-Day Deluxe Pack
 

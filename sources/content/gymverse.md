@@ -20,7 +20,7 @@ Gymverse is a simple system whose spine is the plan: nineteen onboarding screens
 
 **How it is presented:** Achievements sits in the same progress area as the workout totals and calendar, named on its own but not visually distinguished from the app's other running counts beyond its label.
 
-**What is worth noting:** this is presence without behavior. Gymverse states it has an Achievements system, and that statement alone is what the record can support. Nothing here confirms a defined criterion, an unattained-to-attained state, or a reward behind it, because the surface was never opened. That is a real gap in what is known about the app, not a claim being made cautiously.
+**What is worth noting:** This is presence without behavior. Gymverse states it has an Achievements system, and that statement alone is what the record can support. Nothing here confirms a defined criterion, an unattained-to-attained state, or a reward behind it, because the surface was never opened. That is a real gap in what is known about the app, not a claim being made cautiously.
 
 **Key findings:**
 
@@ -35,9 +35,9 @@ Gymverse is a simple system whose spine is the plan: nineteen onboarding screens
 
 **What was observed:** Gymverse turns its own records of the user into images meant to leave the product. A composer opens the moment the user takes a screenshot, letting them choose which stored stats appear and add stickers, text, or their own photo before sending. At the end of every workout, a second image is composed automatically, carrying the muscle groups worked, next week's plan, and the next scheduled workout. A separate activity total elsewhere in the app carries its own route out.
 
-**How it is presented:** the composer replaces an ordinary screenshot with its own branded version the moment one is attempted, and appeared for the first time before the user had done anything in the app at all. The end-of-workout image appears unprompted, right after the completion screen.
+**How it is presented:** The composer replaces an ordinary screenshot with its own branded version the moment one is attempted, and appeared for the first time before the user had done anything in the app at all. The end-of-workout image appears unprompted, right after the completion screen.
 
-**What is worth noting:** every one of these images is built from what Gymverse already holds about the user, not from anything the user made. That distinction is what separates this from an ordinary share button: a design that substitutes its own composed record for the screenshot someone was already trying to take is asking to be shared before there is a photo, a design, or a result of the user's own to share instead.
+**What is worth noting:** Every one of these images is built from what Gymverse already holds about the user, not from anything the user made. That distinction is what separates this from an ordinary share button: a design that substitutes its own composed record for the screenshot someone was already trying to take is asking to be shared before there is a photo, a design, or a result of the user's own to share instead.
 
 **Key findings:**
 
@@ -45,7 +45,6 @@ Gymverse is a simple system whose spine is the plan: nineteen onboarding screens
 - The composer appeared for the first time before the user had used the app at all.
 - The end-of-workout completion image is composed automatically and shared unprompted, without a request.
 - A separate total activity figure elsewhere in the app also carries its own route to share.
-- No destination is named on any of these; each offers to share with anyone.
 
 **Screenshots needed:** the share composer opened from a screenshot, showing its stat and sticker options; the end-of-workout completion image.
 
@@ -65,7 +64,6 @@ The onboarding runs as a numbered sequence of nineteen screens, with the number 
 
 The first question asks for the user's gym goal from six answers, build strength, overall fitness, get lean, get in shape, build muscle and lose weight, and accepts only one.
 
-- No answer is marked as recommended at this step.
 
 ### O3. An obstacle question with matching replies
 
@@ -87,7 +85,6 @@ The next screen states that 59 percent of gym goers struggle to stick to their p
 
 The next screen states that Gymverse's guided plans will show exactly what to do and how to do it, and cites more than two million trainees as proof.
 
-- No breakdown, date, or source is given for the figure.
 - The screen sits immediately after the difficulty statistic.
 
 ### O6. A recommended plan focus
@@ -98,7 +95,6 @@ The plan focus question offers four options, full body balance, upper body focus
 
 Parts of the onboarding sequence can be skipped, but not every step allows it.
 
-- Which steps carry a skip control isn't established.
 
 ### O8. The same affirmation for every experience level
 
@@ -128,7 +124,6 @@ The frequency question states a recommendation, aiming to train at least twice a
 
 The next screen asks the user to choose between a scheduled and a flexible plan.
 
-- No further explanation of either option is given.
 
 ### O13. Choosing a workout length
 
@@ -156,7 +151,6 @@ Gymverse asks the user to schedule a first workout, and all three possible answe
 
 A second statistic screen states that users who start training within three days are 5.7 times more likely to achieve their goals, attributed to a study of Gymverse's own users over three years.
 
-- No method, population, or definition of achieving goals is given.
 - The claim follows directly after the step that asked the user to schedule a first workout.
 
 ### O18. Ending onboarding with attribution
@@ -262,7 +256,6 @@ This section covers the weekly weight projection, the completion summary, and th
 The progress surface states that once the user performs an exercise, smart weight suggestions will optimize weights every week to ensure steady progress, and shows a graph of that projection.
 
 - The graph was shown before any training had actually been logged.
-- No adjustment was seen actually taking place; the record covers one workout.
 
 ### O31. The completion screen looks ahead
 
@@ -333,7 +326,6 @@ A stickers-and-stats overlay lets the user choose different workout stats and ad
 - The composer appeared at the first entry into the product, before anything had been done in the app.
 - Its contents can be edited: text, images, backgrounds and a photo of the user's own can be added.
 - The stats carried on the image are chosen by the user from what the product holds.
-- No destination is named on the composer; it offers to share with anyone.
 - The overlay replaces the ordinary screenshot with the product's own composed version.
 
 ### O37. The completion screen as a shareable image
@@ -430,7 +422,6 @@ On first entry, after the share composer was closed, Gymverse asks for a five-st
 
 A notification arrived while the user was inside the app, reading that lapses happen and what matters is what the user does from now on.
 
-- Its wording matches the training-history answer given earlier in onboarding, though nothing in the record shows a stated rule connecting the two.
 - It arrived while the user was already in the app rather than while away from it.
 - It was the first notification received, arriving the same day permission was granted.
 
