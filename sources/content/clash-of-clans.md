@@ -16,6 +16,8 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 
 ### Achievement
 
+**Implementation summary:** Clash of Clans pays linking an external account roughly ten times the reward of an ordinary progression achievement.
+
 **What was observed:** Clash of Clans keeps a named achievement list across separate categories for the home village, the builder base, and the clan capital, each entry carrying up to three stars and paying experience points and gems on attainment. Criteria include connecting an account, upgrading the town hall to level 3, unlocking specific troops, and social actions like donating or requesting reinforcements. One criterion, linking the account, pays roughly ten times the experience and gems of an ordinary progression criterion sitting beside it.
 
 **How it is presented:** The list sits in a profile view split by village, each entry showing its current star count and reward. Newly attained criteria don't always register immediately: the account-linking achievement didn't update until the app was closed and reopened.
@@ -32,6 +34,8 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 **Screenshots needed:** the achievements list showing the linked-account criterion's reward beside an ordinary progression criterion.
 
 ### Challenge
+
+**Implementation summary:** Clash of Clans runs starter challenges that expand only when the town hall levels up, and a fixed two-day clan war.
 
 **What was observed:** Clash of Clans runs two separate structures under this shape. A set of starter challenges pays points toward a single reward ladder for actions like buying wall pieces or destroying buildings in battle, with further challenges unlocked by raising the town hall level rather than by a calendar. Separately, a clan war is a two-day contest between two clans, scored in stars, with a stated tie rule and a concluded result that pays bonus loot to the winner and takes most of it from the loser.
 
@@ -50,6 +54,8 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 
 ### Clan / Guild
 
+**Implementation summary:** Clash of Clans gates its entire social layer behind rebuilding the clan castle before any clan surface becomes reachable.
+
 **What was observed:** A clan is a persistent group with its own roster, badge, settings, and state: a treasury, a war record and log, a level requirement structure, a position in ranked clan lists, and a clan capital funded by member contributions. Joining one requires rebuilding a ruined clan castle first, and membership unlocks troop donation, clan wars, clan games, the clan capital, and clan chat.
 
 **How it is presented:** A clan finder opens by asking for a language, then lists clans with filters for location, war frequency, member requirements, and league. Creating a clan instead of joining one exposes the same attributes, set by the creator, for 40,000 gold. Chat carries its own rules notice, and the profile splits into home village, builder base, and clan capital views.
@@ -66,6 +72,8 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 **Screenshots needed:** the clan finder with its filter list, and the clan war screen showing the treasury and war record.
 
 ### Cosmetic Customization
+
+**Implementation summary:** Clash of Clans sells sceneries and hero skins purely as presentation, with a hero skin reserved as the paid pass's headline reward.
 
 **What was observed:** A cosmetics tab, unlocked at town hall 4, sells alternative presentations for the village, the heroes, the second village's character, and the boat, priced from $3.49 to $16.99. A hero skin is presented as an exclusive reward on the paid pass lane, and the season's own theme is sold separately as a scenery with an in-app preview.
 
@@ -84,6 +92,8 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 
 ### Experience Points
 
+**Implementation summary:** Clash of Clans' experience points only advance an account level that itself gates a one-million-gold decoration requiring level 75.
+
 **What was observed:** Clash of Clans grants a quantified amount of experience for stated actions, mostly achievement attainment, and accumulates it toward an account level that rose from 1 to 4 early on. The points aren't spent on anything else; their only stated function is advancing the account level.
 
 **How it is presented:** Achievement entries state the exact experience figure attached to each criterion. The account level sits at the top of the screen with a partial-progress indicator, separate from every other progress marker in the game.
@@ -100,6 +110,8 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 **Screenshots needed:** an achievement entry showing its stated experience grant, and the account level indicator with its partial-progress bar.
 
 ### Gifting
+
+**Implementation summary:** Clash of Clans lets clanmates send troops and spells with no reciprocity required, and a paid pass cuts the wait 90 percent.
 
 **What was observed:** Clan members can send troops and spells to one another, held in the receiving member's clan castle for use in that member's own battles and defenses. Both directions, donating and receiving, are counted as separate achievement criteria, and a paid pass perk shortens the wait on a troop request.
 
@@ -118,6 +130,8 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 
 ### Hard Currency
 
+**Implementation summary:** Clash of Clans' gems buy back time from every wait in the game and convert directly into gold and elixir.
+
 **What was observed:** Gems are Clash of Clans' paid currency, sold in six packages from $0.49 to $49.99, and spent on builder huts, instant build completion, magic shields, decorations, and direct conversion into gold and elixir. Gems are also granted without payment through achievements and clan prizes.
 
 **How it is presented:** Every waiting state in the game, a build timer, a busy builder, a training queue, carries its own gem price to end it immediately, shown on the same screen as the wait itself.
@@ -135,6 +149,8 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 
 ### Leaderboard
 
+**Implementation summary:** Clash of Clans runs four separate leaderboards, kept fully apart from its own trophy-based league tier system.
+
 **What was observed:** Four ordered views rank other identified players and clans by trophy count: top players globally, top players nationally, top clans globally, and top clans within a clan war league scope.
 
 **How it is presented:** The leaderboard sits behind its own tab with four sub-views. The user's own absence from every list, shown as an unranked state on the profile, is itself part of what the screen communicates.
@@ -150,6 +166,8 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 **Screenshots needed:** the four-tab leaderboard view.
 
 ### Leveling
+
+**Implementation summary:** Clash of Clans tracks three separate levels, but only the town hall level gates more than a single decoration or rate.
 
 **What was observed:** Clash of Clans maintains at least three separate leveled states. The town hall holds a numbered level running to 18 that decides what else in the product is available, advancing only once a resource cost and a prerequisite building checklist are both satisfied; the second village runs the identical structure on its own builder hall. A separate account level advances as experience points cross a threshold. Both villages also maintain an ordered league tier, from skeleton to legend in the home village and wood 5 to diamond in the second, that rises and falls with trophies won and lost and sets the rate battles pay.
 
@@ -168,6 +186,8 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 
 ### Milestone
 
+**Implementation summary:** Clash of Clans' milestone ladder runs past what active challenges can fund, requiring a town hall level-up to reach further rewards.
+
 **What was observed:** The starter challenge point total is one continuous measure, and Clash of Clans separately recognizes defined totals along it, from 100 to 5,000, releasing a reward each time one is crossed.
 
 **How it is presented:** The reward ladder is shown alongside the point total, with claimed rewards, 2,000 gold, then elixir, then a builder's byte, visibly distinct from unclaimed ones further along.
@@ -184,6 +204,8 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 **Screenshots needed:** the reward ladder showing claimed and unclaimed thresholds.
 
 ### Passive Construction
+
+**Implementation summary:** Clash of Clans sells both dimensions of construction separately: a gem-priced extra builder hut, and gems to skip any one wait.
 
 **What was observed:** Starting a build or upgrade creates an instance that advances on its own timer, without further input, and completes into a new persistent state with higher stated capacity or hit points, whether or not the app is open. How many instances can run at once is capped by the number of builder huts owned.
 
@@ -202,6 +224,8 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 
 ### Piggy Bank
 
+**Implementation summary:** Clash of Clans' seasonal loot reserve caps per currency, and a paid pass multiplies its payout by five at release.
+
 **What was observed:** Clash of Clans saves bonus loot from battles into a reserve across the season and releases it at the season's end, with separate stated caps for each of the game's five currencies. A paid pass perk multiplies the reserve's payout by five at release.
 
 **How it is presented:** The reserve is described on the pass screen rather than its own dedicated surface, and a season-end message confirms a release occurred.
@@ -219,6 +243,8 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 
 ### Seasonal Progression Pass
 
+**Implementation summary:** Clash of Clans' pass doesn't appear until town hall 7 and prices its perks against every system the player already holds.
+
 **What was observed:** A season track runs for a stated 27 days, advanced by completing task cards that name ordinary actions like starting a building upgrade, with the next card released on its own timer rather than on demand. The track carries two lanes attached to the same 40 positions on the paid side and 30 on the free side, with the paid lane costing $4.99 and unlocking exclusive items the free lane never offers.
 
 **How it is presented:** The pass doesn't exist at all until town hall 7, appearing immediately once that upgrade completes. Its own info button opens the developer's website rather than an in-game explanation.
@@ -235,6 +261,8 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 **Screenshots needed:** the pass screen showing both reward lanes, and the season countdown at the top of the track.
 
 ### Soft Currency
+
+**Implementation summary:** Clash of Clans keeps five separate currencies, three walled off by village, and one priced in shop despite a zero balance.
 
 **What was observed:** Gold and elixir are earned from collectors and raid loot, held in capped storage, and spent on nearly everything the player builds or trains; dark elixir joins them at town hall 7 with its own drill and storage. The second village runs two further currencies, earned and spent entirely within its own loop and not usable in the home village. A separate balance, league medals, buys items from its own shop tab and is stated to come from clan war leagues, though the balance sits at zero.
 
