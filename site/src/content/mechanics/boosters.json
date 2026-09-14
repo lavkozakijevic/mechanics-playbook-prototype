@@ -1,0 +1,35 @@
+{
+  "id": "boosters",
+  "n": "37",
+  "name": "Boosters",
+  "cat": "monetization",
+  "tagline": "A counted, held item the user chooses to spend inside an activity to change its conditions or outcome, replenished through play, purchase, or grant.",
+  "desc": "A booster is a defined item held in a counted quantity outside any single activity instance, and applying one is a decision, not a byproduct of taking part. The application changes the conditions, difficulty, progress, or outcome of the instance it's used in and reduces the holding by one, and the product always defines at least one route by which the holding can be increased again. That last requirement is what separates a booster from a bounded capacity like energy or lives, which falls because the user acted at all rather than because they chose to spend something, and from a permanent upgrade, which changes the activity once and is never consumed. A single credit spent from a balance to buy one hint is a currency transaction rather than a booster; the boosters begin once the product holds a stock of hints the user draws down and refills.",
+  "principle": "Applying one is a choice, not a cost of playing. The requirement to replenish the holding afterward is what turns a single use into something worth planning around.",
+  "players": [
+    "achiever"
+  ],
+  "warn": "The label is easy to misapply toward a bounded capacity the user doesn't decide to spend: energy and lives fall because the user is participating at all, not because they chose to apply an item, and treating an automatic constraint as a decision the user is making miscasts the mechanic. It runs the other way too: an effect acquired once and never consumed again is a permanent upgrade, however similar it looks to a booster's effect in the moment it's granted, and applying the label there overstates a design that isn't asking the user to plan around a depleting holding at all.",
+  "variants": [
+    "Purchased booster, the holding is increased through money, currency, or another exchange resource",
+    "Earned booster, qualifying activity, progression, or rewards add to the holding without a purchase",
+    "Unlimited-state booster, for a defined period the product suspends the reduction and allows unrestricted application, resuming the counted holding once it ends",
+    "Continuation booster, the item extends an instance that has reached its boundary, such as adding further attempts, moves, or time",
+    "Gated booster, the item is visible before the user can hold or apply it, becoming usable under a stated condition"
+  ],
+  "lifecycle": "Needs at least one item with a stated effect and a defined replenishment route before there's a holding to build a habit around. Most consequential once a user has spent through an early holding and faces the choice of earning, waiting, or paying to refill it.",
+  "paired": [
+    "energy-lives",
+    "hard-currency",
+    "progression-gate"
+  ],
+  "context": [
+    "monetization"
+  ],
+  "sdt": [
+    "autonomy",
+    "competence",
+    "scarcity"
+  ],
+  "visibility": "public"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "minigame",
+  "n": "39",
+  "name": "Minigame",
+  "cat": "retention",
+  "tagline": "A self-contained, playable activity inside the product, run under its own rules, whose outcome changes nothing the product maintains outside it.",
+  "desc": "A minigame defines its own actions, rules, and outcome, concludes on its own terms, and leaves every balance, progression measure, and access state the product maintains elsewhere completely unchanged. Placement carries no weight in the definition: the same activity can sit in a menu, a loading screen, or between instances of the core loop and still qualify, or fail to, purely on whether anything it produces reaches outside itself. That test cuts hard against the more familiar reading built on placement or unfamiliar rules alone: an activity that pays the product's ordinary currency, advances its main progression, or changes what a user can access is loop activity in different clothes, however disconnected it looks in the moment, and this label does not apply to it.",
+  "principle": "Disconnection is the entire test. An activity stops qualifying the instant anything it produces is worth something outside it.",
+  "players": [
+    "explorer"
+  ],
+  "warn": "The risk runs entirely through the exclusion rather than the definition: an interlude that looks and feels disconnected but still pays the core loop's ordinary currency, progression, or access into the account behind it is loop activity in a different costume, however unfamiliar its rules look, and no minigame label applies once it does. This entry currently has no confirmed instance in the library's own analyses; the clearest candidate considered paid the product's ordinary currency on completion and was excluded on exactly this test, which is why it doesn't appear as a case of this mechanic anywhere yet.",
+  "variants": [
+    "Embedded arcade minigame, a complete small game, usually of a familiar genre, placed inside the product",
+    "Easter-egg minigame, the activity is hidden and reached only through an undocumented or incidental interaction",
+    "Waiting-state minigame, the activity is offered during a load, a queue, an outage, or another interval in which the product cannot proceed",
+    "Interstitial minigame, the activity is placed between instances of the core loop without paying into it",
+    "Internally rewarded minigame, the activity grants items, upgrades, or states usable only inside itself"
+  ],
+  "lifecycle": "Effective at any stage, including a user's very first visit, since it depends on nothing about their account history. What limits it is built into the definition rather than the timing: nothing it produces is meant to feed back into anything else in the product, which is the tradeoff a team accepts by choosing this shape over one that pays into the loop.",
+  "paired": [
+    "challenges",
+    "personal-data-reflection"
+  ],
+  "context": [
+    "retention"
+  ],
+  "sdt": [
+    "autonomy",
+    "avoidance"
+  ],
+  "visibility": "public"
+}

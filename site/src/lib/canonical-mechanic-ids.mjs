@@ -37,6 +37,7 @@ export const CANONICAL_MECHANIC_IDS = {
   // its own site mechanic rather than both collapsing onto "achievements".
   "Milestone": "milestone",
   "Achievement": "achievement",
+  "Boosters": "boosters",
   "Group Membership": "community-groups",
   // Wakeout's analysis classifies Wake Out Watts as "Experience Points",
   // which is now this entry's own site mechanic directly — no translation
@@ -78,11 +79,14 @@ export const CANONICAL_MECHANIC_IDS = {
   "Leveling": "leveling",
   "Lives": "energy-lives", // merges with Energy above
   "Loot Box": "variable-reward", // merges with Variable Reward Schedule/Outcome below
+  "Minigame": "minigame",
   "Passive Construction": "passive-construction",
   "Personal Data Reflection": "personal-data-reflection",
   "Piggy Bank": "piggy-bank",
   "Progression Fund": "progression-fund",
+  "Progression Gate": "progression-gate",
   "Referral Boost": "referral-boost",
+  "Reward Multiplier": "reward-multiplier",
   "Rewarded Advertisement": "ads", // the only entry mapping to "ads" since Advertisement Exposure's retirement, 13 Sep 2026
   "Season Content Pass": "season-pass", // merges with Seasonal Progression Pass below
   "Seasonal Progression Pass": "season-pass", // merges with Season Content Pass above

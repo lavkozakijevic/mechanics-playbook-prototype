@@ -1,0 +1,34 @@
+{
+  "id": "reward-multiplier",
+  "n": "38",
+  "name": "Reward Multiplier",
+  "cat": "retention",
+  "tagline": "A stated factor that raises what an existing reward already pays within a defined scope, without changing the activity that earns it.",
+  "desc": "A reward multiplier applies a defined factor or increment over a reward the product already pays for a qualifying activity, so the same activity pays more inside a stated scope, a period, an instance, an activity type, than outside it. The base reward has to exist independently of the modifier, and the factor has to be stated or otherwise observable, which is what separates this from a product that simply publishes different fixed rates for different tiers: two rates are a reward table, and a multiplier is a stated factor applied over one of them. It changes how much a reward pays, never whether one occurs or what specific result resolves, which keeps it distinct from the two variable-reward entries even though a variable outcome can be multiplied once it resolves.",
+  "principle": "The size of the reward changes; the odds of getting one and the difficulty of earning it don't. Stating the factor in advance is what turns an ordinary payout into a reason to act inside the window rather than after it.",
+  "players": [
+    "achiever"
+  ],
+  "warn": "The label is easy to misapply toward a product that simply pays different fixed amounts to different tiers, plans, or segments: without a stated factor over a named base reward, that's the reward table, not a multiplier applied over one. It's just as easy to miss in the other direction, toward a case where what's actually varying is whether a reward occurs at all rather than its size, which belongs to Variable Reward Schedule instead.",
+  "variants": [
+    "Timed multiplier, the modifier applies within a defined period, window, day, weekend, or season",
+    "Activity-scoped multiplier, the modifier applies to a defined activity, mode, category, or transaction type rather than a period",
+    "Entitlement multiplier, holding a subscription, membership, or pass applies the modifier while it remains active",
+    "Condition-earned multiplier, satisfying a defined condition, such as a streak length, a rank, or a purchase, applies the modifier to later rewards",
+    "Advertisement-conditioned multiplier, engaging with an advertisement applies the modifier to an already earned reward"
+  ],
+  "lifecycle": "Needs a base reward already paid for a defined activity before there's anything to multiply, so it has nothing to offer a brand new account. Most valuable attached to a specific window or event the product wants to pull activity toward, rather than left running at the same factor continuously.",
+  "paired": [
+    "streak",
+    "boosters",
+    "variable-reward"
+  ],
+  "context": [
+    "retention"
+  ],
+  "sdt": [
+    "scarcity",
+    "ownership"
+  ],
+  "visibility": "public"
+}
