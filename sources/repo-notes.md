@@ -4,9 +4,16 @@ This is the operational picture: how the pipeline runs, what the parsers
 expect, what's checked and why, what nothing checks, and what has already
 gone wrong once. It does not restate the writing rules
 (`sources/prompts/stage2-website-content.md`), the standing import rules
-(`CLAUDE.md`), or the merge-specific bookkeeping (`sources/taxonomy-map.md`)
-— read those directly. This is the layer underneath them: why the pipeline
-is shaped the way it is, so the next change doesn't relearn it by breaking it.
+(`CLAUDE.md`), the merge-specific bookkeeping (`sources/taxonomy-map.md`),
+or the content model and page spec (`sources/page-spec.md`) — read those
+directly. This is the layer underneath them: why the pipeline is shaped the
+way it is, so the next change doesn't relearn it by breaking it.
+
+`sources/page-spec.md` (committed 15 Sep 2026, previously living only in
+chat and reconstructed from code comments once already — see the mechanics
+index rebuild, 14 Sep 2026) is canonical. When a spec decision changes,
+update that file in the same piece of work that makes the change, rather
+than letting it live only in a prompt again.
 
 ## Two coexisting sources of truth, not one being replaced by the other
 
