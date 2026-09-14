@@ -1,0 +1,34 @@
+{
+  "id": "profile-completion",
+  "n": "44",
+  "name": "Profile Completion",
+  "cat": "social",
+  "tagline": "A meter that reports how much of a defined, optional set of profile attributes the user has supplied, and names what's still outstanding as something to add.",
+  "desc": "Profile completion maintains a defined, optional set of attributes the user may supply about themselves and reports how full that set is as a proportion, a percentage, a bar, a fraction, or a run of markers, while naming at least one outstanding member as an action the user can take. Supplying a member changes only the reported proportion and what other people can see; nothing else the product tracks changes because of it. The line that matters most is what happens, if anything, as the figure moves: this entry covers the proportion reported continuously, with no response of its own to any point along the way. The moment a crossing partway through is called out separately, that crossing is a Milestone; the moment the completed set is kept as a badge, status, or record that outlives the meter, that's an Achievement. Both can sit on the same surface as this entry, each classified on its own terms.",
+  "principle": "An incomplete meter reads as unfinished business. Naming exactly what's missing turns a vague sense of not-done into one specific, low-effort action to take next.",
+  "players": [
+    "achiever"
+  ],
+  "warn": "The boundary against Milestone and Achievement is this entry's weakest edge: a figure that recognizes nothing between empty and full is this entry, and the moment crossing any point, including the full proportion, produces a response of its own, that response is Milestone or Achievement layered on top, not a reason to drop this label. The same care applies against Set Collection, where members are obtained rather than stated, and against a mandatory setup flow, which is onboarding rather than an optional set the product functions without.",
+  "variants": [
+    "Single-item prompt, one outstanding member is named at a time and the rest are not listed",
+    "Itemised checklist, every outstanding member is listed at once and can be taken in any order",
+    "Explained item, each outstanding member carries a stated reason the product gives for supplying it",
+    "Prompted completion, the product raises an outstanding member unprompted, at a moment of its own choosing",
+    "Dismissible indicator, the statement can be cleared by the user without the set being completed"
+  ],
+  "lifecycle": "Needs a defined, optional set of self-supplied attributes before there's a proportion to report at all, so it has nothing to show a brand-new account with no such set yet. Most visible in the stretch between a fresh account and a full one, and stops being shown once the set is complete.",
+  "paired": [
+    "progression-gate",
+    "social-feed",
+    "leaderboards"
+  ],
+  "context": [
+    "social"
+  ],
+  "sdt": [
+    "ownership",
+    "relatedness"
+  ],
+  "visibility": "public"
+}

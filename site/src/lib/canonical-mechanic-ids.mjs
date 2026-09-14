@@ -83,6 +83,7 @@ export const CANONICAL_MECHANIC_IDS = {
   "Passive Construction": "passive-construction",
   "Personal Data Reflection": "personal-data-reflection",
   "Piggy Bank": "piggy-bank",
+  "Profile Completion": "profile-completion",
   "Progression Fund": "progression-fund",
   "Progression Gate": "progression-gate",
   "Purchase Ladder": "purchase-ladder",
