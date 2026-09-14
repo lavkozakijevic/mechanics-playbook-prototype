@@ -5,13 +5,18 @@
  * (spec §2.1, revised 11 Sep 2026), not a second rendering of the tagged
  * observations, so this component only ever appears once per observation.
  *
- * No tag chips render here — tags stay in the data; nothing here reads them
- * for display, only `hasTags` cares whether an observation is tagged at all,
- * for the tinted-box weight treatment that tells a reader "this one connects
- * to a named pattern" among the section's mix of tagged and untagged
- * observations. Screenshots switch to a two-column layout, and short/long
- * observations get tighter or looser vertical spacing — those are about
- * density, not about flagging a tag.
+ * Tag chips render here, one per tag this specific observation carries
+ * (fixed 14 Sep 2026 — convert-content.mjs was dropping every tag block's
+ * "Supporting observations" line, so an observation named only there, never
+ * in the primary Observations line, reached this component with an empty
+ * `tags` array regardless of what it actually carried; see convert-
+ * content.mjs's own comment on that fix). `hasTags` still separately drives
+ * the tinted-box weight treatment that tells a reader "this one connects to
+ * a named pattern" among the section's mix of tagged and untagged
+ * observations — the chips are the detail, the tint is the at-a-glance
+ * signal, and both now read the same corrected data. Screenshots switch to
+ * a two-column layout, and short/long observations get tighter or looser
+ * vertical spacing — those are about density, not about flagging a tag.
  */
 interface Props {
   observation: {
@@ -22,12 +27,25 @@ interface Props {
     tags: { name: string; confidence: string }[];
     screenshots: { src: string; caption: string | null }[];
   };
+  appId: string;
+  // name -> that tag's block on this same app (mechanicId/displayName/cat),
+  // from v41.ts's tagBlocks() — reused rather than re-resolved here so a
+  // chip's link and the same-mechanic collision disambiguation in its id
+  // can never drift from what the summary page's own #mechanic-* anchors
+  // actually use.
+  blockByName: Map<string, { mechanicId: string; displayName: string; mechanic: { cat: string } | null }>;
 }
 
-const { observation } = Astro.props as Props;
+const { observation, appId, blockByName } = Astro.props as Props;
 
 const hasTags = observation.tags.length > 0;
 const hasShots = observation.screenshots.length > 0;
+const CAT_COLOR: Record<string, string> = {
+  retention: "var(--cat-retention)",
+  monetization: "var(--cat-monetization)",
+  social: "var(--cat-social)",
+  neutral: "var(--ink-500)",
+};
 
 // Rhythm: short observations (little prose, at most one supporting point)
 // sit tighter than long ones. Computed once per observation from its own
@@ -57,6 +75,27 @@ const density = wordCount < 30 && observation.detail.length <= 1 ? "short" : wor
         <ul class="cs-findings v41-observation__detail">
           {observation.detail.map((d) => <li>{d}</li>)}
         </ul>
+      )}
+
+      {hasTags && (
+        <div class="v41-observation__tags">
+          {observation.tags.map((t) => {
+            const block = blockByName.get(t.name);
+            const cat = block?.mechanic?.cat ?? "neutral";
+            const name = block?.displayName ?? t.name;
+            return block ? (
+              <a class="cs-chip cs-chip--sm" href={`/case-studies/${appId}/#mechanic-${block.mechanicId}`}>
+                <span class="cs-chip__dot" style={`background:${CAT_COLOR[cat]}`} />
+                <span class="cs-chip__name">{name}</span>
+              </a>
+            ) : (
+              <span class="cs-chip cs-chip--sm">
+                <span class="cs-chip__dot" style={`background:${CAT_COLOR.neutral}`} />
+                <span class="cs-chip__name">{name}</span>
+              </span>
+            );
+          })}
+        </div>
       )}
     </div>
 

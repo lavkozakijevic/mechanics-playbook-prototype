@@ -488,8 +488,21 @@ function parseAnalysisV41(file) {
     const block = chunk.slice(nl + 1);
 
     const obsLine = block.match(/\*\*Observations:\*\*\s*(.+)/);
+    // "**Supporting observations:**" was being parsed nowhere at all — every
+    // block has one (verified across all nine v4.1 analysis files), and an
+    // observation named only there, never in the primary Observations line,
+    // still empirically carries the tag; it just wasn't the lead evidence
+    // cited for applying it. Dropping it meant tagsById (below) only ever
+    // connected a tag to its primary observations, so every other
+    // observation that exhibits the same tag came out untagged — a live
+    // bug, not a hypothetical one, since it's what the case-study and
+    // future tag-index pages both read to know which observations carry
+    // which tags. Fixed by folding both lines into one id list per block;
+    // nothing downstream needs to know which line an id came from.
+    const supportingLine = block.match(/\*\*Supporting observations:\*\*\s*(.+)/);
     const confidence = field(block, "Confidence");
     if (!obsLine || !confidence) throw new Error(`${file}: tag "${tagName}" is missing Observations or Confidence`);
+    if (!supportingLine) throw new Error(`${file}: tag "${tagName}" is missing Supporting observations`);
 
     if (!blocksByName.has(tagName)) blocksByName.set(tagName, []);
     blocksByName.get(tagName).push({
@@ -497,7 +510,7 @@ function parseAnalysisV41(file) {
       rationale: field(block, "Rationale"),
       alternativeConsidered: field(block, "Alternative considered"),
       role: field(block, "Role"),
-      obsIds: idsIn(obsLine[1]),
+      obsIds: [...new Set([...idsIn(obsLine[1]), ...idsIn(supportingLine[1])])],
     });
   }
 

@@ -19,15 +19,16 @@
  */
 import ObservationCard from "./ObservationCard.astro";
 import { GateWidget } from "./GateWidget.jsx";
-import { allSectionCounts, nonEmptySections } from "../../lib/v41";
+import { allSectionCounts, nonEmptySections, tagBlocks } from "../../lib/v41";
 import { PREVIEW_UNLOCK } from "../../lib/preview";
 
 interface Props {
   app: any;
   section: string;
+  mechanicsById: Map<string, any>;
 }
 
-const { app, section } = Astro.props as Props;
+const { app, section, mechanicsById } = Astro.props as Props;
 const locked = app.visibility !== "public" && !PREVIEW_UNLOCK;
 
 const nonEmpty = nonEmptySections(app);
@@ -39,6 +40,15 @@ const current = nonEmpty[currentIndex];
 const observations = locked ? [] : (app.observations ?? []).filter((o: any) => o.section === section);
 const leadIn = app.sectionLeadIns?.[section] ?? "";
 const allSections = locked ? [] : allSectionCounts(app);
+
+// Each observation's own tags (fixed at parse time, convert-content.mjs —
+// the "Supporting observations" line was previously dropped entirely, so
+// this used to be a much thinner list than an observation actually
+// carries) are resolved onto the app's own tag blocks so a chip can link
+// straight to that mechanic's write-up on the summary page rather than
+// re-deriving the name-to-mechanic-id resolution (with its same-mechanic
+// collision disambiguation) a second time here.
+const blockByName = locked ? new Map() : new Map(tagBlocks(app, mechanicsById).map((b) => [b.name, b]));
 ---
 
 {locked ? (
@@ -79,7 +89,7 @@ const allSections = locked ? [] : allSectionCounts(app);
         {leadIn && <p class="v41-section-leadin">{leadIn}</p>}
 
         {observations.map((o: any) => (
-          <ObservationCard observation={o} />
+          <ObservationCard observation={o} appId={app.id} blockByName={blockByName} />
         ))}
 
         <div class="v41-section-pagination">

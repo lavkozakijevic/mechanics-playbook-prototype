@@ -251,7 +251,18 @@
         "Audiences named include content creators, marketers, small business owners, students and teachers.",
         "Lessons run roughly ten to fifteen minutes each."
       ],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Achievement",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Design School defines criteria that hold an unattained and an attained state, evaluates the user's activity against them, and preserves the result. The first certificate flipped from unattained to attained and produced both a badge state and a stored credential with an issue date (O21). The badge grid shows the unattained states directly, greyed out until earned (O23), and the certificates list preserves the attained one (O22). The attained state is distinct from the underlying activity: the certificate records satisfaction of the test criterion, not the test answers.",
+          "alternativeConsidered": "that the badges are only a display of the counters in O22, with no separate attained state. The greyed-to-earned change and the separately stored certificate rule this out. Milestone was the second reading of the same observations and is not applied; the reasoning sits in Entries considered and not applied.",
+          "role": "engagement, retention.\n\nThe badges and the certificate are earned inside the Design School surface and shape what the user does there (O20, O21), while the greyed higher tiers at three and five name the next reasons to come back (O23)."
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -264,7 +275,18 @@
         "Course pages also show what you'll learn, key skills, and an FAQ.",
         "The shareable certificate is disclosed as a property of the course before any work is done."
       ],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Challenge",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "The product creates a discrete instance with a stated success condition and a stated boundary before the user begins: 14 questions, 30 minutes, \"on successful completion be awarded a certificate\" (O20). Reaching the success condition produced a different system response from not reaching it, in the form of the certificate and badge (O21), and the terms are disclosed on the course card beforehand (O19). The instance is opt-in, entered through \"let's start\".",
+          "alternativeConsidered": "that the test is only the delivery mechanism for the Achievement at O21, with no bounded instance of its own. The stated question count, time limit and prospective success condition, all given before entry, establish the instance independently.",
+          "role": "engagement.\n\nThe test is a within-session activity that shapes what the user does in Design School and produces the badge and credential at O21."
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -279,6 +301,26 @@
         "Canva doesn't state what happens on a wrong answer, whether a failed attempt can be retaken, or what the pass threshold is."
       ],
       "tags": [
+        {
+          "name": "Achievement",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Design School defines criteria that hold an unattained and an attained state, evaluates the user's activity against them, and preserves the result. The first certificate flipped from unattained to attained and produced both a badge state and a stored credential with an issue date (O21). The badge grid shows the unattained states directly, greyed out until earned (O23), and the certificates list preserves the attained one (O22). The attained state is distinct from the underlying activity: the certificate records satisfaction of the test criterion, not the test answers.",
+          "alternativeConsidered": "that the badges are only a display of the counters in O22, with no separate attained state. The greyed-to-earned change and the separately stored certificate rule this out. Milestone was the second reading of the same observations and is not applied; the reasoning sits in Entries considered and not applied.",
+          "role": "engagement, retention.\n\nThe badges and the certificate are earned inside the Design School surface and shape what the user does there (O20, O21), while the greyed higher tiers at three and five name the next reasons to come back (O23)."
+        },
+        {
+          "name": "Shareable Win",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Canva composes the completed test into a certificate stating the course, the holder, the date and a credential ID, presents it with a route to share on social and a route to download it as an image, and states that a copy is emailed as well (O21, O40). The representation states what was accomplished and can be read by someone who does not hold the account, and more than one route out of the product is offered, which is what this entry requires beyond the recorded state. The recorded state itself is classified separately under Achievement; both apply here because Canva does both.",
+          "alternativeConsidered": "that these are the same ordinary content-distribution controls Canva places on a finished design (O37), which this entry excludes. The subject separates them: a design is the user's own work, while the certificate is a record Canva holds about the user, composed by Canva into a form built to be read by someone else.",
+          "role": "social, engagement.\n\nThe certificate is composed for people other than the holder and carries named routes to social and professional platforms (O40), and the two community badges pay for sending it, which shapes what the user does at the end of the Design School flow (O21, O23)."
+        },
         {
           "name": "Challenge",
           "confidence": "strongly supported",
@@ -322,6 +364,16 @@
           "rationale": "Canva composes the completed test into a certificate stating the course, the holder, the date and a credential ID, presents it with a route to share on social and a route to download it as an image, and states that a copy is emailed as well (O21, O40). The representation states what was accomplished and can be read by someone who does not hold the account, and more than one route out of the product is offered, which is what this entry requires beyond the recorded state. The recorded state itself is classified separately under Achievement; both apply here because Canva does both.",
           "alternativeConsidered": "that these are the same ordinary content-distribution controls Canva places on a finished design (O37), which this entry excludes. The subject separates them: a design is the user's own work, while the certificate is a record Canva holds about the user, composed by Canva into a form built to be read by someone else.",
           "role": "social, engagement.\n\nThe certificate is composed for people other than the holder and carries named routes to social and professional platforms (O40), and the two community badges pay for sending it, which shapes what the user does at the end of the Design School flow (O21, O23)."
+        },
+        {
+          "name": "Challenge",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "The product creates a discrete instance with a stated success condition and a stated boundary before the user begins: 14 questions, 30 minutes, \"on successful completion be awarded a certificate\" (O20). Reaching the success condition produced a different system response from not reaching it, in the form of the certificate and badge (O21), and the terms are disclosed on the course card beforehand (O19). The instance is opt-in, entered through \"let's start\".",
+          "alternativeConsidered": "that the test is only the delivery mechanism for the Achievement at O21, with no bounded instance of its own. The stated question count, time limit and prospective success condition, all given before entry, establish the instance independently.",
+          "role": "engagement.\n\nThe test is a within-session activity that shapes what the user does in Design School and produces the badge and credential at O21."
         }
       ],
       "crossRefs": [],
@@ -336,7 +388,18 @@
         "All three counters read zero even after a certificate was earned, since the course itself wasn't completed.",
         "Canva doesn't state whether the skills counter tracks a defined set of named skills or only a running total."
       ],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Achievement",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Design School defines criteria that hold an unattained and an attained state, evaluates the user's activity against them, and preserves the result. The first certificate flipped from unattained to attained and produced both a badge state and a stored credential with an issue date (O21). The badge grid shows the unattained states directly, greyed out until earned (O23), and the certificates list preserves the attained one (O22). The attained state is distinct from the underlying activity: the certificate records satisfaction of the test criterion, not the test answers.",
+          "alternativeConsidered": "that the badges are only a display of the counters in O22, with no separate attained state. The greyed-to-earned change and the separately stored certificate rule this out. Milestone was the second reading of the same observations and is not applied; the reasoning sits in Entries considered and not applied.",
+          "role": "engagement, retention.\n\nThe badges and the certificate are earned inside the Design School surface and shape what the user does there (O20, O21), while the greyed higher tiers at three and five name the next reasons to come back (O23)."
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -360,6 +423,16 @@
           "rationale": "Design School defines criteria that hold an unattained and an attained state, evaluates the user's activity against them, and preserves the result. The first certificate flipped from unattained to attained and produced both a badge state and a stored credential with an issue date (O21). The badge grid shows the unattained states directly, greyed out until earned (O23), and the certificates list preserves the attained one (O22). The attained state is distinct from the underlying activity: the certificate records satisfaction of the test criterion, not the test answers.",
           "alternativeConsidered": "that the badges are only a display of the counters in O22, with no separate attained state. The greyed-to-earned change and the separately stored certificate rule this out. Milestone was the second reading of the same observations and is not applied; the reasoning sits in Entries considered and not applied.",
           "role": "engagement, retention.\n\nThe badges and the certificate are earned inside the Design School surface and shape what the user does there (O20, O21), while the greyed higher tiers at three and five name the next reasons to come back (O23)."
+        },
+        {
+          "name": "Shareable Win",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Canva composes the completed test into a certificate stating the course, the holder, the date and a credential ID, presents it with a route to share on social and a route to download it as an image, and states that a copy is emailed as well (O21, O40). The representation states what was accomplished and can be read by someone who does not hold the account, and more than one route out of the product is offered, which is what this entry requires beyond the recorded state. The recorded state itself is classified separately under Achievement; both apply here because Canva does both.",
+          "alternativeConsidered": "that these are the same ordinary content-distribution controls Canva places on a finished design (O37), which this entry excludes. The subject separates them: a design is the user's own work, while the certificate is a record Canva holds about the user, composed by Canva into a form built to be read by someone else.",
+          "role": "social, engagement.\n\nThe certificate is composed for people other than the holder and carries named routes to social and professional platforms (O40), and the two community badges pay for sending it, which shapes what the user does at the end of the Design School flow (O21, O23)."
         }
       ],
       "crossRefs": [],
@@ -373,7 +446,18 @@
       "detail": [
         "The catalogue's own divisions, explore all, courses, and lessons, aren't distinguished elsewhere in the app."
       ],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Achievement",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Design School defines criteria that hold an unattained and an attained state, evaluates the user's activity against them, and preserves the result. The first certificate flipped from unattained to attained and produced both a badge state and a stored credential with an issue date (O21). The badge grid shows the unattained states directly, greyed out until earned (O23), and the certificates list preserves the attained one (O22). The attained state is distinct from the underlying activity: the certificate records satisfaction of the test criterion, not the test answers.",
+          "alternativeConsidered": "that the badges are only a display of the counters in O22, with no separate attained state. The greyed-to-earned change and the separately stored certificate rule this out. Milestone was the second reading of the same observations and is not applied; the reasoning sits in Entries considered and not applied.",
+          "role": "engagement, retention.\n\nThe badges and the certificate are earned inside the Design School surface and shape what the user does there (O20, O21), while the greyed higher tiers at three and five name the next reasons to come back (O23)."
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -423,7 +507,18 @@
         "The three routes: start a trial, buy a one-off licence with a credit, or download with the watermark retained.",
         "The gate sits at output, not at use: a whole design can be built with premium content before meeting it."
       ],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Hard Currency",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "The product maintains a quantified balance of product-defined units, displayed as \"credits available: 0\", with a defined result obtainable by spending them, \"1x premium image, 1 credit\", and a paid acquisition path in eight priced packages (O33, O47). This is the most specific applicable label; its parent entry, Spendable Credits and Tokens, is preserved rather than applied separately. Presence is asserted from the product's own framing of a credit balance and its exchange price. Behavior detail is not: no purchase was completed, no spend was observed, and whether the balance persists between designs was not shown (O33).",
+          "alternativeConsidered": "the one-off Pro content licence at O46, which resolves the same premium element for a single payment. That is a direct purchase and not this balance, since it creates no stored units; the two sit on the same surface as separate routes.",
+          "role": "monetization.\n\nThe credits exist only to move money to Canva for premium elements: they are bought, never earned, and priced per element at the point of export (O33, O47)."
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -591,6 +686,16 @@
       ],
       "tags": [
         {
+          "name": "Achievement",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Design School defines criteria that hold an unattained and an attained state, evaluates the user's activity against them, and preserves the result. The first certificate flipped from unattained to attained and produced both a badge state and a stored credential with an issue date (O21). The badge grid shows the unattained states directly, greyed out until earned (O23), and the certificates list preserves the attained one (O22). The attained state is distinct from the underlying activity: the certificate records satisfaction of the test criterion, not the test answers.",
+          "alternativeConsidered": "that the badges are only a display of the counters in O22, with no separate attained state. The greyed-to-earned change and the separately stored certificate rule this out. Milestone was the second reading of the same observations and is not applied; the reasoning sits in Entries considered and not applied.",
+          "role": "engagement, retention.\n\nThe badges and the certificate are earned inside the Design School surface and shape what the user does there (O20, O21), while the greyed higher tiers at three and five name the next reasons to come back (O23)."
+        },
+        {
           "name": "Shareable Win",
           "confidence": "directly observed",
           "confidences": [
@@ -665,7 +770,18 @@
         "The offer states both the smallest unit, the one image already in the design, and the largest, the full library, on the same screen.",
         "The same watermark removal prompt appears again at second save and again at website publishing."
       ],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Hard Currency",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "The product maintains a quantified balance of product-defined units, displayed as \"credits available: 0\", with a defined result obtainable by spending them, \"1x premium image, 1 credit\", and a paid acquisition path in eight priced packages (O33, O47). This is the most specific applicable label; its parent entry, Spendable Credits and Tokens, is preserved rather than applied separately. Presence is asserted from the product's own framing of a credit balance and its exchange price. Behavior detail is not: no purchase was completed, no spend was observed, and whether the balance persists between designs was not shown (O33).",
+          "alternativeConsidered": "the one-off Pro content licence at O46, which resolves the same premium element for a single payment. That is a direct purchase and not this balance, since it creates no stored units; the two sit on the same surface as separate routes.",
+          "role": "monetization.\n\nThe credits exist only to move money to Canva for premium elements: they are bought, never earned, and priced per element at the point of export (O33, O47)."
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -693,7 +809,18 @@
         "A single credit at $1.99 costs about double the one-off licence that resolves the same result.",
         "Buying premium elements asks for card details rather than the faster payment option offered at sign-in."
       ],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Hard Currency",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "The product maintains a quantified balance of product-defined units, displayed as \"credits available: 0\", with a defined result obtainable by spending them, \"1x premium image, 1 credit\", and a paid acquisition path in eight priced packages (O33, O47). This is the most specific applicable label; its parent entry, Spendable Credits and Tokens, is preserved rather than applied separately. Presence is asserted from the product's own framing of a credit balance and its exchange price. Behavior detail is not: no purchase was completed, no spend was observed, and whether the balance persists between designs was not shown (O33).",
+          "alternativeConsidered": "the one-off Pro content licence at O46, which resolves the same premium element for a single payment. That is a direct purchase and not this balance, since it creates no stored units; the two sit on the same surface as separate routes.",
+          "role": "monetization.\n\nThe credits exist only to move money to Canva for premium elements: they are bought, never earned, and priced per element at the point of export (O33, O47)."
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -706,7 +833,18 @@
         "Both the one-credit price and the subscription pitch appear on the same screen.",
         "The number of elements quoted in this pitch, 90 million, differs from the 140 million quoted elsewhere for the same library."
       ],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Hard Currency",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "The product maintains a quantified balance of product-defined units, displayed as \"credits available: 0\", with a defined result obtainable by spending them, \"1x premium image, 1 credit\", and a paid acquisition path in eight priced packages (O33, O47). This is the most specific applicable label; its parent entry, Spendable Credits and Tokens, is preserved rather than applied separately. Presence is asserted from the product's own framing of a credit balance and its exchange price. Behavior detail is not: no purchase was completed, no spend was observed, and whether the balance persists between designs was not shown (O33).",
+          "alternativeConsidered": "the one-off Pro content licence at O46, which resolves the same premium element for a single payment. That is a direct purchase and not this balance, since it creates no stored units; the two sit on the same surface as separate routes.",
+          "role": "monetization.\n\nThe credits exist only to move money to Canva for premium elements: they are bought, never earned, and priced per element at the point of export (O33, O47)."
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },

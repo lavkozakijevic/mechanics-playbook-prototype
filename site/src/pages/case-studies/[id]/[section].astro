@@ -1,7 +1,7 @@
 ---
 import Base from "../../../layouts/Base.astro";
 import CaseStudySectionV41 from "../../../components/site/CaseStudySectionV41.astro";
-import { publishedApps } from "../../../lib/content";
+import { publishedApps, publishedMechanics } from "../../../lib/content";
 import { nonEmptySections } from "../../../lib/v41";
 
 export async function getStaticPaths() {
@@ -16,6 +16,8 @@ export async function getStaticPaths() {
 
 const { app, section } = Astro.props;
 const sectionName = nonEmptySections(app.data).find((s) => s.slug === section)?.name ?? section;
+const mechanics = await publishedMechanics();
+const mechanicsById = new Map(mechanics.map((m) => [m.data.id, m.data]));
 ---
 
 <Base
@@ -23,5 +25,5 @@ const sectionName = nonEmptySections(app.data).find((s) => s.slug === section)?.
   description={app.data.summary.slice(0, 155)}
   current="case-studies"
 >
-  <CaseStudySectionV41 app={app.data} section={section} />
+  <CaseStudySectionV41 app={app.data} section={section} mechanicsById={mechanicsById} />
 </Base>
