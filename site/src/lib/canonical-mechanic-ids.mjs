@@ -85,6 +85,7 @@ export const CANONICAL_MECHANIC_IDS = {
   "Piggy Bank": "piggy-bank",
   "Progression Fund": "progression-fund",
   "Progression Gate": "progression-gate",
+  "Purchase Ladder": "purchase-ladder",
   "Referral Boost": "referral-boost",
   "Reward Multiplier": "reward-multiplier",
   "Rewarded Advertisement": "ads", // the only entry mapping to "ads" since Advertisement Exposure's retirement, 13 Sep 2026

@@ -1,0 +1,34 @@
+{
+  "id": "purchase-ladder",
+  "n": "41",
+  "name": "Purchase Ladder",
+  "cat": "monetization",
+  "tagline": "An ordered sequence of separately bought offers where a later position stays locked until every purchase beneath it has been made.",
+  "desc": "A purchase ladder orders two or more separately acquired offers so that a position higher up cannot be taken until every position beneath it has been acquired, and at least one of those lower positions requires an actual purchase. Reaching a stated endpoint therefore costs the sum of whatever was bought below it, regardless of what price sits on the endpoint itself, even a free one. What makes this a distinct mechanic rather than ordinary pricing is the lock: a shelf of currency packages or subscription tiers that can each be bought directly, in any order, however steeply priced or however clearly the largest is marked best value, is not a purchase ladder. The same shelf becomes one the moment a tier can only be reached by first buying the tier below it.",
+  "principle": "The purchase is the advancement. Nothing the product does on its own moves the user up the sequence; only buying the position beneath the next one does.",
+  "players": [
+    "achiever"
+  ],
+  "warn": "The label is easy to misapply toward an ordinary tiered price list: ascending prices, a best-value badge, and a shelf deliberately arranged to steer the buyer upward are all ordinary price design, and none of them is this mechanic without an actual lock stopping a later tier from being bought on its own. The risk runs the other way too: a free or cheap-looking position at the top of a locked sequence is easy to read as a giveaway, when its real price is the sum of everything purchased to reach it.",
+  "variants": [
+    "Fully paid ladder, every position in the sequence requires a purchase, and each one unlocks the next",
+    "Mixed ladder, free and purchased positions sit on either side of one another, with at least one purchase still standing between the user and the positions above it",
+    "Free-endpoint ladder, the terminal position is free or nominally priced and is reached only by purchasing the positions below it",
+    "Threshold ladder, a position opens after a stated number of purchases of a repeatable offer rather than after one named position",
+    "Variable-content ladder, the contents of one or more positions aren't fully resolved before that position is acquired"
+  ],
+  "lifecycle": "Needs at least two separately acquired offers and a purchase already standing as a condition on one of them before there's a sequence to speak of. Most consequential once a user is looking at a visible endpoint they can't yet reach, with the cost of getting there already spent below it rather than stated on the position itself.",
+  "paired": [
+    "first-purchase-bonus",
+    "progression-fund",
+    "monthly-card"
+  ],
+  "context": [
+    "monetization"
+  ],
+  "sdt": [
+    "ownership",
+    "scarcity"
+  ],
+  "visibility": "public"
+}
