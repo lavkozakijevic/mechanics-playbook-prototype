@@ -45,7 +45,6 @@ Cleo is a medium complexity system built around one connection made during onboa
 - The review streak reads zero before any review and one right after the first is completed.
 - Completing a review is paired with a line encouraging the user to return tomorrow to keep the streak alive.
 - The game's stats screen shows a streak of one alongside a 0% knowledge score and one recorded play.
-- What causes either streak to reset or break isn't shown.
 
 **Screenshots needed:** the habits header showing the review streak at zero before the first review; the same header after it moves to one; the game stats screen showing the streak next to knowledge score and play count.
 
@@ -330,7 +329,6 @@ Game stats shows a knowledge score of 0%, one play, a second counter also at zer
 
 - These stats follow a single play in which the user's answers were marked incorrect.
 - The streak reads one even though the knowledge score is 0%.
-- What increases or resets the streak isn't shown.
 
 ### O35. Review streak
 

@@ -2056,7 +2056,7 @@
       "name": "Daily / Weekly Quests",
       "observed": "Once the tasks section unlocks, Capybara Go runs two parallel objective tracks. Daily tasks ask for specific actions, a Black Market purchase, opening three chests, clearing a stage, entering the Arena, and completing them advances a daily reward track with its own claimable prizes. Those same daily completions also count toward a separate weekly track with its own levels to reach before the week ends.",
       "presented": "The tasks screen sits behind the sidebar's hamburger menu and separates completed tasks from open ones, with a toggle switching between the daily and weekly views and a countdown to the next reset.",
-      "noting": "The daily task list can include an objective the player cannot yet complete, entering the Arena, since Arena itself unlocks two chapters later than tasks do. Capybara Go points its return mechanic at features the player hasn't reached yet as readily as at ones already available.",
+      "noting": "The daily task list can include an objective the player cannot yet complete, entering the Arena, since Arena itself unlocks two chapters later than tasks do. Capybara Go points its return mechanic at features the player hasn't yet unlocked as readily as at ones already available.",
       "findings": [
         "Tasks unlock only with the third chapter, not with the rest of the mid-game feature set.",
         "Daily completions feed both a daily reward track and a separate weekly track.",

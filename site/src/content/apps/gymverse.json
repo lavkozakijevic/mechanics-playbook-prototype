@@ -487,7 +487,7 @@
         "The pass runs seven days and required no payment information.",
         "The only gate-like surface reached was the premium control, which opens the paywall rather than gating a feature the user had tried to use.",
         "No level gate, prerequisite, or unlock condition appeared anywhere.",
-        "What Gymverse withholds once the seven days end wasn't reached in this analysis."
+        "We did not cover what happens once Gymverse's seven-day pass ends in this analysis."
       ],
       "tags": [],
       "crossRefs": [],
@@ -775,7 +775,7 @@
     "overview": "Gymverse's real system is a dependency chain the mechanics library has no tag for: nineteen onboarding screens collect parameters that build a calendar and a workout plan, and a paywall opens the moment that build finishes, before the user has done anything. Refusing it grants seven days of full access with no payment details, which is what makes the rest of the product reachable at all. Once inside, the two mechanics this analysis can actually tag, Achievement and Shareable Win, sit off to the side of that spine rather than on it: an Achievements surface named but never opened, and a set of composed images built from the product's own records of the user and routed to leave it.",
     "loop": "The loop is: answer nineteen onboarding questions, several of which return the same reassuring copy regardless of the answer given, arrive at a paywall before anything has been used, decline it and receive seven days of full access, enter a plan already built from the onboarding answers, work through a fixed warm-up, exercise, and stretch sequence with rest opening automatically between sets, and reach a completion screen that reports muscles worked and previews next week, offered as a shareable image alongside a separate Achievements surface that stays unopened.",
     "keyInsight": "The product's continuity language is everywhere and the continuity mechanic is nowhere. Onboarding calls out staying motivated and consistent, the frequency question states a minimum to build consistency, the notification permission is framed as never missing a workout, and a notification mid-app addresses a lapsed-training answer directly. None of it is backed by anything that counts a run, distinguishes an unbroken sequence from a gapped one, or would cost the user something for stopping. A missed day changes nothing this analysis found.",
-    "whatMakesItWork": "Gymverse doesn't need the two applied mechanics to carry the product, because the plan itself, un-tagged as it is, is the whole spine: onboarding builds it, the paywall prices it, refusing the paywall unlocks it, and the calendar and workout screens execute it. Achievement and Shareable Win sit at the edges of that spine rather than inside it, one unopened, one built to leave. The social layer isn't thin, it's absent, and nothing in this record shows the product doing anything to make a lapse cost the user something.",
+    "whatMakesItWork": "Gymverse doesn't need the two applied mechanics to carry the product, because the plan itself, un-tagged as it is, is the whole spine: onboarding builds it, the paywall prices it, refusing the paywall unlocks it, and the calendar and workout screens execute it. Achievement and Shareable Win sit at the edges of that spine rather than inside it, one unopened, one built to leave. The social layer isn't thin, it's absent, and the product does nothing to make a lapse cost the user something.",
     "roles": [
       {
         "id": "achievement",

@@ -299,7 +299,7 @@ Dismissing the paywall granted full access to Gymverse's features with no string
 - The pass runs seven days and required no payment information.
 - The only gate-like surface reached was the premium control, which opens the paywall rather than gating a feature the user had tried to use.
 - No level gate, prerequisite, or unlock condition appeared anywhere.
-- What Gymverse withholds once the seven days end wasn't reached in this analysis.
+- We did not cover what happens once Gymverse's seven-day pass ends in this analysis.
 
 ---
 

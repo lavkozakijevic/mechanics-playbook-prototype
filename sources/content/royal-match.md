@@ -361,7 +361,7 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 
 **How it is presented:** The ladder sits inside the same offer stack Royal Match uses for its other live events, appearing on the home screen and again in the shop, with a two-day twelve-hour countdown attached and each claimed rung revealing the next.
 
-**What is worth noting:** The instruction to claim each rung to unlock the next states the lock plainly, but the paid rung is never actually bought in this record, so what carries the tag is the surface's own claim-each-to-unlock framing rather than the lock being met directly. That's enough to apply the label, but not enough to call it more than a good read of the surface's own rule: what actually happens to the five free rewards beyond the paid rung for a player who never buys it is stated by Royal Match, not confirmed by anything shown happening.
+**What is worth noting:** The instruction to claim each rung to unlock the next states the lock plainly, but the paid rung is never actually bought here, so what carries the tag is the surface's own claim-each-to-unlock framing rather than the lock being met directly. That's enough to apply the label, but not enough to call it more than a good read of the surface's own rule: what actually happens to the five free rewards beyond the paid rung for a player who never buys it is stated by Royal Match, not shown happening.
 
 **Key findings:**
 
@@ -369,7 +369,7 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 - Eight rungs are free; the fourth costs 2.99.
 - The five rewards beyond the paid rung are reachable only by claiming it first, per the surface's own stated rule.
 - The ladder sits in the same offer stack as Royal Match's other live events, on the home screen and in the shop.
-- The paid rung is never purchased in this record, so the lock is read from the surface's framing rather than met directly.
+- The paid rung is never purchased here, so the lock is read from the surface's framing rather than met directly.
 
 **Screenshots needed:** the Easter Treasures ladder showing the free rungs, the priced rung, and the claim-to-unlock instruction.
 

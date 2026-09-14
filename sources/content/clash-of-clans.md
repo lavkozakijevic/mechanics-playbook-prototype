@@ -213,7 +213,7 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 - The reserve caps at 2 million gold, 2 million elixir, 20,000 dark elixir, and 800,000 of each second-village currency.
 - A paid pass perk multiplies the reserve's contents by five at release.
 - The free lane carries no such multiplier.
-- A season-end message confirmed a release occurred, paying out accumulated rewards.
+- A season-end message stated that a release occurred, paying out accumulated rewards.
 
 **Screenshots needed:** the pass screen describing the reserve and its multiplier perk.
 

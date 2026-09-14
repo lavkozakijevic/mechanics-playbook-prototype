@@ -55,7 +55,7 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 
 **How it is presented:** The tasks screen sits behind the sidebar's hamburger menu and separates completed tasks from open ones, with a toggle switching between the daily and weekly views and a countdown to the next reset.
 
-**What is worth noting:** The daily task list can include an objective the player cannot yet complete, entering the Arena, since Arena itself unlocks two chapters later than tasks do. Capybara Go points its return mechanic at features the player hasn't reached yet as readily as at ones already available.
+**What is worth noting:** The daily task list can include an objective the player cannot yet complete, entering the Arena, since Arena itself unlocks two chapters later than tasks do. Capybara Go points its return mechanic at features the player hasn't yet unlocked as readily as at ones already available.
 
 **Key findings:**
 

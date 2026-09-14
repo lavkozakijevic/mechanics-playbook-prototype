@@ -103,6 +103,22 @@ const PATTERNS = [
   ["observed", /\bobserved\b/i],
   ["was not shown", /\bwas not shown\b/i],
   ["in this review", /\bin this review\b/i],
+  ["in this record", /\bin this record\b/i],
+  ["not reached", /\b(?:not|wasn't|isn't|hasn't)\s+reached\b/i],
+  ["not established", /\b(?:not|wasn't|isn't)\s+established\b/i],
+  // "confirmed" itself stays off this list deliberately (owner ruling, 16
+  // Sep 2026): the word appears 28 times across the nine v4.1 content files
+  // in its confirm/confirms/confirming/confirmation/confirmed forms, and
+  // all but the handful of genuine leaks are ordinary product language (a
+  // confirmation screen, the app asking the user to confirm something) —
+  // banning the bare word would reproduce the exact false-positive problem
+  // "session" already has on this same check. These three narrow,
+  // collocation-specific patterns catch the analyst-voice shape actually
+  // found (the write-up vouching for its own claim) without touching any
+  // of the 27 legitimate uses.
+  ["confirmed here", /\bconfirmed here\b/i],
+  ["not confirmed by", /\bnot confirmed by\b/i],
+  ["a confirmed behavior", /\ba confirmed behaviors?\b/i],
 ];
 
 function visibleText(html) {

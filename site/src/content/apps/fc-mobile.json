@@ -3014,7 +3014,7 @@
       "name": "Experience Points",
       "observed": "FC Mobile grants XP from nearly every activity, matches, missions, drafts and skill games, and spends it entirely on advancing one account level; nothing about it lets the user choose what to buy with it. Star Pass credits and league points run the same shape on two further tracks: credits accumulate from Division Rivals and live events toward roughly sixty ordered positions and reset when a new season starts, and league points accumulate from members' combined activity toward the league's own next season level.",
       "presented": "The account level sits without a name or identity beyond its number, credited the moment a threshold is crossed, sometimes twice in immediate succession. Star Pass credits and league points each show a running total against the next position on their own track screens.",
-      "noting": "None of these three values can ever be spent on something the user picks; every one of them exists purely to cross a threshold. That's what keeps this distinct from the game's several currencies, and it's also why crossing two account levels back to back reads as a strange, almost accidental event rather than a designed one, since nothing else about the interface treats the level as something worth naming.",
+      "noting": "None of these three values can ever be spent on something the user picks; every one of them exists purely to cross a threshold. That's what keeps this distinct from the game's several currencies, and it's also why crossing two account levels back to back reads as a strange, almost accidental event rather than a designed one, since nothing else about the interface gives the level a name.",
       "findings": [
         "XP is earned from matches, missions, drafts and skill games and spent only on account level.",
         "Star Pass credits and league points satisfy the same measure-and-threshold shape on separate tracks.",
@@ -3056,13 +3056,13 @@
       "name": "Milestone",
       "observed": "FC Mobile recognizes two defined points inside broader activities with their own named rewards. The guess-the-player game carries its own milestone track, paying rewards for a stated count of correct guesses out of a full set of eight. Icon Chronicles pays three player items specifically for completing every entry in one chapter's set of stories, on top of whatever each individual entry already paid.",
       "presented": "Both milestones are named directly on their own tracks, guess-the-player states its progress toward the full set, and the Icon Chronicles chapter states its own completion reward separately from its ordinary per-task rewards.",
-      "noting": "FC Mobile also announces a whole separate milestone program in its news feed, inviting the user to start a \"milestone journey,\" but the program itself was never found anywhere in the product. That gap between the announcement and the actual feature is worth treating as a fact about the product rather than a hidden mechanic: what's confirmed here is the two working milestones on the guess-the-player and Icon Chronicles tracks, not the announced program.",
+      "noting": "FC Mobile also announces a whole separate milestone program in its news feed, inviting the user to start a \"milestone journey,\" but the program itself was never found anywhere in the product. That gap between the announcement and the actual feature is worth treating as a fact about the product rather than a hidden mechanic: what's real here is the two working milestones on the guess-the-player and Icon Chronicles tracks, not the announced program.",
       "findings": [
         "The guess-the-player activity pays rewards for a stated count of correct guesses toward a full set of eight.",
         "Icon Chronicles pays three player items for completing one chapter's full set of stories.",
         "Both rewards sit on top of whatever the individual steps inside them already pay.",
         "A separate \"milestone program\" is announced in the news feed but was never located anywhere in the product.",
-        "Neither of the two confirmed milestones was actually reached in this record."
+        "Neither of the two working milestones was actually completed during play."
       ],
       "screenshotsNote": "the guess-the-player milestone track showing progress toward the full set; the Icon Chronicles chapter-completion reward screen."
     },
@@ -3084,7 +3084,7 @@
       "name": "Daily / Weekly Quests",
       "observed": "FC Mobile issues a set of four daily tasks that reset on a recurring boundary, with any single task swappable for a small gem cost. Alongside it, a seven-day kickoff mission program issues a fresh set of tasks each day on its own unlock schedule, running in parallel with a separate five-day event mission set that tracks completions of some of the same actions independently.",
       "presented": "Each day's tasks show a live completion counter and reward, with the next day's set stated to unlock on its own timer, from eight hours out to several days for the later ones in the kickoff sequence.",
-      "noting": "Running two mission programs in parallel, the kickoff set and the event set, over the same actions but tracking their completion separately, is worth flagging as a design choice with a real cost: the product's own record shows one action being counted by one program and not the other, which is exactly the kind of mismatch a player has no way to reconcile from the interface alone.",
+      "noting": "Running two mission programs in parallel, the kickoff set and the event set, over the same actions but tracking their completion separately carries a real cost: the product's own record shows one action being counted by one program and not the other, which is exactly the kind of mismatch a player has no way to reconcile from the interface alone.",
       "findings": [
         "Four daily tasks reset on a recurring boundary, and any one can be swapped for 10 gems.",
         "A seven-day kickoff mission program issues a new task set each day on its own unlock timer.",
@@ -3098,7 +3098,7 @@
       "name": "Seasonal Progression Pass",
       "observed": "FC Mobile's Star Pass runs roughly sixty ordered reward positions advanced by credits earned in Division Rivals and live events, paying a free reward at each position and a larger one on a second, purchased lane. The pass states its own season boundary directly, resetting the credit count when a new season starts. A second, similarly shaped pass runs for nine days inside a themed event alongside it.",
       "presented": "The track shows every position's reward and the credit total needed to reach it, with the purchase control for the paid lane routed out to a separate store screen rather than offered on the pass itself.",
-      "noting": "Sending the purchase control to a different screen than the one it's advertised on is a real point of friction worth naming, since it's also where the product loses a piece of information a buyer would want: nothing anywhere states how many of the sixty-odd positions a bundled credit purchase actually buys.",
+      "noting": "Sending the purchase control to a different screen than the one it's advertised on is a real point of friction, since it's also where the product loses a piece of information a buyer would want: nothing anywhere states how many of the sixty-odd positions a bundled credit purchase actually buys.",
       "findings": [
         "The Star Pass runs roughly sixty ordered positions with a free lane and a purchased lane.",
         "Credits are earned from Division Rivals and live events and reset when a new season starts.",
@@ -3112,7 +3112,7 @@
       "name": "Set Collection",
       "observed": "FC Mobile tracks three named player collections member by member: one with 71 players across 2 groups, one with 100 players across 4 groups, and one with 145 players across 3 groups. Sub-groups inside each set name their required members individually, with their own reward for completing that specific group. Completed sets from past seasons stay visible in a history tab, where their players can still be activated even after the set's own boost has expired.",
       "presented": "Each collection shows a running count of members held against the full set, with sub-groups listed by name and required members shown individually rather than only as a total.",
-      "noting": "Preserving old, expired sets in a browsable history rather than removing them once their season ends is a specific design choice worth noting on its own: it keeps a completed collection meaningful to look at even after the reward attached to it has stopped paying anything.",
+      "noting": "Preserving old, expired sets in a browsable history rather than removing them once their season ends keeps a completed collection meaningful to look at even after the reward attached to it has stopped paying anything.",
       "findings": [
         "Three named collections track 71, 100, and 145 players respectively, split into named sub-groups.",
         "Sub-groups name their required members individually and pay their own separate reward.",
@@ -3126,7 +3126,7 @@
       "name": "Companion",
       "observed": "Player items in FC Mobile are held separately from the account, persist between matches, and are acquired through the starting-squad grant, packs, drafts, exchanges and the transfer market. A limited number of active positions, eleven starters plus substitutes and a purchasable extra lineup, determines which held players actually take part, and each one carries its own overall rating, training level, rank-up level, allocatable skill points, traits and skill-move level.",
       "presented": "A player's detail screen holds its own summary, attributes, traits and transfer tabs, with training and rank-up spending other players and a purchased material to raise those numbers.",
-      "noting": "The fact that developing one player consumes other players as material is worth stating plainly, since it turns the whole squad into one interconnected resource rather than a set of separately owned items: acquiring a low-value player is also acquiring training material for a different one.",
+      "noting": "Developing one player consumes other players as material, which turns the whole squad into one interconnected resource rather than a set of separately owned items: acquiring a low-value player is also acquiring training material for a different one.",
       "findings": [
         "Player items persist between matches and are acquired through six distinct routes.",
         "A limited number of active positions determines which held players actually play.",
@@ -3140,7 +3140,7 @@
       "name": "Loot Box",
       "observed": "FC Mobile's drafts consume a voucher and resolve to one of a stated player pool, publishing pity rules directly, such as a guaranteed pool-B-or-higher result within eleven draws. Store packs commit money or currency before their contents resolve, and several of them publish per-item odds; one event pack states a 1.55 percent chance at its top result, while a separate box built from crafted tickets publishes no odds for its contents at all.",
       "presented": "A pack or draft states its price and its guarantee, sometimes alongside a full probability breakdown, before the user commits, and resolves through a tap-to-open animation regardless of how the contents were paid for.",
-      "noting": "Publishing exact odds on some packs while publishing none at all on others, inside the same product, is worth flagging directly: a player comparing two offers has real information for one and none for the other, with no way to tell that difference until they've already looked.",
+      "noting": "Publishing exact odds on some packs while publishing none at all on others, inside the same product, means a player comparing two offers has real information for one and none for the other, with no way to tell that difference until they've already looked.",
       "findings": [
         "Drafts consume a voucher and resolve against a stated, pity-guaranteed pool.",
         "Several store packs publish exact per-item probabilities before purchase.",
@@ -3168,7 +3168,7 @@
       "name": "Soft Currency",
       "observed": "FC Mobile runs several balances earned through ordinary play and spent on product-defined results. Coins come from matches, packs, daily rewards and player sales, and are spent in the market and exchanges. Gems come from rewards, packs, advertisements and trivia, and price task refreshes, an extra lineup slot, skill moves, league creation and drafts. League tokens, UEFA Dream Chasers tokens and universal tokens each run the same earn-and-spend shape on their own separate scope.",
       "presented": "Each balance appears in its own dedicated exchange or store tab, priced against specific named purchases, with several of the campaign-specific tokens only appearing in the interface once an offer priced in them is actually opened.",
-      "noting": "A token only becoming visible once an offer priced in it is opened is worth stating directly as a real gap: a player can hold, or be offered, a balance that never actually appears anywhere on their own screen until that exact moment.",
+      "noting": "A token only becomes visible once an offer priced in it is opened, a real gap: a player can hold, or be offered, a balance that never actually appears anywhere on their own screen until that exact moment.",
       "findings": [
         "Coins are earned from matches, packs, daily rewards and player sales, spent in the market and exchanges.",
         "Gems are earned from rewards, packs, ads and trivia, spent on refreshes, lineup slots, skill moves and drafts.",
@@ -3182,7 +3182,7 @@
       "name": "Hard Currency",
       "observed": "FC Mobile sells FC points directly for money across seven price points in two separate tabs, and sells a second currency, silver, stated to come from a third-party payment store the product never actually shows. Both purchased balances are stored and later spent on packs, vouchers, rank-up points, coin packs, an extra lineup slot and gems.",
       "presented": "FC points appear in their own store tab priced against real money at fixed tiers, while silver's own tab mirrors the same offers priced in silver instead, with no purchase route into silver visible anywhere in the interface.",
-      "noting": "Selling a whole tab of offers in a currency the product itself never shows a way to buy is worth naming precisely: it isn't a hidden feature so much as a currency whose only observable behavior is what it costs to spend, with its acquisition route resting entirely on the product's own unverified statement.",
+      "noting": "Selling a whole tab of offers in a currency the product itself never shows a way to buy isn't a hidden feature so much as a currency whose only observable behavior is what it costs to spend, with its acquisition route resting entirely on the product's own unverified statement.",
       "findings": [
         "FC points are sold for money across seven price points in two separate tabs.",
         "Silver mirrors the same offers, priced in silver, with no purchase route appearing anywhere.",
@@ -3196,7 +3196,7 @@
       "name": "Rewarded Advertisement",
       "observed": "Watching an advertisement is one of FC Mobile's four daily tasks, paying gems, Star Pass credit and event pieces on completion. A separate gems pack pays for watching an ad up to three times a day. A league quest specifically requires members to watch advertisements as a collective task, and the guess-the-player game offers an extra hint for watching one.",
       "presented": "Each of these sits inside the product's ordinary task and quest lists rather than as a separate advertising surface, stated alongside its exact reward before the user watches.",
-      "noting": "Putting \"watch one ad\" inside the same daily task list as ordinary play, and inside a league quest that other members are counting on, treats advertisement viewing as regular product activity rather than something set apart, which is worth stating as a specific design choice rather than an incidental placement.",
+      "noting": "The ad sits inside the daily task list, inside a league quest other members depend on, and pays the same currencies as ordinary play.",
       "findings": [
         "Watching an ad is one of four daily tasks, paying gems, Star Pass credit and event pieces.",
         "A separate gems pack pays for watching an ad up to three times a day.",
@@ -3214,7 +3214,7 @@
         "One login calendar grants a reward per day opened, with bonus rewards at set positions.",
         "A second, separate login panel counts down to its own refresh across a ten-day set.",
         "Past days on the first calendar grey out and can't be reopened or inspected.",
-        "What a missed day does to either sequence isn't established.",
+        "What a missed day does to either sequence isn't stated.",
         "The first calendar's reward sometimes delivers with the pack animation and sometimes without it."
       ],
       "screenshotsNote": "the daily login calendar showing claimed, current and upcoming days; the second login panel's countdown."
@@ -3223,12 +3223,11 @@
       "name": "Daily Claim Pack",
       "observed": "Two purchased cards each grant an immediate reward and then a further daily reward for the following thirty days: one paying 200 FC points immediately and 1,000 gems a day, the other 500 FC points immediately and 1,500 gems plus 30 rank-up points a day. A separate ten-dollar purchase opens a similar thirty-day reward calendar tied to the real date of an upcoming tournament final.",
       "presented": "Each is sold as a single purchase in the store, stating its immediate grant and its daily amount together, with the tournament-tied version framed around the calendar's remaining days rather than around the purchase itself.",
-      "noting": "The product's own stated framing for the tournament-tied calendar is that every day's reward unlocks whether or not the user logs in, which is worth carrying forward as the product's claim rather than a confirmed behavior, since no missed day actually appears in this record.",
+      "noting": "The product's own stated framing for the tournament-tied calendar is that every day's reward unlocks whether or not the user logs in — that's the product's claim; no missed day occurs to test it.",
       "findings": [
         "Two monthly cards each grant an immediate reward plus a further amount daily for thirty days.",
         "A separate ten-dollar purchase opens a thirty-day calendar tied to a real tournament final's date.",
         "One activation governs the whole period in each case; nothing else needs to be bought again.",
-        "Whether the daily amount requires opening the app isn't stated on the monthly cards.",
         "The tournament-tied calendar states its rewards unlock regardless of login."
       ],
       "screenshotsNote": "the monthly card purchase screen stating its immediate and daily rewards; the tournament-tied reward calendar."
@@ -3237,7 +3236,7 @@
       "name": "Purchase Ladder",
       "observed": "FC Mobile runs three separate locked purchase sequences. Ten monthly streak packs from $0.39 to $29.99 must be bought strictly in order, with the product stating the rule outright. Four bestseller packs must be bought in ascending order, $0.99 through $9.99, before a free fifth position opens, so the free reward costs more than fifteen dollars to reach. A third sequence unlocks a free selectable gift only after five shard packs are bought, and a further free gift after ten bundles.",
       "presented": "Each sequence shows its full set of positions up front, stating plainly that a given position can only be bought once the one before it has been.",
-      "noting": "Naming a fully-paid, no-continuity sequence a \"streak\" is worth stating directly as a naming choice rather than a mechanic: nothing about the sequence resets, protects, or depends on consecutive days in any way, and the product's own copy states the rule as pure purchase order rather than habit.",
+      "noting": "Naming a fully-paid, no-continuity sequence a \"streak\" is a naming choice, not a mechanic: nothing about the sequence resets, protects, or depends on consecutive days in any way, and the product's own copy states the rule as pure purchase order rather than habit.",
       "findings": [
         "Ten monthly streak packs must be bought strictly in order, from $0.39 to $29.99, with no continuity condition attached.",
         "Four bestseller packs must be bought in ascending order before a free fifth position opens, costing over $15 to reach.",
@@ -3292,7 +3291,7 @@
       "name": "Leaderboard",
       "observed": "FC Mobile orders leagues against each other twice over, on a group leaderboard of twenty leagues with promotion and relegation, and on a worldwide ranked leaderboard showing the top leagues globally. A separate weekly leaderboard orders head-to-head players by match wins once enough competitors exist, closing on a countdown and paying by final position.",
       "presented": "Each leaderboard shows a full ordered list rather than only the user's own position, with the group and worldwide league boards each showing rank, score and, when opened, a league's own member list.",
-      "noting": "Running a group leaderboard with promotion and relegation alongside a separate global leaderboard means a league's standing has two different, independently meaningful numbers behind it at once, worth keeping distinct rather than treating as one ranking.",
+      "noting": "Running a group leaderboard with promotion and relegation alongside a separate global leaderboard means a league's standing has two different, independently meaningful numbers behind it at once.",
       "findings": [
         "A group leaderboard orders twenty leagues with promotion and relegation between groups.",
         "A separate worldwide leaderboard ranks the top leagues globally.",
@@ -3306,7 +3305,7 @@
       "name": "Comparative Rank",
       "observed": "FC Mobile states specific standings that depend on other entities' results. The user's own league sits at roughly 600,000th globally, with its point total shown directly against the leading league's. Inside the league, a season summary states each member's own contribution ranking. Before a first head-to-head match, the state reads plainly that the user isn't ranked yet.",
       "presented": "Each of these states the position as a fact on its own screen, alongside the value it's measured against, rather than requiring the user to compare it themselves against a full list.",
-      "noting": "Showing the pre-ranked state explicitly, rather than just hiding the ranking screen until a first match is played, is worth noting as a distinct choice: the product tells the user directly that they don't have a position yet rather than leaving that absence to be inferred.",
+      "noting": "Showing the pre-ranked state explicitly, rather than just hiding the ranking screen until a first match is played, is a distinct choice: the product tells the user directly that they don't have a position yet rather than leaving that absence to be inferred.",
       "findings": [
         "The user's league is placed at roughly 600,000th globally, shown against the leading league's point total.",
         "Members are individually ranked by contribution inside their own league.",
@@ -3320,7 +3319,7 @@
       "name": "Shareable Win",
       "observed": "FC Mobile composes a league's own record, its founding date, total overall, activity, goals, quests, tournament wins and standing, into a single card and hands it to the device's own sending options, letting the user choose which app to send it through. No destination inside the product is offered for it.",
       "presented": "The card is built from the league's badge screen through its own dedicated share control, distinct from the separate control that posts a finished match's result into the league itself.",
-      "noting": "The distinction between the two share routes on this same screen is worth stating precisely, since they point in opposite directions: posting a match result stays inside the product for other league members to see, while this card is built specifically to leave the product for people who aren't in the league at all.",
+      "noting": "The two share routes on this same screen point in opposite directions: posting a match result stays inside the product for other league members to see, while this card is built specifically to leave the product for people who aren't in the league at all.",
       "findings": [
         "The league badge screen composes founding date, overall, activity, goals, quests, tournament wins and standing into one card.",
         "The card is handed to the device's own sending options, with no destination named inside the product.",
