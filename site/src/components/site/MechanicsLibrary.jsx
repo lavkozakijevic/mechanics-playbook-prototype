@@ -2,18 +2,25 @@
  * Rows and cards are pre-rendered by Astro in pages/mechanics/index.astro;
  * this island adds show/hide filtering via DOM data attributes.
  *
- * Category, product context, and user type all filter whole rows (spec §3
- * rebuild, 14 Sep 2026, owner correction): each is a property of the
- * mechanic, read from data-cat/data-contexts/data-players on [data-tag-row]
- * itself, same as before this rebuild — the only thing that changed under
- * them is that a row now holds a card grid instead of being the card.
- * Role is different on purpose: it's a property of the implementation, not
- * the mechanic, so it filters individual [data-role-card] elements within a
- * row rather than the row's own data attributes, multi-select OR (any
- * selected role present on the card's own data-roles matches), and a row
- * left with zero visible cards after that hides too — but only once a role
- * filter is actually active; a row's own natural zero-implementations state
- * is not itself a filter result and stays visible until one is. */
+ * Two filters, doing different jobs (spec §3.4), each with its own heading
+ * and a one-line explanation rather than a bare word — Category, Role, and
+ * the old Product context filter all drew from overlapping vocabulary
+ * (retention/monetization/social/engagement/activation), with nothing on
+ * the page saying which one a reader was looking at (owner finding, 15 Sep
+ * 2026). Product context is removed entirely rather than relabeled: it was
+ * the pre-library freeform context vocabulary, never a defined list (spec
+ * §6.4 flags exactly this), and its values duplicate Category and Role.
+ *
+ * Category filters whole rows: it's a property of the mechanic, read from
+ * data-cat on [data-tag-row] itself. User type filters rows the same way,
+ * from data-players. Role is different on purpose: it's a property of the
+ * implementation, not the mechanic, so it filters individual
+ * [data-role-card] elements within a row rather than the row's own data
+ * attributes, multi-select OR (any selected role present on the card's own
+ * data-roles matches), and a row left with zero visible cards after that
+ * hides too — but only once a role filter is actually active; a row's own
+ * natural zero-implementations state is not itself a filter result and
+ * stays visible until one is. */
 import React, { useState, useEffect, useCallback } from "react";
 import { Input } from "../ds/Input.jsx";
 
@@ -53,17 +60,16 @@ function FilterRow({ active, dot, label, onClick }) {
  * inside each) from the DOM and toggles `hidden` based on the active filter
  * state. Never re-renders the row/card list — JavaScript is additive only.
  */
-export function MechanicsFilters({ contextOptions, playerOptions, roleOptions, total }) {
+export function MechanicsFilters({ playerOptions, roleOptions, total }) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("all");
-  const [contexts, setContexts] = useState([]);
   const [users, setUsers] = useState([]);
   const [roles, setRoles] = useState([]);
 
-  const active = !!(query || category !== "all" || contexts.length || users.length || roles.length);
+  const active = !!(query || category !== "all" || users.length || roles.length);
 
   const clearAll = useCallback(() => {
-    setQuery(""); setCategory("all"); setContexts([]); setUsers([]); setRoles([]);
+    setQuery(""); setCategory("all"); setUsers([]); setRoles([]);
   }, []);
 
   const toggle = (list, setList, value) =>
@@ -78,7 +84,6 @@ export function MechanicsFilters({ contextOptions, playerOptions, roleOptions, t
 
     rows.forEach((row) => {
       const cat = row.dataset.cat ?? "";
-      const ctxs = JSON.parse(row.dataset.contexts ?? "[]");
       const players = JSON.parse(row.dataset.players ?? "[]");
       const name = row.dataset.name ?? "";
       const def = row.dataset.def ?? "";
@@ -86,7 +91,6 @@ export function MechanicsFilters({ contextOptions, playerOptions, roleOptions, t
       let visible = true;
       if (q && !(name.includes(q) || def.includes(q))) visible = false;
       if (category !== "all" && cat !== category) visible = false;
-      if (contexts.length && !ctxs.some((t) => contexts.includes(t))) visible = false;
       if (users.length && !players.some((u) => users.includes(u))) visible = false;
 
       // Role filters cards, not the row itself — multi-select OR, any
@@ -110,6 +114,13 @@ export function MechanicsFilters({ contextOptions, playerOptions, roleOptions, t
 
       row.hidden = !visible;
       if (visible) shown++;
+
+      // The jump list at the top stays in sync with the rows it points to —
+      // a tag hidden by a filter isn't worth a link that would scroll to
+      // nothing currently on screen.
+      const rowId = row.dataset.tagRow;
+      const link = document.querySelector(`[data-tag-link="${rowId}"]`);
+      if (link) link.hidden = !visible;
     });
 
     const countEl = document.getElementById("lib-shown");
@@ -122,7 +133,7 @@ export function MechanicsFilters({ contextOptions, playerOptions, roleOptions, t
 
     const emptyEl = document.getElementById("lib-empty");
     if (emptyEl) emptyEl.hidden = shown > 0;
-  }, [query, category, contexts, users, roles, active]);
+  }, [query, category, users, roles, active]);
 
   // Wire the resultbar's reset button to the same clearAll
   useEffect(() => {
@@ -149,6 +160,7 @@ export function MechanicsFilters({ contextOptions, playerOptions, roleOptions, t
 
       <div className="fgroup" role="group" aria-label="Category">
         <span className="fgroup__label">Category</span>
+        <p className="fgroup__hint">A property of the mechanic itself.</p>
         <FilterRow active={category === "all"} dot="var(--ink-400)" label="All" onClick={() => setCategory("all")} />
         {Object.entries(CATS).map(([key, c]) => (
           <FilterRow key={key} active={category === key} dot={c.color} label={c.label} onClick={() => pickCategory(key)} />
@@ -157,15 +169,9 @@ export function MechanicsFilters({ contextOptions, playerOptions, roleOptions, t
 
       <div className="fgroup" role="group" aria-label="Role">
         <span className="fgroup__label">Role</span>
+        <p className="fgroup__hint">What it does in a specific app.</p>
         {(roleOptions || []).map((r) => (
           <FilterRow key={r} active={roles.includes(r)} label={fmt(r)} onClick={() => toggle(roles, setRoles, r)} />
-        ))}
-      </div>
-
-      <div className="fgroup" role="group" aria-label="Product context">
-        <span className="fgroup__label">Product context</span>
-        {(contextOptions || []).map((t) => (
-          <FilterRow key={t} active={contexts.includes(t)} label={fmt(t)} onClick={() => toggle(contexts, setContexts, t)} />
         ))}
       </div>
 

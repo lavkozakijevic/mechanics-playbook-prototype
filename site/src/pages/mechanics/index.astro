@@ -97,7 +97,6 @@ const rows = mechanics
   })
   .sort((a, b) => a.card.name.localeCompare(b.card.name));
 
-const contextOptions = [...new Set(mechanics.flatMap((m) => m.data.context ?? []))].map(titleCase);
 const playerOptions = [...new Set(mechanics.flatMap((m) => m.data.players ?? []))];
 
 const CATS: Record<string, { label: string; color: string }> = {
@@ -133,7 +132,6 @@ const ROLE_LABEL: Record<string, string> = {
           <!-- React island: filter controls only — no row/card rendering -->
           <MechanicsFilters
             client:load
-            contextOptions={contextOptions}
             playerOptions={playerOptions}
             roleOptions={ROLE_OPTIONS}
             total={rows.length}
@@ -150,21 +148,41 @@ const ROLE_LABEL: Record<string, string> = {
           </div>
 
           <!--
+            Tags across the top (spec §3.1), above the cards — a jump list,
+            alphabetical like the rows themselves, so a reader can reach a
+            mechanic without scrolling past the other 39. Selecting one
+            scrolls to that mechanic's row rather than filtering the page
+            down to it: the row grid below already shows every mechanic's
+            full card set at once (no landing/selected distinction yet, spec
+            §3.2/§3.3), so filtering to one row would be a bigger behavior
+            change than this jump list is meant to be, and .cs-toc's own
+            anchor-nav pattern (case study section pages) is the sitewide
+            precedent for exactly this "list at the top, click one, land on
+            it further down" shape. Kept in sync with the active filters via
+            data-tag-link, hidden alongside its row by the same effect.
+          -->
+          <nav class="tag-nav" aria-label="Jump to a mechanic">
+            {rows.map(({ card }) => (
+              <a class="tag-nav__item" href={`#tag-row-${card.id}`} data-tag-link={card.id}>{card.name}</a>
+            ))}
+          </nav>
+
+          <!--
             Every row and card is rendered here by Astro at build time —
             JavaScript is layered on top only for show/hide filtering
-            (data-tag-row for a row's own search/category/context/player
-            match, data-roles on each card for the role filter, which hides
-            cards individually and then hides a row left with none visible).
+            (data-tag-row for a row's own search/category/player match,
+            data-roles on each card for the role filter, which hides cards
+            individually and then hides a row left with none visible).
           -->
           <div class="tag-rows" id="tag-rows">
             {rows.map(({ card, cat, cards }) => {
               const RowTag = card.href ? "a" : "span";
               return (
                 <div
+                  id={`tag-row-${card.id}`}
                   class="tag-row"
                   data-tag-row={card.id}
                   data-cat={cat}
-                  data-contexts={JSON.stringify(card.contextTags ?? [])}
                   data-players={JSON.stringify(card.players ?? [])}
                   data-name={card.name.toLowerCase()}
                   data-def={card.definition.toLowerCase()}
