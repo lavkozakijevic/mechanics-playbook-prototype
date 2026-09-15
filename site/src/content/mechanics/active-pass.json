@@ -1,0 +1,34 @@
+{
+  "id": "active-pass",
+  "n": "46",
+  "name": "Active Pass",
+  "cat": "retention",
+  "tagline": "A recurring exchange that trades one performance of the product's target activity for a lapsing entitlement to something otherwise withheld, inside the product or outside it.",
+  "desc": "An active pass withholds something the user wants, a part of the product, another app, a device function, or outside content, until the user performs the activity the product exists to encourage. Performing it opens access for a defined period, amount of use, or condition, and once that entitlement runs out the restriction returns under the product's own rule until the activity is performed again. The exchange is what separates it from Progression Gate: a gate holds for as long as a measure the product advances stands at a stated value and is never revoked once crossed, while this entry's entitlement decays on its own terms and has to be bought again with a fresh performance of the activity. The withheld thing doesn't have to sit inside the product at all; it can be another app, a device function, or content the product only controls access to.",
+  "principle": "Access earned once and left standing teaches nothing about coming back. An entitlement that decays on its own schedule is what turns a single good session into a reason to perform the activity again rather than a box checked for good.",
+  "players": [
+    "achiever"
+  ],
+  "warn": "The boundary against Progression Gate is this entry's whole reason for existing, and it's easy to blur: ask what ends access, not what opens it. A gate holds for as long as a measure the product advances stands at its value and is never taken back once crossed; this entry's entitlement runs out on its own terms regardless of anything else the user has done, and must be bought again with a fresh performance. The same care applies to a restriction that only lifts on a timer or a schedule with no activity route at all, that's a plain lock rather than this mechanic, and to a purchased entitlement, which belongs under a paid-access label instead.",
+  "variants": [
+    "External app gate, the restricted thing is another app or service outside the product",
+    "Internal content gate, the restricted thing is part of the product's own content, a mode, a feature, or a set",
+    "Time-bounded entitlement, access lasts for a defined duration after it's earned",
+    "Use-bounded entitlement, access lasts for a defined amount of use of the restricted thing",
+    "Overridable gate, the product offers a route to open access without performing the activity, such as a skip or a purchase"
+  ],
+  "lifecycle": "Needs the target activity and the restriction both already defined before there's an exchange to run, so it has nothing to offer before either exists. Most visible in the stretch right after an entitlement lapses, when the withheld thing is freshly out of reach and performing the activity again is the only stated way back in.",
+  "paired": [
+    "progression-gate",
+    "streak",
+    "daily-weekly-quests"
+  ],
+  "context": [
+    "retention"
+  ],
+  "sdt": [
+    "competence",
+    "avoidance"
+  ],
+  "visibility": "public"
+}

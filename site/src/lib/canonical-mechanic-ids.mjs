@@ -61,6 +61,9 @@ export const CANONICAL_MECHANIC_IDS = {
   "Advertisement Exposure": null,
   "Daily / Weekly Quests": "daily-weekly-quests",
 
+  // New entry, 15 Sep 2026, from the Wakeout analysis.
+  "Active Pass": "active-pass",
+
   // Filled in 11 Sep 2026 to cover the remaining 25 library entries (see the
   // note above the first entry). None of these have been forced by a real
   // analysis heading yet — sources/taxonomy-map.md marks them "inferred".
