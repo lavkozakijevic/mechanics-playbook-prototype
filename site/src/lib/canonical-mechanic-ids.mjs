@@ -82,12 +82,20 @@ export const CANONICAL_MECHANIC_IDS = {
   "Minigame": "minigame",
   "Passive Construction": "passive-construction",
   "Personal Data Reflection": "personal-data-reflection",
+  "Future Projection": "future-projection",
   "Piggy Bank": "piggy-bank",
   "Profile Completion": "profile-completion",
   "Progression Fund": "progression-fund",
   "Progression Gate": "progression-gate",
   "Purchase Ladder": "purchase-ladder",
+  // Renamed from Referral Boost and widened, 14 Sep 2026: the invariant is now
+  // a reward conditional on a completion event by an introduced person, with
+  // the payout form (an enhancement, a separable credit, product currency, or
+  // ordinary money) as a variant rather than part of the definition. dave.md
+  // still applies the old name, so it has to keep resolving alongside the new
+  // one rather than being replaced by it.
   "Referral Boost": "referral-boost",
+  "Referral": "referral-boost",
   "Reward Multiplier": "reward-multiplier",
   "Rewarded Advertisement": "ads", // the only entry mapping to "ads" since Advertisement Exposure's retirement, 13 Sep 2026
   "Season Content Pass": "season-pass", // merges with Seasonal Progression Pass below

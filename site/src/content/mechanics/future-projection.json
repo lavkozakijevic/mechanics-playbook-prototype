@@ -1,0 +1,34 @@
+{
+  "id": "future-projection",
+  "n": "45",
+  "name": "Future Projection",
+  "cat": "retention",
+  "tagline": "A computed figure showing what the user's own position becomes at a stated future point under a stated assumption, given more prominence than the present value and restated whenever a commitment changes.",
+  "desc": "A future projection takes a position the product already holds for the user, a balance, a weight, a pace of lessons completed, and computes what it becomes at a stated horizon under a stated assumption, an average return, a continued pace, a fixed rate. The projected figure is shown at least as prominently as the present one, often leading with it, and the product restates it the moment the user raises or lowers a commitment, so a recurring deposit or a daily goal is answered with what that change does to the number at the horizon. Nothing about the figure is chosen by the user or recognized as reached by the product: it is a computation that updates as the assumption or the position changes, not a target crossed or a state kept.",
+  "principle": "A number placed at the horizon reframes a small present action as a large future difference. Restating the projection at the exact moment a commitment changes is what turns an abstract multiplier into a reason to raise it right now.",
+  "players": [
+    "achiever"
+  ],
+  "warn": "The label is easy to misapply to a scheduled certainty the product itself controls: a delivery date, an instalment amount, or a renewal date are stated timings, not projections, however far out they sit. It's just as easy to miss on a completed record, a running balance, or a chart of history dressed up with a large number or an upward arrow, none of which compute a value at a future point under an assumption. Confirm a stated horizon and a stated assumption sit behind the figure before treating a big future-looking number as this mechanic operating, and disclose the assumption prominently, since an illustrative figure read as a promise is where this mechanic turns manipulative.",
+  "variants": [
+    "Monetary projection, the projected value is an amount of money",
+    "Date projection, the projection returns a completion, payoff, or arrival date rather than an amount",
+    "Pace projection, the assumption is the continuation of the user's own recent activity rather than a published rate",
+    "Illustrative projection, the product states the figure is for illustration and does not represent an expected result",
+    "Shortfall projection, the projection is presented against a target so the figure read is the gap rather than the total"
+  ],
+  "lifecycle": "Needs a position, a horizon, and an assumption already established before there's anything to project, so it has nothing to show a brand-new account with no balance, pace, or history yet. Most persuasive right when the user is deciding whether to raise a commitment, since that's the exact moment the product restates what the change is worth.",
+  "paired": [
+    "milestone",
+    "piggy-bank",
+    "personal-data-reflection"
+  ],
+  "context": [
+    "retention"
+  ],
+  "sdt": [
+    "competence",
+    "mastery"
+  ],
+  "visibility": "public"
+}

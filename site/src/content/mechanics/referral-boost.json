@@ -1,23 +1,24 @@
 {
   "id": "referral-boost",
   "n": "26",
-  "name": "Referral Boost",
+  "name": "Referral",
   "cat": "social",
-  "tagline": "A reward that improves a future instance of an action a referring user already performs, unlocked once both the referrer and the person they introduced complete a defined step.",
-  "desc": "The enhancement is not a balance the referring user can hold, spend, or transfer. It exists only as an improved version of a future instance of an action they were already going to take again, a bigger amount, a better rate, more capacity, and it is realized only by performing that action again. Both people have to complete a defined step, not just sign up or download, which is what separates it from a plain referral credit or a joining bonus. Because the enhancement disappears if the action is never repeated, the mechanic pulls the referring user back to the very action it rewards.",
-  "principle": "The reward only pays out through repetition. A referral boost cannot be banked or spent, it can only be realized by doing the rewarded action again, which ties the growth incentive directly to the return loop it lives inside.",
+  "tagline": "A reward conditioned on an introduced person completing a defined action, paid to the referring user as cash, credit, or an enhancement to their own next action.",
+  "desc": "A referral pays an existing user once someone they introduced reaches a defined action beyond simply signing up, a first order, a first deposit, a repaid advance. What that payment looks like is not fixed: it can land as an enhancement to the referrer's own next action, a separable credit or balance held for later, product-defined currency, or ordinary money paid straight into an account, and it can pay a flat amount per introduction or rise against a stated count of them. What makes it a referral rather than a joining bonus is that second, defined completion event performed by the person who was introduced, not the introduction itself and not anything the referrer does on their own.",
+  "principle": "A referral turns growth into something a friend's own action pays for. The reward doesn't arrive for the introduction itself, only once the person introduced does something real, which keeps the incentive tied to genuine use rather than a raw signup count.",
   "players": [
     "socializer",
     "achiever"
   ],
-  "warn": "The enhancement only pays off if the referring user actually performs the rewarded action again, so the offer should be shown at a moment that action is still live for them, not buried in a settings menu after the introduction is made. It is easy to misread as a referral credit, but it is inert until that action happens again, so completed introductions are not the metric that tells you it's working.",
+  "warn": "The label is easy to misapply to a reward that fires on the introduced person's sign-up alone: that's a joining bonus, since nothing has been earned by an action beyond joining. The payout form is a separate design decision from the mechanic itself and changes what it motivates: an enhancement to the referrer's own next action pulls them back to repeat it, while a cash or credit reward pays out regardless of what the referrer does next, so it drives introductions without necessarily driving the referrer's own return.",
   "variants": [
-    "Proportional enhancement, sized as a percentage of the next qualifying instance",
-    "Capped enhancement, with a stated ceiling on the increase",
-    "Prior-use-gated referral, requires the referrer to have completed the action once already",
-    "Two-sided referral boost, the introduced person also gets a future-action enhancement"
+    "Enhancement reward, the reward exists only as a changed property of a future instance of the referrer's own action",
+    "Separable reward, the reward is a benefit the referrer holds and can apply, redeem, or withdraw independently",
+    "Monetary reward, the reward is ordinary money paid into an account the product holds or names",
+    "Count ladder, the total paid rises with the number of qualifying introductions rather than repeating per introduction",
+    "Prior-use-gated referral, the referrer must have completed the qualifying action once already before any referral can pay"
   ],
-  "lifecycle": "Mid lifecycle. Needs the referring user to have already completed the qualifying action at least once, so it lands after activation rather than during it.",
+  "lifecycle": "Needs a route for introducing another person and a defined completion event for that person to reach; some products additionally require the referrer to have completed the action once already, which is now a variant rather than a rule. Available as soon as those two pieces exist, so it can sit right after activation rather than waiting for retention to build.",
   "paired": [],
   "context": [
     "referral",
