@@ -107,7 +107,7 @@
           ],
           "rationale": "Royal Match holds each assist item as a counted quantity outside the level, observed as three royal hammers and five jester's hats, displays the count before and during play, applies one only when the user selects the item and then a target, and reduces the count on use (tier: directly observed). The observed items are the royal hammer, an arrow that clears a row, a cannon that clears a column, a jester's hat that shuffles the board, TNT and the propeller, each with a stated effect (tier: directly observed). Replenishment routes observed are area chests, event rewards, the Easter Pass, the Easter Treasures ladder and the shop (tier: directly observed). The offers also sell unlimited use for stated periods from one hour to 100 hours, which suspends the count while the items remain per-instance selections (tier: directly observed).",
           "alternativeConsidered": "Spendable Credits and Tokens, which would apply if the items were exchanged from a balance at the moment of use. The session separates the two: the coins are the balance, and the items are counted holdings applied inside the level. Energy was also considered and does not apply, since nothing is consumed unless the user selects an item.",
-          "role": "engagement, monetization."
+          "role": "engagement, monetization"
         },
         {
           "name": "Challenge",
@@ -117,7 +117,7 @@
           ],
           "rationale": "Each level is a bounded objective instance: Royal Match states the success condition, such as collecting 36 wooden pieces, bounds it with a move limit, and produces a different response for completion than for exhausting the moves (tier: directly observed). The King's Nightmare interludes are separate bounded instances with their own success conditions and their own move or time boundaries (tier: directly observed). Propeller Madness, the Egg Hunt and the team tournament are event-bounded instances with stated success conditions and stated remaining time (tier: directly observed).",
           "alternativeConsidered": "treating the bonus levels at 20 and 40 as challenges as well. They are excluded here: they state no success condition, only a quantity to accumulate within the moves given, so no completed-or-not-completed result exists for the instance (O18). Minigame was also considered for the King's Nightmare interludes and does not apply, because they pay coins into the ordinary balance; the bounded objective inside each one is carried by this entry.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Progression Gate",
@@ -127,7 +127,7 @@
           ],
           "rationale": "Royal Match maintains the player level as a measure it advances through the user's own play, one level per cleared level (tier: directly observed). Three parts of the product are withheld against stated values of that measure: teams at level 21, the collection at level 41, and each assist item at its own level (tier: directly observed). Each requirement is stated in the terms of the measure and is observable before it is satisfied: the teams surface can be browsed and repeats \"reach level 21 to join teams\" when join is tapped, the collection tab states level 41 and describes nothing else, and locked items are displayed but cannot be tapped (tier: directly observed). Each withheld part is distinct from the level progression itself rather than being the next level in it (tier: directly observed).",
           "alternativeConsidered": "Milestone, which covers the product's recognition that a defined point in a progression has been reached. It is not applied to these three, because a gate is the standing condition on a withheld part rather than the recognition event at the crossing. The team tournament's requirement of at least ten members was also considered and is excluded: roster size is not a measure the user advances by playing, so it is an eligibility condition and is recorded in plain language at O37.",
-          "role": "retention, engagement."
+          "role": "retention, engagement"
         }
       ],
       "crossRefs": [],
@@ -165,7 +165,7 @@
           ],
           "rationale": "Royal Match assigns the user a current level within an ordered series, advances it by one for each level cleared, displays it on the home screen and on the leaderboards, and uses it as the condition for other parts of the product (tier: directly observed). The ordered series extends far beyond the session: the highest level observed on the world leaderboard is 13,401 (tier: directly observed). The tournament also maintains an ordered contributor state, observed as an armour colour changing from silver to gold and a knight title at a stated token threshold (tier: directly observed).",
           "alternativeConsidered": "treating the numbered levels only as content units rather than as a progression state. That is ruled out because the app maintains and displays the number as the user's current state and gates other features on it. The conditions placed on those features are not classified here; this entry covers the measure and Progression Gate covers the conditions read from it.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         }
       ],
       "crossRefs": [],
@@ -189,7 +189,7 @@
           ],
           "rationale": "Royal Match holds five discrete hearts, removes one when a level is failed, and the remaining count governs whether another attempt can start (tier: directly observed). Restoration is defined at 24 to 25 minutes per heart, with a 900-coin refill and teammate requests as alternatives (tier: directly observed). Consumption is tied to failure rather than to entry: levels are started freely and hearts are reported lost at the failures from level 18 onward (tier: strongly supported, no heart is observed being consumed on entry).",
           "alternativeConsidered": "Energy, which would apply if a heart were consumed on starting a level rather than on failing it. The session separates them: levels are entered and re-entered without a heart being taken until a level is failed.",
-          "role": "engagement, retention, monetization."
+          "role": "engagement, retention, monetization"
         },
         {
           "name": "Challenge",
@@ -199,7 +199,7 @@
           ],
           "rationale": "Each level is a bounded objective instance: Royal Match states the success condition, such as collecting 36 wooden pieces, bounds it with a move limit, and produces a different response for completion than for exhausting the moves (tier: directly observed). The King's Nightmare interludes are separate bounded instances with their own success conditions and their own move or time boundaries (tier: directly observed). Propeller Madness, the Egg Hunt and the team tournament are event-bounded instances with stated success conditions and stated remaining time (tier: directly observed).",
           "alternativeConsidered": "treating the bonus levels at 20 and 40 as challenges as well. They are excluded here: they state no success condition, only a quantity to accumulate within the moves given, so no completed-or-not-completed result exists for the instance (O18). Minigame was also considered for the King's Nightmare interludes and does not apply, because they pay coins into the ordinary balance; the bounded objective inside each one is carried by this entry.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Leveling",
@@ -209,7 +209,7 @@
           ],
           "rationale": "Royal Match assigns the user a current level within an ordered series, advances it by one for each level cleared, displays it on the home screen and on the leaderboards, and uses it as the condition for other parts of the product (tier: directly observed). The ordered series extends far beyond the session: the highest level observed on the world leaderboard is 13,401 (tier: directly observed). The tournament also maintains an ordered contributor state, observed as an armour colour changing from silver to gold and a knight title at a stated token threshold (tier: directly observed).",
           "alternativeConsidered": "treating the numbered levels only as content units rather than as a progression state. That is ruled out because the app maintains and displays the number as the user's current state and gates other features on it. The conditions placed on those features are not classified here; this entry covers the measure and Progression Gate covers the conditions read from it.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         }
       ],
       "crossRefs": [],
@@ -233,7 +233,7 @@
           ],
           "rationale": "Each level is a bounded objective instance: Royal Match states the success condition, such as collecting 36 wooden pieces, bounds it with a move limit, and produces a different response for completion than for exhausting the moves (tier: directly observed). The King's Nightmare interludes are separate bounded instances with their own success conditions and their own move or time boundaries (tier: directly observed). Propeller Madness, the Egg Hunt and the team tournament are event-bounded instances with stated success conditions and stated remaining time (tier: directly observed).",
           "alternativeConsidered": "treating the bonus levels at 20 and 40 as challenges as well. They are excluded here: they state no success condition, only a quantity to accumulate within the moves given, so no completed-or-not-completed result exists for the instance (O18). Minigame was also considered for the King's Nightmare interludes and does not apply, because they pay coins into the ordinary balance; the bounded objective inside each one is carried by this entry.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         }
       ],
       "crossRefs": [],
@@ -256,7 +256,7 @@
           ],
           "rationale": "Royal Match holds five discrete hearts, removes one when a level is failed, and the remaining count governs whether another attempt can start (tier: directly observed). Restoration is defined at 24 to 25 minutes per heart, with a 900-coin refill and teammate requests as alternatives (tier: directly observed). Consumption is tied to failure rather than to entry: levels are started freely and hearts are reported lost at the failures from level 18 onward (tier: strongly supported, no heart is observed being consumed on entry).",
           "alternativeConsidered": "Energy, which would apply if a heart were consumed on starting a level rather than on failing it. The session separates them: levels are entered and re-entered without a heart being taken until a level is failed.",
-          "role": "engagement, retention, monetization."
+          "role": "engagement, retention, monetization"
         },
         {
           "name": "Boosters",
@@ -266,7 +266,7 @@
           ],
           "rationale": "Royal Match holds each assist item as a counted quantity outside the level, observed as three royal hammers and five jester's hats, displays the count before and during play, applies one only when the user selects the item and then a target, and reduces the count on use (tier: directly observed). The observed items are the royal hammer, an arrow that clears a row, a cannon that clears a column, a jester's hat that shuffles the board, TNT and the propeller, each with a stated effect (tier: directly observed). Replenishment routes observed are area chests, event rewards, the Easter Pass, the Easter Treasures ladder and the shop (tier: directly observed). The offers also sell unlimited use for stated periods from one hour to 100 hours, which suspends the count while the items remain per-instance selections (tier: directly observed).",
           "alternativeConsidered": "Spendable Credits and Tokens, which would apply if the items were exchanged from a balance at the moment of use. The session separates the two: the coins are the balance, and the items are counted holdings applied inside the level. Energy was also considered and does not apply, since nothing is consumed unless the user selects an item.",
-          "role": "engagement, monetization."
+          "role": "engagement, monetization"
         },
         {
           "name": "Challenge",
@@ -276,7 +276,7 @@
           ],
           "rationale": "Each level is a bounded objective instance: Royal Match states the success condition, such as collecting 36 wooden pieces, bounds it with a move limit, and produces a different response for completion than for exhausting the moves (tier: directly observed). The King's Nightmare interludes are separate bounded instances with their own success conditions and their own move or time boundaries (tier: directly observed). Propeller Madness, the Egg Hunt and the team tournament are event-bounded instances with stated success conditions and stated remaining time (tier: directly observed).",
           "alternativeConsidered": "treating the bonus levels at 20 and 40 as challenges as well. They are excluded here: they state no success condition, only a quantity to accumulate within the moves given, so no completed-or-not-completed result exists for the instance (O18). Minigame was also considered for the King's Nightmare interludes and does not apply, because they pay coins into the ordinary balance; the bounded objective inside each one is carried by this entry.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         }
       ],
       "crossRefs": [],
@@ -302,7 +302,7 @@
           ],
           "rationale": "Royal Match holds five discrete hearts, removes one when a level is failed, and the remaining count governs whether another attempt can start (tier: directly observed). Restoration is defined at 24 to 25 minutes per heart, with a 900-coin refill and teammate requests as alternatives (tier: directly observed). Consumption is tied to failure rather than to entry: levels are started freely and hearts are reported lost at the failures from level 18 onward (tier: strongly supported, no heart is observed being consumed on entry).",
           "alternativeConsidered": "Energy, which would apply if a heart were consumed on starting a level rather than on failing it. The session separates them: levels are entered and re-entered without a heart being taken until a level is failed.",
-          "role": "engagement, retention, monetization."
+          "role": "engagement, retention, monetization"
         },
         {
           "name": "Soft Currency",
@@ -312,7 +312,7 @@
           ],
           "rationale": "Royal Match maintains two earned balances that are deliberately spent for product-defined results. Gold coins are granted by level play, interludes, bonus levels, chests and event rewards, and are spent on a heart refill at 900 and on five extra moves at 900 (tier: directly observed). Gold stars are granted at one per cleared level and are spent on area tasks costing one or two stars (tier: directly observed). Both remain stored until spent and both reduce on the exchange (tier: directly observed). This entry is a specialization of Spendable Credits and Tokens, whose invariant it preserves while adding the repeatable non-paid acquisition path.",
           "alternativeConsidered": "Experience Points for gold stars, which would apply if stars accumulated toward an advancement threshold rather than being exchanged. The session settles it: stars are deliberately spent on a chosen task and the balance falls when they are.",
-          "role": "engagement, monetization."
+          "role": "engagement, monetization"
         },
         {
           "name": "Gifting",
@@ -322,7 +322,7 @@
           ],
           "rationale": "The user sends a life to an identified teammate in response to that teammate's request, the recipient receives it without returning anything, and the app blocks a second help on the same request with \"you already helped\" (tier: directly observed). The sender receives five coins for the transfer (tier: directly observed). The purchased team offers direct a period of infinite hearts to every member of the roster, and the activated Easter Pass lane includes a gift for teammates (tier: directly observed).",
           "alternativeConsidered": "treating the card requests as gifting. They are recorded as a request route here rather than tagged, because the session shows the request being sent and never shows a card being directed to a recipient.",
-          "role": "social, engagement, monetization."
+          "role": "social, engagement, monetization"
         }
       ],
       "crossRefs": [],
@@ -347,7 +347,7 @@
           ],
           "rationale": "Royal Match holds five discrete hearts, removes one when a level is failed, and the remaining count governs whether another attempt can start (tier: directly observed). Restoration is defined at 24 to 25 minutes per heart, with a 900-coin refill and teammate requests as alternatives (tier: directly observed). Consumption is tied to failure rather than to entry: levels are started freely and hearts are reported lost at the failures from level 18 onward (tier: strongly supported, no heart is observed being consumed on entry).",
           "alternativeConsidered": "Energy, which would apply if a heart were consumed on starting a level rather than on failing it. The session separates them: levels are entered and re-entered without a heart being taken until a level is failed.",
-          "role": "engagement, retention, monetization."
+          "role": "engagement, retention, monetization"
         },
         {
           "name": "Challenge",
@@ -357,7 +357,7 @@
           ],
           "rationale": "Each level is a bounded objective instance: Royal Match states the success condition, such as collecting 36 wooden pieces, bounds it with a move limit, and produces a different response for completion than for exhausting the moves (tier: directly observed). The King's Nightmare interludes are separate bounded instances with their own success conditions and their own move or time boundaries (tier: directly observed). Propeller Madness, the Egg Hunt and the team tournament are event-bounded instances with stated success conditions and stated remaining time (tier: directly observed).",
           "alternativeConsidered": "treating the bonus levels at 20 and 40 as challenges as well. They are excluded here: they state no success condition, only a quantity to accumulate within the moves given, so no completed-or-not-completed result exists for the instance (O18). Minigame was also considered for the King's Nightmare interludes and does not apply, because they pay coins into the ordinary balance; the bounded objective inside each one is carried by this entry.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Soft Currency",
@@ -367,7 +367,7 @@
           ],
           "rationale": "Royal Match maintains two earned balances that are deliberately spent for product-defined results. Gold coins are granted by level play, interludes, bonus levels, chests and event rewards, and are spent on a heart refill at 900 and on five extra moves at 900 (tier: directly observed). Gold stars are granted at one per cleared level and are spent on area tasks costing one or two stars (tier: directly observed). Both remain stored until spent and both reduce on the exchange (tier: directly observed). This entry is a specialization of Spendable Credits and Tokens, whose invariant it preserves while adding the repeatable non-paid acquisition path.",
           "alternativeConsidered": "Experience Points for gold stars, which would apply if stars accumulated toward an advancement threshold rather than being exchanged. The session settles it: stars are deliberately spent on a chosen task and the balance falls when they are.",
-          "role": "engagement, monetization."
+          "role": "engagement, monetization"
         },
         {
           "name": "Hard Currency",
@@ -377,7 +377,7 @@
           ],
           "rationale": "The same gold coin balance that is earned in play is sold for money in fixed packs, observed from 1,000 coins at 1.99 up to 100,000 coins at 99.99, and is also included in every named treasure bundle (tier: directly observed). The purchased units enter the stored balance rather than delivering a final result, and are later exchanged for refills, moves and offer items (tier: directly observed). Where one balance carries both a paid and an earned path, this entry still applies alongside Soft Currency; both are specializations of Spendable Credits and Tokens.",
           "alternativeConsidered": "classifying the coin packs as direct purchases of the underlying benefit. That is ruled out because payment adds to a stored balance that the user allocates later, rather than granting the refill or the moves themselves.",
-          "role": "monetization, engagement."
+          "role": "monetization, engagement"
         }
       ],
       "crossRefs": [],
@@ -406,7 +406,7 @@
           ],
           "rationale": "Royal Match holds each assist item as a counted quantity outside the level, observed as three royal hammers and five jester's hats, displays the count before and during play, applies one only when the user selects the item and then a target, and reduces the count on use (tier: directly observed). The observed items are the royal hammer, an arrow that clears a row, a cannon that clears a column, a jester's hat that shuffles the board, TNT and the propeller, each with a stated effect (tier: directly observed). Replenishment routes observed are area chests, event rewards, the Easter Pass, the Easter Treasures ladder and the shop (tier: directly observed). The offers also sell unlimited use for stated periods from one hour to 100 hours, which suspends the count while the items remain per-instance selections (tier: directly observed).",
           "alternativeConsidered": "Spendable Credits and Tokens, which would apply if the items were exchanged from a balance at the moment of use. The session separates the two: the coins are the balance, and the items are counted holdings applied inside the level. Energy was also considered and does not apply, since nothing is consumed unless the user selects an item.",
-          "role": "engagement, monetization."
+          "role": "engagement, monetization"
         },
         {
           "name": "Streak",
@@ -416,7 +416,7 @@
           ],
           "rationale": "Butler's Gift is framed by the app as \"beat levels on your first try to start the next level with power-ups\", and its state is displayed as active on two out of three, so the benefit depends on a run of first-try clearances rather than on a total count of them (tier: directly observed). The continuity rule itself, what a failure does to the state, was never observed, because the narrator spent a power-up specifically to avoid finding out (tier: directly observed). Under the presence standard the surface and the app's own framing establish the mechanic; the reset behavior is stated here as not observed.",
           "alternativeConsidered": "a cumulative count of first-try wins within a bounded set of three levels, in which gaps would not matter. The profile's \"first try wins\" stat is exactly such a count and is not tagged here. What would separate them is observing a level that is not cleared on the first try and whether the two-out-of-three state falls back.",
-          "role": "engagement."
+          "role": "engagement"
         },
         {
           "name": "Purchase Ladder",
@@ -426,7 +426,7 @@
           ],
           "rationale": "Easter Treasures presents nine rewards as an ordered sequence under the instruction to claim each offer to unlock the free rewards, and claiming a rung reveals the next one (tier: directly observed). Eight rungs cost nothing and the fourth is priced at 2.99, and the free rungs above it cannot be claimed until it is taken (tier: strongly supported, the surface's own claim-each-to-unlock framing together with the narration's reading of the paid rung as blocking the rest). That lock is the entry's invariant: the sequence is not a list of offers the user may take in any order but a chain in which one purchase stands between the user and the remainder. The confidence is strongly supported rather than directly observed because the paid rung was never bought, so the lock was read from the surface's framing rather than met. The record carries the same claim at two tiers, directly observed in the Observed paragraph of O59 and strongly supported in its Detail, and the lower of the two governs here.",
           "alternativeConsidered": "an ordinary offer placed among free rewards, which would carry no mechanic label; rejected because the surface states the claim-each-to-unlock rule itself, and it is the lock rather than the arrangement that the entry turns on. Daily Claim Pack was considered and does not apply, since no single acquisition governs the sequence and the rungs are released by being claimed rather than by intervals passing. Seasonal Progression Pass was considered and does not apply, since nothing the user does in the game advances the ladder; it is not the Easter Pass, which is tagged separately at O31 and O60 and does run on keys earned by play.",
-          "role": "monetization."
+          "role": "monetization"
         }
       ],
       "crossRefs": [],
@@ -450,7 +450,7 @@
           ],
           "rationale": "Royal Match holds each assist item as a counted quantity outside the level, observed as three royal hammers and five jester's hats, displays the count before and during play, applies one only when the user selects the item and then a target, and reduces the count on use (tier: directly observed). The observed items are the royal hammer, an arrow that clears a row, a cannon that clears a column, a jester's hat that shuffles the board, TNT and the propeller, each with a stated effect (tier: directly observed). Replenishment routes observed are area chests, event rewards, the Easter Pass, the Easter Treasures ladder and the shop (tier: directly observed). The offers also sell unlimited use for stated periods from one hour to 100 hours, which suspends the count while the items remain per-instance selections (tier: directly observed).",
           "alternativeConsidered": "Spendable Credits and Tokens, which would apply if the items were exchanged from a balance at the moment of use. The session separates the two: the coins are the balance, and the items are counted holdings applied inside the level. Energy was also considered and does not apply, since nothing is consumed unless the user selects an item.",
-          "role": "engagement, monetization."
+          "role": "engagement, monetization"
         },
         {
           "name": "Streak",
@@ -460,7 +460,7 @@
           ],
           "rationale": "Butler's Gift is framed by the app as \"beat levels on your first try to start the next level with power-ups\", and its state is displayed as active on two out of three, so the benefit depends on a run of first-try clearances rather than on a total count of them (tier: directly observed). The continuity rule itself, what a failure does to the state, was never observed, because the narrator spent a power-up specifically to avoid finding out (tier: directly observed). Under the presence standard the surface and the app's own framing establish the mechanic; the reset behavior is stated here as not observed.",
           "alternativeConsidered": "a cumulative count of first-try wins within a bounded set of three levels, in which gaps would not matter. The profile's \"first try wins\" stat is exactly such a count and is not tagged here. What would separate them is observing a level that is not cleared on the first try and whether the two-out-of-three state falls back.",
-          "role": "engagement."
+          "role": "engagement"
         }
       ],
       "crossRefs": [],
@@ -486,7 +486,7 @@
           ],
           "rationale": "Each level is a bounded objective instance: Royal Match states the success condition, such as collecting 36 wooden pieces, bounds it with a move limit, and produces a different response for completion than for exhausting the moves (tier: directly observed). The King's Nightmare interludes are separate bounded instances with their own success conditions and their own move or time boundaries (tier: directly observed). Propeller Madness, the Egg Hunt and the team tournament are event-bounded instances with stated success conditions and stated remaining time (tier: directly observed).",
           "alternativeConsidered": "treating the bonus levels at 20 and 40 as challenges as well. They are excluded here: they state no success condition, only a quantity to accumulate within the moves given, so no completed-or-not-completed result exists for the instance (O18). Minigame was also considered for the King's Nightmare interludes and does not apply, because they pay coins into the ordinary balance; the bounded objective inside each one is carried by this entry.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Reward Multiplier",
@@ -496,7 +496,7 @@
           ],
           "rationale": "Two stated modifiers are observed. At level 33 the app marks the level with a doubling marker, starts a 15-minute countdown and states that rewards are doubled for the duration; during the window the contribution paid to the team and the progress paid to Propeller Madness both move at twice their earlier rate (tier: directly observed). Level 39 is marked as a hard level before entry and states that passing it triples the reward and pays 30 points to the Egg Hunt (tier: directly observed). In both cases the base reward exists independently of the modifier and the factor is stated, so the modified amount follows from a visible rule (tier: directly observed). A third instance is the King's Nightmare interlude that carries a doubled-reward marker over its stated 50 coins (tier: directly observed).",
           "alternativeConsidered": "Variable Reward Outcome, which would apply if the increased amount were unresolved before the reward event. Both instances state the factor in advance, which settles it. Boosters was also considered for the doubling marker and does not apply: nothing is held or expended, and the conditions of the level are unchanged.",
-          "role": "engagement."
+          "role": "engagement"
         }
       ],
       "crossRefs": [],
@@ -522,7 +522,7 @@
           ],
           "rationale": "Royal Match maintains two earned balances that are deliberately spent for product-defined results. Gold coins are granted by level play, interludes, bonus levels, chests and event rewards, and are spent on a heart refill at 900 and on five extra moves at 900 (tier: directly observed). Gold stars are granted at one per cleared level and are spent on area tasks costing one or two stars (tier: directly observed). Both remain stored until spent and both reduce on the exchange (tier: directly observed). This entry is a specialization of Spendable Credits and Tokens, whose invariant it preserves while adding the repeatable non-paid acquisition path.",
           "alternativeConsidered": "Experience Points for gold stars, which would apply if stars accumulated toward an advancement threshold rather than being exchanged. The session settles it: stars are deliberately spent on a chosen task and the balance falls when they are.",
-          "role": "engagement, monetization."
+          "role": "engagement, monetization"
         },
         {
           "name": "Milestone",
@@ -532,7 +532,7 @@
           ],
           "rationale": "Royal Match maintains a broader progression, 152 areas and an open-ended level count, and recognizes defined points within it separately from ordinary progress. Completing an area produces a chest, a celebration, a view of the finished area and the unlock of the next one (tier: directly observed). Levels 20 and 40 are both presented as bonus levels, marking a recognized point at every twentieth level (tier: strongly supported, two instances 20 apart are observed and the pattern is stated by the narration rather than by the app). The tournament states a knight title at a token threshold, a defined point within the token progression (tier: directly observed).",
           "alternativeConsidered": "Achievement for area completion. It is not applied because the app records a count of areas completed rather than a preserved attained state for each area, and the area unlock follows automatically from the progression rather than recording a separate accomplishment. Progression Gate was also considered for the area unlocks and does not apply: the next area is the next unit of the area progression rather than a separate part of the product withheld against a stated value.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         }
       ],
       "crossRefs": [],
@@ -555,7 +555,7 @@
           ],
           "rationale": "Each level is a bounded objective instance: Royal Match states the success condition, such as collecting 36 wooden pieces, bounds it with a move limit, and produces a different response for completion than for exhausting the moves (tier: directly observed). The King's Nightmare interludes are separate bounded instances with their own success conditions and their own move or time boundaries (tier: directly observed). Propeller Madness, the Egg Hunt and the team tournament are event-bounded instances with stated success conditions and stated remaining time (tier: directly observed).",
           "alternativeConsidered": "treating the bonus levels at 20 and 40 as challenges as well. They are excluded here: they state no success condition, only a quantity to accumulate within the moves given, so no completed-or-not-completed result exists for the instance (O18). Minigame was also considered for the King's Nightmare interludes and does not apply, because they pay coins into the ordinary balance; the bounded objective inside each one is carried by this entry.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Reward Multiplier",
@@ -565,7 +565,7 @@
           ],
           "rationale": "Two stated modifiers are observed. At level 33 the app marks the level with a doubling marker, starts a 15-minute countdown and states that rewards are doubled for the duration; during the window the contribution paid to the team and the progress paid to Propeller Madness both move at twice their earlier rate (tier: directly observed). Level 39 is marked as a hard level before entry and states that passing it triples the reward and pays 30 points to the Egg Hunt (tier: directly observed). In both cases the base reward exists independently of the modifier and the factor is stated, so the modified amount follows from a visible rule (tier: directly observed). A third instance is the King's Nightmare interlude that carries a doubled-reward marker over its stated 50 coins (tier: directly observed).",
           "alternativeConsidered": "Variable Reward Outcome, which would apply if the increased amount were unresolved before the reward event. Both instances state the factor in advance, which settles it. Boosters was also considered for the doubling marker and does not apply: nothing is held or expended, and the conditions of the level are unchanged.",
-          "role": "engagement."
+          "role": "engagement"
         }
       ],
       "crossRefs": [],
@@ -602,7 +602,7 @@
           ],
           "rationale": "Royal Match holds each assist item as a counted quantity outside the level, observed as three royal hammers and five jester's hats, displays the count before and during play, applies one only when the user selects the item and then a target, and reduces the count on use (tier: directly observed). The observed items are the royal hammer, an arrow that clears a row, a cannon that clears a column, a jester's hat that shuffles the board, TNT and the propeller, each with a stated effect (tier: directly observed). Replenishment routes observed are area chests, event rewards, the Easter Pass, the Easter Treasures ladder and the shop (tier: directly observed). The offers also sell unlimited use for stated periods from one hour to 100 hours, which suspends the count while the items remain per-instance selections (tier: directly observed).",
           "alternativeConsidered": "Spendable Credits and Tokens, which would apply if the items were exchanged from a balance at the moment of use. The session separates the two: the coins are the balance, and the items are counted holdings applied inside the level. Energy was also considered and does not apply, since nothing is consumed unless the user selects an item.",
-          "role": "engagement, monetization."
+          "role": "engagement, monetization"
         },
         {
           "name": "Streak",
@@ -612,7 +612,7 @@
           ],
           "rationale": "Butler's Gift is framed by the app as \"beat levels on your first try to start the next level with power-ups\", and its state is displayed as active on two out of three, so the benefit depends on a run of first-try clearances rather than on a total count of them (tier: directly observed). The continuity rule itself, what a failure does to the state, was never observed, because the narrator spent a power-up specifically to avoid finding out (tier: directly observed). Under the presence standard the surface and the app's own framing establish the mechanic; the reset behavior is stated here as not observed.",
           "alternativeConsidered": "a cumulative count of first-try wins within a bounded set of three levels, in which gaps would not matter. The profile's \"first try wins\" stat is exactly such a count and is not tagged here. What would separate them is observing a level that is not cleared on the first try and whether the two-out-of-three state falls back.",
-          "role": "engagement."
+          "role": "engagement"
         }
       ],
       "crossRefs": [],
@@ -636,7 +636,7 @@
           ],
           "rationale": "Two stated modifiers are observed. At level 33 the app marks the level with a doubling marker, starts a 15-minute countdown and states that rewards are doubled for the duration; during the window the contribution paid to the team and the progress paid to Propeller Madness both move at twice their earlier rate (tier: directly observed). Level 39 is marked as a hard level before entry and states that passing it triples the reward and pays 30 points to the Egg Hunt (tier: directly observed). In both cases the base reward exists independently of the modifier and the factor is stated, so the modified amount follows from a visible rule (tier: directly observed). A third instance is the King's Nightmare interlude that carries a doubled-reward marker over its stated 50 coins (tier: directly observed).",
           "alternativeConsidered": "Variable Reward Outcome, which would apply if the increased amount were unresolved before the reward event. Both instances state the factor in advance, which settles it. Boosters was also considered for the doubling marker and does not apply: nothing is held or expended, and the conditions of the level are unchanged.",
-          "role": "engagement."
+          "role": "engagement"
         }
       ],
       "crossRefs": [],
@@ -662,7 +662,7 @@
           ],
           "rationale": "Royal Match maintains two earned balances that are deliberately spent for product-defined results. Gold coins are granted by level play, interludes, bonus levels, chests and event rewards, and are spent on a heart refill at 900 and on five extra moves at 900 (tier: directly observed). Gold stars are granted at one per cleared level and are spent on area tasks costing one or two stars (tier: directly observed). Both remain stored until spent and both reduce on the exchange (tier: directly observed). This entry is a specialization of Spendable Credits and Tokens, whose invariant it preserves while adding the repeatable non-paid acquisition path.",
           "alternativeConsidered": "Experience Points for gold stars, which would apply if stars accumulated toward an advancement threshold rather than being exchanged. The session settles it: stars are deliberately spent on a chosen task and the balance falls when they are.",
-          "role": "engagement, monetization."
+          "role": "engagement, monetization"
         },
         {
           "name": "Milestone",
@@ -672,7 +672,7 @@
           ],
           "rationale": "Royal Match maintains a broader progression, 152 areas and an open-ended level count, and recognizes defined points within it separately from ordinary progress. Completing an area produces a chest, a celebration, a view of the finished area and the unlock of the next one (tier: directly observed). Levels 20 and 40 are both presented as bonus levels, marking a recognized point at every twentieth level (tier: strongly supported, two instances 20 apart are observed and the pattern is stated by the narration rather than by the app). The tournament states a knight title at a token threshold, a defined point within the token progression (tier: directly observed).",
           "alternativeConsidered": "Achievement for area completion. It is not applied because the app records a count of areas completed rather than a preserved attained state for each area, and the area unlock follows automatically from the progression rather than recording a separate accomplishment. Progression Gate was also considered for the area unlocks and does not apply: the next area is the next unit of the area progression rather than a separate part of the product withheld against a stated value.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         }
       ],
       "crossRefs": [],
@@ -699,7 +699,7 @@
           ],
           "rationale": "Royal Match holds each assist item as a counted quantity outside the level, observed as three royal hammers and five jester's hats, displays the count before and during play, applies one only when the user selects the item and then a target, and reduces the count on use (tier: directly observed). The observed items are the royal hammer, an arrow that clears a row, a cannon that clears a column, a jester's hat that shuffles the board, TNT and the propeller, each with a stated effect (tier: directly observed). Replenishment routes observed are area chests, event rewards, the Easter Pass, the Easter Treasures ladder and the shop (tier: directly observed). The offers also sell unlimited use for stated periods from one hour to 100 hours, which suspends the count while the items remain per-instance selections (tier: directly observed).",
           "alternativeConsidered": "Spendable Credits and Tokens, which would apply if the items were exchanged from a balance at the moment of use. The session separates the two: the coins are the balance, and the items are counted holdings applied inside the level. Energy was also considered and does not apply, since nothing is consumed unless the user selects an item.",
-          "role": "engagement, monetization."
+          "role": "engagement, monetization"
         },
         {
           "name": "Soft Currency",
@@ -709,7 +709,7 @@
           ],
           "rationale": "Royal Match maintains two earned balances that are deliberately spent for product-defined results. Gold coins are granted by level play, interludes, bonus levels, chests and event rewards, and are spent on a heart refill at 900 and on five extra moves at 900 (tier: directly observed). Gold stars are granted at one per cleared level and are spent on area tasks costing one or two stars (tier: directly observed). Both remain stored until spent and both reduce on the exchange (tier: directly observed). This entry is a specialization of Spendable Credits and Tokens, whose invariant it preserves while adding the repeatable non-paid acquisition path.",
           "alternativeConsidered": "Experience Points for gold stars, which would apply if stars accumulated toward an advancement threshold rather than being exchanged. The session settles it: stars are deliberately spent on a chosen task and the balance falls when they are.",
-          "role": "engagement, monetization."
+          "role": "engagement, monetization"
         },
         {
           "name": "Milestone",
@@ -719,7 +719,7 @@
           ],
           "rationale": "Royal Match maintains a broader progression, 152 areas and an open-ended level count, and recognizes defined points within it separately from ordinary progress. Completing an area produces a chest, a celebration, a view of the finished area and the unlock of the next one (tier: directly observed). Levels 20 and 40 are both presented as bonus levels, marking a recognized point at every twentieth level (tier: strongly supported, two instances 20 apart are observed and the pattern is stated by the narration rather than by the app). The tournament states a knight title at a token threshold, a defined point within the token progression (tier: directly observed).",
           "alternativeConsidered": "Achievement for area completion. It is not applied because the app records a count of areas completed rather than a preserved attained state for each area, and the area unlock follows automatically from the progression rather than recording a separate accomplishment. Progression Gate was also considered for the area unlocks and does not apply: the next area is the next unit of the area progression rather than a separate part of the product withheld against a stated value.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Variable Reward Outcome",
@@ -729,7 +729,7 @@
           ],
           "rationale": "Royal Match grants chests and card packs whose contents are not disclosed before opening and which resolve to materially different results between instances: the area-one chest yields 250 coins and four kinds of items, the area-three chest yields 250 coins, items and four cards, and successive card packs yield different named cards (tier: directly observed). Opening is a separate action with a reveal (tier: directly observed). No value is committed to obtain these particular containers, which is what keeps them under this entry rather than under its specialization, Loot Box.",
           "alternativeConsidered": "Loot Box, its specialization, which requires a value commitment made before the contents are known. The free chests and packs carry no such commitment. The card-star chests do, and they are recorded as unresolved rather than tagged here. The doubled and tripled reward amounts at O22 and O19 are not this entry either: they follow from a stated factor, which places them under Reward Multiplier.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Set Collection",
@@ -739,7 +739,7 @@
           ],
           "rationale": "The Culinary Collection defines 15 named sets of nine cards each, tracks which cards are held, states the reward for completing each set and a grand prize for completing all of them, and treats a repeat card differently from a new one by converting duplicates into card stars (tier: directly observed). Cards arrive from packs, chests and teammates (tier: directly observed).",
           "alternativeConsidered": "treating the card stars as the collectible rather than the cards. That is ruled out: the sets track named cards at member level, and the stars are what duplicates become.",
-          "role": "engagement, social, retention."
+          "role": "engagement, social, retention"
         }
       ],
       "crossRefs": [],
@@ -764,7 +764,7 @@
           ],
           "rationale": "Royal Match runs several quantified progression values that are granted for qualifying level play and accumulate toward stated thresholds: tournament tokens, which convert to lances and advance both a contributor state and the team's position; Easter Pass keys, which advance ordered positions on the pass; Egg Hunt eggs, which advance toward the next basket; and the propellers and then collected coins that advance the Propeller Madness steps (tier: directly observed). None of them is exchangeable for a user-selected result, which separates them from the spendable balances (tier: strongly supported, no spending route is shown for any of them). The confidence is strongly supported rather than directly observed because the grant rule, how much each level contributes to each measure, is never stated and the narrator asks for it without an answer (tier: directly observed, at O25).",
           "alternativeConsidered": "Spendable Credits and Tokens, which would apply if the tokens, keys or eggs could be exchanged for a chosen result. The one unit that does behave that way, the card star used to open chests, is treated separately and is recorded under the unresolved list. What would separate them for the others is observing any surface where a token, key or egg is spent by choice.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Reward Multiplier",
@@ -774,7 +774,7 @@
           ],
           "rationale": "Two stated modifiers are observed. At level 33 the app marks the level with a doubling marker, starts a 15-minute countdown and states that rewards are doubled for the duration; during the window the contribution paid to the team and the progress paid to Propeller Madness both move at twice their earlier rate (tier: directly observed). Level 39 is marked as a hard level before entry and states that passing it triples the reward and pays 30 points to the Egg Hunt (tier: directly observed). In both cases the base reward exists independently of the modifier and the factor is stated, so the modified amount follows from a visible rule (tier: directly observed). A third instance is the King's Nightmare interlude that carries a doubled-reward marker over its stated 50 coins (tier: directly observed).",
           "alternativeConsidered": "Variable Reward Outcome, which would apply if the increased amount were unresolved before the reward event. Both instances state the factor in advance, which settles it. Boosters was also considered for the doubling marker and does not apply: nothing is held or expended, and the conditions of the level are unchanged.",
-          "role": "engagement."
+          "role": "engagement"
         },
         {
           "name": "Seasonal Progression Pass",
@@ -784,7 +784,7 @@
           ],
           "rationale": "The Easter Pass is a bounded track: it carries a 27-day 12-hour countdown, holds 30 ordered positions, is advanced by beating levels and collecting keys, and pays a reward at each reached position (tier: directly observed). A second lane at the same positions is unlocked by a purchase and pays more at each, along with exclusive items stated to last until the event ends (tier: directly observed). The seasonal boundary is what selects this entry over Progression Fund.",
           "alternativeConsidered": "Progression Fund, which covers an unbounded track attached to a measure the product already maintains. Both are excluded here: the pass carries an event boundary that ends it, and it runs on keys of its own rather than on the player level. Season Content Pass was also considered and does not apply, since the entitlement pays rewards at positions rather than granting access to grouped content.",
-          "role": "monetization, retention, engagement."
+          "role": "monetization, retention, engagement"
         }
       ],
       "crossRefs": [],
@@ -808,7 +808,7 @@
           ],
           "rationale": "Royal Match assigns the user a current level within an ordered series, advances it by one for each level cleared, displays it on the home screen and on the leaderboards, and uses it as the condition for other parts of the product (tier: directly observed). The ordered series extends far beyond the session: the highest level observed on the world leaderboard is 13,401 (tier: directly observed). The tournament also maintains an ordered contributor state, observed as an armour colour changing from silver to gold and a knight title at a stated token threshold (tier: directly observed).",
           "alternativeConsidered": "treating the numbered levels only as content units rather than as a progression state. That is ruled out because the app maintains and displays the number as the user's current state and gates other features on it. The conditions placed on those features are not classified here; this entry covers the measure and Progression Gate covers the conditions read from it.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Progression Gate",
@@ -818,7 +818,7 @@
           ],
           "rationale": "Royal Match maintains the player level as a measure it advances through the user's own play, one level per cleared level (tier: directly observed). Three parts of the product are withheld against stated values of that measure: teams at level 21, the collection at level 41, and each assist item at its own level (tier: directly observed). Each requirement is stated in the terms of the measure and is observable before it is satisfied: the teams surface can be browsed and repeats \"reach level 21 to join teams\" when join is tapped, the collection tab states level 41 and describes nothing else, and locked items are displayed but cannot be tapped (tier: directly observed). Each withheld part is distinct from the level progression itself rather than being the next level in it (tier: directly observed).",
           "alternativeConsidered": "Milestone, which covers the product's recognition that a defined point in a progression has been reached. It is not applied to these three, because a gate is the standing condition on a withheld part rather than the recognition event at the crossing. The team tournament's requirement of at least ten members was also considered and is excluded: roster size is not a measure the user advances by playing, so it is an eligibility condition and is recorded in plain language at O37.",
-          "role": "retention, engagement."
+          "role": "retention, engagement"
         },
         {
           "name": "Milestone",
@@ -828,7 +828,7 @@
           ],
           "rationale": "Royal Match maintains a broader progression, 152 areas and an open-ended level count, and recognizes defined points within it separately from ordinary progress. Completing an area produces a chest, a celebration, a view of the finished area and the unlock of the next one (tier: directly observed). Levels 20 and 40 are both presented as bonus levels, marking a recognized point at every twentieth level (tier: strongly supported, two instances 20 apart are observed and the pattern is stated by the narration rather than by the app). The tournament states a knight title at a token threshold, a defined point within the token progression (tier: directly observed).",
           "alternativeConsidered": "Achievement for area completion. It is not applied because the app records a count of areas completed rather than a preserved attained state for each area, and the area unlock follows automatically from the progression rather than recording a separate accomplishment. Progression Gate was also considered for the area unlocks and does not apply: the next area is the next unit of the area progression rather than a separate part of the product withheld against a stated value.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Leaderboard",
@@ -838,7 +838,7 @@
           ],
           "rationale": "Royal Match presents ordered lists of comparable entities in several scopes: players by level and crowns for the world and for the user's country, teams by team score for the world and for the country, and, inside the tournament, teams by position and members by contribution (tier: directly observed). Each list shows at least two entities in relative order with the comparison value displayed (tier: directly observed).",
           "alternativeConsidered": "Comparative Rank alone. Both are applied, because the ordered lists and the user's own communicated position are distinct co-occurring behaviors rather than one behavior carved two ways.",
-          "role": "social, engagement."
+          "role": "social, engagement"
         }
       ],
       "crossRefs": [],
@@ -862,7 +862,7 @@
           ],
           "rationale": "Royal Match maintains a broader progression, 152 areas and an open-ended level count, and recognizes defined points within it separately from ordinary progress. Completing an area produces a chest, a celebration, a view of the finished area and the unlock of the next one (tier: directly observed). Levels 20 and 40 are both presented as bonus levels, marking a recognized point at every twentieth level (tier: strongly supported, two instances 20 apart are observed and the pattern is stated by the narration rather than by the app). The tournament states a knight title at a token threshold, a defined point within the token progression (tier: directly observed).",
           "alternativeConsidered": "Achievement for area completion. It is not applied because the app records a count of areas completed rather than a preserved attained state for each area, and the area unlock follows automatically from the progression rather than recording a separate accomplishment. Progression Gate was also considered for the area unlocks and does not apply: the next area is the next unit of the area progression rather than a separate part of the product withheld against a stated value.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         }
       ],
       "crossRefs": [],
@@ -885,7 +885,7 @@
           ],
           "rationale": "Butler's Gift is framed by the app as \"beat levels on your first try to start the next level with power-ups\", and its state is displayed as active on two out of three, so the benefit depends on a run of first-try clearances rather than on a total count of them (tier: directly observed). The continuity rule itself, what a failure does to the state, was never observed, because the narrator spent a power-up specifically to avoid finding out (tier: directly observed). Under the presence standard the surface and the app's own framing establish the mechanic; the reset behavior is stated here as not observed.",
           "alternativeConsidered": "a cumulative count of first-try wins within a bounded set of three levels, in which gaps would not matter. The profile's \"first try wins\" stat is exactly such a count and is not tagged here. What would separate them is observing a level that is not cleared on the first try and whether the two-out-of-three state falls back.",
-          "role": "engagement."
+          "role": "engagement"
         }
       ],
       "crossRefs": [],
@@ -912,7 +912,7 @@
           ],
           "rationale": "Each level is a bounded objective instance: Royal Match states the success condition, such as collecting 36 wooden pieces, bounds it with a move limit, and produces a different response for completion than for exhausting the moves (tier: directly observed). The King's Nightmare interludes are separate bounded instances with their own success conditions and their own move or time boundaries (tier: directly observed). Propeller Madness, the Egg Hunt and the team tournament are event-bounded instances with stated success conditions and stated remaining time (tier: directly observed).",
           "alternativeConsidered": "treating the bonus levels at 20 and 40 as challenges as well. They are excluded here: they state no success condition, only a quantity to accumulate within the moves given, so no completed-or-not-completed result exists for the instance (O18). Minigame was also considered for the King's Nightmare interludes and does not apply, because they pay coins into the ordinary balance; the bounded objective inside each one is carried by this entry.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Experience Points",
@@ -922,7 +922,7 @@
           ],
           "rationale": "Royal Match runs several quantified progression values that are granted for qualifying level play and accumulate toward stated thresholds: tournament tokens, which convert to lances and advance both a contributor state and the team's position; Easter Pass keys, which advance ordered positions on the pass; Egg Hunt eggs, which advance toward the next basket; and the propellers and then collected coins that advance the Propeller Madness steps (tier: directly observed). None of them is exchangeable for a user-selected result, which separates them from the spendable balances (tier: strongly supported, no spending route is shown for any of them). The confidence is strongly supported rather than directly observed because the grant rule, how much each level contributes to each measure, is never stated and the narrator asks for it without an answer (tier: directly observed, at O25).",
           "alternativeConsidered": "Spendable Credits and Tokens, which would apply if the tokens, keys or eggs could be exchanged for a chosen result. The one unit that does behave that way, the card star used to open chests, is treated separately and is recorded under the unresolved list. What would separate them for the others is observing any surface where a token, key or egg is spent by choice.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Reward Multiplier",
@@ -932,7 +932,7 @@
           ],
           "rationale": "Two stated modifiers are observed. At level 33 the app marks the level with a doubling marker, starts a 15-minute countdown and states that rewards are doubled for the duration; during the window the contribution paid to the team and the progress paid to Propeller Madness both move at twice their earlier rate (tier: directly observed). Level 39 is marked as a hard level before entry and states that passing it triples the reward and pays 30 points to the Egg Hunt (tier: directly observed). In both cases the base reward exists independently of the modifier and the factor is stated, so the modified amount follows from a visible rule (tier: directly observed). A third instance is the King's Nightmare interlude that carries a doubled-reward marker over its stated 50 coins (tier: directly observed).",
           "alternativeConsidered": "Variable Reward Outcome, which would apply if the increased amount were unresolved before the reward event. Both instances state the factor in advance, which settles it. Boosters was also considered for the doubling marker and does not apply: nothing is held or expended, and the conditions of the level are unchanged.",
-          "role": "engagement."
+          "role": "engagement"
         }
       ],
       "crossRefs": [],
@@ -958,7 +958,7 @@
           ],
           "rationale": "Each level is a bounded objective instance: Royal Match states the success condition, such as collecting 36 wooden pieces, bounds it with a move limit, and produces a different response for completion than for exhausting the moves (tier: directly observed). The King's Nightmare interludes are separate bounded instances with their own success conditions and their own move or time boundaries (tier: directly observed). Propeller Madness, the Egg Hunt and the team tournament are event-bounded instances with stated success conditions and stated remaining time (tier: directly observed).",
           "alternativeConsidered": "treating the bonus levels at 20 and 40 as challenges as well. They are excluded here: they state no success condition, only a quantity to accumulate within the moves given, so no completed-or-not-completed result exists for the instance (O18). Minigame was also considered for the King's Nightmare interludes and does not apply, because they pay coins into the ordinary balance; the bounded objective inside each one is carried by this entry.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Experience Points",
@@ -968,7 +968,7 @@
           ],
           "rationale": "Royal Match runs several quantified progression values that are granted for qualifying level play and accumulate toward stated thresholds: tournament tokens, which convert to lances and advance both a contributor state and the team's position; Easter Pass keys, which advance ordered positions on the pass; Egg Hunt eggs, which advance toward the next basket; and the propellers and then collected coins that advance the Propeller Madness steps (tier: directly observed). None of them is exchangeable for a user-selected result, which separates them from the spendable balances (tier: strongly supported, no spending route is shown for any of them). The confidence is strongly supported rather than directly observed because the grant rule, how much each level contributes to each measure, is never stated and the narrator asks for it without an answer (tier: directly observed, at O25).",
           "alternativeConsidered": "Spendable Credits and Tokens, which would apply if the tokens, keys or eggs could be exchanged for a chosen result. The one unit that does behave that way, the card star used to open chests, is treated separately and is recorded under the unresolved list. What would separate them for the others is observing any surface where a token, key or egg is spent by choice.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         }
       ],
       "crossRefs": [],
@@ -996,7 +996,7 @@
           ],
           "rationale": "Royal Match holds five discrete hearts, removes one when a level is failed, and the remaining count governs whether another attempt can start (tier: directly observed). Restoration is defined at 24 to 25 minutes per heart, with a 900-coin refill and teammate requests as alternatives (tier: directly observed). Consumption is tied to failure rather than to entry: levels are started freely and hearts are reported lost at the failures from level 18 onward (tier: strongly supported, no heart is observed being consumed on entry).",
           "alternativeConsidered": "Energy, which would apply if a heart were consumed on starting a level rather than on failing it. The session separates them: levels are entered and re-entered without a heart being taken until a level is failed.",
-          "role": "engagement, retention, monetization."
+          "role": "engagement, retention, monetization"
         },
         {
           "name": "Boosters",
@@ -1006,7 +1006,7 @@
           ],
           "rationale": "Royal Match holds each assist item as a counted quantity outside the level, observed as three royal hammers and five jester's hats, displays the count before and during play, applies one only when the user selects the item and then a target, and reduces the count on use (tier: directly observed). The observed items are the royal hammer, an arrow that clears a row, a cannon that clears a column, a jester's hat that shuffles the board, TNT and the propeller, each with a stated effect (tier: directly observed). Replenishment routes observed are area chests, event rewards, the Easter Pass, the Easter Treasures ladder and the shop (tier: directly observed). The offers also sell unlimited use for stated periods from one hour to 100 hours, which suspends the count while the items remain per-instance selections (tier: directly observed).",
           "alternativeConsidered": "Spendable Credits and Tokens, which would apply if the items were exchanged from a balance at the moment of use. The session separates the two: the coins are the balance, and the items are counted holdings applied inside the level. Energy was also considered and does not apply, since nothing is consumed unless the user selects an item.",
-          "role": "engagement, monetization."
+          "role": "engagement, monetization"
         },
         {
           "name": "Experience Points",
@@ -1016,7 +1016,7 @@
           ],
           "rationale": "Royal Match runs several quantified progression values that are granted for qualifying level play and accumulate toward stated thresholds: tournament tokens, which convert to lances and advance both a contributor state and the team's position; Easter Pass keys, which advance ordered positions on the pass; Egg Hunt eggs, which advance toward the next basket; and the propellers and then collected coins that advance the Propeller Madness steps (tier: directly observed). None of them is exchangeable for a user-selected result, which separates them from the spendable balances (tier: strongly supported, no spending route is shown for any of them). The confidence is strongly supported rather than directly observed because the grant rule, how much each level contributes to each measure, is never stated and the narrator asks for it without an answer (tier: directly observed, at O25).",
           "alternativeConsidered": "Spendable Credits and Tokens, which would apply if the tokens, keys or eggs could be exchanged for a chosen result. The one unit that does behave that way, the card star used to open chests, is treated separately and is recorded under the unresolved list. What would separate them for the others is observing any surface where a token, key or egg is spent by choice.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Seasonal Progression Pass",
@@ -1026,7 +1026,7 @@
           ],
           "rationale": "The Easter Pass is a bounded track: it carries a 27-day 12-hour countdown, holds 30 ordered positions, is advanced by beating levels and collecting keys, and pays a reward at each reached position (tier: directly observed). A second lane at the same positions is unlocked by a purchase and pays more at each, along with exclusive items stated to last until the event ends (tier: directly observed). The seasonal boundary is what selects this entry over Progression Fund.",
           "alternativeConsidered": "Progression Fund, which covers an unbounded track attached to a measure the product already maintains. Both are excluded here: the pass carries an event boundary that ends it, and it runs on keys of its own rather than on the player level. Season Content Pass was also considered and does not apply, since the entitlement pays rewards at positions rather than granting access to grouped content.",
-          "role": "monetization, retention, engagement."
+          "role": "monetization, retention, engagement"
         },
         {
           "name": "Cosmetic Customization",
@@ -1036,7 +1036,7 @@
           ],
           "rationale": "Royal Match maintains selectable presentation states for the user's identity: an avatar or a Facebook photo, a frame, and a chosen name, none of which changes any rule, cost or outcome (tier: directly observed). The activated Easter Pass lane replaces these with a golden profile picture frame and a golden username for the duration of the event (tier: directly observed).",
           "alternativeConsidered": "the castle and area decorations, which are the most visible presentation change in the game. They are not tagged here: the built state is the direct visible consequence of spending stars on the current task, no alternative presentation is offered for any task, and the appearance cannot be applied independently of that progression state. The star sink is described in plain language at O23 and O40 instead.",
-          "role": "social, monetization."
+          "role": "social, monetization"
         }
       ],
       "crossRefs": [],
@@ -1064,7 +1064,7 @@
           ],
           "rationale": "Royal Match maintains the player level as a measure it advances through the user's own play, one level per cleared level (tier: directly observed). Three parts of the product are withheld against stated values of that measure: teams at level 21, the collection at level 41, and each assist item at its own level (tier: directly observed). Each requirement is stated in the terms of the measure and is observable before it is satisfied: the teams surface can be browsed and repeats \"reach level 21 to join teams\" when join is tapped, the collection tab states level 41 and describes nothing else, and locked items are displayed but cannot be tapped (tier: directly observed). Each withheld part is distinct from the level progression itself rather than being the next level in it (tier: directly observed).",
           "alternativeConsidered": "Milestone, which covers the product's recognition that a defined point in a progression has been reached. It is not applied to these three, because a gate is the standing condition on a withheld part rather than the recognition event at the crossing. The team tournament's requirement of at least ten members was also considered and is excluded: roster size is not a measure the user advances by playing, so it is an eligibility condition and is recorded in plain language at O37.",
-          "role": "retention, engagement."
+          "role": "retention, engagement"
         },
         {
           "name": "Variable Reward Outcome",
@@ -1074,7 +1074,7 @@
           ],
           "rationale": "Royal Match grants chests and card packs whose contents are not disclosed before opening and which resolve to materially different results between instances: the area-one chest yields 250 coins and four kinds of items, the area-three chest yields 250 coins, items and four cards, and successive card packs yield different named cards (tier: directly observed). Opening is a separate action with a reveal (tier: directly observed). No value is committed to obtain these particular containers, which is what keeps them under this entry rather than under its specialization, Loot Box.",
           "alternativeConsidered": "Loot Box, its specialization, which requires a value commitment made before the contents are known. The free chests and packs carry no such commitment. The card-star chests do, and they are recorded as unresolved rather than tagged here. The doubled and tripled reward amounts at O22 and O19 are not this entry either: they follow from a stated factor, which places them under Reward Multiplier.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Set Collection",
@@ -1084,7 +1084,7 @@
           ],
           "rationale": "The Culinary Collection defines 15 named sets of nine cards each, tracks which cards are held, states the reward for completing each set and a grand prize for completing all of them, and treats a repeat card differently from a new one by converting duplicates into card stars (tier: directly observed). Cards arrive from packs, chests and teammates (tier: directly observed).",
           "alternativeConsidered": "treating the card stars as the collectible rather than the cards. That is ruled out: the sets track named cards at member level, and the stars are what duplicates become.",
-          "role": "engagement, social, retention."
+          "role": "engagement, social, retention"
         },
         {
           "name": "Cosmetic Customization",
@@ -1094,7 +1094,7 @@
           ],
           "rationale": "Royal Match maintains selectable presentation states for the user's identity: an avatar or a Facebook photo, a frame, and a chosen name, none of which changes any rule, cost or outcome (tier: directly observed). The activated Easter Pass lane replaces these with a golden profile picture frame and a golden username for the duration of the event (tier: directly observed).",
           "alternativeConsidered": "the castle and area decorations, which are the most visible presentation change in the game. They are not tagged here: the built state is the direct visible consequence of spending stars on the current task, no alternative presentation is offered for any task, and the appearance cannot be applied independently of that progression state. The star sink is described in plain language at O23 and O40 instead.",
-          "role": "social, monetization."
+          "role": "social, monetization"
         }
       ],
       "crossRefs": [],
@@ -1122,7 +1122,7 @@
           ],
           "rationale": "Each level is a bounded objective instance: Royal Match states the success condition, such as collecting 36 wooden pieces, bounds it with a move limit, and produces a different response for completion than for exhausting the moves (tier: directly observed). The King's Nightmare interludes are separate bounded instances with their own success conditions and their own move or time boundaries (tier: directly observed). Propeller Madness, the Egg Hunt and the team tournament are event-bounded instances with stated success conditions and stated remaining time (tier: directly observed).",
           "alternativeConsidered": "treating the bonus levels at 20 and 40 as challenges as well. They are excluded here: they state no success condition, only a quantity to accumulate within the moves given, so no completed-or-not-completed result exists for the instance (O18). Minigame was also considered for the King's Nightmare interludes and does not apply, because they pay coins into the ordinary balance; the bounded objective inside each one is carried by this entry.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Leveling",
@@ -1132,7 +1132,7 @@
           ],
           "rationale": "Royal Match assigns the user a current level within an ordered series, advances it by one for each level cleared, displays it on the home screen and on the leaderboards, and uses it as the condition for other parts of the product (tier: directly observed). The ordered series extends far beyond the session: the highest level observed on the world leaderboard is 13,401 (tier: directly observed). The tournament also maintains an ordered contributor state, observed as an armour colour changing from silver to gold and a knight title at a stated token threshold (tier: directly observed).",
           "alternativeConsidered": "treating the numbered levels only as content units rather than as a progression state. That is ruled out because the app maintains and displays the number as the user's current state and gates other features on it. The conditions placed on those features are not classified here; this entry covers the measure and Progression Gate covers the conditions read from it.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Milestone",
@@ -1142,7 +1142,7 @@
           ],
           "rationale": "Royal Match maintains a broader progression, 152 areas and an open-ended level count, and recognizes defined points within it separately from ordinary progress. Completing an area produces a chest, a celebration, a view of the finished area and the unlock of the next one (tier: directly observed). Levels 20 and 40 are both presented as bonus levels, marking a recognized point at every twentieth level (tier: strongly supported, two instances 20 apart are observed and the pattern is stated by the narration rather than by the app). The tournament states a knight title at a token threshold, a defined point within the token progression (tier: directly observed).",
           "alternativeConsidered": "Achievement for area completion. It is not applied because the app records a count of areas completed rather than a preserved attained state for each area, and the area unlock follows automatically from the progression rather than recording a separate accomplishment. Progression Gate was also considered for the area unlocks and does not apply: the next area is the next unit of the area progression rather than a separate part of the product withheld against a stated value.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Experience Points",
@@ -1152,7 +1152,7 @@
           ],
           "rationale": "Royal Match runs several quantified progression values that are granted for qualifying level play and accumulate toward stated thresholds: tournament tokens, which convert to lances and advance both a contributor state and the team's position; Easter Pass keys, which advance ordered positions on the pass; Egg Hunt eggs, which advance toward the next basket; and the propellers and then collected coins that advance the Propeller Madness steps (tier: directly observed). None of them is exchangeable for a user-selected result, which separates them from the spendable balances (tier: strongly supported, no spending route is shown for any of them). The confidence is strongly supported rather than directly observed because the grant rule, how much each level contributes to each measure, is never stated and the narrator asks for it without an answer (tier: directly observed, at O25).",
           "alternativeConsidered": "Spendable Credits and Tokens, which would apply if the tokens, keys or eggs could be exchanged for a chosen result. The one unit that does behave that way, the card star used to open chests, is treated separately and is recorded under the unresolved list. What would separate them for the others is observing any surface where a token, key or egg is spent by choice.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Reward Multiplier",
@@ -1162,7 +1162,7 @@
           ],
           "rationale": "Two stated modifiers are observed. At level 33 the app marks the level with a doubling marker, starts a 15-minute countdown and states that rewards are doubled for the duration; during the window the contribution paid to the team and the progress paid to Propeller Madness both move at twice their earlier rate (tier: directly observed). Level 39 is marked as a hard level before entry and states that passing it triples the reward and pays 30 points to the Egg Hunt (tier: directly observed). In both cases the base reward exists independently of the modifier and the factor is stated, so the modified amount follows from a visible rule (tier: directly observed). A third instance is the King's Nightmare interlude that carries a doubled-reward marker over its stated 50 coins (tier: directly observed).",
           "alternativeConsidered": "Variable Reward Outcome, which would apply if the increased amount were unresolved before the reward event. Both instances state the factor in advance, which settles it. Boosters was also considered for the doubling marker and does not apply: nothing is held or expended, and the conditions of the level are unchanged.",
-          "role": "engagement."
+          "role": "engagement"
         },
         {
           "name": "Clan / Guild",
@@ -1172,7 +1172,7 @@
           ],
           "rationale": "Royal Match represents the team as a collective entity with its own badge, name, description, roster, capacity of 50, joining requirement and, decisively, its own group-level state: a team score, a position in the tournament standings, and tournament rewards earned at the team level (tier: directly observed). Member activity feeds that collective state through contributed lances (tier: directly observed). Membership changes observable conditions: free lives, the tournament, card requests and the team message board (tier: directly observed). Under the decision ladder for the three sibling social entries, the presence of a collective group-owned state selects this entry.",
           "alternativeConsidered": "Group Membership and Community Space, its two sibling entries. Both are excluded by the decision ladder: the team holds collective state of its own, which is the more specific distinguishing feature, so the single label for this surface is this entry.",
-          "role": "social, retention, monetization."
+          "role": "social, retention, monetization"
         },
         {
           "name": "Leaderboard",
@@ -1182,7 +1182,7 @@
           ],
           "rationale": "Royal Match presents ordered lists of comparable entities in several scopes: players by level and crowns for the world and for the user's country, teams by team score for the world and for the country, and, inside the tournament, teams by position and members by contribution (tier: directly observed). Each list shows at least two entities in relative order with the comparison value displayed (tier: directly observed).",
           "alternativeConsidered": "Comparative Rank alone. Both are applied, because the ordered lists and the user's own communicated position are distinct co-occurring behaviors rather than one behavior carved two ways.",
-          "role": "social, engagement."
+          "role": "social, engagement"
         },
         {
           "name": "Comparative Rank",
@@ -1192,7 +1192,7 @@
           ],
           "rationale": "Royal Match communicates positions that depend on other entities' results: the team is at position nine, the team is reported moving between positions eight and nine without the user's own contribution changing, and the user is shown in second place inside the team with an armour colour that changes as the standing improves (tier: directly observed). The tournament scope is bounded by the event window (tier: directly observed).",
           "alternativeConsidered": "a progression tier, which would apply if the armour colour were reached from fixed thresholds rather than from standing against the other members. The surface states a position, second place, alongside the colour change, which settles it for the tournament; the knight title at a stated token threshold is treated separately under Milestone.",
-          "role": "social, engagement."
+          "role": "social, engagement"
         }
       ],
       "crossRefs": [],
@@ -1218,7 +1218,7 @@
           ],
           "rationale": "Royal Match assigns the user a current level within an ordered series, advances it by one for each level cleared, displays it on the home screen and on the leaderboards, and uses it as the condition for other parts of the product (tier: directly observed). The ordered series extends far beyond the session: the highest level observed on the world leaderboard is 13,401 (tier: directly observed). The tournament also maintains an ordered contributor state, observed as an armour colour changing from silver to gold and a knight title at a stated token threshold (tier: directly observed).",
           "alternativeConsidered": "treating the numbered levels only as content units rather than as a progression state. That is ruled out because the app maintains and displays the number as the user's current state and gates other features on it. The conditions placed on those features are not classified here; this entry covers the measure and Progression Gate covers the conditions read from it.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Progression Gate",
@@ -1228,7 +1228,7 @@
           ],
           "rationale": "Royal Match maintains the player level as a measure it advances through the user's own play, one level per cleared level (tier: directly observed). Three parts of the product are withheld against stated values of that measure: teams at level 21, the collection at level 41, and each assist item at its own level (tier: directly observed). Each requirement is stated in the terms of the measure and is observable before it is satisfied: the teams surface can be browsed and repeats \"reach level 21 to join teams\" when join is tapped, the collection tab states level 41 and describes nothing else, and locked items are displayed but cannot be tapped (tier: directly observed). Each withheld part is distinct from the level progression itself rather than being the next level in it (tier: directly observed).",
           "alternativeConsidered": "Milestone, which covers the product's recognition that a defined point in a progression has been reached. It is not applied to these three, because a gate is the standing condition on a withheld part rather than the recognition event at the crossing. The team tournament's requirement of at least ten members was also considered and is excluded: roster size is not a measure the user advances by playing, so it is an eligibility condition and is recorded in plain language at O37.",
-          "role": "retention, engagement."
+          "role": "retention, engagement"
         },
         {
           "name": "Clan / Guild",
@@ -1238,7 +1238,7 @@
           ],
           "rationale": "Royal Match represents the team as a collective entity with its own badge, name, description, roster, capacity of 50, joining requirement and, decisively, its own group-level state: a team score, a position in the tournament standings, and tournament rewards earned at the team level (tier: directly observed). Member activity feeds that collective state through contributed lances (tier: directly observed). Membership changes observable conditions: free lives, the tournament, card requests and the team message board (tier: directly observed). Under the decision ladder for the three sibling social entries, the presence of a collective group-owned state selects this entry.",
           "alternativeConsidered": "Group Membership and Community Space, its two sibling entries. Both are excluded by the decision ladder: the team holds collective state of its own, which is the more specific distinguishing feature, so the single label for this surface is this entry.",
-          "role": "social, retention, monetization."
+          "role": "social, retention, monetization"
         }
       ],
       "crossRefs": [],
@@ -1261,7 +1261,7 @@
           ],
           "rationale": "Royal Match assigns the user a current level within an ordered series, advances it by one for each level cleared, displays it on the home screen and on the leaderboards, and uses it as the condition for other parts of the product (tier: directly observed). The ordered series extends far beyond the session: the highest level observed on the world leaderboard is 13,401 (tier: directly observed). The tournament also maintains an ordered contributor state, observed as an armour colour changing from silver to gold and a knight title at a stated token threshold (tier: directly observed).",
           "alternativeConsidered": "treating the numbered levels only as content units rather than as a progression state. That is ruled out because the app maintains and displays the number as the user's current state and gates other features on it. The conditions placed on those features are not classified here; this entry covers the measure and Progression Gate covers the conditions read from it.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Progression Gate",
@@ -1271,7 +1271,7 @@
           ],
           "rationale": "Royal Match maintains the player level as a measure it advances through the user's own play, one level per cleared level (tier: directly observed). Three parts of the product are withheld against stated values of that measure: teams at level 21, the collection at level 41, and each assist item at its own level (tier: directly observed). Each requirement is stated in the terms of the measure and is observable before it is satisfied: the teams surface can be browsed and repeats \"reach level 21 to join teams\" when join is tapped, the collection tab states level 41 and describes nothing else, and locked items are displayed but cannot be tapped (tier: directly observed). Each withheld part is distinct from the level progression itself rather than being the next level in it (tier: directly observed).",
           "alternativeConsidered": "Milestone, which covers the product's recognition that a defined point in a progression has been reached. It is not applied to these three, because a gate is the standing condition on a withheld part rather than the recognition event at the crossing. The team tournament's requirement of at least ten members was also considered and is excluded: roster size is not a measure the user advances by playing, so it is an eligibility condition and is recorded in plain language at O37.",
-          "role": "retention, engagement."
+          "role": "retention, engagement"
         }
       ],
       "crossRefs": [],
@@ -1295,7 +1295,7 @@
           ],
           "rationale": "Royal Match holds each assist item as a counted quantity outside the level, observed as three royal hammers and five jester's hats, displays the count before and during play, applies one only when the user selects the item and then a target, and reduces the count on use (tier: directly observed). The observed items are the royal hammer, an arrow that clears a row, a cannon that clears a column, a jester's hat that shuffles the board, TNT and the propeller, each with a stated effect (tier: directly observed). Replenishment routes observed are area chests, event rewards, the Easter Pass, the Easter Treasures ladder and the shop (tier: directly observed). The offers also sell unlimited use for stated periods from one hour to 100 hours, which suspends the count while the items remain per-instance selections (tier: directly observed).",
           "alternativeConsidered": "Spendable Credits and Tokens, which would apply if the items were exchanged from a balance at the moment of use. The session separates the two: the coins are the balance, and the items are counted holdings applied inside the level. Energy was also considered and does not apply, since nothing is consumed unless the user selects an item.",
-          "role": "engagement, monetization."
+          "role": "engagement, monetization"
         },
         {
           "name": "Leveling",
@@ -1305,7 +1305,7 @@
           ],
           "rationale": "Royal Match assigns the user a current level within an ordered series, advances it by one for each level cleared, displays it on the home screen and on the leaderboards, and uses it as the condition for other parts of the product (tier: directly observed). The ordered series extends far beyond the session: the highest level observed on the world leaderboard is 13,401 (tier: directly observed). The tournament also maintains an ordered contributor state, observed as an armour colour changing from silver to gold and a knight title at a stated token threshold (tier: directly observed).",
           "alternativeConsidered": "treating the numbered levels only as content units rather than as a progression state. That is ruled out because the app maintains and displays the number as the user's current state and gates other features on it. The conditions placed on those features are not classified here; this entry covers the measure and Progression Gate covers the conditions read from it.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Progression Gate",
@@ -1315,7 +1315,7 @@
           ],
           "rationale": "Royal Match maintains the player level as a measure it advances through the user's own play, one level per cleared level (tier: directly observed). Three parts of the product are withheld against stated values of that measure: teams at level 21, the collection at level 41, and each assist item at its own level (tier: directly observed). Each requirement is stated in the terms of the measure and is observable before it is satisfied: the teams surface can be browsed and repeats \"reach level 21 to join teams\" when join is tapped, the collection tab states level 41 and describes nothing else, and locked items are displayed but cannot be tapped (tier: directly observed). Each withheld part is distinct from the level progression itself rather than being the next level in it (tier: directly observed).",
           "alternativeConsidered": "Milestone, which covers the product's recognition that a defined point in a progression has been reached. It is not applied to these three, because a gate is the standing condition on a withheld part rather than the recognition event at the crossing. The team tournament's requirement of at least ten members was also considered and is excluded: roster size is not a measure the user advances by playing, so it is an eligibility condition and is recorded in plain language at O37.",
-          "role": "retention, engagement."
+          "role": "retention, engagement"
         }
       ],
       "crossRefs": [],
@@ -1340,7 +1340,7 @@
           ],
           "rationale": "Royal Match represents the team as a collective entity with its own badge, name, description, roster, capacity of 50, joining requirement and, decisively, its own group-level state: a team score, a position in the tournament standings, and tournament rewards earned at the team level (tier: directly observed). Member activity feeds that collective state through contributed lances (tier: directly observed). Membership changes observable conditions: free lives, the tournament, card requests and the team message board (tier: directly observed). Under the decision ladder for the three sibling social entries, the presence of a collective group-owned state selects this entry.",
           "alternativeConsidered": "Group Membership and Community Space, its two sibling entries. Both are excluded by the decision ladder: the team holds collective state of its own, which is the more specific distinguishing feature, so the single label for this surface is this entry.",
-          "role": "social, retention, monetization."
+          "role": "social, retention, monetization"
         }
       ],
       "crossRefs": [],
@@ -1364,7 +1364,7 @@
           ],
           "rationale": "Royal Match presents ordered lists of comparable entities in several scopes: players by level and crowns for the world and for the user's country, teams by team score for the world and for the country, and, inside the tournament, teams by position and members by contribution (tier: directly observed). Each list shows at least two entities in relative order with the comparison value displayed (tier: directly observed).",
           "alternativeConsidered": "Comparative Rank alone. Both are applied, because the ordered lists and the user's own communicated position are distinct co-occurring behaviors rather than one behavior carved two ways.",
-          "role": "social, engagement."
+          "role": "social, engagement"
         }
       ],
       "crossRefs": [],
@@ -1391,7 +1391,7 @@
           ],
           "rationale": "Royal Match maintains two earned balances that are deliberately spent for product-defined results. Gold coins are granted by level play, interludes, bonus levels, chests and event rewards, and are spent on a heart refill at 900 and on five extra moves at 900 (tier: directly observed). Gold stars are granted at one per cleared level and are spent on area tasks costing one or two stars (tier: directly observed). Both remain stored until spent and both reduce on the exchange (tier: directly observed). This entry is a specialization of Spendable Credits and Tokens, whose invariant it preserves while adding the repeatable non-paid acquisition path.",
           "alternativeConsidered": "Experience Points for gold stars, which would apply if stars accumulated toward an advancement threshold rather than being exchanged. The session settles it: stars are deliberately spent on a chosen task and the balance falls when they are.",
-          "role": "engagement, monetization."
+          "role": "engagement, monetization"
         },
         {
           "name": "Hard Currency",
@@ -1401,7 +1401,7 @@
           ],
           "rationale": "The same gold coin balance that is earned in play is sold for money in fixed packs, observed from 1,000 coins at 1.99 up to 100,000 coins at 99.99, and is also included in every named treasure bundle (tier: directly observed). The purchased units enter the stored balance rather than delivering a final result, and are later exchanged for refills, moves and offer items (tier: directly observed). Where one balance carries both a paid and an earned path, this entry still applies alongside Soft Currency; both are specializations of Spendable Credits and Tokens.",
           "alternativeConsidered": "classifying the coin packs as direct purchases of the underlying benefit. That is ruled out because payment adds to a stored balance that the user allocates later, rather than granting the refill or the moves themselves.",
-          "role": "monetization, engagement."
+          "role": "monetization, engagement"
         }
       ],
       "crossRefs": [],
@@ -1427,7 +1427,7 @@
           ],
           "rationale": "Royal Match maintains two earned balances that are deliberately spent for product-defined results. Gold coins are granted by level play, interludes, bonus levels, chests and event rewards, and are spent on a heart refill at 900 and on five extra moves at 900 (tier: directly observed). Gold stars are granted at one per cleared level and are spent on area tasks costing one or two stars (tier: directly observed). Both remain stored until spent and both reduce on the exchange (tier: directly observed). This entry is a specialization of Spendable Credits and Tokens, whose invariant it preserves while adding the repeatable non-paid acquisition path.",
           "alternativeConsidered": "Experience Points for gold stars, which would apply if stars accumulated toward an advancement threshold rather than being exchanged. The session settles it: stars are deliberately spent on a chosen task and the balance falls when they are.",
-          "role": "engagement, monetization."
+          "role": "engagement, monetization"
         }
       ],
       "crossRefs": [],
@@ -1452,7 +1452,7 @@
           ],
           "rationale": "Royal Match holds five discrete hearts, removes one when a level is failed, and the remaining count governs whether another attempt can start (tier: directly observed). Restoration is defined at 24 to 25 minutes per heart, with a 900-coin refill and teammate requests as alternatives (tier: directly observed). Consumption is tied to failure rather than to entry: levels are started freely and hearts are reported lost at the failures from level 18 onward (tier: strongly supported, no heart is observed being consumed on entry).",
           "alternativeConsidered": "Energy, which would apply if a heart were consumed on starting a level rather than on failing it. The session separates them: levels are entered and re-entered without a heart being taken until a level is failed.",
-          "role": "engagement, retention, monetization."
+          "role": "engagement, retention, monetization"
         },
         {
           "name": "Seasonal Progression Pass",
@@ -1462,7 +1462,7 @@
           ],
           "rationale": "The Easter Pass is a bounded track: it carries a 27-day 12-hour countdown, holds 30 ordered positions, is advanced by beating levels and collecting keys, and pays a reward at each reached position (tier: directly observed). A second lane at the same positions is unlocked by a purchase and pays more at each, along with exclusive items stated to last until the event ends (tier: directly observed). The seasonal boundary is what selects this entry over Progression Fund.",
           "alternativeConsidered": "Progression Fund, which covers an unbounded track attached to a measure the product already maintains. Both are excluded here: the pass carries an event boundary that ends it, and it runs on keys of its own rather than on the player level. Season Content Pass was also considered and does not apply, since the entitlement pays rewards at positions rather than granting access to grouped content.",
-          "role": "monetization, retention, engagement."
+          "role": "monetization, retention, engagement"
         },
         {
           "name": "Gifting",
@@ -1472,7 +1472,7 @@
           ],
           "rationale": "The user sends a life to an identified teammate in response to that teammate's request, the recipient receives it without returning anything, and the app blocks a second help on the same request with \"you already helped\" (tier: directly observed). The sender receives five coins for the transfer (tier: directly observed). The purchased team offers direct a period of infinite hearts to every member of the roster, and the activated Easter Pass lane includes a gift for teammates (tier: directly observed).",
           "alternativeConsidered": "treating the card requests as gifting. They are recorded as a request route here rather than tagged, because the session shows the request being sent and never shows a card being directed to a recipient.",
-          "role": "social, engagement, monetization."
+          "role": "social, engagement, monetization"
         }
       ],
       "crossRefs": [],
@@ -1496,7 +1496,7 @@
           ],
           "rationale": "Royal Match runs several quantified progression values that are granted for qualifying level play and accumulate toward stated thresholds: tournament tokens, which convert to lances and advance both a contributor state and the team's position; Easter Pass keys, which advance ordered positions on the pass; Egg Hunt eggs, which advance toward the next basket; and the propellers and then collected coins that advance the Propeller Madness steps (tier: directly observed). None of them is exchangeable for a user-selected result, which separates them from the spendable balances (tier: strongly supported, no spending route is shown for any of them). The confidence is strongly supported rather than directly observed because the grant rule, how much each level contributes to each measure, is never stated and the narrator asks for it without an answer (tier: directly observed, at O25).",
           "alternativeConsidered": "Spendable Credits and Tokens, which would apply if the tokens, keys or eggs could be exchanged for a chosen result. The one unit that does behave that way, the card star used to open chests, is treated separately and is recorded under the unresolved list. What would separate them for the others is observing any surface where a token, key or egg is spent by choice.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Variable Reward Outcome",
@@ -1506,7 +1506,7 @@
           ],
           "rationale": "Royal Match grants chests and card packs whose contents are not disclosed before opening and which resolve to materially different results between instances: the area-one chest yields 250 coins and four kinds of items, the area-three chest yields 250 coins, items and four cards, and successive card packs yield different named cards (tier: directly observed). Opening is a separate action with a reveal (tier: directly observed). No value is committed to obtain these particular containers, which is what keeps them under this entry rather than under its specialization, Loot Box.",
           "alternativeConsidered": "Loot Box, its specialization, which requires a value commitment made before the contents are known. The free chests and packs carry no such commitment. The card-star chests do, and they are recorded as unresolved rather than tagged here. The doubled and tripled reward amounts at O22 and O19 are not this entry either: they follow from a stated factor, which places them under Reward Multiplier.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Reward Multiplier",
@@ -1516,7 +1516,7 @@
           ],
           "rationale": "Two stated modifiers are observed. At level 33 the app marks the level with a doubling marker, starts a 15-minute countdown and states that rewards are doubled for the duration; during the window the contribution paid to the team and the progress paid to Propeller Madness both move at twice their earlier rate (tier: directly observed). Level 39 is marked as a hard level before entry and states that passing it triples the reward and pays 30 points to the Egg Hunt (tier: directly observed). In both cases the base reward exists independently of the modifier and the factor is stated, so the modified amount follows from a visible rule (tier: directly observed). A third instance is the King's Nightmare interlude that carries a doubled-reward marker over its stated 50 coins (tier: directly observed).",
           "alternativeConsidered": "Variable Reward Outcome, which would apply if the increased amount were unresolved before the reward event. Both instances state the factor in advance, which settles it. Boosters was also considered for the doubling marker and does not apply: nothing is held or expended, and the conditions of the level are unchanged.",
-          "role": "engagement."
+          "role": "engagement"
         },
         {
           "name": "Seasonal Progression Pass",
@@ -1526,7 +1526,7 @@
           ],
           "rationale": "The Easter Pass is a bounded track: it carries a 27-day 12-hour countdown, holds 30 ordered positions, is advanced by beating levels and collecting keys, and pays a reward at each reached position (tier: directly observed). A second lane at the same positions is unlocked by a purchase and pays more at each, along with exclusive items stated to last until the event ends (tier: directly observed). The seasonal boundary is what selects this entry over Progression Fund.",
           "alternativeConsidered": "Progression Fund, which covers an unbounded track attached to a measure the product already maintains. Both are excluded here: the pass carries an event boundary that ends it, and it runs on keys of its own rather than on the player level. Season Content Pass was also considered and does not apply, since the entitlement pays rewards at positions rather than granting access to grouped content.",
-          "role": "monetization, retention, engagement."
+          "role": "monetization, retention, engagement"
         }
       ],
       "crossRefs": [],
@@ -1551,7 +1551,7 @@
           ],
           "rationale": "Royal Match presents ordered lists of comparable entities in several scopes: players by level and crowns for the world and for the user's country, teams by team score for the world and for the country, and, inside the tournament, teams by position and members by contribution (tier: directly observed). Each list shows at least two entities in relative order with the comparison value displayed (tier: directly observed).",
           "alternativeConsidered": "Comparative Rank alone. Both are applied, because the ordered lists and the user's own communicated position are distinct co-occurring behaviors rather than one behavior carved two ways.",
-          "role": "social, engagement."
+          "role": "social, engagement"
         },
         {
           "name": "Comparative Rank",
@@ -1561,7 +1561,7 @@
           ],
           "rationale": "Royal Match communicates positions that depend on other entities' results: the team is at position nine, the team is reported moving between positions eight and nine without the user's own contribution changing, and the user is shown in second place inside the team with an armour colour that changes as the standing improves (tier: directly observed). The tournament scope is bounded by the event window (tier: directly observed).",
           "alternativeConsidered": "a progression tier, which would apply if the armour colour were reached from fixed thresholds rather than from standing against the other members. The surface states a position, second place, alongside the colour change, which settles it for the tournament; the knight title at a stated token threshold is treated separately under Milestone.",
-          "role": "social, engagement."
+          "role": "social, engagement"
         }
       ],
       "crossRefs": [],
@@ -1588,7 +1588,7 @@
           ],
           "rationale": "Royal Match grants chests and card packs whose contents are not disclosed before opening and which resolve to materially different results between instances: the area-one chest yields 250 coins and four kinds of items, the area-three chest yields 250 coins, items and four cards, and successive card packs yield different named cards (tier: directly observed). Opening is a separate action with a reveal (tier: directly observed). No value is committed to obtain these particular containers, which is what keeps them under this entry rather than under its specialization, Loot Box.",
           "alternativeConsidered": "Loot Box, its specialization, which requires a value commitment made before the contents are known. The free chests and packs carry no such commitment. The card-star chests do, and they are recorded as unresolved rather than tagged here. The doubled and tripled reward amounts at O22 and O19 are not this entry either: they follow from a stated factor, which places them under Reward Multiplier.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Set Collection",
@@ -1598,7 +1598,7 @@
           ],
           "rationale": "The Culinary Collection defines 15 named sets of nine cards each, tracks which cards are held, states the reward for completing each set and a grand prize for completing all of them, and treats a repeat card differently from a new one by converting duplicates into card stars (tier: directly observed). Cards arrive from packs, chests and teammates (tier: directly observed).",
           "alternativeConsidered": "treating the card stars as the collectible rather than the cards. That is ruled out: the sets track named cards at member level, and the stars are what duplicates become.",
-          "role": "engagement, social, retention."
+          "role": "engagement, social, retention"
         }
       ],
       "crossRefs": [],
@@ -1622,7 +1622,7 @@
           ],
           "rationale": "The Easter Pass is a bounded track: it carries a 27-day 12-hour countdown, holds 30 ordered positions, is advanced by beating levels and collecting keys, and pays a reward at each reached position (tier: directly observed). A second lane at the same positions is unlocked by a purchase and pays more at each, along with exclusive items stated to last until the event ends (tier: directly observed). The seasonal boundary is what selects this entry over Progression Fund.",
           "alternativeConsidered": "Progression Fund, which covers an unbounded track attached to a measure the product already maintains. Both are excluded here: the pass carries an event boundary that ends it, and it runs on keys of its own rather than on the player level. Season Content Pass was also considered and does not apply, since the entitlement pays rewards at positions rather than granting access to grouped content.",
-          "role": "monetization, retention, engagement."
+          "role": "monetization, retention, engagement"
         },
         {
           "name": "Cosmetic Customization",
@@ -1632,7 +1632,7 @@
           ],
           "rationale": "Royal Match maintains selectable presentation states for the user's identity: an avatar or a Facebook photo, a frame, and a chosen name, none of which changes any rule, cost or outcome (tier: directly observed). The activated Easter Pass lane replaces these with a golden profile picture frame and a golden username for the duration of the event (tier: directly observed).",
           "alternativeConsidered": "the castle and area decorations, which are the most visible presentation change in the game. They are not tagged here: the built state is the direct visible consequence of spending stars on the current task, no alternative presentation is offered for any task, and the appearance cannot be applied independently of that progression state. The star sink is described in plain language at O23 and O40 instead.",
-          "role": "social, monetization."
+          "role": "social, monetization"
         }
       ],
       "crossRefs": [],
@@ -1657,7 +1657,7 @@
           ],
           "rationale": "Royal Match assigns the user a current level within an ordered series, advances it by one for each level cleared, displays it on the home screen and on the leaderboards, and uses it as the condition for other parts of the product (tier: directly observed). The ordered series extends far beyond the session: the highest level observed on the world leaderboard is 13,401 (tier: directly observed). The tournament also maintains an ordered contributor state, observed as an armour colour changing from silver to gold and a knight title at a stated token threshold (tier: directly observed).",
           "alternativeConsidered": "treating the numbered levels only as content units rather than as a progression state. That is ruled out because the app maintains and displays the number as the user's current state and gates other features on it. The conditions placed on those features are not classified here; this entry covers the measure and Progression Gate covers the conditions read from it.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Leaderboard",
@@ -1667,7 +1667,7 @@
           ],
           "rationale": "Royal Match presents ordered lists of comparable entities in several scopes: players by level and crowns for the world and for the user's country, teams by team score for the world and for the country, and, inside the tournament, teams by position and members by contribution (tier: directly observed). Each list shows at least two entities in relative order with the comparison value displayed (tier: directly observed).",
           "alternativeConsidered": "Comparative Rank alone. Both are applied, because the ordered lists and the user's own communicated position are distinct co-occurring behaviors rather than one behavior carved two ways.",
-          "role": "social, engagement."
+          "role": "social, engagement"
         },
         {
           "name": "Comparative Rank",
@@ -1677,7 +1677,7 @@
           ],
           "rationale": "Royal Match communicates positions that depend on other entities' results: the team is at position nine, the team is reported moving between positions eight and nine without the user's own contribution changing, and the user is shown in second place inside the team with an armour colour that changes as the standing improves (tier: directly observed). The tournament scope is bounded by the event window (tier: directly observed).",
           "alternativeConsidered": "a progression tier, which would apply if the armour colour were reached from fixed thresholds rather than from standing against the other members. The surface states a position, second place, alongside the colour change, which settles it for the tournament; the knight title at a stated token threshold is treated separately under Milestone.",
-          "role": "social, engagement."
+          "role": "social, engagement"
         },
         {
           "name": "Cosmetic Customization",
@@ -1687,7 +1687,7 @@
           ],
           "rationale": "Royal Match maintains selectable presentation states for the user's identity: an avatar or a Facebook photo, a frame, and a chosen name, none of which changes any rule, cost or outcome (tier: directly observed). The activated Easter Pass lane replaces these with a golden profile picture frame and a golden username for the duration of the event (tier: directly observed).",
           "alternativeConsidered": "the castle and area decorations, which are the most visible presentation change in the game. They are not tagged here: the built state is the direct visible consequence of spending stars on the current task, no alternative presentation is offered for any task, and the appearance cannot be applied independently of that progression state. The star sink is described in plain language at O23 and O40 instead.",
-          "role": "social, monetization."
+          "role": "social, monetization"
         }
       ],
       "crossRefs": [],
@@ -1711,7 +1711,7 @@
           ],
           "rationale": "Royal Match represents the team as a collective entity with its own badge, name, description, roster, capacity of 50, joining requirement and, decisively, its own group-level state: a team score, a position in the tournament standings, and tournament rewards earned at the team level (tier: directly observed). Member activity feeds that collective state through contributed lances (tier: directly observed). Membership changes observable conditions: free lives, the tournament, card requests and the team message board (tier: directly observed). Under the decision ladder for the three sibling social entries, the presence of a collective group-owned state selects this entry.",
           "alternativeConsidered": "Group Membership and Community Space, its two sibling entries. Both are excluded by the decision ladder: the team holds collective state of its own, which is the more specific distinguishing feature, so the single label for this surface is this entry.",
-          "role": "social, retention, monetization."
+          "role": "social, retention, monetization"
         },
         {
           "name": "Leaderboard",
@@ -1721,7 +1721,7 @@
           ],
           "rationale": "Royal Match presents ordered lists of comparable entities in several scopes: players by level and crowns for the world and for the user's country, teams by team score for the world and for the country, and, inside the tournament, teams by position and members by contribution (tier: directly observed). Each list shows at least two entities in relative order with the comparison value displayed (tier: directly observed).",
           "alternativeConsidered": "Comparative Rank alone. Both are applied, because the ordered lists and the user's own communicated position are distinct co-occurring behaviors rather than one behavior carved two ways.",
-          "role": "social, engagement."
+          "role": "social, engagement"
         },
         {
           "name": "Comparative Rank",
@@ -1731,7 +1731,7 @@
           ],
           "rationale": "Royal Match communicates positions that depend on other entities' results: the team is at position nine, the team is reported moving between positions eight and nine without the user's own contribution changing, and the user is shown in second place inside the team with an armour colour that changes as the standing improves (tier: directly observed). The tournament scope is bounded by the event window (tier: directly observed).",
           "alternativeConsidered": "a progression tier, which would apply if the armour colour were reached from fixed thresholds rather than from standing against the other members. The surface states a position, second place, alongside the colour change, which settles it for the tournament; the knight title at a stated token threshold is treated separately under Milestone.",
-          "role": "social, engagement."
+          "role": "social, engagement"
         },
         {
           "name": "Cosmetic Customization",
@@ -1741,7 +1741,7 @@
           ],
           "rationale": "Royal Match maintains selectable presentation states for the user's identity: an avatar or a Facebook photo, a frame, and a chosen name, none of which changes any rule, cost or outcome (tier: directly observed). The activated Easter Pass lane replaces these with a golden profile picture frame and a golden username for the duration of the event (tier: directly observed).",
           "alternativeConsidered": "the castle and area decorations, which are the most visible presentation change in the game. They are not tagged here: the built state is the direct visible consequence of spending stars on the current task, no alternative presentation is offered for any task, and the appearance cannot be applied independently of that progression state. The star sink is described in plain language at O23 and O40 instead.",
-          "role": "social, monetization."
+          "role": "social, monetization"
         }
       ],
       "crossRefs": [],
@@ -1766,7 +1766,7 @@
           ],
           "rationale": "Royal Match maintains the player level as a measure it advances through the user's own play, one level per cleared level (tier: directly observed). Three parts of the product are withheld against stated values of that measure: teams at level 21, the collection at level 41, and each assist item at its own level (tier: directly observed). Each requirement is stated in the terms of the measure and is observable before it is satisfied: the teams surface can be browsed and repeats \"reach level 21 to join teams\" when join is tapped, the collection tab states level 41 and describes nothing else, and locked items are displayed but cannot be tapped (tier: directly observed). Each withheld part is distinct from the level progression itself rather than being the next level in it (tier: directly observed).",
           "alternativeConsidered": "Milestone, which covers the product's recognition that a defined point in a progression has been reached. It is not applied to these three, because a gate is the standing condition on a withheld part rather than the recognition event at the crossing. The team tournament's requirement of at least ten members was also considered and is excluded: roster size is not a measure the user advances by playing, so it is an eligibility condition and is recorded in plain language at O37.",
-          "role": "retention, engagement."
+          "role": "retention, engagement"
         },
         {
           "name": "Clan / Guild",
@@ -1776,7 +1776,7 @@
           ],
           "rationale": "Royal Match represents the team as a collective entity with its own badge, name, description, roster, capacity of 50, joining requirement and, decisively, its own group-level state: a team score, a position in the tournament standings, and tournament rewards earned at the team level (tier: directly observed). Member activity feeds that collective state through contributed lances (tier: directly observed). Membership changes observable conditions: free lives, the tournament, card requests and the team message board (tier: directly observed). Under the decision ladder for the three sibling social entries, the presence of a collective group-owned state selects this entry.",
           "alternativeConsidered": "Group Membership and Community Space, its two sibling entries. Both are excluded by the decision ladder: the team holds collective state of its own, which is the more specific distinguishing feature, so the single label for this surface is this entry.",
-          "role": "social, retention, monetization."
+          "role": "social, retention, monetization"
         },
         {
           "name": "Leaderboard",
@@ -1786,7 +1786,7 @@
           ],
           "rationale": "Royal Match presents ordered lists of comparable entities in several scopes: players by level and crowns for the world and for the user's country, teams by team score for the world and for the country, and, inside the tournament, teams by position and members by contribution (tier: directly observed). Each list shows at least two entities in relative order with the comparison value displayed (tier: directly observed).",
           "alternativeConsidered": "Comparative Rank alone. Both are applied, because the ordered lists and the user's own communicated position are distinct co-occurring behaviors rather than one behavior carved two ways.",
-          "role": "social, engagement."
+          "role": "social, engagement"
         }
       ],
       "crossRefs": [],
@@ -1810,7 +1810,7 @@
           ],
           "rationale": "Royal Match represents the team as a collective entity with its own badge, name, description, roster, capacity of 50, joining requirement and, decisively, its own group-level state: a team score, a position in the tournament standings, and tournament rewards earned at the team level (tier: directly observed). Member activity feeds that collective state through contributed lances (tier: directly observed). Membership changes observable conditions: free lives, the tournament, card requests and the team message board (tier: directly observed). Under the decision ladder for the three sibling social entries, the presence of a collective group-owned state selects this entry.",
           "alternativeConsidered": "Group Membership and Community Space, its two sibling entries. Both are excluded by the decision ladder: the team holds collective state of its own, which is the more specific distinguishing feature, so the single label for this surface is this entry.",
-          "role": "social, retention, monetization."
+          "role": "social, retention, monetization"
         },
         {
           "name": "Gifting",
@@ -1820,7 +1820,7 @@
           ],
           "rationale": "The user sends a life to an identified teammate in response to that teammate's request, the recipient receives it without returning anything, and the app blocks a second help on the same request with \"you already helped\" (tier: directly observed). The sender receives five coins for the transfer (tier: directly observed). The purchased team offers direct a period of infinite hearts to every member of the roster, and the activated Easter Pass lane includes a gift for teammates (tier: directly observed).",
           "alternativeConsidered": "treating the card requests as gifting. They are recorded as a request route here rather than tagged, because the session shows the request being sent and never shows a card being directed to a recipient.",
-          "role": "social, engagement, monetization."
+          "role": "social, engagement, monetization"
         }
       ],
       "crossRefs": [],
@@ -1845,7 +1845,7 @@
           ],
           "rationale": "Royal Match holds five discrete hearts, removes one when a level is failed, and the remaining count governs whether another attempt can start (tier: directly observed). Restoration is defined at 24 to 25 minutes per heart, with a 900-coin refill and teammate requests as alternatives (tier: directly observed). Consumption is tied to failure rather than to entry: levels are started freely and hearts are reported lost at the failures from level 18 onward (tier: strongly supported, no heart is observed being consumed on entry).",
           "alternativeConsidered": "Energy, which would apply if a heart were consumed on starting a level rather than on failing it. The session separates them: levels are entered and re-entered without a heart being taken until a level is failed.",
-          "role": "engagement, retention, monetization."
+          "role": "engagement, retention, monetization"
         },
         {
           "name": "Clan / Guild",
@@ -1855,7 +1855,7 @@
           ],
           "rationale": "Royal Match represents the team as a collective entity with its own badge, name, description, roster, capacity of 50, joining requirement and, decisively, its own group-level state: a team score, a position in the tournament standings, and tournament rewards earned at the team level (tier: directly observed). Member activity feeds that collective state through contributed lances (tier: directly observed). Membership changes observable conditions: free lives, the tournament, card requests and the team message board (tier: directly observed). Under the decision ladder for the three sibling social entries, the presence of a collective group-owned state selects this entry.",
           "alternativeConsidered": "Group Membership and Community Space, its two sibling entries. Both are excluded by the decision ladder: the team holds collective state of its own, which is the more specific distinguishing feature, so the single label for this surface is this entry.",
-          "role": "social, retention, monetization."
+          "role": "social, retention, monetization"
         },
         {
           "name": "Gifting",
@@ -1865,7 +1865,7 @@
           ],
           "rationale": "The user sends a life to an identified teammate in response to that teammate's request, the recipient receives it without returning anything, and the app blocks a second help on the same request with \"you already helped\" (tier: directly observed). The sender receives five coins for the transfer (tier: directly observed). The purchased team offers direct a period of infinite hearts to every member of the roster, and the activated Easter Pass lane includes a gift for teammates (tier: directly observed).",
           "alternativeConsidered": "treating the card requests as gifting. They are recorded as a request route here rather than tagged, because the session shows the request being sent and never shows a card being directed to a recipient.",
-          "role": "social, engagement, monetization."
+          "role": "social, engagement, monetization"
         }
       ],
       "crossRefs": [],
@@ -1890,7 +1890,7 @@
           ],
           "rationale": "The Culinary Collection defines 15 named sets of nine cards each, tracks which cards are held, states the reward for completing each set and a grand prize for completing all of them, and treats a repeat card differently from a new one by converting duplicates into card stars (tier: directly observed). Cards arrive from packs, chests and teammates (tier: directly observed).",
           "alternativeConsidered": "treating the card stars as the collectible rather than the cards. That is ruled out: the sets track named cards at member level, and the stars are what duplicates become.",
-          "role": "engagement, social, retention."
+          "role": "engagement, social, retention"
         },
         {
           "name": "Clan / Guild",
@@ -1900,7 +1900,7 @@
           ],
           "rationale": "Royal Match represents the team as a collective entity with its own badge, name, description, roster, capacity of 50, joining requirement and, decisively, its own group-level state: a team score, a position in the tournament standings, and tournament rewards earned at the team level (tier: directly observed). Member activity feeds that collective state through contributed lances (tier: directly observed). Membership changes observable conditions: free lives, the tournament, card requests and the team message board (tier: directly observed). Under the decision ladder for the three sibling social entries, the presence of a collective group-owned state selects this entry.",
           "alternativeConsidered": "Group Membership and Community Space, its two sibling entries. Both are excluded by the decision ladder: the team holds collective state of its own, which is the more specific distinguishing feature, so the single label for this surface is this entry.",
-          "role": "social, retention, monetization."
+          "role": "social, retention, monetization"
         },
         {
           "name": "Gifting",
@@ -1910,7 +1910,7 @@
           ],
           "rationale": "The user sends a life to an identified teammate in response to that teammate's request, the recipient receives it without returning anything, and the app blocks a second help on the same request with \"you already helped\" (tier: directly observed). The sender receives five coins for the transfer (tier: directly observed). The purchased team offers direct a period of infinite hearts to every member of the roster, and the activated Easter Pass lane includes a gift for teammates (tier: directly observed).",
           "alternativeConsidered": "treating the card requests as gifting. They are recorded as a request route here rather than tagged, because the session shows the request being sent and never shows a card being directed to a recipient.",
-          "role": "social, engagement, monetization."
+          "role": "social, engagement, monetization"
         }
       ],
       "crossRefs": [],
@@ -1934,7 +1934,7 @@
           ],
           "rationale": "Royal Match represents the team as a collective entity with its own badge, name, description, roster, capacity of 50, joining requirement and, decisively, its own group-level state: a team score, a position in the tournament standings, and tournament rewards earned at the team level (tier: directly observed). Member activity feeds that collective state through contributed lances (tier: directly observed). Membership changes observable conditions: free lives, the tournament, card requests and the team message board (tier: directly observed). Under the decision ladder for the three sibling social entries, the presence of a collective group-owned state selects this entry.",
           "alternativeConsidered": "Group Membership and Community Space, its two sibling entries. Both are excluded by the decision ladder: the team holds collective state of its own, which is the more specific distinguishing feature, so the single label for this surface is this entry.",
-          "role": "social, retention, monetization."
+          "role": "social, retention, monetization"
         },
         {
           "name": "Gifting",
@@ -1944,7 +1944,7 @@
           ],
           "rationale": "The user sends a life to an identified teammate in response to that teammate's request, the recipient receives it without returning anything, and the app blocks a second help on the same request with \"you already helped\" (tier: directly observed). The sender receives five coins for the transfer (tier: directly observed). The purchased team offers direct a period of infinite hearts to every member of the roster, and the activated Easter Pass lane includes a gift for teammates (tier: directly observed).",
           "alternativeConsidered": "treating the card requests as gifting. They are recorded as a request route here rather than tagged, because the session shows the request being sent and never shows a card being directed to a recipient.",
-          "role": "social, engagement, monetization."
+          "role": "social, engagement, monetization"
         },
         {
           "name": "Leaderboard",
@@ -1954,7 +1954,7 @@
           ],
           "rationale": "Royal Match presents ordered lists of comparable entities in several scopes: players by level and crowns for the world and for the user's country, teams by team score for the world and for the country, and, inside the tournament, teams by position and members by contribution (tier: directly observed). Each list shows at least two entities in relative order with the comparison value displayed (tier: directly observed).",
           "alternativeConsidered": "Comparative Rank alone. Both are applied, because the ordered lists and the user's own communicated position are distinct co-occurring behaviors rather than one behavior carved two ways.",
-          "role": "social, engagement."
+          "role": "social, engagement"
         },
         {
           "name": "Comparative Rank",
@@ -1964,7 +1964,7 @@
           ],
           "rationale": "Royal Match communicates positions that depend on other entities' results: the team is at position nine, the team is reported moving between positions eight and nine without the user's own contribution changing, and the user is shown in second place inside the team with an armour colour that changes as the standing improves (tier: directly observed). The tournament scope is bounded by the event window (tier: directly observed).",
           "alternativeConsidered": "a progression tier, which would apply if the armour colour were reached from fixed thresholds rather than from standing against the other members. The surface states a position, second place, alongside the colour change, which settles it for the tournament; the knight title at a stated token threshold is treated separately under Milestone.",
-          "role": "social, engagement."
+          "role": "social, engagement"
         }
       ],
       "crossRefs": [],
@@ -2019,7 +2019,7 @@
           ],
           "rationale": "The same gold coin balance that is earned in play is sold for money in fixed packs, observed from 1,000 coins at 1.99 up to 100,000 coins at 99.99, and is also included in every named treasure bundle (tier: directly observed). The purchased units enter the stored balance rather than delivering a final result, and are later exchanged for refills, moves and offer items (tier: directly observed). Where one balance carries both a paid and an earned path, this entry still applies alongside Soft Currency; both are specializations of Spendable Credits and Tokens.",
           "alternativeConsidered": "classifying the coin packs as direct purchases of the underlying benefit. That is ruled out because payment adds to a stored balance that the user allocates later, rather than granting the refill or the moves themselves.",
-          "role": "monetization, engagement."
+          "role": "monetization, engagement"
         }
       ],
       "crossRefs": [],
@@ -2042,7 +2042,7 @@
           ],
           "rationale": "Royal Match maintains two earned balances that are deliberately spent for product-defined results. Gold coins are granted by level play, interludes, bonus levels, chests and event rewards, and are spent on a heart refill at 900 and on five extra moves at 900 (tier: directly observed). Gold stars are granted at one per cleared level and are spent on area tasks costing one or two stars (tier: directly observed). Both remain stored until spent and both reduce on the exchange (tier: directly observed). This entry is a specialization of Spendable Credits and Tokens, whose invariant it preserves while adding the repeatable non-paid acquisition path.",
           "alternativeConsidered": "Experience Points for gold stars, which would apply if stars accumulated toward an advancement threshold rather than being exchanged. The session settles it: stars are deliberately spent on a chosen task and the balance falls when they are.",
-          "role": "engagement, monetization."
+          "role": "engagement, monetization"
         },
         {
           "name": "Hard Currency",
@@ -2052,7 +2052,7 @@
           ],
           "rationale": "The same gold coin balance that is earned in play is sold for money in fixed packs, observed from 1,000 coins at 1.99 up to 100,000 coins at 99.99, and is also included in every named treasure bundle (tier: directly observed). The purchased units enter the stored balance rather than delivering a final result, and are later exchanged for refills, moves and offer items (tier: directly observed). Where one balance carries both a paid and an earned path, this entry still applies alongside Soft Currency; both are specializations of Spendable Credits and Tokens.",
           "alternativeConsidered": "classifying the coin packs as direct purchases of the underlying benefit. That is ruled out because payment adds to a stored balance that the user allocates later, rather than granting the refill or the moves themselves.",
-          "role": "monetization, engagement."
+          "role": "monetization, engagement"
         }
       ],
       "crossRefs": [],
@@ -2080,7 +2080,7 @@
           ],
           "rationale": "Royal Match holds five discrete hearts, removes one when a level is failed, and the remaining count governs whether another attempt can start (tier: directly observed). Restoration is defined at 24 to 25 minutes per heart, with a 900-coin refill and teammate requests as alternatives (tier: directly observed). Consumption is tied to failure rather than to entry: levels are started freely and hearts are reported lost at the failures from level 18 onward (tier: strongly supported, no heart is observed being consumed on entry).",
           "alternativeConsidered": "Energy, which would apply if a heart were consumed on starting a level rather than on failing it. The session separates them: levels are entered and re-entered without a heart being taken until a level is failed.",
-          "role": "engagement, retention, monetization."
+          "role": "engagement, retention, monetization"
         },
         {
           "name": "Boosters",
@@ -2090,7 +2090,7 @@
           ],
           "rationale": "Royal Match holds each assist item as a counted quantity outside the level, observed as three royal hammers and five jester's hats, displays the count before and during play, applies one only when the user selects the item and then a target, and reduces the count on use (tier: directly observed). The observed items are the royal hammer, an arrow that clears a row, a cannon that clears a column, a jester's hat that shuffles the board, TNT and the propeller, each with a stated effect (tier: directly observed). Replenishment routes observed are area chests, event rewards, the Easter Pass, the Easter Treasures ladder and the shop (tier: directly observed). The offers also sell unlimited use for stated periods from one hour to 100 hours, which suspends the count while the items remain per-instance selections (tier: directly observed).",
           "alternativeConsidered": "Spendable Credits and Tokens, which would apply if the items were exchanged from a balance at the moment of use. The session separates the two: the coins are the balance, and the items are counted holdings applied inside the level. Energy was also considered and does not apply, since nothing is consumed unless the user selects an item.",
-          "role": "engagement, monetization."
+          "role": "engagement, monetization"
         },
         {
           "name": "Hard Currency",
@@ -2100,7 +2100,7 @@
           ],
           "rationale": "The same gold coin balance that is earned in play is sold for money in fixed packs, observed from 1,000 coins at 1.99 up to 100,000 coins at 99.99, and is also included in every named treasure bundle (tier: directly observed). The purchased units enter the stored balance rather than delivering a final result, and are later exchanged for refills, moves and offer items (tier: directly observed). Where one balance carries both a paid and an earned path, this entry still applies alongside Soft Currency; both are specializations of Spendable Credits and Tokens.",
           "alternativeConsidered": "classifying the coin packs as direct purchases of the underlying benefit. That is ruled out because payment adds to a stored balance that the user allocates later, rather than granting the refill or the moves themselves.",
-          "role": "monetization, engagement."
+          "role": "monetization, engagement"
         }
       ],
       "crossRefs": [],
@@ -2126,7 +2126,7 @@
           ],
           "rationale": "Royal Match holds each assist item as a counted quantity outside the level, observed as three royal hammers and five jester's hats, displays the count before and during play, applies one only when the user selects the item and then a target, and reduces the count on use (tier: directly observed). The observed items are the royal hammer, an arrow that clears a row, a cannon that clears a column, a jester's hat that shuffles the board, TNT and the propeller, each with a stated effect (tier: directly observed). Replenishment routes observed are area chests, event rewards, the Easter Pass, the Easter Treasures ladder and the shop (tier: directly observed). The offers also sell unlimited use for stated periods from one hour to 100 hours, which suspends the count while the items remain per-instance selections (tier: directly observed).",
           "alternativeConsidered": "Spendable Credits and Tokens, which would apply if the items were exchanged from a balance at the moment of use. The session separates the two: the coins are the balance, and the items are counted holdings applied inside the level. Energy was also considered and does not apply, since nothing is consumed unless the user selects an item.",
-          "role": "engagement, monetization."
+          "role": "engagement, monetization"
         },
         {
           "name": "Clan / Guild",
@@ -2136,7 +2136,7 @@
           ],
           "rationale": "Royal Match represents the team as a collective entity with its own badge, name, description, roster, capacity of 50, joining requirement and, decisively, its own group-level state: a team score, a position in the tournament standings, and tournament rewards earned at the team level (tier: directly observed). Member activity feeds that collective state through contributed lances (tier: directly observed). Membership changes observable conditions: free lives, the tournament, card requests and the team message board (tier: directly observed). Under the decision ladder for the three sibling social entries, the presence of a collective group-owned state selects this entry.",
           "alternativeConsidered": "Group Membership and Community Space, its two sibling entries. Both are excluded by the decision ladder: the team holds collective state of its own, which is the more specific distinguishing feature, so the single label for this surface is this entry.",
-          "role": "social, retention, monetization."
+          "role": "social, retention, monetization"
         },
         {
           "name": "Gifting",
@@ -2146,7 +2146,7 @@
           ],
           "rationale": "The user sends a life to an identified teammate in response to that teammate's request, the recipient receives it without returning anything, and the app blocks a second help on the same request with \"you already helped\" (tier: directly observed). The sender receives five coins for the transfer (tier: directly observed). The purchased team offers direct a period of infinite hearts to every member of the roster, and the activated Easter Pass lane includes a gift for teammates (tier: directly observed).",
           "alternativeConsidered": "treating the card requests as gifting. They are recorded as a request route here rather than tagged, because the session shows the request being sent and never shows a card being directed to a recipient.",
-          "role": "social, engagement, monetization."
+          "role": "social, engagement, monetization"
         }
       ],
       "crossRefs": [],
@@ -2171,7 +2171,7 @@
           ],
           "rationale": "Royal Match holds each assist item as a counted quantity outside the level, observed as three royal hammers and five jester's hats, displays the count before and during play, applies one only when the user selects the item and then a target, and reduces the count on use (tier: directly observed). The observed items are the royal hammer, an arrow that clears a row, a cannon that clears a column, a jester's hat that shuffles the board, TNT and the propeller, each with a stated effect (tier: directly observed). Replenishment routes observed are area chests, event rewards, the Easter Pass, the Easter Treasures ladder and the shop (tier: directly observed). The offers also sell unlimited use for stated periods from one hour to 100 hours, which suspends the count while the items remain per-instance selections (tier: directly observed).",
           "alternativeConsidered": "Spendable Credits and Tokens, which would apply if the items were exchanged from a balance at the moment of use. The session separates the two: the coins are the balance, and the items are counted holdings applied inside the level. Energy was also considered and does not apply, since nothing is consumed unless the user selects an item.",
-          "role": "engagement, monetization."
+          "role": "engagement, monetization"
         },
         {
           "name": "Variable Reward Outcome",
@@ -2181,7 +2181,7 @@
           ],
           "rationale": "Royal Match grants chests and card packs whose contents are not disclosed before opening and which resolve to materially different results between instances: the area-one chest yields 250 coins and four kinds of items, the area-three chest yields 250 coins, items and four cards, and successive card packs yield different named cards (tier: directly observed). Opening is a separate action with a reveal (tier: directly observed). No value is committed to obtain these particular containers, which is what keeps them under this entry rather than under its specialization, Loot Box.",
           "alternativeConsidered": "Loot Box, its specialization, which requires a value commitment made before the contents are known. The free chests and packs carry no such commitment. The card-star chests do, and they are recorded as unresolved rather than tagged here. The doubled and tripled reward amounts at O22 and O19 are not this entry either: they follow from a stated factor, which places them under Reward Multiplier.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Purchase Ladder",
@@ -2191,7 +2191,7 @@
           ],
           "rationale": "Easter Treasures presents nine rewards as an ordered sequence under the instruction to claim each offer to unlock the free rewards, and claiming a rung reveals the next one (tier: directly observed). Eight rungs cost nothing and the fourth is priced at 2.99, and the free rungs above it cannot be claimed until it is taken (tier: strongly supported, the surface's own claim-each-to-unlock framing together with the narration's reading of the paid rung as blocking the rest). That lock is the entry's invariant: the sequence is not a list of offers the user may take in any order but a chain in which one purchase stands between the user and the remainder. The confidence is strongly supported rather than directly observed because the paid rung was never bought, so the lock was read from the surface's framing rather than met. The record carries the same claim at two tiers, directly observed in the Observed paragraph of O59 and strongly supported in its Detail, and the lower of the two governs here.",
           "alternativeConsidered": "an ordinary offer placed among free rewards, which would carry no mechanic label; rejected because the surface states the claim-each-to-unlock rule itself, and it is the lock rather than the arrangement that the entry turns on. Daily Claim Pack was considered and does not apply, since no single acquisition governs the sequence and the rungs are released by being claimed rather than by intervals passing. Seasonal Progression Pass was considered and does not apply, since nothing the user does in the game advances the ladder; it is not the Easter Pass, which is tagged separately at O31 and O60 and does run on keys earned by play.",
-          "role": "monetization."
+          "role": "monetization"
         }
       ],
       "crossRefs": [],
@@ -2216,7 +2216,7 @@
           ],
           "rationale": "The Easter Pass is a bounded track: it carries a 27-day 12-hour countdown, holds 30 ordered positions, is advanced by beating levels and collecting keys, and pays a reward at each reached position (tier: directly observed). A second lane at the same positions is unlocked by a purchase and pays more at each, along with exclusive items stated to last until the event ends (tier: directly observed). The seasonal boundary is what selects this entry over Progression Fund.",
           "alternativeConsidered": "Progression Fund, which covers an unbounded track attached to a measure the product already maintains. Both are excluded here: the pass carries an event boundary that ends it, and it runs on keys of its own rather than on the player level. Season Content Pass was also considered and does not apply, since the entitlement pays rewards at positions rather than granting access to grouped content.",
-          "role": "monetization, retention, engagement."
+          "role": "monetization, retention, engagement"
         },
         {
           "name": "Gifting",
@@ -2226,7 +2226,7 @@
           ],
           "rationale": "The user sends a life to an identified teammate in response to that teammate's request, the recipient receives it without returning anything, and the app blocks a second help on the same request with \"you already helped\" (tier: directly observed). The sender receives five coins for the transfer (tier: directly observed). The purchased team offers direct a period of infinite hearts to every member of the roster, and the activated Easter Pass lane includes a gift for teammates (tier: directly observed).",
           "alternativeConsidered": "treating the card requests as gifting. They are recorded as a request route here rather than tagged, because the session shows the request being sent and never shows a card being directed to a recipient.",
-          "role": "social, engagement, monetization."
+          "role": "social, engagement, monetization"
         },
         {
           "name": "Cosmetic Customization",
@@ -2236,7 +2236,7 @@
           ],
           "rationale": "Royal Match maintains selectable presentation states for the user's identity: an avatar or a Facebook photo, a frame, and a chosen name, none of which changes any rule, cost or outcome (tier: directly observed). The activated Easter Pass lane replaces these with a golden profile picture frame and a golden username for the duration of the event (tier: directly observed).",
           "alternativeConsidered": "the castle and area decorations, which are the most visible presentation change in the game. They are not tagged here: the built state is the direct visible consequence of spending stars on the current task, no alternative presentation is offered for any task, and the appearance cannot be applied independently of that progression state. The star sink is described in plain language at O23 and O40 instead.",
-          "role": "social, monetization."
+          "role": "social, monetization"
         }
       ],
       "crossRefs": [],
@@ -2260,7 +2260,7 @@
           ],
           "rationale": "The same gold coin balance that is earned in play is sold for money in fixed packs, observed from 1,000 coins at 1.99 up to 100,000 coins at 99.99, and is also included in every named treasure bundle (tier: directly observed). The purchased units enter the stored balance rather than delivering a final result, and are later exchanged for refills, moves and offer items (tier: directly observed). Where one balance carries both a paid and an earned path, this entry still applies alongside Soft Currency; both are specializations of Spendable Credits and Tokens.",
           "alternativeConsidered": "classifying the coin packs as direct purchases of the underlying benefit. That is ruled out because payment adds to a stored balance that the user allocates later, rather than granting the refill or the moves themselves.",
-          "role": "monetization, engagement."
+          "role": "monetization, engagement"
         },
         {
           "name": "Purchase Ladder",
@@ -2270,7 +2270,7 @@
           ],
           "rationale": "Easter Treasures presents nine rewards as an ordered sequence under the instruction to claim each offer to unlock the free rewards, and claiming a rung reveals the next one (tier: directly observed). Eight rungs cost nothing and the fourth is priced at 2.99, and the free rungs above it cannot be claimed until it is taken (tier: strongly supported, the surface's own claim-each-to-unlock framing together with the narration's reading of the paid rung as blocking the rest). That lock is the entry's invariant: the sequence is not a list of offers the user may take in any order but a chain in which one purchase stands between the user and the remainder. The confidence is strongly supported rather than directly observed because the paid rung was never bought, so the lock was read from the surface's framing rather than met. The record carries the same claim at two tiers, directly observed in the Observed paragraph of O59 and strongly supported in its Detail, and the lower of the two governs here.",
           "alternativeConsidered": "an ordinary offer placed among free rewards, which would carry no mechanic label; rejected because the surface states the claim-each-to-unlock rule itself, and it is the lock rather than the arrangement that the entry turns on. Daily Claim Pack was considered and does not apply, since no single acquisition governs the sequence and the rungs are released by being claimed rather than by intervals passing. Seasonal Progression Pass was considered and does not apply, since nothing the user does in the game advances the ladder; it is not the Easter Pass, which is tagged separately at O31 and O60 and does run on keys earned by play.",
-          "role": "monetization."
+          "role": "monetization"
         }
       ],
       "crossRefs": [],
@@ -2306,7 +2306,7 @@
           ],
           "rationale": "Royal Match holds five discrete hearts, removes one when a level is failed, and the remaining count governs whether another attempt can start (tier: directly observed). Restoration is defined at 24 to 25 minutes per heart, with a 900-coin refill and teammate requests as alternatives (tier: directly observed). Consumption is tied to failure rather than to entry: levels are started freely and hearts are reported lost at the failures from level 18 onward (tier: strongly supported, no heart is observed being consumed on entry).",
           "alternativeConsidered": "Energy, which would apply if a heart were consumed on starting a level rather than on failing it. The session separates them: levels are entered and re-entered without a heart being taken until a level is failed.",
-          "role": "engagement, retention, monetization."
+          "role": "engagement, retention, monetization"
         }
       ],
       "crossRefs": [],
@@ -2332,7 +2332,7 @@
           ],
           "rationale": "Each level is a bounded objective instance: Royal Match states the success condition, such as collecting 36 wooden pieces, bounds it with a move limit, and produces a different response for completion than for exhausting the moves (tier: directly observed). The King's Nightmare interludes are separate bounded instances with their own success conditions and their own move or time boundaries (tier: directly observed). Propeller Madness, the Egg Hunt and the team tournament are event-bounded instances with stated success conditions and stated remaining time (tier: directly observed).",
           "alternativeConsidered": "treating the bonus levels at 20 and 40 as challenges as well. They are excluded here: they state no success condition, only a quantity to accumulate within the moves given, so no completed-or-not-completed result exists for the instance (O18). Minigame was also considered for the King's Nightmare interludes and does not apply, because they pay coins into the ordinary balance; the bounded objective inside each one is carried by this entry.",
-          "role": "engagement, retention."
+          "role": "engagement, retention"
         },
         {
           "name": "Reward Multiplier",
@@ -2342,7 +2342,7 @@
           ],
           "rationale": "Two stated modifiers are observed. At level 33 the app marks the level with a doubling marker, starts a 15-minute countdown and states that rewards are doubled for the duration; during the window the contribution paid to the team and the progress paid to Propeller Madness both move at twice their earlier rate (tier: directly observed). Level 39 is marked as a hard level before entry and states that passing it triples the reward and pays 30 points to the Egg Hunt (tier: directly observed). In both cases the base reward exists independently of the modifier and the factor is stated, so the modified amount follows from a visible rule (tier: directly observed). A third instance is the King's Nightmare interlude that carries a doubled-reward marker over its stated 50 coins (tier: directly observed).",
           "alternativeConsidered": "Variable Reward Outcome, which would apply if the increased amount were unresolved before the reward event. Both instances state the factor in advance, which settles it. Boosters was also considered for the doubling marker and does not apply: nothing is held or expended, and the conditions of the level are unchanged.",
-          "role": "engagement."
+          "role": "engagement"
         },
         {
           "name": "Seasonal Progression Pass",
@@ -2352,7 +2352,7 @@
           ],
           "rationale": "The Easter Pass is a bounded track: it carries a 27-day 12-hour countdown, holds 30 ordered positions, is advanced by beating levels and collecting keys, and pays a reward at each reached position (tier: directly observed). A second lane at the same positions is unlocked by a purchase and pays more at each, along with exclusive items stated to last until the event ends (tier: directly observed). The seasonal boundary is what selects this entry over Progression Fund.",
           "alternativeConsidered": "Progression Fund, which covers an unbounded track attached to a measure the product already maintains. Both are excluded here: the pass carries an event boundary that ends it, and it runs on keys of its own rather than on the player level. Season Content Pass was also considered and does not apply, since the entitlement pays rewards at positions rather than granting access to grouped content.",
-          "role": "monetization, retention, engagement."
+          "role": "monetization, retention, engagement"
         },
         {
           "name": "Set Collection",
@@ -2362,7 +2362,7 @@
           ],
           "rationale": "The Culinary Collection defines 15 named sets of nine cards each, tracks which cards are held, states the reward for completing each set and a grand prize for completing all of them, and treats a repeat card differently from a new one by converting duplicates into card stars (tier: directly observed). Cards arrive from packs, chests and teammates (tier: directly observed).",
           "alternativeConsidered": "treating the card stars as the collectible rather than the cards. That is ruled out: the sets track named cards at member level, and the stars are what duplicates become.",
-          "role": "engagement, social, retention."
+          "role": "engagement, social, retention"
         },
         {
           "name": "Purchase Ladder",
@@ -2372,7 +2372,7 @@
           ],
           "rationale": "Easter Treasures presents nine rewards as an ordered sequence under the instruction to claim each offer to unlock the free rewards, and claiming a rung reveals the next one (tier: directly observed). Eight rungs cost nothing and the fourth is priced at 2.99, and the free rungs above it cannot be claimed until it is taken (tier: strongly supported, the surface's own claim-each-to-unlock framing together with the narration's reading of the paid rung as blocking the rest). That lock is the entry's invariant: the sequence is not a list of offers the user may take in any order but a chain in which one purchase stands between the user and the remainder. The confidence is strongly supported rather than directly observed because the paid rung was never bought, so the lock was read from the surface's framing rather than met. The record carries the same claim at two tiers, directly observed in the Observed paragraph of O59 and strongly supported in its Detail, and the lower of the two governs here.",
           "alternativeConsidered": "an ordinary offer placed among free rewards, which would carry no mechanic label; rejected because the surface states the claim-each-to-unlock rule itself, and it is the lock rather than the arrangement that the entry turns on. Daily Claim Pack was considered and does not apply, since no single acquisition governs the sequence and the rungs are released by being claimed rather than by intervals passing. Seasonal Progression Pass was considered and does not apply, since nothing the user does in the game advances the ladder; it is not the Easter Pass, which is tagged separately at O31 and O60 and does run on keys earned by play.",
-          "role": "monetization."
+          "role": "monetization"
         }
       ],
       "crossRefs": [],
@@ -2409,7 +2409,7 @@
           ],
           "rationale": "The Easter Pass is a bounded track: it carries a 27-day 12-hour countdown, holds 30 ordered positions, is advanced by beating levels and collecting keys, and pays a reward at each reached position (tier: directly observed). A second lane at the same positions is unlocked by a purchase and pays more at each, along with exclusive items stated to last until the event ends (tier: directly observed). The seasonal boundary is what selects this entry over Progression Fund.",
           "alternativeConsidered": "Progression Fund, which covers an unbounded track attached to a measure the product already maintains. Both are excluded here: the pass carries an event boundary that ends it, and it runs on keys of its own rather than on the player level. Season Content Pass was also considered and does not apply, since the entitlement pays rewards at positions rather than granting access to grouped content.",
-          "role": "monetization, retention, engagement."
+          "role": "monetization, retention, engagement"
         }
       ],
       "crossRefs": [],

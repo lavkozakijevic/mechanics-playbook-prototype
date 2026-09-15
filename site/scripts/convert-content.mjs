@@ -337,9 +337,15 @@ const TAG_CONFIDENCE_RANK = { unresolved: 0, plausible: 0, "strongly supported":
 // publishing bar for the wrong reason with no signal that anything was
 // actually wrong.
 function confidenceTiers(confidence) {
-  const bare = confidence.trim().toLowerCase();
+  // A trailing "." or "," on an otherwise-valid simple value (acorns.md
+  // carried "directly observed." throughout) broke the exact bare-value
+  // match below and fell through to the no-tiers-found throw, even though
+  // the value was perfectly readable. Stripped once here, at the one place
+  // every confidence string passes through, rather than at each capture site.
+  const cleaned = confidence.trim().replace(/[.,]\s*$/, "");
+  const bare = cleaned.toLowerCase();
   if (bare in TAG_CONFIDENCE_RANK) return [bare];
-  const tiers = [...confidence.matchAll(/\(tier:\s*([^,)]+)/gi)].map((m) => m[1].trim().toLowerCase());
+  const tiers = [...cleaned.matchAll(/\(tier:\s*([^,)]+)/gi)].map((m) => m[1].trim().toLowerCase());
   // A bare value that isn't a recognized tier AND carries no "(tier: ...)"
   // annotation at all used to fall through to an empty array here, which
   // tagPublishes below read as "doesn't publish" — indistinguishable from a
@@ -520,12 +526,21 @@ function parseAnalysisV41(file) {
     // the Role line itself.
     const roleLine = block.match(/\*\*Role:\*\*\s*(.+)/);
 
+    // Strip a single trailing "." or "," here, at the source, rather than
+    // relying on the one downstream consumer (mechanics/index.astro's
+    // roleTokens) that happens to filter(Boolean) after its own comma split.
+    // A role line ending "engagement, monetization." or with a stray
+    // trailing comma is common enough in the source prose (acorns.md carried
+    // both) that a future consumer splitting this string without that same
+    // guard would render a blank chip.
+    const role = roleLine ? roleLine[1].trim().replace(/[.,]\s*$/, "") : "";
+
     if (!blocksByName.has(tagName)) blocksByName.set(tagName, []);
     blocksByName.get(tagName).push({
       confidence,
       rationale: field(block, "Rationale"),
       alternativeConsidered: field(block, "Alternative considered"),
-      role: roleLine ? roleLine[1].trim() : "",
+      role,
       obsIds: [...new Set([...idsIn(obsLine[1]), ...idsIn(supportingLine[1])])],
     });
   }
@@ -917,14 +932,14 @@ const ADDITIONS = {
 // once (uptime, fifa-panini-collection); the remap follows whichever framing
 // the file's own words lead with, since one file can only remap to one id.
 // Neither clash-of-clans, canva, tiimo, capybara-go, dave, cleo,
-// royal-match, gymverse, nor fc-mobile appears below: all nine are v4.1 and
-// never reach this path (royal-match, gymverse and fc-mobile each carried an
-// entry here before their own migration to v4.1, removed once each
-// analysis stopped using the v3 inline-id form).
+// royal-match, gymverse, fc-mobile, nor acorns appears below: all ten are
+// v4.1 and never reach this path (royal-match, gymverse, fc-mobile and
+// acorns each carried an entry here before their own migration to v4.1,
+// removed once each analysis stopped using the v3 inline-id form).
 //   -> achievement: calm, ladder, liftoff, swgoh,
 //      freeletics, uptime, fiton, fortune-city, match-creek-motors,
 //      fifa-panini-collection, subway-surfers.
-//   -> milestone: insight-timer, chrome-valley-customs, acorns,
+//   -> milestone: insight-timer, chrome-valley-customs,
 //      wispr-flow, solitaire-grand-harvest.
 //
 // variable-reward split into loot-box and variable-reward (kept, renamed
@@ -983,7 +998,6 @@ const REMAPS = {
   "subway-surfers": { "achievements": "achievement", "variable-reward": "loot-box" },
   "insight-timer": { "achievements": "milestone" },
   "chrome-valley-customs": { "achievements": "milestone" },
-  "acorns": { "achievements": "milestone" },
   "wispr-flow": { "achievements": "milestone" },
 };
 // Strava's unrecognized "hard-currency" section is about the subscription
@@ -1272,6 +1286,31 @@ const V41_APP_META = {
         "Royal Match prices its offers directly against the two moments a level fails, layering a shop, named treasure bundles, and a seasonal pass on top of the same 900-coin shortfall.",
       returns:
         "Royal Match times a notification prompt to the user's return, a rating prompt to an early clean run, and a countdown to every one of its five running events.",
+    },
+  },
+  acorns: {
+    name: "Acorns",
+    category: "Finance / Automated Investing",
+    type: "app",
+    sectionCards: {
+      onboarding:
+        "Acorns runs twenty-six consecutive screens with no way back: choosing a plan, connecting a bank account, verifying identity, and setting up the first roundups and contributions before the dashboard is reached.",
+      "core-loop":
+        "Acorns' core activity is investing money automatically once a bank account is connected: roundups, recurring contributions, and Money Manager all move money into the right account without further input, with portfolio configuration, tax filing, and a standing library of guidance sitting beside them.",
+      goals:
+        "Acorns' progress surfaces are a projected future balance, a retirement contribution measured against an outside limit, and a short course ending in a scored quiz.",
+      access:
+        "Acorns restricts the product to US residents, holds accounts in a pending state until identity is verified, and bounds retirement contributions and custom portfolio choices by rules set outside the product.",
+      economy:
+        "Acorns holds no currency, points, or resource of its own; every quantity it tracks is the user's own money, covered under Core loop and automation instead.",
+      social:
+        "Acorns lets a user name a beneficiary and a trusted contact on the retirement account, and opens Early Invest accounts for children under the same subscription.",
+      reach:
+        "Acorns holds its referral offer permanently in the home screen's top bar, pays a percentage of purchases at outside brands as an investment, and adds a sign-in option after the account already exists.",
+      monetization:
+        "Acorns prices three subscription tiers upfront, backs cancellation with a cheaper fallback plan rather than an exit, and pays two of its four rewards as a plan-tier benefit rather than as a standing rate.",
+      returns:
+        "Nothing in Acorns is built to cause a visit. Every dated statement it makes is set by a settlement window, a verification queue, an offer's own end date, or the IRS.",
     },
   },
   strava: {

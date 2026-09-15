@@ -1056,9 +1056,9 @@ This section holds no observations. Acorns maintains no product-defined currency
 
 **Supporting observations:** O42, O44, O45, O47, O51, O57, O58.
 
-**Confidence:** directly observed.
+**Confidence:** directly observed
 
-**Role:** engagement.
+**Role:** engagement
 
 The material is placed inside the surfaces the user is already working in, at the foot of the invest, Later and tax screens and beside the portfolio controls (O42, O47, O51), which makes it something to do within a session rather than a reason to return or a thing to buy.
 
@@ -1076,9 +1076,9 @@ The material is placed inside the surfaces the user is already working in, at th
 
 **Supporting observations:** O37, O63, O75, O77, O78.
 
-**Confidence:** strongly supported.
+**Confidence:** strongly supported
 
-**Role:** engagement, monetization.
+**Role:** engagement, monetization
 
 The modifier raises what linked-card purchases through the offers pay, which is activity inside the product's own earn surface (O74, O75), and it exists only while the Gold subscription is held and is presented alongside the other plan benefits as part of what the $12 a month buys (O63, O78).
 
@@ -1096,9 +1096,9 @@ The modifier raises what linked-card purchases through the offers pay, which is 
 
 **Supporting observations:** O21, O26, O28, O34, O42, O55.
 
-**Confidence:** strongly supported.
+**Confidence:** strongly supported
 
-**Role:** engagement.
+**Role:** engagement
 
 The projection is the figure the home screen leads with and the second thing the guided tour points at (O27, O26), and it is restated as the difference an amount would make at the moment the user sets a recurring contribution (O54), which is a decision taken inside a session rather than a reason to return or a route to a charge.
 
@@ -1116,9 +1116,9 @@ The projection is the figure the home screen leads with and the second thing the
 
 **Supporting observations:** O28, O37, O92.
 
-**Confidence:** directly observed.
+**Confidence:** directly observed
 
-**Role:** social, engagement.
+**Role:** social, engagement
 
 The reward depends on what named people the user chooses to introduce then do with their own accounts (O73), and the figure sits permanently in the top bar of the home screen as something to act on while the user is inside the product (O72, O28).
 

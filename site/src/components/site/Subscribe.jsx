@@ -181,7 +181,7 @@ export function SubscribePage() {
       {/* 3. Closing call */}
       <section className="band band--ink sp-close" aria-labelledby="close-h">
         <div className="container container--narrow">
-          <h2 className="sp-close__h" id="close-h">Every mechanic here actually shipped. None of it is theory.</h2>
+          <h2 className="sp-close__h" id="close-h">Every mechanic here comes from a product that actually built it. None of it is theory.</h2>
           <Button variant="accent" size="lg" onClick={() => setModalOpen(true)}>Subscribe</Button>
         </div>
       </section>

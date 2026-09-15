@@ -369,6 +369,11 @@ const CONNECTIONS = {
     { from: "community-groups", to: "challenges", title: "The Strava Club organises most challenges", desc: "Most of the featured and promoted challenges are organised by the Strava Club, a club the product runs itself.", effect: "Club membership is one of the routes through which challenges reach a user." },
     { from: "community-groups", to: "social-feed", title: "Clubs carry their own feed", desc: "A club has a feed of its own alongside the home feed, and the activity visibility controls name both.", effect: "A club gives its members a posting surface separate from the main feed." },
   ],
+  acorns: [
+    { from: "Bank Connection", to: "future-projection", title: "The projection measures money the connection put there", desc: "Future Projection computes a value from the user's present holding, and every dollar in that holding arrived through the standing bank connection made in onboarding.", effect: "The projected figure only exists because the connection already put money into the account it measures." },
+    { from: "Bank Connection", to: "reward-multiplier", title: "One linking action feeds both automations", desc: "Linking a card is part of the same onboarding connection chain, and the same linked card that enables roundups is also what activates a purchase's reward multiplier on the earn surface.", effect: "One linking action feeds both the roundups automation and the reward multiplier." },
+    { from: "Bank Connection", to: "referral-boost", title: "The reward lands in an account the connection funds", desc: "A referral reward is invested into the referring user's own Invest account, an account that exists because the standing bank connection funded it from the first screens onward.", effect: "The referral payout has nowhere to land without the account the connection already funds." },
+  ],
   "fc-mobile": [
     { from: "experience-points", to: "leveling", title: "Every activity feeds one number", desc: "XP from matches, missions, drafts and skill games all advance the same account level, with nothing else in the interface treating that level as worth naming.", effect: "The level becomes the product's real spine without ever being presented as one: a bare number crossed as a side effect of doing almost anything." },
     { from: "leveling", to: "progression-gate", title: "The level is what the gates read", desc: "The market, leagues, the football center, challenge mode, the scouting camp, a lineup slot and club challenge are all released at stated account levels.", effect: "A single number decides the order in which the whole product opens itself to a new player, and that order isn't something the player is choosing." },
@@ -558,6 +563,14 @@ const POSITIONS = {
     "community-groups":      { x: 50, y: 78 },
     "milestone":             { x: 83, y: 78 },
     "achievement":           { x: 60, y: 61 },
+  },
+  "acorns": {
+    center:                  { x: 50, y: 8,  label: "ACORNS" },
+    "Bank Connection":       { x: 50, y: 28 },
+    "future-projection":     { x: 20, y: 55 },
+    "reward-multiplier":     { x: 50, y: 55 },
+    "referral-boost":        { x: 80, y: 55 },
+    "expert-guidance":       { x: 50, y: 82 },
   },
   "fc-mobile": {
     center:                  { x: 50, y: 6,  label: "FC MOBILE" },

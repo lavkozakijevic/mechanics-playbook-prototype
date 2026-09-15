@@ -790,6 +790,27 @@ const SYSTEMS = [
     what_makes_it_work: "Every comparison stays close to the user: segment rankings are scoped to a single stretch of road, Local Legends counts efforts over a rolling 90-day window rather than all-time speed, and personal records compare a result only against the user's own history. Strava has no in-app economy at all, so nothing beyond a recorded state, another person's attention, and the subscription is on offer as an incentive, which keeps the paid tier entirely outside the loop rather than inside it: the free product records, displays, and shares, and the paid product explains, plans, and predicts.",
   },
   {
+    id: "acorns",
+    name: "Acorns",
+    app_id: "acorns",
+    tagline: "The account moves money on its own; the four mechanics that exist each sit on a separate decision instead of on each other.",
+    overview: "Acorns has no loop. The core activity, investing, runs automatically once a bank account is connected during onboarding, so there's no repeated action for a mechanic to attach to. What the product has instead is four independent mechanics, each sitting on its own decision: a library of investing and tax guidance placed beside the screens where a decision is actually being made, a matched rate added to purchases at outside brands, a projected future balance that leads the home screen in place of the real one, and a referral reward that rises with the number of friends who invest.",
+    loop_description: "There is no loop to describe. A user connects a bank account once, during onboarding, and that single standing permission funds every automatic transfer that follows: roundups from linked cards, a weekly recurring investment, a Later retirement contribution, the subscription charge, and Money Manager's automatic split of incoming deposits. None of these require the user to return and repeat an action. The four applied mechanics sit beside this automation rather than inside it: guidance appears at the foot of whatever screen the user is configuring something on, a matched rate applies when a purchase happens at an outside brand, a projected balance is restated whenever a contribution amount changes, and a referral reward accrues in the top bar as introduced friends invest. Three of the four trace back to the same standing connection; the fourth, the guidance library, doesn't touch money at all and stands apart from it.",
+    // "Bank Connection" is a real node on the system map (system.html
+    // POSITIONS/CONNECTIONS) but deliberately absent here: it's the gate the
+    // four mechanics hang off, not an applied mechanic itself, and
+    // validate-content.mjs checks every id in this list against the real
+    // mechanics library, which it has no entry in and should not gain one.
+    mechanics: [
+      { id: "future-projection", role: "A 40-year potential figure that leads the home screen in place of the actual balance, restated whenever a recurring contribution changes." },
+      { id: "reward-multiplier", role: "A flat 0.75% added on top of a brand's own purchase-reward rate, live only on the Gold plan." },
+      { id: "referral-boost", role: "A reward that rises with the number of friends who invest, held permanently in the home screen's top bar." },
+      { id: "expert-guidance", role: "A library of investing, retirement, and tax material placed at the foot of whatever screen the user is configuring something on, skippable in full." },
+    ],
+    key_insight: "Acorns' engagement design sits at decision points rather than in a loop, because the core activity has no loop to put one in: investing runs automatically once a bank account is connected, and the product's only four tagged mechanics each attach to a separate moment, a disclosure, a commitment, a purchase, an introduction, rather than to each other. Nothing here is built to cause a visit. Every dated statement the product makes, when an investment lands, when a verification clears, when a tax form arrives, when a referral settles, is set by a settlement window, a verification queue, or the IRS, not by anything Acorns owns. What actually brings the user back is the money arriving on its own schedule.",
+    what_makes_it_work: "The four mechanics never have to coordinate with each other because none of them shares a measure. The library teaches a subject that stays true whether or not the reader ever opens Acorns again. The reward multiplier only touches money Acorns itself pays out, not the user's own contribution, so it never inflates what the projection shows. The projection is restated at the one moment a commitment changes and otherwise left alone. The referral reward sits in the top bar without asking the user to do anything to check on it. Isolating each mechanic to its own decision is what keeps the automation underneath it uninterrupted.",
+  },
+  {
     id: "fc-mobile",
     name: "FC Mobile",
     app_id: "fc-mobile",
