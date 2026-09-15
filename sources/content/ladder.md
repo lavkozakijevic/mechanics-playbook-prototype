@@ -145,6 +145,25 @@ Ladder is a complex system whose spine is the welcome workout: matching to a coa
 
 **Screenshots needed:** the completion wall showing the 13,728 count and the join action.
 
+### Commitment
+
+**Implementation summary:** Ladder writes a three-part nutrition pledge in the user's name and requires a signature before the dashboard opens.
+
+**What was observed:** Before the nutrition dashboard opens, Ladder shows a statement in the user's name committing to try their best at hitting nutrition goals, listing three behaviors that restate the targets set on the preceding screens: logging three meals a day, staying within the daily calorie target, and making one mindful food choice daily. The user signs their name in a box and taps a button reading "I am committed" to continue.
+
+**How it is presented:** The statement appears as its own screen immediately after the calorie and protein targets are set, composed entirely by Ladder, with the signature box and confirmation button as the only interactive elements.
+
+**What is worth noting:** Ladder recomposes targets the user has already set into a first-person statement before asking for a signature, rather than simply carrying the targets forward onto the dashboard. Nothing shown afterward brings the statement back: the dashboard tracks the targets themselves, not the commitment that preceded them.
+
+**Key findings:**
+
+- The statement restates three targets set on the preceding screens: meals logged, calories, and one mindful food choice.
+- The user signs their name in a box to continue.
+- The confirmation button reads "I am committed."
+- Nothing shown afterward refers back to the signed statement.
+
+**Screenshots needed:** the signed commitment screen with its signature box and confirmation button.
+
 ---
 
 ## Onboarding and first run
@@ -221,7 +240,7 @@ After the nutrition setup, the Nutrition tab becomes a dashboard showing calorie
 
 ## Goals and progression
 
-A completion badge, profile statistics, a Get Started checklist, an upcoming strength series and a full nutrition questionnaire sit across this section.
+A completion badge, profile statistics, a Get Started checklist, an upcoming strength series and a nutrition flow ending in a signed commitment sit across this section.
 
 ### O16. Workout completion badge
 

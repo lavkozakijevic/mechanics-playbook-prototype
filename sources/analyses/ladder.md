@@ -656,6 +656,25 @@ O29 shows other identified people's completion videos and asks the user to add t
 
 **Alternative considered:** The wall could be a Social Feed if Ladder orders the videos by a feed rule for each viewer. The ordering was not narrated, so Social Feed is not established; a session scrolling the wall on two accounts or at two times would show whether an ordering rule applies, and both labels could then apply.
 
+**Tag:** Commitment
+
+**Observations:** O22.
+
+**Supporting observations:** O20, O21.
+
+**Confidence:** A statement in the user's own name, restating the nutrition targets just set and requiring a signature to proceed, is present (tier: directly observed).
+
+**Role:** engagement, retention
+The statement gates entry to the nutrition dashboard while restating targets the user is meant to keep pursuing after it opens (tier: directly observed).
+
+**Rationale:** Exclusions checked first. The questionnaire in O20 is a target selection, not a statement of behavior, and takes no label under this entry; the calorie, protein and consistency targets in O21 are the product's own computed figures, not something the user states; and nothing about the signature itself, a box and a typed name, changes the classification, since a signature inside a product binds the user to nothing. Required conditions are met: the statement's subject is the user's own future behavior (log three meals a day, stay within the calorie target, make one mindful food choice daily), it is expressed in the user's own name, the user takes part by signing, and Ladder shows the whole statement at the point it is made. The behavior stated, logging meals and staying within targets, is the user's own to perform.
+
+**Variants present:** Signed commitment, through the signature box and the "I am committed" button (O22). General undertaking, since no specific time is named (O22). Target-derived commitment, since the three commitments restate the targets set in O20 and O21 (O22). Composed commitment, since Ladder writes the whole statement (O22). Gating commitment, since signing is required to reach the dashboard (O22).
+
+**Variants not established:** Confirmed commitment, since the statement is signed rather than only tapped. Implementation-intention commitment, since no time is named. Template commitment, since no element of the statement is set by the user. Standalone commitment, since it restates targets rather than standing alone. Authored commitment. Justified commitment, since no reason such as a research claim is stated. Onboarding-embedded commitment, since the nutrition flow runs after the welcome-workout unlock rather than during onboarding. Restated and unrestated commitment, since whether Ladder shows the statement again was not observed. Reminder-linked, tracked, witnessed and shared commitment, none of which appeared.
+
+**Alternative considered:** The screen could be read as a continuation of the target-setting questionnaire rather than a separate statement, since it immediately follows O20 and O21. It is rejected because Ladder recomposes the targets into a first-person statement addressed to the user's own future behavior and requires a separate signature to affirm it, which O20 and O21 do not do; a session in which the same targets were shown without recomposition into a personal statement, or without any affirming action, would move the case back to plain-language description of the target flow.
+
 ## Entries considered and not applied
 
 - Milestone: the "Congrats. You've unlocked your plan." screen in O23 recognises completion of one specific workout, which is a standalone criterion rather than a threshold within a broader measure, and the entry sends standalone criteria to Achievement; the three-workout statement in O13 and O24 is a stated requirement whose crossing was not reached, so no recognition event was observed.
@@ -710,14 +729,7 @@ O29 shows other identified people's completion videos and asks the user to add t
 
 # Pass three: proposed new tags
 
-### Signed Commitment
-
-**Draft definition.** A signed commitment is a statement of the user's own future behavior, written in the user's name from targets the user has just set or accepted, which the user must sign or affirm before the product opens the next part of itself. The signature is assent to the user's own future behavior, distinct from accepting terms, giving consent, or entering a legal agreement.
-**Source observations:** O22, O21, O20.
-**Conditions it appears to depend on:** A preceding step in which targets are set or accepted (O20, O21). A statement listing specific future behaviors (O22). An affirmative action that stands in for a signature and gates progress (O22).
-**Why it is not covered.** No approved entry classifies an explicit pledge. Future Projection covers a computed future state restated at a commitment point, and O21 shows no such computation. Profile Completion and Personal Data Reflection concern supplied attributes and the user's own records. Challenge requires a bounded objective with a tracked result, and the commitment has neither a boundary nor a tracked outcome in the session.
-**Recurrence elsewhere:** A pledge the user signs or affirms before the product opens is a behavioral device that health, finance and learning products carry (tier: plausible, recurrence is not established by this session). This proposal rests on one instance and is held open. What settles it is a second analyzed app carrying the same shape: a statement of the user's own future behavior, built from targets just set, that the user must sign or affirm before the product continues.
-**Caveat.** The session shows the signature once and does not show Ladder referring back to it later, whether it is stored, or whether it can be declined. A second instance with a different shape, such as a pledge with no preceding targets or one the user can skip without affirming, does not settle the proposal and is recorded against it. A legal agreement, consent form or terms acceptance is not this pattern, and the boundary is whether the statement concerns the user's own future behavior.
+Signed Commitment was approved on 15 Sep 2026, merged with Time-Anchored Intention Statement from the FitOn analysis, as the single library entry Commitment. The separation this proposal's own caveat anticipated, a second instance with a different shape, is exactly what FitOn provided: a template statement naming a time rather than a composed one restating targets. The two are now variants of one entry rather than two patterns. Commitment is applied as a tag in Pass two against O22, the observation that produced the proposal.
 
 # Close: system view
 

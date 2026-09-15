@@ -35,3 +35,15 @@ ladder, fiton, freeletics, liftoff, gymverse, clash-of-clans stay
 `subscriber` until their write-ups are backfilled. They must not hold the
 rotating free slot; if an import would hand the slot to one of them, stop
 and ask the owner instead.
+
+### Multi-app library entries: tag and block together (owner ruling, 15 Sep 2026)
+
+- **When a library entry is approved from more than one app's evidence,
+  every contributing app needs the Pass Two tag and the mechanic block in
+  the same sitting, not deferred.** Stage 1b already covers writing the
+  entry and re-tagging the analysis that produced it; this is the reminder
+  that "the analysis that produced it" means every analysis that
+  contributed a merged proposal, not just whichever one is being worked on
+  at the time. Commitment was approved from Ladder's and FitOn's proposals
+  together, but was only applied and written up for FitOn until the gap
+  was caught and fixed on 15 Sep 2026.

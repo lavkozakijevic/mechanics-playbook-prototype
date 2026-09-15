@@ -445,6 +445,7 @@ const CONNECTIONS = {
     { from: "progression-gate", to: "community-groups", title: "The wall appears the moment the gate opens", desc: "The 13,728-completion wall is shown directly after the completion badge, immediately following the same welcome workout that clears the gate.", effect: "The new user sees evidence of community scale at the exact moment they cross the gate, before they have formed any expectation of what the community looks like." },
     { from: "progression-gate", to: "streak", title: "The unlock screen introduces the streak in the same breath", desc: "The congratulations screen that announces the gate opening states in the same line that three workouts a week earns a streak.", effect: "The next return-driving commitment is introduced at the exact moment the first one is satisfied, with no gap between them." },
     { from: "progression-gate", to: "referral-boost", title: "The referral offer only appears after the gate opens", desc: "The Get Started checklist, which carries the sharing step behind the $25 offer, appears at the bottom of the workout tab only once the welcome workout has unlocked the plan.", effect: "A user cannot reach the referral offer without first clearing the same gate that opens chat and nutrition." },
+    { from: "progression-gate", to: "commitment", title: "The gate also opens the nutrition pledge", desc: "Once chat, nutrition and the plan unlock, the nutrition flow that follows ends in a signed statement restating the targets just set, before the nutrition dashboard opens.", effect: "The same gate that gives access to nutrition also produces a separate commitment moment inside it, one the user has to clear before ever seeing the dashboard the targets belong to." },
     { from: "achievement", to: "shareable-win", title: "The share option sits on the same screen as the badge", desc: "The Instagram share offer, the completion badge, and the workout's volume and reps all appear together on one completion screen.", effect: "The moment that produces the recognition and the moment that offers to publicize it are the same screen, not two separate steps." },
   ],
   "freeletics": [
@@ -721,11 +722,12 @@ const POSITIONS = {
   "ladder": {
     center:              { x: 50, y: 8,  label: "LADDER" },
     "progression-gate":  { x: 50, y: 28 },
-    "community-groups":  { x: 18, y: 50 },
-    "achievement":       { x: 40, y: 50 },
-    "streak":            { x: 62, y: 50 },
-    "referral-boost":    { x: 84, y: 50 },
-    "shareable-win":     { x: 40, y: 74 },
+    "community-groups":  { x: 10, y: 50 },
+    "achievement":       { x: 30, y: 50 },
+    "streak":            { x: 50, y: 50 },
+    "referral-boost":    { x: 70, y: 50 },
+    "commitment":        { x: 90, y: 50 },
+    "shareable-win":     { x: 30, y: 74 },
   },
   "fiton": {
     center:               { x: 50, y: 8,  label: "FITON" },

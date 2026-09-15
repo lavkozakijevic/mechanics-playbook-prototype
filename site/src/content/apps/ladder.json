@@ -379,7 +379,18 @@
       "section": "goals",
       "observed": "Continuing past the voice demonstration opens a three-part questionnaire. The first section asks for a primary goal, why nutrition is a priority, the biggest nutrition challenge, and motivation to change habits. The second asks about prior macro-tracking experience, desired precision, and interest in AI-powered photo logging. The third asks for date of birth, height, current weight, biological sex and activity level, then shows a personalizing-plan screen. Ladder doesn't offer to read height or weight from the earlier Apple Health connection at this point.",
       "detail": [],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Commitment",
+          "confidence": "A statement in the user's own name, restating the nutrition targets just set and requiring a signature to proceed, is present (tier: directly observed).",
+          "confidences": [
+            "A statement in the user's own name, restating the nutrition targets just set and requiring a signature to proceed, is present (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The questionnaire in O20 is a target selection, not a statement of behavior, and takes no label under this entry; the calorie, protein and consistency targets in O21 are the product's own computed figures, not something the user states; and nothing about the signature itself, a box and a typed name, changes the classification, since a signature inside a product binds the user to nothing. Required conditions are met: the statement's subject is the user's own future behavior (log three meals a day, stay within the calorie target, make one mindful food choice daily), it is expressed in the user's own name, the user takes part by signing, and Ladder shows the whole statement at the point it is made. The behavior stated, logging meals and staying within targets, is the user's own to perform.",
+          "alternativeConsidered": "The screen could be read as a continuation of the target-setting questionnaire rather than a separate statement, since it immediately follows O20 and O21. It is rejected because Ladder recomposes the targets into a first-person statement addressed to the user's own future behavior and requires a separate signature to affirm it, which O20 and O21 do not do; a session in which the same targets were shown without recomposition into a personal statement, or without any affirming action, would move the case back to plain-language description of the target flow.",
+          "role": "engagement, retention"
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -389,7 +400,18 @@
       "section": "goals",
       "observed": "After a loading screen, Ladder presents a personalized plan labelled body recomposition, showing an unchanged weight figure with copy about steady progress and effortless balance. Following screens set a calorie target, a protein target framed around building lean muscle and reducing cravings, and a consistency target of logging at least three times a day.",
       "detail": [],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Commitment",
+          "confidence": "A statement in the user's own name, restating the nutrition targets just set and requiring a signature to proceed, is present (tier: directly observed).",
+          "confidences": [
+            "A statement in the user's own name, restating the nutrition targets just set and requiring a signature to proceed, is present (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The questionnaire in O20 is a target selection, not a statement of behavior, and takes no label under this entry; the calorie, protein and consistency targets in O21 are the product's own computed figures, not something the user states; and nothing about the signature itself, a box and a typed name, changes the classification, since a signature inside a product binds the user to nothing. Required conditions are met: the statement's subject is the user's own future behavior (log three meals a day, stay within the calorie target, make one mindful food choice daily), it is expressed in the user's own name, the user takes part by signing, and Ladder shows the whole statement at the point it is made. The behavior stated, logging meals and staying within targets, is the user's own to perform.",
+          "alternativeConsidered": "The screen could be read as a continuation of the target-setting questionnaire rather than a separate statement, since it immediately follows O20 and O21. It is rejected because Ladder recomposes the targets into a first-person statement addressed to the user's own future behavior and requires a separate signature to affirm it, which O20 and O21 do not do; a session in which the same targets were shown without recomposition into a personal statement, or without any affirming action, would move the case back to plain-language description of the target flow.",
+          "role": "engagement, retention"
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -399,7 +421,18 @@
       "section": "goals",
       "observed": "Before the nutrition dashboard opens, Ladder shows a commitment statement in the user's name, listing three commitments: logging three meals a day, staying within the daily calorie target, and making one mindful food choice daily. The user must sign their name in a box to continue, under a button reading \"I am committed.\"",
       "detail": [],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Commitment",
+          "confidence": "A statement in the user's own name, restating the nutrition targets just set and requiring a signature to proceed, is present (tier: directly observed).",
+          "confidences": [
+            "A statement in the user's own name, restating the nutrition targets just set and requiring a signature to proceed, is present (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The questionnaire in O20 is a target selection, not a statement of behavior, and takes no label under this entry; the calorie, protein and consistency targets in O21 are the product's own computed figures, not something the user states; and nothing about the signature itself, a box and a typed name, changes the classification, since a signature inside a product binds the user to nothing. Required conditions are met: the statement's subject is the user's own future behavior (log three meals a day, stay within the calorie target, make one mindful food choice daily), it is expressed in the user's own name, the user takes part by signing, and Ladder shows the whole statement at the point it is made. The behavior stated, logging meals and staying within targets, is the user's own to perform.",
+          "alternativeConsidered": "The screen could be read as a continuation of the target-setting questionnaire rather than a separate statement, since it immediately follows O20 and O21. It is rejected because Ladder recomposes the targets into a first-person statement addressed to the user's own future behavior and requires a separate signature to affirm it, which O20 and O21 do not do; a session in which the same targets were shown without recomposition into a personal statement, or without any affirming action, would move the case back to plain-language description of the target flow.",
+          "role": "engagement, retention"
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -844,13 +877,27 @@
         "Joining the wall is the only action offered, and it immediately requests camera and photo library access.",
         "The wall appears directly after the completion badge, before the home screen."
       ],
-      "screenshotsNote": "the completion wall showing the 13,728 count and the join action.\n\n---"
+      "screenshotsNote": "the completion wall showing the 13,728 count and the join action."
+    },
+    {
+      "name": "Commitment",
+      "summary": "Ladder writes a three-part nutrition pledge in the user's name and requires a signature before the dashboard opens.",
+      "observed": "Before the nutrition dashboard opens, Ladder shows a statement in the user's name committing to try their best at hitting nutrition goals, listing three behaviors that restate the targets set on the preceding screens: logging three meals a day, staying within the daily calorie target, and making one mindful food choice daily. The user signs their name in a box and taps a button reading \"I am committed\" to continue.",
+      "presented": "The statement appears as its own screen immediately after the calorie and protein targets are set, composed entirely by Ladder, with the signature box and confirmation button as the only interactive elements.",
+      "noting": "Ladder recomposes targets the user has already set into a first-person statement before asking for a signature, rather than simply carrying the targets forward onto the dashboard. Nothing shown afterward brings the statement back: the dashboard tracks the targets themselves, not the commitment that preceded them.",
+      "findings": [
+        "The statement restates three targets set on the preceding screens: meals logged, calories, and one mindful food choice.",
+        "The user signs their name in a box to continue.",
+        "The confirmation button reads \"I am committed.\"",
+        "Nothing shown afterward refers back to the signed statement."
+      ],
+      "screenshotsNote": "the signed commitment screen with its signature box and confirmation button.\n\n---"
     }
   ],
   "sectionLeadIns": {
     "onboarding": "A tracking prompt, Apple sign-in, a three-part coach video sequence and a team-match filter all run before the user reaches the home screen.",
     "core-loop": "Once the plan unlocks, the weekly plan hub, the welcome workout player and a nutrition dashboard anchor Ladder's core loop.",
-    "goals": "A completion badge, profile statistics, a Get Started checklist, an upcoming strength series and a full nutrition questionnaire sit across this section.",
+    "goals": "A completion badge, profile statistics, a Get Started checklist, an upcoming strength series and a nutrition flow ending in a signed commitment sit across this section.",
     "access": "One completed workout unlocks chat, nutrition and the plan together; three completed workouts unlocks a six-week strength series.",
     "social": "Ladder's social layer runs through the matched coaching team, teammate cheers, team chat, and a set of topic groups and meetups sitting alongside it.",
     "reach": "Apple Health, a music service connection, and sharing options each carry the user outside Ladder at the start and end of a workout.",
@@ -860,7 +907,7 @@
   "sectionCards": {
     "onboarding": "A tracking prompt, Apple sign-in, a three-part coach video sequence and a team-match filter all run before the user reaches the home screen.",
     "core-loop": "The weekly plan hub, the welcome workout player and a new nutrition dashboard anchor a loop that opens with one workout and branches into macro tracking.",
-    "goals": "A completion badge, profile stats, a Get Started checklist, an upcoming strength series and a full nutrition questionnaire sit across this section.",
+    "goals": "A completion badge, profile stats, a Get Started checklist, an upcoming strength series and a nutrition flow ending in a signed commitment sit across this section.",
     "access": "One completed workout unlocks chat, nutrition and the plan at once; three completed workouts unlocks a six-week strength series.",
     "economy": "Empty. Ladder holds no currency, points balance or resource of its own.",
     "social": "A matched coaching team, teammate cheers, team chat, topic groups and city meetups make up the social layer.",
@@ -868,31 +915,12 @@
     "monetization": "A seven-day free trial with no credit card required runs on a fixed timeline toward a monthly or annual plan, with no price shown.",
     "returns": "Two notification prompts, a workout reminder, a weekly streak and a fixed Sunday content release bring users back."
   },
-  "proposedTags": [
-    {
-      "name": "Signed Commitment",
-      "sourceObservations": [
-        "O22",
-        "O21",
-        "O20",
-        "O20",
-        "O21",
-        "O22",
-        "O22",
-        "O21"
-      ],
-      "draftDefinition": "A signed commitment is a statement of the user's own future behavior, written in the user's name from targets the user has just set or accepted, which the user must sign or affirm before the product opens the next part of itself. The signature is assent to the user's own future behavior, distinct from accepting terms, giving consent, or entering a legal agreement.\n**Source observations:** O22, O21, O20.\n**Conditions it appears to depend on:** A preceding step in which targets are set or accepted (O20, O21). A statement listing specific future behaviors (O22). An affirmative action that stands in for a signature and gates progress (O22).\n**Why it is not covered.** No approved entry classifies an explicit pledge. Future Projection covers a computed future state restated at a commitment point, and O21 shows no such computation. Profile Completion and Personal Data Reflection concern supplied attributes and the user's own records. Challenge requires a bounded objective with a tracked result, and the commitment has neither a boundary nor a tracked outcome in the session.\n**Recurrence elsewhere:** A pledge the user signs or affirms before the product opens is a behavioral device that health, finance and learning products carry (tier: plausible, recurrence is not established by this session). This proposal rests on one instance and is held open. What settles it is a second analyzed app carrying the same shape: a statement of the user's own future behavior, built from targets just set, that the user must sign or affirm before the product continues.\n**Caveat.** The session shows the signature once and does not show Ladder referring back to it later, whether it is stored, or whether it can be declined. A second instance with a different shape, such as a pledge with no preceding targets or one the user can skip without affirming, does not settle the proposal and is recorded against it. A legal agreement, consent form or terms acceptance is not this pattern, and the boundary is whether the statement concerns the user's own future behavior.",
-      "conditions": "A preceding step in which targets are set or accepted (O20, O21). A statement listing specific future behaviors (O22). An affirmative action that stands in for a signature and gates progress (O22).\n**Why it is not covered.** No approved entry classifies an explicit pledge. Future Projection covers a computed future state restated at a commitment point, and O21 shows no such computation. Profile Completion and Personal Data Reflection concern supplied attributes and the user's own records. Challenge requires a bounded objective with a tracked result, and the commitment has neither a boundary nor a tracked outcome in the session.\n**Recurrence elsewhere:** A pledge the user signs or affirms before the product opens is a behavioral device that health, finance and learning products carry (tier: plausible, recurrence is not established by this session). This proposal rests on one instance and is held open. What settles it is a second analyzed app carrying the same shape: a statement of the user's own future behavior, built from targets just set, that the user must sign or affirm before the product continues.\n**Caveat.** The session shows the signature once and does not show Ladder referring back to it later, whether it is stored, or whether it can be declined. A second instance with a different shape, such as a pledge with no preceding targets or one the user can skip without affirming, does not settle the proposal and is recorded against it. A legal agreement, consent form or terms acceptance is not this pattern, and the boundary is whether the statement concerns the user's own future behavior.",
-      "whyNotCovered": "No approved entry classifies an explicit pledge. Future Projection covers a computed future state restated at a commitment point, and O21 shows no such computation. Profile Completion and Personal Data Reflection concern supplied attributes and the user's own records. Challenge requires a bounded objective with a tracked result, and the commitment has neither a boundary nor a tracked outcome in the session.\n**Recurrence elsewhere:** A pledge the user signs or affirms before the product opens is a behavioral device that health, finance and learning products carry (tier: plausible, recurrence is not established by this session). This proposal rests on one instance and is held open. What settles it is a second analyzed app carrying the same shape: a statement of the user's own future behavior, built from targets just set, that the user must sign or affirm before the product continues.\n**Caveat.** The session shows the signature once and does not show Ladder referring back to it later, whether it is stored, or whether it can be declined. A second instance with a different shape, such as a pledge with no preceding targets or one the user can skip without affirming, does not settle the proposal and is recorded against it. A legal agreement, consent form or terms acceptance is not this pattern, and the boundary is whether the statement concerns the user's own future behavior.",
-      "recurrenceElsewhere": "A pledge the user signs or affirms before the product opens is a behavioral device that health, finance and learning products carry (tier: plausible, recurrence is not established by this session). This proposal rests on one instance and is held open. What settles it is a second analyzed app carrying the same shape: a statement of the user's own future behavior, built from targets just set, that the user must sign or affirm before the product continues.\n**Caveat.** The session shows the signature once and does not show Ladder referring back to it later, whether it is stored, or whether it can be declined. A second instance with a different shape, such as a pledge with no preceding targets or one the user can skip without affirming, does not settle the proposal and is recorded against it. A legal agreement, consent form or terms acceptance is not this pattern, and the boundary is whether the statement concerns the user's own future behavior.",
-      "caveat": "The session shows the signature once and does not show Ladder referring back to it later, whether it is stored, or whether it can be declined. A second instance with a different shape, such as a pledge with no preceding targets or one the user can skip without affirming, does not settle the proposal and is recorded against it. A legal agreement, consent form or terms acceptance is not this pattern, and the boundary is whether the statement concerns the user's own future behavior."
-    }
-  ],
+  "proposedTags": [],
   "system": {
     "tagline": "Completing one welcome workout is the single condition that opens chat, nutrition, the plan, a badge, a community wall and a streak requirement at once.",
     "overview": "Ladder matches a new user to a coaching team, and that team decides which welcome workout is offered. Completing it is the one condition that unlocks chat, nutrition and the full plan, and the completion screen that follows fires a badge, a community wall, a streak requirement, a strength-series requirement and a get-started checklist together. That checklist is what routes the user into the app's remaining social and referral surfaces.",
-    "loop": "Match to a coaching team through a preference filter. Watch the coach's introduction video. Complete the welcome workout, which clears the gate on chat, nutrition and the full plan in the same moment it awards a badge, reveals a 13,728-completion community wall, and states the weekly streak and six-week strength-series requirements. The get-started checklist that appears once the gate opens routes into team chat, a second workout, profile steps, and the $25 referral offer.",
-    "keyInsight": "The welcome workout completion is the single hinge the rest of the app hangs from: the team match decides which workout it is, and completing it fires the badge, the community wall, the streak and strength-series requirements, and the checklist that leads to referral, all in one sequence. Nothing else in the record requires a separate unlock condition of its own.",
+    "loop": "Match to a coaching team through a preference filter. Watch the coach's introduction video. Complete the welcome workout, which clears the gate on chat, nutrition and the full plan in the same moment it awards a badge, reveals a 13,728-completion community wall, and states the weekly streak and six-week strength-series requirements. The get-started checklist that appears once the gate opens routes into team chat, a second workout, profile steps, and the $25 referral offer. Separately, the nutrition branch runs a goal questionnaire into a personalized plan and a signed commitment restating its targets before the dashboard opens.",
+    "keyInsight": "The welcome workout completion is the single hinge the rest of the app hangs from: the team match decides which workout it is, and completing it fires the badge, the community wall, the streak and strength-series requirements, and the checklist that leads to referral, all in one sequence. The one exception is nutrition: after the gate opens, reaching the dashboard still requires a separate signed commitment restating the targets just set, the record's only other unlock condition.",
     "whatMakesItWork": "Every major mechanic depends on the same one action rather than competing for a separate moment of attention. A user who completes the welcome workout doesn't have to discover the badge, the wall, the streak or the referral offer independently, all five are placed on or immediately after the same screen, so one decision produces the app's entire first impression of value at once.",
     "roles": [
       {
@@ -918,6 +946,10 @@
       {
         "id": "community-groups",
         "role": "A matched coaching team with its own chat, plus a 13,728-completion community wall that appears immediately after the welcome workout badge."
+      },
+      {
+        "id": "commitment",
+        "role": "A three-part nutrition pledge, restating the targets just set, that the user must sign before the nutrition dashboard opens."
       }
     ],
     "center": {
@@ -933,27 +965,32 @@
       },
       {
         "id": "community-groups",
-        "x": 18,
+        "x": 10,
         "y": 50
       },
       {
         "id": "achievement",
-        "x": 40,
+        "x": 30,
         "y": 50
       },
       {
         "id": "streak",
-        "x": 62,
+        "x": 50,
         "y": 50
       },
       {
         "id": "referral-boost",
-        "x": 84,
+        "x": 70,
+        "y": 50
+      },
+      {
+        "id": "commitment",
+        "x": 90,
         "y": 50
       },
       {
         "id": "shareable-win",
-        "x": 40,
+        "x": 30,
         "y": 74
       }
     ],
@@ -992,6 +1029,13 @@
         "title": "The referral offer only appears after the gate opens",
         "desc": "The Get Started checklist, which carries the sharing step behind the $25 offer, appears at the bottom of the workout tab only once the welcome workout has unlocked the plan.",
         "effect": "A user cannot reach the referral offer without first clearing the same gate that opens chat and nutrition."
+      },
+      {
+        "from": "progression-gate",
+        "to": "commitment",
+        "title": "The gate also opens the nutrition pledge",
+        "desc": "Once chat, nutrition and the plan unlock, the nutrition flow that follows ends in a signed statement restating the targets just set, before the nutrition dashboard opens.",
+        "effect": "The same gate that gives access to nutrition also produces a separate commitment moment inside it, one the user has to clear before ever seeing the dashboard the targets belong to."
       },
       {
         "from": "achievement",

@@ -1475,7 +1475,7 @@ const V41_APP_META = {
       "core-loop":
         "The weekly plan hub, the welcome workout player and a new nutrition dashboard anchor a loop that opens with one workout and branches into macro tracking.",
       goals:
-        "A completion badge, profile stats, a Get Started checklist, an upcoming strength series and a full nutrition questionnaire sit across this section.",
+        "A completion badge, profile stats, a Get Started checklist, an upcoming strength series and a nutrition flow ending in a signed commitment sit across this section.",
       access:
         "One completed workout unlocks chat, nutrition and the plan at once; three completed workouts unlocks a six-week strength series.",
       economy:
