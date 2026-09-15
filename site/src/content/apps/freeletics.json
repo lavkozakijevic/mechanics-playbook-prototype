@@ -1,138 +1,728 @@
 {
   "id": "freeletics",
   "name": "Freeletics",
-  "category": "Fitness",
+  "category": "Fitness / AI Coaching",
   "type": "app",
   "visibility": "public",
-  "analysisDate": "2026-02-25",
-  "lastUpdated": "2026-05-20",
-  "summary": "Freeletics is an AI coaching fitness app that runs a paywall cascade across onboarding: three sequential discount offers, each better than the last, with the lowest price reserved for the moment after the first workout is completed. The week-based challenge structure and community feed are the primary retention surfaces. No daily streak was observed.",
-  "teaser": "Freeletics shows three descending prices across one onboarding, each pitched as a better deal than the last, with the cheapest one held back until right after the first workout.",
+  "analysisDate": "2026-09-15",
+  "lastUpdated": "2026-09-15",
+  "asObserved": "2026-02",
+  "appVersion": "None.",
+  "summary": "Freeletics is a fitness app built as a funnel: a twelve-step questionnaire feeds a stated AI coach, which is shown assembling a plan twice, each time immediately before the app asks for an account or a payment. The plan itself stays behind a subscription throughout: the Coach tab's own training-plan control opens the paywall directly. A profile level, a leaderboard, and a network of other athletes are all visible from the first login, though nothing in the app is seen advancing them. A community layer of user-created challenges and comments under the app's own posts sits apart from all of this, connected to nothing else in the record.",
+  "teaser": "Freeletics shows the same animation of a coach building a personalized plan twice, each time right before it asks for an account or a payment, and no plan is ever delivered on the account reviewed.",
   "icon": "/icons/freeletics.png",
   "heroImage": null,
-  "mechanics": [
+  "contentFormat": "v4.1",
+  "observations": [
     {
-      "id": "challenges",
-      "depth": "supporting",
-      "writeup": {
-        "observed": "Challenges are user-generated. Any member creates a challenge by selecting one exercise, a completion type (consistency or repetition), and an end date, then invites others to join. The Challenges sub-tab in the Community section shows a browsable list of user-created challenges: names, creators, participant counts, and exercises. Observed challenges included a 1,000-burpee target, a squat challenge, and a daily stretch completion.",
-        "findings": [
-          "User-generated challenges mean the catalogue quality reflects the health of the community rather than an editorial release schedule. An active community produces a rich challenge catalogue; a declining one produces a sparse one.",
-          "Challenges require no platform effort to maintain once the creation mechanic exists. Each new member is a potential challenge creator and a potential recruit for existing challenges."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": [
-        "Challenges tab showing a list of user-created challenges with creator names, participant counts, exercise names, and the create challenge button"
-      ]
+      "id": "O1",
+      "name": "Three propositions before any choice",
+      "section": "onboarding",
+      "observed": "Freeletics opens on a screen with three statements about AI-backed coaching, adapting to the day, and training with any or no equipment, offering Continue or an existing-account route. No product content is reachable before this choice, and no guest or skip route is shown.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "leaderboards",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": [
-        "Leaderboard view showing the user at zero points and Freeletics Official at level 74 with 431,000 points — the only populated row in a new user's following leaderboard"
-      ]
+      "id": "O2",
+      "name": "Data consent before tracking",
+      "section": "onboarding",
+      "observed": "After a \"ready to start\" screen, Freeletics asks to collect information and share it with third parties, framed as helping the app improve. Accepting brings up the system prompt asking whether to allow activity tracking, so the app's own request comes first.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "achievement",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O3",
+      "name": "Questionnaire outline and step count",
+      "section": "onboarding",
+      "observed": "The first onboarding screen states the setup takes five minutes, outlines three stages, profile and goals, training preferences, and a personalized plan, and shows a step bar running from 1 to 12. The setup is framed as input to an AI coach rather than as account registration.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "social-feed",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O4",
+      "name": "Body and identity questions",
+      "section": "onboarding",
+      "observed": "Freeletics asks, one screen at a time, for gender, current weight, height, and date of birth, with motivational headlines attached to the weight and height screens.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "daily-weekly-quests",
-      "depth": "shallow",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O5",
+      "name": "Testimonials mid-questionnaire",
+      "section": "onboarding",
+      "observed": "After date of birth, Freeletics shows a screen of testimonials headed \"Stories from athletes like you,\" attributing stories to named people with ages.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "leveling",
-      "depth": "shallow",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O6",
+      "name": "Goal selection over twelve weeks",
+      "section": "onboarding",
+      "observed": "Freeletics asks for up to three goals, framed around what the user wants to achieve in the next twelve weeks, offering options including improving fitness, endurance, stress relief, diet, muscle, and fat loss.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O7",
+      "name": "Athlete count and welcome",
+      "section": "onboarding",
+      "observed": "The next screen states that more than ten million athletes have gotten fit with Freeletics and welcomes the user to the team, asking nothing and offering no choice.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O8",
+      "name": "Fitness level slider",
+      "section": "onboarding",
+      "observed": "Freeletics asks for a self-rated fitness level on a slider running from not fit at all to really fit, with accompanying text that changes as the slider moves.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O9",
+      "name": "Training modality list",
+      "section": "onboarding",
+      "observed": "Freeletics asks how the user would like to train, offering bodyweight, dumbbells, running, barbell, and kettlebell as options.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O10",
+      "name": "Experience self-placement",
+      "section": "onboarding",
+      "observed": "Freeletics asks the user to choose which of four statements best describes them, covering both fitness experience and motivation.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O11",
+      "name": "Seventeen minutes a day",
+      "section": "onboarding",
+      "observed": "Freeletics states \"Seventeen minutes a day. That's all you need,\" without showing the figure computed from any answer given.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O12",
+      "name": "First plan-building animation",
+      "section": "onboarding",
+      "observed": "Freeletics shows an animation of the AI coach designing the user's plan, alongside a graph comparing fitness and time with and without Freeletics, with a large gap between the two lines and no data points or stated figures on either axis. The screen leads directly into account creation.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O13",
+      "name": "Account creation after the questionnaire",
+      "section": "onboarding",
+      "observed": "Immediately after the animation, Freeletics asks the user to create an account, offering Apple, Google, Decathlon, or email as sign-in routes, with no stated route past this screen without an account.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O14",
+      "name": "Email confirmation reopens the app",
+      "section": "onboarding",
+      "observed": "Freeletics asks the user to confirm the account by clicking a link in an email, with a resend control. Clicking the link reopens the app and continues to the reminders request.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O15",
+      "name": "Choosing a training journey",
+      "section": "onboarding",
+      "observed": "After the first paywall is closed, Freeletics asks the user to choose one of three training journeys, Start Strong, Cardio Burn, and Balanced Burn, stated as 18 sessions over six weeks, 48 sessions over twelve weeks, and 40 sessions over twelve weeks respectively, with an explanation available of what a journey is. A journey must be chosen to proceed.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O16",
+      "name": "Equipment for the journey",
+      "section": "onboarding",
+      "observed": "Freeletics asks what equipment is available for the chosen training journey, offering a long list of items, asked a second time in a narrower form after the earlier training-modality question.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O17",
+      "name": "Training days and second plan-building animation",
+      "section": "onboarding",
+      "observed": "Freeletics asks which days of the week to train, with Wednesday, Friday, and Sunday preselected, alongside further preferences for sprints, training space, and training quietly, stating that every preference can be changed later. Starting the journey shows a second animation building the personalized training plan, which leads directly into a discounted offer.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O18",
+      "name": "First unguided screen",
+      "section": "onboarding",
+      "observed": "Once the discounted offer is closed, Freeletics lands on the Coach tab, one of three bottom-navigation tabs alongside Community and Profile, with no tutorial, tooltip, or tour shown on arrival.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O19",
+      "name": "Coach tab calendar",
+      "section": "core-loop",
+      "observed": "Below the discount banner, the Coach tab carries a calendar showing when certain exercises are next.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O20",
+      "name": "Unlocked workouts row",
+      "section": "core-loop",
+      "observed": "The Coach tab carries a row of workouts described as unlocked, including Core Ready, Lower Body Buildup, On Your Marks, and Pulse Razor, alongside other equipment-specific workouts.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O21",
+      "name": "Full workout catalogue",
+      "section": "core-loop",
+      "observed": "A See all control opens a catalogue organized by kind: cardio, equipment, mobility, a category read as \"God workouts,\" signature workouts including Athena, Morpheus, and Prometheus, muscle-group workouts, time-based workouts, and single exercises, ending in a mindset-coaching link at the very bottom.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O22",
+      "name": "The workout loop itself",
+      "section": "core-loop",
+      "observed": "No workout is started, completed, or rated in this analysis. The loop Freeletics describes, in which the user reports how each workout went and Coach adapts later sessions, is stated on the journey-explanation screen but not seen operating.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O23",
+      "name": "Profile opens on Level 1",
+      "section": "goals",
+      "observed": "The profile tab shows the new account's level at the very top, at Level 1. What advances the level, and any threshold for the next one, is not stated.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Leveling",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "Freeletics assigns the new account Level 1 and shows the official account at level 74, with levels also shown on athletes returned by search (tier: directly observed). Distinct numbered states held by different accounts, one of them a new account at the lowest observed value, converge on an ordered series of discrete progression states with a current state assigned to each account (tier: strongly supported). The rule that moves an account from one level to the next is not observed, and under the presence standard it is stated as not observed rather than inferred (tier: directly observed).",
+          "alternativeConsidered": "a level label assigned by some rule other than progression, such as tenure or account type, which the entry excludes. It is weakened by the new account starting at 1 and the long-standing official account holding a much higher number, but not ruled out. Experience Points was also considered for the points shown beside the level and is not applied (see below). The evidence that would settle the classification is one completed workout followed by the profile, showing whether the level or a progress state toward it changes.",
+          "role": "engagement, social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O24",
+      "name": "Other accounts' levels and points",
+      "section": "goals",
+      "observed": "The official Freeletics account, the only profile the account follows, is shown at level 74 with 431,000 points. Searching for athletes by name returns each one's profile image and level. The relationship between points and level is not stated.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Leveling",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "Freeletics assigns the new account Level 1 and shows the official account at level 74, with levels also shown on athletes returned by search (tier: directly observed). Distinct numbered states held by different accounts, one of them a new account at the lowest observed value, converge on an ordered series of discrete progression states with a current state assigned to each account (tier: strongly supported). The rule that moves an account from one level to the next is not observed, and under the presence standard it is stated as not observed rather than inferred (tier: directly observed).",
+          "alternativeConsidered": "a level label assigned by some rule other than progression, such as tenure or account type, which the entry excludes. It is weakened by the new account starting at 1 and the long-standing official account holding a much higher number, but not ruled out. Experience Points was also considered for the points shown beside the level and is not applied (see below). The evidence that would settle the classification is one completed workout followed by the profile, showing whether the level or a progress state toward it changes.",
+          "role": "engagement, social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O25",
+      "name": "Workouts count and achievements area",
+      "section": "goals",
+      "observed": "A badge area on the profile shows how many workouts the user has done, in the same area as an achievements section. No achievement, criterion, locked item, or attained state is named.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O26",
+      "name": "Unlocked versus subscription workouts",
+      "section": "access",
+      "observed": "Freeletics marks a set of workouts on the Coach tab as unlocked, while the discounted offer lists unlocking signature workouts among what a subscription brings, putting the signature-workout category behind the subscription on this account.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O27",
+      "name": "Training plan control opens the paywall",
+      "section": "access",
+      "observed": "The Coach tab's \"Become your best self\" section offers a control to get the training plan; pressing it opens the paywall, so the plan built during onboarding is not reachable without a subscription on this account.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O28",
+      "name": "Fitness level and Athlete score reserved for subscribers",
+      "section": "access",
+      "observed": "The profile states that the user needs to subscribe to learn more about their fitness level and to stay motivated with a daily Athlete score, presented as a motivational daily figure rather than as a record.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O29",
+      "name": "Reward credits price two rewards",
+      "section": "economy",
+      "observed": "The rewards surface shows credits available and offers a choice between a €25 gift card usable in more than 150 stores, costing one credit, or lifetime access to Freeletics Coach, costing three credits. The balance itself is not read out, and whether taking a reward reduces it isn't shown.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O30",
+      "name": "Feed shows only Freeletics' own posts",
+      "section": "social",
+      "observed": "The Community tab's Feed section shows posts and articles from Freeletics and nothing else, each carrying reaction icons and a comment count or control, since the account follows only Freeletics.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Community Space",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "Under Freeletics posts in the Community feed, several other people leave comments about updates, timing, bugs and a challenge, and those comments remain under the post for later readers (tier: strongly supported). Each post is therefore a persistent shared context to which multiple social actors contribute, which is the entry's content-attached case and matches its public article comments borderline case (tier: strongly supported). No membership or governance is maintained around the post, and no collective state belongs to a group, so neither Group Membership nor Clan / Guild applies under the decision ladder (tier: directly observed).",
+          "alternativeConsidered": "Social Feed, which would classify the stream of posts rather than the context the comments belong to. It is held separately as unresolved, because every item observed in the feed comes from one account (O30). Reviews and Ratings was also weighed and does not apply, since the posts are not catalogue listings. The evidence that would widen this tag to the Community tab as a whole is a session showing athletes posting and interacting in a shared space rather than only commenting on the product's own posts.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O31",
+      "name": "Comments under Freeletics posts",
+      "section": "social",
+      "observed": "Opening a post shows comments from other people, covering updates, timing, bugs, and the challenge the post refers to. Comments stay visible under the post for later readers.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Challenge",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "Freeletics presents discrete challenge instances under its own \"Challenges\" framing, lets any user create one by choosing one exercise, a consistency or repetition basis and a date, and invites others to join (tier: directly observed). Listed titles carry defined objectives such as 1000 burpees, a daily stretch and a numbered week (tier: strongly supported). Together these show a bounded objective instance with a success condition and a date boundary, which is the recognizable implementation of this entry (tier: strongly supported). How a challenge concludes, whether it records completed or not completed, and what differs between the two outcomes are not observed, and under the presence standard they are stated as not observed rather than filled in (tier: directly observed).",
+          "alternativeConsidered": "Community Space for the Challenges section as a whole, since several athletes contribute challenges to one listing. It is not applied to the listing because the observed contributions are challenge instances rather than posts or interactions within a shared context, and the one observed multi-actor discussion is attached to posts (O31), where Community Space is applied separately. The training journeys at O15 were also weighed against this entry and not tagged: they state a session count and a number of weeks, but the product frames them as a program rather than an objective, and no completed, expired or failed state is shown. The evidence that would separate the challenge label from a plain listing of user-set targets is one challenge observed at its end, showing a completion or expiry state.",
+          "role": "social, engagement"
+        },
+        {
+          "name": "Community Space",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "Under Freeletics posts in the Community feed, several other people leave comments about updates, timing, bugs and a challenge, and those comments remain under the post for later readers (tier: strongly supported). Each post is therefore a persistent shared context to which multiple social actors contribute, which is the entry's content-attached case and matches its public article comments borderline case (tier: strongly supported). No membership or governance is maintained around the post, and no collective state belongs to a group, so neither Group Membership nor Clan / Guild applies under the decision ladder (tier: directly observed).",
+          "alternativeConsidered": "Social Feed, which would classify the stream of posts rather than the context the comments belong to. It is held separately as unresolved, because every item observed in the feed comes from one account (O30). Reviews and Ratings was also weighed and does not apply, since the posts are not catalogue listings. The evidence that would widen this tag to the Community tab as a whole is a session showing athletes posting and interacting in a shared space rather than only commenting on the product's own posts.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O32",
+      "name": "User-created challenges list",
+      "section": "social",
+      "observed": "The Challenges section lists challenges created by Freeletics athletes, with titles including a daily stretch, a thousand-burpee challenge, and a squat challenge for a numbered week. At least one entry shows its participant count.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Challenge",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "Freeletics presents discrete challenge instances under its own \"Challenges\" framing, lets any user create one by choosing one exercise, a consistency or repetition basis and a date, and invites others to join (tier: directly observed). Listed titles carry defined objectives such as 1000 burpees, a daily stretch and a numbered week (tier: strongly supported). Together these show a bounded objective instance with a success condition and a date boundary, which is the recognizable implementation of this entry (tier: strongly supported). How a challenge concludes, whether it records completed or not completed, and what differs between the two outcomes are not observed, and under the presence standard they are stated as not observed rather than filled in (tier: directly observed).",
+          "alternativeConsidered": "Community Space for the Challenges section as a whole, since several athletes contribute challenges to one listing. It is not applied to the listing because the observed contributions are challenge instances rather than posts or interactions within a shared context, and the one observed multi-actor discussion is attached to posts (O31), where Community Space is applied separately. The training journeys at O15 were also weighed against this entry and not tagged: they state a session count and a number of weeks, but the product frames them as a program rather than an objective, and no completed, expired or failed state is shown. The evidence that would separate the challenge label from a plain listing of user-set targets is one challenge observed at its end, showing a completion or expiry state.",
+          "role": "social, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O33",
+      "name": "Anyone can create a challenge",
+      "section": "social",
+      "observed": "Freeletics lets the user create a challenge of their own, based on either consistency or repetition, by choosing one exercise, setting a date, and asking people to join. Only one exercise can be chosen per challenge.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Challenge",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "Freeletics presents discrete challenge instances under its own \"Challenges\" framing, lets any user create one by choosing one exercise, a consistency or repetition basis and a date, and invites others to join (tier: directly observed). Listed titles carry defined objectives such as 1000 burpees, a daily stretch and a numbered week (tier: strongly supported). Together these show a bounded objective instance with a success condition and a date boundary, which is the recognizable implementation of this entry (tier: strongly supported). How a challenge concludes, whether it records completed or not completed, and what differs between the two outcomes are not observed, and under the presence standard they are stated as not observed rather than filled in (tier: directly observed).",
+          "alternativeConsidered": "Community Space for the Challenges section as a whole, since several athletes contribute challenges to one listing. It is not applied to the listing because the observed contributions are challenge instances rather than posts or interactions within a shared context, and the one observed multi-actor discussion is attached to posts (O31), where Community Space is applied separately. The training journeys at O15 were also weighed against this entry and not tagged: they state a session count and a number of weeks, but the product frames them as a program rather than an objective, and no completed, expired or failed state is shown. The evidence that would separate the challenge label from a plain listing of user-set targets is one challenge observed at its end, showing a completion or expiry state.",
+          "role": "social, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O34",
+      "name": "Network suggests ambassadors and searches athletes",
+      "section": "social",
+      "observed": "An icon at the top of the Community screen opens a network surface for discovering people to follow, leading first with Freeletics ambassadors shown with a country flag, then the people already followed and a find-athletes route. Typing a name returns athletes with their profile image and level. Following is one-directional.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Leveling",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "Freeletics assigns the new account Level 1 and shows the official account at level 74, with levels also shown on athletes returned by search (tier: directly observed). Distinct numbered states held by different accounts, one of them a new account at the lowest observed value, converge on an ordered series of discrete progression states with a current state assigned to each account (tier: strongly supported). The rule that moves an account from one level to the next is not observed, and under the presence standard it is stated as not observed rather than inferred (tier: directly observed).",
+          "alternativeConsidered": "a level label assigned by some rule other than progression, such as tenure or account type, which the entry excludes. It is weakened by the new account starting at 1 and the long-standing official account holding a much higher number, but not ruled out. Experience Points was also considered for the points shown beside the level and is not applied (see below). The evidence that would settle the classification is one completed workout followed by the profile, showing whether the level or a progress state toward it changes.",
+          "role": "engagement, social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O35",
+      "name": "Profile shows posts, followers, and following",
+      "section": "social",
+      "observed": "The profile badge area shows how many posts the user has made, how many followers they have, and how many people they follow, alongside the workouts count.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Community Space",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "Under Freeletics posts in the Community feed, several other people leave comments about updates, timing, bugs and a challenge, and those comments remain under the post for later readers (tier: strongly supported). Each post is therefore a persistent shared context to which multiple social actors contribute, which is the entry's content-attached case and matches its public article comments borderline case (tier: strongly supported). No membership or governance is maintained around the post, and no collective state belongs to a group, so neither Group Membership nor Clan / Guild applies under the decision ladder (tier: directly observed).",
+          "alternativeConsidered": "Social Feed, which would classify the stream of posts rather than the context the comments belong to. It is held separately as unresolved, because every item observed in the feed comes from one account (O30). Reviews and Ratings was also weighed and does not apply, since the posts are not catalogue listings. The evidence that would widen this tag to the Community tab as a whole is a session showing athletes posting and interacting in a shared space rather than only commenting on the product's own posts.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O36",
+      "name": "Leaderboard against the followed account",
+      "section": "social",
+      "observed": "The profile includes a leaderboard on which the user currently holds zero points, shown against the Freeletics official account at level 74 with 431,000 points, the only account followed. What earns points, and the order of entries, is not stated.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Leveling",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "Freeletics assigns the new account Level 1 and shows the official account at level 74, with levels also shown on athletes returned by search (tier: directly observed). Distinct numbered states held by different accounts, one of them a new account at the lowest observed value, converge on an ordered series of discrete progression states with a current state assigned to each account (tier: strongly supported). The rule that moves an account from one level to the next is not observed, and under the presence standard it is stated as not observed rather than inferred (tier: directly observed).",
+          "alternativeConsidered": "a level label assigned by some rule other than progression, such as tenure or account type, which the entry excludes. It is weakened by the new account starting at 1 and the long-standing official account holding a much higher number, but not ruled out. Experience Points was also considered for the points shown beside the level and is not applied (see below). The evidence that would settle the classification is one completed workout followed by the profile, showing whether the level or a progress state toward it changes.",
+          "role": "engagement, social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O37",
+      "name": "Rewards surface issues an invite link",
+      "section": "reach",
+      "observed": "The Rewards route on the profile gives an invite link, stating that sharing it with friends earns rewards, and shows a friends-referred count, at zero on this account, beside the credit balance. What an invited friend must do for the referral to count is not stated.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O38",
+      "name": "Referral offer for the invited friend",
+      "section": "reach",
+      "observed": "A second prompt on the profile offers to share \"your gains\" and gives a referred friend six months of access for free, stating that one referred friend brings the gift card and three bring lifetime Coach access, matching the credit prices for those same rewards.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O39",
+      "name": "Mindset coaching opens the podcast",
+      "section": "reach",
+      "observed": "Mindset coaching, at the bottom of the workout catalogue, leads to the Freeletics podcast. Whether it opens inside the app or on an external platform is not stated.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O40",
+      "name": "First paywall and three plans",
+      "section": "monetization",
+      "observed": "Following the reminders request, Freeletics shows a paywall offering three plans: three months at 54.99, six months at 99.99, and twelve months at 124.99, stated as weekly figures that fall as the commitment lengthens. No monthly plan or free trial is offered, and the paywall appears before any workout, plan, or content has been delivered.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O41",
+      "name": "Meal-plan add-on on by default",
+      "section": "monetization",
+      "observed": "The paywall carries a personalized meal-plan toggle switched on by default; turning it off lowers all three prices, to 49.99, 79.99, and 94.99 respectively. The prices shown first are the higher, meal-inclusive ones.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O42",
+      "name": "Paywall is dismissible",
+      "section": "monetization",
+      "observed": "The paywall can be closed with an X, leading directly into the training journey choice, with no confirmation or retention screen shown on close.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O43",
+      "name": "Half-price offer with a countdown",
+      "section": "monetization",
+      "observed": "Immediately after the training plan is built, Freeletics offers 50% off with a 50-minute countdown, pricing training and nutrition together at 62.99 for twelve months or training alone at 47.99 for twelve months, each roughly half the twelve-month prices shown earlier. Only twelve-month plans are offered at this discount, and the pop-up can be closed.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O44",
+      "name": "Discount persists as a banner",
+      "section": "monetization",
+      "observed": "After the pop-up is closed, the same discount continues as a banner at the top of the first unguided screen, with the countdown still running and a subscribe control. What happens when the countdown ends isn't stated.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O45",
+      "name": "Reminders request before notifications",
+      "section": "returns",
+      "observed": "When the email confirmation link reopens the app, the first screen asks to turn on training reminders, with Turn on reminders and Not now offered as equal choices. Choosing to turn them on brings up the system notification prompt. No reminder or notification arrives during this analysis, and no rating prompt, streak, sign-in reward, or absence summary appears anywhere in the app.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    }
+  ],
+  "systemView": [
+    "Freeletics is a medium complexity system whose spine is the onboarding questionnaire, which leads into a stated plan and from there into a price, with a profile level, a leaderboard, and a user-created challenge layer running alongside it. The plan is shown being built twice: once right before the account-creation screen, and once right before a half-price offer, with an animation of the coach designing the plan at each of those two points in the flow. We did not observe a workout in this analysis, so the training loop itself is described only by what Freeletics states about it, not by anything seen operating."
+  ],
+  "mechanicWriteups": [
+    {
+      "name": "Challenge",
+      "summary": "Any user can create a challenge on one exercise and invite others to join it, entirely apart from the app's own workout catalogue.",
+      "observed": "Freeletics lets any user create a challenge by choosing one exercise, a consistency or repetition basis, and a date, then invites other people to join. Challenges already listed carry titles naming a specific objective, including a daily stretch, a thousand burpees, and a numbered week of squats. At least one listed challenge shows a participant count.",
+      "presented": "Challenges sit in their own section of the Community tab, alongside the Feed. A created challenge is discussed by other users in comments on the app's own posts, connecting it to the wider community layer.",
+      "noting": "The objective is set on a single exercise chosen by whoever creates the challenge, not by Freeletics itself, making this the one mechanic in the app that users build for each other rather than one the app hands down. Freeletics doesn't state what happens when a challenge concludes, or what separates a completed challenge from one still running.",
+      "findings": [
+        "Any user can create a challenge, choosing one exercise, a consistency or repetition basis, and a date.",
+        "Challenges already listed include a daily stretch, a thousand-burpee target, and a named week of squats.",
+        "At least one challenge shows how many people have joined it.",
+        "Freeletics doesn't state what happens when a challenge ends or how a completed one differs from one still open."
+      ],
+      "screenshotsNote": "the Challenges section of the Community tab, and the challenge-creation flow."
+    },
+    {
+      "name": "Community Space",
+      "summary": "Every Freeletics post in the Community feed carries a running comment thread from other athletes.",
+      "observed": "The Community tab's feed shows posts and articles from Freeletics, each carrying reaction icons and a comment count. Opening a post shows comments from other identified people discussing updates, timing, bugs, and the challenges the post refers to, and those comments stay visible under the post for later readers.",
+      "presented": "The discussion sits directly under each Freeletics post rather than in a separate space, reached by opening the post itself.",
+      "noting": "The shared space Freeletics actually builds is attached to the app's own posts, not to a general athlete-to-athlete area; every contribution sits as a reply to something Freeletics published.",
+      "findings": [
+        "Every post in the Community feed carries reaction icons and a comment count.",
+        "Comments from other people remain visible under a post for later readers.",
+        "Comment topics include app updates, timing, bugs, and the challenges a post refers to.",
+        "The discussion is attached to Freeletics' own posts rather than to a separate community space."
+      ],
+      "screenshotsNote": "a Freeletics post in the Community feed showing its comment thread."
+    },
+    {
+      "name": "Leveling",
+      "summary": "A new account starts at Level 1, and the same level number is shown on every other athlete's profile and in search results.",
+      "observed": "The profile tab shows the new account's level at the very top, starting at Level 1. The same number is shown on other accounts throughout the app: the official Freeletics account appears at level 74, and searching for athletes by name returns each one's profile image alongside their level.",
+      "presented": "Level is the first figure on the profile, and reappears wherever another athlete is shown, in search results and on the leaderboard.",
+      "noting": "Freeletics shows level everywhere an athlete is displayed, on the user's own profile, on searched accounts, and on the one account it follows automatically, before stating anywhere what makes it move. On the account reviewed, no workout was completed, so whether level responds to anything the user does isn't shown.",
+      "findings": [
+        "A new account starts at Level 1.",
+        "The official Freeletics account is shown at level 74.",
+        "Level appears on every athlete returned by a name search, alongside their profile image.",
+        "Freeletics doesn't state what advances a level or what the next threshold is."
+      ],
+      "screenshotsNote": "the profile tab showing Level 1, and a search result showing another athlete's level.\n\n---"
+    }
+  ],
+  "sectionLeadIns": {
+    "onboarding": "A twelve-step questionnaire feeds a stated AI coach, which is shown building a plan twice, each time immediately before an account request or a paid offer.",
+    "core-loop": "A calendar of upcoming sessions and a catalogue of workouts sit behind the Coach tab; no workout is started in this analysis.",
+    "goals": "A profile level and a workouts-and-achievements area sit on an account with no completed workouts.",
+    "access": "Workouts split into an unlocked row and a subscription catalogue, with the training plan itself reachable only through the paywall.",
+    "economy": "A reward-credit balance, earned by referring friends, prices a gift card and lifetime app access.",
+    "social": "A community feed of the app's own posts, user-created challenges, and a network of other athletes make up the social layer.",
+    "reach": "A referral link, a friend-facing six-month offer, and a link to the Freeletics podcast each point outside the app.",
+    "monetization": "Three multi-month plans, a default meal-plan add-on, and a time-limited half-price offer make up a paywall reached before any content is delivered.",
+    "returns": "A single reminders request is the only return trigger found in the app."
+  },
+  "sectionCards": {
+    "onboarding": "A twelve-step questionnaire feeds a stated AI coach, which is shown building a plan twice before account creation and before a discounted offer.",
+    "core-loop": "A calendar of upcoming sessions and a catalogue of workouts sit behind the Coach tab; no workout is started in this analysis.",
+    "goals": "A profile level and a workouts-and-achievements area sit on an account with no completed workouts.",
+    "access": "Workouts split into an unlocked row and a subscription catalogue, with the training plan itself reachable only through the paywall.",
+    "economy": "A reward-credit balance, earned by referring friends, prices a gift card and lifetime app access.",
+    "social": "A community feed of the app's own posts, user-created challenges, and a network of other athletes make up the social layer.",
+    "reach": "A referral link, a friend-facing six-month offer, and a link to the Freeletics podcast each point outside the app.",
+    "monetization": "Three multi-month plans, a default meal-plan add-on, and a time-limited half-price offer make up a paywall reached before any content is delivered.",
+    "returns": "A single reminders request is the only return trigger found in the app."
+  },
+  "proposedTags": [
+    {
+      "name": "Plan Generation Reveal",
+      "sourceObservations": [
+        "O12",
+        "O17",
+        "O3",
+        "O11",
+        "O43"
+      ],
+      "draftDefinition": "After collecting the user's answers about themselves and their goals, the product shows an animated interval presented as the system building a plan for that user, then presents what follows as the personalized result of those answers, at a point where the user has not yet received anything from the product and the next step asks for an account, a commitment or a payment.",
+      "conditions": "a preceding questionnaire whose stated purpose is to build the plan, observed as the AI coach framing at O3; an interval presented as construction rather than as loading, observed twice, as the AI coach designing the plan at O12 and as building the personalized training plan at O17; and placement immediately before an ask, observed as account creation after O12 and the half-price offer after O17.",
+      "whyNotCovered": "Future Projection requires a position the product holds and a computed value at a stated horizon; the graph at O12 carries neither, and the construction interval is a separate element from it. Personal Data Reflection returns recorded data as steps and excludes profiling questionnaires. Challenge, Milestone and Progression Gate concern objectives, recognition and access rather than the presentation of a generated result. No entry classifies an interval staged as the system working on the user's behalf.",
+      "recurrenceElsewhere": "subscription onboarding in fitness, nutrition, language learning, meditation and personal finance products commonly stages a \"building your plan\" or \"analysing your answers\" interval between a questionnaire and a paywall. Gymverse O19 records a plan built behind a run of messages at the end of onboarding and is a candidate second instance; it has not been assessed against this definition, including whether an ask follows it. It is describable without reference to this app.",
+      "caveat": "Held as an open proposal on 15 Sep 2026, not rejected. The placement is established: the interval occurs twice, each time immediately before an account request or a payment (O12, O13, O17, O43) (tier: directly observed). The interval stages effort the session gives no evidence of the product performing, since nothing shows the plan or the graph varying with the answers (tier: plausible). What holds it back is scope: as observed, the interval changes how a moment in the flow is presented rather than what the user does afterwards or returns for, which places it close to presentation rather than to a mechanic. Two things would settle it. First, a second instance in another product, assessed against this definition, showing the same construction interval placed immediately before an ask. Second, evidence that anything in the user's behaviour afterwards, such as creating the account, continuing to the paywall or subscribing, can be attributed to the wait rather than to the plan it presents, for example the same flow compared with and without the interval. Without the second, the pattern stays presentation and should be recorded in plain language. The entry must not assert that the interval corresponds to any computation."
+    },
+    {
+      "name": "Guided Program",
+      "sourceObservations": [
+        "O15",
+        "O17",
+        "O19",
+        "O6"
+      ],
+      "draftDefinition": "The product asks the user to enrol in one of several pre-built, named programs from a catalogue, each stated as a number of sessions across a number of weeks, then asks which days of the week the user will train, with days preselected and changeable, and lays the chosen program's sessions onto a calendar the user sees on the main screen.",
+      "conditions": "a choice among named programs with stated size and duration, observed as three journeys of 18 sessions in six weeks, 48 in twelve and 40 in twelve; a required selection before the main screen is reached; a weekly schedule set by the user with a default, observed as Wednesday, Friday and Sunday preselected; and a standing calendar of what is next, observed on the Coach tab.",
+      "whyNotCovered": "Challenge requires a success condition and an end boundary that conclude as completed or not, and no such state or framing is observed for the journeys. Daily / Weekly Quests requires objectives issued or refreshed on a cadence with their own completion states. Milestone requires recognition of a reached point. Seasonal Progression Pass requires reward thresholds. None classifies enrolment in a fixed-length pre-built program with a user-set weekly schedule.\n\nThe Gymverse analysis proposed Prescribed Plan Schedule, which was rejected because its one session crossed no period boundary and the behavior might be Daily / Weekly Quests. That is a different pattern from this one. Gymverse generates a schedule from constraints the user states during onboarding, a training frequency and a scheduled or flexible choice (Gymverse O11, O12, O28). Freeletics offers pre-built journeys from a catalogue, each with its own stated size and duration, and the user picks one before setting training days (O15, O17). The calendar is only the surface on which both products place their output, and the calendar alone does not make them the same pattern. The Gymverse rejection therefore does not dispose of this proposal, though the Daily / Weekly Quests question it turned on is equally open here.",
+      "recurrenceElsewhere": "structured training plans in running and strength products, couch-to-5k style programs, fixed-length meditation courses and language courses with a weekly study schedule take this shape. It is describable without reference to this app.",
+      "caveat": "Held as an open proposal on 15 Sep 2026, not rejected. It rests on one instance, and no journey was entered: no session is started, completed, missed or rescheduled, and whether the journey ends, extends or restarts is unknown (O22) (tier: directly observed). The distinction that separates it from Prescribed Plan Schedule, a catalogue of pre-built programs rather than a schedule generated from stated constraints, is visible in this app's setup screens but cannot be established as a recurring pattern from one app. Three things would settle it. First, a second product offering pre-built, fixed-length programs from a catalogue, which establishes the catalogue-versus-generated distinction as a pattern rather than a feature of one product. Second, a session in which a journey is entered and a scheduled day passes, showing whether sessions are issued or refreshed on a period rule, which would bring the behavior under Daily / Weekly Quests, or conclude as completed or not at the journey's end, which would bring it under Challenge. Third, whether the program is a designed layer over the product's service or the service itself, which if the latter returns it to plain language in the core loop section.\n\n---"
     }
   ],
   "system": {
-    "tagline": "A fitness coaching app that runs its lowest price past the user three times before the first workout.",
-    "overview": "Freeletics is an AI coaching fitness app with a paywall cascade across onboarding: three sequential discount offers, each better than the last. The week-based challenge structure and community feed are the primary retention surfaces. No daily streak was observed in the session.",
-    "loop": "Complete onboarding and preference personalization. Encounter first paywall. Dismiss. Encounter second paywall with better price. Dismiss. Complete first workout. Encounter third paywall with best price. If dismissed, access the free tier. The AI coach adjusts weekly program difficulty based on logged performance. Community challenges provide a target beyond the weekly plan.",
-    "keyInsight": "The escalating discount paywall cascade is the most structurally deliberate price anchoring observed in the fitness category. The first price sets the anchor. The second makes the user feel they are getting a better deal for waiting. The third, arriving after the first workout completion when motivation is highest, offers the best price at the highest-intent moment. Most users who subscribe will do so at one of these three moments.",
-    "whatMakesItWork": "The AI coaching framing means the product improves with use. Logged performance data calibrates future workouts, which means the app becomes more accurate to the individual over time. This creates a data investment retention driver: switching apps means starting the personalization from zero.",
+    "tagline": "A fitness coaching funnel where the plan is shown being built twice, each time right before the app asks for an account or a payment.",
+    "overview": "Freeletics runs a twelve-step questionnaire into a stated AI coach, shown assembling a plan twice, each time immediately before an account request or a paid offer. The plan itself stays behind a subscription throughout: the Coach tab's own training-plan control opens the paywall directly. A profile level, a leaderboard, and a network of other athletes are visible from the first login, with nothing seen advancing them. A community layer of user-created challenges and comments under the app's own posts runs alongside all of this, connected to nothing else in the record.",
+    "loop": "The onboarding questionnaire feeds a stated AI coach, which is shown building a plan twice, once right before account creation and once right before a half-price offer. Once past both paywalls, the Coach tab shows a calendar of upcoming sessions and a workout catalogue, but no workout is started, so the loop Freeletics describes, logging a workout and having Coach adapt later sessions, is never seen operating. A challenge created by one athlete becomes something other athletes discuss in the comment thread under a Freeletics post. A profile level, shown on every athlete's profile and on a leaderboard against the one account the user follows, sits apart from both of these, unconnected to anything the user does in the app.",
+    "keyInsight": "Freeletics stages the same plan-building animation twice, and both times an ask follows immediately: the first leads straight into account creation, the second straight into a half-price offer. The monetization chain runs on the onboarding chain rather than on anything the user has done in the product, since no workout is taken before either paywall.",
+    "whatMakesItWork": "Because the plan is never delivered before it's sold, the questionnaire is doing the work: it produces a plan and a paywall from the same set of answers, with no way to see the plan without paying for it. The two other mechanics in the record, the challenge layer and the profile level, sit outside that chain entirely, visible from the first login but tied to nothing the user does before or after subscribing.",
     "roles": [
       {
         "id": "challenges",
-        "role": "Week-based challenges organized by named fitness goals with leaderboard integration. The primary community engagement surface."
+        "role": "Any user can create a challenge on one exercise, a consistency or repetition basis, and a date, and invite others to join it."
       },
       {
-        "id": "leaderboards",
-        "role": "Challenge leaderboards rank participants by workout completions and performance metrics within the challenge window."
-      },
-      {
-        "id": "achievement",
-        "role": "Badge-based milestones for workout completions, challenge participations, and consistency targets."
-      },
-      {
-        "id": "social-feed",
-        "role": "Community feed showing challenge participation and workout completions from followed users."
+        "id": "community-groups",
+        "role": "Every Freeletics post in the Community feed carries a running comment thread from other athletes, including discussion of challenges other athletes have created."
       },
       {
         "id": "leveling",
-        "role": "God level system with named tiers. Logged workouts advance the user's level within the Freeletics ranking structure."
+        "role": "A new account starts at Level 1, and the same level number is shown on every other athlete's profile, in search results, and on the leaderboard."
       }
     ],
     "center": {
       "x": 50,
-      "y": 18,
+      "y": 8,
       "label": "FREELETICS"
     },
     "nodes": [
       {
         "id": "challenges",
-        "x": 28,
-        "y": 50
+        "x": 50,
+        "y": 34
       },
       {
-        "id": "social-feed",
-        "x": 72,
-        "y": 50
+        "id": "community-groups",
+        "x": 50,
+        "y": 62
       },
       {
-        "id": "leaderboards",
-        "x": 28,
-        "y": 78
-      },
-      {
-        "id": "achievement",
-        "x": 72,
-        "y": 78
+        "id": "leveling",
+        "x": 80,
+        "y": 48
       }
     ],
     "connections": [
       {
         "from": "challenges",
-        "to": "leaderboards",
-        "title": "Challenge participation generates leaderboard position",
-        "desc": "Challenge completions are ranked within the challenge leaderboard. The same action (completing a workout during the challenge window) advances both the challenge and the competitive rank.",
-        "effect": "The leaderboard gives the challenge a competitive dimension beyond personal completion. Users are not just finishing the challenge, they are finishing it relative to others."
-      },
-      {
-        "from": "social-feed",
-        "to": "challenges",
-        "title": "Feed visibility of challenge participation creates social pull",
-        "desc": "Challenge participation by followed users appears in the community feed, making the challenge visible to members who have not joined it.",
-        "effect": "Challenge discovery happens through social observation rather than requiring navigation to a challenge tab."
+        "to": "community-groups",
+        "title": "A created challenge becomes something people discuss",
+        "desc": "The same observation that shows a challenge, its objective and its participant count also shows other athletes discussing it in the comment thread under a Freeletics post.",
+        "effect": "A challenge doesn't stay a private target: once created, it becomes a topic people comment on in the app's own community space."
       }
     ]
   }

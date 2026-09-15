@@ -453,8 +453,7 @@ const CONNECTIONS = {
     { from: "community-groups", to: "social-feed", title: "Group membership populates the Friends feed", desc: "The Friends tab shows posts and questions from joined groups. Groups joined during onboarding immediately provide feed content, preventing the empty-state problem for new users.", effect: "Onboarding group selection is also first-session feed population. The user who selects four groups in onboarding arrives at a populated feed rather than an empty one." },
   ],
   "freeletics": [
-    { from: "challenges", to: "social-feed", title: "User challenges appear in the community feed", desc: "Challenges created by followed athletes appear in the community feed alongside workout posts. A challenge is also a piece of content in the social graph.", effect: "Creating a challenge generates social content for the creator's followers. The challenge system and the feed system share the same distribution channel." },
-    { from: "leaderboards", to: "social-feed", title: "Following athletes populates both feed and leaderboard", desc: "Following an athlete adds their activity to the feed and their points to the leaderboard. A single social action serves two mechanics.", effect: "Building a social network in Freeletics is also building a meaningful leaderboard. The two systems create compounding motivation to follow more athletes." },
+    { from: "challenges", to: "community-groups", title: "A created challenge becomes something people discuss", desc: "The same observation that shows a challenge, its objective and its participant count also shows other athletes discussing it in the comment thread under a Freeletics post.", effect: "A challenge doesn't stay a private target: once created, it becomes a topic people comment on in the app's own community space." },
   ],
   "liftoff": [
     { from: "leveling", to: "leaderboards", title: "Muscle ranks feed the ranked league system", desc: "Ranked league participation requires ranking 10 exercises. The per-muscle rank system determines when the user is eligible to compete. Rank advancement and league access are the same progression.", effect: "The gate to competitive play is built into the core progression system. Users cannot rush to the leaderboard without first building meaningful rank data across multiple muscle groups." },
@@ -477,11 +476,6 @@ const CONNECTIONS = {
     { from: "community-groups", to: "streak", title: "Group feeds surface streak activity from other members", desc: "The Friends tab feed shows workout completions and streak milestones from group members. Seeing others maintain streaks creates social proof for the behavior.", effect: "Streak maintenance is visible to the community. The social observation of others maintaining theirs applies return pressure independent of personal motivation." },
     { from: "streak", to: "achievement", title: "CR Streak milestones unlock named badges", desc: "Streak milestones appear as achievement categories in the profile badge catalogue alongside workout count, calorie, and exercise-type badges.", effect: "The streak produces two outputs simultaneously: a maintained counter and progress toward a badge threshold." },
     { from: "challenges", to: "community-groups", title: "Program challenges are socially anchored to groups", desc: "Challenge participation appears in the group feed, making individual challenge progress visible to community members who share the same group.", effect: "Challenge completion becomes a social signal within the relevant group rather than a private milestone." },
-  ],
-  "freeletics": [
-    { from: "challenges", to: "leaderboards", title: "Challenge participation generates leaderboard position", desc: "Challenge completions are ranked within the challenge leaderboard. The same action (completing a workout during the challenge window) advances both the challenge and the competitive rank.", effect: "The leaderboard gives the challenge a competitive dimension beyond personal completion. Users are not just finishing the challenge, they are finishing it relative to others." },
-    { from: "leveling", to: "achievement", title: "Reaching named level tiers unlocks achievement milestones", desc: "God level tier crossings are recognized as achievement events in the progression system.", effect: "Level advancement produces two outputs: a new rank label and a badge. The same progression is tracked by two parallel systems." },
-    { from: "social-feed", to: "challenges", title: "Feed visibility of challenge participation creates social pull", desc: "Challenge participation by followed users appears in the community feed, making the challenge visible to members who have not joined it.", effect: "Challenge discovery happens through social observation rather than requiring navigation to a challenge tab." },
   ],
   "liftoff": [
     { from: "leveling", to: "leaderboards", title: "Volume-based XP determines leaderboard position", desc: "The same logged workout volume that advances rank also determines position on volume leaderboards. One logging action serves both systems.", effect: "Logging workouts carefully is both a personal progression behavior and a competitive one. The motivation to record every set has a leaderboard dimension." },
@@ -694,10 +688,10 @@ const POSITIONS = {
     "social-feed":        { x: 74, y: 62 },
   },
   "freeletics": {
-    center:               { x: 50, y: 10, label: "FREELETICS" },
-    "challenges":         { x: 30, y: 42 },
-    "leaderboards":       { x: 70, y: 42 },
-    "social-feed":        { x: 50, y: 75 },
+    center:              { x: 50, y: 8,  label: "FREELETICS" },
+    "challenges":        { x: 50, y: 34 },
+    "community-groups":  { x: 50, y: 62 },
+    "leveling":          { x: 80, y: 48 },
   },
   "liftoff": {
     center:               { x: 50, y: 8,  label: "LIFTOFF" },
@@ -717,13 +711,6 @@ const POSITIONS = {
     "streak":           { x: 26, y: 62 },
     "achievement":     { x: 74, y: 62 },
     "challenges":       { x: 50, y: 86 },
-  },
-  "freeletics": {
-    center:         { x: 50, y: 12, label: "FREELETICS" },
-    "challenges":   { x: 50, y: 34 },
-    "leaderboards": { x: 26, y: 62 },
-    "leveling":  { x: 74, y: 62 },
-    "social-feed":  { x: 50, y: 86 },
   },
   "liftoff": {
     center:           { x: 50, y: 10, label: "LIFTOFF" },
@@ -771,13 +758,6 @@ const POSITIONS = {
     "achievement":     { x: 22, y: 62 },
     "social-feed":      { x: 78, y: 62 },
     "streak":           { x: 50, y: 84 },
-  },
-  "freeletics": {
-    center:             { x: 50, y: 18, label: "FREELETICS" },
-    "challenges":       { x: 28, y: 50 },
-    "social-feed":      { x: 72, y: 50 },
-    "leaderboards":     { x: 28, y: 78 },
-    "achievement":     { x: 72, y: 78 },
   },
   "liftoff": {
     center:             { x: 50, y: 8,  label: "LIFTOFF" },

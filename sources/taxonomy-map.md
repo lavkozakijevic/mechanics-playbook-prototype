@@ -209,7 +209,7 @@ evidenced.
 
 Older v3 analysis files still carry the literal `xp-leveling` inline id in
 a `### ... (\`xp-leveling\`) · Depth` heading, unrewritten: clash-of-clans,
-fc-mobile, freeletics, gymverse, and liftoff resolve to `leveling`;
+fc-mobile, gymverse, and liftoff resolve to `leveling`;
 solitaire-grand-harvest and tiimo resolve to `experience-points`. Each was
 decided from that file's own observed text (a named, assigned level or
 rank state versus a running accumulation toward a threshold with no named
@@ -223,6 +223,14 @@ analysis was not one of these: it already uses the reviewed canonical name
 `CANONICAL_MECHANIC_IDS` directly and needed no remap. Capybara Go was not
 one of these either — its analysis was migrated to the v4.1 format and
 never reaches the v3 parsing path at all.
+
+Freeletics was one of these, resolving to `leveling`, until its own
+migration to v4.1 (18 Sep 2026): its fresh analysis confirms the same
+disposition the old remap assumed — a named, displayed level shown on the
+user's own profile and on every other athlete's, strongly supported — so
+unlike Steam's case, the original assignment held up on the merits. Its
+`REMAPS` entry has been removed anyway, since freeletics.md is now v4.1
+and never reaches this path regardless of the entry's value.
 
 Steam was originally in the `experience-points` bucket above, on the same
 "accumulation with no named level" reasoning, until its own migration to
@@ -273,7 +281,7 @@ is re-run.
 
 Older v3 analysis files still carry the literal `achievements` inline id
 in a `### Achievements (\`achievements\`) · Depth` heading, unrewritten:
-calm, gymverse, fc-mobile, liftoff, swgoh, freeletics, uptime, fiton,
+calm, gymverse, fc-mobile, liftoff, swgoh, uptime, fiton,
 fortune-city, match-creek-motors, fifa-panini-collection, and
 subway-surfers resolve to `achievement`; insight-timer,
 chrome-valley-customs, acorns, royal-match, wispr-flow, and
@@ -296,6 +304,16 @@ the old remap assumed, a badge awarded on a stated criterion. Its
 is now v4.1 and never reaches this path regardless of what the entry says
 — the same retirement already applied to royal-match, gymverse, fc-mobile
 and acorns above.
+
+Freeletics was also one of these, resolving to `achievement`, until its
+own migration to v4.1 (18 Sep 2026) — but unlike Ladder's, its old
+assignment does not hold up: the fresh analysis leaves Achievement
+unresolved rather than applying it ("no achievement, criterion, locked
+entry or attained state is narrated on an account that has done no
+workouts"). The old remap was never a settled case, just an inline id
+force-mapped onto whichever of the two split concepts the v3 write-up
+leaned toward. Its `REMAPS` entry has been removed for the same mootness
+reason as the others.
 
 Strava's and Wakeout's analyses were not among the 19: both use the
 reviewed canonical-name heading form (`### Milestone · ...`, `###

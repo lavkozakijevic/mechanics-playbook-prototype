@@ -915,18 +915,22 @@ const ADDITIONS = {
 // in a "### ... (`xp-leveling`) · Depth" heading and were not rewritten —
 // remapped here instead, onto whichever of the two split concepts that
 // app's own write-up is actually about, decided from each file's own
-// observed text: freeletics and liftoff each describe a level or rank
-// state as the thing observed (leveling). Without this, any of these
-// would throw "unknown mechanic xp-leveling" the moment xp-leveling
-// stopped being a registered id. capybara-go is not remapped here: its
-// analysis was migrated to v4.1 and never reaches this v3 path at all.
-// clash-of-clans, tiimo, gymverse and fc-mobile each carried an entry
-// here before their own migration to v4.1 — this section wasn't updated
-// when clash-of-clans and tiimo migrated, so their entries sat dead for a
-// while before this cleanup caught them the same way it caught gymverse's
-// and fc-mobile's. wakeout's analysis already uses the reviewed canonical
-// name "Experience Points" rather than the inline id, which resolves
-// through CANONICAL_MECHANIC_IDS directly.
+// observed text: liftoff describes a level or rank state as the thing
+// observed (leveling). Without this, any of these would throw "unknown
+// mechanic xp-leveling" the moment xp-leveling stopped being a registered
+// id. capybara-go is not remapped here: its analysis was migrated to
+// v4.1 and never reaches this v3 path at all. clash-of-clans, tiimo,
+// gymverse and fc-mobile each carried an entry here before their own
+// migration to v4.1 — this section wasn't updated when clash-of-clans
+// and tiimo migrated, so their entries sat dead for a while before this
+// cleanup caught them the same way it caught gymverse's and fc-mobile's.
+// wakeout's analysis already uses the reviewed canonical name "Experience
+// Points" rather than the inline id, which resolves through
+// CANONICAL_MECHANIC_IDS directly. freeletics is no longer remapped here
+// either (18 Sep 2026): its original assignment to leveling was correct
+// on the merits, unlike steam's below — the fresh analysis confirms
+// Leveling as strongly supported — and is retired for the same mootness
+// reason as the others, since freeletics.md is now v4.1 format.
 //
 // steam is no longer remapped here either, and its own removal (18 Sep
 // 2026) corrects the reasoning above along with retiring the entry:
@@ -961,13 +965,20 @@ const ADDITIONS = {
 // once (uptime, fifa-panini-collection); the remap follows whichever framing
 // the file's own words lead with, since one file can only remap to one id.
 // Neither clash-of-clans, canva, tiimo, capybara-go, dave, cleo,
-// royal-match, gymverse, fc-mobile, acorns, nor ladder appears below: all
-// eleven are v4.1 and never reach this path (royal-match, gymverse,
-// fc-mobile, acorns and ladder each carried an entry here before their own
-// migration to v4.1, removed once each analysis stopped using the v3
-// inline-id form).
+// royal-match, gymverse, fc-mobile, acorns, ladder, nor freeletics appears
+// below: all twelve are v4.1 and never reach this path (royal-match,
+// gymverse, fc-mobile, acorns, ladder and freeletics each carried an
+// entry here before their own migration to v4.1, removed once each
+// analysis stopped using the v3 inline-id form). freeletics's own
+// assignment to achievement does not hold up the way liftoff's does: the
+// fresh analysis leaves Achievement unresolved rather than applying it
+// ("no achievement, criterion, locked entry or attained state is narrated
+// on an account that has done no workouts") — a garbled passage and a
+// blank account, not a confirmed criterion. The entry is retired here
+// regardless, since freeletics.md is v4.1 format and never reaches this
+// path, but unlike liftoff's this was never a settled case to begin with.
 //   -> achievement: calm, liftoff, swgoh,
-//      freeletics, uptime, fiton, fortune-city, match-creek-motors,
+//      uptime, fiton, fortune-city, match-creek-motors,
 //      fifa-panini-collection, subway-surfers.
 //   -> milestone: insight-timer, chrome-valley-customs,
 //      wispr-flow, solitaire-grand-harvest.
@@ -1013,7 +1024,6 @@ const ADDITIONS = {
 // capybara-go, fc-mobile and steam don't appear below either: all four are
 // v4.1 and never reach this path.
 const REMAPS = {
-  "freeletics": { "xp-leveling": "leveling", "achievements": "achievement" },
   "liftoff": { "xp-leveling": "leveling", "achievements": "achievement", "variable-reward": "loot-box" },
   "solitaire-grand-harvest": { "xp-leveling": "experience-points", "achievements": "milestone" },
   "calm": { "achievements": "achievement" },
@@ -1469,6 +1479,31 @@ const V41_APP_META = {
         "A seven-day free trial with no credit card required runs on a fixed timeline toward a monthly or annual plan, with no price shown.",
       returns:
         "Two notification prompts, a workout reminder, a weekly streak and a fixed Sunday content release bring users back.",
+    },
+  },
+  freeletics: {
+    name: "Freeletics",
+    category: "Fitness / AI Coaching",
+    type: "app",
+    sectionCards: {
+      onboarding:
+        "A twelve-step questionnaire feeds a stated AI coach, which is shown building a plan twice before account creation and before a discounted offer.",
+      "core-loop":
+        "A calendar of upcoming sessions and a catalogue of workouts sit behind the Coach tab; no workout is started in this analysis.",
+      goals:
+        "A profile level and a workouts-and-achievements area sit on an account with no completed workouts.",
+      access:
+        "Workouts split into an unlocked row and a subscription catalogue, with the training plan itself reachable only through the paywall.",
+      economy:
+        "A reward-credit balance, earned by referring friends, prices a gift card and lifetime app access.",
+      social:
+        "A community feed of the app's own posts, user-created challenges, and a network of other athletes make up the social layer.",
+      reach:
+        "A referral link, a friend-facing six-month offer, and a link to the Freeletics podcast each point outside the app.",
+      monetization:
+        "Three multi-month plans, a default meal-plan add-on, and a time-limited half-price offer make up a paywall reached before any content is delivered.",
+      returns:
+        "A single reminders request is the only return trigger found in the app.",
     },
   },
   gymverse: {
