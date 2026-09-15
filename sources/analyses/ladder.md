@@ -505,91 +505,155 @@ No observations. The session shows no currency, points balance, materials, stora
 ## Applied tags
 
 **Tag:** Progression Gate
+
 **Observations:** O23, O24.
+
 **Supporting observations:** O6, O13, O19, O34.
+
 **Confidence:** The lock on chat, nutrition and the full plan, stated in terms of completing the welcome workout and released after it, is present (tier: directly observed). The requirement of three completed workouts on the six-week strength series is present as a stated standing condition, although its release was not reached (tier: directly observed).
+
 **Role:** engagement, retention
 The O23 gate points the user to complete the first workout within the first session, and the O24 gate requires further workouts on later occasions (tier: strongly supported).
+
 **Rationale:** Exclusions checked first. The condition is not an eligibility condition, since the user satisfies it by using the product; it is not a purchase or subscription requirement, since the lock copy states a workout requirement and says nothing about payment; it is not a rate limiter; and the withheld parts (chat, nutrition, the full plan, the strength series) are distinct from the workouts that count toward the requirement rather than the next unit of a sequence. Required conditions are met: the product counts completed workouts (O17 shows the count), states the requirement on the locked surfaces before it is satisfied (O6, O23, O34), withholds the parts below it, and releases chat and nutrition once the welcome workout is complete (O23). O24 states a second requirement on the same measure at a higher value.
+
 **Variants present:** Count gate (O23, O24). Staggered gates, with one completed workout releasing chat, nutrition and the plan and three releasing the strength series (O23, O24). Announced unlock gate, through "Congrats. You've unlocked your plan." (O23).
+
 **Variants not established:** Reinstating gate, whether the released parts are withheld again when the trial ends. Bypassable gate, whether a purchase or other route opens the parts without the workout. Whether the O24 unlock is announced.
+
 **Alternative considered:** The O23 lock could be an onboarding sequence step rather than a standing gate on a measure. The session shows the requirement as a standing state on three separate surfaces before completion and a release afterwards, which fits the gate; a session in which a second new account skips the welcome workout and still reaches chat, or in which the lock reappears at trial end, would separate the two readings.
 
 **Tag:** Achievement
+
 **Observations:** O16.
+
 **Supporting observations:** O12, O13.
+
 **Confidence:** A badge awarded on completion of a criterion stated in advance is present (tier: directly observed).
+
 **Role:** engagement
 The badge is stated as the reward for rating and completing the workout within the session in O12 and O16 (tier: strongly supported).
+
 **Rationale:** Exclusions checked first. The badge is not merely a celebratory surface, because Ladder stated a criterion before the award ("Rate to earn a badge", O12) and then awarded the badge on its satisfaction (O16); it is not a status or tier, and not an automatic unlock following from a progression state, since the unlock in O23 is announced separately. Required conditions met: a defined criterion, evaluation against the user's activity, a discrete change to attained, and observable recognition through the badge. Under the presence standard, whether the attained state is preserved on the profile is behaviour detail rather than a condition of presence.
+
 **Variants present:** Visible achievement, since the criterion was shown before attainment (O12). Single-condition achievement (O12, O16). Unrewarded achievement, since no separate benefit was narrated beyond the badge (O16).
+
 **Variants not established:** Whether the badge is preserved in a profile record or list. Whether the criterion is the rating, the completion, or both. Whether other workouts or activities award further badges, which would bear on tiered, cumulative or collection variants.
+
 **Alternative considered:** The badge could be a per-workout completion graphic that records nothing, which the entry would reject. The stated criterion before award supports Achievement; a session showing the badge absent from the profile and from any record would move the case to plain-language description, and a session showing a badge list would settle it.
 
 **Tag:** Streak
+
 **Observations:** O40.
+
 **Supporting observations:** O13, O18, O23.
+
 **Confidence:** A weekly streak is present on Ladder's own framing in three surfaces (tier: directly observed). How the streak is displayed, counted and broken was not observed (tier: directly observed).
+
 **Role:** retention
 O40, O13 and O23 tie the streak to three workouts in each week, which requires the user to return across days (tier: strongly supported).
+
 **Rationale:** Exclusions checked first. The framing is not only a cumulative total, since Ladder names a weekly period and a per-week threshold rather than a running count; it is not only a recurring schedule, since Ladder presents the qualifying weeks as a streak to be earned. The exclusion against classifying from words alone is addressed by the presence standard: Ladder presents the mechanic as a streak, states its qualifying condition and period, and counts progress toward it ("two more workouts", O13). The continuity rule for a missed week is a long-term clause and is recorded as not observed rather than withholding the label.
+
 **Variants present:** Time-period streak, weekly (O40). Threshold streak, three workouts a week (O23, O40).
+
 **Variants not established:** The reset rule after a missed week. Protected streak. Historical streak. Whether only priority workouts qualify or any workout. How the streak is displayed once earned.
+
 **Alternative considered:** The three-a-week target could be a weekly goal tracked in isolation each week, with no linked sequence, which would be Daily / Weekly Quests or a plain recurring goal. Ladder's use of the word streak favours this entry; a session crossing a week boundary with and without three workouts would separate the two.
 
 **Tag:** Challenge
+
 **Observations:** O18.
+
 **Supporting observations:** O7, O23.
+
 **Confidence:** The Get Started checklist is a challenge instance with a defined success condition and tracked completion states on Ladder's own framing (tier: plausible, no end boundary was observed and an unbounded onboarding checklist remains a competing reading).
+
 **Role:** engagement
 O18 points the user to specific next actions in the app, including team chat, a second workout, a photo and the widget (tier: strongly supported).
+
 **Rationale:** Exclusions checked first. The checklist is not only a recommendation, since items carry ticked and unticked states that change as the user acts (O18). It is not an after-the-fact record. The exclusion that applies with force is the one for objectives with no attempt, time, event, stage or participation boundary: the session shows no deadline or closing condition. Ladder frames the surface as a challenge and tracks progress along it ("complete a second workout to continue along this challenge"), which under the presence standard supports existence; the missing boundary keeps confidence at plausible rather than higher.
+
 **Variants present:** Completion challenge, with a success condition of finishing listed items (O18). Multi-stage challenge, with several items contributing to one result (O18). Automatically assigned challenge, since it appeared without an opt-in (O18).
+
 **Variants not established:** Any time-boxed boundary, such as the seven-day trial. Rewarded or unrewarded outcome. What the product does when every item is ticked.
+
 **Alternative considered:** An onboarding checklist with no boundary, which the library would not label and which could be described in plain language. A session showing the checklist closing at the end of the trial, or persisting indefinitely after it, would separate the two.
 
 **Tag:** Referral
+
 **Observations:** O33.
+
 **Supporting observations:** O7, O18, O36.
+
 **Confidence:** A referral offer with a stated completion event and a reward to the referring user is present on Ladder's own framing (tier: directly observed). The reward's delivery and form in operation were not observed (tier: directly observed).
+
 **Role:** social, monetization
 O33 asks the user to bring another person in, and its completion event is that person subscribing, which moves money from the introduced person to the product (tier: strongly supported).
+
 **Rationale:** Exclusions checked first. The reward is not granted for sign-up alone: the stated completion event is the introduced person subscribing. It is not Gifting, since the reward is earned by the introduced person's action and accrues to the referring user. It is not a first-purchase bonus. The commercial arrangement behind the $25 is not classified here. Required conditions are met on the product's framing: a link route, a defined completion event, a reward to the referring user, and a rule stated before the reward is earned.
+
 **Variants present:** Link-based referral (O33). Flat per-introduction reward, stated as $25 (O33). Item reward, stated as $25 of exclusive gear in the Ladder Shop (O33).
+
 **Variants not established:** Whether the $25 arrives as a held store credit or as a specific item, which would bear on separable reward. Two-sided referral reward. Capped or uncapped reward. Stacking across several referrals. Automatically applied or claimable reward. Referral progress tracker. Whether Share Pass is a separate introduction route.
+
 **Alternative considered:** Share Pass could be a gift of trial access to a friend rather than part of the referral, which would bear on Gifting. The session does not establish what Share Pass delivers; a session following Share Pass to the recipient's screen would separate the two, and it would not change the label on the $25 offer.
 
 **Tag:** Shareable Win
+
 **Observations:** O32.
+
 **Supporting observations:** O13, O16.
+
 **Confidence:** An offer to send proof of a completed workout to a named external platform, attached to the completion record, is present (tier: strongly supported, the composed representation itself was not opened).
+
 **Role:** social
 O32 offers to carry the user's completed workout outward to Instagram, which is the closest of the four roles to reaching people outside the product (tier: plausible, the role vocabulary has no exact slot for outward reach, as the entry notes).
+
 **Rationale:** Exclusions checked first. What is offered is not the user's own work, since the share is labelled as proof and sits on the completion record with the badge, volume and reps (O13). It is not an in-product post only, since the destination is Instagram. It is not a referral link, since its subject is the workout rather than an action for the recipient. It is not a transaction document. The route out (named platform) and the attachment to a recorded accomplishment are observed; the composition of the representation was not opened, which is why confidence sits at strongly supported rather than directly observed.
+
 **Variants present:** Platform-named win (O32). Prompted win, offered on the completion screen without the user asking (O13, O32).
+
 **Variants not established:** Badge win, result win, or another form of representation. Downloadable win. Editable win. Rewarded sharing win.
+
 **Alternative considered:** The share could hand Instagram a generic Ladder promotional card with no workout record, which the entry would reject. The "proof" label and placement on the completion record argue against it; a session opening the share would settle it.
 
 **Tag:** Group Membership
+
 **Observations:** O25, O27, O28.
+
 **Supporting observations:** O4, O5, O26.
+
 **Confidence:** Team membership, with a maintained "my team" relationship, a joining rule, and a team chat scoped to the team, is present (tier: directly observed). Membership in the topic groups and meetups, shown through member counts and a join route, is present (tier: plausible, the effect of joining a topic group was not observed).
+
 **Role:** social
 O25, O26 and O27 place the user in a team with teammates to cheer and a team chat, and O28 offers further groups of identified members (tier: strongly supported).
+
 **Rationale:** Exclusions checked first, using the sibling decision ladder. No collective group-owned state was observed for a team (no team total, rank, shared progress or resource, O25), so Clan / Guild does not apply. The team is more than an open context: Ladder maintains which team the user belongs to, states a rule for joining and changing it during the trial (O4, O25), and membership changes what the user sees (the team's welcome workout and coach in O5 and O8, teammates on the home screen in O26, the team's chat in O27), so the ladder selects Group Membership over Community Space. For the topic groups in O28, member counts and a join route establish a maintained membership relationship and a rule; the effect of joining is not observed, which holds confidence at plausible for that observation.
+
 **Variants present:** Open group, for teams selected through the filter without approval (O4, O25). System-created group, since teams are led by Ladder coaches (O25). Communication group, for the team chat and the topic groups (O27, O28). Overlapping group, since the Chat tab offers topic groups and meetups alongside the team (O28). Public group, since other teams can be browsed by non-members (O25).
+
 **Variants not established:** Whether a user can belong to several teams at once. Member roles or delegated membership. Whether topic group membership changes posting, visibility or notifications. Whether meetups are groups with membership or open chats.
+
 **Alternative considered:** The topic groups in O28 could be open community chats with a displayed audience size, which would be Community Space. A session opening a topic group as a non-member and then as a member would show whether membership changes any condition and settle which sibling applies.
 
 **Tag:** Community Space
+
 **Observations:** O29.
+
 **Supporting observations:** O13, O16.
+
 **Confidence:** A persistent shared wall attached to the welcome workout, holding videos from many members and offering the user a route to contribute, is present (tier: directly observed).
+
 **Role:** social
 O29 shows other identified people's completion videos and asks the user to add their own (tier: directly observed).
+
 **Rationale:** Exclusions checked first. The wall is not content from one publisher, since it holds videos from many people who completed the workout; it is not view-only, since "Join the wall" is a contribution route; it is not a bounded lobby, since it accumulates completions (13,728) beyond any one session; and it is not a review system attached to a commerce listing. No maintained membership or collective state was observed on the wall, so the sibling ladder does not move it to Group Membership or Clan / Guild. Required conditions met: a distinct shared context, contributions from multiple actors associated with it, persistence across contributions, and a stated participation route.
+
 **Variants present:** Content-attached community space, attached to the welcome workout (O29). Activity-based community space, organised around completing the workout (O29). Open-contribution space, as offered by the join route (O29).
+
 **Variants not established:** Moderation of videos. Whether contributions can receive responses or cheers. Whether each workout has its own wall or only welcome workouts.
+
 **Alternative considered:** The wall could be a Social Feed if Ladder orders the videos by a feed rule for each viewer. The ordering was not narrated, so Social Feed is not established; a session scrolling the wall on two accounts or at two times would show whether an ordering rule applies, and both labels could then apply.
 
 ## Entries considered and not applied

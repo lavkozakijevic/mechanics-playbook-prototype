@@ -437,10 +437,13 @@ const CONNECTIONS = {
     { from: "achievement", to: "gifting", title: "Achievement cards are referral content", desc: "Pre-formatted achievement cards, 'you're saving time by hacking knowledge', are the primary social sharing content. Sharing an achievement card is functionally a referral.", effect: "Every achievement milestone is a potential user acquisition moment. The achievement and referral mechanisms share the same shareable image assets." },
     { from: "streak", to: "gifting", title: "Post-hack screen captures both mechanics", desc: "The post-first-hack screen surfaces the streak counter, reminder setup, and referral gift at the same moment, the peak engagement point of the first session.", effect: "The highest-intent moment captures three retention and acquisition actions simultaneously: streak habit formation, reminder installation, and referral sharing." },
   ],
-    "ladder": [
-    { from: "streak", to: "challenges", title: "Three workouts feeds both streak and challenge progress", desc: "The weekly streak requires three workouts. The Baseline Strength Series requires 20 workouts over six weeks. The same action advances both simultaneously.", effect: "Players motivated by the streak are also advancing the longer-horizon challenge without separate effort. The streak's weekly cadence fits inside the challenge's six-week arc." },
-    { from: "challenges", to: "community-groups", title: "The Baseline Series embeds an invite mechanic", desc: "The Baseline Strength Series challenge screen includes an invite friends section alongside the workout log and rewards. A challenge becomes a recruitment moment.", effect: "Participation in a challenge generates social invitations, expanding the coaching team's community from within an engagement moment rather than from a settings menu." },
-    { from: "community-groups", to: "social-feed", title: "The Workout Wall is the post-workout community surface", desc: "The Workout Wall appears immediately after completing the welcome workout, before returning to the home screen. 13,728 previous completions are visible at the moment of highest motivation.", effect: "Social proof arrives at the moment of highest uncertainty. The new user sees evidence of community scale before they have formed any expectation of what the community looks like." },
+  "ladder": [
+    { from: "community-groups", to: "progression-gate", title: "The matched team decides which gate the user faces", desc: "A preference filter assigns one coaching team before the welcome workout is ever shown, and that team decides which specific welcome workout the completion gate is built around.", effect: "The social layer is established before the gate, not after it, so completing the gate is always completing that team's own workout." },
+    { from: "progression-gate", to: "achievement", title: "The same completion that clears the gate earns the badge", desc: "Rating the completed welcome workout both clears the one-workout threshold on chat, nutrition and the plan and awards the 3D badge in the same sequence.", effect: "A single action produces an access change and a recognition event at once, with no separate step for either." },
+    { from: "progression-gate", to: "community-groups", title: "The wall appears the moment the gate opens", desc: "The 13,728-completion wall is shown directly after the completion badge, immediately following the same welcome workout that clears the gate.", effect: "The new user sees evidence of community scale at the exact moment they cross the gate, before they have formed any expectation of what the community looks like." },
+    { from: "progression-gate", to: "streak", title: "The unlock screen introduces the streak in the same breath", desc: "The congratulations screen that announces the gate opening states in the same line that three workouts a week earns a streak.", effect: "The next return-driving commitment is introduced at the exact moment the first one is satisfied, with no gap between them." },
+    { from: "progression-gate", to: "referral-boost", title: "The referral offer only appears after the gate opens", desc: "The Get Started checklist, which carries the sharing step behind the $25 offer, appears at the bottom of the workout tab only once the welcome workout has unlocked the plan.", effect: "A user cannot reach the referral offer without first clearing the same gate that opens chat and nutrition." },
+    { from: "achievement", to: "shareable-win", title: "The share option sits on the same screen as the badge", desc: "The Instagram share offer, the completion badge, and the workout's volume and reps all appear together on one completion screen.", effect: "The moment that produces the recognition and the moment that offers to publicize it are the same screen, not two separate steps." },
   ],
   "fiton": [
     { from: "community-groups", to: "limited-time-events", title: "Live class joins prompt group invitations", desc: "Joining a live scheduled class prompts an immediate invitation to a contact. The time-limited class becomes a social recruitment moment.", effect: "Every live class session is a potential community growth event. The user who joins a class is immediately asked to bring someone else, before the class has even started." },
@@ -457,12 +460,6 @@ const CONNECTIONS = {
   ],
   "gymverse": [
     { from: "achievement", to: "shareable-win", title: "Named beside the very thing that leaves", desc: "The Achievements surface sits in the progress area right next to the activity totals, and that same total activity figure is what carries its own route to share outside the app.", effect: "The one mechanic with nothing confirmed behind it sits one screen away from the one built entirely to leave the product." },
-  ],
-  "ladder": [
-    { from: "streak", to: "challenges", title: "Weekly streak threshold matches challenge completion cadence", desc: "Three workouts per week earns the streak. The get-started challenge requires those same workouts as checkboxes. The streak and the onboarding challenge share the same behavioral unit.", effect: "Users who pursue the streak are simultaneously progressing the get-started challenge. One behavior completes two tracking systems." },
-    { from: "challenges", to: "community-groups", title: "Get-started challenge drives social layer adoption", desc: "The get-started checklist includes adding a profile photo, joining team chat, and sharing Ladder with one person. The challenge mechanics explicitly push the user into every social surface.", effect: "The community layer is not discovered passively. The checklist makes it a completion step." },
-    { from: "social-feed", to: "streak", title: "Workout Wall provides social proof at the streak introduction moment", desc: "The Workout Wall, showing 13,728 previous completions of the welcome workout, appears immediately before the streak is introduced on the completion screen.", effect: "The scale of community participation is visible at the exact moment the streak commitment begins. The streak starts in a context of demonstrated mass adoption." },
-    { from: "gifting", to: "challenges", title: "Referral is a checklist item, not a hidden feature", desc: "Share Ladder with one person is an explicit checkbox in the get-started challenge. Referral is framed as an onboarding completion step rather than a settings option.", effect: "The referral rate is higher because completion of the checklist is the motivator, not the referral mechanic itself." },
   ],
   "clash-of-clans": [
     { from: "soft-currency", to: "leveling", title: "Resources raided and collected fund the next town hall level", desc: "Gold and elixir collected and raided are what the town hall's rising cost curve consumes, and storage built from the same currencies has to expand before that cost can even be held.", effect: "A player is never just building or just raiding, both feed the one number, the town hall level, that everything else in the game answers to." },
@@ -586,6 +583,10 @@ const POSITIONS = {
     "active-pass":           { x: 78, y: 50 },
     "gifting":               { x: 50, y: 80 },
   },
+  "doordash": {
+    center:      { x: 50, y: 20, label: "DOORDASH" },
+    "achievement": { x: 50, y: 55 },
+  },
   "fc-mobile": {
     center:                  { x: 50, y: 6,  label: "FC MOBILE" },
     "experience-points":     { x: 50, y: 20 },
@@ -682,13 +683,6 @@ const POSITIONS = {
     "achievement":          { x: 26, y: 68 },
     "gifting":               { x: 74, y: 68 },
   },
-  "ladder": {
-    center:               { x: 50, y: 10, label: "LADDER" },
-    "streak":             { x: 50, y: 32 },
-    "challenges":         { x: 24, y: 58 },
-    "community-groups":   { x: 76, y: 58 },
-    "social-feed":        { x: 50, y: 82 },
-  },
   "fiton": {
     center:               { x: 50, y: 10, label: "FITON" },
     "community-groups":   { x: 50, y: 32 },
@@ -712,14 +706,6 @@ const POSITIONS = {
     center:            { x: 50, y: 15, label: "GYMVERSE" },
     "achievement":     { x: 30, y: 55 },
     "shareable-win":   { x: 70, y: 55 },
-  },
-  "ladder": {
-    center:             { x: 50, y: 10, label: "LADDER" },
-    "streak":           { x: 50, y: 32 },
-    "challenges":       { x: 22, y: 58 },
-    "community-groups": { x: 78, y: 58 },
-    "social-feed":      { x: 22, y: 82 },
-    "gifting":          { x: 78, y: 82 },
   },
   "fiton": {
     center:             { x: 50, y: 12, label: "FITON" },
@@ -767,13 +753,13 @@ const POSITIONS = {
     "limited-time-events":   { x: 82, y: 68 },
   },
   "ladder": {
-    center:             { x: 50, y: 8,  label: "LADDER" },
-    "streak":           { x: 50, y: 26 },
-    "challenges":       { x: 22, y: 50 },
-    "community-groups": { x: 78, y: 50 },
-    "achievement":     { x: 22, y: 76 },
-    "social-feed":      { x: 78, y: 76 },
-    "gifting":          { x: 50, y: 90 },
+    center:              { x: 50, y: 8,  label: "LADDER" },
+    "progression-gate":  { x: 50, y: 28 },
+    "community-groups":  { x: 18, y: 50 },
+    "achievement":       { x: 40, y: 50 },
+    "streak":            { x: 62, y: 50 },
+    "referral-boost":    { x: 84, y: 50 },
+    "shareable-win":     { x: 40, y: 74 },
   },
   "fiton": {
     center:             { x: 50, y: 15, label: "FITON" },

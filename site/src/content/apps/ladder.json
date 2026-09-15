@@ -1,122 +1,923 @@
 {
   "id": "ladder",
   "name": "Ladder",
-  "category": "Fitness",
+  "category": "Fitness / Coached Training",
   "type": "app",
   "visibility": "public",
-  "analysisDate": "2026-02-24",
-  "lastUpdated": "2026-05-19",
-  "summary": "Ladder organizes fitness around a coaching team — a named group of athletes working under a real coach with a defined training philosophy. The coach appears in a personal recruitment video before the user joins, delivering a direct pitch designed to make joining feel earned. Completing the welcome workout unlocks the full app simultaneously: the workout plan, the team chat, the Workout Wall showing 13,728 previous completions of the same workout, and the get-started challenge checklist. Every major feature reveal is timed to the same single event.",
-  "teaser": "Finishing the welcome workout unlocks the plan, the team chat, the workout wall, and the get-started checklist at once, the densest single onboarding moment in the fitness category.",
+  "analysisDate": "2026-09-15",
+  "lastUpdated": "2026-09-15",
+  "asObserved": "2026-02",
+  "appVersion": "None.",
+  "summary": "Ladder is a fitness app organized around matching a new user to a coaching team and then routing everything else through one hinge: completing the team's welcome workout. The team match decides which coach, which welcome workout and which team chat the user sees, and finishing that one workout is the stated condition for unlocking chat, nutrition and the full training plan at once. The completion screen that follows is the app's single densest moment, firing a badge, a community wall, a streak requirement, a strength-series requirement and an onboarding checklist together, and that checklist is what routes the user into the app's remaining social and referral surfaces.",
+  "teaser": "One welcome workout unlocks Ladder's entire app at once: chat, nutrition, the weekly plan, a badge, a community wall and a streak requirement, all on the same completion screen.",
   "icon": "/icons/ladder.png",
   "heroImage": null,
-  "mechanics": [
+  "contentFormat": "v4.1",
+  "observations": [
     {
-      "id": "streak",
-      "depth": "core",
-      "writeup": {
-        "observed": "The streak threshold is three workouts per week, not a daily action. This was communicated at two distinct moments in the onboarding: on the welcome workout completion screen (\"complete two more workouts to get your weekly streak\") and on the plan unlock screen (\"complete three a week to earn a streak\"). The weekly streak is listed as one of five items in the get-started challenge checklist.",
-        "noting": "Three workouts per week aligns with standard fitness guidance on recovery days. A daily streak in a fitness app either encourages overtraining or requires the user to log trivial actions to maintain it. The weekly threshold removes that tension and is more defensible to a fitness-literate audience.",
-        "findings": [
-          "The same threshold (three workouts) that earns the streak also activates the coaching program's progression, meaning streak maintenance and plan adherence are the same action.",
-          "The weekly cadence matches Strava's approach to streaks in the fitness category, suggesting this is an established convention for apps where daily training would be harmful.",
-          "Embedding the streak goal in the get-started checklist means a new user encounters it as a completion item rather than a passive counter, giving it a sense of being earned rather than accumulated."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": [
-        "Welcome workout completion screen showing \"complete 2 more workouts to get your weekly streak\" alongside the earned badge, workout stats, and share button"
-      ]
+      "id": "O1",
+      "name": "Cross-app tracking request",
+      "section": "onboarding",
+      "observed": "Before any Ladder screen appears, Ladder shows the system prompt asking whether it may track activity across other companies' apps and websites. Declining tracking does not block progress into the app.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "challenges",
-      "depth": "core",
-      "writeup": {
-        "observed": "Two challenge structures coexist. The Baseline Strength Series is a time-bounded program running from March 2 to April 12, requiring 20 workout completions to finish. A log of days, an exercise list, a rewards section, and an invite friends mechanic are all visible from the challenge screen. The get-started challenge is a one-time onboarding checklist: complete a second workout, add a profile photo, add the Ladder widget, share Ladder with one person, earn the weekly streak. Each item is a checkbox.",
-        "findings": [
-          "The Baseline Strength Series provides a six-week goal that spans multiple weekly streak cycles, giving users a persistent motivation arc that outlasts any single week's momentum.",
-          "The get-started challenge embeds referral (share Ladder with one person) as an explicit onboarding completion step rather than a hidden option, making social sharing a named goal with a visible completion state.",
-          "Including the weekly streak as a get-started challenge item creates a concrete near-term target for users who might otherwise view the streak as an abstract ongoing obligation."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": [
-        "Get-started challenge card list showing checked \"complete welcome workout\" and unchecked items: second workout, photo, widget, share Ladder, weekly streak",
-        "Baseline Strength Series screen showing the March 2 to April 12 date range, 20-workout target, day log grid, and rewards/invite friends sections"
-      ]
+      "id": "O2",
+      "name": "Sign-in screen and account creation",
+      "section": "onboarding",
+      "observed": "Ladder opens on a sign-in screen with a background of rotating photos of people training in a gym, stating that Ladder is free to try with no credit card needed to start, and requires sign-in before reaching the free plan. Signing in with Apple creates an account.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "community-groups",
-      "depth": "core",
-      "writeup": {
-        "observed": "The Chat tab contains four social surfaces: the coaching team's group chat (team-specific, with the coach as a participant), community topic channels with named membership counts (Healthy Parenting 12,300 members, Equipment and Accessories 32,400, Goodreads and Podcasts 22,900), city meetup groups (Denver, San Diego, Houston, Seattle, New York, Chicago, Philadelphia, plus country-level groups for Australia, UK, and Canada), and Ladder Live (a live event channel with 4,500 members). Chat was a locked tab until the welcome workout was completed.",
-        "findings": [
-          "Locking the Chat tab behind welcome workout completion means social access is earned rather than available immediately, concentrating the community's perceived value at the first meaningful engagement moment.",
-          "The four social surfaces organized by specificity create a community architecture where every user has an appropriate entry point: the introvert joins only the team chat, the engaged member also uses topic channels, the highly invested member joins meetup groups.",
-          "The coach participates in the team chat alongside members, making the team chat feel qualitatively different from a peer community and justifying team-based organization over interest-based organization."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": [
-        "Chat tab showing Maximus Team Chat, Ladder Updates, topic channels (Healthy Parenting 12.3K, Equipment 32.4K, Goodreads 22.9K), and meetup groups (Denver, New York, UK)",
-        "Workout Wall showing 13,728 completions of the welcome workout with video thumbnails from multiple members, each showing completion time and calories"
-      ]
+      "id": "O3",
+      "name": "Three-part welcome video sequence",
+      "section": "onboarding",
+      "observed": "Immediately after sign-in, Ladder plays three skippable videos in sequence. The first states that most members already work out but want a purposeful weekly plan from strength coaches rather than repeating the same routine. The second contrasts Ladder with apps offering random workout playlists or one-time challenges, stating that Ladder delivers new workouts every Sunday. The third states that Ladder will match the user to a team based on training-style preference, that each team has a welcome workout to introduce its coaching and training style, and that the user can try multiple welcome workouts during the trial week to find the right fit.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "achievement",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O4",
+      "name": "Team finder with live match count",
+      "section": "onboarding",
+      "observed": "Ladder presents a team-finder screen stating that filtering workout preferences will match the user with a fitting team, and that teams can be changed anytime during the trial. The filter has four groups: exercise style, equipment, ideal workout length and coach preference. An apply button states how many teams match the current selection, updating as selections change.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Group Membership",
+          "confidence": "Team membership, with a maintained \"my team\" relationship, a joining rule, and a team chat scoped to the team, is present (tier: directly observed). Membership in the topic groups and meetups, shown through member counts and a join route, is present (tier: plausible, the effect of joining a topic group was not observed).",
+          "confidences": [
+            "Team membership, with a maintained \"my team\" relationship, a joining rule, and a team chat scoped to the team, is present (tier: directly observed). Membership in the topic groups and meetups, shown through member counts and a join route, is present (tier: plausible, the effect of joining a topic group was not observed)."
+          ],
+          "rationale": "Exclusions checked first, using the sibling decision ladder. No collective group-owned state was observed for a team (no team total, rank, shared progress or resource, O25), so Clan / Guild does not apply. The team is more than an open context: Ladder maintains which team the user belongs to, states a rule for joining and changing it during the trial (O4, O25), and membership changes what the user sees (the team's welcome workout and coach in O5 and O8, teammates on the home screen in O26, the team's chat in O27), so the ladder selects Group Membership over Community Space. For the topic groups in O28, member counts and a join route establish a maintained membership relationship and a rule; the effect of joining is not observed, which holds confidence at plausible for that observation.",
+          "alternativeConsidered": "The topic groups in O28 could be open community chats with a displayed audience size, which would be Community Space. A session opening a topic group as a non-member and then as a member would show whether membership changes any condition and settle which sibling applies.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "social-feed",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O5",
+      "name": "Team match and coach introduction video",
+      "section": "onboarding",
+      "observed": "The filter returns a matched team, labeled as the user's team with options to try it or change it. A video follows in which the team's lead coach describes their background and approach, invites the viewer to complete the first workout, join the team chat, and join the team, and states they are looking for the most dedicated people rather than the uncommitted.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Group Membership",
+          "confidence": "Team membership, with a maintained \"my team\" relationship, a joining rule, and a team chat scoped to the team, is present (tier: directly observed). Membership in the topic groups and meetups, shown through member counts and a join route, is present (tier: plausible, the effect of joining a topic group was not observed).",
+          "confidences": [
+            "Team membership, with a maintained \"my team\" relationship, a joining rule, and a team chat scoped to the team, is present (tier: directly observed). Membership in the topic groups and meetups, shown through member counts and a join route, is present (tier: plausible, the effect of joining a topic group was not observed)."
+          ],
+          "rationale": "Exclusions checked first, using the sibling decision ladder. No collective group-owned state was observed for a team (no team total, rank, shared progress or resource, O25), so Clan / Guild does not apply. The team is more than an open context: Ladder maintains which team the user belongs to, states a rule for joining and changing it during the trial (O4, O25), and membership changes what the user sees (the team's welcome workout and coach in O5 and O8, teammates on the home screen in O26, the team's chat in O27), so the ladder selects Group Membership over Community Space. For the topic groups in O28, member counts and a join route establish a maintained membership relationship and a rule; the effect of joining is not observed, which holds confidence at plausible for that observation.",
+          "alternativeConsidered": "The topic groups in O28 could be open community chats with a displayed audience size, which would be Community Space. A session opening a topic group as a non-member and then as a member would show whether membership changes any condition and settle which sibling applies.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "daily-weekly-quests",
-      "depth": "shallow",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O6",
+      "name": "First landing on the home screen",
+      "section": "onboarding",
+      "observed": "After the trial and notification screens, Ladder lands the user on the home screen, showing teammate avatars with an instruction to double-tap one to send a cheer. The first item below is the matched team's welcome workout. The bottom navigation holds four tabs: the workout tab with the welcome workout, Chat, Teams and Nutrition, with Chat and Nutrition shown as locked. What the numbers and lights beside the avatars represent isn't stated.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Progression Gate",
+          "confidence": "The lock on chat, nutrition and the full plan, stated in terms of completing the welcome workout and released after it, is present (tier: directly observed). The requirement of three completed workouts on the six-week strength series is present as a stated standing condition, although its release was not reached (tier: directly observed).",
+          "confidences": [
+            "The lock on chat, nutrition and the full plan, stated in terms of completing the welcome workout and released after it, is present (tier: directly observed). The requirement of three completed workouts on the six-week strength series is present as a stated standing condition, although its release was not reached (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The condition is not an eligibility condition, since the user satisfies it by using the product; it is not a purchase or subscription requirement, since the lock copy states a workout requirement and says nothing about payment; it is not a rate limiter; and the withheld parts (chat, nutrition, the full plan, the strength series) are distinct from the workouts that count toward the requirement rather than the next unit of a sequence. Required conditions are met: the product counts completed workouts (O17 shows the count), states the requirement on the locked surfaces before it is satisfied (O6, O23, O34), withholds the parts below it, and releases chat and nutrition once the welcome workout is complete (O23). O24 states a second requirement on the same measure at a higher value.",
+          "alternativeConsidered": "The O23 lock could be an onboarding sequence step rather than a standing gate on a measure. The session shows the requirement as a standing state on three separate surfaces before completion and a release afterwards, which fits the gate; a session in which a second new account skips the welcome workout and still reaches chat, or in which the lock reappears at trial end, would separate the two readings.",
+          "role": "engagement, retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "gifting",
-      "depth": "shallow",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O7",
+      "name": "Weekly plan hub",
+      "section": "core-loop",
+      "observed": "Once the plan is unlocked, the workout tab shows the weekly plan, stating how many days remain until the free trial ends. The same surface carries a top scoreboard, a Rewards section, a Ladder Wall entry, the profile, a journal, Ladder Flex, described as mobility workouts, favourites, downloads, a shop, a strength series, body-part exercises, and the Get Started challenge at the bottom. No entities, positions or values for the top scoreboard are shown.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Referral",
+          "confidence": "A referral offer with a stated completion event and a reward to the referring user is present on Ladder's own framing (tier: directly observed). The reward's delivery and form in operation were not observed (tier: directly observed).",
+          "confidences": [
+            "A referral offer with a stated completion event and a reward to the referring user is present on Ladder's own framing (tier: directly observed). The reward's delivery and form in operation were not observed (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The reward is not granted for sign-up alone: the stated completion event is the introduced person subscribing. It is not Gifting, since the reward is earned by the introduced person's action and accrues to the referring user. It is not a first-purchase bonus. The commercial arrangement behind the $25 is not classified here. Required conditions are met on the product's framing: a link route, a defined completion event, a reward to the referring user, and a rule stated before the reward is earned.",
+          "alternativeConsidered": "Share Pass could be a gift of trial access to a friend rather than part of the referral, which would bear on Gifting. The session does not establish what Share Pass delivers; a session following Share Pass to the recipient's screen would separate the two, and it would not change the label on the $25 offer.",
+          "role": "social, monetization"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O8",
+      "name": "Welcome workout preview",
+      "section": "core-loop",
+      "observed": "Opening the welcome workout shows a preview with a coach video playing in the background alongside a written description of its structure. The workout uses dumbbells, runs 29 minutes total with 13 minutes of active work, and can be saved or downloaded for offline use. The structure includes a bodyweight warm-up, rest, a push block, a pull block, a full-body block, a glutes block, bodyweight conditioning and core.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O9",
+      "name": "Download prompt before starting",
+      "section": "core-loop",
+      "observed": "Tapping Start opens a screen offering to download the workout to avoid loading issues, stating that downloads are deleted automatically to save storage, with a choice to download or skip.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O10",
+      "name": "Guided workout player",
+      "section": "core-loop",
+      "observed": "Before the first exercise, Ladder plays a video stating that the user has two of the best coaches in the world, followed by a system notice that apps starting workouts have access to health and fitness data while the device is locked. The player counts down to each block while the coach talks in the background, plays a demonstration video with a countdown for each exercise, and offers a Track Results control to log reps and weight. The user can set reps, add prep time, set pace, turn off audio, and add weights.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O11",
+      "name": "Mid-workout coach fit check",
+      "section": "core-loop",
+      "observed": "After the warm-up, a few exercises in, Ladder asks whether the user is happy with the workout, offering to continue or try another coach. What choosing another coach leads to isn't shown.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O12",
+      "name": "End of workout: coach outro and rating prompt",
+      "section": "core-loop",
+      "observed": "After the final exercise, Ladder plays a video of the coach talking alongside another coach, then asks the user to rate the workout experience with five stars under the heading \"Rate to earn a badge.\"",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Achievement",
+          "confidence": "A badge awarded on completion of a criterion stated in advance is present (tier: directly observed).",
+          "confidences": [
+            "A badge awarded on completion of a criterion stated in advance is present (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The badge is not merely a celebratory surface, because Ladder stated a criterion before the award (\"Rate to earn a badge\", O12) and then awarded the badge on its satisfaction (O16); it is not a status or tier, and not an automatic unlock following from a progression state, since the unlock in O23 is announced separately. Required conditions met: a defined criterion, evaluation against the user's activity, a discrete change to attained, and observable recognition through the badge. Under the presence standard, whether the attained state is preserved on the profile is behaviour detail rather than a condition of presence.",
+          "alternativeConsidered": "The badge could be a per-workout completion graphic that records nothing, which the entry would reject. The stated criterion before award supports Achievement; a session showing the badge absent from the profile and from any record would move the case to plain-language description, and a session showing a badge list would settle it.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O13",
+      "name": "Workout completion summary",
+      "section": "core-loop",
+      "observed": "Completing the workout shows a completion screen carrying a badge, an option to share proof on Instagram, a line stating that two more workouts are needed for a weekly streak, workout data including total volume and reps, a line stating that three workouts are needed to unlock a six-week strength series, and cheers.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Progression Gate",
+          "confidence": "The lock on chat, nutrition and the full plan, stated in terms of completing the welcome workout and released after it, is present (tier: directly observed). The requirement of three completed workouts on the six-week strength series is present as a stated standing condition, although its release was not reached (tier: directly observed).",
+          "confidences": [
+            "The lock on chat, nutrition and the full plan, stated in terms of completing the welcome workout and released after it, is present (tier: directly observed). The requirement of three completed workouts on the six-week strength series is present as a stated standing condition, although its release was not reached (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The condition is not an eligibility condition, since the user satisfies it by using the product; it is not a purchase or subscription requirement, since the lock copy states a workout requirement and says nothing about payment; it is not a rate limiter; and the withheld parts (chat, nutrition, the full plan, the strength series) are distinct from the workouts that count toward the requirement rather than the next unit of a sequence. Required conditions are met: the product counts completed workouts (O17 shows the count), states the requirement on the locked surfaces before it is satisfied (O6, O23, O34), withholds the parts below it, and releases chat and nutrition once the welcome workout is complete (O23). O24 states a second requirement on the same measure at a higher value.",
+          "alternativeConsidered": "The O23 lock could be an onboarding sequence step rather than a standing gate on a measure. The session shows the requirement as a standing state on three separate surfaces before completion and a release afterwards, which fits the gate; a session in which a second new account skips the welcome workout and still reaches chat, or in which the lock reappears at trial end, would separate the two readings.",
+          "role": "engagement, retention"
+        },
+        {
+          "name": "Achievement",
+          "confidence": "A badge awarded on completion of a criterion stated in advance is present (tier: directly observed).",
+          "confidences": [
+            "A badge awarded on completion of a criterion stated in advance is present (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The badge is not merely a celebratory surface, because Ladder stated a criterion before the award (\"Rate to earn a badge\", O12) and then awarded the badge on its satisfaction (O16); it is not a status or tier, and not an automatic unlock following from a progression state, since the unlock in O23 is announced separately. Required conditions met: a defined criterion, evaluation against the user's activity, a discrete change to attained, and observable recognition through the badge. Under the presence standard, whether the attained state is preserved on the profile is behaviour detail rather than a condition of presence.",
+          "alternativeConsidered": "The badge could be a per-workout completion graphic that records nothing, which the entry would reject. The stated criterion before award supports Achievement; a session showing the badge absent from the profile and from any record would move the case to plain-language description, and a session showing a badge list would settle it.",
+          "role": "engagement"
+        },
+        {
+          "name": "Streak",
+          "confidence": "A weekly streak is present on Ladder's own framing in three surfaces (tier: directly observed). How the streak is displayed, counted and broken was not observed (tier: directly observed).",
+          "confidences": [
+            "A weekly streak is present on Ladder's own framing in three surfaces (tier: directly observed). How the streak is displayed, counted and broken was not observed (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The framing is not only a cumulative total, since Ladder names a weekly period and a per-week threshold rather than a running count; it is not only a recurring schedule, since Ladder presents the qualifying weeks as a streak to be earned. The exclusion against classifying from words alone is addressed by the presence standard: Ladder presents the mechanic as a streak, states its qualifying condition and period, and counts progress toward it (\"two more workouts\", O13). The continuity rule for a missed week is a long-term clause and is recorded as not observed rather than withholding the label.",
+          "alternativeConsidered": "The three-a-week target could be a weekly goal tracked in isolation each week, with no linked sequence, which would be Daily / Weekly Quests or a plain recurring goal. Ladder's use of the word streak favours this entry; a session crossing a week boundary with and without three workouts would separate the two.",
+          "role": "retention"
+        },
+        {
+          "name": "Shareable Win",
+          "confidence": "An offer to send proof of a completed workout to a named external platform, attached to the completion record, is present (tier: strongly supported, the composed representation itself was not opened).",
+          "confidences": [
+            "An offer to send proof of a completed workout to a named external platform, attached to the completion record, is present (tier: strongly supported, the composed representation itself was not opened)."
+          ],
+          "rationale": "Exclusions checked first. What is offered is not the user's own work, since the share is labelled as proof and sits on the completion record with the badge, volume and reps (O13). It is not an in-product post only, since the destination is Instagram. It is not a referral link, since its subject is the workout rather than an action for the recipient. It is not a transaction document. The route out (named platform) and the attachment to a recorded accomplishment are observed; the composition of the representation was not opened, which is why confidence sits at strongly supported rather than directly observed.",
+          "alternativeConsidered": "The share could hand Instagram a generic Ladder promotional card with no workout record, which the entry would reject. The \"proof\" label and placement on the completion record argue against it; a session opening the share would settle it.",
+          "role": "social"
+        },
+        {
+          "name": "Community Space",
+          "confidence": "A persistent shared wall attached to the welcome workout, holding videos from many members and offering the user a route to contribute, is present (tier: directly observed).",
+          "confidences": [
+            "A persistent shared wall attached to the welcome workout, holding videos from many members and offering the user a route to contribute, is present (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The wall is not content from one publisher, since it holds videos from many people who completed the workout; it is not view-only, since \"Join the wall\" is a contribution route; it is not a bounded lobby, since it accumulates completions (13,728) beyond any one session; and it is not a review system attached to a commerce listing. No maintained membership or collective state was observed on the wall, so the sibling ladder does not move it to Group Membership or Clan / Guild. Required conditions met: a distinct shared context, contributions from multiple actors associated with it, persistence across contributions, and a stated participation route.",
+          "alternativeConsidered": "The wall could be a Social Feed if Ladder orders the videos by a feed rule for each viewer. The ordering was not narrated, so Social Feed is not established; a session scrolling the wall on two accounts or at two times would show whether an ordering rule applies, and both labels could then apply.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O14",
+      "name": "Nutrition introduction and voice logging demo",
+      "section": "core-loop",
+      "observed": "After the first workout, the Nutrition tab opens on a pitch stating that macro tracking is made easy, naming no ads with membership, free barcode scanning, and voice and image recognition logging, with a button to get a free nutrition plan. The next screen starts a voice-logging demonstration, requesting speech recognition and microphone access, then has the user read an example meal aloud. Ladder recognizes the spoken meal and displays it with calories and macros.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O15",
+      "name": "Nutrition dashboard",
+      "section": "core-loop",
+      "observed": "After the nutrition setup, the Nutrition tab becomes a dashboard showing calories left for the day, protein left, current weight, water intake, and a macro journal split into breakfast, lunch, dinner and snacks. The dashboard also offers quick calorie entry, history, recipes, goal management and a weight tracker. The recipes area was empty, with options to add a recipe from a URL, pasted text, manual entry or a photo.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O16",
+      "name": "Workout completion badge",
+      "section": "goals",
+      "observed": "On completing the welcome workout, after the rating prompt, Ladder awards a badge read out as \"Ladder workout.\" The badge renders in 3D, can be spun, and reacts to touch. Whether the badge is kept on the profile or in a badge list isn't shown.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Achievement",
+          "confidence": "A badge awarded on completion of a criterion stated in advance is present (tier: directly observed).",
+          "confidences": [
+            "A badge awarded on completion of a criterion stated in advance is present (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The badge is not merely a celebratory surface, because Ladder stated a criterion before the award (\"Rate to earn a badge\", O12) and then awarded the badge on its satisfaction (O16); it is not a status or tier, and not an automatic unlock following from a progression state, since the unlock in O23 is announced separately. Required conditions met: a defined criterion, evaluation against the user's activity, a discrete change to attained, and observable recognition through the badge. Under the presence standard, whether the attained state is preserved on the profile is behaviour detail rather than a condition of presence.",
+          "alternativeConsidered": "The badge could be a per-workout completion graphic that records nothing, which the entry would reject. The stated criterion before award supports Achievement; a session showing the badge absent from the profile and from any record would move the case to plain-language description, and a session showing a badge list would settle it.",
+          "role": "engagement"
+        },
+        {
+          "name": "Shareable Win",
+          "confidence": "An offer to send proof of a completed workout to a named external platform, attached to the completion record, is present (tier: strongly supported, the composed representation itself was not opened).",
+          "confidences": [
+            "An offer to send proof of a completed workout to a named external platform, attached to the completion record, is present (tier: strongly supported, the composed representation itself was not opened)."
+          ],
+          "rationale": "Exclusions checked first. What is offered is not the user's own work, since the share is labelled as proof and sits on the completion record with the badge, volume and reps (O13). It is not an in-product post only, since the destination is Instagram. It is not a referral link, since its subject is the workout rather than an action for the recipient. It is not a transaction document. The route out (named platform) and the attachment to a recorded accomplishment are observed; the composition of the representation was not opened, which is why confidence sits at strongly supported rather than directly observed.",
+          "alternativeConsidered": "The share could hand Instagram a generic Ladder promotional card with no workout record, which the entry would reject. The \"proof\" label and placement on the completion record argue against it; a session opening the share would settle it.",
+          "role": "social"
+        },
+        {
+          "name": "Community Space",
+          "confidence": "A persistent shared wall attached to the welcome workout, holding videos from many members and offering the user a route to contribute, is present (tier: directly observed).",
+          "confidences": [
+            "A persistent shared wall attached to the welcome workout, holding videos from many members and offering the user a route to contribute, is present (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The wall is not content from one publisher, since it holds videos from many people who completed the workout; it is not view-only, since \"Join the wall\" is a contribution route; it is not a bounded lobby, since it accumulates completions (13,728) beyond any one session; and it is not a review system attached to a commerce listing. No maintained membership or collective state was observed on the wall, so the sibling ladder does not move it to Group Membership or Clan / Guild. Required conditions met: a distinct shared context, contributions from multiple actors associated with it, persistence across contributions, and a stated participation route.",
+          "alternativeConsidered": "The wall could be a Social Feed if Ladder orders the videos by a feed rule for each viewer. The ordering was not narrated, so Social Feed is not established; a session scrolling the wall on two accounts or at two times would show whether an ordering rule applies, and both labels could then apply.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O17",
+      "name": "Profile statistics and history",
+      "section": "goals",
+      "observed": "The profile shows the number of workouts completed, total minutes, calories burned, and cheers given or received, together with a workout history. The user can write a bio and add a photo.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O18",
+      "name": "Get Started challenge checklist",
+      "section": "goals",
+      "observed": "After the plan unlocks, Ladder shows a Get Started challenge at the bottom of the workout tab, presented as a set of checkable boxes, some already ticked. Items include checking out team chat, completing a second workout, adding a photo, adding the Ladder widget, sharing Ladder with one person, and the weekly streak. Opening an item leads to prompts such as joining team chat, checking off a priority workout, adding a picture, and adding the widget. No deadline or reward for completing the checklist is stated.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "A weekly streak is present on Ladder's own framing in three surfaces (tier: directly observed). How the streak is displayed, counted and broken was not observed (tier: directly observed).",
+          "confidences": [
+            "A weekly streak is present on Ladder's own framing in three surfaces (tier: directly observed). How the streak is displayed, counted and broken was not observed (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The framing is not only a cumulative total, since Ladder names a weekly period and a per-week threshold rather than a running count; it is not only a recurring schedule, since Ladder presents the qualifying weeks as a streak to be earned. The exclusion against classifying from words alone is addressed by the presence standard: Ladder presents the mechanic as a streak, states its qualifying condition and period, and counts progress toward it (\"two more workouts\", O13). The continuity rule for a missed week is a long-term clause and is recorded as not observed rather than withholding the label.",
+          "alternativeConsidered": "The three-a-week target could be a weekly goal tracked in isolation each week, with no linked sequence, which would be Daily / Weekly Quests or a plain recurring goal. Ladder's use of the word streak favours this entry; a session crossing a week boundary with and without three workouts would separate the two.",
+          "role": "retention"
+        },
+        {
+          "name": "Referral",
+          "confidence": "A referral offer with a stated completion event and a reward to the referring user is present on Ladder's own framing (tier: directly observed). The reward's delivery and form in operation were not observed (tier: directly observed).",
+          "confidences": [
+            "A referral offer with a stated completion event and a reward to the referring user is present on Ladder's own framing (tier: directly observed). The reward's delivery and form in operation were not observed (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The reward is not granted for sign-up alone: the stated completion event is the introduced person subscribing. It is not Gifting, since the reward is earned by the introduced person's action and accrues to the referring user. It is not a first-purchase bonus. The commercial arrangement behind the $25 is not classified here. Required conditions are met on the product's framing: a link route, a defined completion event, a reward to the referring user, and a rule stated before the reward is earned.",
+          "alternativeConsidered": "Share Pass could be a gift of trial access to a friend rather than part of the referral, which would bear on Gifting. The session does not establish what Share Pass delivers; a session following Share Pass to the recipient's screen would separate the two, and it would not change the label on the $25 offer.",
+          "role": "social, monetization"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O19",
+      "name": "Baseline strength series",
+      "section": "goals",
+      "observed": "The weekly plan includes an upcoming strength series named Baseline, stated to run over six weeks, with a requirement to complete 20 workouts during that window and a log of days. The series hadn't begun yet at the time of the analysis. What completing or missing the 20 workouts produces isn't shown.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Progression Gate",
+          "confidence": "The lock on chat, nutrition and the full plan, stated in terms of completing the welcome workout and released after it, is present (tier: directly observed). The requirement of three completed workouts on the six-week strength series is present as a stated standing condition, although its release was not reached (tier: directly observed).",
+          "confidences": [
+            "The lock on chat, nutrition and the full plan, stated in terms of completing the welcome workout and released after it, is present (tier: directly observed). The requirement of three completed workouts on the six-week strength series is present as a stated standing condition, although its release was not reached (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The condition is not an eligibility condition, since the user satisfies it by using the product; it is not a purchase or subscription requirement, since the lock copy states a workout requirement and says nothing about payment; it is not a rate limiter; and the withheld parts (chat, nutrition, the full plan, the strength series) are distinct from the workouts that count toward the requirement rather than the next unit of a sequence. Required conditions are met: the product counts completed workouts (O17 shows the count), states the requirement on the locked surfaces before it is satisfied (O6, O23, O34), withholds the parts below it, and releases chat and nutrition once the welcome workout is complete (O23). O24 states a second requirement on the same measure at a higher value.",
+          "alternativeConsidered": "The O23 lock could be an onboarding sequence step rather than a standing gate on a measure. The session shows the requirement as a standing state on three separate surfaces before completion and a release afterwards, which fits the gate; a session in which a second new account skips the welcome workout and still reaches chat, or in which the lock reappears at trial end, would separate the two readings.",
+          "role": "engagement, retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O20",
+      "name": "Nutrition goal questionnaire",
+      "section": "goals",
+      "observed": "Continuing past the voice demonstration opens a three-part questionnaire. The first section asks for a primary goal, why nutrition is a priority, the biggest nutrition challenge, and motivation to change habits. The second asks about prior macro-tracking experience, desired precision, and interest in AI-powered photo logging. The third asks for date of birth, height, current weight, biological sex and activity level, then shows a personalizing-plan screen. Ladder doesn't offer to read height or weight from the earlier Apple Health connection at this point.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O21",
+      "name": "Personalised nutrition plan",
+      "section": "goals",
+      "observed": "After a loading screen, Ladder presents a personalized plan labelled body recomposition, showing an unchanged weight figure with copy about steady progress and effortless balance. Following screens set a calorie target, a protein target framed around building lean muscle and reducing cravings, and a consistency target of logging at least three times a day.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O22",
+      "name": "Signed nutrition commitment",
+      "section": "goals",
+      "observed": "Before the nutrition dashboard opens, Ladder shows a commitment statement in the user's name, listing three commitments: logging three meals a day, staying within the daily calorie target, and making one mindful food choice daily. The user must sign their name in a box to continue, under a button reading \"I am committed.\"",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O23",
+      "name": "Welcome workout unlocks chat, nutrition and the plan",
+      "section": "access",
+      "observed": "Before the welcome workout, the Chat tab states it gives access to teammates, community chats and messages but is locked until the welcome workout is complete, and the Nutrition tab is locked with the same condition. The trial timeline separately states that completing the welcome workout unlocks the plan. Completing it produces a congratulations screen confirming the plan is unlocked and naming the three-a-week streak, opening Chat and Nutrition.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Progression Gate",
+          "confidence": "The lock on chat, nutrition and the full plan, stated in terms of completing the welcome workout and released after it, is present (tier: directly observed). The requirement of three completed workouts on the six-week strength series is present as a stated standing condition, although its release was not reached (tier: directly observed).",
+          "confidences": [
+            "The lock on chat, nutrition and the full plan, stated in terms of completing the welcome workout and released after it, is present (tier: directly observed). The requirement of three completed workouts on the six-week strength series is present as a stated standing condition, although its release was not reached (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The condition is not an eligibility condition, since the user satisfies it by using the product; it is not a purchase or subscription requirement, since the lock copy states a workout requirement and says nothing about payment; it is not a rate limiter; and the withheld parts (chat, nutrition, the full plan, the strength series) are distinct from the workouts that count toward the requirement rather than the next unit of a sequence. Required conditions are met: the product counts completed workouts (O17 shows the count), states the requirement on the locked surfaces before it is satisfied (O6, O23, O34), withholds the parts below it, and releases chat and nutrition once the welcome workout is complete (O23). O24 states a second requirement on the same measure at a higher value.",
+          "alternativeConsidered": "The O23 lock could be an onboarding sequence step rather than a standing gate on a measure. The session shows the requirement as a standing state on three separate surfaces before completion and a release afterwards, which fits the gate; a session in which a second new account skips the welcome workout and still reaches chat, or in which the lock reappears at trial end, would separate the two readings.",
+          "role": "engagement, retention"
+        },
+        {
+          "name": "Streak",
+          "confidence": "A weekly streak is present on Ladder's own framing in three surfaces (tier: directly observed). How the streak is displayed, counted and broken was not observed (tier: directly observed).",
+          "confidences": [
+            "A weekly streak is present on Ladder's own framing in three surfaces (tier: directly observed). How the streak is displayed, counted and broken was not observed (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The framing is not only a cumulative total, since Ladder names a weekly period and a per-week threshold rather than a running count; it is not only a recurring schedule, since Ladder presents the qualifying weeks as a streak to be earned. The exclusion against classifying from words alone is addressed by the presence standard: Ladder presents the mechanic as a streak, states its qualifying condition and period, and counts progress toward it (\"two more workouts\", O13). The continuity rule for a missed week is a long-term clause and is recorded as not observed rather than withholding the label.",
+          "alternativeConsidered": "The three-a-week target could be a weekly goal tracked in isolation each week, with no linked sequence, which would be Daily / Weekly Quests or a plain recurring goal. Ladder's use of the word streak favours this entry; a session crossing a week boundary with and without three workouts would separate the two.",
+          "role": "retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O24",
+      "name": "Strength series locked behind three workouts",
+      "section": "access",
+      "observed": "The workout completion screen states that completing three workouts unlocks a six-week strength series. At the time of the analysis, one workout had been completed.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Progression Gate",
+          "confidence": "The lock on chat, nutrition and the full plan, stated in terms of completing the welcome workout and released after it, is present (tier: directly observed). The requirement of three completed workouts on the six-week strength series is present as a stated standing condition, although its release was not reached (tier: directly observed).",
+          "confidences": [
+            "The lock on chat, nutrition and the full plan, stated in terms of completing the welcome workout and released after it, is present (tier: directly observed). The requirement of three completed workouts on the six-week strength series is present as a stated standing condition, although its release was not reached (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The condition is not an eligibility condition, since the user satisfies it by using the product; it is not a purchase or subscription requirement, since the lock copy states a workout requirement and says nothing about payment; it is not a rate limiter; and the withheld parts (chat, nutrition, the full plan, the strength series) are distinct from the workouts that count toward the requirement rather than the next unit of a sequence. Required conditions are met: the product counts completed workouts (O17 shows the count), states the requirement on the locked surfaces before it is satisfied (O6, O23, O34), withholds the parts below it, and releases chat and nutrition once the welcome workout is complete (O23). O24 states a second requirement on the same measure at a higher value.",
+          "alternativeConsidered": "The O23 lock could be an onboarding sequence step rather than a standing gate on a measure. The session shows the requirement as a standing state on three separate surfaces before completion and a release afterwards, which fits the gate; a session in which a second new account skips the welcome workout and still reaches chat, or in which the lock reappears at trial end, would separate the two readings.",
+          "role": "engagement, retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O25",
+      "name": "Team membership and team browsing",
+      "section": "social",
+      "observed": "After the team-finder filter, Ladder labels the matched team as the user's own, naming the coach and giving a team description. Below it, other teams led by named coaches are listed, with dozens available on scrolling and a control to filter again. Ladder states the user can change teams at any time during the trial.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Group Membership",
+          "confidence": "Team membership, with a maintained \"my team\" relationship, a joining rule, and a team chat scoped to the team, is present (tier: directly observed). Membership in the topic groups and meetups, shown through member counts and a join route, is present (tier: plausible, the effect of joining a topic group was not observed).",
+          "confidences": [
+            "Team membership, with a maintained \"my team\" relationship, a joining rule, and a team chat scoped to the team, is present (tier: directly observed). Membership in the topic groups and meetups, shown through member counts and a join route, is present (tier: plausible, the effect of joining a topic group was not observed)."
+          ],
+          "rationale": "Exclusions checked first, using the sibling decision ladder. No collective group-owned state was observed for a team (no team total, rank, shared progress or resource, O25), so Clan / Guild does not apply. The team is more than an open context: Ladder maintains which team the user belongs to, states a rule for joining and changing it during the trial (O4, O25), and membership changes what the user sees (the team's welcome workout and coach in O5 and O8, teammates on the home screen in O26, the team's chat in O27), so the ladder selects Group Membership over Community Space. For the topic groups in O28, member counts and a join route establish a maintained membership relationship and a rule; the effect of joining is not observed, which holds confidence at plausible for that observation.",
+          "alternativeConsidered": "The topic groups in O28 could be open community chats with a displayed audience size, which would be Community Space. A session opening a topic group as a non-member and then as a member would show whether membership changes any condition and settle which sibling applies.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O26",
+      "name": "Teammate avatars and cheers",
+      "section": "social",
+      "observed": "The home screen shows teammates as avatars with an instruction to double-tap one to send a cheer. Sending a cheer prompts Ladder to ask whether to turn on notifications for sending and receiving cheers. The profile keeps a count of cheers given or received, and the workout completion screen references getting cheers for a finished workout.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Group Membership",
+          "confidence": "Team membership, with a maintained \"my team\" relationship, a joining rule, and a team chat scoped to the team, is present (tier: directly observed). Membership in the topic groups and meetups, shown through member counts and a join route, is present (tier: plausible, the effect of joining a topic group was not observed).",
+          "confidences": [
+            "Team membership, with a maintained \"my team\" relationship, a joining rule, and a team chat scoped to the team, is present (tier: directly observed). Membership in the topic groups and meetups, shown through member counts and a join route, is present (tier: plausible, the effect of joining a topic group was not observed)."
+          ],
+          "rationale": "Exclusions checked first, using the sibling decision ladder. No collective group-owned state was observed for a team (no team total, rank, shared progress or resource, O25), so Clan / Guild does not apply. The team is more than an open context: Ladder maintains which team the user belongs to, states a rule for joining and changing it during the trial (O4, O25), and membership changes what the user sees (the team's welcome workout and coach in O5 and O8, teammates on the home screen in O26, the team's chat in O27), so the ladder selects Group Membership over Community Space. For the topic groups in O28, member counts and a join route establish a maintained membership relationship and a rule; the effect of joining is not observed, which holds confidence at plausible for that observation.",
+          "alternativeConsidered": "The topic groups in O28 could be open community chats with a displayed audience size, which would be Community Space. A session opening a topic group as a non-member and then as a member would show whether membership changes any condition and settle which sibling applies.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O27",
+      "name": "Team chat",
+      "section": "social",
+      "observed": "Once unlocked, the Chat tab holds the matched team's chat, showing messages from the current and previous day, with earlier messages reachable by scrolling. The Get Started checklist's chat item opens a screen inviting the user to join the conversation in teams and stay accountable with the coach and teammates.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Group Membership",
+          "confidence": "Team membership, with a maintained \"my team\" relationship, a joining rule, and a team chat scoped to the team, is present (tier: directly observed). Membership in the topic groups and meetups, shown through member counts and a join route, is present (tier: plausible, the effect of joining a topic group was not observed).",
+          "confidences": [
+            "Team membership, with a maintained \"my team\" relationship, a joining rule, and a team chat scoped to the team, is present (tier: directly observed). Membership in the topic groups and meetups, shown through member counts and a join route, is present (tier: plausible, the effect of joining a topic group was not observed)."
+          ],
+          "rationale": "Exclusions checked first, using the sibling decision ladder. No collective group-owned state was observed for a team (no team total, rank, shared progress or resource, O25), so Clan / Guild does not apply. The team is more than an open context: Ladder maintains which team the user belongs to, states a rule for joining and changing it during the trial (O4, O25), and membership changes what the user sees (the team's welcome workout and coach in O5 and O8, teammates on the home screen in O26, the team's chat in O27), so the ladder selects Group Membership over Community Space. For the topic groups in O28, member counts and a join route establish a maintained membership relationship and a rule; the effect of joining is not observed, which holds confidence at plausible for that observation.",
+          "alternativeConsidered": "The topic groups in O28 could be open community chats with a displayed audience size, which would be Community Space. A session opening a topic group as a non-member and then as a member would show whether membership changes any condition and settle which sibling applies.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O28",
+      "name": "Topic groups and meetups",
+      "section": "social",
+      "observed": "Alongside the team chat, the Chat tab lists app updates, trending topics, and topic groups by subject with member counts, including groups on parenting, equipment, books and podcasts, a city-specific live group, and a workout-music group. The same tab lists city-based meetups across multiple US cities, plus further meetups in Australia, the United Kingdom and Canada.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Group Membership",
+          "confidence": "Team membership, with a maintained \"my team\" relationship, a joining rule, and a team chat scoped to the team, is present (tier: directly observed). Membership in the topic groups and meetups, shown through member counts and a join route, is present (tier: plausible, the effect of joining a topic group was not observed).",
+          "confidences": [
+            "Team membership, with a maintained \"my team\" relationship, a joining rule, and a team chat scoped to the team, is present (tier: directly observed). Membership in the topic groups and meetups, shown through member counts and a join route, is present (tier: plausible, the effect of joining a topic group was not observed)."
+          ],
+          "rationale": "Exclusions checked first, using the sibling decision ladder. No collective group-owned state was observed for a team (no team total, rank, shared progress or resource, O25), so Clan / Guild does not apply. The team is more than an open context: Ladder maintains which team the user belongs to, states a rule for joining and changing it during the trial (O4, O25), and membership changes what the user sees (the team's welcome workout and coach in O5 and O8, teammates on the home screen in O26, the team's chat in O27), so the ladder selects Group Membership over Community Space. For the topic groups in O28, member counts and a join route establish a maintained membership relationship and a rule; the effect of joining is not observed, which holds confidence at plausible for that observation.",
+          "alternativeConsidered": "The topic groups in O28 could be open community chats with a displayed audience size, which would be Community Space. A session opening a topic group as a non-member and then as a member would show whether membership changes any condition and settle which sibling applies.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O29",
+      "name": "Welcome workout completion wall",
+      "section": "social",
+      "observed": "Directly after the completion badge, Ladder shows a wall of videos from other members who completed the welcome workout, stating 13,728 completions, each showing the minutes taken and calories burned beneath it. The only action offered is joining the wall, which requests camera access and full photo library access. A close control sits in the top left corner.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Community Space",
+          "confidence": "A persistent shared wall attached to the welcome workout, holding videos from many members and offering the user a route to contribute, is present (tier: directly observed).",
+          "confidences": [
+            "A persistent shared wall attached to the welcome workout, holding videos from many members and offering the user a route to contribute, is present (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The wall is not content from one publisher, since it holds videos from many people who completed the workout; it is not view-only, since \"Join the wall\" is a contribution route; it is not a bounded lobby, since it accumulates completions (13,728) beyond any one session; and it is not a review system attached to a commerce listing. No maintained membership or collective state was observed on the wall, so the sibling ladder does not move it to Group Membership or Clan / Guild. Required conditions met: a distinct shared context, contributions from multiple actors associated with it, persistence across contributions, and a stated participation route.",
+          "alternativeConsidered": "The wall could be a Social Feed if Ladder orders the videos by a feed rule for each viewer. The ordering was not narrated, so Social Feed is not established; a session scrolling the wall on two accounts or at two times would show whether an ordering rule applies, and both labels could then apply.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O30",
+      "name": "Apple Health sync prompt",
+      "section": "reach",
+      "observed": "During the start of the first workout, Ladder shows a banner stating that syncing is off, followed by a screen offering to sync with Apple Health for heart rate and calorie tracking, with an option not to see the prompt again. Choosing to track opens the Apple Health permission sheet with every category deselected by default.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O31",
+      "name": "Music service connection",
+      "section": "reach",
+      "observed": "After Apple Health, Ladder offers to connect Spotify or Apple Music to set the mood. Choosing Spotify opens the Spotify app, where Ladder offers no suggestions and the user picks their own music before returning to Ladder.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O32",
+      "name": "Share proof on Instagram",
+      "section": "reach",
+      "observed": "The workout completion screen offers to share proof on Instagram, sitting on the same screen as the badge and the workout's volume and reps.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Shareable Win",
+          "confidence": "An offer to send proof of a completed workout to a named external platform, attached to the completion record, is present (tier: strongly supported, the composed representation itself was not opened).",
+          "confidences": [
+            "An offer to send proof of a completed workout to a named external platform, attached to the completion record, is present (tier: strongly supported, the composed representation itself was not opened)."
+          ],
+          "rationale": "Exclusions checked first. What is offered is not the user's own work, since the share is labelled as proof and sits on the completion record with the badge, volume and reps (O13). It is not an in-product post only, since the destination is Instagram. It is not a referral link, since its subject is the workout rather than an action for the recipient. It is not a transaction document. The route out (named platform) and the attachment to a recorded accomplishment are observed; the composition of the representation was not opened, which is why confidence sits at strongly supported rather than directly observed.",
+          "alternativeConsidered": "The share could hand Instagram a generic Ladder promotional card with no workout record, which the entry would reject. The \"proof\" label and placement on the completion record argue against it; a session opening the share would settle it.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O33",
+      "name": "Referral offer and share pass",
+      "section": "reach",
+      "observed": "The weekly plan's Rewards section lists Baseline, Share Pass and Share Ladder, offering $25 to the Ladder Shop when a shared link's recipient subscribes. Tapping Share Pass sends something to someone, but Ladder doesn't state what the recipient receives. The Get Started checklist separately includes sharing Ladder with one person.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Referral",
+          "confidence": "A referral offer with a stated completion event and a reward to the referring user is present on Ladder's own framing (tier: directly observed). The reward's delivery and form in operation were not observed (tier: directly observed).",
+          "confidences": [
+            "A referral offer with a stated completion event and a reward to the referring user is present on Ladder's own framing (tier: directly observed). The reward's delivery and form in operation were not observed (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The reward is not granted for sign-up alone: the stated completion event is the introduced person subscribing. It is not Gifting, since the reward is earned by the introduced person's action and accrues to the referring user. It is not a first-purchase bonus. The commercial arrangement behind the $25 is not classified here. Required conditions are met on the product's framing: a link route, a defined completion event, a reward to the referring user, and a rule stated before the reward is earned.",
+          "alternativeConsidered": "Share Pass could be a gift of trial access to a friend rather than part of the referral, which would bear on Gifting. The session does not establish what Share Pass delivers; a session following Share Pass to the recipient's screen would separate the two, and it would not change the label on the $25 offer.",
+          "role": "social, monetization"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O34",
+      "name": "Free trial timeline",
+      "section": "monetization",
+      "observed": "After the team match, Ladder shows how the free trial works as a timeline: a completed Welcome step, the welcome workout described as unlocking the plan, a Day 5 trial reminder, and a Day 7 trial end after which the user chooses a monthly or annual plan. Plan prices aren't shown or stated anywhere in the app.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Progression Gate",
+          "confidence": "The lock on chat, nutrition and the full plan, stated in terms of completing the welcome workout and released after it, is present (tier: directly observed). The requirement of three completed workouts on the six-week strength series is present as a stated standing condition, although its release was not reached (tier: directly observed).",
+          "confidences": [
+            "The lock on chat, nutrition and the full plan, stated in terms of completing the welcome workout and released after it, is present (tier: directly observed). The requirement of three completed workouts on the six-week strength series is present as a stated standing condition, although its release was not reached (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The condition is not an eligibility condition, since the user satisfies it by using the product; it is not a purchase or subscription requirement, since the lock copy states a workout requirement and says nothing about payment; it is not a rate limiter; and the withheld parts (chat, nutrition, the full plan, the strength series) are distinct from the workouts that count toward the requirement rather than the next unit of a sequence. Required conditions are met: the product counts completed workouts (O17 shows the count), states the requirement on the locked surfaces before it is satisfied (O6, O23, O34), withholds the parts below it, and releases chat and nutrition once the welcome workout is complete (O23). O24 states a second requirement on the same measure at a higher value.",
+          "alternativeConsidered": "The O23 lock could be an onboarding sequence step rather than a standing gate on a measure. The session shows the requirement as a standing state on three separate surfaces before completion and a release afterwards, which fits the gate; a session in which a second new account skips the welcome workout and still reaches chat, or in which the lock reappears at trial end, would separate the two readings.",
+          "role": "engagement, retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O35",
+      "name": "Free pass card and trial framing",
+      "section": "monetization",
+      "observed": "Continuing past the trial timeline loads a \"Ladder free pass\" card, then a screen stating the trial has officially started, free for seven days. The weekly plan later states how many days remain until the trial ends. The nutrition pitch separately states no ads are included with membership.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O36",
+      "name": "Ladder Shop",
+      "section": "monetization",
+      "observed": "The weekly plan includes a shop where the user can purchase items from Ladder, opening a web page outside the app. The shop is also the destination of the referral reward. Products and prices in the shop aren't stated.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Referral",
+          "confidence": "A referral offer with a stated completion event and a reward to the referring user is present on Ladder's own framing (tier: directly observed). The reward's delivery and form in operation were not observed (tier: directly observed).",
+          "confidences": [
+            "A referral offer with a stated completion event and a reward to the referring user is present on Ladder's own framing (tier: directly observed). The reward's delivery and form in operation were not observed (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The reward is not granted for sign-up alone: the stated completion event is the introduced person subscribing. It is not Gifting, since the reward is earned by the introduced person's action and accrues to the referring user. It is not a first-purchase bonus. The commercial arrangement behind the $25 is not classified here. Required conditions are met on the product's framing: a link route, a defined completion event, a reward to the referring user, and a rule stated before the reward is earned.",
+          "alternativeConsidered": "Share Pass could be a gift of trial access to a friend rather than part of the referral, which would bear on Gifting. The session does not establish what Share Pass delivers; a session following Share Pass to the recipient's screen would separate the two, and it would not change the label on the $25 offer.",
+          "role": "social, monetization"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O37",
+      "name": "Notification request at trial start",
+      "section": "returns",
+      "observed": "On the trial-start screen, Ladder lists three things notifications will cover: knowing when the trial is about to end, seeing when the coach messages, and knowing when new workouts drop every Sunday, with options to enable them or choose \"Maybe later.\"",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O38",
+      "name": "Notification request attached to cheers",
+      "section": "returns",
+      "observed": "Immediately after sending a first cheer, Ladder offers to turn on notifications to send and receive cheers from the team, and choosing to turn it on raises the system notification permission request.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O39",
+      "name": "Welcome workout reminder scheduler",
+      "section": "returns",
+      "observed": "From the profile area, the user can set a reminder for the welcome workout, opening a time picker limited to the next 24 hours.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O40",
+      "name": "Weekly streak",
+      "section": "returns",
+      "observed": "Ladder frames a weekly streak in three places: the completion screen states that two more workouts are needed for it, the unlock screen states that three workouts a week earns it, and the Get Started checklist includes the weekly streak as an item. No streak count, display or reset rule for a missed week is shown.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "A weekly streak is present on Ladder's own framing in three surfaces (tier: directly observed). How the streak is displayed, counted and broken was not observed (tier: directly observed).",
+          "confidences": [
+            "A weekly streak is present on Ladder's own framing in three surfaces (tier: directly observed). How the streak is displayed, counted and broken was not observed (tier: directly observed)."
+          ],
+          "rationale": "Exclusions checked first. The framing is not only a cumulative total, since Ladder names a weekly period and a per-week threshold rather than a running count; it is not only a recurring schedule, since Ladder presents the qualifying weeks as a streak to be earned. The exclusion against classifying from words alone is addressed by the presence standard: Ladder presents the mechanic as a streak, states its qualifying condition and period, and counts progress toward it (\"two more workouts\", O13). The continuity rule for a missed week is a long-term clause and is recorded as not observed rather than withholding the label.",
+          "alternativeConsidered": "The three-a-week target could be a weekly goal tracked in isolation each week, with no linked sequence, which would be Daily / Weekly Quests or a plain recurring goal. Ladder's use of the word streak favours this entry; a session crossing a week boundary with and without three workouts would separate the two.",
+          "role": "retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O41",
+      "name": "Weekly workout release on Sundays",
+      "section": "returns",
+      "observed": "Ladder states in the welcome video that it delivers new workouts every Sunday, and repeats this on the trial-start screen as a reason to receive notifications. The app version reviewed predates any Sunday release being seen.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O42",
+      "name": "In-app chat message indicator",
+      "section": "returns",
+      "observed": "While on the weekly plan, a small indicator appeared on the Chat tab showing that someone had posted in the team chat. Whether a push notification accompanies the indicator isn't shown.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    }
+  ],
+  "systemView": [
+    "Ladder is a complex system whose spine is the welcome workout: matching to a coaching team decides which welcome workout is offered, and completing it is the single condition that unlocks chat, nutrition and the full plan, with the completion screen that follows fanning out into the badge, the community wall, the weekly streak, the strength-series requirement and the get-started checklist all at once."
+  ],
+  "mechanicWriteups": [
+    {
+      "name": "Progression Gate",
+      "summary": "Completing one welcome workout unlocks chat, nutrition and the full plan at once; three workouts unlocks a six-week strength series.",
+      "observed": "Before the welcome workout, Ladder locks Chat and Nutrition, stating on each locked tab what unlocking requires, while the Teams tab stays browsable. Completing the welcome workout opens all three areas at once, and Ladder announces the unlock directly. The workout completion screen separately states that reaching three completed workouts unlocks a six-week strength series.",
+      "presented": "The locked tabs state their own unlock condition before it's met. The unlock is announced with its own congratulations screen rather than happening silently, and the completion screen names the strength-series requirement alongside other next steps.",
+      "noting": "Two gates share one measure, completed workouts, at two different thresholds, one workout for chat, nutrition and the plan, three workouts for the strength series. Ladder never states whether either gate reopens if the trial ends before it's crossed.",
+      "findings": [
+        "Chat and Nutrition are locked and state their own unlock condition before the welcome workout is completed.",
+        "Completing the welcome workout unlocks Chat, Nutrition and the full plan at once, announced with its own screen.",
+        "A separate threshold, three completed workouts, unlocks a six-week strength series.",
+        "The Teams tab stays browsable even while Chat and Nutrition are locked."
+      ],
+      "screenshotsNote": "the locked Chat tab stating its unlock condition, and the plan-unlocked congratulations screen."
+    },
+    {
+      "name": "Achievement",
+      "summary": "A single 3D badge is awarded after the user rates their first workout, under the heading \"Rate to earn a badge.\"",
+      "observed": "After the final exercise of the welcome workout and a five-star rating prompt headed \"Rate to earn a badge,\" Ladder awards a badge read out as \"Ladder workout.\" The badge renders in 3D and reacts to touch.",
+      "presented": "The criterion is stated before the badge is awarded, immediately after the rating prompt, on the same completion sequence as the workout summary.",
+      "noting": "Ladder states the criterion up front rather than surprising the user with the badge, but doesn't say whether the badge lives on afterward in a profile or list, or whether other workouts award their own badges.",
+      "findings": [
+        "Ladder states the criterion, \"Rate to earn a badge,\" before awarding it.",
+        "The badge is a 3D, touch-reactive object rather than a static image.",
+        "Whether the badge is kept in a visible record afterward isn't stated.",
+        "Whether every workout or only the welcome workout awards a badge isn't stated."
+      ],
+      "screenshotsNote": "the \"Rate to earn a badge\" prompt and the 3D badge itself."
+    },
+    {
+      "name": "Streak",
+      "summary": "A weekly streak requires three workouts in a week, named on the completion screen, the unlock screen and the onboarding checklist.",
+      "observed": "Ladder names a weekly streak in three places: the workout completion screen states how many more workouts are needed for it, the plan-unlock screen states that three workouts a week earns it, and the Get Started checklist lists the weekly streak as an item.",
+      "presented": "The streak is introduced through language rather than a running counter at this point, repeated across the completion screen, the unlock screen and the checklist.",
+      "noting": "Ladder commits to the streak concept across three separate surfaces before showing any counter, display or reset rule for it.",
+      "findings": [
+        "The qualifying condition is three workouts within a week.",
+        "The streak is named on the completion screen, the unlock screen and the Get Started checklist.",
+        "No streak count, display or reset rule for a missed week appears."
+      ],
+      "screenshotsNote": "the completion screen's streak callout and the unlock screen's three-a-week line."
+    },
+    {
+      "name": "Referral",
+      "summary": "Sharing a link earns $25 of Ladder Shop gear once the introduced person subscribes, framed as a Rewards-section offer and a checklist item.",
+      "observed": "The weekly plan's Rewards section offers $25 to the Ladder Shop for sharing a link, paid out once the person who receives it subscribes. The Get Started checklist separately lists sharing Ladder with one person as an item.",
+      "presented": "The offer sits in the Rewards section of the weekly plan alongside a separate Share Pass option, with its qualifying event, the other person subscribing, stated up front.",
+      "noting": "Ladder states the reward and the qualifying event clearly, but not how the $25 arrives, as store credit or a specific item, and the separate Share Pass option's own effect isn't stated either.",
+      "findings": [
+        "The reward is $25 of Ladder Shop gear, earned once the introduced person subscribes.",
+        "Sharing happens through a link.",
+        "The Get Started checklist separately includes sharing Ladder with one person.",
+        "Ladder doesn't state whether the $25 arrives as credit or a specific item."
+      ],
+      "screenshotsNote": "the Rewards section showing the referral offer."
+    },
+    {
+      "name": "Shareable Win",
+      "summary": "The workout completion screen offers to share proof of the finished workout to Instagram, alongside the badge and workout stats.",
+      "observed": "The workout completion screen offers to share proof of the completed workout to Instagram, sitting on the same screen as the badge, total volume and total reps.",
+      "presented": "The share option is offered directly on the completion record rather than through a separate share menu, naming a specific destination platform.",
+      "noting": "Ladder frames the share as \"proof\" attached to the completion record rather than a generic promotional post, though what the shared image actually contains isn't shown.",
+      "findings": [
+        "The completion screen offers to share proof of the workout to Instagram.",
+        "The share option sits alongside the badge, total volume and total reps.",
+        "Instagram is named as the specific destination."
+      ],
+      "screenshotsNote": "the completion screen showing the Instagram share option beside the badge and stats."
+    },
+    {
+      "name": "Group Membership",
+      "summary": "A team match assigns one coaching team per user, with its own chat, coach and welcome workout; topic groups and meetups sit alongside it.",
+      "observed": "A preference filter matches the user to one team, labeled as \"my team\" throughout the app, with its own coach, its own welcome workout and its own chat. Ladder states the user can change teams during the trial. Separately, the Chat tab lists topic groups by subject, each showing a member count, and city-based meetups.",
+      "presented": "The team relationship appears throughout the app, on the home screen through teammate avatars, in the Teams tab as a named coach and team description, and in a team-scoped chat. Topic groups and meetups sit in the same Chat tab as their own list, separate from the team.",
+      "noting": "Ladder maintains the team relationship as a standing fact rather than an open room, deciding which welcome workout and chat the user sees, while the topic groups show only a member count and a join route, with what joining actually changes left unstated.",
+      "findings": [
+        "A preference filter assigns one team, changeable during the trial.",
+        "The team determines the welcome workout, the coach video and the team chat.",
+        "Topic groups are organized by subject, each showing a member count.",
+        "City-based meetups appear in the same list as the topic groups."
+      ],
+      "screenshotsNote": "the Teams tab showing the matched team, and the topic-groups list with member counts."
+    },
+    {
+      "name": "Community Space",
+      "summary": "A wall of over 13,000 videos from other members who completed the same welcome workout appears right after the user's own completion badge.",
+      "observed": "Directly after the completion badge, Ladder shows a wall of videos from other people who completed the welcome workout, stating 13,728 completions, each showing the time taken and calories burned. The only action offered is joining the wall, which requests camera and photo library access.",
+      "presented": "The wall appears as its own full screen immediately after the badge, before returning to the home screen, with a close control in the top left corner.",
+      "noting": "Ladder requests camera and full photo library access as soon as the join action is tapped, without a screen first asking whether the user wants to record a video at all.",
+      "findings": [
+        "The wall states 13,728 completions of the welcome workout.",
+        "Each video shows the time taken and calories burned.",
+        "Joining the wall is the only action offered, and it immediately requests camera and photo library access.",
+        "The wall appears directly after the completion badge, before the home screen."
+      ],
+      "screenshotsNote": "the completion wall showing the 13,728 count and the join action.\n\n---"
+    }
+  ],
+  "sectionLeadIns": {
+    "onboarding": "A tracking prompt, Apple sign-in, a three-part coach video sequence and a team-match filter all run before the user reaches the home screen.",
+    "core-loop": "Once the plan unlocks, the weekly plan hub, the welcome workout player and a nutrition dashboard anchor Ladder's core loop.",
+    "goals": "A completion badge, profile statistics, a Get Started checklist, an upcoming strength series and a full nutrition questionnaire sit across this section.",
+    "access": "One completed workout unlocks chat, nutrition and the plan together; three completed workouts unlocks a six-week strength series.",
+    "social": "Ladder's social layer runs through the matched coaching team, teammate cheers, team chat, and a set of topic groups and meetups sitting alongside it.",
+    "reach": "Apple Health, a music service connection, and sharing options each carry the user outside Ladder at the start and end of a workout.",
+    "monetization": "A seven-day free trial with no credit card required runs on a fixed timeline toward a monthly or annual plan, with no price shown.",
+    "returns": "Two notification prompts, a workout reminder, a weekly streak and a fixed Sunday content release bring users back."
+  },
+  "sectionCards": {
+    "onboarding": "A tracking prompt, Apple sign-in, a three-part coach video sequence and a team-match filter all run before the user reaches the home screen.",
+    "core-loop": "The weekly plan hub, the welcome workout player and a new nutrition dashboard anchor a loop that opens with one workout and branches into macro tracking.",
+    "goals": "A completion badge, profile stats, a Get Started checklist, an upcoming strength series and a full nutrition questionnaire sit across this section.",
+    "access": "One completed workout unlocks chat, nutrition and the plan at once; three completed workouts unlocks a six-week strength series.",
+    "economy": "Empty. Ladder holds no currency, points balance or resource of its own.",
+    "social": "A matched coaching team, teammate cheers, team chat, topic groups and city meetups make up the social layer.",
+    "reach": "Apple Health sync, a music service connection, and a share-to-Instagram option each carry the user outside Ladder.",
+    "monetization": "A seven-day free trial with no credit card required runs on a fixed timeline toward a monthly or annual plan, with no price shown.",
+    "returns": "Two notification prompts, a workout reminder, a weekly streak and a fixed Sunday content release bring users back."
+  },
+  "proposedTags": [
+    {
+      "name": "Signed Commitment",
+      "sourceObservations": [
+        "O22",
+        "O21",
+        "O20",
+        "O20",
+        "O21",
+        "O22",
+        "O22",
+        "O21"
+      ],
+      "draftDefinition": "A signed commitment is a statement of the user's own future behavior, written in the user's name from targets the user has just set or accepted, which the user must sign or affirm before the product opens the next part of itself. The signature is assent to the user's own future behavior, distinct from accepting terms, giving consent, or entering a legal agreement.\n**Source observations:** O22, O21, O20.\n**Conditions it appears to depend on:** A preceding step in which targets are set or accepted (O20, O21). A statement listing specific future behaviors (O22). An affirmative action that stands in for a signature and gates progress (O22).\n**Why it is not covered.** No approved entry classifies an explicit pledge. Future Projection covers a computed future state restated at a commitment point, and O21 shows no such computation. Profile Completion and Personal Data Reflection concern supplied attributes and the user's own records. Challenge requires a bounded objective with a tracked result, and the commitment has neither a boundary nor a tracked outcome in the session.\n**Recurrence elsewhere:** A pledge the user signs or affirms before the product opens is a behavioral device that health, finance and learning products carry (tier: plausible, recurrence is not established by this session). This proposal rests on one instance and is held open. What settles it is a second analyzed app carrying the same shape: a statement of the user's own future behavior, built from targets just set, that the user must sign or affirm before the product continues.\n**Caveat.** The session shows the signature once and does not show Ladder referring back to it later, whether it is stored, or whether it can be declined. A second instance with a different shape, such as a pledge with no preceding targets or one the user can skip without affirming, does not settle the proposal and is recorded against it. A legal agreement, consent form or terms acceptance is not this pattern, and the boundary is whether the statement concerns the user's own future behavior.",
+      "conditions": "A preceding step in which targets are set or accepted (O20, O21). A statement listing specific future behaviors (O22). An affirmative action that stands in for a signature and gates progress (O22).\n**Why it is not covered.** No approved entry classifies an explicit pledge. Future Projection covers a computed future state restated at a commitment point, and O21 shows no such computation. Profile Completion and Personal Data Reflection concern supplied attributes and the user's own records. Challenge requires a bounded objective with a tracked result, and the commitment has neither a boundary nor a tracked outcome in the session.\n**Recurrence elsewhere:** A pledge the user signs or affirms before the product opens is a behavioral device that health, finance and learning products carry (tier: plausible, recurrence is not established by this session). This proposal rests on one instance and is held open. What settles it is a second analyzed app carrying the same shape: a statement of the user's own future behavior, built from targets just set, that the user must sign or affirm before the product continues.\n**Caveat.** The session shows the signature once and does not show Ladder referring back to it later, whether it is stored, or whether it can be declined. A second instance with a different shape, such as a pledge with no preceding targets or one the user can skip without affirming, does not settle the proposal and is recorded against it. A legal agreement, consent form or terms acceptance is not this pattern, and the boundary is whether the statement concerns the user's own future behavior.",
+      "whyNotCovered": "No approved entry classifies an explicit pledge. Future Projection covers a computed future state restated at a commitment point, and O21 shows no such computation. Profile Completion and Personal Data Reflection concern supplied attributes and the user's own records. Challenge requires a bounded objective with a tracked result, and the commitment has neither a boundary nor a tracked outcome in the session.\n**Recurrence elsewhere:** A pledge the user signs or affirms before the product opens is a behavioral device that health, finance and learning products carry (tier: plausible, recurrence is not established by this session). This proposal rests on one instance and is held open. What settles it is a second analyzed app carrying the same shape: a statement of the user's own future behavior, built from targets just set, that the user must sign or affirm before the product continues.\n**Caveat.** The session shows the signature once and does not show Ladder referring back to it later, whether it is stored, or whether it can be declined. A second instance with a different shape, such as a pledge with no preceding targets or one the user can skip without affirming, does not settle the proposal and is recorded against it. A legal agreement, consent form or terms acceptance is not this pattern, and the boundary is whether the statement concerns the user's own future behavior.",
+      "recurrenceElsewhere": "A pledge the user signs or affirms before the product opens is a behavioral device that health, finance and learning products carry (tier: plausible, recurrence is not established by this session). This proposal rests on one instance and is held open. What settles it is a second analyzed app carrying the same shape: a statement of the user's own future behavior, built from targets just set, that the user must sign or affirm before the product continues.\n**Caveat.** The session shows the signature once and does not show Ladder referring back to it later, whether it is stored, or whether it can be declined. A second instance with a different shape, such as a pledge with no preceding targets or one the user can skip without affirming, does not settle the proposal and is recorded against it. A legal agreement, consent form or terms acceptance is not this pattern, and the boundary is whether the statement concerns the user's own future behavior.",
+      "caveat": "The session shows the signature once and does not show Ladder referring back to it later, whether it is stored, or whether it can be declined. A second instance with a different shape, such as a pledge with no preceding targets or one the user can skip without affirming, does not settle the proposal and is recorded against it. A legal agreement, consent form or terms acceptance is not this pattern, and the boundary is whether the statement concerns the user's own future behavior."
     }
   ],
   "system": {
-    "tagline": "A fitness app where the coaching team is the product, not the workout library.",
-    "overview": "Ladder's organizing unit is the coaching team. Every social mechanic, every accountability surface, and every piece of workout content flows through the same team structure. The coach delivers a personal recruitment video before the user joins. The welcome workout completion is the single most event-dense moment in the app: badge, Workout Wall, get-started challenge, and plan unlock all arrive at once.",
-    "loop": "Match to a coaching team through a preference filter. Watch the coach's recruitment video. Complete the welcome workout. Unlock: team chat, Workout Wall, nutrition module, full workout plan, get-started challenge checklist. Complete three workouts per week to maintain the streak. The get-started challenge drives early social actions: second workout, profile photo, widget install, referral, weekly streak.",
-    "keyInsight": "The welcome workout completion screen is the most information-dense single event in the onboarding observed across all fitness apps in the library. Five things happen at once: the badge award, the Workout Wall reveal, the get-started checklist, the plan unlock, and the nutrition module access. Everything the app wants the user to know about its value is timed to the moment they have just demonstrated they will actually use it.",
-    "whatMakesItWork": "The team structure makes social accountability automatic rather than optional. Cheers, chat, and workout wall entries are all team-specific, so social interaction happens within a bounded group of people working under the same coach. The coach's recruitment video, which includes deliberate commitment-triggering language, front-loads the psychological investment before the user has done a single workout.",
+    "tagline": "Completing one welcome workout is the single condition that opens chat, nutrition, the plan, a badge, a community wall and a streak requirement at once.",
+    "overview": "Ladder matches a new user to a coaching team, and that team decides which welcome workout is offered. Completing it is the one condition that unlocks chat, nutrition and the full plan, and the completion screen that follows fires a badge, a community wall, a streak requirement, a strength-series requirement and a get-started checklist together. That checklist is what routes the user into the app's remaining social and referral surfaces.",
+    "loop": "Match to a coaching team through a preference filter. Watch the coach's introduction video. Complete the welcome workout, which clears the gate on chat, nutrition and the full plan in the same moment it awards a badge, reveals a 13,728-completion community wall, and states the weekly streak and six-week strength-series requirements. The get-started checklist that appears once the gate opens routes into team chat, a second workout, profile steps, and the $25 referral offer.",
+    "keyInsight": "The welcome workout completion is the single hinge the rest of the app hangs from: the team match decides which workout it is, and completing it fires the badge, the community wall, the streak and strength-series requirements, and the checklist that leads to referral, all in one sequence. Nothing else in the record requires a separate unlock condition of its own.",
+    "whatMakesItWork": "Every major mechanic depends on the same one action rather than competing for a separate moment of attention. A user who completes the welcome workout doesn't have to discover the badge, the wall, the streak or the referral offer independently, all five are placed on or immediately after the same screen, so one decision produces the app's entire first impression of value at once.",
     "roles": [
       {
-        "id": "streak",
-        "role": "Week-based: three workouts per week constitutes a streak. Introduced on the welcome workout completion screen alongside the get-started challenge."
+        "id": "progression-gate",
+        "role": "One completed workout unlocks chat, nutrition and the plan at once, announced with its own screen; three completed workouts unlocks a six-week strength series."
       },
       {
-        "id": "challenges",
-        "role": "Two layers: the get-started onboarding checklist (defined endpoint, sequential) and the Baseline Strength Series (20 workouts over six weeks, spanning multiple weekly streak cycles)."
+        "id": "achievement",
+        "role": "A single 3D badge, awarded after rating the completed welcome workout under the heading \"Rate to earn a badge.\""
+      },
+      {
+        "id": "streak",
+        "role": "A weekly streak requiring three workouts, named on the completion screen, the unlock screen and the get-started checklist, with no counter or reset rule shown."
+      },
+      {
+        "id": "referral-boost",
+        "role": "Sharing a link earns $25 of Ladder Shop gear once the introduced person subscribes, offered in the Rewards section and as a get-started checklist item."
+      },
+      {
+        "id": "shareable-win",
+        "role": "An offer to share proof of the completed workout to Instagram, sitting on the same completion screen as the badge."
       },
       {
         "id": "community-groups",
-        "role": "Four social surfaces in one tab, organized from most specific (your team) to broadest (all Ladder) to real-world (city meetups and live events)."
-      },
-      {
-        "id": "social-feed",
-        "role": "Cheers sent via home screen double-tap. The Workout Wall as a post-workout screen embeds social proof at the moment of highest motivation."
-      },
-      {
-        "id": "gifting",
-        "role": "Share pass gives recipients trial access. Referrer earns $25 in Ladder Shop credit when the recipient subscribes. Embedded in the get-started onboarding checklist."
+        "role": "A matched coaching team with its own chat, plus a 13,728-completion community wall that appears immediately after the welcome workout badge."
       }
     ],
     "center": {
@@ -126,64 +927,78 @@
     },
     "nodes": [
       {
-        "id": "streak",
+        "id": "progression-gate",
         "x": 50,
-        "y": 26
-      },
-      {
-        "id": "challenges",
-        "x": 22,
-        "y": 50
+        "y": 28
       },
       {
         "id": "community-groups",
-        "x": 78,
+        "x": 18,
         "y": 50
       },
       {
         "id": "achievement",
-        "x": 22,
-        "y": 76
+        "x": 40,
+        "y": 50
       },
       {
-        "id": "social-feed",
-        "x": 78,
-        "y": 76
+        "id": "streak",
+        "x": 62,
+        "y": 50
       },
       {
-        "id": "gifting",
-        "x": 50,
-        "y": 90
+        "id": "referral-boost",
+        "x": 84,
+        "y": 50
+      },
+      {
+        "id": "shareable-win",
+        "x": 40,
+        "y": 74
       }
     ],
     "connections": [
       {
-        "from": "streak",
-        "to": "challenges",
-        "title": "Weekly streak threshold matches challenge completion cadence",
-        "desc": "Three workouts per week earns the streak. The get-started challenge requires those same workouts as checkboxes. The streak and the onboarding challenge share the same behavioral unit.",
-        "effect": "Users who pursue the streak are simultaneously progressing the get-started challenge. One behavior completes two tracking systems."
+        "from": "community-groups",
+        "to": "progression-gate",
+        "title": "The matched team decides which gate the user faces",
+        "desc": "A preference filter assigns one coaching team before the welcome workout is ever shown, and that team decides which specific welcome workout the completion gate is built around.",
+        "effect": "The social layer is established before the gate, not after it, so completing the gate is always completing that team's own workout."
       },
       {
-        "from": "challenges",
+        "from": "progression-gate",
+        "to": "achievement",
+        "title": "The same completion that clears the gate earns the badge",
+        "desc": "Rating the completed welcome workout both clears the one-workout threshold on chat, nutrition and the plan and awards the 3D badge in the same sequence.",
+        "effect": "A single action produces an access change and a recognition event at once, with no separate step for either."
+      },
+      {
+        "from": "progression-gate",
         "to": "community-groups",
-        "title": "Get-started challenge drives social layer adoption",
-        "desc": "The get-started checklist includes adding a profile photo, joining team chat, and sharing Ladder with one person. The challenge mechanics explicitly push the user into every social surface.",
-        "effect": "The community layer is not discovered passively. The checklist makes it a completion step."
+        "title": "The wall appears the moment the gate opens",
+        "desc": "The 13,728-completion wall is shown directly after the completion badge, immediately following the same welcome workout that clears the gate.",
+        "effect": "The new user sees evidence of community scale at the exact moment they cross the gate, before they have formed any expectation of what the community looks like."
       },
       {
-        "from": "social-feed",
+        "from": "progression-gate",
         "to": "streak",
-        "title": "Workout Wall provides social proof at the streak introduction moment",
-        "desc": "The Workout Wall, showing 13,728 previous completions of the welcome workout, appears immediately before the streak is introduced on the completion screen.",
-        "effect": "The scale of community participation is visible at the exact moment the streak commitment begins. The streak starts in a context of demonstrated mass adoption."
+        "title": "The unlock screen introduces the streak in the same breath",
+        "desc": "The congratulations screen that announces the gate opening states in the same line that three workouts a week earns a streak.",
+        "effect": "The next return-driving commitment is introduced at the exact moment the first one is satisfied, with no gap between them."
       },
       {
-        "from": "gifting",
-        "to": "challenges",
-        "title": "Referral is a checklist item, not a hidden feature",
-        "desc": "Share Ladder with one person is an explicit checkbox in the get-started challenge. Referral is framed as an onboarding completion step rather than a settings option.",
-        "effect": "The referral rate is higher because completion of the checklist is the motivator, not the referral mechanic itself."
+        "from": "progression-gate",
+        "to": "referral-boost",
+        "title": "The referral offer only appears after the gate opens",
+        "desc": "The Get Started checklist, which carries the sharing step behind the $25 offer, appears at the bottom of the workout tab only once the welcome workout has unlocked the plan.",
+        "effect": "A user cannot reach the referral offer without first clearing the same gate that opens chat and nutrition."
+      },
+      {
+        "from": "achievement",
+        "to": "shareable-win",
+        "title": "The share option sits on the same screen as the badge",
+        "desc": "The Instagram share offer, the completion badge, and the workout's volume and reps all appear together on one completion screen.",
+        "effect": "The moment that produces the recognition and the moment that offers to publicize it are the same screen, not two separate steps."
       }
     ]
   }

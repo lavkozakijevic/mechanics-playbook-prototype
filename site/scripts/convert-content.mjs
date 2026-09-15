@@ -366,7 +366,19 @@ function confidenceTiers(confidence) {
 function tagPublishes(confidence) {
   const tiers = confidenceTiers(confidence);
   if (!tiers.length) return false;
-  return tiers.every((t) => TAG_CONFIDENCE_RANK[t] >= 1);
+  // "some", not "every": a single Confidence field can legitimately describe
+  // more than one sub-aspect of an already-applied tag at different tiers —
+  // ladder.md's Group Membership names the team relationship as directly
+  // observed and the topic-group membership as plausible in the same field,
+  // and the tag still publishes, since the team alone establishes it and the
+  // topic-group clause is supplementary detail, not a competing overall
+  // rating. Requiring every mentioned tier to clear the bar treated that
+  // weaker clause as disqualifying the whole tag, which contradicts the
+  // cross-block rule just above (a tag publishes if any one block clears the
+  // bar; a weaker sibling block only affects which confidence is displayed,
+  // never eligibility) — this is that same rule applied within one block's
+  // own text instead of across several.
+  return tiers.some((t) => TAG_CONFIDENCE_RANK[t] >= 1);
 }
 // The single worst (lowest-ranked) tier a confidence string actually
 // mentions — used to find which of several blocks for the same tag is the
@@ -949,11 +961,12 @@ const ADDITIONS = {
 // once (uptime, fifa-panini-collection); the remap follows whichever framing
 // the file's own words lead with, since one file can only remap to one id.
 // Neither clash-of-clans, canva, tiimo, capybara-go, dave, cleo,
-// royal-match, gymverse, fc-mobile, nor acorns appears below: all ten are
-// v4.1 and never reach this path (royal-match, gymverse, fc-mobile and
-// acorns each carried an entry here before their own migration to v4.1,
-// removed once each analysis stopped using the v3 inline-id form).
-//   -> achievement: calm, ladder, liftoff, swgoh,
+// royal-match, gymverse, fc-mobile, acorns, nor ladder appears below: all
+// eleven are v4.1 and never reach this path (royal-match, gymverse,
+// fc-mobile, acorns and ladder each carried an entry here before their own
+// migration to v4.1, removed once each analysis stopped using the v3
+// inline-id form).
+//   -> achievement: calm, liftoff, swgoh,
 //      freeletics, uptime, fiton, fortune-city, match-creek-motors,
 //      fifa-panini-collection, subway-surfers.
 //   -> milestone: insight-timer, chrome-valley-customs,
@@ -1004,7 +1017,6 @@ const REMAPS = {
   "liftoff": { "xp-leveling": "leveling", "achievements": "achievement", "variable-reward": "loot-box" },
   "solitaire-grand-harvest": { "xp-leveling": "experience-points", "achievements": "milestone" },
   "calm": { "achievements": "achievement" },
-  "ladder": { "achievements": "achievement" },
   "swgoh": { "achievements": "achievement", "variable-reward": "loot-box" },
   "uptime": { "achievements": "achievement" },
   "fiton": { "achievements": "achievement" },
@@ -1080,6 +1092,11 @@ const ALL_APPS = [
   { file: "wispr-flow.md", id: "wispr-flow", visibility: "subscriber" },
   // Batch 6
   { file: "wakeout.md", id: "wakeout", visibility: "subscriber" },
+  // Not part of any prior batch — DoorDash has no v3 history at all, in
+  // this file or anywhere else in the site (data.js, system.html): it was
+  // analyzed directly under the v4.1 model and is a first-time addition to
+  // this roster, not a migration of an existing entry.
+  { file: "doordash.md", id: "doordash", visibility: "subscriber" },
   // Report-only remainder (never appear in deployed output)
   { file: "orbit.md", id: "orbit", visibility: "report-only" },
   { file: "dave.md", id: "dave", visibility: "subscriber" },
@@ -1402,6 +1419,56 @@ const V41_APP_META = {
         "Strava's paywall is met at nine points with copy matched to each one, behind trial and pricing terms that are stated differently across screens.",
       returns:
         "Strava brings users back through a long notification catalogue, a streak at the top of the dashboard, and deadlines tied to challenges and events.",
+    },
+  },
+  doordash: {
+    name: "DoorDash",
+    category: "Commerce / Food and Grocery Delivery",
+    type: "app",
+    sectionCards: {
+      onboarding:
+        "DoorDash lets a new user browse as a guest from the first screen, asking for permissions and an address before any sign-in is required.",
+      "core-loop":
+        "DoorDash's home screen, search, verticals and store pages all feed one destination, a per-merchant cart, through a long sequence of browsing surfaces.",
+      goals:
+        "A single two-tier reviewer badge is the only progression structure found in the app.",
+      access:
+        "Availability follows the delivery address, and sign-in is required only at checkout and for account-linked surfaces.",
+      economy:
+        "DoorDash credits are a dollar-denominated cashback balance tied to DashPass, not a product-specific currency.",
+      social:
+        "DoorDash's social layer covers three gift routes, a one-time group order, and a reviews-and-photos layer built around a public contributor profile.",
+      reach:
+        "A loyalty-program link, sharing store and group-order links, map-app handoffs and an ads-personalization disclosure each point outside DoorDash.",
+      monetization:
+        "DoorDash names a specific set of fees on every order and pairs each one directly to the DashPass subscription that reduces or removes it.",
+      returns:
+        "A notification request, a notification inbox, and dated offer windows make up a thin return layer.",
+    },
+  },
+  ladder: {
+    name: "Ladder",
+    category: "Fitness / Coached Training",
+    type: "app",
+    sectionCards: {
+      onboarding:
+        "A tracking prompt, Apple sign-in, a three-part coach video sequence and a team-match filter all run before the user reaches the home screen.",
+      "core-loop":
+        "The weekly plan hub, the welcome workout player and a new nutrition dashboard anchor a loop that opens with one workout and branches into macro tracking.",
+      goals:
+        "A completion badge, profile stats, a Get Started checklist, an upcoming strength series and a full nutrition questionnaire sit across this section.",
+      access:
+        "One completed workout unlocks chat, nutrition and the plan at once; three completed workouts unlocks a six-week strength series.",
+      economy:
+        "Empty. Ladder holds no currency, points balance or resource of its own.",
+      social:
+        "A matched coaching team, teammate cheers, team chat, topic groups and city meetups make up the social layer.",
+      reach:
+        "Apple Health sync, a music service connection, and a share-to-Instagram option each carry the user outside Ladder.",
+      monetization:
+        "A seven-day free trial with no credit card required runs on a fixed timeline toward a monthly or annual plan, with no price shown.",
+      returns:
+        "Two notification prompts, a workout reminder, a weekly streak and a fixed Sunday content release bring users back.",
     },
   },
   gymverse: {

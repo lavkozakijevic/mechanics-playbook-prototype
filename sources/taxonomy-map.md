@@ -271,22 +271,31 @@ re-reading each analysis, which is out of scope for an id split; it
 resolves the same way the xp-leveling split's app list did, as each app
 is re-run.
 
-19 older v3 analysis files still carry the literal `achievements` inline
-id in a `### Achievements (\`achievements\`) · Depth` heading,
-unrewritten: calm, gymverse, ladder, fc-mobile, liftoff, swgoh,
-freeletics, uptime, fiton, fortune-city, match-creek-motors,
-fifa-panini-collection, and subway-surfers resolve to `achievement`;
-insight-timer, chrome-valley-customs, acorns, royal-match, wispr-flow, and
+Older v3 analysis files still carry the literal `achievements` inline id
+in a `### Achievements (\`achievements\`) · Depth` heading, unrewritten:
+calm, gymverse, fc-mobile, liftoff, swgoh, freeletics, uptime, fiton,
+fortune-city, match-creek-motors, fifa-panini-collection, and
+subway-surfers resolve to `achievement`; insight-timer,
+chrome-valley-customs, acorns, royal-match, wispr-flow, and
 solitaire-grand-harvest resolve to `milestone`. Each was decided from that
 file's own observed text (a discrete criterion preserved once satisfied,
 apart from whatever activity produced it, versus a recognized point within
 an ongoing measure), and is handled by a per-app entry in `REMAPS`
 (`site/scripts/convert-content.mjs`) rather than by editing the analysis
-files. Several of the 19 describe both shapes at once (fc-mobile, uptime,
+files. Several of these describe both shapes at once (fc-mobile, uptime,
 fifa-panini-collection); the remap follows whichever framing the file's
 own words lead with, since REMAPS can only carry one id per app per
-heading. Without it, any of the 19 would throw "unknown mechanic
+heading. Without it, any of these would throw "unknown mechanic
 achievements" the moment the id stopped being registered.
+
+Ladder was one of these, resolving to `achievement`, until its own
+migration to v4.1 (18 Sep 2026): its fresh analysis uses the reviewed
+canonical name "Achievement" directly, and confirms the same disposition
+the old remap assumed, a badge awarded on a stated criterion. Its
+`REMAPS` entry has been removed rather than left in place, since ladder.md
+is now v4.1 and never reaches this path regardless of what the entry says
+— the same retirement already applied to royal-match, gymverse, fc-mobile
+and acorns above.
 
 Strava's and Wakeout's analyses were not among the 19: both use the
 reviewed canonical-name heading form (`### Milestone · ...`, `###
