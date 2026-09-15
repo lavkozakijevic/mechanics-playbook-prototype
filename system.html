@@ -328,6 +328,9 @@
 <script src="auth.js"></script>
 <script>
 const CONNECTIONS = {
+  "doordash": [
+    { from: "reviews-and-ratings", to: "achievement", title: "The contribution loop is what the badge counts", desc: "The same reviews and photos the contributor profile invites are the exact criterion the Emerging expert and Local expert badges track.", effect: "The badge has nothing of its own to count; every step of its progress is a contribution the reviews-and-ratings loop already invited." },
+  ],
   "cleo": [
     { from: "personal-data-reflection", to: "streak", title: "Reviews and games feed their own streak", desc: "Completing a spending review moves the review streak from zero to one, and playing the money game produces the streak shown on its own stats screen.", effect: "The counters that give a reason to come back are tied to finishing a review or a game round, not to anything in the budget tab." },
   ],
@@ -584,8 +587,9 @@ const POSITIONS = {
     "gifting":               { x: 50, y: 80 },
   },
   "doordash": {
-    center:      { x: 50, y: 20, label: "DOORDASH" },
-    "achievement": { x: 50, y: 55 },
+    center:                  { x: 50, y: 12, label: "DOORDASH" },
+    "reviews-and-ratings":   { x: 50, y: 42 },
+    "achievement":           { x: 50, y: 72 },
   },
   "fc-mobile": {
     center:                  { x: 50, y: 6,  label: "FC MOBILE" },

@@ -1,0 +1,34 @@
+{
+  "id": "reviews-and-ratings",
+  "n": "47",
+  "name": "Reviews and Ratings",
+  "cat": "social",
+  "tagline": "A contribution loop in which the product invites users to rate, review, or photograph listings in its catalogue and maintains a state for each contribution addressed to the contributor rather than to the shopper choosing among them.",
+  "desc": "Reviews and ratings are a contribution loop: the product invites users to rate, review, or photograph the listings in its catalogue, attributes each contribution to the account that made it, and maintains a state for that contribution addressed to the contributor rather than to the shopper deciding what to buy, an approval status, a publication on the listing, a visibility setting over what others see, or a count the contributor can watch grow. The aggregate rating, review score, and excerpts a shopper sees on a listing to help decide are commerce infrastructure and carry no label here; this entry classifies the other side of the same surface, where the product asks for a contribution and does something with what it receives. A displayed review is evidence that contributions exist, it is not the mechanic itself.",
+  "principle": "A rating shown to a shopper and a rating asked of a contributor are the same star icon read from two different sides. The mechanic is only the contributor's side: what the product does with an evaluation once it has one, not what it shows the person deciding whether to buy.",
+  "players": [
+    "socializer"
+  ],
+  "warn": "The label is easy to misapply toward the shopper-facing half of the same surface: an aggregate rating, a review count, excerpts, or a list of listings ranked by customer ratings all help someone choose what to buy and carry no label here, however many stars or review counts they show. It's just as easy to miss the boundary against neighboring entries: a badge earned at a count of contributions is Achievement, not this; a rating of the user's own past activity handed back to the user is Personal Data Reflection; and contribution to a persistent shared conversation that evaluates nothing, a discussion thread, an uploaded screenshot, is Community Space. Confirm the product invites an evaluation of something in its own catalogue and holds a state addressed to the contributor before treating a star icon as this mechanic operating.",
+  "variants": [
+    "Moderated contribution, contributions are held for approval before they appear to other users",
+    "Listing-published contribution, approved contributions display on the listing's own page to users considering it",
+    "Restrictable contributor identity, the contributor can restrict what others see of their identity or contribution record",
+    "Counted contribution, the product counts contributions toward a criterion, classified under Achievement where that applies",
+    "Framed invitation, the product states a reason for contributing, such as visibility to other users, trust, or support for the listing"
+  ],
+  "lifecycle": "Needs a catalogue already carrying activity, an order placed, a store visited, a game played, before there's anything for a contribution to evaluate, so it has nothing to ask a brand-new account for. Most visible right after that activity completes, when the product can address the user as someone who just formed an opinion worth capturing.",
+  "paired": [
+    "achievement",
+    "community-groups",
+    "social-feed"
+  ],
+  "context": [
+    "retention"
+  ],
+  "sdt": [
+    "relatedness",
+    "competence"
+  ],
+  "visibility": "public"
+}

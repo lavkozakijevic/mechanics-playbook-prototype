@@ -99,6 +99,7 @@ export const CANONICAL_MECHANIC_IDS = {
   // one rather than being replaced by it.
   "Referral Boost": "referral-boost",
   "Referral": "referral-boost",
+  "Reviews and Ratings": "reviews-and-ratings",
   "Reward Multiplier": "reward-multiplier",
   "Rewarded Advertisement": "ads", // the only entry mapping to "ads" since Advertisement Exposure's retirement, 13 Sep 2026
   "Season Content Pass": "season-pass", // merges with Seasonal Progression Pass below

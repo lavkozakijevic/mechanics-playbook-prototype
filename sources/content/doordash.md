@@ -1,8 +1,8 @@
 # DoorDash
 
-**Teaser:** DoorDash's only applied mechanic is a two-tier badge that rewards leaving reviews with visibility among other shoppers, not with anything spendable.
+**Teaser:** DoorDash's whole progression layer is two connected mechanics, a review-and-photo contribution loop and the badge that counts it, and neither touches ordering, fees or DashPass.
 
-DoorDash is a food, grocery and retail delivery marketplace built around one loop: browse a merchant, fill a per-merchant cart, check out. Nearly every surface in the app, home sections, deals, search, the AI recipe-to-cart feature, and the grocery, pickup and other verticals, feeds that same cart, and carts persist across screens and sign-in. A second, tightly linked system pairs a named set of delivery and service fees to the DashPass subscription that reduces or removes them, offered repeatedly across the app. A single isolated mechanic, a two-tier reviewer badge, sits apart from both of these and connects to neither.
+DoorDash is a food, grocery and retail delivery marketplace built around one loop: browse a merchant, fill a per-merchant cart, check out. Nearly every surface in the app, home sections, deals, search, the AI recipe-to-cart feature, and the grocery, pickup and other verticals, feeds that same cart, and carts persist across screens and sign-in. A second, tightly linked system pairs a named set of delivery and service fees to the DashPass subscription that reduces or removes them, offered repeatedly across the app. A small connected pair sits apart from both of these: a contributor profile inviting reviews and photos, and a two-tier badge that counts what it receives.
 
 ---
 
@@ -13,6 +13,26 @@ DoorDash is a simple system for engagement-design purposes: its spine is filling
 ---
 
 ## Mechanics
+
+### Reviews and Ratings
+
+**Implementation summary:** DoorDash invites reviews and photos through a contributor profile that tracks approval status and visibility, though nothing had been contributed yet.
+
+**What was observed:** DoorDash's contributor profile explainer invites the user to share reviews and photos and become a trusted voice. The profile itself states zero contributions and that contributions will appear once approved. Each store page opens a dedicated ratings and reviews view and a customer photos view showing what other users have posted. A restricted-profile setting controls what others see of the user's own contributions, while stating that public contributions still display on the store page regardless.
+
+**How it is presented:** The invitation runs through a three-page explainer on first opening the contributor profile, framed around becoming a trusted, visible voice. Store pages carry their own dedicated buttons for ratings and reviews and for customer photos, separate from the store's browsing content.
+
+**What is worth noting:** Every state this mechanic maintains starts at zero: no contributions made, no approval status beyond pending, no visibility setting ever exercised. The invitation and the contributor-side bookkeeping are fully built out before a single review exists.
+
+**Key findings:**
+
+- DoorDash's contributor profile invites the user to share reviews and photos and become a trusted voice.
+- The profile reads zero contributions, stating that contributions display once approved.
+- Each store page carries separate views for ratings and reviews and for customer photos.
+- A restricted-profile setting controls what others see of a user's contributions, while public contributions still display on the store page regardless.
+- The account holds zero contributions, so the approval step's effect has nothing to show yet.
+
+**Screenshots needed:** the contributor profile's zero-contributions state, and a store page's ratings and reviews view.
 
 ### Achievement
 
