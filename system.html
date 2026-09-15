@@ -447,9 +447,6 @@ const CONNECTIONS = {
     { from: "progression-gate", to: "referral-boost", title: "The referral offer only appears after the gate opens", desc: "The Get Started checklist, which carries the sharing step behind the $25 offer, appears at the bottom of the workout tab only once the welcome workout has unlocked the plan.", effect: "A user cannot reach the referral offer without first clearing the same gate that opens chat and nutrition." },
     { from: "achievement", to: "shareable-win", title: "The share option sits on the same screen as the badge", desc: "The Instagram share offer, the completion badge, and the workout's volume and reps all appear together on one completion screen.", effect: "The moment that produces the recognition and the moment that offers to publicize it are the same screen, not two separate steps." },
   ],
-  "fiton": [
-    { from: "community-groups", to: "social-feed", title: "Group membership populates the Friends feed", desc: "The Friends tab shows posts and questions from joined groups. Groups joined during onboarding immediately provide feed content, preventing the empty-state problem for new users.", effect: "Onboarding group selection is also first-session feed population. The user who selects four groups in onboarding arrives at a populated feed rather than an empty one." },
-  ],
   "freeletics": [
     { from: "challenges", to: "community-groups", title: "A created challenge becomes something people discuss", desc: "The same observation that shows a challenge, its objective and its participant count also shows other athletes discussing it in the comment thread under a Freeletics post.", effect: "A challenge doesn't stay a private target: once created, it becomes a topic people comment on in the app's own community space." },
   ],
@@ -471,9 +468,8 @@ const CONNECTIONS = {
     { from: "season-pass", to: "clans-guilds", title: "The pass reaches past the village it's sold from", desc: "Pass perks include a clan castle troop-request reduction and capital gold, spending against the clan layer as well as the solo one.", effect: "A single purchase prices benefits across the solo loop and the social loop at once, rather than staying inside whichever screen sold it." },
   ],
   "fiton": [
-    { from: "community-groups", to: "streak", title: "Group feeds surface streak activity from other members", desc: "The Friends tab feed shows workout completions and streak milestones from group members. Seeing others maintain streaks creates social proof for the behavior.", effect: "Streak maintenance is visible to the community. The social observation of others maintaining theirs applies return pressure independent of personal motivation." },
-    { from: "streak", to: "achievement", title: "CR Streak milestones unlock named badges", desc: "Streak milestones appear as achievement categories in the profile badge catalogue alongside workout count, calorie, and exercise-type badges.", effect: "The streak produces two outputs simultaneously: a maintained counter and progress toward a badge threshold." },
-    { from: "challenges", to: "community-groups", title: "Program challenges are socially anchored to groups", desc: "Challenge participation appears in the group feed, making individual challenge progress visible to community members who share the same group.", effect: "Challenge completion becomes a social signal within the relevant group rather than a private milestone." },
+    { from: "community-groups", to: "social-feed", title: "Group membership determines the group feed", desc: "The questions and posts that reach the Friends tab's group feed come only from the groups the user has joined during onboarding or afterward.", effect: "Group membership is the one onboarding answer that goes on to shape ongoing content, deciding what a user sees every time they open the group feed." },
+    { from: "streak", to: "achievement", title: "The weekly streak is a badge's own criterion", desc: "The We're on Fire badge is stated directly against the streak: the longest run of weeks in which the user reaches the weekly workout goal.", effect: "The same weekly-goal measure the streak displays doubles as the exact criterion for a separate badge, so nothing new has to be tracked for the achievement to apply." },
   ],
   "liftoff": [
     { from: "leveling", to: "leaderboards", title: "Volume-based XP determines leaderboard position", desc: "The same logged workout volume that advances rank also determines position on volume leaderboards. One logging action serves both systems.", effect: "Logging workouts carefully is both a personal progression behavior and a competitive one. The motivation to record every set has a leaderboard dimension." },
@@ -675,11 +671,6 @@ const POSITIONS = {
     "achievement":          { x: 26, y: 68 },
     "gifting":               { x: 74, y: 68 },
   },
-  "fiton": {
-    center:               { x: 50, y: 10, label: "FITON" },
-    "community-groups":   { x: 50, y: 32 },
-    "social-feed":        { x: 74, y: 62 },
-  },
   "freeletics": {
     center:              { x: 50, y: 8,  label: "FREELETICS" },
     "challenges":        { x: 50, y: 34 },
@@ -697,13 +688,6 @@ const POSITIONS = {
     center:            { x: 50, y: 15, label: "GYMVERSE" },
     "achievement":     { x: 30, y: 55 },
     "shareable-win":   { x: 70, y: 55 },
-  },
-  "fiton": {
-    center:             { x: 50, y: 12, label: "FITON" },
-    "community-groups": { x: 50, y: 34 },
-    "streak":           { x: 26, y: 62 },
-    "achievement":     { x: 74, y: 62 },
-    "challenges":       { x: 50, y: 86 },
   },
   "liftoff": {
     center:           { x: 50, y: 10, label: "LIFTOFF" },
@@ -744,11 +728,14 @@ const POSITIONS = {
     "shareable-win":     { x: 40, y: 74 },
   },
   "fiton": {
-    center:             { x: 50, y: 15, label: "FITON" },
-    "community-groups": { x: 50, y: 36 },
-    "achievement":     { x: 22, y: 62 },
-    "social-feed":      { x: 78, y: 62 },
-    "streak":           { x: 50, y: 84 },
+    center:               { x: 50, y: 8,  label: "FITON" },
+    "commitment":         { x: 26, y: 30 },
+    "streak":             { x: 50, y: 30 },
+    "expert-guidance":    { x: 76, y: 30 },
+    "community-groups":   { x: 26, y: 58 },
+    "achievement":        { x: 50, y: 58 },
+    "milestone":          { x: 76, y: 58 },
+    "social-feed":        { x: 26, y: 82 },
   },
   "liftoff": {
     center:             { x: 50, y: 8,  label: "LIFTOFF" },

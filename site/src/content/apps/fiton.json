@@ -1,143 +1,968 @@
 {
   "id": "fiton",
   "name": "FitOn",
-  "category": "Fitness",
+  "category": "Fitness / Workout Video Platform",
   "type": "app",
   "visibility": "public",
-  "analysisDate": "2026-02-25",
-  "lastUpdated": "2026-05-20",
-  "summary": "FitOn positions itself as a social fitness platform before it positions itself as a workout app. The full community taxonomy is presented during onboarding — specific named groups including Intermittent Fasting Club, Single and Crushing It, and 30s Club — before the user has completed a single workout. Three paywalls appear in the first session. The mandatory workout rating after completion means no user can bypass the feedback gate.",
-  "teaser": "FitOn shows three separate paywalls in one session, with the third landing right after the first completed workout, the moment the app is hardest to say no to.",
+  "analysisDate": "2026-09-15",
+  "lastUpdated": "2026-09-15",
+  "asObserved": "2026-02",
+  "appVersion": "None.",
+  "summary": "FitOn is a free workout app organized around a single video-based workout player, wrapped in an onboarding funnel that asks for a goal, a level, a schedule and a set of community groups before the plan even builds. Everything else in the app sits before or after that workout: a stated intention and a synced calendar entry lead into it, and a summary, a camera composer, a mandatory rating and a subscription offer follow it. A badge catalogue, a weekly streak and a workout-count threshold recognize activity that stays at zero throughout, and a separate library of fitness, nutrition, wellness and self-care articles sits beside the workouts rather than inside them. A single Pro offer at 70% off repeats across five separate surfaces.",
+  "teaser": "Two of the five screens pushing FitOn's 70% Pro discount are videos the app doesn't let the user skip or decline.",
   "icon": "/icons/fiton.png",
   "heroImage": null,
-  "mechanics": [
+  "contentFormat": "v4.1",
+  "observations": [
     {
-      "id": "achievement",
-      "depth": "core",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": [
-        "Profile tab showing the workout count, calorie summary, activity calendar, and the badge grid with multiple unlocked badges visible after one completed session"
-      ]
+      "id": "O1",
+      "name": "Two permission prompts",
+      "section": "onboarding",
+      "observed": "Before any FitOn screen appears, a system prompt asks whether to allow notifications, followed by a second asking whether FitOn may track the user's activity across other companies' apps and websites. Both requests arrive before FitOn has shown any content or stated what it offers.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "community-groups",
-      "depth": "core",
-      "writeup": {
-        "observed": "Community groups are presented during onboarding as a multi-select step, with the full taxonomy visible: Food (Intermittent Fasting Club, Low Carb Keto Crew, Meal Preppers, Vegetarians), Journey (Newbies, Gain Muscle, Modifiers), Lifestyle (Single and Crushing It, 30s Club, Apple Watch Crew), Activity (Walkers United, Run the World, Meditation Squad, Yoga Lovers). The Friends tab shows a group feed with member questions and active comment threads. Group discovery and joining are available at any time from the same tab.",
-        "findings": [
-          "Presenting the full group catalogue during onboarding rather than after first use positions FitOn as a social platform with fitness content rather than a fitness app with social features. The framing difference matters for user expectations and return behavior.",
-          "Specific niche communities (\"Single and Crushing It,\" \"30s Club\") signal that identity-based community is a design priority, not just workout-type grouping."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": [
-        "Onboarding group selection screen showing the full community taxonomy (Food, Journey, Lifestyle, Activity groups) with specific group names and the multi-select interface",
-        "Friends tab showing the group feed with member questions and comments, and the \"groups you may like\" recommendation section below the active feed"
-      ]
+      "id": "O2",
+      "name": "Free-first welcome screen",
+      "section": "onboarding",
+      "observed": "FitOn's first screen reads \"FitOn Premium Workouts, Always free,\" with a Get Started control and a login option for an existing account. FitOn later sells a Pro plan whose stated contents include a personalized workout program, meal plans, offline downloads and premium music.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "streak",
-      "depth": "supporting",
-      "writeup": {
-        "observed": "FitonE tracks consecutive days of workout activity and surfaces the streak counter on the home screen alongside the user's weekly activity summary. The streak fires after the first completed session and is framed as a running total of active days rather than a countdown to the next milestone. Streak milestones trigger an in-app notification at meaningful thresholds (7, 14, 30 days).",
-        "presented": "The streak counter appears on the home screen dashboard as a persistent element. Weekly progress rings provide a parallel visual layer showing how many of the user's planned workouts have been completed in the current week.",
-        "findings": [
-          "The streak runs alongside a weekly progress ring, giving the user two distinct timescales of feedback: daily consecutive activity and weekly workout completion.",
-          "Milestone notifications are triggered at 7, 14, and 30 days, spacing reward moments across the early engagement arc.",
-          "FitonE does not surface a recovery or freeze mechanic within the session analyzed. A missed day breaks the streak with no recovery path observed."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O3",
+      "name": "Email-only account creation",
+      "section": "onboarding",
+      "observed": "FitOn creates an account from a name and an email address only, with no option to sign in through Gmail, Apple or another provider. The account exists before any personalization question is asked.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "social-feed",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O4",
+      "name": "Body data screen",
+      "section": "onboarding",
+      "observed": "FitOn opens with \"Let's personalize your program,\" then asks on one screen for gender, date of birth, height and weight, framed as inputs to a program rather than as account details. No prompt to connect Apple Health or another health source appears at this point.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "challenges",
-      "depth": "shallow",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O5",
+      "name": "Goal selection panels",
+      "section": "onboarding",
+      "observed": "\"What's your goal?\" offers lose weight, be more active, gain muscle, stay toned and reduce stress. Gain muscle and stay toned both open a graph running from beginner to intermediate to advanced, stating that the amount of muscle a user can build depends on their lifting experience and that FitOn will guide them with a personalized plan. Be more active and reduce stress both open a panel stating that people active under 30 minutes a week are unhappy, that people active more than three hours a week are very happy, and that being active more than three hours a week is tied to a 20 to 30% reduction in risk of depression, plus reduced stress and anxiety. FitOn does not state a source for these figures. Tapping a selected goal again closes its panel and returns to the list.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "daily-weekly-quests",
-      "depth": "shallow",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O6",
+      "name": "Choosing a fitness level",
+      "section": "onboarding",
+      "observed": "\"Choose your level\" offers beginner, intermediate or advanced. Choosing beginner shows \"You are not alone. Over 2.3 million people took beginner workouts on FitOn in the past year,\" over a world map with characters appearing in different places; intermediate states 2.6 million people and advanced states 1.1 million people, with the same message otherwise. The level is chosen by the user, with nothing shown assessing it or moving the user between levels afterward.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O7",
+      "name": "Frequency and duration questions",
+      "section": "onboarding",
+      "observed": "FitOn asks how many times per week the user plans to work out, then how much time they have available, with duration choices ranging from five to more than thirty minutes. Any duration choice opens a graph comparing fitness progress with FitOn against progress \"without a coach,\" rather than against no FitOn use at all, with reassurance that a modest weekly commitment builds long-lasting habits. The same message appears whichever duration is chosen.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Commitment",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "FitOn presents a first-person sentence whose subject is the user's own future behavior, \"At 8am I will open this app and work out\" (tier: directly observed). The user takes part by setting the time, and FitOn rewrites the whole sentence as the time changes, observed as \"At 7:45am I will open this app and work out\", which is the product showing the statement back as the user's own at the point it is made (tier: directly observed). The step is confirmed with \"Let's do this\" and can be skipped (tier: directly observed). Exclusions were checked first. The weekly-frequency question at O7 is a target selection and carries no label under this entry, although its wording asks what the user plans (tier: directly observed). The calendar sync at O16 and the workout scheduling at O18 are reminders in which the user sets a time and states nothing, and they are described in plain language (tier: directly observed). Nothing is signed, and the entry treats a signature as presentational, so its absence does not bear on the label.",
+          "alternativeConsidered": "a reminder-time picker with persuasive copy, which the entry excludes. It is rejected because FitOn places the time inside a first-person statement of the user's behavior and rewrites that statement as the control moves, rather than only storing a time (O15). What would move it to the exclusion is evidence that the sentence is fixed copy and the only output is a stored time, which the rewritten sentence observed at O15 argues against. Future Projection was also considered and does not apply, because no figure is computed or restated at the point the time is set.",
+          "role": "retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O8",
+      "name": "Favorite class types",
+      "section": "onboarding",
+      "observed": "\"Select all your favorite types of classes\" lists options including cardio, strength, HIIT, toning, dance, kickboxing, meditation, stretch, yoga, spinning and treadmill. After a selection, FitOn responds \"We'll include all your favorites,\" stating it has expert-led workouts in the selected type and will pick the best ones, regardless of how many types were actually selected.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O9",
+      "name": "Joining community groups",
+      "section": "onboarding",
+      "observed": "\"Join community groups\" presents groups organized under Food, Journey, Lifestyle and Activity. Food lists Intermittent Fasting Club, Low Carb Keto Crew, Meal Preppers and Vegetarians; Journey lists Newbies, Gain Muscle and Modifiers; Lifestyle lists Single and Crushing It, 30s Club, Apple Watch Crew and Fitbitders; Activity lists Walkers United, Run the World, Meditation Squad, Yoga Lovers and Pilates Party, among others.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Group Membership",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "FitOn represents groups as named entities, first in onboarding and again in the Friends tab (tier: directly observed). The system distinguishes groups the user is part of from suggested groups the user may join (tier: directly observed). Membership is created by a join control (tier: directly observed). Membership changes an observable condition: the feed below the groups carries questions and posts from the groups the user belongs to (tier: directly observed). Under the decision ladder shared by Community Space, Group Membership and Clan / Guild, maintained membership that changes what the member sees selects this label, and no collective group-owned state is observed that would select Clan / Guild (tier: directly observed).",
+          "alternativeConsidered": "Community Space, reading the groups as open shared contexts to which anyone can post. It is rejected under the decision ladder because the product maintains membership and uses it to decide which posts reach the user. What would reverse it is evidence that non-members see and post to the same group contexts without any difference in what they receive.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O10",
+      "name": "Device ownership question",
+      "section": "onboarding",
+      "observed": "\"Select all the devices you own\" splits into wearables, including Apple Watch, Fitbit, Garmin, Samsung Watch, Whoop and a chest strap, and streaming devices including Apple TV, Roku, Fire TV, smart TV and Chromecast. No device is connected at this step; the Pro plan screen that follows lists the wearables and devices the user reported as included in Pro.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O11",
+      "name": "Acquisition source question",
+      "section": "onboarding",
+      "observed": "\"How did you hear about us?\" offers Instagram, Facebook, Pinterest, TikTok, App Store, Google, friend, article, blog and TV, among other sources.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O12",
+      "name": "Building the personalized program",
+      "section": "onboarding",
+      "observed": "\"We're setting up your personalized program\" shows steps described as building a plan from the user's demographics, level and class preferences. The next screen, \"Here's your personalized program,\" presents a program called Muscle Maker, stating that based on the user's preferences they can join it or choose from a wide variety of other programs. Get Started leads directly into the plan choice that follows. FitOn does not describe the program's content, length or schedule beyond its name, and nothing shown indicates whether it would differ under different answers.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O13",
+      "name": "Choosing Basic or Pro",
+      "section": "onboarding",
+      "observed": "\"Get exclusive programs for faster results\" offers Basic, described as unlimited free workouts, and FitOn Pro, described as a personalized workout program, casting workouts to a TV, a nutrition and meal plan, offline downloads and premium music, with unlimited free workouts included in both. Choosing Basic shows a Next button; choosing Pro shows \"Upgrade now, save 70%.\" Tapping it opens the App Store payment sheet at $39.99 per year, the first point at which a price is shown. Closing the sheet opens \"Are you sure? Pro members are 73% more likely to achieve their fitness goals,\" with Cancel and Upgrade controls. FitOn does not state a source for the 73% figure. No duration option other than the yearly plan appears on this screen.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O14",
+      "name": "Contacts request",
+      "section": "onboarding",
+      "observed": "\"Connect contacts. See which of your contacts are already on FitOn so you can work together\" offers Skip and Connect. Connect raises the system contacts request, which offers to share all contacts or select some. FitOn does not state any benefit for connecting.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O15",
+      "name": "Workout-time intention sentence",
+      "section": "onboarding",
+      "observed": "The next screen presents \"At 8am I will open this app and work out,\" stating that scientific research shows completing the sentence helps people successfully build a workout habit, without naming that research. Changing the time rewrites the whole sentence, for example to \"At 7:45am I will open this app and work out.\" The user can skip the step or confirm with \"Let's do this.\"",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Commitment",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "FitOn presents a first-person sentence whose subject is the user's own future behavior, \"At 8am I will open this app and work out\" (tier: directly observed). The user takes part by setting the time, and FitOn rewrites the whole sentence as the time changes, observed as \"At 7:45am I will open this app and work out\", which is the product showing the statement back as the user's own at the point it is made (tier: directly observed). The step is confirmed with \"Let's do this\" and can be skipped (tier: directly observed). Exclusions were checked first. The weekly-frequency question at O7 is a target selection and carries no label under this entry, although its wording asks what the user plans (tier: directly observed). The calendar sync at O16 and the workout scheduling at O18 are reminders in which the user sets a time and states nothing, and they are described in plain language (tier: directly observed). Nothing is signed, and the entry treats a signature as presentational, so its absence does not bear on the label.",
+          "alternativeConsidered": "a reminder-time picker with persuasive copy, which the entry excludes. It is rejected because FitOn places the time inside a first-person statement of the user's behavior and rewrites that statement as the control moves, rather than only storing a time (O15). What would move it to the exclusion is evidence that the sentence is fixed copy and the only output is a stored time, which the rewritten sentence observed at O15 argues against. Future Projection was also considered and does not apply, because no figure is computed or restated at the point the time is set.",
+          "role": "retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O16",
+      "name": "Calendar access request",
+      "section": "onboarding",
+      "observed": "\"Calendar Sync. Enable access to sync your workout reminders to your phone calendar\" leads to a system request for full access to the calendar.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Commitment",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "FitOn presents a first-person sentence whose subject is the user's own future behavior, \"At 8am I will open this app and work out\" (tier: directly observed). The user takes part by setting the time, and FitOn rewrites the whole sentence as the time changes, observed as \"At 7:45am I will open this app and work out\", which is the product showing the statement back as the user's own at the point it is made (tier: directly observed). The step is confirmed with \"Let's do this\" and can be skipped (tier: directly observed). Exclusions were checked first. The weekly-frequency question at O7 is a target selection and carries no label under this entry, although its wording asks what the user plans (tier: directly observed). The calendar sync at O16 and the workout scheduling at O18 are reminders in which the user sets a time and states nothing, and they are described in plain language (tier: directly observed). Nothing is signed, and the entry treats a signature as presentational, so its absence does not bear on the label.",
+          "alternativeConsidered": "a reminder-time picker with persuasive copy, which the entry excludes. It is rejected because FitOn places the time inside a first-person statement of the user's behavior and rewrites that statement as the control moves, rather than only storing a time (O15). What would move it to the exclusion is evidence that the sentence is fixed copy and the only output is a stored time, which the rewritten sentence observed at O15 argues against. Future Projection was also considered and does not apply, because no figure is computed or restated at the point the time is set.",
+          "role": "retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O17",
+      "name": "Unskippable Pro video",
+      "section": "onboarding",
+      "observed": "A video plays showing what a Pro user might get, without a control to skip it. Partway through, a button appears reading \"Today only, save 70%,\" from $129.99 to $39.99, billed yearly only, equal to $3.33 a month, which is the first point the undiscounted price is shown. The video can then be closed and the flow continues.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O18",
+      "name": "First workout prompt",
+      "section": "onboarding",
+      "observed": "\"A plan without action isn't a plan, it's a wish. Start now by taking your first workout. No equipment needed\" offers starting the workout immediately or adding a reminder for later. Adding a reminder opens a time picker for today or another day, after which the workout is shown as scheduled and the user can close the screen or start the workout.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Commitment",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "FitOn presents a first-person sentence whose subject is the user's own future behavior, \"At 8am I will open this app and work out\" (tier: directly observed). The user takes part by setting the time, and FitOn rewrites the whole sentence as the time changes, observed as \"At 7:45am I will open this app and work out\", which is the product showing the statement back as the user's own at the point it is made (tier: directly observed). The step is confirmed with \"Let's do this\" and can be skipped (tier: directly observed). Exclusions were checked first. The weekly-frequency question at O7 is a target selection and carries no label under this entry, although its wording asks what the user plans (tier: directly observed). The calendar sync at O16 and the workout scheduling at O18 are reminders in which the user sets a time and states nothing, and they are described in plain language (tier: directly observed). Nothing is signed, and the entry treats a signature as presentational, so its absence does not bear on the label.",
+          "alternativeConsidered": "a reminder-time picker with persuasive copy, which the entry excludes. It is rejected because FitOn places the time inside a first-person statement of the user's behavior and rewrites that statement as the control moves, rather than only storing a time (O15). What would move it to the exclusion is evidence that the sentence is fixed copy and the only output is a stored time, which the rewritten sentence observed at O15 argues against. Future Projection was also considered and does not apply, because no figure is computed or restated at the point the time is set.",
+          "role": "retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O19",
+      "name": "The workout player",
+      "section": "onboarding",
+      "observed": "Starting the workout turns the screen horizontal, with a countdown timer and an instructor appearing on video and talking through the exercise. The user can skip, jump 15 seconds ahead, or pause at any moment. The workout's name and instructor are shown only once it begins, moving from the first exercise into a stated sequence of what comes next. Closing the player ends the workout and opens the summary.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O20",
+      "name": "Post-workout summary",
+      "section": "onboarding",
+      "observed": "The summary shows seconds worked out, calories burned and average heart rate, followed by the week's progress: the streak, workouts completed that week, seconds of exercise and calories. The heart-rate field appears despite no wearable or health source being connected.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "FitOn surfaces a streak by that name in both sessions, on the post-workout summary, on For You and on the home screen, and invites the user to start one (tier: directly observed). The qualifying condition is reaching the weekly workout goal in a week (tier: strongly supported, stated only in the We're on Fire criterion). The same criterion speaks of the longest streak, which implies that sequences end and that the product distinguishes an unbroken run from the same number of qualifying weeks with gaps (tier: strongly supported). The continuity rule and the effect of a missed week are not observed, and under the presence standard they are behavior detail rather than a condition of presence (tier: directly observed). No streak above zero is seen (tier: directly observed).",
+          "alternativeConsidered": "a cumulative count of weeks labelled as a streak, which the entry excludes where gaps do not change the state. It is rejected on the product's framing of a longest streak, which is meaningless unless runs end. What would separate them is a session that carries a streak across a missed week. Daily / Weekly Quests was weighed for the weekly goal the streak counts and is recorded under entries considered and not applied.",
+          "role": "retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O21",
+      "name": "Camera and stat stickers",
+      "section": "onboarding",
+      "observed": "Straight after the summary, FitOn requests camera access with no stated reason. Allowing it opens the camera in selfie mode with filters and branded stickers, including stickers carrying the week's seconds and calories burned, a date and category sticker, and a workout-routine caption. The user can take the photo and post it, or skip.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O22",
+      "name": "Mandatory workout rating",
+      "section": "onboarding",
+      "observed": "\"Rate the workout\" asks for one to five stars overall, with separate ratings for instructor, playlist, streaming and difficulty, plus a feedback field, and must be completed to continue. The same screen offers add to favorites and a download control marked Pro.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O23",
+      "name": "Second paywall with options",
+      "section": "onboarding",
+      "observed": "After the rating is submitted, a paywall suggests upgrading and saving up to 70%, with two options: six months, from $100 to $34.99, and a yearly best deal at $39.99, down from $129.99. It lists Pro's benefits, including the program, meals, TV casting, premium music, offline downloads and device tracking. Skipping it reaches the home screen, ending the guided sequence. This is the third Pro offer shown in the first run, after the plan choice and the onboarding video.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O24",
+      "name": "Five home tabs",
+      "section": "core-loop",
+      "observed": "The home screen carries a menu with For You, Workouts, Advice, Meals and Friends, with the profile reached from the top left corner.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O25",
+      "name": "Workouts tab catalogue",
+      "section": "core-loop",
+      "observed": "The Workouts tab lists workouts that can be started right away, with filters including short workouts, arms, abs, strength, mobility, meditation sessions, yoga, stretch and HIIT. Further down it shows celebrity presenters, dozens of trainers to choose from, target areas, and filters for time to complete, intensity and equipment. No workout in the catalogue is shown locked, and partner-branded collections sit on the same tab.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O26",
+      "name": "Live class schedule",
+      "section": "core-loop",
+      "observed": "The Workouts tab lists upcoming live classes at stated times, each with an intensity marker, on a schedule spanning different days. Joining a class marks it as joined and shows a countdown to when it goes live, and every join prompts the user to invite friends and send an invitation. No class start is reached and no class is attended, and whether FitOn sends a reminder before a joined class starts is not shown.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O27",
+      "name": "Presenter-led courses",
+      "section": "core-loop",
+      "observed": "The Workouts tab also carries courses from named presenters, on subjects including yoga, fall prevention and better sleep. The courses' structure, format and length are not stated.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Expert Guidance",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "FitOn carries a body of material divided into articles under four subjects, fitness, nutrition, wellness and self-care, with dozens of pieces in each (tier: directly observed). The subjects concern the user's own practice rather than the operation of FitOn, and the tab is framed as advice (tier: directly observed). That each piece instructs rather than reports is supported by the framing and the subject grouping, while no individual article title is narrated (tier: strongly supported). Workouts can be started without touching the library, so it sits alongside the core activity rather than inside it (tier: directly observed). The courses at O27 on fall prevention and better sleep may belong to the same body of material, but whether they are instruction or workout sequences is not established, and the yoga course may be workout content, which the entry excludes (tier: unresolved).",
+          "alternativeConsidered": "promotional content, which the entry excludes. It is rejected for the library as a whole because the subjects are fitness, nutrition, wellness and self-care rather than FitOn, its results or its customers. The Instagram prompt placed inside the articles (O39) is promotional and is described in plain language rather than counted as guidance. Personal Data Reflection was also considered and does not apply, because none of the material presents the user's own records.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O28",
+      "name": "Advice article library",
+      "section": "core-loop",
+      "observed": "The Advice tab divides articles into fitness, nutrition, wellness and self-care, with dozens of articles under each. Inside the articles sits a prompt to join FitOn on Instagram for daily inspiration. No article title, author or completion marker is shown.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Expert Guidance",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "FitOn carries a body of material divided into articles under four subjects, fitness, nutrition, wellness and self-care, with dozens of pieces in each (tier: directly observed). The subjects concern the user's own practice rather than the operation of FitOn, and the tab is framed as advice (tier: directly observed). That each piece instructs rather than reports is supported by the framing and the subject grouping, while no individual article title is narrated (tier: strongly supported). Workouts can be started without touching the library, so it sits alongside the core activity rather than inside it (tier: directly observed). The courses at O27 on fall prevention and better sleep may belong to the same body of material, but whether they are instruction or workout sequences is not established, and the yoga course may be workout content, which the entry excludes (tier: unresolved).",
+          "alternativeConsidered": "promotional content, which the entry excludes. It is rejected for the library as a whole because the subjects are fitness, nutrition, wellness and self-care rather than FitOn, its results or its customers. The Instagram prompt placed inside the articles (O39) is promotional and is described in plain language rather than counted as guidance. Personal Data Reflection was also considered and does not apply, because none of the material presents the user's own records.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O29",
+      "name": "Meals tab questionnaire",
+      "section": "core-loop",
+      "observed": "The Meals tab opens with a route to set up a nutrition plan, asking how many meals are eaten per day, which diet is followed, which items the user struggles with, and what holds the user back from eating healthy. It ends on a named plan, Sculpt n Shred 12 week meal plan, stating the plan is set up and ready to enhance the user's fitness program, with a Start now control. Start now opens a Pro video rather than the plan; the meal plan itself is listed among Pro's features.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O30",
+      "name": "For You dashboard",
+      "section": "goals",
+      "observed": "For You shows exclusive programs, a streak, how many workout goals have been completed, and steps. Step data appears without any health source connected, and its source is not stated.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "FitOn surfaces a streak by that name in both sessions, on the post-workout summary, on For You and on the home screen, and invites the user to start one (tier: directly observed). The qualifying condition is reaching the weekly workout goal in a week (tier: strongly supported, stated only in the We're on Fire criterion). The same criterion speaks of the longest streak, which implies that sequences end and that the product distinguishes an unbroken run from the same number of qualifying weeks with gaps (tier: strongly supported). The continuity rule and the effect of a missed week are not observed, and under the presence standard they are behavior detail rather than a condition of presence (tier: directly observed). No streak above zero is seen (tier: directly observed).",
+          "alternativeConsidered": "a cumulative count of weeks labelled as a streak, which the entry excludes where gaps do not change the state. It is rejected on the product's framing of a longest streak, which is meaningless unless runs end. What would separate them is a session that carries a streak across a missed week. Daily / Weekly Quests was weighed for the weekly goal the streak counts and is recorded under entries considered and not applied.",
+          "role": "retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O31",
+      "name": "Profile stats and progress",
+      "section": "goals",
+      "observed": "The profile shows the number of workouts and calories spent, a calendar, the week's activities, achievements, and a progress area where before-and-after photos can be added and weight can be set. The calendar also allows adding activities for ones that were missed. The workout count shown here is the same measure the Roar On badge is stated against.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Achievement",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "FitOn defines criteria, states each one on its badge, and presents each badge as \"awarded for\" satisfying its criterion, which is the product framing an attained state separate from the activity that earns it (tier: directly observed). The attained state is distinct from the underlying measures: Roar On is stated against the workout count the profile already displays, and We're on Fire against the streak (tier: strongly supported, O31 and O44 show those measures on their own surfaces). Presence rests on the catalogue and its framing under the presence standard (tier: directly observed). No badge is observed being attained, and whether any had been attained by 25 Feb is not settled (tier: unresolved). At the pattern layer the catalogue is consistent with Milestone Recognition; nothing in either session shows how any user responds to it (tier: plausible).",
+          "alternativeConsidered": "a decorative catalogue of badge images carrying no attained state, which would take no label. It is rejected because each badge states a criterion and the product's own framing is that the badge is awarded when it is met, which the presence standard accepts as evidence of the implemented mechanic. What would separate them is a session in which a criterion is met and the badge is seen to change state. Set Collection was also weighed for the catalogue and is recorded under entries considered and not applied.",
+          "role": "engagement, retention"
+        },
+        {
+          "name": "Milestone",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "FitOn maintains an ongoing measure, the number of workouts shown on the profile (tier: directly observed). It defines a point within that measure, 50 workouts completed on FitOn, and groups the badge recognizing it as a workout milestone (tier: directly observed). The badge is the recognition state separate from ordinary count updates (tier: strongly supported, the badge is a distinct awarded item while the count is a running figure on the profile). The recognition event at the moment of crossing is not observed (tier: directly observed). The label does not rest on the word \"milestones\" alone, which the entry excludes; it rests on the stated threshold within a measure the product displays. The Milestone entry and the Achievement entry both state that the two labels apply together where reaching a point in a progression is recorded as an attained criterion, and this tag covers that one behavior while Achievement covers the catalogue. Seize the Day, though grouped as an event milestone, is a standalone criterion rather than a point within a measure and takes Achievement only.",
+          "alternativeConsidered": "Achievement alone, reading Roar On as a criterion with no broader progression behind it. It is rejected because the count Roar On is stated against is a standing measure the profile displays (O31). What would weaken this tag is evidence that the profile's workout count and the badge's count are different measures.",
+          "role": "retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O32",
+      "name": "Weekly progress screen",
+      "section": "goals",
+      "observed": "The weekly progress screen shows daily average steps and minutes, exercise at zero out of two workouts as the weekly goal, and no streak. It also shows steps and calories for the day and the week, with an option to connect a device in order to follow steps. The screen opens from the streak control on the home screen. What happens to the goal when a week ends is not shown.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Achievement",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "FitOn defines criteria, states each one on its badge, and presents each badge as \"awarded for\" satisfying its criterion, which is the product framing an attained state separate from the activity that earns it (tier: directly observed). The attained state is distinct from the underlying measures: Roar On is stated against the workout count the profile already displays, and We're on Fire against the streak (tier: strongly supported, O31 and O44 show those measures on their own surfaces). Presence rests on the catalogue and its framing under the presence standard (tier: directly observed). No badge is observed being attained, and whether any had been attained by 25 Feb is not settled (tier: unresolved). At the pattern layer the catalogue is consistent with Milestone Recognition; nothing in either session shows how any user responds to it (tier: plausible).",
+          "alternativeConsidered": "a decorative catalogue of badge images carrying no attained state, which would take no label. It is rejected because each badge states a criterion and the product's own framing is that the badge is awarded when it is met, which the presence standard accepts as evidence of the implemented mechanic. What would separate them is a session in which a criterion is met and the badge is seen to change state. Set Collection was also weighed for the catalogue and is recorded under entries considered and not applied.",
+          "role": "engagement, retention"
+        },
+        {
+          "name": "Streak",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "FitOn surfaces a streak by that name in both sessions, on the post-workout summary, on For You and on the home screen, and invites the user to start one (tier: directly observed). The qualifying condition is reaching the weekly workout goal in a week (tier: strongly supported, stated only in the We're on Fire criterion). The same criterion speaks of the longest streak, which implies that sequences end and that the product distinguishes an unbroken run from the same number of qualifying weeks with gaps (tier: strongly supported). The continuity rule and the effect of a missed week are not observed, and under the presence standard they are behavior detail rather than a condition of presence (tier: directly observed). No streak above zero is seen (tier: directly observed).",
+          "alternativeConsidered": "a cumulative count of weeks labelled as a streak, which the entry excludes where gaps do not change the state. It is rejected on the product's framing of a longest streak, which is meaningless unless runs end. What would separate them is a session that carries a streak across a missed week. Daily / Weekly Quests was weighed for the weekly goal the streak counts and is recorded under entries considered and not applied.",
+          "role": "retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O33",
+      "name": "Achievements catalogue",
+      "section": "goals",
+      "observed": "Achievements sit at the foot of the profile with a see-all control that opens badges grouped as workout milestones, event milestones, streaks, workout mastery, bests and challenges. Tapping a badge shows what it means and how it is earned. Seize the Day, under event milestones, is awarded for completing a workout before 7am for the first time; Roar On, under workout milestones, is awarded for completing 50 workouts on FitOn; and We're on Fire, under streaks, is awarded for the longest streak of weeks reaching the workout goal. The criteria of the challenge badges and the workout mastery badges are not shown.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Achievement",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "FitOn defines criteria, states each one on its badge, and presents each badge as \"awarded for\" satisfying its criterion, which is the product framing an attained state separate from the activity that earns it (tier: directly observed). The attained state is distinct from the underlying measures: Roar On is stated against the workout count the profile already displays, and We're on Fire against the streak (tier: strongly supported, O31 and O44 show those measures on their own surfaces). Presence rests on the catalogue and its framing under the presence standard (tier: directly observed). No badge is observed being attained, and whether any had been attained by 25 Feb is not settled (tier: unresolved). At the pattern layer the catalogue is consistent with Milestone Recognition; nothing in either session shows how any user responds to it (tier: plausible).",
+          "alternativeConsidered": "a decorative catalogue of badge images carrying no attained state, which would take no label. It is rejected because each badge states a criterion and the product's own framing is that the badge is awarded when it is met, which the presence standard accepts as evidence of the implemented mechanic. What would separate them is a session in which a criterion is met and the badge is seen to change state. Set Collection was also weighed for the catalogue and is recorded under entries considered and not applied.",
+          "role": "engagement, retention"
+        },
+        {
+          "name": "Milestone",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "FitOn maintains an ongoing measure, the number of workouts shown on the profile (tier: directly observed). It defines a point within that measure, 50 workouts completed on FitOn, and groups the badge recognizing it as a workout milestone (tier: directly observed). The badge is the recognition state separate from ordinary count updates (tier: strongly supported, the badge is a distinct awarded item while the count is a running figure on the profile). The recognition event at the moment of crossing is not observed (tier: directly observed). The label does not rest on the word \"milestones\" alone, which the entry excludes; it rests on the stated threshold within a measure the product displays. The Milestone entry and the Achievement entry both state that the two labels apply together where reaching a point in a progression is recorded as an attained criterion, and this tag covers that one behavior while Achievement covers the catalogue. Seize the Day, though grouped as an event milestone, is a standalone criterion rather than a point within a measure and takes Achievement only.",
+          "alternativeConsidered": "Achievement alone, reading Roar On as a criterion with no broader progression behind it. It is rejected because the count Roar On is stated against is a standing measure the profile displays (O31). What would weaken this tag is evidence that the profile's workout count and the badge's count are different measures.",
+          "role": "retention"
+        },
+        {
+          "name": "Streak",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "FitOn surfaces a streak by that name in both sessions, on the post-workout summary, on For You and on the home screen, and invites the user to start one (tier: directly observed). The qualifying condition is reaching the weekly workout goal in a week (tier: strongly supported, stated only in the We're on Fire criterion). The same criterion speaks of the longest streak, which implies that sequences end and that the product distinguishes an unbroken run from the same number of qualifying weeks with gaps (tier: strongly supported). The continuity rule and the effect of a missed week are not observed, and under the presence standard they are behavior detail rather than a condition of presence (tier: directly observed). No streak above zero is seen (tier: directly observed).",
+          "alternativeConsidered": "a cumulative count of weeks labelled as a streak, which the entry excludes where gaps do not change the state. It is rejected on the product's framing of a longest streak, which is meaningless unless runs end. What would separate them is a session that carries a streak across a missed week. Daily / Weekly Quests was weighed for the weekly goal the streak counts and is recorded under entries considered and not applied.",
+          "role": "retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O34",
+      "name": "Where Pro marks sit",
+      "section": "access",
+      "observed": "The download control on the workout rating screen is marked Pro. Programs are presented as exclusive, on the plan screen and on For You. FitOn states that Free gives workouts anytime, anywhere, while Pro adds goal-based fitness programs, personalized meal plans, more than 500 exclusive recipes, unlimited offline downloads, fitness tracker integrations and premium music from top artists. No workout in the catalogue is shown locked, and starting the meal plan once it's set up leads to a Pro offer rather than to the plan itself.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O35",
+      "name": "Friends tab workout feed",
+      "section": "social",
+      "observed": "Friends shows a feed of workouts done, where the user can see which friends have joined and what exercises they've done. Items can be clapped, commented on or shared. No friend appears connected, leaving the feed with nothing on that side, and where a share sends an item is not stated.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Group Membership",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "FitOn represents groups as named entities, first in onboarding and again in the Friends tab (tier: directly observed). The system distinguishes groups the user is part of from suggested groups the user may join (tier: directly observed). Membership is created by a join control (tier: directly observed). Membership changes an observable condition: the feed below the groups carries questions and posts from the groups the user belongs to (tier: directly observed). Under the decision ladder shared by Community Space, Group Membership and Clan / Guild, maintained membership that changes what the member sees selects this label, and no collective group-owned state is observed that would select Clan / Guild (tier: directly observed).",
+          "alternativeConsidered": "Community Space, reading the groups as open shared contexts to which anyone can post. It is rejected under the decision ladder because the product maintains membership and uses it to decide which posts reach the user. What would reverse it is evidence that non-members see and post to the same group contexts without any difference in what they receive.",
+          "role": "social"
+        },
+        {
+          "name": "Social Feed",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "FitOn presents an ordered stream in the Friends tab carrying workouts done, with friends' workouts entering once they join, and a feed of all the questions and posts from the groups the user belongs to (tier: directly observed). Items from more than one actor enter the stream, observed as several people asking questions in the intermittent fasting group (tier: directly observed). Items carry controls addressed to the actor who produced them, clap, comment and share (tier: directly observed). The ordering rule is not narrated and is behavior detail under the presence standard (tier: directly observed). The clap is a one-tap acknowledgement, which the entry directs be described in plain language rather than tagged or proposed, and it is so described at O35.",
+          "alternativeConsidered": "a personal activity log of the user's own workouts, which the entry excludes. It holds for the workouts list on its own while no friend is connected, and it is rejected for the tab as a whole because the group feed carries items from other people (O36). What would settle the workouts list separately is a session with a connected friend.",
+          "role": "social, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O36",
+      "name": "Friends tab group feed",
+      "section": "social",
+      "observed": "The Friends tab shows which groups the user is part of and the questions posted in them, including people in the intermittent fasting group asking questions, with the user able to post questions as well. Groups the user may like are suggested with their own join controls, such as Yoga Lovers, Modifiers, 30s Club and Newbies, and a feed below them draws from all the questions and posts across the groups the user belongs to. No approval step, member list or moderation is shown for any group.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Group Membership",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "FitOn represents groups as named entities, first in onboarding and again in the Friends tab (tier: directly observed). The system distinguishes groups the user is part of from suggested groups the user may join (tier: directly observed). Membership is created by a join control (tier: directly observed). Membership changes an observable condition: the feed below the groups carries questions and posts from the groups the user belongs to (tier: directly observed). Under the decision ladder shared by Community Space, Group Membership and Clan / Guild, maintained membership that changes what the member sees selects this label, and no collective group-owned state is observed that would select Clan / Guild (tier: directly observed).",
+          "alternativeConsidered": "Community Space, reading the groups as open shared contexts to which anyone can post. It is rejected under the decision ladder because the product maintains membership and uses it to decide which posts reach the user. What would reverse it is evidence that non-members see and post to the same group contexts without any difference in what they receive.",
+          "role": "social"
+        },
+        {
+          "name": "Social Feed",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "FitOn presents an ordered stream in the Friends tab carrying workouts done, with friends' workouts entering once they join, and a feed of all the questions and posts from the groups the user belongs to (tier: directly observed). Items from more than one actor enter the stream, observed as several people asking questions in the intermittent fasting group (tier: directly observed). Items carry controls addressed to the actor who produced them, clap, comment and share (tier: directly observed). The ordering rule is not narrated and is behavior detail under the presence standard (tier: directly observed). The clap is a one-tap acknowledgement, which the entry directs be described in plain language rather than tagged or proposed, and it is so described at O35.",
+          "alternativeConsidered": "a personal activity log of the user's own workouts, which the entry excludes. It holds for the workouts list on its own while no friend is connected, and it is rejected for the tab as a whole because the group feed carries items from other people (O36). What would settle the workouts list separately is a session with a connected friend.",
+          "role": "social, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O37",
+      "name": "Add-friends prompt",
+      "section": "social",
+      "observed": "The Friends tab prompts the user again to add friends \"to get fit together.\" The same invitation appears on every live-class join, and contacts are requested during onboarding; no benefit is stated for any of the three.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Social Feed",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "FitOn presents an ordered stream in the Friends tab carrying workouts done, with friends' workouts entering once they join, and a feed of all the questions and posts from the groups the user belongs to (tier: directly observed). Items from more than one actor enter the stream, observed as several people asking questions in the intermittent fasting group (tier: directly observed). Items carry controls addressed to the actor who produced them, clap, comment and share (tier: directly observed). The ordering rule is not narrated and is behavior detail under the presence standard (tier: directly observed). The clap is a one-tap acknowledgement, which the entry directs be described in plain language rather than tagged or proposed, and it is so described at O35.",
+          "alternativeConsidered": "a personal activity log of the user's own workouts, which the entry excludes. It holds for the workouts list on its own while no friend is connected, and it is rejected for the tab as a whole because the group feed carries items from other people (O36). What would settle the workouts list separately is a session with a connected friend.",
+          "role": "social, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O38",
+      "name": "Partner workout collections",
+      "section": "reach",
+      "observed": "The Workouts tab carries collections made with other companies, services and people, each opening workouts created with that partner. Named partners include Talkspace, 24 Hour Fitness, Orangetheory, Bumble, American Airlines, CrossFit, H&M, the Chainsmokers, Bob Harper and Zumba, among others. Whether any collection links out of FitOn is not shown.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O39",
+      "name": "Instagram prompt in articles",
+      "section": "reach",
+      "observed": "Within the Advice articles, FitOn places a prompt to join FitOn on Instagram for daily inspiration. The prompt appears only inside the Advice articles.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Expert Guidance",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "FitOn carries a body of material divided into articles under four subjects, fitness, nutrition, wellness and self-care, with dozens of pieces in each (tier: directly observed). The subjects concern the user's own practice rather than the operation of FitOn, and the tab is framed as advice (tier: directly observed). That each piece instructs rather than reports is supported by the framing and the subject grouping, while no individual article title is narrated (tier: strongly supported). Workouts can be started without touching the library, so it sits alongside the core activity rather than inside it (tier: directly observed). The courses at O27 on fall prevention and better sleep may belong to the same body of material, but whether they are instruction or workout sequences is not established, and the yoga course may be workout content, which the entry excludes (tier: unresolved).",
+          "alternativeConsidered": "promotional content, which the entry excludes. It is rejected for the library as a whole because the subjects are fitness, nutrition, wellness and self-care rather than FitOn, its results or its customers. The Instagram prompt placed inside the articles (O39) is promotional and is described in plain language rather than counted as guidance. Personal Data Reflection was also considered and does not apply, because none of the material presents the user's own records.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O40",
+      "name": "Device connections in settings",
+      "section": "reach",
+      "observed": "Settings holds connections for Health, for sleep tracking and activity syncing, which asks for Health data from Apple on tap, and for Watch, Fitbit and Garmin. No connection is made during onboarding, where devices are only asked about. The weekly progress screen separately offers a connection in order to follow steps.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O41",
+      "name": "Meal plan Pro video",
+      "section": "monetization",
+      "observed": "Starting the meal plan opens a video about reaching goals with FitOn Pro, showing a before-and-after comparison, followed by a prompt to get all of it at 70% off. Whether this video can be skipped is not shown.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O42",
+      "name": "Reopening after two months",
+      "section": "monetization",
+      "observed": "Reopening FitOn two months after it was last opened shows a pop-up offering 70% off Pro, stating that only a few days are left, with a Free-and-Pro comparison and an Upgrade control. Closing it returns to the dashboard, after which a video opens without being requested, showing what Pro includes and the same 70% saving, $39.99 instead of $129.99 if bought today. FitOn does not state what changes when the few days pass.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O43",
+      "name": "The same discount everywhere",
+      "section": "monetization",
+      "observed": "Every Pro surface across the app states a 70% saving: the plan choice, the onboarding video, the post-workout paywall as up to 70%, the meal plan video, and the reopening pop-up and video. The time framing moves from \"today only\" to \"only a few days left,\" around the same $39.99 from $129.99 terms. No surface offers Pro at the undiscounted price as a purchasable option, and two of the five surfaces are videos that cannot be skipped or declined.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O44",
+      "name": "Home screen streak control",
+      "section": "returns",
+      "observed": "A streak sits at the very top of the home screen, reading \"Start today to start the streak,\" and opens the weekly progress screen on tap. The same streak also appears on the post-workout summary and on For You. No streak value above zero is shown; the weekly progress screen states there is no streak. What qualifies, what preserves the streak and what a missed period does are not shown, and whether any notification refers to the streak is not shown.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Achievement",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "FitOn defines criteria, states each one on its badge, and presents each badge as \"awarded for\" satisfying its criterion, which is the product framing an attained state separate from the activity that earns it (tier: directly observed). The attained state is distinct from the underlying measures: Roar On is stated against the workout count the profile already displays, and We're on Fire against the streak (tier: strongly supported, O31 and O44 show those measures on their own surfaces). Presence rests on the catalogue and its framing under the presence standard (tier: directly observed). No badge is observed being attained, and whether any had been attained by 25 Feb is not settled (tier: unresolved). At the pattern layer the catalogue is consistent with Milestone Recognition; nothing in either session shows how any user responds to it (tier: plausible).",
+          "alternativeConsidered": "a decorative catalogue of badge images carrying no attained state, which would take no label. It is rejected because each badge states a criterion and the product's own framing is that the badge is awarded when it is met, which the presence standard accepts as evidence of the implemented mechanic. What would separate them is a session in which a criterion is met and the badge is seen to change state. Set Collection was also weighed for the catalogue and is recorded under entries considered and not applied.",
+          "role": "engagement, retention"
+        },
+        {
+          "name": "Streak",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "FitOn surfaces a streak by that name in both sessions, on the post-workout summary, on For You and on the home screen, and invites the user to start one (tier: directly observed). The qualifying condition is reaching the weekly workout goal in a week (tier: strongly supported, stated only in the We're on Fire criterion). The same criterion speaks of the longest streak, which implies that sequences end and that the product distinguishes an unbroken run from the same number of qualifying weeks with gaps (tier: strongly supported). The continuity rule and the effect of a missed week are not observed, and under the presence standard they are behavior detail rather than a condition of presence (tier: directly observed). No streak above zero is seen (tier: directly observed).",
+          "alternativeConsidered": "a cumulative count of weeks labelled as a streak, which the entry excludes where gaps do not change the state. It is rejected on the product's framing of a longest streak, which is meaningless unless runs end. What would separate them is a session that carries a streak across a missed week. Daily / Weekly Quests was weighed for the weekly goal the streak counts and is recorded under entries considered and not applied.",
+          "role": "retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    }
+  ],
+  "systemView": [
+    "FitOn is a medium-complexity system whose spine is the completed workout: a video player sits at the center, with everything else placed either before it, as a stated return-time intention and a synced calendar entry, or after it, as a summary, a camera composer, a mandatory rating and a subscription offer. A badge catalogue and a weekly streak recognize activity read off the same workout count and weekly goal that stay at zero throughout, a separate article library sits alongside the workout catalogue rather than gating it, and a community layer of joined groups feeds the one social feed the app runs."
+  ],
+  "mechanicWriteups": [
+    {
+      "name": "Achievement",
+      "summary": "FitOn states each badge's exact criterion up front, in a catalogue grouped into six named categories, with none seen changing state.",
+      "observed": "FitOn keeps its badges in an achievements catalogue reached from the foot of the profile through a see-all control, grouped into workout milestones, event milestones, streaks, workout mastery, bests and challenges. Tapping any badge shows what it means and how it is earned before it is ever attained. Seize the Day is awarded for completing a workout before 7am for the first time, Roar On for completing 50 workouts on FitOn, and We're on Fire for the longest streak of weeks reaching the weekly workout goal.",
+      "presented": "The catalogue sits at the bottom of the profile tab, opened with a see-all control, and each badge discloses its own criterion on tap rather than staying hidden until it is met.",
+      "noting": "All three badges shown state their criteria rather than anything FitOn shows attained: no badge is shown changing from unattained to attained. FitOn keeps We're on Fire under its own \"streaks\" category heading while treating Roar On as a distinct threshold rather than folding it into the wider catalogue, which is why Milestone and Achievement split the same catalogue between them rather than one covering all three badges.",
+      "findings": [
+        "Six badge categories are named: workout milestones, event milestones, streaks, workout mastery, bests and challenges.",
+        "Seize the Day is awarded for a workout completed before 7am for the first time.",
+        "Roar On is awarded at 50 workouts completed on FitOn.",
+        "We're on Fire is awarded for the longest streak of weeks reaching the weekly workout goal.",
+        "No badge is shown changing from unattained to attained."
+      ],
+      "screenshotsNote": "the achievements catalogue with its six categories, and a badge's own criterion screen."
+    },
+    {
+      "name": "Milestone",
+      "summary": "FitOn recognizes 50 completed workouts as its own named badge, separate from the profile's own running workout count.",
+      "observed": "The profile shows a running count of workouts completed, alongside calories spent, a calendar, the week's activities and a progress area for photos and weight. Reaching 50 of those workouts earns Roar On, a badge in the achievements catalogue stated against that same profile count.",
+      "presented": "The profile displays the ongoing count on its own, with Roar On surfacing separately in the achievements catalogue reached from the foot of the same screen, where it discloses its 50-workout criterion on tap.",
+      "noting": "FitOn keeps Roar On on its own criterion, distinct from the wider catalogue Achievement covers, because it reads as a stated point within the profile's own ongoing workout count rather than a standalone target. Nothing shows the count approaching 50 or the badge changing state.",
+      "findings": [
+        "The profile displays a running count of completed workouts.",
+        "Roar On is awarded once that count reaches 50.",
+        "Roar On's criterion is disclosed on tap, before it is met.",
+        "The badge is not shown changing state."
+      ],
+      "screenshotsNote": "the profile's workout count, and the Roar On badge's criterion screen."
+    },
+    {
+      "name": "Streak",
+      "summary": "A streak control opens a weekly progress screen reading zero out of two workouts, with FitOn inviting the user to start one.",
+      "observed": "FitOn surfaces a streak by name on the post-workout summary, on the For You tab and at the top of the home screen, where it reads \"Start today to start the streak.\" The weekly progress screen it opens shows exercise at zero out of two workouts as the weekly goal, with no streak value shown. The We're on Fire badge states the streak's unit directly: the longest run of weeks in which the user reaches that weekly workout goal.",
+      "presented": "The streak sits at the very top of the home screen, ahead of everything else on the screen, and opens the weekly progress screen on tap. The same figure repeats on the post-workout summary and on the For You tab.",
+      "noting": "The badge criterion is the clearest statement FitOn gives of what the streak actually counts: reaching the weekly goal, not simply opening the app. FitOn calls it a streak while showing no run above zero and no continuity rule, such as what a missed week does to the count, so the visible mechanic is the invitation to begin rather than any streak already running.",
+      "findings": [
+        "The streak sits at the top of the home screen, reading \"Start today to start the streak.\"",
+        "The same streak also appears on the post-workout summary and the For You tab.",
+        "The weekly progress screen shows the weekly workout goal at zero out of two.",
+        "We're on Fire is awarded for the longest run of weeks reaching that goal.",
+        "No streak value above zero is shown."
+      ],
+      "screenshotsNote": "the home screen streak control, and the weekly progress screen showing the goal at zero of two."
+    },
+    {
+      "name": "Expert Guidance",
+      "summary": "A four-subject article library sits beside FitOn's workout catalogue, reachable and readable without ever starting a workout.",
+      "observed": "FitOn's Advice tab divides its articles into fitness, nutrition, wellness and self-care, with dozens of pieces under each subject. The subjects concern the user's own practice rather than how FitOn itself works, and a workout can be started without ever opening the tab.",
+      "presented": "Advice sits as its own tab alongside Workouts, Meals and Friends, reached directly from the home screen's main menu rather than surfaced inside any other flow. One prompt inside the articles asks the user to follow FitOn on Instagram for daily inspiration.",
+      "noting": "FitOn keeps this library structurally separate from the activity it advises on: nothing in the workout flow points to an article, and nothing in an article points back to a specific workout. Courses from named presenters on subjects like fall prevention and better sleep sit on the Workouts tab rather than in Advice, so the library's boundary runs by subject matter rather than by tab alone.",
+      "findings": [
+        "Articles are organized under fitness, nutrition, wellness and self-care.",
+        "Dozens of articles sit under each subject.",
+        "A workout can be started without opening the Advice tab.",
+        "One prompt inside the articles asks the user to follow FitOn on Instagram."
+      ],
+      "screenshotsNote": "the Advice tab's four subjects, and an open article."
+    },
+    {
+      "name": "Group Membership",
+      "summary": "FitOn asks the user to join named topic groups partway through onboarding, before any workout or plan is shown.",
+      "observed": "FitOn presents groups organized under Food, Journey, Lifestyle and Activity during onboarding, each with specifically named entries such as Intermittent Fasting Club, Newbies and 30s Club, and asks the user to join. The same groups return later in the Friends tab, split between the ones the user belongs to and a set of suggested groups with their own join controls, and the feed below them draws from whichever groups the user has joined.",
+      "presented": "Groups first appear as an onboarding screen, without any workout or plan shown yet, and reappear later inside the Friends tab, alongside a feed of the questions and posts from joined groups.",
+      "noting": "FitOn presents its full community structure, split into four named topic areas, before it has shown the user a single workout, and joining is a plain control with no approval step. Membership is what determines the feed content that follows: the questions and posts a user sees in the Friends tab come only from the groups they've joined, not from FitOn's community at large.",
+      "findings": [
+        "Groups are organized under Food, Journey, Lifestyle and Activity.",
+        "Named groups include Intermittent Fasting Club, Newbies and 30s Club.",
+        "Joining a group requires no approval step.",
+        "The Friends tab distinguishes groups the user belongs to from suggested groups.",
+        "The feed below the groups draws only from groups the user has joined."
+      ],
+      "screenshotsNote": "the onboarding groups screen, and the Friends tab's group list with the feed beneath it."
+    },
+    {
+      "name": "Social Feed",
+      "summary": "The Friends tab runs one feed combining friends' workouts with questions and posts from the user's joined groups.",
+      "observed": "The Friends tab carries a feed of workouts other people have done, alongside a separate feed of the questions and posts from the groups the user belongs to. Items in the workout feed can be clapped, commented on or shared. FitOn prompts the user to add friends more than once, both directly in the Friends tab and every time a live class is joined.",
+      "presented": "Both feeds sit in the Friends tab, the workout feed above the group feed, with clap, comment and share controls attached to each workout entry.",
+      "noting": "FitOn built two feeds into one tab, but only the group feed had any content to draw on: no friend appears connected, so the workout feed carries nothing while the group feed still shows the questions other members post. The prompts to add friends repeat across the Friends tab and every live-class join, without stating what connecting or inviting actually gets the user.",
+      "findings": [
+        "The Friends tab carries a workout feed and a separate group feed.",
+        "Workout feed entries can be clapped, commented on or shared.",
+        "No friend appears connected, leaving the workout feed empty.",
+        "The group feed shows questions and posts from joined groups.",
+        "FitOn prompts the user to add friends in the Friends tab and on every live-class join."
+      ],
+      "screenshotsNote": "the Friends tab with both feeds, and the add-friends prompt."
+    },
+    {
+      "name": "Commitment",
+      "summary": "FitOn writes \"I will open this app and work out\" at a time the user sets, rewriting it live as the time changes.",
+      "observed": "FitOn presents a first-person sentence, \"At 8am I will open this app and work out,\" and rewrites the whole sentence as the user changes the time, changing for example to \"At 7:45am I will open this app and work out.\" FitOn states that completing the sentence is backed by scientific research showing it helps people build a workout habit, without naming a source. The user confirms with \"Let's do this,\" or skips.",
+      "presented": "The sentence appears on its own screen straight after the contacts step and before the calendar-sync request, with the time as the only element the user sets and the rest of the sentence fixed around it.",
+      "noting": "FitOn ties the statement to the user's own future action, opening the app and working out, rather than to any target chosen earlier, such as the weekly workout frequency asked a few screens before, and the sentence doesn't restate that frequency. The step can be skipped, and nothing that follows shows the sentence again.",
+      "findings": [
+        "The sentence reads \"At 8am I will open this app and work out.\"",
+        "Changing the time rewrites the whole sentence.",
+        "FitOn cites unnamed scientific research for the step's benefit.",
+        "The user confirms with \"Let's do this\" or skips the step.",
+        "The sentence does not restate the weekly workout frequency chosen earlier."
+      ],
+      "screenshotsNote": "the intention-sentence screen with its default time, and the same screen after the time is changed.\n\n---"
+    }
+  ],
+  "sectionLeadIns": {
+    "onboarding": "FitOn's onboarding opens with two system permission requests before any screen, then account creation, a personalization funnel, a generated plan, three separate paywalls and the first guided workout.",
+    "core-loop": "FitOn's home screen splits into five tabs covering workouts, articles, meal planning and friends, with live classes and partner content sitting inside the workout catalogue.",
+    "goals": "For You and the profile carry FitOn's progress structures: a streak, a workout count, a weekly goal and an achievements catalogue.",
+    "access": "One section covers where FitOn marks features as Pro inside a product that is otherwise free to use.",
+    "economy": "FitOn holds no currency, points balance, material or other held quantity with routes that produce or consume it.",
+    "social": "The Friends tab is where FitOn's onboarding groups and contacts questions resurface, carrying a workout feed, a group feed and repeated prompts to add friends.",
+    "reach": "Partner-branded content, an in-article social prompt and device connections in settings extend FitOn beyond its own screens.",
+    "monetization": "Every Pro surface across the app repeats the same 70%-off offer, framed differently each time it appears.",
+    "returns": "One control at the top of the home screen is FitOn's own name for what should bring a user back."
+  },
+  "sectionCards": {
+    "onboarding": "FitOn's onboarding opens with two system permission requests before any screen, then account creation, a personalization funnel, a generated plan, three separate paywalls and the first guided workout.",
+    "core-loop": "FitOn's home screen splits into five tabs covering workouts, articles, meal planning and friends, with live classes and partner content sitting inside the workout catalogue.",
+    "goals": "For You and the profile carry FitOn's progress structures: a streak, a workout count, a weekly goal and an achievements catalogue.",
+    "access": "One section covers where FitOn marks features as Pro inside a product that is otherwise free to use.",
+    "economy": "Empty. FitOn holds no currency, points balance, material or other held quantity with routes that produce or consume it.",
+    "social": "The Friends tab is where FitOn's onboarding groups and contacts questions resurface, carrying a workout feed, a group feed and repeated prompts to add friends.",
+    "reach": "Partner-branded content, an in-article social prompt and device connections in settings extend FitOn beyond its own screens.",
+    "monetization": "Every Pro surface across the app repeats the same 70%-off offer, framed differently each time it appears.",
+    "returns": "One control at the top of the home screen is FitOn's own name for what should bring a user back."
+  },
+  "proposedTags": [
+    {
+      "name": "Plan Generation Reveal",
+      "sourceObservations": [
+        "O12",
+        "O13",
+        "O29",
+        "O41"
+      ],
+      "draftDefinition": "After collecting the user's answers about themselves and their goals, the product shows an interval presented as the system building a plan for that user, then presents what follows as the personalized result of those answers, at a point where the user has not yet received anything from it and the next step asks for a commitment or a payment.",
+      "conditions": "a preceding questionnaire framed as input to a plan, observed as the personalization steps at O4 to O11 and the meal questionnaire at O29; an interval or statement presented as construction, observed as \"We're setting up your personalized program\" with its three stated steps at O12 and as \"Your personalized meal plan is set up\" at O29; a named result, observed as Muscle Maker and as Sculpt n Shred 12 week meal plan; and an ask placed immediately after, observed as the plan choice and payment sheet at O13 and the Pro video at O41.",
+      "whyNotCovered": "Future Projection requires a position the product holds and a computed value at a stated horizon, and neither result carries one. Personal Data Reflection excludes profiling questionnaires. Challenge, Milestone and Progression Gate concern objectives, recognition and access rather than the presentation of a generated result. No approved entry classifies an interval staged as the system working on the user's behalf.",
+      "recurrenceElsewhere": "open proposal from the Freeletics analysis, where the interval occurs twice immediately before an account request and a payment. FitOn adds two instances in a second product, one in onboarding and one in a feature setup reached later from the home screen, each followed at once by a Pro ask (tier: directly observed). It is describable without reference to either app.",
+      "caveat": "FitOn does not settle the scope concern recorded against the Freeletics proposal: as observed, the interval changes how a moment is presented rather than what the user does afterwards. Nothing in either FitOn session shows the program or the meal plan varying with the answers, and neither result is seen after the ask, since Muscle Maker's content is not narrated and Start now on the meal plan leads to the video rather than the plan (tier: directly observed). The FitOn meal-plan instance has no animated interval narrated, only a statement that the plan is set up, so whether it matches the definition's interval condition is not established (tier: unresolved). The evidence that would settle the proposal is unchanged from Freeletics: a comparison of the same flow with and without the interval."
+    },
+    {
+      "name": "Self-Set Recurring Target",
+      "sourceObservations": [
+        "O7",
+        "O32",
+        "O33"
+      ],
+      "draftDefinition": "The product supplies a surface on which the user names their own target for a recurring period, choosing the amount while the product supplies the unit and the period. The target is not completed and retired when it is met: the period ends, the measure returns to zero, and the same target stands again for the next period.",
+      "conditions": "a question in which the user states how often they plan to act per period, observed as \"How many times per week do you plan to work out?\"; a standing weekly figure measured against that target, observed as exercise at 0 out of 2 workouts as the weekly goal; and a statement that the target is assessed period by period, observed as the badge criterion counting weeks reaching the workout goal.",
+      "whyNotCovered": "Daily / Weekly Quests requires the product to issue, refresh or release objective instances, and FitOn issues nothing; the user states the frequency. Challenge requires a product-defined success condition and an instance that concludes. Streak classifies the continuity across periods that FitOn layers over the target, not the target itself. No approved entry holds a user-set amount that recurs on a period the product defines.",
+      "recurrenceElsewhere": "open proposal from the Strava analysis, where the surface was seen but no target set. FitOn adds a candidate second instance in another product, with a target chosen during onboarding and later displayed against a weekly measure (tier: strongly supported). It is describable without reference to either app.",
+      "caveat": "The reset, which the Strava proposal names as the invariant, is still not observed in FitOn: neither session crosses a week boundary with the goal in view (tier: directly observed). What FitOn adds is its own statement that weeks reaching the goal are counted, through the We're on Fire criterion, which is framing rather than behavior (tier: strongly supported). That the displayed target of 2 comes from the onboarding answer is not established, since the answer given is not narrated (tier: plausible). A session that sets or reads the target, completes it or not within a week, and reads it again in the following week would settle both."
     }
   ],
   "system": {
-    "tagline": "A fitness platform that front-loads its community identity before the user has done a single workout.",
-    "overview": "FitOn presents its full community taxonomy during onboarding, before any workout has been completed. Groups organized by topic, including names like Single and Crushing It and 30s Club, are selectable during setup. Three paywalls appear in the first session. Rating each workout is mandatory to continue, meaning the app forces feedback collection at every completion. The free Basic tier provides unlimited workouts with no time limit.",
-    "loop": "Complete onboarding including group selection. Select Basic (free) at the paywall. Complete a workout. Rate it mandatorily. Receive shareable muscle-map graphic. Browse community group feeds. Log steps and activity via connected device. Maintain CR Streak across workouts and steps. Return for live classes on a fixed schedule.",
-    "keyInsight": "Three paywalls in one session is the most aggressive paywall cadence observed across all fitness apps in the library. The third appears specifically after the first workout completion, at the moment of highest perceived value. Combined with the mandatory workout rating, which forces a positive engagement signal before the third paywall, the timing is deliberate.",
-    "whatMakesItWork": "The free tier is genuinely free with no time limit and unlimited workouts. The community groups selected during onboarding create a social investment before the user has done anything, making the app feel established from the first session rather than empty.",
+    "tagline": "A workout app whose recognition layer, badges and a streak, never leaves zero.",
+    "overview": "FitOn wraps a video workout player in a long onboarding funnel that collects a goal, a level, a schedule, favorite class types, community groups and device ownership before generating a named program. Community groups are presented as a full four-category taxonomy during onboarding, ahead of any workout, and reappear later as memberships that determine the one social feed the app runs. A badge catalogue and a weekly streak recognize activity read off the same profile workout count and weekly goal, with neither shown moving. A separate article library on fitness, nutrition, wellness and self-care sits beside the workout catalogue rather than gating it. A single Pro discount, 70% off, repeats across five separate surfaces, two of them videos the app doesn't let the user skip.",
+    "loop": "Complete onboarding, including the community-group and device questions, then set a return-time intention that rewrites itself as the time changes. Choose Basic or Pro at the plan screen, complete the first workout, rate it, and reach the home screen. Return later to a streak control still reading zero, a badge catalogue stating criteria that stay unmet, and a Friends tab carrying group posts with no friends connected.",
+    "keyInsight": "FitOn's recognition layer, the badge catalogue, the streak and the 50-workout milestone, all rest on how the app states and displays them rather than on anything shown being earned: the streak reads zero, no badge changes state, and the weekly goal it's built on never crosses a period boundary. The community layer runs the opposite way, presented in full before any workout and immediately put to use once membership decides what reaches the one social feed the app runs.",
+    "whatMakesItWork": "The badge catalogue and the streak don't need anything attained to do their job: stating a specific criterion up front, 50 workouts, a time before 7am, a run of weeks, is itself the pitch, independent of whether the app has ever shown one met. The community taxonomy works the same way in reverse: it's asked for before the product has anything else to offer, and it's the only part of the onboarding questionnaire that goes on to determine real content, since it's what decides which posts populate the Friends feed.",
     "roles": [
       {
-        "id": "achievement",
-        "role": "Dozens of badges browsable by category in the profile tab, with the catalogue visible after one completed workout."
-      },
-      {
-        "id": "community-groups",
-        "role": "Full taxonomy presented during onboarding: Food, Journey, Lifestyle, Activity groups with specific niche names. The app positions itself as a social platform first."
+        "id": "commitment",
+        "role": "A first-person return-time sentence set during onboarding, rewritten live as the time changes and confirmed or skipped before the first workout."
       },
       {
         "id": "streak",
-        "role": "CR Streak combines workout completions with device step count data, displayed as the primary dashboard element in the For You tab."
+        "role": "A weekly-goal-based streak surfaced on the home screen, the post-workout summary and the For You tab, shown at zero throughout."
       },
       {
-        "id": "challenges",
-        "role": "Program-based challenges with defined endpoints. Functionally shallow at the observed depth but structurally present in the workout tab."
+        "id": "expert-guidance",
+        "role": "A four-subject article library on fitness, nutrition, wellness and self-care, reachable and readable without touching a workout."
+      },
+      {
+        "id": "community-groups",
+        "role": "A four-category group taxonomy presented during onboarding, before any workout, that determines what reaches the Friends tab's group feed."
+      },
+      {
+        "id": "social-feed",
+        "role": "A Friends-tab feed combining friends' workouts with questions and posts from joined groups, populated only on the group side."
+      },
+      {
+        "id": "achievement",
+        "role": "A six-category badge catalogue stating each criterion up front, covering a time-of-day badge, a workout-count badge and a streak-based badge."
+      },
+      {
+        "id": "milestone",
+        "role": "A 50-workout threshold badge stated against the profile's own running workout count."
       }
     ],
     "center": {
       "x": 50,
-      "y": 15,
+      "y": 8,
       "label": "FITON"
     },
     "nodes": [
       {
-        "id": "community-groups",
-        "x": 50,
-        "y": 36
-      },
-      {
-        "id": "achievement",
-        "x": 22,
-        "y": 62
-      },
-      {
-        "id": "social-feed",
-        "x": 78,
-        "y": 62
+        "id": "commitment",
+        "x": 26,
+        "y": 30
       },
       {
         "id": "streak",
         "x": 50,
-        "y": 84
+        "y": 30
+      },
+      {
+        "id": "expert-guidance",
+        "x": 76,
+        "y": 30
+      },
+      {
+        "id": "community-groups",
+        "x": 26,
+        "y": 58
+      },
+      {
+        "id": "achievement",
+        "x": 50,
+        "y": 58
+      },
+      {
+        "id": "milestone",
+        "x": 76,
+        "y": 58
+      },
+      {
+        "id": "social-feed",
+        "x": 26,
+        "y": 82
       }
     ],
     "connections": [
       {
         "from": "community-groups",
-        "to": "streak",
-        "title": "Group feeds surface streak activity from other members",
-        "desc": "The Friends tab feed shows workout completions and streak milestones from group members. Seeing others maintain streaks creates social proof for the behavior.",
-        "effect": "Streak maintenance is visible to the community. The social observation of others maintaining theirs applies return pressure independent of personal motivation."
+        "to": "social-feed",
+        "title": "Group membership determines the group feed",
+        "desc": "The questions and posts that reach the Friends tab's group feed come only from the groups the user has joined during onboarding or afterward.",
+        "effect": "Group membership is the one onboarding answer that goes on to shape ongoing content, deciding what a user sees every time they open the group feed."
       },
       {
         "from": "streak",
         "to": "achievement",
-        "title": "CR Streak milestones unlock named badges",
-        "desc": "Streak milestones appear as achievement categories in the profile badge catalogue alongside workout count, calorie, and exercise-type badges.",
-        "effect": "The streak produces two outputs simultaneously: a maintained counter and progress toward a badge threshold."
+        "title": "The weekly streak is a badge's own criterion",
+        "desc": "The We're on Fire badge is stated directly against the streak: the longest run of weeks in which the user reaches the weekly workout goal.",
+        "effect": "The same weekly-goal measure the streak displays doubles as the exact criterion for a separate badge, so nothing new has to be tracked for the achievement to apply."
       }
     ]
   }
