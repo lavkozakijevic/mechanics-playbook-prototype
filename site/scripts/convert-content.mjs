@@ -899,15 +899,13 @@ const ADDITIONS = {
 // name map resolves to community-groups directly, so no remap is needed.
 //
 // xp-leveling split into experience-points and leveling on 13 Sep 2026
-// (sources/taxonomy-map.md). These four v3 files still carry the old
-// inline id in a "### ... (`xp-leveling`) · Depth" heading and were not
-// rewritten — remapped here instead, onto whichever of the two split
-// concepts that app's own write-up is actually about, decided from each
-// file's own observed text: freeletics and liftoff each describe a level
-// or rank state as the thing observed (leveling); solitaire-grand-harvest
-// and steam each describe a running accumulation toward a threshold with
-// no named level state (experience-points). Without this, any of these
-// four would throw "unknown mechanic xp-leveling" the moment xp-leveling
+// (sources/taxonomy-map.md). These v3 files still carry the old inline id
+// in a "### ... (`xp-leveling`) · Depth" heading and were not rewritten —
+// remapped here instead, onto whichever of the two split concepts that
+// app's own write-up is actually about, decided from each file's own
+// observed text: freeletics and liftoff each describe a level or rank
+// state as the thing observed (leveling). Without this, any of these
+// would throw "unknown mechanic xp-leveling" the moment xp-leveling
 // stopped being a registered id. capybara-go is not remapped here: its
 // analysis was migrated to v4.1 and never reaches this v3 path at all.
 // clash-of-clans, tiimo, gymverse and fc-mobile each carried an entry
@@ -917,6 +915,25 @@ const ADDITIONS = {
 // and fc-mobile's. wakeout's analysis already uses the reviewed canonical
 // name "Experience Points" rather than the inline id, which resolves
 // through CANONICAL_MECHANIC_IDS directly.
+//
+// steam is no longer remapped here either, and its own removal (18 Sep
+// 2026) corrects the reasoning above along with retiring the entry:
+// steam's v3 write-up was originally assigned experience-points on the
+// assumption that it showed "a running accumulation toward a threshold
+// with no named level state." Steam's fresh v4.1 analysis contradicts
+// that assumption directly — O16 shows a named, displayed profile level
+// (Leveling, strongly supported) alongside a separate underlying XP value
+// (Experience Points, plausible only) — so the original binary choice was
+// too narrow even on the merits, not just moot. It's moot as well, now:
+// steam.md is v4.1 format, so detectAnalysisFormat() never routes it
+// through this REMAPS path regardless of this entry's value.
+// solitaire-grand-harvest is still on the list below and still v3 — its
+// own write-up describes named levels too (a farm level and a solitaire
+// level counter with named unlock thresholds), the same assumption error
+// found in steam's entry, but flagged rather than changed here: unlike
+// steam, solitaire-grand-harvest hasn't been migrated to v4.1, so
+// correcting its mapping would change what's currently live for that app,
+// outside this cleanup's scope.
 // achievements split into achievement and milestone on 13 Sep 2026
 // (sources/taxonomy-map.md), the same day and for the same reason as the
 // xp-leveling split above: Clash of Clans and Tiimo each applied Achievement
@@ -980,13 +997,12 @@ const ADDITIONS = {
 // "Entries considered and not applied" section — both were stale carryovers
 // on the old fused mechanic's apps[] list rather than real evidence, and
 // neither reaches this v3 path in any case (both are v4.1). royal-match,
-// capybara-go and fc-mobile don't appear below either: all three are v4.1
-// and never reach this path.
+// capybara-go, fc-mobile and steam don't appear below either: all four are
+// v4.1 and never reach this path.
 const REMAPS = {
   "freeletics": { "xp-leveling": "leveling", "achievements": "achievement" },
   "liftoff": { "xp-leveling": "leveling", "achievements": "achievement", "variable-reward": "loot-box" },
   "solitaire-grand-harvest": { "xp-leveling": "experience-points", "achievements": "milestone" },
-  "steam": { "xp-leveling": "experience-points" },
   "calm": { "achievements": "achievement" },
   "ladder": { "achievements": "achievement" },
   "swgoh": { "achievements": "achievement", "variable-reward": "loot-box" },
@@ -1336,6 +1352,31 @@ const V41_APP_META = {
         "Wakeout's paywall opens immediately after onboarding with four plans, extensive persuasion sections, and a discounted gift-subscription offer repeated across the app.",
       returns:
         "Wakeout brings users back through configurable reminders, a day-off pause that protects the streak, home and lock screen widgets, and a rating entry Wakeout never triggered.",
+    },
+  },
+  steam: {
+    name: "Steam (iOS)",
+    category: "Gaming / Digital Storefront and Community",
+    type: "app",
+    sectionCards: {
+      onboarding:
+        "Steam requires an existing account rather than a fresh signup, and moves through camera and notification permissions, a Steam Guard email code, and an authenticator setup with a hand-copied recovery code before the unguided Store becomes the first free choice.",
+      "core-loop":
+        "Steam's loop runs through the Store home, a Discovery Queue that records follow, wishlist and ignore decisions, a Wishlist sorted by price and discount, a per-source muteable News feed, and a Library sorted by recent activity.",
+      goals:
+        "Steam displays a profile level built from badge collection, a Badges page with a seasonal badge upgraded by spending points, and showcase upgrades that add display capacity rather than only changing appearance.",
+      access:
+        "Steam conditions a slice of its Points Shop catalogue on owning the related game, and its security confirmations page was found empty.",
+      economy:
+        "Steam Points accrue automatically at 117 per euro spent on any Steam purchase and fund a wide points-priced catalogue, ownership rules, and bundle discounts.",
+      social:
+        "Community Awards spend points on other users' content, profile viewing shows level and badges to visitors, and friends, groups and community hub areas round out the rest.",
+      reach:
+        "Steam hands chat off entirely to a separate app, references the Steam Deck and PC throughout, and carries share and invite links out to other surfaces.",
+      monetization:
+        "Steam Wallet funding happens outside the App Store, and price and discount framing runs through every Store surface.",
+      returns:
+        "Steam brings users back through sale-related notifications, an event reminder bell, and seasonal badge renewal tied to Summer and Winter Sales.",
     },
   },
   strava: {

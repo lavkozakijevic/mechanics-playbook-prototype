@@ -207,22 +207,37 @@ freeletics, liftoff, gymverse) no analysis narrows which specific one
 applies, so neither entry's list overclaims a distinction that isn't
 evidenced.
 
-Eight older v3 analysis files still carry the literal `xp-leveling` inline
-id in a `### ... (\`xp-leveling\`) · Depth` heading, unrewritten:
-clash-of-clans, fc-mobile, freeletics, gymverse, and liftoff resolve to
-`leveling`; solitaire-grand-harvest, steam, and tiimo resolve to
-`experience-points`. Each was decided from that file's own observed text
-(a named, assigned level or rank state versus a running accumulation
-toward a threshold with no named level), and is handled by a per-app entry
-in `REMAPS` (`site/scripts/convert-content.mjs`) rather than by editing
-the analysis files — REMAPS exists exactly for this case, an id split
-after the file was written. Without it, any of the eight would throw
-"unknown mechanic xp-leveling" the moment the id stopped being registered.
-Wakeout's analysis was not one of the eight: it already uses the reviewed
-canonical name "Experience Points" rather than the inline id, which
-resolves through `CANONICAL_MECHANIC_IDS` directly and needed no remap.
-Capybara Go was not one of the eight either — its analysis was migrated to
-the v4.1 format and never reaches the v3 parsing path at all.
+Older v3 analysis files still carry the literal `xp-leveling` inline id in
+a `### ... (\`xp-leveling\`) · Depth` heading, unrewritten: clash-of-clans,
+fc-mobile, freeletics, gymverse, and liftoff resolve to `leveling`;
+solitaire-grand-harvest and tiimo resolve to `experience-points`. Each was
+decided from that file's own observed text (a named, assigned level or
+rank state versus a running accumulation toward a threshold with no named
+level), and is handled by a per-app entry in `REMAPS`
+(`site/scripts/convert-content.mjs`) rather than by editing the analysis
+files — REMAPS exists exactly for this case, an id split after the file
+was written. Without it, any of these would throw "unknown mechanic
+xp-leveling" the moment the id stopped being registered. Wakeout's
+analysis was not one of these: it already uses the reviewed canonical name
+"Experience Points" rather than the inline id, which resolves through
+`CANONICAL_MECHANIC_IDS` directly and needed no remap. Capybara Go was not
+one of these either — its analysis was migrated to the v4.1 format and
+never reaches the v3 parsing path at all.
+
+Steam was originally in the `experience-points` bucket above, on the same
+"accumulation with no named level" reasoning, until its own migration to
+v4.1 (18 Sep 2026) found that reasoning wrong on the merits as well as
+moot: the fresh analysis shows a named, displayed profile level (Leveling,
+strongly supported) alongside a separate, thinner XP value (Experience
+Points, plausible only), so the original file's write-up was read too
+narrowly when the remap was first decided. Steam's `REMAPS` entry has been
+removed rather than corrected in place, since steam.md is now v4.1 and
+never reaches this path regardless of what the entry says.
+Solitaire-grand-harvest's own write-up shows the same pattern, named farm
+and solitaire levels with stated unlock thresholds, not bare accumulation,
+but it hasn't been migrated to v4.1 yet and its `REMAPS` entry is still
+live, so correcting it is left for that app's own migration rather than
+folded into Steam's.
 
 The old `/mechanics/xp-leveling/` URL 404s rather than redirects. Nothing
 is indexed there yet, so there is no inbound-link cost to weigh, and a

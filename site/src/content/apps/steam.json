@@ -1,104 +1,836 @@
 {
   "id": "steam",
   "name": "Steam (iOS)",
-  "category": "Gaming Platform",
+  "category": "Gaming / Digital Storefront and Community",
   "type": "app",
   "visibility": "public",
-  "analysisDate": "2026-05-11",
-  "lastUpdated": "2026-06-29",
-  "summary": "Steam's Points Shop is funded entirely by game purchases, 117 points per euro spent, meaning cosmetic spending is free at the point of redemption, retroactively funded by purchasing behaviour. Community Awards allow users to spend points to attach a visible recognition marker to another user's content, turning the cosmetics spend surface into a social quality-signaling system. Seasonal badges, available only during Summer and Winter Sales, are the sole mechanic creating urgency in the otherwise perpetually available cosmetics catalogue.",
-  "teaser": "Steam lets players spend their reward points on someone else's content instead of their own, turning a self-expression currency into a way to publicly praise other users.",
+  "analysisDate": "2026-09-15",
+  "lastUpdated": "2026-09-15",
+  "asObserved": "2026-05",
+  "appVersion": "None.",
+  "summary": "Steam on iOS is a companion app for an existing account rather than a fresh signup, and its design is organized around Steam Points, a currency the account earns automatically from purchases already made elsewhere on the platform. Points get spent on cosmetics, on recognizing other users' content and on upgrading a profile level built from badges, all without a separate purchase decision. A single security-first onboarding chain, credential sign-in, an emailed code and an authenticator setup with a hand-copied recovery code, runs before the Store becomes the user's first unguided choice. From there the app runs a browsing loop through the Store, a Discovery Queue and a Wishlist, alongside a News feed, a community hub and a Points Shop that ties nearly everything else together.",
+  "teaser": "Steam turns money already spent on games into a second currency that buys cosmetics, praise for other players and profile status, no separate purchase required.",
   "icon": "/icons/steam.png",
   "heroImage": null,
-  "mechanics": [
+  "contentFormat": "v4.1",
+  "observations": [
     {
-      "id": "cosmetics",
-      "depth": "core",
-      "writeup": {
-        "observed": "The Points Shop contains: animated avatars, avatar frames (visible on profiles, friend lists, and Steam Chat when online), profile backgrounds, game profiles (theme packages), animated stickers (for Steam Chat and community posts), chat effects, emoticons, seasonal badges (Summer and Winter Sales only), showcase upgrades (expand profile display capacity), startup movies, Steam Deck keyboards, and item bundles at 10% discount with already-owned items excluded. All items are non-marketable and non-tradable. Points are earned at 117 per euro spent on any Steam purchase.",
-        "presented": "The Points Shop is front-loaded in the hamburger Store menu with its own deep navigation organized by category. Featured items tie to active sale events. At time of analysis, Spring Sale 2026 items were at the top.",
-        "noting": "The Points Shop operates as a points economy funded entirely by game purchases, not a separate spend decision. A user who has spent €100 on games has earned 11,700 points without any additional action. Cosmetics at the point of redemption feel free, retroactively funded by spending behaviour the user was already engaged in.",
-        "findings": [
-          "Steam Points are earned at 117 per €1 spent on any purchase, the cosmetics economy is funded retroactively by game-buying behaviour, making redemption feel free at the point of use.",
-          "Seasonal badges (Summer and Winter Sales only) are the sole mechanic creating urgency in the cosmetics system, every other item is perpetually available.",
-          "Showcase upgrades expand the profile page's display capacity rather than adding a visual item, increasing how many badges and artwork pieces can be shown to visitors.",
-          "Community Awards use points to attach a visible recognition marker to another user's content, turning the cosmetics spend surface into a social quality-signaling system."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": [
-        "Points Shop home showing Spring Sale 2026 featured items — avatar frames, profile backgrounds, game profiles — with point costs visible alongside the balance indicator",
-        "Avatar frame detail screen showing \"frames are seen on your profile community pages — they also appear to your friends in the friends list and Steam Chat when you are online\""
-      ]
+      "id": "O1",
+      "name": "Notification permission at launch",
+      "section": "onboarding",
+      "observed": "On first launch, before sign-in or any other screen, Steam asks for permission to send notifications, stating that notifications may include alerts, sounds and icon badges and that the choice can be changed later in Settings.",
+      "detail": [
+        "Steam asks before offering any explanation of what its notifications will contain."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "experience-points",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O2",
+      "name": "Steam-only sign-in",
+      "section": "onboarding",
+      "observed": "Sign-in accepts only an existing Steam account name and password, with no other option offered, and greets a returning account with \"Welcome back to Steam.\"",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "limited-time-events",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O3",
+      "name": "Email verification code",
+      "section": "onboarding",
+      "observed": "Signing in also requires a five-character code Steam sends to the account's email address, and entering it produces the welcome-back screen. Getting the code means leaving the app to check email.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "social-feed",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O4",
+      "name": "Post-sign-in feature carousel",
+      "section": "onboarding",
+      "observed": "After signing in, a three-screen carousel walks through changes before ending on a Done button: customizing notifications, with example notifications shown for a wishlisted game on sale, a friend request and a new game available to download; using the camera to scan a QR code for sign-in or to confirm a sign-in with one touch; and a list of further changes covering trade confirmation improvements, a new library view, support for multiple accounts, a news feed customized to the user's library, account notifications and store browsing improvements.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Social Feed",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Exclusion conditions checked first: items come from more than one source, including Steam official news, curators and individual developers or publishers, so the feed is neither a single-publisher channel nor a personal history (O14) (tier: directly observed). Steam attributes items to those actors, lets the viewer mute a developer or publisher or hide a type of post, and presents dated items in a scrolling stream (O14) (tier: directly observed). The carousel describes the feed as customized based on the user's library (O4) (tier: directly observed).",
+          "alternativeConsidered": "A content recommendation feed without social attribution (tier: plausible). It is set aside because each item is attributed to a named developer, publisher, curator or Steam and carries likes and comments (O14) (tier: directly observed).",
+          "role": "engagement, social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "set-collection",
-      "depth": "supporting",
-      "provisionalDepth": true,
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O5",
+      "name": "Camera permission mid-carousel",
+      "section": "onboarding",
+      "observed": "Partway through the carousel, Steam asks for camera access, stated as enabling QR code sign-in, with no screen announcing the request beforehand.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "community-groups",
-      "depth": "supporting",
-      "provisionalDepth": true,
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O6",
+      "name": "Landing on Steam Guard",
+      "section": "onboarding",
+      "observed": "After the carousel, Steam opens on the Steam Guard tab rather than the Store or Library, stating that adding an authenticator protects the account and speeds up sign-in through QR codes or one-touch approval. The bottom navigation holds Store, News, Steam Guard and Notifications, alongside a separate hamburger menu.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O7",
+      "name": "Setting up the authenticator",
+      "section": "onboarding",
+      "observed": "Adding an authenticator asks for a phone number, then requires confirming that number through a link sent by email before Steam sends a code. Steam Guard then shows a recovery code, described as needed if the account, device or app access is ever lost, that has to be copied down by hand rather than tapped to copy. Finishing the setup opens the camera rather than the Store or Library.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O8",
+      "name": "No guided tour",
+      "section": "onboarding",
+      "observed": "Steam gives no walkthrough of its areas once the authenticator setup finishes, leaving the Store as the first surface the user opens unaided.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O9",
+      "name": "Navigation structure",
+      "section": "core-loop",
+      "observed": "The hamburger menu holds a Store dropdown, Store Home, Specials, New Releases, Discovery Queue, Points Shop, Wishlist and Wallet, then News, Steam Guard and Notifications, then Confirmations, Library, Community and Chat. Community opens its own dropdown of Community Home, Discussions, Market, Broadcasts and Workshop. The account menu sits behind an avatar in the top right corner.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O10",
+      "name": "Store home",
+      "section": "core-loop",
+      "observed": "The Store tab opens with a search bar, Wishlist and Wallet buttons, and Browse, Recommendations, Categories, Ways to Play and Special Sections menus. Its home feed runs through Featured and Recommended, discounts and events, category browsing, recommendations based on games the user plays or has played, the Discovery Queue, new releases, specials, free games, tag browsing, community recommendations, New and Trending, Top Sellers, Popular Upcoming, and games under €10, closing with an invitation to keep scrolling for more. A three-dots menu offers Share, producing a link to the Steam discovery page, and Refresh.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O11",
+      "name": "Discovery Queue",
+      "section": "core-loop",
+      "observed": "The Discovery Queue surfaces one recommended game at a time, with a Next in queue control to move forward, and holds 12 titles the user can move back and forward through.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O12",
+      "name": "Discovery Queue explainer",
+      "section": "core-loop",
+      "observed": "Steam describes the Discovery Queue as a mix of new, top-selling and similar titles to what the user already plays, and directs the user to follow, wishlist or ignore each title from its own page, or jump to the next one. The Discovery Queue page itself keeps a record of titles followed, wishlisted and ignored.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O13",
+      "name": "Wishlist",
+      "section": "core-loop",
+      "observed": "The Wishlist lists wishlisted games with a search by name or tag, filters, and sorting by rank, name, price, discount, date, top-selling, release date and review score, including a rank the user sets themselves.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O14",
+      "name": "News feed with per-source controls",
+      "section": "core-loop",
+      "observed": "The News tab offers Your news, Upcoming, Featured, Steam official news, Curators, Sales and Events, showing dated items with likes and comments. Each item can be hidden by type, or muted by developer or publisher, alongside links to that source's news hub or store page. Commenting opens the item's own discussion on Steam News.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Social Feed",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Exclusion conditions checked first: items come from more than one source, including Steam official news, curators and individual developers or publishers, so the feed is neither a single-publisher channel nor a personal history (O14) (tier: directly observed). Steam attributes items to those actors, lets the viewer mute a developer or publisher or hide a type of post, and presents dated items in a scrolling stream (O14) (tier: directly observed). The carousel describes the feed as customized based on the user's library (O4) (tier: directly observed).",
+          "alternativeConsidered": "A content recommendation feed without social attribution (tier: plausible). It is set aside because each item is attributed to a named developer, publisher, curator or Steam and carries likes and comments (O14) (tier: directly observed).",
+          "role": "engagement, social"
+        },
+        {
+          "name": "Community Space",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "Exclusion conditions checked first: the discussion attached to a news item is not a two-person conversation or a one-off lobby, and the session showed no maintained membership or group-owned state for these areas, so the Group Membership and Clan / Guild siblings do not apply to them (O32, O33) (tier: strongly supported). Steam maintains discussions attached to news items with tabs for artwork, videos, news and guides, invites contributions through its empty state, and shows other users sharing broadcasts, artwork and screenshots (O32, O33) (tier: directly observed). No contribution was made during the session, and Discussions itself was not opened (tier: directly observed).",
+          "alternativeConsidered": "Social Feed alone, treating the comments as reactions within the feed rather than a persistent space (tier: plausible). The discussion opens as its own context with contribution tabs (O33), which is what the Community Space invariant requires, and opening Discussions and posting would confirm persistence across contributions (tier: strongly supported).",
+          "role": "social, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O15",
+      "name": "Library",
+      "section": "core-loop",
+      "observed": "The Library lists owned games, sortable by recent activity, name or playtime.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O16",
+      "name": "Profile level",
+      "section": "goals",
+      "observed": "Viewing the profile shows the user's level alongside their username, last online time and badges, without stating the rule for moving between levels.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Leveling",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "Exclusion conditions checked first: the level is shown as a state of the user on the profile rather than as a purchased plan, a content unit or a points balance (O16) (tier: directly observed). Steam assigns the user a current level (O16) and states that badges contribute towards profile XP (O17), which converges on a level advanced by accumulated progression (tier: strongly supported). The ordered set of levels and the thresholds between them were not shown (tier: directly observed).",
+          "alternativeConsidered": "A static profile label that does not change under a progression rule (tier: plausible). Seeing the level change after a badge is earned or upgraded would separate the two (tier: strongly supported).",
+          "role": "social, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O17",
+      "name": "Badges and the seasonal badge",
+      "section": "goals",
+      "observed": "A Badges page in the account menu shows the badges an account has collected. In the Points Shop, a seasonal badge can be upgraded by spending points, and Steam states that badges are shown on the profile and count toward profile XP. Steam tells users to check back during the summer and winter sales for a new seasonal badge.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Leveling",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "Exclusion conditions checked first: the level is shown as a state of the user on the profile rather than as a purchased plan, a content unit or a points balance (O16) (tier: directly observed). Steam assigns the user a current level (O16) and states that badges contribute towards profile XP (O17), which converges on a level advanced by accumulated progression (tier: strongly supported). The ordered set of levels and the thresholds between them were not shown (tier: directly observed).",
+          "alternativeConsidered": "A static profile label that does not change under a progression rule (tier: plausible). Seeing the level change after a badge is earned or upgraded would separate the two (tier: strongly supported).",
+          "role": "social, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O18",
+      "name": "Showcase upgrades",
+      "section": "goals",
+      "observed": "The Points Shop's profile showcases can be upgraded up to two times, adding room to display badges and artwork.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O19",
+      "name": "Ownership-gated items",
+      "section": "access",
+      "observed": "The Points Shop's From your games section shows items tied to games the account owns, and its copy states that points can be redeemed for a background or emoticon for an owned game.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Cosmetic Customization",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Exclusion conditions checked first: the item copy describes changes to how the profile, avatar, chat, and Steam Deck keyboard and startup sequence look, with no stated effect on capabilities, prices or outcomes (O22, O23) (tier: directly observed). The items are acquired content redeemed with points rather than built-in settings (O21, O22) (tier: directly observed). Steam defines alternative presentation states, previews an avatar frame on the user's own avatar, and describes an equipped state for backgrounds and game profiles (O23) (tier: directly observed). Showcase upgrades (O18) are kept out of this tag because they add display capacity rather than only changing appearance (tier: strongly supported).",
+          "alternativeConsidered": "A functional variant, if an item changed what the profile can do rather than how it looks; the showcase upgrades in O18 are the nearest case and are kept out of this tag (tier: plausible). Equipping an item and viewing the resulting profile would confirm the purely presentational effect (tier: strongly supported).",
+          "role": "social, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O20",
+      "name": "Security confirmations",
+      "section": "access",
+      "observed": "Confirmations, reached from the hamburger menu, states there are no confirmations at this time, and describes itself as where the user reviews and confirms security changes to the account.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O21",
+      "name": "Earning Steam Points",
+      "section": "economy",
+      "observed": "The Points Shop opens with an explanation that Steam Points are earned by shopping on Steam or by contributing to the Steam community, and can be spent on customizing the user's presence or on awarding other community members. Steam states a rate of 117 points for every euro spent on any game, DLC, hardware, application, soundtrack or in-game item. How community contribution converts into points is not stated. The Points Shop keeps a My points history section alongside the earning explanation.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Soft Currency",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "Exclusion conditions checked first: Steam Points are product-defined units separate from the euro-denominated Steam Wallet in O37, they are exchanged for items rather than only measuring progression (O22), and no automatic consumption through participation was shown (tier: directly observed). Steam maintains a points balance shown on item pages (O23) and prices items and bundles in points (O22, O25) (tier: directly observed). The product's copy names two repeatable acquisition paths that do not sell points directly: shopping on Steam at 117 points per €1, and contributing to the Steam community (O21) (tier: directly observed). The session did not show a redemption reducing the balance or a grant adding to it (tier: directly observed). Soft Currency is a specialization of Spendable Credits and Tokens, which is the parent entry (tier: directly observed).",
+          "alternativeConsidered": "Hard Currency, because the per-euro grant resembles its bundled variant, in which a paid product includes a currency grant (tier: plausible). It is not applied because the payment buys the game, DLC or item, the points are not an intermediary between that payment and its result, and Soft Currency's required conditions name performing transactions as a non-paid acquisition path (tier: strongly supported). An offer selling points directly for money would separate the two and would add Hard Currency (tier: strongly supported).",
+          "role": "monetization, social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O22",
+      "name": "Points Shop catalog",
+      "section": "economy",
+      "observed": "The Points Shop is organized into sections covering items from the user's own games, sale events, bundles, keyboards, startup movies, avatars, backgrounds, community awards, the seasonal badge, game profiles, profile showcases, animated stickers, chat effects and emoticons, alongside points history and an award summary. Its featured home leads with current sale items, then rows of profile backgrounds, past sale items, startup movies, game profiles, and items tied to specific games. Item prices run roughly 1,000 to 5,000 points. Keyboards and startup movies personalize the Steam Deck's virtual keyboard and startup sequence, or Big Picture mode. Steam frames the Points Shop as available all year round.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Soft Currency",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "Exclusion conditions checked first: Steam Points are product-defined units separate from the euro-denominated Steam Wallet in O37, they are exchanged for items rather than only measuring progression (O22), and no automatic consumption through participation was shown (tier: directly observed). Steam maintains a points balance shown on item pages (O23) and prices items and bundles in points (O22, O25) (tier: directly observed). The product's copy names two repeatable acquisition paths that do not sell points directly: shopping on Steam at 117 points per €1, and contributing to the Steam community (O21) (tier: directly observed). The session did not show a redemption reducing the balance or a grant adding to it (tier: directly observed). Soft Currency is a specialization of Spendable Credits and Tokens, which is the parent entry (tier: directly observed).",
+          "alternativeConsidered": "Hard Currency, because the per-euro grant resembles its bundled variant, in which a paid product includes a currency grant (tier: plausible). It is not applied because the payment buys the game, DLC or item, the points are not an intermediary between that payment and its result, and Soft Currency's required conditions name performing transactions as a non-paid acquisition path (tier: strongly supported). An offer selling points directly for money would separate the two and would add Hard Currency (tier: strongly supported).",
+          "role": "monetization, social"
+        },
+        {
+          "name": "Cosmetic Customization",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Exclusion conditions checked first: the item copy describes changes to how the profile, avatar, chat, and Steam Deck keyboard and startup sequence look, with no stated effect on capabilities, prices or outcomes (O22, O23) (tier: directly observed). The items are acquired content redeemed with points rather than built-in settings (O21, O22) (tier: directly observed). Steam defines alternative presentation states, previews an avatar frame on the user's own avatar, and describes an equipped state for backgrounds and game profiles (O23) (tier: directly observed). Showcase upgrades (O18) are kept out of this tag because they add display capacity rather than only changing appearance (tier: strongly supported).",
+          "alternativeConsidered": "A functional variant, if an item changed what the profile can do rather than how it looks; the showcase upgrades in O18 are the nearest case and are kept out of this tag (tier: plausible). Equipping an item and viewing the resulting profile would confirm the purely presentational effect (tier: strongly supported).",
+          "role": "social, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O23",
+      "name": "Item preview and equip",
+      "section": "economy",
+      "observed": "An item's own page shows the current points balance, the item name, and a preview, such as an avatar frame shown on the user's own avatar. Frame copy states frames appear on the profile and community pages and to friends in the friends list and in Steam Chat while the user is online. Background copy states an equipped background is visible to anyone who views the profile. A game profile is described as bundling exclusive items and a theme not available separately, with everything equipping on activation except the animated avatar, and its preview opens in a separate tab showing characters and animations.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Soft Currency",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "Exclusion conditions checked first: Steam Points are product-defined units separate from the euro-denominated Steam Wallet in O37, they are exchanged for items rather than only measuring progression (O22), and no automatic consumption through participation was shown (tier: directly observed). Steam maintains a points balance shown on item pages (O23) and prices items and bundles in points (O22, O25) (tier: directly observed). The product's copy names two repeatable acquisition paths that do not sell points directly: shopping on Steam at 117 points per €1, and contributing to the Steam community (O21) (tier: directly observed). The session did not show a redemption reducing the balance or a grant adding to it (tier: directly observed). Soft Currency is a specialization of Spendable Credits and Tokens, which is the parent entry (tier: directly observed).",
+          "alternativeConsidered": "Hard Currency, because the per-euro grant resembles its bundled variant, in which a paid product includes a currency grant (tier: plausible). It is not applied because the payment buys the game, DLC or item, the points are not an intermediary between that payment and its result, and Soft Currency's required conditions name performing transactions as a non-paid acquisition path (tier: strongly supported). An offer selling points directly for money would separate the two and would add Hard Currency (tier: strongly supported).",
+          "role": "monetization, social"
+        },
+        {
+          "name": "Cosmetic Customization",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Exclusion conditions checked first: the item copy describes changes to how the profile, avatar, chat, and Steam Deck keyboard and startup sequence look, with no stated effect on capabilities, prices or outcomes (O22, O23) (tier: directly observed). The items are acquired content redeemed with points rather than built-in settings (O21, O22) (tier: directly observed). Steam defines alternative presentation states, previews an avatar frame on the user's own avatar, and describes an equipped state for backgrounds and game profiles (O23) (tier: directly observed). Showcase upgrades (O18) are kept out of this tag because they add display capacity rather than only changing appearance (tier: strongly supported).",
+          "alternativeConsidered": "A functional variant, if an item changed what the profile can do rather than how it looks; the showcase upgrades in O18 are the nearest case and are kept out of this tag (tier: plausible). Equipping an item and viewing the resulting profile would confirm the purely presentational effect (tier: strongly supported).",
+          "role": "social, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O24",
+      "name": "Ownership rules",
+      "section": "economy",
+      "observed": "Steam states that Points Shop items are the user's to keep forever and are not marketable or tradable, with no stated expiry. It also states that emoticons and backgrounds once tied to trading cards can now be bought directly with points, and that card crafting remains available separately for those items.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Soft Currency",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "Exclusion conditions checked first: Steam Points are product-defined units separate from the euro-denominated Steam Wallet in O37, they are exchanged for items rather than only measuring progression (O22), and no automatic consumption through participation was shown (tier: directly observed). Steam maintains a points balance shown on item pages (O23) and prices items and bundles in points (O22, O25) (tier: directly observed). The product's copy names two repeatable acquisition paths that do not sell points directly: shopping on Steam at 117 points per €1, and contributing to the Steam community (O21) (tier: directly observed). The session did not show a redemption reducing the balance or a grant adding to it (tier: directly observed). Soft Currency is a specialization of Spendable Credits and Tokens, which is the parent entry (tier: directly observed).",
+          "alternativeConsidered": "Hard Currency, because the per-euro grant resembles its bundled variant, in which a paid product includes a currency grant (tier: plausible). It is not applied because the payment buys the game, DLC or item, the points are not an intermediary between that payment and its result, and Soft Currency's required conditions name performing transactions as a non-paid acquisition path (tier: strongly supported). An offer selling points directly for money would separate the two and would add Hard Currency (tier: strongly supported).",
+          "role": "monetization, social"
+        },
+        {
+          "name": "Cosmetic Customization",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Exclusion conditions checked first: the item copy describes changes to how the profile, avatar, chat, and Steam Deck keyboard and startup sequence look, with no stated effect on capabilities, prices or outcomes (O22, O23) (tier: directly observed). The items are acquired content redeemed with points rather than built-in settings (O21, O22) (tier: directly observed). Steam defines alternative presentation states, previews an avatar frame on the user's own avatar, and describes an equipped state for backgrounds and game profiles (O23) (tier: directly observed). Showcase upgrades (O18) are kept out of this tag because they add display capacity rather than only changing appearance (tier: strongly supported).",
+          "alternativeConsidered": "A functional variant, if an item changed what the profile can do rather than how it looks; the showcase upgrades in O18 are the nearest case and are kept out of this tag (tier: plausible). Equipping an item and viewing the resulting profile would confirm the purely presentational effect (tier: strongly supported).",
+          "role": "social, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O25",
+      "name": "Bundle pricing",
+      "section": "economy",
+      "observed": "The Bundles section groups items at a discount, stating that the user won't be charged for anything already owned. A named example, a Counter-Strike 2 item bundle, is priced 10% below buying its roughly 10 to 20 items individually, with the discount calculated only on the items the account doesn't already own.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Soft Currency",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "Exclusion conditions checked first: Steam Points are product-defined units separate from the euro-denominated Steam Wallet in O37, they are exchanged for items rather than only measuring progression (O22), and no automatic consumption through participation was shown (tier: directly observed). Steam maintains a points balance shown on item pages (O23) and prices items and bundles in points (O22, O25) (tier: directly observed). The product's copy names two repeatable acquisition paths that do not sell points directly: shopping on Steam at 117 points per €1, and contributing to the Steam community (O21) (tier: directly observed). The session did not show a redemption reducing the balance or a grant adding to it (tier: directly observed). Soft Currency is a specialization of Spendable Credits and Tokens, which is the parent entry (tier: directly observed).",
+          "alternativeConsidered": "Hard Currency, because the per-euro grant resembles its bundled variant, in which a paid product includes a currency grant (tier: plausible). It is not applied because the payment buys the game, DLC or item, the points are not an intermediary between that payment and its result, and Soft Currency's required conditions name performing transactions as a non-paid acquisition path (tier: strongly supported). An offer selling points directly for money would separate the two and would add Hard Currency (tier: strongly supported).",
+          "role": "monetization, social"
+        },
+        {
+          "name": "Cosmetic Customization",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Exclusion conditions checked first: the item copy describes changes to how the profile, avatar, chat, and Steam Deck keyboard and startup sequence look, with no stated effect on capabilities, prices or outcomes (O22, O23) (tier: directly observed). The items are acquired content redeemed with points rather than built-in settings (O21, O22) (tier: directly observed). Steam defines alternative presentation states, previews an avatar frame on the user's own avatar, and describes an equipped state for backgrounds and game profiles (O23) (tier: directly observed). Showcase upgrades (O18) are kept out of this tag because they add display capacity rather than only changing appearance (tier: strongly supported).",
+          "alternativeConsidered": "A functional variant, if an item changed what the profile can do rather than how it looks; the showcase upgrades in O18 are the nearest case and are kept out of this tag (tier: plausible). Equipping an item and viewing the resulting profile would confirm the purely presentational effect (tier: strongly supported).",
+          "role": "social, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O26",
+      "name": "Community Awards",
+      "section": "social",
+      "observed": "Steam explains that points can be spent to place a visible award on another user's review, profile, discussion board post or created content such as workshop items, screenshots or guides, framed as a way to recognize someone else's work. The Points Shop's award summary shows how many awards the account has given and how many it has received. Steam's own copy is inconsistent about where awards can go: one line states they cannot be placed on profiles or discussion board posts, while the rest of the explanation says they can. Steam does not state whether the recipient receives anything beyond the displayed award.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Soft Currency",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "Exclusion conditions checked first: Steam Points are product-defined units separate from the euro-denominated Steam Wallet in O37, they are exchanged for items rather than only measuring progression (O22), and no automatic consumption through participation was shown (tier: directly observed). Steam maintains a points balance shown on item pages (O23) and prices items and bundles in points (O22, O25) (tier: directly observed). The product's copy names two repeatable acquisition paths that do not sell points directly: shopping on Steam at 117 points per €1, and contributing to the Steam community (O21) (tier: directly observed). The session did not show a redemption reducing the balance or a grant adding to it (tier: directly observed). Soft Currency is a specialization of Spendable Credits and Tokens, which is the parent entry (tier: directly observed).",
+          "alternativeConsidered": "Hard Currency, because the per-euro grant resembles its bundled variant, in which a paid product includes a currency grant (tier: plausible). It is not applied because the payment buys the game, DLC or item, the points are not an intermediary between that payment and its result, and Soft Currency's required conditions name performing transactions as a non-paid acquisition path (tier: strongly supported). An offer selling points directly for money would separate the two and would add Hard Currency (tier: strongly supported).",
+          "role": "monetization, social"
+        },
+        {
+          "name": "Community Space",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "Exclusion conditions checked first: the discussion attached to a news item is not a two-person conversation or a one-off lobby, and the session showed no maintained membership or group-owned state for these areas, so the Group Membership and Clan / Guild siblings do not apply to them (O32, O33) (tier: strongly supported). Steam maintains discussions attached to news items with tabs for artwork, videos, news and guides, invites contributions through its empty state, and shows other users sharing broadcasts, artwork and screenshots (O32, O33) (tier: directly observed). No contribution was made during the session, and Discussions itself was not opened (tier: directly observed).",
+          "alternativeConsidered": "Social Feed alone, treating the comments as reactions within the feed rather than a persistent space (tier: plausible). The discussion opens as its own context with contribution tabs (O33), which is what the Community Space invariant requires, and opening Discussions and posting would confirm persistence across contributions (tier: strongly supported).",
+          "role": "social, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O27",
+      "name": "Profile as others see it",
+      "section": "social",
+      "observed": "Viewing the profile the way another user would shows the username, level, last online time, badges, number of games, inventory, and the videos, reviews, artwork, guides, workshop items and screenshots the user has created, alongside recent activity and time played. Tapping the username opens a dropdown listing other aliases the account has used. Equipped frames and backgrounds are stated to appear on this page once equipped.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Cosmetic Customization",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Exclusion conditions checked first: the item copy describes changes to how the profile, avatar, chat, and Steam Deck keyboard and startup sequence look, with no stated effect on capabilities, prices or outcomes (O22, O23) (tier: directly observed). The items are acquired content redeemed with points rather than built-in settings (O21, O22) (tier: directly observed). Steam defines alternative presentation states, previews an avatar frame on the user's own avatar, and describes an equipped state for backgrounds and game profiles (O23) (tier: directly observed). Showcase upgrades (O18) are kept out of this tag because they add display capacity rather than only changing appearance (tier: strongly supported).",
+          "alternativeConsidered": "A functional variant, if an item changed what the profile can do rather than how it looks; the showcase upgrades in O18 are the nearest case and are kept out of this tag (tier: plausible). Equipping an item and viewing the resulting profile would confirm the purely presentational effect (tier: strongly supported).",
+          "role": "social, engagement"
+        },
+        {
+          "name": "Leveling",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "Exclusion conditions checked first: the level is shown as a state of the user on the profile rather than as a purchased plan, a content unit or a points balance (O16) (tier: directly observed). Steam assigns the user a current level (O16) and states that badges contribute towards profile XP (O17), which converges on a level advanced by accumulated progression (tier: strongly supported). The ordered set of levels and the thresholds between them were not shown (tier: directly observed).",
+          "alternativeConsidered": "A static profile label that does not change under a progression rule (tier: plausible). Seeing the level change after a badge is earned or upgraded would separate the two (tier: strongly supported).",
+          "role": "social, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O28",
+      "name": "Account menu and My content",
+      "section": "social",
+      "observed": "Tapping the avatar opens the account menu, showing the profile name, a View Profile button, counts of games and friends, an option to add funds to the wallet, and an Add Friends button. Below this, a My content list offers Friend activity, Friends, Groups, Screenshots, Videos, Badges and Inventory. Inventory shows the games currently on the account.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O29",
+      "name": "Add Friends",
+      "section": "social",
+      "observed": "Add Friends shows the user's own friend code, with an invitation to enter someone else's code or send an invite link, plus a search option. No reward is stated for adding or inviting a friend.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O30",
+      "name": "Managing friends",
+      "section": "social",
+      "observed": "The friends list offers options to add a friend or manage the existing list. Managing a friend lets the user remove or block them, or promote a friend to broadcast moderator, a role assigned from inside the friends list itself.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O31",
+      "name": "Groups",
+      "section": "social",
+      "observed": "Steam's Groups page states that the account belongs to no group and offers a search for groups by name. How a group is joined, and what changes once a user is a member, are not stated.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O32",
+      "name": "Community hub",
+      "section": "social",
+      "observed": "The Community section of the navigation opens into Community Home, which surfaces community-wide activity, Broadcasts, which shows other users sharing broadcasts, artwork and screenshots, and Workshop, which surfaces community-made items. Discussions and Market are listed in the same navigation.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Social Feed",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Exclusion conditions checked first: items come from more than one source, including Steam official news, curators and individual developers or publishers, so the feed is neither a single-publisher channel nor a personal history (O14) (tier: directly observed). Steam attributes items to those actors, lets the viewer mute a developer or publisher or hide a type of post, and presents dated items in a scrolling stream (O14) (tier: directly observed). The carousel describes the feed as customized based on the user's library (O4) (tier: directly observed).",
+          "alternativeConsidered": "A content recommendation feed without social attribution (tier: plausible). It is set aside because each item is attributed to a named developer, publisher, curator or Steam and carries likes and comments (O14) (tier: directly observed).",
+          "role": "engagement, social"
+        },
+        {
+          "name": "Community Space",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "Exclusion conditions checked first: the discussion attached to a news item is not a two-person conversation or a one-off lobby, and the session showed no maintained membership or group-owned state for these areas, so the Group Membership and Clan / Guild siblings do not apply to them (O32, O33) (tier: strongly supported). Steam maintains discussions attached to news items with tabs for artwork, videos, news and guides, invites contributions through its empty state, and shows other users sharing broadcasts, artwork and screenshots (O32, O33) (tier: directly observed). No contribution was made during the session, and Discussions itself was not opened (tier: directly observed).",
+          "alternativeConsidered": "Social Feed alone, treating the comments as reactions within the feed rather than a persistent space (tier: plausible). The discussion opens as its own context with contribution tabs (O33), which is what the Community Space invariant requires, and opening Discussions and posting would confirm persistence across contributions (tier: strongly supported).",
+          "role": "social, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O33",
+      "name": "Empty discussion prompts",
+      "section": "social",
+      "observed": "Commenting on a news item opens that item's own discussion on Steam News, organized into tabs for artwork, videos, news and guides. An empty tab reads \"No more content. So sad.\" followed by an invitation to help by sharing a screenshot, making a video or starting a discussion, turning an empty tab into three separate contribution actions.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Social Feed",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Exclusion conditions checked first: items come from more than one source, including Steam official news, curators and individual developers or publishers, so the feed is neither a single-publisher channel nor a personal history (O14) (tier: directly observed). Steam attributes items to those actors, lets the viewer mute a developer or publisher or hide a type of post, and presents dated items in a scrolling stream (O14) (tier: directly observed). The carousel describes the feed as customized based on the user's library (O4) (tier: directly observed).",
+          "alternativeConsidered": "A content recommendation feed without social attribution (tier: plausible). It is set aside because each item is attributed to a named developer, publisher, curator or Steam and carries likes and comments (O14) (tier: directly observed).",
+          "role": "engagement, social"
+        },
+        {
+          "name": "Community Space",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "Exclusion conditions checked first: the discussion attached to a news item is not a two-person conversation or a one-off lobby, and the session showed no maintained membership or group-owned state for these areas, so the Group Membership and Clan / Guild siblings do not apply to them (O32, O33) (tier: strongly supported). Steam maintains discussions attached to news items with tabs for artwork, videos, news and guides, invites contributions through its empty state, and shows other users sharing broadcasts, artwork and screenshots (O32, O33) (tier: directly observed). No contribution was made during the session, and Discussions itself was not opened (tier: directly observed).",
+          "alternativeConsidered": "Social Feed alone, treating the comments as reactions within the feed rather than a persistent space (tier: plausible). The discussion opens as its own context with contribution tabs (O33), which is what the Community Space invariant requires, and opening Discussions and posting would confirm persistence across contributions (tier: strongly supported).",
+          "role": "social, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O34",
+      "name": "Chat handoff",
+      "section": "reach",
+      "observed": "Tapping Chat in the hamburger menu sends the user to the App Store to download Steam Chat as a separate app; chat isn't available inside Steam itself.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O35",
+      "name": "Share and invite links",
+      "section": "reach",
+      "observed": "The Store's three-dots menu shares a link to the Steam discovery page, and Add Friends offers a quick invite sent as a link.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O36",
+      "name": "PC and Steam Deck features",
+      "section": "reach",
+      "observed": "The onboarding carousel addresses the user as someone away from their PC, and the Points Shop offers Steam Deck virtual keyboard personalizations and startup movies for the Steam Deck or Big Picture mode.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Cosmetic Customization",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Exclusion conditions checked first: the item copy describes changes to how the profile, avatar, chat, and Steam Deck keyboard and startup sequence look, with no stated effect on capabilities, prices or outcomes (O22, O23) (tier: directly observed). The items are acquired content redeemed with points rather than built-in settings (O21, O22) (tier: directly observed). Steam defines alternative presentation states, previews an avatar frame on the user's own avatar, and describes an equipped state for backgrounds and game profiles (O23) (tier: directly observed). Showcase upgrades (O18) are kept out of this tag because they add display capacity rather than only changing appearance (tier: strongly supported).",
+          "alternativeConsidered": "A functional variant, if an item changed what the profile can do rather than how it looks; the showcase upgrades in O18 are the nearest case and are kept out of this tag (tier: plausible). Equipping an item and viewing the resulting profile would confirm the purely presentational effect (tier: strongly supported).",
+          "role": "social, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O37",
+      "name": "Wallet funding",
+      "section": "monetization",
+      "observed": "The Wallet screen lets the user add funds usable on any Steam purchase or in-game Steam transaction, stating that the user reviews the order before it's placed. Adding funds opens a card payment form outside the App Store.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O38",
+      "name": "Price and discount framing",
+      "section": "monetization",
+      "observed": "The Store surfaces price and discount throughout: a discounts and events row, a Specials entry, sale events under Special Sections, a row of games under €10, and wishlist sorting by price and discount.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O39",
+      "name": "Notifications tab",
+      "section": "returns",
+      "observed": "The Notifications tab holds existing notifications, mostly related to game sales.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O40",
+      "name": "Event reminder bell",
+      "section": "returns",
+      "observed": "An upcoming event listed in Featured news carries a bell icon; tapping it opens a reminder setup that states when the event starts and offers delivery by email or by the app.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O41",
+      "name": "Sale-period items and badge renewal",
+      "section": "returns",
+      "observed": "The Points Shop groups items by sale period, showing past Spring and Winter Sale items, and its seasonal badge copy points users back to the summer and winter sales for a new badge, while the Points Shop overall stays open all year round.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Cosmetic Customization",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Exclusion conditions checked first: the item copy describes changes to how the profile, avatar, chat, and Steam Deck keyboard and startup sequence look, with no stated effect on capabilities, prices or outcomes (O22, O23) (tier: directly observed). The items are acquired content redeemed with points rather than built-in settings (O21, O22) (tier: directly observed). Steam defines alternative presentation states, previews an avatar frame on the user's own avatar, and describes an equipped state for backgrounds and game profiles (O23) (tier: directly observed). Showcase upgrades (O18) are kept out of this tag because they add display capacity rather than only changing appearance (tier: strongly supported).",
+          "alternativeConsidered": "A functional variant, if an item changed what the profile can do rather than how it looks; the showcase upgrades in O18 are the nearest case and are kept out of this tag (tier: plausible). Equipping an item and viewing the resulting profile would confirm the purely presentational effect (tier: strongly supported).",
+          "role": "social, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    }
+  ],
+  "systemView": [
+    "Steam is a medium complexity system organized around Steam Points, a currency earned automatically at a fixed rate for every euro spent on the platform and spent nowhere near the purchase that created it. Points flow into three separate outlets: cosmetic items for the user's own profile, awards placed on other users' content, and upgrades to a profile level built from badges, while a separate News feed and community hub run their own return loop alongside the points economy rather than through it."
+  ],
+  "mechanicWriteups": [
+    {
+      "name": "Soft Currency",
+      "summary": "Steam Points accrue automatically at 117 per euro spent anywhere on the platform, arriving as a rebate on purchases the user already made.",
+      "observed": "Steam Points are earned by shopping on the platform, at a stated rate of 117 points per euro spent on any game, DLC, hardware, application, soundtrack or in-game item, or by contributing to the Steam community, though how that second path converts into points is never stated. The balance is spent across a wide Points Shop catalogue, on Community Awards placed on other users' content, and on upgrades to the seasonal badge and profile showcases. Redeemed items are described as the user's to keep forever, not tradable or marketable, with no stated expiry. Bundle pricing discounts the points cost of buying several items together and waives the cost of anything already owned.",
+      "presented": "The Points Shop leads with a How points work explainer and FAQ, and every item page shows the current points balance next to the item itself. A My points history section and a My award summary section keep a running account of the balance and the awards given and received. The shop is framed as open all year round rather than as a limited window.",
+      "noting": "The spend and the purchase that funded it are separated in time and in place: the user pays for a game thinking about the game, and the points show up later inside an entirely different shop. Steam names two earning paths, purchases and community contribution, but only describes the mechanics of one of them. Nowhere does Steam offer to sell points directly for money, keeping the currency one step removed from a straight in-app purchase.",
+      "findings": [
+        "Points accrue at a stated 117 per euro spent on games, DLC, hardware, applications, soundtracks or in-game items.",
+        "Steam names community contribution as a second earning path without describing how it converts to points.",
+        "Points fund cosmetics, Community Awards and badge or showcase upgrades, with no option to buy points directly for money.",
+        "Redeemed items are described as permanent, non-tradable and non-marketable.",
+        "My points history and My award summary give the account a standing record of its balance and its awards."
+      ],
+      "screenshotsNote": "the Points Shop home with the points balance and the How points work explainer."
+    },
+    {
+      "name": "Cosmetic Customization",
+      "summary": "Steam sells profile frames, backgrounds, chat effects and full game profile themes for points, all purely visual and visible to other players.",
+      "observed": "The Points Shop catalogue covers avatar frames, profile backgrounds, chat effects, emoticons, animated stickers and full game profile bundles, priced roughly 1,000 to 5,000 points each. A game profile bundles several exclusive items and a theme together, equipping all of them at once except the animated avatar. Some items, including keyboard and startup movie personalizations, apply only to the Steam Deck's virtual keyboard and startup sequence or to Big Picture mode. Some Points Shop items are available only for games the account already owns, and bundle prices exclude anything already owned while discounting the rest by a stated 10%.",
+      "presented": "An item's own page previews it before purchase, showing an avatar frame on the user's own avatar or opening a game profile's characters and animations in a separate tab. Frame copy states frames appear on the profile and community pages and to friends in the friends list and in Steam Chat while the user is online. Background copy states an equipped background is visible to anyone who views the profile.",
+      "noting": "Ownership gates a slice of the cosmetics catalogue behind owning the related game, tying a spending surface that is otherwise open to everyone back to the core commerce catalogue. And a mobile app carries cosmetic categories, Steam Deck keyboards and startup movies, built for a device it isn't running on.",
+      "findings": [
+        "Item prices in the Points Shop run roughly 1,000 to 5,000 points.",
+        "Frames and backgrounds are stated to be visible to friends, in Steam Chat, and to anyone viewing the profile.",
+        "Some Points Shop items are available only for games the account already owns.",
+        "Bundles waive the price of items already owned and price the rest at a stated 10% discount versus buying them individually.",
+        "Keyboard and startup movie personalizations apply to the Steam Deck or Big Picture mode, not to the mobile app itself."
+      ],
+      "screenshotsNote": "an item preview screen for an avatar frame or a game profile bundle."
+    },
+    {
+      "name": "Leveling",
+      "summary": "A profile level is shown to every visitor, built from badge activity, with the actual rule advancing it never disclosed.",
+      "observed": "Steam displays a current level on the user's own profile and shows the same level on the profile as viewed by anyone else, next to badges, games count, last online time and the videos, reviews, artwork, guides, workshop items and screenshots the user has created. Steam states that badges, including a seasonal badge upgraded by spending points, count toward the value behind that level.",
+      "presented": "The level sits on the profile as one status item among several, shown identically to the account owner and to a visitor. The rule advancing it from one number to the next is never shown or stated.",
+      "noting": "Leveling here draws on a currency-funded action, spending points to upgrade the seasonal badge, as one of its inputs, so the points economy folds back into a public status display rather than staying purely activity-driven.",
+      "findings": [
+        "A current level is displayed on the user's own profile and on the profile as seen by other users.",
+        "Steam states that badges, including the points-upgraded seasonal badge, count toward the value behind that level.",
+        "The threshold or rule advancing the level is not disclosed.",
+        "The level appears alongside badges, games count and created content on the public profile view."
+      ],
+      "screenshotsNote": "the profile page as viewed by another user, showing the level and badges."
+    },
+    {
+      "name": "Social Feed",
+      "summary": "A News tab blends official Steam news, curator posts and individual developer updates into one muteable, per-source feed.",
+      "observed": "The News tab carries items attributed to named developers, publishers, curators and Steam itself, each of which can be liked and commented on. Users can mute an individual source or hide a category of post rather than muting the feed altogether. The onboarding carousel states that the feed is customized based on the account's game library.",
+      "presented": "Items appear as a scrolling stream mixing news, sale information and event listings, each carrying the name of who posted it and controls to mute that specific source.",
+      "noting": "Muting operates per named source rather than as a single feed-wide toggle, so a user can quiet one developer or publisher without leaving the feed. Commenting on an item does not stay inline, it opens into its own separate discussion space.",
+      "findings": [
+        "News items are attributed to named developers, publishers, curators or Steam itself.",
+        "Users can mute an individual source or hide a category of post.",
+        "The onboarding carousel states the feed is customized based on the account's game library.",
+        "The feed mixes news, sale information and event listings in the same stream."
+      ],
+      "screenshotsNote": "the News tab showing multiple attributed sources and a mute control."
+    },
+    {
+      "name": "Community Space",
+      "summary": "Every news item opens its own discussion space, and the community hub's empty states turn silence into a direct invitation to post.",
+      "observed": "The Community section of the app opens into Community Home, which surfaces community-wide activity, Broadcasts, which shows other users sharing broadcasts, artwork and screenshots, and Workshop, which surfaces community-made items. Commenting on a news item opens that item's own discussion, organized into tabs for artwork, videos, news and guides. An empty tab in that discussion reads \"No more content. So sad.\" followed by an invitation to help by sharing a screenshot, making a video or starting a discussion.",
+      "presented": "The discussion opens as its own space once a comment is made on a news item, separate from the feed item that led to it, with its own set of content tabs.",
+      "noting": "The empty state is written to solicit one of three specific actions rather than simply stating there's nothing there, turning an empty content tab into a direct pitch for a contribution.",
+      "findings": [
+        "Community Home, Broadcasts and Workshop each surface user-generated content: broadcasts, artwork and screenshots.",
+        "Discussions attached to a news item carry separate tabs for artwork, videos, news and guides.",
+        "An empty content tab is paired with prompts to share a screenshot, post a video or start a discussion.",
+        "Discussions and Market are listed in the Community navigation."
+      ],
+      "screenshotsNote": "an empty-state discussion tab showing the contribution prompt.\n\n---"
+    }
+  ],
+  "sectionLeadIns": {
+    "onboarding": "Steam requires an existing account rather than a fresh signup, and moves through permission prompts, an email verification code and an authenticator setup before any unguided browsing begins.",
+    "core-loop": "Steam's navigation surfaces the Store, News, Steam Guard and Notifications in the bottom bar, with Points Shop, Discovery Queue, Wallet, Community and Chat tucked inside a hamburger menu.",
+    "goals": "Steam displays a profile level and badge collection, with a seasonal badge and showcase capacity both upgraded by spending points.",
+    "access": "A slice of the Points Shop catalogue is conditioned on owning the related game, and the account's security confirmations page sits empty.",
+    "economy": "Steam Points are the account's central resource, earned through purchases already made elsewhere in the app and spent across a wide catalogue of items, bundles and community awards.",
+    "social": "Steam's social layer runs through the profile, the points economy and a set of community hub areas. Friends, groups and community content sit alongside a Community Awards system that spends the same points balance used to buy cosmetics.",
+    "reach": "Chat, PC and Steam Deck references, and share and invite links each carry the user outside the mobile app.",
+    "monetization": "Wallet funding happens outside the App Store, and price and discount framing runs through the Store's main surfaces.",
+    "returns": "Sale-related notifications, an event reminder bell and seasonal badge renewal tied to Summer and Winter Sales bring users back."
+  },
+  "sectionCards": {
+    "onboarding": "Steam requires an existing account rather than a fresh signup, and moves through camera and notification permissions, a Steam Guard email code, and an authenticator setup with a hand-copied recovery code before the unguided Store becomes the first free choice.",
+    "core-loop": "Steam's loop runs through the Store home, a Discovery Queue that records follow, wishlist and ignore decisions, a Wishlist sorted by price and discount, a per-source muteable News feed, and a Library sorted by recent activity.",
+    "goals": "Steam displays a profile level built from badge collection, a Badges page with a seasonal badge upgraded by spending points, and showcase upgrades that add display capacity rather than only changing appearance.",
+    "access": "Steam conditions a slice of its Points Shop catalogue on owning the related game, and its security confirmations page was found empty.",
+    "economy": "Steam Points accrue automatically at 117 per euro spent on any Steam purchase and fund a wide points-priced catalogue, ownership rules, and bundle discounts.",
+    "social": "Community Awards spend points on other users' content, profile viewing shows level and badges to visitors, and friends, groups and community hub areas round out the rest.",
+    "reach": "Steam hands chat off entirely to a separate app, references the Steam Deck and PC throughout, and carries share and invite links out to other surfaces.",
+    "monetization": "Steam Wallet funding happens outside the App Store, and price and discount framing runs through every Store surface.",
+    "returns": "Steam brings users back through sale-related notifications, an event reminder bell, and seasonal badge renewal tied to Summer and Winter Sales."
+  },
+  "proposedTags": [
+    {
+      "name": "Public Recognition Award",
+      "sourceObservations": [
+        "O26"
+      ],
+      "draftDefinition": "A public recognition award lets a user spend a held product balance to attach a visible award to another identified user's content or profile, displays that award to everyone who views the content, and keeps counts of the awards each account has given and received.",
+      "conditions": "A spendable balance, user-created content or profiles that other users view, and a display surface on that content (tier: strongly supported).",
+      "whyNotCovered": "Gifting requires a usable benefit that changes the recipient's balance, inventory, access or capacity, and the recipient of an award receives recognition rather than anything usable, while Cosmetic Customization covers changing one's own presentation rather than marking someone else's content (tier: strongly supported).",
+      "recurrenceElsewhere": "Recurs across forum and video platforms (tier: strongly supported, not derived from this session).",
+      "caveat": "This proposal is open. No award was given in the session, so the exchange is read from product copy, the Community awards section and the award summary count rather than from an act, and whether the sender's balance is reduced is unobserved (tier: directly observed). Two kinds of evidence would settle it: a session in which an award is purchased and given, showing the cost to the sender and the award appearing on the content, or a recipient surface showing whether anything usable arrives with the award (tier: strongly supported). If anything usable does arrive, Gifting applies and this proposal falls away (tier: strongly supported)."
     }
   ],
   "system": {
-    "tagline": "A gaming platform where a deeply developed cosmetics catalogue is funded retroactively by purchases the user was already making.",
-    "overview": "Steam's engagement system centers on the Points Shop cosmetics catalogue. Points accumulate at 117 per euro spent on any Steam purchase and are spent on cosmetics at the point of redemption — making the spend feel free, funded retroactively by game purchases. Seasonal badges (Summer and Winter Sales only) are the sole urgency mechanic in an otherwise perpetually available catalogue. Community Awards extend the economy into social recognition. Profile XP and level grow through badge collection, making cosmetics engagement visible as a persistent progress marker.",
-    "loop": "The core loop is: buy games → accumulate Points passively → redeem Points for cosmetics → display cosmetics on profile → seasonal badges during Summer and Winter Sales create urgency → Community Awards: spend Points on other users' content to attach a visible recognition marker → profile level increases through badge collection. The purchase decision and the cosmetics decision are separated in time, making redemption feel like a windfall.",
-    "keyInsight": "Community Awards turn Points spending into social recognition — the user spends points to attach a visible marker to someone else's content. This creates a second motivation for point accumulation (rewarding others) alongside the self-expression motivation of personal cosmetics.",
-    "whatMakesItWork": "The purchase-rebate model works because the cosmetics decision and the game purchase decision are separated in time. The user buys a game thinking only about the game. The Points accumulate. Weeks later, redemption feels like a windfall. The economic decision was already made; the cosmetics feel free. Seasonal badges make this otherwise frictionless system feel urgent twice a year.",
+    "tagline": "A currency earned as a rebate on purchases already made funds cosmetics, social recognition and profile status, no separate spending decision required.",
+    "overview": "Steam's system runs on Steam Points, a currency earned automatically at 117 points per euro spent on any Steam purchase and spent nowhere near the purchase that earned it. Points fund three separate outlets: a wide cosmetics catalogue for the user's own profile, Community Awards that place a visible recognition marker on other users' content, and upgrades to the seasonal badge that feeds a displayed profile level. A separate News feed, muteable per source, routes into the same community hub that houses those awards, running its own return loop alongside the points economy.",
+    "loop": "Buying a game or any other item on Steam earns Steam Points automatically at a stated 117 per euro spent, arriving with no purchase decision of its own. That balance redeems across a wide Points Shop catalogue for cosmetics, funds a Community Award placed on another user's content, or upgrades the seasonal badge that Steam states counts toward the value behind the displayed profile level. The profile collects the results, level, badges and equipped cosmetics, for other users to see. Separately, a News tab mixing official Steam news, curator posts and developer updates routes comments into the community hub's own discussion spaces, running independently of whether any points were ever spent.",
+    "keyInsight": "The purchase and the points spend are separated in time and in place: a user buys a game thinking about the game, and the points economy activates afterward, funding cosmetics, social recognition and profile status entirely as a byproduct of a purchase made for an unrelated reason.",
+    "whatMakesItWork": "Because the currency is a rebate rather than a sale, spending it never feels like new spending. Cosmetics, Community Awards and the profile level all draw on the same already-funded balance, so three distinct systems, self-expression, social recognition and status display, run off one purchase decision the user made for a reason that had nothing to do with any of them.",
     "roles": [
       {
+        "id": "soft-currency",
+        "role": "Steam Points accrue automatically at a stated 117 per euro spent on any Steam purchase, then fund cosmetics, Community Awards and profile-level upgrades."
+      },
+      {
         "id": "cosmetics",
-        "role": "A deeply developed cosmetics catalogue funded by the purchase-rebate Points economy. Seasonal badges (Summer and Winter Sales only) are the sole urgency mechanic; every other item is perpetually available."
+        "role": "A points-priced catalogue of frames, backgrounds, chat effects and full game profile themes, purely visual and stated to be visible to friends, in Steam Chat and on the profile."
       },
       {
-        "id": "experience-points",
-        "role": "Profile XP accumulates through badge collection, displayed as a public-facing level on the user's profile alongside username and last-online time."
-      },
-      {
-        "id": "limited-time-events",
-        "role": "Seasonal badges available only during Summer and Winter Sales are the sole time-limited acquisition window in the otherwise perpetually available Points Shop catalogue."
-      },
-      {
-        "id": "social-feed",
-        "role": "The Discovery Queue surfaces up to 12 sequentially revealed games per session. Community Awards allow Steam Points to be spent to attach a visible recognition marker to another user's content."
-      },
-      {
-        "id": "set-collection",
-        "role": "The Points Shop catalogue functions as a collectible set — avatar frames, profile backgrounds, game profiles, animated stickers, showcase upgrades — with bundle pricing that waives cost for already-owned items."
+        "id": "leveling",
+        "role": "A profile level shown to every visitor, built from badge collection, including a seasonal badge upgraded directly with points."
       },
       {
         "id": "community-groups",
-        "role": "Steam Groups are accessible through the profile's friends section. Accessible but not explored in depth during the session."
+        "role": "Community Home, Broadcasts, Workshop and per-item discussions built around shared content, plus Community Awards that spend points to place a visible marker on someone else's work."
+      },
+      {
+        "id": "social-feed",
+        "role": "A News tab blending official Steam news, curator posts and individual developer updates, each independently muteable, with comments routing into the community hub's discussion spaces."
       }
     ],
     "center": {
@@ -108,64 +840,59 @@
     },
     "nodes": [
       {
+        "id": "soft-currency",
+        "x": 50,
+        "y": 28
+      },
+      {
         "id": "cosmetics",
-        "x": 50,
-        "y": 26
-      },
-      {
-        "id": "experience-points",
         "x": 22,
-        "y": 48
+        "y": 52
       },
       {
-        "id": "limited-time-events",
-        "x": 78,
-        "y": 48
-      },
-      {
-        "id": "social-feed",
-        "x": 16,
-        "y": 72
-      },
-      {
-        "id": "set-collection",
+        "id": "leveling",
         "x": 50,
-        "y": 72
+        "y": 52
       },
       {
         "id": "community-groups",
-        "x": 84,
-        "y": 72
+        "x": 78,
+        "y": 52
+      },
+      {
+        "id": "social-feed",
+        "x": 78,
+        "y": 78
       }
     ],
     "connections": [
       {
-        "from": "cosmetics",
-        "to": "experience-points",
-        "title": "Seasonal badges feed profile XP",
-        "desc": "Seasonal badges available in the Points Shop contribute towards profile XP. The cosmetics system and the leveling system share the same seasonal badge item.",
-        "effect": "Acquiring seasonal badges advances both the cosmetic display layer and the profile level simultaneously, giving the same item two progression roles."
+        "from": "soft-currency",
+        "to": "cosmetics",
+        "title": "Points fund cosmetics with no separate spend decision",
+        "desc": "Steam Points accrue automatically from purchases, and that same balance buys frames, backgrounds, chat effects and full game profile themes on the Points Shop's cosmetics rows.",
+        "effect": "The cosmetics decision is made with a currency the user already has, not with money they have to commit in the moment."
       },
       {
-        "from": "cosmetics",
-        "to": "limited-time-events",
-        "title": "Sale events gate the seasonal badge window",
-        "desc": "Seasonal badges are only available during Summer and Winter Sales, making sale events the sole urgency mechanic in the otherwise perpetually available cosmetics catalogue.",
-        "effect": "Users aware of the seasonal badge system have a concrete reason to engage with the Points Shop during sale windows rather than treating the catalogue as always-available."
+        "from": "soft-currency",
+        "to": "community-groups",
+        "title": "The same balance buys recognition instead of items",
+        "desc": "Community Awards spend Steam Points to place a visible marker on another user's review, profile or created content, the identical balance that buys the user's own cosmetics.",
+        "effect": "Points spent on someone else's content and points spent on the user's own profile draw from one shared balance."
       },
       {
-        "from": "limited-time-events",
-        "to": "set-collection",
-        "title": "Sale events expand the Points Shop catalogue",
-        "desc": "Each sale event introduces new featured items to the Points Shop, adding to the permanent catalogue. Items acquired during sale events are kept forever.",
-        "effect": "Sale participation expands the collectible catalogue permanently. The event is also an acquisition window for catalogue items that will persist well beyond the event itself."
+        "from": "soft-currency",
+        "to": "leveling",
+        "title": "A seasonal badge upgrade spends points into profile status",
+        "desc": "The seasonal badge, available only during Summer and Winter Sales, is upgraded by spending points, and Steam states that badges count toward the value behind the displayed profile level.",
+        "effect": "Spending points does not just buy an item, it can also advance the public status number on the user's profile."
       },
       {
         "from": "social-feed",
         "to": "community-groups",
-        "title": "Discovery leads to group membership",
-        "desc": "The Discovery Queue and community content browsing surface Steam Groups as a natural next step for users who engage with content from specific communities.",
-        "effect": "Browsing the social layer exposes users to group activity, making group membership a discovered outcome rather than a navigated feature."
+        "title": "A comment opens its own discussion space",
+        "desc": "Commenting on a News tab item does not stay inline, it opens that item's own discussion, organized into tabs for artwork, videos, news and guides.",
+        "effect": "The feed's main function beyond reading is to route the user into the community hub's discussion spaces."
       }
     ]
   }

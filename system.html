@@ -380,6 +380,12 @@ const CONNECTIONS = {
     { from: "Apple Health Connection", to: "active-pass", title: "The same tracked activity unlocks paused apps", desc: "Active Pass unlocks a paused app after completing a Wakeout or any physical activity Apple Health records, the same data source that fills the watts measure.", effect: "Movement recorded anywhere Apple Health sees it, not only inside Wakeout, can reopen a paused app." },
     { from: "milestone", to: "streak", title: "The same crossing advances both", desc: "The daily watts goal produces a Milestone recognition and advances the Streak in the same moment, from the same crossing.", effect: "One threshold crossing moves two separate recognized states at once." },
   ],
+  steam: [
+    { from: "soft-currency", to: "cosmetics", title: "Points fund cosmetics with no separate spend decision", desc: "Steam Points accrue automatically from purchases, and that same balance buys frames, backgrounds, chat effects and full game profile themes on the Points Shop's cosmetics rows.", effect: "The cosmetics decision is made with a currency the user already has, not with money they have to commit in the moment." },
+    { from: "soft-currency", to: "community-groups", title: "The same balance buys recognition instead of items", desc: "Community Awards spend Steam Points to place a visible marker on another user's review, profile or created content, the identical balance that buys the user's own cosmetics.", effect: "Points spent on someone else's content and points spent on the user's own profile draw from one shared balance." },
+    { from: "soft-currency", to: "leveling", title: "A seasonal badge upgrade spends points into profile status", desc: "The seasonal badge, available only during Summer and Winter Sales, is upgraded by spending points, and Steam states that badges count toward the value behind the displayed profile level.", effect: "Spending points does not just buy an item, it can also advance the public status number on the user's profile." },
+    { from: "social-feed", to: "community-groups", title: "A comment opens its own discussion space", desc: "Commenting on a News tab item does not stay inline, it opens that item's own discussion, organized into tabs for artwork, videos, news and guides.", effect: "The feed's main function beyond reading is to route the user into the community hub's discussion spaces." },
+  ],
   "fc-mobile": [
     { from: "experience-points", to: "leveling", title: "Every activity feeds one number", desc: "XP from matches, missions, drafts and skill games all advance the same account level, with nothing else in the interface treating that level as worth naming.", effect: "The level becomes the product's real spine without ever being presented as one: a bare number crossed as a side effect of doing almost anything." },
     { from: "leveling", to: "progression-gate", title: "The level is what the gates read", desc: "The market, leagues, the football center, challenge mode, the scouting camp, a lineup slot and club challenge are all released at stated account levels.", effect: "A single number decides the order in which the whole product opens itself to a new player, and that order isn't something the player is choosing." },
@@ -411,12 +417,6 @@ const CONNECTIONS = {
   canva: [
     { from: "challenges", to: "achievement", title: "The test produces the badge", desc: "Passing the certification test flips a badge from unattained to attained, evaluated the moment the test's stated success condition is met.", effect: "The badge fires directly from the test result, not from any broader course progress, so completing the course itself is not required to receive it." },
     { from: "achievement", to: "shareable-win", title: "The same result composes the certificate", desc: "The same passed test that produces the badge also composes a certificate, presented in a second screen immediately after the badge.", effect: "A cheap, checkable credential is available as soon as the test is passed, which is what makes it easy to hand out and easy to share." },
-  ],
-  steam: [
-    { from: "cosmetics", to: "experience-points", title: "Seasonal badges feed profile XP", desc: "Seasonal badges available in the Points Shop contribute towards profile XP. The cosmetics system and the leveling system share the same seasonal badge item.", effect: "Acquiring seasonal badges advances both the cosmetic display layer and the profile level simultaneously, giving the same item two progression roles." },
-    { from: "cosmetics", to: "limited-time-events", title: "Sale events gate the seasonal badge window", desc: "Seasonal badges are only available during Summer and Winter Sales, making sale events the sole urgency mechanic in the otherwise perpetually available cosmetics catalogue.", effect: "Users aware of the seasonal badge system have a concrete reason to engage with the Points Shop during sale windows rather than treating the catalogue as always-available." },
-    { from: "limited-time-events", to: "set-collection", title: "Sale events expand the Points Shop catalogue", desc: "Each sale event introduces new featured items to the Points Shop, adding to the permanent catalogue. Items acquired during sale events are kept forever.", effect: "Sale participation expands the collectible catalogue permanently. The event is also an acquisition window for catalogue items that will persist well beyond the event itself." },
-    { from: "social-feed", to: "community-groups", title: "Discovery leads to group membership", desc: "The Discovery Queue and community content browsing surface Steam Groups as a natural next step for users who engage with content from specific communities.", effect: "Browsing the social layer exposes users to group activity, making group membership a discovered outcome rather than a navigated feature." },
   ],
   "solitaire-grand-harvest": [
     { from: "piggy-bank", to: "energy-lives", title: "Piggy bank resolves credit depletion", desc: "When credits run low inside an active level, the moment of highest purchase motivation, the capped piggy bank is the most visible alternative to direct credit purchase.", effect: "The piggy bank frames the monetization moment as claiming what the player already earned rather than making a new purchase, reducing psychological resistance at depletion." },
@@ -645,13 +645,12 @@ const POSITIONS = {
     "community-groups":      { x: 72, y: 74 },
   },
   "steam": {
-    center:                    { x: 50, y: 8,  label: "STEAM" },
-    "cosmetics":               { x: 50, y: 26 },
-    "experience-points":             { x: 22, y: 48 },
-    "limited-time-events":     { x: 78, y: 48 },
-    "social-feed":             { x: 16, y: 72 },
-    "set-collection":          { x: 50, y: 72 },
-    "community-groups":        { x: 84, y: 72 },
+    center:                  { x: 50, y: 8,  label: "STEAM" },
+    "soft-currency":         { x: 50, y: 28 },
+    "cosmetics":             { x: 22, y: 52 },
+    "leveling":              { x: 50, y: 52 },
+    "community-groups":      { x: 78, y: 52 },
+    "social-feed":           { x: 78, y: 78 },
   },
   "solitaire-grand-harvest": {
     center:                  { x: 50, y: 6,  label: "SOLITAIRE GH" },
