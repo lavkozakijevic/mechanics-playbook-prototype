@@ -1313,6 +1313,31 @@ const V41_APP_META = {
         "Nothing in Acorns is built to cause a visit. Every dated statement it makes is set by a settlement window, a verification queue, an offer's own end date, or the IRS.",
     },
   },
+  wakeout: {
+    name: "Wakeout",
+    category: "Fitness / Movement Reminders",
+    type: "app",
+    sectionCards: {
+      onboarding:
+        "Wakeout opens with a sedentary-crisis narrative, secures an Apple Health connection, previews watts and goals before any setup, and creates an account through Apple sign-in alone.",
+      "core-loop":
+        "Wakeout's core loop is built on passive tracking: movement recorded by Apple Health fills the day's watts automatically, topped up by short guided Wakeouts, a searchable pack library, and a work timer that ends focus sprints in a movement break.",
+      goals:
+        "Wakeout's progress surfaces are a daily watts bar with a stretch zone beyond the goal, five difficulty levels that set both figures, and a streak and personal-best record kept alongside them.",
+      access:
+        "Wakeout has no free tier of any kind, and one measurement, standing minutes, is only available with an Apple Watch.",
+      economy:
+        "Wakeout measures all activity in Wakeout Watts, earned from any tracked movement, with an hourly cap and an unobserved bonus hour layered on top.",
+      social:
+        "Empty. No observation involves another identified person inside Wakeout.",
+      reach:
+        "Wakeout's reach outside the app runs through system share controls and Active Pass, which extends the loop to whatever apps the user chooses to restrict on the same phone.",
+      monetization:
+        "Wakeout's paywall opens immediately after onboarding with four plans, extensive persuasion sections, and a discounted gift-subscription offer repeated across the app.",
+      returns:
+        "Wakeout brings users back through configurable reminders, a day-off pause that protects the streak, home and lock screen widgets, and a rating entry Wakeout never triggered.",
+    },
+  },
   strava: {
     name: "Strava",
     category: "Fitness / Activity Tracking and Social",

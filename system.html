@@ -374,6 +374,12 @@ const CONNECTIONS = {
     { from: "Bank Connection", to: "reward-multiplier", title: "One linking action feeds both automations", desc: "Linking a card is part of the same onboarding connection chain, and the same linked card that enables roundups is also what activates a purchase's reward multiplier on the earn surface.", effect: "One linking action feeds both the roundups automation and the reward multiplier." },
     { from: "Bank Connection", to: "referral-boost", title: "The reward lands in an account the connection funds", desc: "A referral reward is invested into the referring user's own Invest account, an account that exists because the standing bank connection funded it from the first screens onward.", effect: "The referral payout has nowhere to land without the account the connection already funds." },
   ],
+  wakeout: [
+    { from: "Apple Health Connection", to: "milestone", title: "The goal crossing runs on synced history, not in-app action", desc: "Wakeout pulls Apple Health data during onboarding, and the first goal crossing was recognized from movement recorded before the app was ever opened.", effect: "The Milestone can fire before the user has taken any action inside the product at all." },
+    { from: "Apple Health Connection", to: "streak", title: "The streak advances on the same synced data", desc: "The one-day streak reached on first open came from a gym session Apple Health had already recorded, not from a Wakeout completed in the app.", effect: "The streak's first advance required no in-app action either." },
+    { from: "Apple Health Connection", to: "active-pass", title: "The same tracked activity unlocks paused apps", desc: "Active Pass unlocks a paused app after completing a Wakeout or any physical activity Apple Health records, the same data source that fills the watts measure.", effect: "Movement recorded anywhere Apple Health sees it, not only inside Wakeout, can reopen a paused app." },
+    { from: "milestone", to: "streak", title: "The same crossing advances both", desc: "The daily watts goal produces a Milestone recognition and advances the Streak in the same moment, from the same crossing.", effect: "One threshold crossing moves two separate recognized states at once." },
+  ],
   "fc-mobile": [
     { from: "experience-points", to: "leveling", title: "Every activity feeds one number", desc: "XP from matches, missions, drafts and skill games all advance the same account level, with nothing else in the interface treating that level as worth naming.", effect: "The level becomes the product's real spine without ever being presented as one: a bare number crossed as a side effect of doing almost anything." },
     { from: "leveling", to: "progression-gate", title: "The level is what the gates read", desc: "The market, leagues, the football center, challenge mode, the scouting camp, a lineup slot and club challenge are all released at stated account levels.", effect: "A single number decides the order in which the whole product opens itself to a new player, and that order isn't something the player is choosing." },
@@ -571,6 +577,14 @@ const POSITIONS = {
     "reward-multiplier":     { x: 50, y: 55 },
     "referral-boost":        { x: 80, y: 55 },
     "expert-guidance":       { x: 50, y: 82 },
+  },
+  "wakeout": {
+    center:                  { x: 50, y: 8,  label: "WAKEOUT" },
+    "Apple Health Connection": { x: 50, y: 26 },
+    "milestone":             { x: 22, y: 50 },
+    "streak":                { x: 50, y: 50 },
+    "active-pass":           { x: 78, y: 50 },
+    "gifting":               { x: 50, y: 80 },
   },
   "fc-mobile": {
     center:                  { x: 50, y: 6,  label: "FC MOBILE" },

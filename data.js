@@ -812,6 +812,28 @@ const SYSTEMS = [
     what_makes_it_work: "The four mechanics never have to coordinate with each other because none of them shares a measure. The library teaches a subject that stays true whether or not the reader ever opens Acorns again. The reward multiplier only touches money Acorns itself pays out, not the user's own contribution, so it never inflates what the projection shows. The projection is restated at the one moment a commitment changes and otherwise left alone. The referral reward sits in the top bar without asking the user to do anything to check on it. Isolating each mechanic to its own decision is what keeps the automation underneath it uninterrupted.",
   },
   {
+    id: "wakeout",
+    name: "Wakeout",
+    app_id: "wakeout",
+    tagline: "The daily goal was already met before the user did anything: Wakeout Watts run on Apple Health history, not just on completed Wakeouts.",
+    overview: "Wakeout's system runs on one measure, Wakeout Watts, filled passively from Apple Health and topped up by one-minute guided Wakeouts. Reaching the day's goal produces a Milestone and advances a Streak in the same moment, and the same tracked activity that fills the measure is what unlocks apps Active Pass has paused. A separate gift-subscription offer sits outside this loop entirely, sold as a one-off purchase rather than tied to any of it.",
+    loop_description: "Wakeout pulls Apple Health data as soon as access is granted during onboarding, and that connection is what the rest of the system depends on. Movement recorded anywhere Apple Health sees it, a gym session, a walk, a completed Wakeout, adds to the day's watts total, which fills a bar toward a difficulty-set goal. Crossing that goal produces a Milestone recognition and advances a Streak in the same moment, both of which can fire from history alone: the first goal was already met, and the first streak day already counted, from movement recorded before the app was ever opened. The same tracked activity that fills the watts measure is also what Active Pass reads to unlock apps it has paused for inactivity, extending the loop to whatever the user chose to restrict outside the product. A separate gift-subscription offer, sold at a discount and reachable from four different surfaces, sits outside this loop: it's a one-off purchase for someone else's access, not tied to watts, goals, or streaks at all.",
+    // "Apple Health Connection" is a real node on the system map (system.html
+    // POSITIONS/CONNECTIONS) but deliberately absent here, for the same
+    // reason as Acorns' "Bank Connection": it's the gate three of the four
+    // mechanics hang off, not an applied mechanic itself, and
+    // validate-content.mjs checks every id in this list against the real
+    // mechanics library, which it has no entry in and should not gain one.
+    mechanics: [
+      { id: "milestone", role: "A daily watts threshold recognized the moment it's crossed, which fired on first open from Apple Health history rather than an in-app action." },
+      { id: "streak", role: "A day counted toward continuity whenever the watts goal is reached, protected the same way by reaching the goal or by taking a stated day off." },
+      { id: "active-pass", role: "Apps chosen by the user pause when sedentary and unlock after a Wakeout or any Apple Health-tracked activity." },
+      { id: "gifting", role: "A discounted year of access purchasable for someone else, repeated across four surfaces, not redeemable by the buyer." },
+    ],
+    key_insight: "The clearest fact about this system is what didn't require the user to do anything: the first Milestone and the first Streak day both fired from Apple Health history pulled during onboarding, before any Wakeout was completed inside the app. The product's central loop, in other words, can run on data the user generated somewhere else entirely. Active Pass extends that same principle outward, reading the same tracked activity to unlock apps outside the product, so the system's reach depends on how much of the user's life Apple Health already sees rather than on what happens inside Wakeout specifically.",
+    what_makes_it_work: "Wakeout ties recognition to a data source it doesn't have to ask the user to feed. Because Apple Health already tracks background movement, the app can celebrate a goal, start a streak, and even unlock a paused app without waiting for the user to open a session at all, which means the very first thing a new subscriber sees can be a completed goal rather than an empty one. The gift offer stays deliberately separate from all of this, a plain purchase pitched at getting someone else to start their own loop rather than an extension of the subscriber's own.",
+  },
+  {
     id: "fc-mobile",
     name: "FC Mobile",
     app_id: "fc-mobile",

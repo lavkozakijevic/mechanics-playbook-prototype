@@ -1,57 +1,873 @@
 {
   "id": "wakeout",
   "name": "Wakeout",
-  "category": "Fitness",
+  "category": "Fitness / Movement Reminders",
   "type": "app",
   "visibility": "public",
-  "analysisDate": "2026-07-30",
-  "lastUpdated": "2026-09-06",
-  "summary": "Wakeout is built around one running measure, Wakeout Watts, that a completed movement break adds to and a daily goal converts into a recognized state. Reaching that goal triggers a celebration and advances a running streak in the same moment, so one action moves three parts of the system at once. There is no free tier: every mechanic described here sits behind the subscription, with no version of the app to try first.",
-  "teaser": "Wakeout can pause other apps on the phone until the user completes a movement break, a mechanic that sits in settings and is never surfaced during onboarding.",
+  "analysisDate": "2026-09-15",
+  "lastUpdated": "2026-09-15",
+  "asObserved": "2026-07",
+  "appVersion": "10.1720481",
+  "summary": "Wakeout is a movement-reminder app built around Wakeout Watts, a single measure filled automatically from Apple Health and topped up by short guided movement breaks. Reaching a difficulty-set daily goal produces a recognized Milestone and advances a Streak in the same moment, and both can fire from movement recorded before the user ever opens the app. The same tracked activity that builds the watts total is also what Active Pass reads to unlock apps it has paused elsewhere on the phone. Wakeout carries no free tier: every one of these mechanics sits behind a subscription that cannot be skipped.",
+  "teaser": "The first Milestone and the first Streak day both fired before the user completed a single Wakeout, credited from a gym session Apple Health had already recorded.",
   "icon": "/icons/wakeout.webp",
   "heroImage": null,
-  "mechanics": [
+  "contentFormat": "v4.1",
+  "observations": [
     {
-      "id": "experience-points",
-      "depth": "core",
-      "writeup": {
-        "observed": "Wakeout turns movement into Wakeout Watts, a single number we grow toward a daily target rather than toward any one finish line. The main action is completing a wakeout, a movement break, and what the app offers are four 15-second exercises. Completing one added 50 watts in a pop up naming the move we had just finished, and our running total moved from 613 to 663 in the same moment. The daily target is not fixed. Wakeout lets the user pick a difficulty level, and each level sets two numbers: an active goal and a stretch goal above it. On easy, the default, that is 500 and 200 watts, with earning capped at 150 watts an hour. The app's own copy frames the cap as encouraging movement across the day rather than one intense session. Harder levels raise both numbers. The total also persists beyond the day, tracked as a weekly figure and a single-day high in a dedicated stats section, with an hourly log behind it breaking down what produced the watts.",
-        "presented": "The running total sits at the top of the home screen as a number against the day's target, above a bar that fills toward it. A check mark partway along marks the active goal, and the bar keeps filling past that point toward the stretch target. The same number reappears in the pop up after every completed move, in a calendar on the progress screen, and in the watts stats and activity log.",
-        "noting": "Wakeout keeps the watts moving toward the day's threshold and nowhere else, and the hourly cap works on the same principle: it slows how fast the total can climb rather than blocking any single action, keeping the pressure on spreading movement through the day instead of finishing it in one sitting. Five difficulty levels turn the same design into five different daily targets rather than five different mechanics, so we change how hard the goal is to reach without changing what reaching it means.",
-        "findings": [
-          "A completed move adds a fixed 50 watts to the running total, shown in the same pop up that names the move.",
-          "Five difficulty levels each pair an active goal with a stretch goal above it, easy setting them at 500 and 200 watts.",
-          "The easy default caps earning at 150 watts an hour, limiting how much of the day's target one burst of activity can fill.",
-          "The running total is also kept as a longer record, with a weekly figure and a single day high shown in a dedicated stats section."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O1",
+      "name": "Tracking permission first",
+      "section": "onboarding",
+      "observed": "The first thing Wakeout shows on launch is the system prompt asking permission to track the user across other apps and websites, appearing before any product screen.",
+      "detail": [
+        "Wakeout doesn't say which option was chosen or what followed from it."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "milestone",
-      "depth": "core",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O2",
+      "name": "Sedentary crisis narrative",
+      "section": "onboarding",
+      "observed": "Wakeout opens with a sequence of screens framing sitting as a health crisis, then presents frequent short movement as the answer, each screen advancing with a single forward button.",
+      "detail": [
+        "The narrative lists consequences including low energy, chronic muscle aches, limited mobility, cognitive decline, and high blood pressure.",
+        "Quoted sources are attributed to Medical News, TCTMD, and The New York Times."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "streak",
-      "depth": "supporting",
-      "writeup": {
-        "observed": "Wakeout counts a streak of days on which we reached the daily watts goal, sitting beside the goal total rather than tracking its own separate action. After the goal was reached, the app recorded a one-day streak, shown on the home screen next to the watts total, and a section on the progress screen headed \"activity goal streak, reach your goal, increase your streak\" kept the same count alongside a calendar and a longest streak record. We reached it through a gym session recorded that day, not through completing a wakeout inside the app itself. Settings also carries a control described as \"take a day off,\" which turns off notifications for a chosen number of days under copy reading \"don't break your streak.\"",
-        "presented": "The streak count sits at the top of the home screen beside the watts total, and reappears inside the activity goal streak section on the progress screen and as a longest streak figure in the watts stats. The day off control sits in settings, framed around protecting the streak rather than around notifications alone.",
-        "noting": "The qualifying event for the streak is reaching the day's watts goal, the same event Wakeout already celebrates on its own, so the streak adds a cumulative layer on top of a threshold that is already being tracked rather than asking for a separate action. Framing the day off control around not breaking the streak, rather than only around muting notifications, keeps the streak named as the thing being protected, as with the watts system above.",
-        "findings": [
-          "A day counts toward the streak by reaching the watts goal for that day, the same event that triggers the goal achieved pop up.",
-          "We reached the streak through a gym session recorded that day, not by completing a wakeout inside the app.",
-          "A longest streak figure is kept separately in the watts stats, alongside the running day count shown on the home screen.",
-          "The day off control in settings is framed around not breaking the streak rather than only around pausing notifications."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O3",
+      "name": "Sedentary index and Health access",
+      "section": "onboarding",
+      "observed": "Wakeout frames the next step as assessing a sedentary index, then requests Apple Health access through an explanatory screen followed by the system prompt, which offered to turn on all data points.",
+      "detail": [
+        "After access is granted, Wakeout asks whether to share 30 days or full history.",
+        "Wakeout doesn't say which history option was chosen."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O4",
+      "name": "Feature preview screens",
+      "section": "onboarding",
+      "observed": "Before any setup choice, Wakeout walks through screens previewing how movement is measured, how goals work, how sedentary habits are tracked, and what reminders look like.",
+      "detail": [
+        "One preview states that Wakeout uses artificial intelligence to find when the user is most likely to take a movement break."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O5",
+      "name": "Reminder schedule before permission",
+      "section": "onboarding",
+      "observed": "Wakeout has the user configure when and how often reminders arrive before requesting notification permission, which follows immediately after.",
+      "detail": [
+        "Notification frequency offers four settings, from 10 to 18 reminders at the busiest tier down to off."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O6",
+      "name": "Notification personality selection",
+      "section": "onboarding",
+      "observed": "Wakeout asks the user to choose a notification personality matching their motivation style, offering eleven characters each with its own description, from a Fitness Coach to a Pirate Captain.",
+      "detail": [
+        "Wakeout doesn't say which personality was selected or how reminder copy differs between them."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O7",
+      "name": "Apple-only account creation",
+      "section": "onboarding",
+      "observed": "Wakeout offers Sign in with Apple as the only account-creation route, with no email, Google, or other option.",
+      "detail": [
+        "On reopening the app, the notification pre-prompt screen appeared again before the account screen, even though notifications had already been allowed."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O8",
+      "name": "Movement profile questionnaire",
+      "section": "onboarding",
+      "observed": "Wakeout asks the user to select which of a list of issues, including back pain, low energy, and mental fog, they've experienced recently, framed as potential consequences of a sedentary lifestyle.",
+      "detail": [
+        "The same questionnaire can be reopened later from Settings.",
+        "Wakeout doesn't say whether the selections change any later copy or content."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O9",
+      "name": "Post-purchase pop-up sequence",
+      "section": "onboarding",
+      "observed": "Immediately after a plan was started, Wakeout stacked unprompted pop-ups over its first screen before any user action: a daily goal celebration, then a gift to open.",
+      "detail": [
+        "Opening the gift revealed two new exercise packs with no explanation of what a pack is.",
+        "No guided tour or explanation followed the pop-ups."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O10",
+      "name": "Guidance in Settings",
+      "section": "onboarding",
+      "observed": "Wakeout keeps guidance reachable after first run through a Customer happiness group in Settings, including live chat, a help center, a quick tour, and a what's-new list.",
+      "detail": [
+        "A feature-request route opens a conversational agent."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O11",
+      "name": "Passive movement tracking",
+      "section": "core-loop",
+      "observed": "Wakeout records movement throughout the day from Apple Health without the user starting anything, presenting it as an hourly record of active and inactive time; movement from before a plan was even started, including a gym visit, was already counted on first open.",
+      "detail": [
+        "The Progress tab's Trend view marks inactive hours in red and active hours in green, and isn't tappable or interactive.",
+        "An Activity log lists roughly the past 14 hours with the watts generated and the activities recorded.",
+        "A Movement stats section covers the past two weeks: steps, total Wakeouts, standing minutes, active minutes, and flights climbed."
+      ],
+      "tags": [
+        {
+          "name": "Active Pass",
+          "confidence": "(tier: strongly supported, the product states the rule in three places in O29, on the Active Pass permission screen, on the Active Pass rules screen and on the Block apps when inactive toggle, and the entitled state was observed live as the apps unlocked tag, but no transition into or out of restriction was observed)",
+          "confidences": [
+            "(tier: strongly supported, the product states the rule in three places in O29, on the Active Pass permission screen, on the Active Pass rules screen and on the Block apps when inactive toggle, and the entitled state was observed live as the apps unlocked tag, but no transition into or out of restriction was observed)"
+          ],
+          "rationale": "Wakeout restricts apps the user chooses, Discord in the session, pausing them \"when you've been sedentary\" and unlocking them \"after you complete a Wakeout or any physical activity tracked by Apple Health\" (tier: directly observed). The restricted things are outside the product and the condition that opens them is movement, the activity the product exists to encourage (tier: directly observed). The pause returning when the user is sedentary again means access is a lapsing entitlement that must be re-earned by moving, which separates the behavior from Progression Gate's standing condition on an advancing measure (tier: strongly supported, stated in the copy but not seen operating). The exchange does not spend watts, which remain a measure rather than a balance (tier: directly observed, O25). Restriction applies only within the Active schedule and not on days off (tier: directly observed). Screen Time permission is the eligibility condition that enforces the restriction and carries no tag (tier: directly observed). The implementation instantiates Earned Access (tier: strongly supported). Habit Not Yet Formed and No Reason to Return Today are plausible target obstacles, with Loss Aversion and Hyperbolic Discounting as possible interpretations of withholding a wanted app until movement occurs (tier: plausible, no user behavior evidence).",
+          "alternativeConsidered": "The pause could be a live reading of current inactivity that lifts whenever any movement registers, with no entitlement beyond the moment, which would make the exchange thinner than a period of access (tier: plausible). Three observations would separate this from a lapsing entitlement: the transition into and out of the paused state, which the session did not show because it saw only the \"apps unlocked\" state; whether access left unused accumulates; and whether the daily goal in O18 and O20 sets the standard or the duration of access (tier: unresolved).",
+          "role": "retention, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O12",
+      "name": "Now screen",
+      "section": "core-loop",
+      "observed": "The Now tab is Wakeout's default home, combining the day's goal state with a one-minute start button and pack suggestions that change with time of day, alongside a five-tab bottom navigation: Now, Explore, Timer, Progress, and Settings.",
+      "detail": [
+        "The top shows the goal figure, 613 of 700 on first open, next to a one-day streak.",
+        "A Favorites row stays empty until a pack is added.",
+        "In the evening, the screen offered wind-down rows like Quiet breath and Calm your neck.",
+        "A Recently completed section lists finished packs with a check mark."
+      ],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "(tier: directly observed, the streak count, its goal-based rule and its protection copy all appear on screen)",
+          "confidences": [
+            "(tier: directly observed, the streak count, its goal-based rule and its protection copy all appear on screen)"
+          ],
+          "rationale": "Wakeout maintains a daily continuity state that increases when the day's watts goal is reached, shown as a one-day streak on the Now screen and in the Activity goal streak section under \"Reach your goal, increase your streak\" (tier: directly observed). The copy \"days off don't break your streak\" states that continuity depends on a rule under which a day off is exempt, which separates the streak from a cumulative count of active days (tier: directly observed). Watt stats keeps a longest active streak and a separate longest super active streak, so a second continuity state appears to run on the stretch threshold (tier: strongly supported, two named longest-streak records in O22). The implementation instantiates Continuity Stakes, and the day-off exemption instantiates Failure Recovery (tier: strongly supported). Habit Not Yet Formed is a plausible target obstacle given the product's \"kick the sedentary habit\" framing, with Commitment and Consistency and Loss Aversion as possible interpretations (tier: plausible, no user behavior evidence). What ends, resets or reduces the streak on a missed day was not shown (tier: directly observed).",
+          "alternativeConsidered": "The count could be a cumulative tally of active days labelled as a streak (tier: plausible). The day-off copy and the separate active days count in O21 point against this, and observing a missed day would separate the two (tier: strongly supported).",
+          "role": "retention, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O13",
+      "name": "One-minute Wakeout session",
+      "section": "core-loop",
+      "observed": "Move now opens a guided session of four short exercises shown as bars, each a 15-second countdown started from a pulsing Start button, with the current exercise swappable at any point even mid-countdown.",
+      "detail": [
+        "The session opened on Arm shakes with music and an exercise video playing.",
+        "A pause menu offers toggles for a 3-second demo, music, and auto-start next, plus End and Resume controls."
+      ],
+      "tags": [
+        {
+          "name": "Active Pass",
+          "confidence": "(tier: strongly supported, the product states the rule in three places in O29, on the Active Pass permission screen, on the Active Pass rules screen and on the Block apps when inactive toggle, and the entitled state was observed live as the apps unlocked tag, but no transition into or out of restriction was observed)",
+          "confidences": [
+            "(tier: strongly supported, the product states the rule in three places in O29, on the Active Pass permission screen, on the Active Pass rules screen and on the Block apps when inactive toggle, and the entitled state was observed live as the apps unlocked tag, but no transition into or out of restriction was observed)"
+          ],
+          "rationale": "Wakeout restricts apps the user chooses, Discord in the session, pausing them \"when you've been sedentary\" and unlocking them \"after you complete a Wakeout or any physical activity tracked by Apple Health\" (tier: directly observed). The restricted things are outside the product and the condition that opens them is movement, the activity the product exists to encourage (tier: directly observed). The pause returning when the user is sedentary again means access is a lapsing entitlement that must be re-earned by moving, which separates the behavior from Progression Gate's standing condition on an advancing measure (tier: strongly supported, stated in the copy but not seen operating). The exchange does not spend watts, which remain a measure rather than a balance (tier: directly observed, O25). Restriction applies only within the Active schedule and not on days off (tier: directly observed). Screen Time permission is the eligibility condition that enforces the restriction and carries no tag (tier: directly observed). The implementation instantiates Earned Access (tier: strongly supported). Habit Not Yet Formed and No Reason to Return Today are plausible target obstacles, with Loss Aversion and Hyperbolic Discounting as possible interpretations of withholding a wanted app until movement occurs (tier: plausible, no user behavior evidence).",
+          "alternativeConsidered": "The pause could be a live reading of current inactivity that lifts whenever any movement registers, with no entitlement beyond the moment, which would make the exchange thinner than a period of access (tier: plausible). Three observations would separate this from a lapsing entitlement: the transition into and out of the paused state, which the session did not show because it saw only the \"apps unlocked\" state; whether access left unused accumulates; and whether the daily goal in O18 and O20 sets the standard or the duration of access (tier: unresolved).",
+          "role": "retention, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O14",
+      "name": "Completion screen",
+      "section": "core-loop",
+      "observed": "Finishing the fourth exercise reports the watts added, asks whether the user feels better, and offers favorites, sharing, and another move, with the personality character chosen at onboarding appearing at the top.",
+      "detail": [
+        "A pop-up named the exercise just completed, though several different exercises had actually been performed.",
+        "The feeling question offers Yes, A little, and No as buttons of decreasing size; tapping \"A little\" produced no visible response.",
+        "The goal figure moved from 613 to 663 of 700.",
+        "A gift banner sits at the bottom of the screen."
+      ],
+      "tags": [
+        {
+          "name": "Gifting",
+          "confidence": "(tier: strongly supported, the offer, its price, its recipient framing and its non-redeemable rule converge, while delivery was not observed)",
+          "confidences": [
+            "(tier: strongly supported, the offer, its price, its recipient framing and its non-redeemable rule converge, while delivery was not observed)"
+          ],
+          "rationale": "Wakeout offers a year of access that the buyer purchases for someone else and cannot redeem personally, which is a non-reciprocal grant of in-product access to a recipient (tier: strongly supported). A subscription gift is in-product access rather than physical goods or a currency-denominated card, so the commerce exclusion does not remove the label (tier: directly observed). The offer recurs on the paywall, the completion screen and two places in Settings (tier: directly observed). The recipient identification step and the recipient's resulting access were not observed (tier: directly observed). Directed Generosity is the instantiated pattern (tier: plausible).",
+          "alternativeConsidered": "The offer could function as a discounted redemption code sold like a gift card, which would be commerce infrastructure (tier: plausible). Seeing the delivery step and what the recipient receives would separate the two (tier: plausible).",
+          "role": "monetization, social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O15",
+      "name": "Favorites and duration choice",
+      "section": "core-loop",
+      "observed": "A pack added to favorites appears in the Now screen's Favorites row, and \"View all\" opens a reorderable, searchable Favorites list; each pack's detail screen lets the session length be changed from the one-minute default.",
+      "detail": [
+        "The Favorites screen supports hold-and-drag reordering and a search bar.",
+        "Durations offered range from 30 seconds up to 10 minutes."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O16",
+      "name": "Explore library",
+      "section": "core-loop",
+      "observed": "The Explore tab presents a large library of packs, each usually four moves, filtered by context and searchable by name, body part, or position.",
+      "detail": [
+        "Filters include Home and work, Sitting or standing, Travel and outdoors, Morning and evening, Pain relief, and Specialty packs.",
+        "The default view shows 66 Home packs and 30 Work packs; Specialty packs include a 21-pack Fun and silly group and a 5-pack Therapy group.",
+        "No locked pack was found."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O17",
+      "name": "Healthy Work Timer",
+      "section": "core-loop",
+      "observed": "The Timer tab runs focus sessions that end in a movement break, introduced by a pop-up warning that when time is up the user must move or stretch; the timer screen sets both the interval between breaks and the activity being focused on.",
+      "detail": [
+        "The intro pop-up describes 25-minute focused sprints.",
+        "\"Will focus on\" lists Coding, Designing, and Writing, with activities addable and editable by name and color.",
+        "Pausing shows a count-up of \"healthy work\" time, counting the break itself toward that total.",
+        "\"Get active\" opens a favorites list to start a Wakeout directly from the timer."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O18",
+      "name": "Daily goal bar with stretch zone",
+      "section": "goals",
+      "observed": "Wakeout shows the day's watts as a bar with a check mark at the daily goal and room beyond it toward a higher stretch figure, continuing to fill past the check mark once the goal is reached.",
+      "detail": [
+        "On first open the bar read 613 of 700, already past the check mark.",
+        "Reaching the stretch figure is framed in onboarding as a \"super active day.\""
+      ],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "(tier: directly observed, the streak count, its goal-based rule and its protection copy all appear on screen)",
+          "confidences": [
+            "(tier: directly observed, the streak count, its goal-based rule and its protection copy all appear on screen)"
+          ],
+          "rationale": "Wakeout maintains a daily continuity state that increases when the day's watts goal is reached, shown as a one-day streak on the Now screen and in the Activity goal streak section under \"Reach your goal, increase your streak\" (tier: directly observed). The copy \"days off don't break your streak\" states that continuity depends on a rule under which a day off is exempt, which separates the streak from a cumulative count of active days (tier: directly observed). Watt stats keeps a longest active streak and a separate longest super active streak, so a second continuity state appears to run on the stretch threshold (tier: strongly supported, two named longest-streak records in O22). The implementation instantiates Continuity Stakes, and the day-off exemption instantiates Failure Recovery (tier: strongly supported). Habit Not Yet Formed is a plausible target obstacle given the product's \"kick the sedentary habit\" framing, with Commitment and Consistency and Loss Aversion as possible interpretations (tier: plausible, no user behavior evidence). What ends, resets or reduces the streak on a missed day was not shown (tier: directly observed).",
+          "alternativeConsidered": "The count could be a cumulative tally of active days labelled as a streak (tier: plausible). The day-off copy and the separate active days count in O21 point against this, and observing a missed day would separate the two (tier: strongly supported).",
+          "role": "retention, engagement"
+        },
+        {
+          "name": "Milestone",
+          "confidence": "(tier: directly observed, the goal crossing is marked on the bar and announced by a pop-up)",
+          "confidences": [
+            "(tier: directly observed, the goal crossing is marked on the bar and announced by a pop-up)"
+          ],
+          "rationale": "Wakeout maintains a daily watts measure on a bar and defines the daily goal as a threshold within it, marked with a check mark (tier: directly observed). Reaching that threshold produced a recognition event separate from ordinary updates, \"Daily goal achieved... You've conquered your active goal,\" together with the streak increment (tier: directly observed). Progress continues after the threshold toward the stretch figure, so the goal is an intermediate point within the day's measure rather than the whole progression (tier: directly observed). The implementation instantiates Milestone Recognition and Visible Progress (tier: strongly supported). Progress Is Invisible and The Goal Is Too Distant are plausible obstacles the daily bar speaks to, with Goal Gradient as a possible interpretation (tier: plausible, no user behavior evidence). The recognition fired retroactively, for a goal the user had not been shown, on movement recorded before the app was in use (tier: directly observed).",
+          "alternativeConsidered": "Achievement, if reaching the goal is preserved as an attained record (tier: plausible). The day is recorded as an active day in a count and calendar rather than as a separate attained criterion, and seeing whether a goal day produces a persistent record of its own would separate the two (tier: strongly supported).",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O19",
+      "name": "Daily goal achieved on first open",
+      "section": "goals",
+      "observed": "On the first screen after purchase, Wakeout announced the daily goal achieved at 613 watts, though the goal had not been set by the user and the watts came from movement recorded earlier that day.",
+      "detail": [
+        "The celebration arrived together with a one-day streak."
+      ],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "(tier: directly observed, the streak count, its goal-based rule and its protection copy all appear on screen)",
+          "confidences": [
+            "(tier: directly observed, the streak count, its goal-based rule and its protection copy all appear on screen)"
+          ],
+          "rationale": "Wakeout maintains a daily continuity state that increases when the day's watts goal is reached, shown as a one-day streak on the Now screen and in the Activity goal streak section under \"Reach your goal, increase your streak\" (tier: directly observed). The copy \"days off don't break your streak\" states that continuity depends on a rule under which a day off is exempt, which separates the streak from a cumulative count of active days (tier: directly observed). Watt stats keeps a longest active streak and a separate longest super active streak, so a second continuity state appears to run on the stretch threshold (tier: strongly supported, two named longest-streak records in O22). The implementation instantiates Continuity Stakes, and the day-off exemption instantiates Failure Recovery (tier: strongly supported). Habit Not Yet Formed is a plausible target obstacle given the product's \"kick the sedentary habit\" framing, with Commitment and Consistency and Loss Aversion as possible interpretations (tier: plausible, no user behavior evidence). What ends, resets or reduces the streak on a missed day was not shown (tier: directly observed).",
+          "alternativeConsidered": "The count could be a cumulative tally of active days labelled as a streak (tier: plausible). The day-off copy and the separate active days count in O21 point against this, and observing a missed day would separate the two (tier: strongly supported).",
+          "role": "retention, engagement"
+        },
+        {
+          "name": "Milestone",
+          "confidence": "(tier: directly observed, the goal crossing is marked on the bar and announced by a pop-up)",
+          "confidences": [
+            "(tier: directly observed, the goal crossing is marked on the bar and announced by a pop-up)"
+          ],
+          "rationale": "Wakeout maintains a daily watts measure on a bar and defines the daily goal as a threshold within it, marked with a check mark (tier: directly observed). Reaching that threshold produced a recognition event separate from ordinary updates, \"Daily goal achieved... You've conquered your active goal,\" together with the streak increment (tier: directly observed). Progress continues after the threshold toward the stretch figure, so the goal is an intermediate point within the day's measure rather than the whole progression (tier: directly observed). The implementation instantiates Milestone Recognition and Visible Progress (tier: strongly supported). Progress Is Invisible and The Goal Is Too Distant are plausible obstacles the daily bar speaks to, with Goal Gradient as a possible interpretation (tier: plausible, no user behavior evidence). The recognition fired retroactively, for a goal the user had not been shown, on movement recorded before the app was in use (tier: directly observed).",
+          "alternativeConsidered": "Achievement, if reaching the goal is preserved as an attained record (tier: plausible). The day is recorded as an active day in a count and calendar rather than as a separate attained criterion, and seeing whether a goal day produces a persistent record of its own would separate the two (tier: strongly supported).",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O20",
+      "name": "Difficulty sets the daily goal",
+      "section": "goals",
+      "observed": "Settings holds a Difficulty screen setting the daily goal, the stretch goal, and a maximum watts per hour across five levels, with Easy as the default at 500 watts, stretch +200, and a 150-watt hourly cap.",
+      "detail": [
+        "Very hard sets the goal at 1,100 watts with a stretch of +400.",
+        "Difficulty is chosen freely at any time rather than reached."
+      ],
+      "tags": [
+        {
+          "name": "Milestone",
+          "confidence": "(tier: directly observed, the goal crossing is marked on the bar and announced by a pop-up)",
+          "confidences": [
+            "(tier: directly observed, the goal crossing is marked on the bar and announced by a pop-up)"
+          ],
+          "rationale": "Wakeout maintains a daily watts measure on a bar and defines the daily goal as a threshold within it, marked with a check mark (tier: directly observed). Reaching that threshold produced a recognition event separate from ordinary updates, \"Daily goal achieved... You've conquered your active goal,\" together with the streak increment (tier: directly observed). Progress continues after the threshold toward the stretch figure, so the goal is an intermediate point within the day's measure rather than the whole progression (tier: directly observed). The implementation instantiates Milestone Recognition and Visible Progress (tier: strongly supported). Progress Is Invisible and The Goal Is Too Distant are plausible obstacles the daily bar speaks to, with Goal Gradient as a possible interpretation (tier: plausible, no user behavior evidence). The recognition fired retroactively, for a goal the user had not been shown, on movement recorded before the app was in use (tier: directly observed).",
+          "alternativeConsidered": "Achievement, if reaching the goal is preserved as an attained record (tier: plausible). The day is recorded as an active day in a count and calendar rather than as a separate attained criterion, and seeing whether a goal day produces a persistent record of its own would separate the two (tier: strongly supported).",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O21",
+      "name": "Activity goal streak record",
+      "section": "goals",
+      "observed": "The Progress tab holds an Activity goal streak section with counts of active weeks, active days, and super active days above a calendar marking the current streak.",
+      "detail": [
+        "On the first day it showed one active week, one active day, and zero super active days.",
+        "Wakeout doesn't explain what a super active day means on this screen, and what ends a streak wasn't shown."
+      ],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "(tier: directly observed, the streak count, its goal-based rule and its protection copy all appear on screen)",
+          "confidences": [
+            "(tier: directly observed, the streak count, its goal-based rule and its protection copy all appear on screen)"
+          ],
+          "rationale": "Wakeout maintains a daily continuity state that increases when the day's watts goal is reached, shown as a one-day streak on the Now screen and in the Activity goal streak section under \"Reach your goal, increase your streak\" (tier: directly observed). The copy \"days off don't break your streak\" states that continuity depends on a rule under which a day off is exempt, which separates the streak from a cumulative count of active days (tier: directly observed). Watt stats keeps a longest active streak and a separate longest super active streak, so a second continuity state appears to run on the stretch threshold (tier: strongly supported, two named longest-streak records in O22). The implementation instantiates Continuity Stakes, and the day-off exemption instantiates Failure Recovery (tier: strongly supported). Habit Not Yet Formed is a plausible target obstacle given the product's \"kick the sedentary habit\" framing, with Commitment and Consistency and Loss Aversion as possible interpretations (tier: plausible, no user behavior evidence). What ends, resets or reduces the streak on a missed day was not shown (tier: directly observed).",
+          "alternativeConsidered": "The count could be a cumulative tally of active days labelled as a streak (tier: plausible). The day-off copy and the separate active days count in O21 point against this, and observing a missed day would separate the two (tier: strongly supported).",
+          "role": "retention, engagement"
+        },
+        {
+          "name": "Milestone",
+          "confidence": "(tier: directly observed, the goal crossing is marked on the bar and announced by a pop-up)",
+          "confidences": [
+            "(tier: directly observed, the goal crossing is marked on the bar and announced by a pop-up)"
+          ],
+          "rationale": "Wakeout maintains a daily watts measure on a bar and defines the daily goal as a threshold within it, marked with a check mark (tier: directly observed). Reaching that threshold produced a recognition event separate from ordinary updates, \"Daily goal achieved... You've conquered your active goal,\" together with the streak increment (tier: directly observed). Progress continues after the threshold toward the stretch figure, so the goal is an intermediate point within the day's measure rather than the whole progression (tier: directly observed). The implementation instantiates Milestone Recognition and Visible Progress (tier: strongly supported). Progress Is Invisible and The Goal Is Too Distant are plausible obstacles the daily bar speaks to, with Goal Gradient as a possible interpretation (tier: plausible, no user behavior evidence). The recognition fired retroactively, for a goal the user had not been shown, on movement recorded before the app was in use (tier: directly observed).",
+          "alternativeConsidered": "Achievement, if reaching the goal is preserved as an attained record (tier: plausible). The day is recorded as an active day in a count and calendar rather than as a separate attained criterion, and seeing whether a goal day produces a persistent record of its own would separate the two (tier: strongly supported).",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O22",
+      "name": "Watt stats records",
+      "section": "goals",
+      "observed": "A Watt stats section keeps running totals and personal bests, including total watts earned, watts earned this week, most watts in a day, and longest active and super active streaks, with a share button.",
+      "detail": [
+        "Wakeout doesn't say what the shared item contains."
+      ],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "(tier: directly observed, the streak count, its goal-based rule and its protection copy all appear on screen)",
+          "confidences": [
+            "(tier: directly observed, the streak count, its goal-based rule and its protection copy all appear on screen)"
+          ],
+          "rationale": "Wakeout maintains a daily continuity state that increases when the day's watts goal is reached, shown as a one-day streak on the Now screen and in the Activity goal streak section under \"Reach your goal, increase your streak\" (tier: directly observed). The copy \"days off don't break your streak\" states that continuity depends on a rule under which a day off is exempt, which separates the streak from a cumulative count of active days (tier: directly observed). Watt stats keeps a longest active streak and a separate longest super active streak, so a second continuity state appears to run on the stretch threshold (tier: strongly supported, two named longest-streak records in O22). The implementation instantiates Continuity Stakes, and the day-off exemption instantiates Failure Recovery (tier: strongly supported). Habit Not Yet Formed is a plausible target obstacle given the product's \"kick the sedentary habit\" framing, with Commitment and Consistency and Loss Aversion as possible interpretations (tier: plausible, no user behavior evidence). What ends, resets or reduces the streak on a missed day was not shown (tier: directly observed).",
+          "alternativeConsidered": "The count could be a cumulative tally of active days labelled as a streak (tier: plausible). The day-off copy and the separate active days count in O21 point against this, and observing a missed day would separate the two (tier: strongly supported).",
+          "role": "retention, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O23",
+      "name": "No free access",
+      "section": "access",
+      "observed": "Wakeout's paywall has no close control and cannot be skipped, so the app cannot be used at all without choosing a plan; a monthly plan with a free trial was started to reach the app.",
+      "detail": [
+        "Three of the four plans carry a seven-day free trial; the weekly plan does not.",
+        "The app opened immediately once the plan was started.",
+        "No free tier or limited mode was found."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O24",
+      "name": "Standing minutes need an Apple Watch",
+      "section": "access",
+      "observed": "In Movement stats, standing minutes are marked as requiring an Apple Watch.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O25",
+      "name": "Wakeout Watts",
+      "section": "economy",
+      "observed": "Wakeout measures all activity in Wakeout Watts, earned from any movement Apple Health records as well as from completed Wakeouts, with no surface for spending watts found.",
+      "detail": [
+        "A completed one-minute Wakeout added 50 watts.",
+        "Movement recorded before the plan started counted toward the day's watts.",
+        "Active Pass unlocks apps on completing a Wakeout or tracked activity rather than by spending watts."
+      ],
+      "tags": [
+        {
+          "name": "Active Pass",
+          "confidence": "(tier: strongly supported, the product states the rule in three places in O29, on the Active Pass permission screen, on the Active Pass rules screen and on the Block apps when inactive toggle, and the entitled state was observed live as the apps unlocked tag, but no transition into or out of restriction was observed)",
+          "confidences": [
+            "(tier: strongly supported, the product states the rule in three places in O29, on the Active Pass permission screen, on the Active Pass rules screen and on the Block apps when inactive toggle, and the entitled state was observed live as the apps unlocked tag, but no transition into or out of restriction was observed)"
+          ],
+          "rationale": "Wakeout restricts apps the user chooses, Discord in the session, pausing them \"when you've been sedentary\" and unlocking them \"after you complete a Wakeout or any physical activity tracked by Apple Health\" (tier: directly observed). The restricted things are outside the product and the condition that opens them is movement, the activity the product exists to encourage (tier: directly observed). The pause returning when the user is sedentary again means access is a lapsing entitlement that must be re-earned by moving, which separates the behavior from Progression Gate's standing condition on an advancing measure (tier: strongly supported, stated in the copy but not seen operating). The exchange does not spend watts, which remain a measure rather than a balance (tier: directly observed, O25). Restriction applies only within the Active schedule and not on days off (tier: directly observed). Screen Time permission is the eligibility condition that enforces the restriction and carries no tag (tier: directly observed). The implementation instantiates Earned Access (tier: strongly supported). Habit Not Yet Formed and No Reason to Return Today are plausible target obstacles, with Loss Aversion and Hyperbolic Discounting as possible interpretations of withholding a wanted app until movement occurs (tier: plausible, no user behavior evidence).",
+          "alternativeConsidered": "The pause could be a live reading of current inactivity that lifts whenever any movement registers, with no entitlement beyond the moment, which would make the exchange thinner than a period of access (tier: plausible). Three observations would separate this from a lapsing entitlement: the transition into and out of the paused state, which the session did not show because it saw only the \"apps unlocked\" state; whether access left unused accumulates; and whether the daily goal in O18 and O20 sets the standard or the duration of access (tier: unresolved).",
+          "role": "retention, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O26",
+      "name": "Hourly watts cap",
+      "section": "economy",
+      "observed": "Wakeout caps how many watts count in any one hour, stating the cap encourages movement throughout the day rather than in one intense session; at Easy the cap is 150 watts per hour.",
+      "detail": [
+        "Wakeout doesn't say how watts above the cap are displayed."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O27",
+      "name": "Power Hour bonus watts",
+      "section": "economy",
+      "observed": "Settings holds a Power Hour toggle offering bonus watts during the day's most sedentary hour, picked automatically each day.",
+      "detail": [
+        "Wakeout doesn't clearly state Power Hour's default state.",
+        "The chosen hour, the size of the bonus, and a bonus actually being paid were not found."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O28",
+      "name": "Share controls",
+      "section": "reach",
+      "observed": "Wakeout offers share buttons on the completion screen and on Watt stats, each opening the regular system sharing options, with the content that would be sent not shown.",
+      "detail": [
+        "The paywall lists sharing routines with friends via links among its features.",
+        "Wakeout doesn't say whether Share move sends the routine, the completion result, or both."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O29",
+      "name": "Active Pass app blocking",
+      "section": "reach",
+      "observed": "Settings holds Active Pass, which uses Screen Time access to pause chosen apps when the user has been sedentary and unlock them after a Wakeout or any physical activity Apple Health records; it was found in Settings rather than introduced during onboarding.",
+      "detail": [
+        "Granting access required a system dialog and Face ID.",
+        "An app picker sorted by category was used to select Discord.",
+        "An Active schedule limits pausing to set hours, leaving every app free on days off.",
+        "Best practices advise choosing individual apps rather than categories, favoring social and entertainment apps, and never work or communication apps.",
+        "A \"Block apps when inactive\" toggle is off by default and was turned on.",
+        "Wakeout doesn't show an app actually being paused, or the sedentary threshold that triggers it."
+      ],
+      "tags": [
+        {
+          "name": "Active Pass",
+          "confidence": "(tier: strongly supported, the product states the rule in three places in O29, on the Active Pass permission screen, on the Active Pass rules screen and on the Block apps when inactive toggle, and the entitled state was observed live as the apps unlocked tag, but no transition into or out of restriction was observed)",
+          "confidences": [
+            "(tier: strongly supported, the product states the rule in three places in O29, on the Active Pass permission screen, on the Active Pass rules screen and on the Block apps when inactive toggle, and the entitled state was observed live as the apps unlocked tag, but no transition into or out of restriction was observed)"
+          ],
+          "rationale": "Wakeout restricts apps the user chooses, Discord in the session, pausing them \"when you've been sedentary\" and unlocking them \"after you complete a Wakeout or any physical activity tracked by Apple Health\" (tier: directly observed). The restricted things are outside the product and the condition that opens them is movement, the activity the product exists to encourage (tier: directly observed). The pause returning when the user is sedentary again means access is a lapsing entitlement that must be re-earned by moving, which separates the behavior from Progression Gate's standing condition on an advancing measure (tier: strongly supported, stated in the copy but not seen operating). The exchange does not spend watts, which remain a measure rather than a balance (tier: directly observed, O25). Restriction applies only within the Active schedule and not on days off (tier: directly observed). Screen Time permission is the eligibility condition that enforces the restriction and carries no tag (tier: directly observed). The implementation instantiates Earned Access (tier: strongly supported). Habit Not Yet Formed and No Reason to Return Today are plausible target obstacles, with Loss Aversion and Hyperbolic Discounting as possible interpretations of withholding a wanted app until movement occurs (tier: plausible, no user behavior evidence).",
+          "alternativeConsidered": "The pause could be a live reading of current inactivity that lifts whenever any movement registers, with no entitlement beyond the moment, which would make the exchange thinner than a period of access (tier: plausible). Three observations would separate this from a lapsing entitlement: the transition into and out of the paused state, which the session did not show because it saw only the \"apps unlocked\" state; whether access left unused accumulates; and whether the daily goal in O18 and O20 sets the standard or the duration of access (tier: unresolved).",
+          "role": "retention, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O30",
+      "name": "Paywall opening",
+      "section": "monetization",
+      "observed": "Directly after the movement profile questionnaire, Wakeout opens its paywall with a video and copy framed around breaking free from the chair, alongside tags for Editor's Choice, App of the Year, and 10,000 five-star reviews.",
+      "detail": [
+        "Wakeout doesn't establish whether the questionnaire answers change the paywall copy."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O31",
+      "name": "Four plans",
+      "section": "monetization",
+      "observed": "Wakeout offers four plans: an annual plan at $69.99 with a seven-day free trial, a monthly plan at $12.99 with the same trial, a weekly plan at $4.99 with no trial, and a one-time lifetime purchase at $179.99; every plan states sharing with up to six family members.",
+      "detail": [
+        "A sticky footer repeats the annual plan's discounted price throughout the paywall."
+      ],
+      "tags": [
+        {
+          "name": "Gifting",
+          "confidence": "(tier: strongly supported, the offer, its price, its recipient framing and its non-redeemable rule converge, while delivery was not observed)",
+          "confidences": [
+            "(tier: strongly supported, the offer, its price, its recipient framing and its non-redeemable rule converge, while delivery was not observed)"
+          ],
+          "rationale": "Wakeout offers a year of access that the buyer purchases for someone else and cannot redeem personally, which is a non-reciprocal grant of in-product access to a recipient (tier: strongly supported). A subscription gift is in-product access rather than physical goods or a currency-denominated card, so the commerce exclusion does not remove the label (tier: directly observed). The offer recurs on the paywall, the completion screen and two places in Settings (tier: directly observed). The recipient identification step and the recipient's resulting access were not observed (tier: directly observed). Directed Generosity is the instantiated pattern (tier: plausible).",
+          "alternativeConsidered": "The offer could function as a discounted redemption code sold like a gift card, which would be commerce infrastructure (tier: plausible). Seeing the delivery step and what the recipient receives would separate the two (tier: plausible).",
+          "role": "monetization, social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O32",
+      "name": "Paywall persuasion sections",
+      "section": "monetization",
+      "observed": "Below the plans, Wakeout's paywall continues with benefit, comparison, testimonial, and feature sections before the FAQ, including a side-by-side comparing staying active with Wakeout against staying sedentary for free, with a hidden-fees footnote on the sedentary side.",
+      "detail": [
+        "Seven testimonials each follow a before-and-after structure contrasting life before and after Wakeout."
+      ],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "(tier: directly observed, the streak count, its goal-based rule and its protection copy all appear on screen)",
+          "confidences": [
+            "(tier: directly observed, the streak count, its goal-based rule and its protection copy all appear on screen)"
+          ],
+          "rationale": "Wakeout maintains a daily continuity state that increases when the day's watts goal is reached, shown as a one-day streak on the Now screen and in the Activity goal streak section under \"Reach your goal, increase your streak\" (tier: directly observed). The copy \"days off don't break your streak\" states that continuity depends on a rule under which a day off is exempt, which separates the streak from a cumulative count of active days (tier: directly observed). Watt stats keeps a longest active streak and a separate longest super active streak, so a second continuity state appears to run on the stretch threshold (tier: strongly supported, two named longest-streak records in O22). The implementation instantiates Continuity Stakes, and the day-off exemption instantiates Failure Recovery (tier: strongly supported). Habit Not Yet Formed is a plausible target obstacle given the product's \"kick the sedentary habit\" framing, with Commitment and Consistency and Loss Aversion as possible interpretations (tier: plausible, no user behavior evidence). What ends, resets or reduces the streak on a missed day was not shown (tier: directly observed).",
+          "alternativeConsidered": "The count could be a cumulative tally of active days labelled as a streak (tier: plausible). The day-off copy and the separate active days count in O21 point against this, and observing a missed day would separate the two (tier: strongly supported).",
+          "role": "retention, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O33",
+      "name": "Gift subscription offer",
+      "section": "monetization",
+      "observed": "Wakeout offers a discounted year of access to buy as a gift for someone else, reachable from the paywall and repeated on the completion screen and twice in Settings, at $44.99 against the $69.99 annual price.",
+      "detail": [
+        "The gift cannot be redeemed by the buyer.",
+        "The discount was unchanged after completing a Wakeout.",
+        "Wakeout doesn't say how the recipient is identified or what they receive."
+      ],
+      "tags": [
+        {
+          "name": "Gifting",
+          "confidence": "(tier: strongly supported, the offer, its price, its recipient framing and its non-redeemable rule converge, while delivery was not observed)",
+          "confidences": [
+            "(tier: strongly supported, the offer, its price, its recipient framing and its non-redeemable rule converge, while delivery was not observed)"
+          ],
+          "rationale": "Wakeout offers a year of access that the buyer purchases for someone else and cannot redeem personally, which is a non-reciprocal grant of in-product access to a recipient (tier: strongly supported). A subscription gift is in-product access rather than physical goods or a currency-denominated card, so the commerce exclusion does not remove the label (tier: directly observed). The offer recurs on the paywall, the completion screen and two places in Settings (tier: directly observed). The recipient identification step and the recipient's resulting access were not observed (tier: directly observed). Directed Generosity is the instantiated pattern (tier: plausible).",
+          "alternativeConsidered": "The offer could function as a discounted redemption code sold like a gift card, which would be commerce infrastructure (tier: plausible). Seeing the delivery step and what the recipient receives would separate the two (tier: plausible).",
+          "role": "monetization, social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O34",
+      "name": "Reminder settings",
+      "section": "returns",
+      "observed": "Settings reopens the reminder schedule under Activity schedule alongside motivation style and difficulty, defaulting to 8:00 to 22:00, Monday to Friday.",
+      "detail": [
+        "The personality chosen at onboarding can be changed as motivation style.",
+        "Wakeout never sent a reminder notification."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O35",
+      "name": "Take a day off",
+      "section": "returns",
+      "observed": "Settings offers \"Take a day off,\" stating that days off don't break the streak and turning off all notifications for a chosen duration of one day, two days, three days, or one week.",
+      "detail": [
+        "A day off was not taken, so its effect on the streak record wasn't found."
+      ],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "(tier: directly observed, the streak count, its goal-based rule and its protection copy all appear on screen)",
+          "confidences": [
+            "(tier: directly observed, the streak count, its goal-based rule and its protection copy all appear on screen)"
+          ],
+          "rationale": "Wakeout maintains a daily continuity state that increases when the day's watts goal is reached, shown as a one-day streak on the Now screen and in the Activity goal streak section under \"Reach your goal, increase your streak\" (tier: directly observed). The copy \"days off don't break your streak\" states that continuity depends on a rule under which a day off is exempt, which separates the streak from a cumulative count of active days (tier: directly observed). Watt stats keeps a longest active streak and a separate longest super active streak, so a second continuity state appears to run on the stretch threshold (tier: strongly supported, two named longest-streak records in O22). The implementation instantiates Continuity Stakes, and the day-off exemption instantiates Failure Recovery (tier: strongly supported). Habit Not Yet Formed is a plausible target obstacle given the product's \"kick the sedentary habit\" framing, with Commitment and Consistency and Loss Aversion as possible interpretations (tier: plausible, no user behavior evidence). What ends, resets or reduces the streak on a missed day was not shown (tier: directly observed).",
+          "alternativeConsidered": "The count could be a cumulative tally of active days labelled as a streak (tier: plausible). The day-off copy and the separate active days count in O21 point against this, and observing a missed day would separate the two (tier: strongly supported).",
+          "role": "retention, engagement"
+        },
+        {
+          "name": "Active Pass",
+          "confidence": "(tier: strongly supported, the product states the rule in three places in O29, on the Active Pass permission screen, on the Active Pass rules screen and on the Block apps when inactive toggle, and the entitled state was observed live as the apps unlocked tag, but no transition into or out of restriction was observed)",
+          "confidences": [
+            "(tier: strongly supported, the product states the rule in three places in O29, on the Active Pass permission screen, on the Active Pass rules screen and on the Block apps when inactive toggle, and the entitled state was observed live as the apps unlocked tag, but no transition into or out of restriction was observed)"
+          ],
+          "rationale": "Wakeout restricts apps the user chooses, Discord in the session, pausing them \"when you've been sedentary\" and unlocking them \"after you complete a Wakeout or any physical activity tracked by Apple Health\" (tier: directly observed). The restricted things are outside the product and the condition that opens them is movement, the activity the product exists to encourage (tier: directly observed). The pause returning when the user is sedentary again means access is a lapsing entitlement that must be re-earned by moving, which separates the behavior from Progression Gate's standing condition on an advancing measure (tier: strongly supported, stated in the copy but not seen operating). The exchange does not spend watts, which remain a measure rather than a balance (tier: directly observed, O25). Restriction applies only within the Active schedule and not on days off (tier: directly observed). Screen Time permission is the eligibility condition that enforces the restriction and carries no tag (tier: directly observed). The implementation instantiates Earned Access (tier: strongly supported). Habit Not Yet Formed and No Reason to Return Today are plausible target obstacles, with Loss Aversion and Hyperbolic Discounting as possible interpretations of withholding a wanted app until movement occurs (tier: plausible, no user behavior evidence).",
+          "alternativeConsidered": "The pause could be a live reading of current inactivity that lifts whenever any movement registers, with no entitlement beyond the moment, which would make the exchange thinner than a period of access (tier: plausible). Three observations would separate this from a lapsing entitlement: the transition into and out of the paused state, which the session did not show because it saw only the \"apps unlocked\" state; whether access left unused accumulates; and whether the daily goal in O18 and O20 sets the standard or the duration of access (tier: unresolved).",
+          "role": "retention, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O36",
+      "name": "Home and lock screen widgets",
+      "section": "returns",
+      "observed": "Settings promotes a home screen widget for tracking activity without opening the app and lock screen widgets for starting a Wakeout directly, with four quick-launch slots preset to specific exercises.",
+      "detail": [
+        "Neither widget was added."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O37",
+      "name": "Rate Wakeout",
+      "section": "returns",
+      "observed": "The Feedback group in Settings holds a Rate Wakeout entry; no rating prompt appeared.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     }
   ],
-  "system": null
+  "systemView": [
+    "Wakeout is a simple system whose spine is the Apple Health connection secured during onboarding: every mechanic that follows, the daily watts goal, the Milestone it triggers, the Streak it advances, and the apps Active Pass unlocks, reads from that same tracked activity rather than from anything the user does by opening the app. A separate gift-subscription offer sits outside this loop entirely, a one-off purchase unconnected to watts, goals, or streaks."
+  ],
+  "mechanicWriteups": [
+    {
+      "name": "Streak",
+      "summary": "The first streak day was credited from a gym session Apple Health had already logged, before any Wakeout was completed in the app.",
+      "observed": "Wakeout maintains a daily streak that increases when the day's watts goal is reached, shown beside the watts total on the home screen and tracked in an Activity goal streak section alongside active weeks, active days, and super active days. A day off can be taken without breaking the streak, and Watt stats keeps a separate longest-streak record. On first open, the streak already stood at one day, credited from movement recorded earlier that day rather than from anything completed inside the app.",
+      "presented": "The current streak count sits at the top of the home screen next to the watts total, and reappears on the Progress tab's calendar and in the Watt stats section as a longest-streak figure. A \"take a day off\" control in Settings pauses every reminder for a chosen number of days while explicitly stating the streak won't break.",
+      "noting": "Wakeout doesn't say what happens to the streak on a day the goal is missed, whether it resets, reduces, or ends. What is stated plainly is the exemption: a day off preserves the streak the same way reaching the goal does, so continuity is protected on two different fronts, not just built by showing up.",
+      "findings": [
+        "The streak increases on any day the watts goal is reached, wherever that movement was recorded.",
+        "The first streak day was credited on first open, from movement logged before the app was used.",
+        "A day off can be taken without breaking the streak.",
+        "A separate longest-streak record is kept in Watt stats.",
+        "Wakeout doesn't say what a missed day does to the count."
+      ],
+      "screenshotsNote": "the home screen streak count beside the watts total, and the Activity goal streak section on the Progress tab."
+    },
+    {
+      "name": "Milestone",
+      "summary": "The daily goal was already crossed on first open, recognized from Apple Health history rather than from anything performed in the app.",
+      "observed": "Wakeout marks a daily watts goal on the progress bar with a check mark, and reaching it produces a full-screen recognition separate from the bar simply filling further. On the very first screen after subscribing, that recognition had already fired: a pop-up read that the goal was achieved, crediting a watts total built entirely from movement recorded before the app was opened. The bar keeps filling past the check mark toward a higher stretch figure.",
+      "presented": "The recognition arrives as an unprompted pop-up, paired with the day's streak advancing in the same moment. The check mark itself stays visible on the bar afterward, and the same crossing is reflected in the day counts kept on the Progress tab.",
+      "noting": "The goal that triggered this recognition was never shown to the user before it was met. Wakeout sets the figure through a difficulty level chosen in Settings, but on this account the celebration fired before any difficulty was chosen or any goal presented, off the back of Apple Health data pulled during onboarding.",
+      "findings": [
+        "Reaching the daily goal produces a full-screen recognition, separate from the bar simply filling.",
+        "The recognition fired on first open, before the user had completed a Wakeout or been shown a goal.",
+        "The bar continues past the goal toward a higher stretch figure.",
+        "The goal, the stretch figure, and an hourly cap are all set by a difficulty level in Settings.",
+        "A second, higher \"super active\" threshold is tracked but carries no stated recognition of its own."
+      ],
+      "screenshotsNote": "the \"daily goal achieved\" pop-up, and the watts bar showing the check mark with room beyond it."
+    },
+    {
+      "name": "Gifting",
+      "summary": "A discounted year of access can be bought for someone else, repeated on four separate surfaces, and can't be redeemed by the buyer.",
+      "observed": "Wakeout sells a full year of access as a gift for someone else at $44.99, below the $69.99 annual plan price, described as instant digital delivery. The purchase explicitly cannot be redeemed by the person who buys it. The offer is repeated on the paywall, the completion screen after a Wakeout, and twice in Settings.",
+      "presented": "Each placement frames the purchase around generosity, inviting the buyer to share the gift of movement with someone they know, and the completion-screen version sits directly beneath the watts earned from the Wakeout just finished. The discount stays the same before and after completing a Wakeout.",
+      "noting": "Wakeout doesn't say how the recipient is identified or what they actually receive once the gift is bought. The offer is placed on the exact screen where the buyer has just felt the product work, right under their own watts total, rather than only on a dedicated gifting page.",
+      "findings": [
+        "A full year of access can be bought as a gift for $44.99, below the $69.99 annual plan price.",
+        "The purchase cannot be redeemed by the buyer.",
+        "The offer appears on the paywall, the completion screen, and twice in Settings.",
+        "The discount is unchanged before and after completing a Wakeout.",
+        "How the recipient is identified and what they receive are not stated."
+      ],
+      "screenshotsNote": "the Gift Wakeout offer screen, and the gift banner on the post-Wakeout completion screen."
+    },
+    {
+      "name": "Active Pass",
+      "summary": "Apps chosen by the user pause when they've been sedentary and unlock after any Apple Health-tracked activity, not only a Wakeout.",
+      "observed": "Wakeout offers to pause apps the user chooses, found in Settings rather than introduced during onboarding, using Screen Time permission to enforce the restriction. Chosen apps pause when the user has been sedentary and unlock again after completing a Wakeout or any physical activity Apple Health records. The restriction only applies within a set schedule, and every app is left free on days off.",
+      "presented": "Setup walks through granting Screen Time access with its own explanation and coaching screen, then an app picker sorted into categories like Social, Games, and Entertainment. Best practices advise choosing individual apps rather than whole categories, favoring social and entertainment apps, and never restricting work or communication apps. An \"apps unlocked\" tag appears once the feature is turned on.",
+      "noting": "The unlock condition is any tracked activity, not specifically a Wakeout, so movement Apple Health records anywhere can reopen a paused app. Wakeout doesn't say how long an unlock lasts, whether unused access carries forward, or what sedentary threshold triggers the pause in the first place; what's stated is the rule, not its timing. We saw the unlocked state directly, an \"apps unlocked\" tag appeared once the feature was turned on, but we did not see a pause take effect or an unlock happen in this analysis.",
+      "findings": [
+        "Apps pause when the user has been sedentary and unlock after a Wakeout or any Apple Health-tracked activity.",
+        "Setup requires Screen Time permission, granted through its own coaching screen and system dialog.",
+        "The restriction only applies within a set schedule, and every app is free on days off.",
+        "Best practices steer users toward restricting individual social and entertainment apps, never work or communication apps.",
+        "Wakeout doesn't state how long an unlock lasts or what triggers the sedentary pause."
+      ],
+      "screenshotsNote": "the Active Pass rules screen naming the unlock condition, and the app picker used to choose a restricted app.\n\n---"
+    }
+  ],
+  "sectionLeadIns": {
+    "onboarding": "Wakeout opens with a sedentary-crisis narrative, secures an Apple Health connection, previews watts and goals before any setup, and creates an account through Apple sign-in alone.",
+    "core-loop": "Wakeout's core loop is built on passive tracking: movement recorded by Apple Health fills the day's watts automatically, topped up by short guided Wakeouts, a searchable pack library, and a work timer that ends focus sprints in a movement break.",
+    "goals": "Wakeout's progress surfaces are a daily watts bar with a stretch zone beyond the goal, five difficulty levels that set both figures, and a streak and personal-best record kept alongside them.",
+    "access": "Wakeout has no free tier of any kind, and one measurement, standing minutes, is only available with an Apple Watch.",
+    "economy": "Wakeout measures all activity in Wakeout Watts, earned from any tracked movement, with an hourly cap and an unobserved bonus hour layered on top.",
+    "reach": "Wakeout's reach outside the app runs through system share controls and Active Pass, which extends the loop to whatever apps the user chooses to restrict on the same phone.",
+    "monetization": "Wakeout's paywall opens immediately after onboarding with four plans, extensive persuasion sections, and a discounted gift-subscription offer repeated across the app.",
+    "returns": "Wakeout brings users back through configurable reminders, a day-off pause that protects the streak, home and lock screen widgets, and a rating entry Wakeout never triggered."
+  },
+  "sectionCards": {
+    "onboarding": "Wakeout opens with a sedentary-crisis narrative, secures an Apple Health connection, previews watts and goals before any setup, and creates an account through Apple sign-in alone.",
+    "core-loop": "Wakeout's core loop is built on passive tracking: movement recorded by Apple Health fills the day's watts automatically, topped up by short guided Wakeouts, a searchable pack library, and a work timer that ends focus sprints in a movement break.",
+    "goals": "Wakeout's progress surfaces are a daily watts bar with a stretch zone beyond the goal, five difficulty levels that set both figures, and a streak and personal-best record kept alongside them.",
+    "access": "Wakeout has no free tier of any kind, and one measurement, standing minutes, is only available with an Apple Watch.",
+    "economy": "Wakeout measures all activity in Wakeout Watts, earned from any tracked movement, with an hourly cap and an unobserved bonus hour layered on top.",
+    "social": "Empty. No observation involves another identified person inside Wakeout.",
+    "reach": "Wakeout's reach outside the app runs through system share controls and Active Pass, which extends the loop to whatever apps the user chooses to restrict on the same phone.",
+    "monetization": "Wakeout's paywall opens immediately after onboarding with four plans, extensive persuasion sections, and a discounted gift-subscription offer repeated across the app.",
+    "returns": "Wakeout brings users back through configurable reminders, a day-off pause that protects the streak, home and lock screen widgets, and a rating entry Wakeout never triggered."
+  },
+  "proposedTags": [],
+  "system": {
+    "tagline": "The daily goal was already met before the user did anything: Wakeout Watts run on Apple Health history, not just on completed Wakeouts.",
+    "overview": "Wakeout's system runs on one measure, Wakeout Watts, filled passively from Apple Health and topped up by one-minute guided Wakeouts. Reaching the day's goal produces a Milestone and advances a Streak in the same moment, and the same tracked activity that fills the measure is what unlocks apps Active Pass has paused. A separate gift-subscription offer sits outside this loop entirely, sold as a one-off purchase rather than tied to any of it.",
+    "loop": "Wakeout pulls Apple Health data as soon as access is granted during onboarding, and that connection is what the rest of the system depends on. Movement recorded anywhere Apple Health sees it, a gym session, a walk, a completed Wakeout, adds to the day's watts total, which fills a bar toward a difficulty-set goal. Crossing that goal produces a Milestone recognition and advances a Streak in the same moment, both of which can fire from history alone: the first goal was already met, and the first streak day already counted, from movement recorded before the app was ever opened. The same tracked activity that fills the watts measure is also what Active Pass reads to unlock apps it has paused for inactivity, extending the loop to whatever the user chose to restrict outside the product. A separate gift-subscription offer, sold at a discount and reachable from four different surfaces, sits outside this loop: it's a one-off purchase for someone else's access, not tied to watts, goals, or streaks at all.",
+    "keyInsight": "The clearest fact about this system is what didn't require the user to do anything: the first Milestone and the first Streak day both fired from Apple Health history pulled during onboarding, before any Wakeout was completed inside the app. The product's central loop, in other words, can run on data the user generated somewhere else entirely. Active Pass extends that same principle outward, reading the same tracked activity to unlock apps outside the product, so the system's reach depends on how much of the user's life Apple Health already sees rather than on what happens inside Wakeout specifically.",
+    "whatMakesItWork": "Wakeout ties recognition to a data source it doesn't have to ask the user to feed. Because Apple Health already tracks background movement, the app can celebrate a goal, start a streak, and even unlock a paused app without waiting for the user to open a session at all, which means the very first thing a new subscriber sees can be a completed goal rather than an empty one. The gift offer stays deliberately separate from all of this, a plain purchase pitched at getting someone else to start their own loop rather than an extension of the subscriber's own.",
+    "roles": [
+      {
+        "id": "milestone",
+        "role": "A daily watts threshold recognized the moment it's crossed, which fired on first open from Apple Health history rather than an in-app action."
+      },
+      {
+        "id": "streak",
+        "role": "A day counted toward continuity whenever the watts goal is reached, protected the same way by reaching the goal or by taking a stated day off."
+      },
+      {
+        "id": "active-pass",
+        "role": "Apps chosen by the user pause when sedentary and unlock after a Wakeout or any Apple Health-tracked activity."
+      },
+      {
+        "id": "gifting",
+        "role": "A discounted year of access purchasable for someone else, repeated across four surfaces, not redeemable by the buyer."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 8,
+      "label": "WAKEOUT"
+    },
+    "nodes": [
+      {
+        "id": "Apple Health Connection",
+        "x": 50,
+        "y": 26
+      },
+      {
+        "id": "milestone",
+        "x": 22,
+        "y": 50
+      },
+      {
+        "id": "streak",
+        "x": 50,
+        "y": 50
+      },
+      {
+        "id": "active-pass",
+        "x": 78,
+        "y": 50
+      },
+      {
+        "id": "gifting",
+        "x": 50,
+        "y": 80
+      }
+    ],
+    "connections": [
+      {
+        "from": "Apple Health Connection",
+        "to": "milestone",
+        "title": "The goal crossing runs on synced history, not in-app action",
+        "desc": "Wakeout pulls Apple Health data during onboarding, and the first goal crossing was recognized from movement recorded before the app was ever opened.",
+        "effect": "The Milestone can fire before the user has taken any action inside the product at all."
+      },
+      {
+        "from": "Apple Health Connection",
+        "to": "streak",
+        "title": "The streak advances on the same synced data",
+        "desc": "The one-day streak reached on first open came from a gym session Apple Health had already recorded, not from a Wakeout completed in the app.",
+        "effect": "The streak's first advance required no in-app action either."
+      },
+      {
+        "from": "Apple Health Connection",
+        "to": "active-pass",
+        "title": "The same tracked activity unlocks paused apps",
+        "desc": "Active Pass unlocks a paused app after completing a Wakeout or any physical activity Apple Health records, the same data source that fills the watts measure.",
+        "effect": "Movement recorded anywhere Apple Health sees it, not only inside Wakeout, can reopen a paused app."
+      },
+      {
+        "from": "milestone",
+        "to": "streak",
+        "title": "The same crossing advances both",
+        "desc": "The daily watts goal produces a Milestone recognition and advances the Streak in the same moment, from the same crossing.",
+        "effect": "One threshold crossing moves two separate recognized states at once."
+      }
+    ]
+  }
 }
