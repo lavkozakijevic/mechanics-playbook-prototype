@@ -2,7 +2,7 @@
   "id": "referral-boost",
   "n": "26",
   "name": "Referral",
-  "cat": "social",
+  "cat": "reach",
   "tagline": "A reward conditioned on an introduced person completing a defined action, paid to the referring user as cash, credit, or an enhancement to their own next action.",
   "desc": "A referral pays an existing user once someone they introduced reaches a defined action beyond simply signing up, a first order, a first deposit, a repaid advance. What that payment looks like is not fixed: it can land as an enhancement to the referrer's own next action, a separable credit or balance held for later, product-defined currency, or ordinary money paid straight into an account, and it can pay a flat amount per introduction or rise against a stated count of them. What makes it a referral rather than a joining bonus is that second, defined completion event performed by the person who was introduced, not the introduction itself and not anything the referrer does on their own.",
   "principle": "A referral turns growth into something a friend's own action pays for. The reward doesn't arrive for the introduction itself, only once the person introduced does something real, which keeps the incentive tied to genuine use rather than a raw signup count.",

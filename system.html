@@ -801,9 +801,14 @@ const POSITIONS = {
   };
 
 const catColors = {
-  retention:    { bg: "#eef1fd", border: "#3060f0", text: "#3060f0" },
-  monetization: { bg: "#fdf3ea", border: "#e07830", text: "#e07830" },
-  social:       { bg: "#eaf7f0", border: "#22a060", text: "#22a060" },
+  retention:     { bg: "#eef1fd", border: "#3060f0", text: "#3060f0" },
+  monetization:  { bg: "#fdf3ea", border: "#e07830", text: "#e07830" },
+  social:        { bg: "#eaf7f0", border: "#22a060", text: "#22a060" },
+  progression:   { bg: "#f8ecf3", border: "#9c3f72", text: "#9c3f72" },
+  competition:   { bg: "#faedf0", border: "#b03a52", text: "#b03a52" },
+  customization: { bg: "#f1f7ea", border: "#6b8f3c", text: "#6b8f3c" },
+  engagement:    { bg: "#fbf1e2", border: "#c07a28", text: "#c07a28" },
+  reach:         { bg: "#e9f5f8", border: "#2a7f9e", text: "#2a7f9e" },
 };
 
 function px(pct, dim) { return (pct / 100) * dim; }
@@ -886,6 +891,21 @@ function buildMindmap(sys) {
         </div>
         <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--green);">
           <span style="width:10px;height:10px;border-radius:3px;background:var(--green-bg);border:1px solid var(--green);display:inline-block;"></span> Social
+        </div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--plum);">
+          <span style="width:10px;height:10px;border-radius:3px;background:var(--plum-bg);border:1px solid var(--plum);display:inline-block;"></span> Progression
+        </div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--wine);">
+          <span style="width:10px;height:10px;border-radius:3px;background:var(--wine-bg);border:1px solid var(--wine);display:inline-block;"></span> Competition
+        </div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--olive);">
+          <span style="width:10px;height:10px;border-radius:3px;background:var(--olive-bg);border:1px solid var(--olive);display:inline-block;"></span> Customization
+        </div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--amber);">
+          <span style="width:10px;height:10px;border-radius:3px;background:var(--amber-bg);border:1px solid var(--amber);display:inline-block;"></span> Engagement
+        </div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--teal);">
+          <span style="width:10px;height:10px;border-radius:3px;background:var(--teal-bg);border:1px solid var(--teal);display:inline-block;"></span> Reach
         </div>
       </div>
     </div>

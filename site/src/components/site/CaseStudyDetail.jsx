@@ -7,8 +7,8 @@ import React, { useState, useEffect, useMemo } from "react";
 import { Tag } from "../ds/Tag.jsx";
 import { SubscribeCard, WaitlistModal } from "./Subscribe.jsx";
 
-const CAT_COLOR = { retention: "var(--cat-retention)", monetization: "var(--cat-monetization)", social: "var(--cat-social)" };
-const CAT_LABEL = { retention: "Retention", monetization: "Monetization", social: "Social" };
+const CAT_COLOR = { retention: "var(--cat-retention)", monetization: "var(--cat-monetization)", social: "var(--cat-social)", progression: "var(--cat-progression)", competition: "var(--cat-competition)", customization: "var(--cat-customization)", engagement: "var(--cat-engagement)", reach: "var(--cat-reach)" };
+const CAT_LABEL = { retention: "Retention", monetization: "Monetization", social: "Social", progression: "Progression", competition: "Competition", customization: "Customization", engagement: "Engagement", reach: "Reach" };
 
 const ArrowIcon = (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

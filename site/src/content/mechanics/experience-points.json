@@ -2,7 +2,7 @@
   "id": "experience-points",
   "n": "31",
   "name": "Experience Points",
-  "cat": "retention",
+  "cat": "progression",
   "tagline": "A quantified amount of progress the system grants for qualifying activity and accumulates toward a defined threshold, stage, or track position.",
   "desc": "Experience points are progress the system grants after a qualifying action, held apart from the action itself and added together until the total crosses a stated threshold or moves the user further along some larger progression structure. What makes an amount experience points rather than a running count is that second half of the shape: the accumulated value has to feed into something further along, a stage, a tier, a track position, a level, not just sit there as a record of how many times something happened. The mechanic doesn't need a level system to hang from, it can advance a rank, an account status, or a track of its own, and it doesn't need to be shown as a visible number at all, only the resulting progress has to be observable somewhere.",
   "principle": "Every qualifying action adds a small amount toward something larger, so a single grant means little on its own; what accumulates is what matters. The value only becomes meaningful measured against the distance still to travel toward the next threshold.",

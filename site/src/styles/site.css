@@ -782,6 +782,11 @@ a.amod__item:hover .amod__name { text-decoration: underline; text-decoration-col
 .smap__line--retention { stroke: var(--cat-retention); stroke-width: 2.25; }
 .smap__line--monetization { stroke: var(--cat-monetization); stroke-width: 2.25; }
 .smap__line--social { stroke: var(--cat-social); stroke-width: 2.25; }
+.smap__line--progression { stroke: var(--cat-progression); stroke-width: 2.25; }
+.smap__line--competition { stroke: var(--cat-competition); stroke-width: 2.25; }
+.smap__line--customization { stroke: var(--cat-customization); stroke-width: 2.25; }
+.smap__line--engagement { stroke: var(--cat-engagement); stroke-width: 2.25; }
+.smap__line--reach { stroke: var(--cat-reach); stroke-width: 2.25; }
 
 .smap__node { position: absolute; transform: translate(-50%, -50%); min-width: 122px; max-width: 184px;
   padding: 9px 13px; background: var(--node-fill); border: 1px solid var(--node-border); border-radius: var(--radius-sm);
@@ -820,6 +825,11 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
 .maplegend__sw--retention { border-top: 2px solid var(--cat-retention); }
 .maplegend__sw--monetization { border-top: 2px solid var(--cat-monetization); }
 .maplegend__sw--social { border-top: 2px solid var(--cat-social); }
+.maplegend__sw--progression { border-top: 2px solid var(--cat-progression); }
+.maplegend__sw--competition { border-top: 2px solid var(--cat-competition); }
+.maplegend__sw--customization { border-top: 2px solid var(--cat-customization); }
+.maplegend__sw--engagement { border-top: 2px solid var(--cat-engagement); }
+.maplegend__sw--reach { border-top: 2px solid var(--cat-reach); }
 
 /* Mobile fallback: flat list of mechanics */
 .syslist { display: flex; flex-direction: column; gap: 14px; }

@@ -39,9 +39,14 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Input } from "../ds/Input.jsx";
 
 const CATS = {
-  retention:    { label: "Retention",    color: "var(--cat-retention)" },
-  monetization: { label: "Monetization", color: "var(--cat-monetization)" },
-  social:       { label: "Social",       color: "var(--cat-social)" },
+  retention:     { label: "Retention",     color: "var(--cat-retention)" },
+  monetization:  { label: "Monetization",  color: "var(--cat-monetization)" },
+  social:        { label: "Social",        color: "var(--cat-social)" },
+  progression:   { label: "Progression",   color: "var(--cat-progression)" },
+  competition:   { label: "Competition",   color: "var(--cat-competition)" },
+  customization: { label: "Customization", color: "var(--cat-customization)" },
+  engagement:    { label: "Engagement",    color: "var(--cat-engagement)" },
+  reach:         { label: "Reach",         color: "var(--cat-reach)" },
 };
 
 const USER_TYPES = {

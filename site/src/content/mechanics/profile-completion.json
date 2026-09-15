@@ -2,7 +2,7 @@
   "id": "profile-completion",
   "n": "44",
   "name": "Profile Completion",
-  "cat": "social",
+  "cat": "engagement",
   "tagline": "A meter that reports how much of a defined, optional set of profile attributes the user has supplied, and names what's still outstanding as something to add.",
   "desc": "Profile completion maintains a defined, optional set of attributes the user may supply about themselves and reports how full that set is as a proportion, a percentage, a bar, a fraction, or a run of markers, while naming at least one outstanding member as an action the user can take. Supplying a member changes only the reported proportion and what other people can see; nothing else the product tracks changes because of it. The line that matters most is what happens, if anything, as the figure moves: this entry covers the proportion reported continuously, with no response of its own to any point along the way. The moment a crossing partway through is called out separately, that crossing is a Milestone; the moment the completed set is kept as a badge, status, or record that outlives the meter, that's an Achievement. Both can sit on the same surface as this entry, each classified on its own terms.",
   "principle": "An incomplete meter reads as unfinished business. Naming exactly what's missing turns a vague sense of not-done into one specific, low-effort action to take next.",

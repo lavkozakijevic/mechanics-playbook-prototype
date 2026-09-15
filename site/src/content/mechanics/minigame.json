@@ -2,7 +2,7 @@
   "id": "minigame",
   "n": "39",
   "name": "Minigame",
-  "cat": "retention",
+  "cat": "engagement",
   "tagline": "A self-contained, playable activity inside the product, run under its own rules, whose outcome changes nothing the product maintains outside it.",
   "desc": "A minigame defines its own actions, rules, and outcome, concludes on its own terms, and leaves every balance, progression measure, and access state the product maintains elsewhere completely unchanged. Placement carries no weight in the definition: the same activity can sit in a menu, a loading screen, or between instances of the core loop and still qualify, or fail to, purely on whether anything it produces reaches outside itself. That test cuts hard against the more familiar reading built on placement or unfamiliar rules alone: an activity that pays the product's ordinary currency, advances its main progression, or changes what a user can access is loop activity in different clothes, however disconnected it looks in the moment, and this label does not apply to it.",
   "principle": "Disconnection is the entire test. An activity stops qualifying the instant anything it produces is worth something outside it.",

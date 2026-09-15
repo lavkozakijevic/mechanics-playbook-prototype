@@ -2,7 +2,7 @@
   "id": "progression-gate",
   "n": "40",
   "name": "Progression Gate",
-  "cat": "retention",
+  "cat": "progression",
   "tagline": "A standing requirement that withholds a defined part of the product until a progression measure the product itself advances reaches a stated value.",
   "desc": "A progression gate ties the availability of a defined part of the product, a feature, an area, a mode, an item, to a progression measure the product maintains and advances through the user's own activity, a level, a tier, a completion count. The condition exists as a standing state on the withheld part rather than only as a one-time event: it's observable before it's satisfied, and reaching the stated value changes availability under the product's own rule. The boundary that matters most is what kind of condition it is. Only a measure the product itself advances through use qualifies; jurisdiction, identity verification, purchase entitlements, and comparable eligibility conditions are a different thing entirely, they can't be satisfied simply by using the product, and this library assigns them no mechanic label at all.",
   "principle": "The condition stands whether or not it's ever crossed. What makes something a gate rather than ordinary sequence is that it's a stated requirement on a part distinct from the progression itself, not simply the next unit of it.",

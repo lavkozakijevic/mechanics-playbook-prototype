@@ -391,9 +391,14 @@ function slide(dir) {
 // ── CATEGORY GRID ────────────────────────────────────────
 const catGrid = document.getElementById('cat-grid');
 [
-  { id:'retention', label:'Retention', color:'var(--blue)', bg:'var(--blue-bg)', desc:'Mechanics that bring users back. Streaks, quests, achievements, and the systems that make daily return feel necessary.' },
-  { id:'monetization', label:'Monetization', color:'var(--orange)', bg:'var(--orange-bg)', desc:'Mechanics that convert engagement into revenue. Season passes, piggy banks, and the timing decisions that make purchasing feel right.' },
-  { id:'social', label:'Social', color:'var(--green)', bg:'var(--green-bg)', desc:'Mechanics built on relationships between users. Feeds, guilds, leaderboards, and the social pressure that keeps users coming back for people, not features.' },
+  { id:'retention', label:'Retention', color:'var(--blue)', bg:'var(--blue-bg)', desc:'Mechanics that bring users back on a repeating cadence. Streaks, daily rewards, and the systems that make return feel necessary.' },
+  { id:'monetization', label:'Monetization', color:'var(--orange)', bg:'var(--orange-bg)', desc:'Mechanics that convert engagement into revenue. Currencies, passes, and the timing decisions that make purchasing feel right.' },
+  { id:'social', label:'Social', color:'var(--green)', bg:'var(--green-bg)', desc:'Mechanics built on relationships between users. Feeds, guilds, and the social pressure that keeps users coming back for people, not features.' },
+  { id:'progression', label:'Progression', color:'var(--plum)', bg:'var(--plum-bg)', desc:'Mechanics that advance a tracked position, level, or status. Experience points, levels, and the gates that hold until a measure is reached.' },
+  { id:'competition', label:'Competition', color:'var(--wine)', bg:'var(--wine-bg)', desc:'Mechanics built on comparative, ranked standing. Leaderboards, challenges, and the pressure of being seen against other people.' },
+  { id:'customization', label:'Customization', color:'var(--olive)', bg:'var(--olive-bg)', desc:'Mechanics that let a user alter or express identity without functional effect. Cosmetics and appearance, worn rather than used.' },
+  { id:'engagement', label:'Engagement', color:'var(--amber)', bg:'var(--amber-bg)', desc:'Mechanics that deepen a single moment, independent of return cadence, money, rank, or relationships. Variable rewards, guidance, and reflection.' },
+  { id:'reach', label:'Reach', color:'var(--teal)', bg:'var(--teal-bg)', desc:'Mechanics that carry the product outward to people who do not use it. Referral and the shareable record built for an outside reader.' },
 ].forEach(cat => {
   const count = MECHANICS.filter(m=>m.cat===cat.id).length;
   const el = document.createElement('a');

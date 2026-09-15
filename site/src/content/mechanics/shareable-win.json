@@ -2,7 +2,7 @@
   "id": "shareable-win",
   "n": "33",
   "name": "Shareable Win",
-  "cat": "social",
+  "cat": "reach",
   "tagline": "A product-composed representation of a recorded accomplishment, built for a reader outside the product, with at least one route offered for sending it out.",
   "desc": "A shareable win packages a record the product already holds about the user, a level reached, a streak kept, a total accumulated, into a form a stranger could read on its own, then offers a route for sending it out. The question that decides whether a control belongs here is what the representation is about: an export or share control on a finished design distributes the user's own work, while a card stating how many designs the user made this year distributes the product's record of the user. The underlying accomplishment can come from an achievement, a streak, a rank, or another record the product tracks; this entry covers only the packaging and the route out, not the record itself.",
   "principle": "A record becomes evidence once someone who wasn't there can read it. Packaging what the product already holds turns a private state into something worth showing someone else.",

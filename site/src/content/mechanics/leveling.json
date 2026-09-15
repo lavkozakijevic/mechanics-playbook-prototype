@@ -2,7 +2,7 @@
   "id": "leveling",
   "n": "32",
   "name": "Leveling",
-  "cat": "retention",
+  "cat": "progression",
   "tagline": "An entity assigned to one state within an ordered series of discrete states, moved between them when the system's advancement or reassessment rule is satisfied.",
   "desc": "Leveling holds a current position in an ordered sequence of states and changes that position only when a defined rule says so, a threshold crossed, an assessment completed, a duration served. The state belongs to whatever the product is tracking, an account, a character, a skill, a team, and it persists between changes rather than drifting on its own. What separates a level from an ordinary running number is that the system treats it as a position to occupy, not an amount to spend or exchange, and the mechanic doesn't require the number to be visible, or even to only move upward: what matters is that a defined rule governs the move and the change shows up somewhere in what the product does.",
   "principle": "A level is a place, not a total. The system holds a position in an ordered structure and only moves it when its own rule is satisfied, which is what makes reaching a new one feel like a state change rather than another point added to a pile.",

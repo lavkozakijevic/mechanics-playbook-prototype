@@ -200,7 +200,7 @@ const mechanics = defineCollection({
     id: z.string(),
     n: z.string(),
     name: z.string(),
-    cat: z.enum(["retention", "monetization", "social"]),
+    cat: z.enum(["retention", "monetization", "social", "progression", "competition", "customization", "engagement", "reach"]),
     tagline: z.string(),
     desc: z.string(),
     visibility,

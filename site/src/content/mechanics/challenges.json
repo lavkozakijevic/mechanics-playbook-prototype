@@ -2,7 +2,7 @@
   "id": "challenges",
   "n": "09",
   "name": "Challenge",
-  "cat": "retention",
+  "cat": "competition",
   "tagline": "Structured, completable objectives with a visible endpoint that users opt into, typically with social or competitive dimensions.",
   "desc": "Unlike quests, challenges often have optional opt-in and social visibility. For the Competitor, time-limited challenges with ranked outcomes are the natural habitat. The opt-in nature respects user autonomy while social visibility creates ambient competitive pressure for those who choose to participate.",
   "principle": "Voluntary commitment with visible accountability. The user chose this goal, which makes completion more meaningful and abandonment more costly.",

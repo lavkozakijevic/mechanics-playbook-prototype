@@ -28,6 +28,11 @@ export const CAT_LABEL: Record<string, string> = {
   retention: "Retention",
   monetization: "Monetization",
   social: "Social",
+  progression: "Progression",
+  competition: "Competition",
+  customization: "Customization",
+  engagement: "Engagement",
+  reach: "Reach",
 };
 
 /** The four site mechanics that fuse two or three entries from the 37-entry

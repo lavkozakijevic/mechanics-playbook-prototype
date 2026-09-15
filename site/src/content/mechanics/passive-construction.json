@@ -2,7 +2,7 @@
   "id": "passive-construction",
   "n": "25",
   "name": "Passive Construction",
-  "cat": "retention",
+  "cat": "progression",
   "tagline": "A construction, restoration, or upgrade process that keeps advancing once it starts, without repeated building actions from the user.",
   "desc": "Once a construction instance begins, whether that's a building, a shared monument, or a restoration project, the system keeps advancing it toward a finished state on its own. A rule like elapsed time, automatic processing, or ordinary activity happening elsewhere in the product decides when it moves forward, not repeated taps or dedicated building actions. Completion swaps the entity for a new, upgraded, or restored version, and that change has to be something a user can actually see or use.",
   "principle": "Progress keeps happening without the user having to keep producing it, which is what makes checking back in feel like a discovery rather than a chore: the thing changed while they were doing something else, or nothing at all.",

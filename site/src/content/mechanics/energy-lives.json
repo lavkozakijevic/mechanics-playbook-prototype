@@ -2,7 +2,7 @@
   "id": "energy-lives",
   "n": "02",
   "name": "Energy / Lives",
-  "cat": "retention",
+  "cat": "monetization",
   "tagline": "A system that limits how many attempts or sessions a user can have within a given time window.",
   "desc": "Each action consumes one unit. When depleted, the session ends until units regenerate, are gifted by friends, or purchased. The mechanic functions as both a pacing tool and a monetisation surface, with depletion as the primary purchase trigger. Scarcity creates value, play that can continue indefinitely is taken for granted.",
   "principle": "Scarcity creates perceived value. The moment of depletion is engineered to coincide with peak engagement desire.",

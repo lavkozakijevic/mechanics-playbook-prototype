@@ -27,7 +27,9 @@ injectOnce("gb-mechanic-css", `
 `);
 
 const LABEL = {
-  retention: "Retention", monetization: "Monetization", social: "Social", neutral: "Mechanic",
+  retention: "Retention", monetization: "Monetization", social: "Social",
+  progression: "Progression", competition: "Competition", customization: "Customization",
+  engagement: "Engagement", reach: "Reach", neutral: "Mechanic",
 };
 
 /**

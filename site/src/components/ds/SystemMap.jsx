@@ -37,10 +37,14 @@ a.gb-node:hover { border-color: var(--ink-900); box-shadow: var(--shadow-sm); }
 
 const CAT_COLOR = {
   retention: "var(--cat-retention)", monetization: "var(--cat-monetization)",
-  social: "var(--cat-social)", neutral: "var(--ink-500)",
+  social: "var(--cat-social)", progression: "var(--cat-progression)",
+  competition: "var(--cat-competition)", customization: "var(--cat-customization)",
+  engagement: "var(--cat-engagement)", reach: "var(--cat-reach)", neutral: "var(--ink-500)",
 };
 const CAT_LABEL = {
-  retention: "Retention", monetization: "Monetization", social: "Social", neutral: "Mechanic",
+  retention: "Retention", monetization: "Monetization", social: "Social",
+  progression: "Progression", competition: "Competition", customization: "Customization",
+  engagement: "Engagement", reach: "Reach", neutral: "Mechanic",
 };
 
 /**

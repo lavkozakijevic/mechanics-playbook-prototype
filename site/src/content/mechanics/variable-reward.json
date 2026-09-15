@@ -2,7 +2,7 @@
   "id": "variable-reward",
   "n": "43",
   "name": "Variable Reward",
-  "cat": "retention",
+  "cat": "engagement",
   "tagline": "A reward event whose specific result, what's granted, how much, or what quality, isn't fixed until the moment it resolves.",
   "desc": "Variable reward outcome covers any reward-resolution event where the system can produce more than one materially different result under otherwise comparable conditions. It requires no container, no acquisition step, and no payment, only that the specific identity, quantity, quality, or composition of the reward stays open until the system resolves it. A cashback amount that varies purchase to purchase, a level-completion payout that isn't fixed, a buyer's concealed offer, a skill choice generated fresh each time, all count. The anticipation lives in not knowing which of several real possibilities will land, not in unwrapping a container to find out.",
   "principle": "Unpredictability in what a reward turns out to be sustains attention past what a fixed, disclosed payout can.",

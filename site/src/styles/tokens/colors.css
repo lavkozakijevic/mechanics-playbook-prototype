@@ -29,15 +29,31 @@
   --red-wash: #fae6e3;     /* faint margin highlight behind annotated text */
   --red-line: rgba(240, 54, 54, 0.28); /* connection line at rest in maps */
 
-  /* ---------- Category colors (Retention / Monetization / Social) ----------
+  /* ---------- Category colors (eight, reconciled 18 Sep 2026) ----------
      Low chroma, deep, archival. Specimen-label classification, never loud.
-     Each has a solid (for the dot/rule/text) and a tint (for the chip ground). */
+     Each has a solid (for the dot/rule/text) and a tint (for the chip ground).
+     The first three predate the reconciliation and are unchanged; the five
+     that follow were chosen against the same "deep, low-chroma" lightness
+     band and checked pairwise (Lab Delta-E, lowest pair 20.3) so no two
+     read as the same hue at chip size — verified by rendered chip before
+     these values were adopted, since raw contrast-ratio math between
+     same-lightness colors is the wrong tool for that question. */
   --cat-retention: #2f6b57;        /* pine. growing roots, staying. */
   --cat-retention-tint: #e3ede9;
   --cat-monetization: #8a6322;     /* ochre. quiet money. */
   --cat-monetization-tint: #f1e9d9;
   --cat-social: #3f5586;           /* slate indigo. people, connection. */
   --cat-social-tint: #e6e9f1;
+  --cat-progression: #69406d;      /* plum. advancing into a new position. */
+  --cat-progression-tint: #eae2ea;
+  --cat-competition: #723147;      /* wine. rivalry, kept out of the accent red. */
+  --cat-competition-tint: #efe1e4;
+  --cat-customization: #486633;    /* olive. identity worn outwardly. */
+  --cat-customization-tint: #e5eae1;
+  --cat-engagement: #884630;       /* terracotta. the warmth of the moment itself. */
+  --cat-engagement-tint: #f0e2da;
+  --cat-reach: #355b6e;            /* steel blue. carrying outward, past the paper's edge. */
+  --cat-reach-tint: #e1e7ea;
 
   /* ---------- Status (utility only; quiet, never celebratory) ---------- */
   --ok: #2f6b57;

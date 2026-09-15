@@ -2,7 +2,7 @@
   "id": "milestone",
   "n": "36",
   "name": "Milestones",
-  "cat": "retention",
+  "cat": "progression",
   "tagline": "A defined point within an ongoing measure that the system separately recognizes when the user reaches or crosses it, distinct from the running progress display itself.",
   "desc": "A milestone is a defined position along a broader measure the product already tracks, a balance, a duration, a count, a journey, rather than a standalone criterion of its own. What separates it from the ordinary progress display underneath it is a recognition event: the product distinguishes being short of the point from having reached it, and that crossing produces something observable beyond the number simply changing, a marker, a message, a state change. The measure can keep moving past the point once it's crossed, and the same threshold definition can recur across separate seasons, accounts, or journeys without losing its status as a milestone each time.",
   "principle": "A milestone is a position, not a total. The measure underneath it can be read on its own, but the milestone only exists at the moment the product treats one specific point along that measure as worth recognizing on its own terms.",

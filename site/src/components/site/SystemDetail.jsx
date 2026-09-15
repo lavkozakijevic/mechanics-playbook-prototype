@@ -12,9 +12,15 @@ import { SubscribeCard, WaitlistModal } from "./Subscribe.jsx";
 // rather than redefined.
 const CAT_COLOR = {
   retention: "var(--cat-retention)", monetization: "var(--cat-monetization)", social: "var(--cat-social)",
+  progression: "var(--cat-progression)", competition: "var(--cat-competition)", customization: "var(--cat-customization)",
+  engagement: "var(--cat-engagement)", reach: "var(--cat-reach)",
   neutral: "var(--ink-500)",
 };
-const CAT_LABEL = { retention: "Retention", monetization: "Monetization", social: "Social", neutral: "Uncategorized" };
+const CAT_LABEL = {
+  retention: "Retention", monetization: "Monetization", social: "Social",
+  progression: "Progression", competition: "Competition", customization: "Customization",
+  engagement: "Engagement", reach: "Reach", neutral: "Uncategorized",
+};
 
 const ArrowIcon = (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -35,10 +41,14 @@ const CloseIcon = (
 const LINE_TYPE = {
   spine: "App spine", mechanic: "Mechanic connection",
   retention: "Retention", monetization: "Monetization", social: "Social",
+  progression: "Progression", competition: "Competition", customization: "Customization",
+  engagement: "Engagement", reach: "Reach",
 };
 const TYPE_COLOR = {
   spine: "var(--ink-600)", mechanic: "var(--ink-400)",
   retention: "var(--cat-retention)", monetization: "var(--cat-monetization)", social: "var(--cat-social)",
+  progression: "var(--cat-progression)", competition: "var(--cat-competition)", customization: "var(--cat-customization)",
+  engagement: "var(--cat-engagement)", reach: "var(--cat-reach)",
 };
 
 /* Nodes' x/y are percentages on a 1000x560 conceptual canvas. `spine` marks the
@@ -108,7 +118,7 @@ export function SystemMap({ nodes, connections, byId, onOpen }) {
   );
 }
 
-const LEGEND = ["spine", "mechanic", "retention", "monetization", "social"];
+const LEGEND = ["spine", "mechanic", "retention", "monetization", "social", "progression", "competition", "customization", "engagement", "reach"];
 
 function MapLegend() {
   return (

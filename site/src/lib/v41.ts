@@ -19,12 +19,22 @@ export const CAT_COLOR: Record<string, string> = {
   retention: "var(--cat-retention)",
   monetization: "var(--cat-monetization)",
   social: "var(--cat-social)",
+  progression: "var(--cat-progression)",
+  competition: "var(--cat-competition)",
+  customization: "var(--cat-customization)",
+  engagement: "var(--cat-engagement)",
+  reach: "var(--cat-reach)",
   neutral: "var(--ink-500)",
 };
 export const CAT_LABEL: Record<string, string> = {
   retention: "Retention",
   monetization: "Monetization",
   social: "Social",
+  progression: "Progression",
+  competition: "Competition",
+  customization: "Customization",
+  engagement: "Engagement",
+  reach: "Reach",
   neutral: "Uncategorized",
 };
 

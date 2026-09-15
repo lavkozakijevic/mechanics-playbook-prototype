@@ -2,7 +2,7 @@
   "id": "set-collection",
   "n": "06",
   "name": "Set Collection",
-  "cat": "retention",
+  "cat": "progression",
   "tagline": "A mechanic that organises rewards into named sets, where completing a set unlocks an additional reward or status.",
   "desc": "The incompleteness of a set frames the next session as a discovery mission. Individual items feel more meaningful when they belong to a collection, their value is partly relational, defined by what else exists and what completing it unlocks.",
   "principle": "The visible gap in a collection is a pull toward the next session. Incompleteness motivates in a way empty progress bars do not.",

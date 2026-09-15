@@ -2,7 +2,7 @@
   "id": "expert-guidance",
   "n": "34",
   "name": "Expert Guidance",
-  "cat": "retention",
+  "cat": "engagement",
   "tagline": "A body of instructional material on the user's own difficulty, domain, or skill, divided into discrete pieces and held beside the core activity rather than as a step within it.",
   "desc": "Expert guidance is instructional material about the user's own difficulty, domain, or skill, kept apart from the product's core activity so that activity can be completed in full without ever opening it. The distinguishing question is what the user knows afterward: how to operate the product, or something about their own situation that would remain true without it, a finance app explaining how to set a budget in its own interface is a tutorial, the same app explaining how compound interest works is this. The material can be written by an outside expert or the product's own team, sit inside the app or on an external site, and run as a flat library or an ordered course, none of which changes whether it qualifies. What does change the classification is whether working through the material is itself the core activity: where it is, as in a dedicated learning product, the material is the service rather than something offered beside it.",
   "principle": "The product doesn't need the material to be opened for it to do its job. A library addressing the user's own difficulty, sitting beside the core activity rather than gating it, signals that the product understands the problem whether or not any single piece is ever read.",

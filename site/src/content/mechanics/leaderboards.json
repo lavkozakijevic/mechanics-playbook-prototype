@@ -2,7 +2,7 @@
   "id": "leaderboards",
   "n": "21",
   "name": "Leaderboards",
-  "cat": "social",
+  "cat": "competition",
   "tagline": "A ranked list of users or groups ordered by a performance metric, making individual standing visible and publicly comparable.",
   "desc": "Rank is identity for the Competitor. They want to be visibly ahead of real people, and personal progress is not enough. Losing rank is painful. External stakes make every other mechanic feel more serious. The gap to the next position above becomes a goal; the threat of falling creates persistent return pressure.",
   "principle": "Rank makes progress public and comparative. The leaderboard converts personal achievement into competitive standing.",

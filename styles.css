@@ -13,6 +13,15 @@
   --blue: #3060f0; --blue-bg: #eef1fd;
   --orange: #e07830; --orange-bg: #fdf3ea;
   --green: #22a060; --green-bg: #eaf7f0;
+  /* five added for the eight-category reconciliation, 18 Sep 2026.
+     --plum uses a rose-violet rather than true purple: .badge-game below
+     already claims purple (#7030a0) for the unrelated app-genre field,
+     and a progression badge sitting near a genre badge needs its own hue. */
+  --plum: #9c3f72; --plum-bg: #f8ecf3;
+  --wine: #b03a52; --wine-bg: #faedf0;
+  --olive: #6b8f3c; --olive-bg: #f1f7ea;
+  --amber: #c07a28; --amber-bg: #fbf1e2;
+  --teal: #2a7f9e; --teal-bg: #e9f5f8;
   --nav: 56px;
   --max: 1100px;
   --d: 'Sora', sans-serif;
@@ -64,6 +73,11 @@ nav { position: sticky; top: 0; height: var(--nav); background: rgba(245,244,240
 .badge-retention { background: var(--blue-bg); color: var(--blue); }
 .badge-monetization { background: var(--orange-bg); color: var(--orange); }
 .badge-social { background: var(--green-bg); color: var(--green); }
+.badge-progression { background: var(--plum-bg); color: var(--plum); }
+.badge-competition { background: var(--wine-bg); color: var(--wine); }
+.badge-customization { background: var(--olive-bg); color: var(--olive); }
+.badge-engagement { background: var(--amber-bg); color: var(--amber); }
+.badge-reach { background: var(--teal-bg); color: var(--teal); }
 .badge-game { background: #f5eef8; color: #7030a0; }
 .badge-app { background: var(--alt); color: var(--sub); }
 

@@ -2,7 +2,7 @@
   "id": "companion",
   "n": "29",
   "name": "Companion",
-  "cat": "retention",
+  "cat": "progression",
   "tagline": "A persistent entity, distinct from the user's own character, that is acquired, assigned to a limited number of active positions, and develops progression of its own while taking part in the core activity.",
   "desc": "A companion is held separately from the user's primary character or account and persists between sessions rather than resetting each time the core activity runs. The product limits how many companions can be active at once, and assignment to one of those positions is what determines whether a given companion takes part, acting within the activity itself rather than sitting on a roster screen. Each companion also carries progression of its own, a level, an unlockable ability, a quality grade, tracked apart from the user's own progression, so the roster is not just a set of interchangeable skins on the activity but a set of entities that individually grow.",
   "principle": "Acquiring a companion and assigning it to a position are two separate decisions. The roster can grow far beyond what the active positions allow, which is what turns holding entities into a standing reason to reassign, develop, and return.",

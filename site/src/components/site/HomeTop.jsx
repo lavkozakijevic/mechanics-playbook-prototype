@@ -6,7 +6,7 @@ import { Tag } from "../ds/Tag.jsx";
 import { Card } from "../ds/Card.jsx";
 import { AnnotatedScreenshot } from "../ds/AnnotatedScreenshot.jsx";
 
-const CAT_LABEL = { retention: "Retention", monetization: "Monetization", social: "Social" };
+const CAT_LABEL = { retention: "Retention", monetization: "Monetization", social: "Social", progression: "Progression", competition: "Competition", customization: "Customization", engagement: "Engagement", reach: "Reach" };
 
 function imgFallback(img) {
   if (img.src.match(/\.png$/)) img.src = img.src.replace(/\.png$/, ".webp");

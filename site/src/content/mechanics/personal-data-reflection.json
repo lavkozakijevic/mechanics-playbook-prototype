@@ -2,7 +2,7 @@
   "id": "personal-data-reflection",
   "n": "28",
   "name": "Personal Data Reflection",
-  "cat": "retention",
+  "cat": "engagement",
   "tagline": "A structured interaction that presents the user's own recorded data as steps requiring a response, rather than a screen that can be read without responding.",
   "desc": "The interaction takes figures the product already holds about the user, spending in a period, payments made, subscriptions held, and releases them one step at a time, withholding the next step or the result until the user responds with an input that advances the sequence, an evaluative judgement with no correct answer, or an answer the product checks against the user's own record. What separates it from a dashboard showing the same figures is exactly that requirement, a display asks nothing of the user, this interaction stops until the user answers.",
   "principle": "The same figures sitting untouched on a dashboard become something the user pays attention to once the product withholds them, or the result, until the user responds. Withholding is what turns a familiar record into an interaction.",
