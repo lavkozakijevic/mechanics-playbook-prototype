@@ -1,0 +1,34 @@
+{
+  "id": "commitment",
+  "n": "48",
+  "name": "Commitment",
+  "cat": "engagement",
+  "tagline": "A statement about the user's own future behaviour that the product asks the user to make and shows back to them as their own undertaking, distinct from a goal the user selects or a reminder the product schedules.",
+  "desc": "A commitment is a statement about the user's own future behaviour, what they will do, when, how often, or in what way, that the product asks the user to make and then shows back to them, in their own name or first person, as their own undertaking. The user takes part in making it: setting an element inside a sentence the product supplies, affirming a statement the product has composed in full, or writing it themselves. This is not the same act as setting a goal: choosing a target states what the user wants to reach, and the product records that choice as a setting; a commitment is what the user says they will do, shown back as such at the point it's made. A signature, a typed name, or a button stating the user is committed can sit on top of the statement, but the signature is presentational rather than definitional, it makes the statement feel weightier without binding the user to anything, and a statement confirmed with a plain tap is the same mechanic as one signed with a finger.",
+  "principle": "Neither a signature nor a tap binds the user to anything. What gives the statement its weight is being shown back as the user's own words, in their own name, rather than being asked as the product's instruction or held as a setting.",
+  "players": [
+    "achiever"
+  ],
+  "warn": "The label is easy to misapply in both directions. Toward a goal, target, frequency, or amount the user has merely selected, which the product records as a setting rather than shows back as a stated undertaking, however much the surrounding copy uses words like plan or commit. And toward a signing box, pledge graphic, or committed-style button on its own, when nothing establishes that its subject is the user's own future behaviour, a signature on a terms agreement or a payment authorization is not this entry, whatever it asks the user to sign. The signature never decides the classification, the subject of the statement does. Whether a commitment is later restated, tracked, or converted into a reminder are separate questions this entry doesn't require an answer to; where the evidence doesn't establish it, that's left open rather than assumed either way.",
+  "variants": [
+    "Composed commitment, the product writes the whole statement and the user affirms it",
+    "Template commitment, the product supplies a sentence with one or more elements the user sets, and rewrites the sentence as they change it",
+    "Implementation-intention commitment, the statement names a specific time, and may also name a place or cue, at which the behaviour will occur",
+    "Gating commitment, the user must make the commitment before the product continues or opens a further part of itself",
+    "Signed commitment, the user affirms the statement through a signature, typed name, or drawn mark; presentational, and confirming with a tap qualifies equally"
+  ],
+  "lifecycle": "Needs nothing established before it: unlike a milestone or a gate, a commitment doesn't depend on a preceding target, an account history, or activity already logged, only that the product asks for the statement somewhere in the flow. Both founding examples place it beside a related step, restating targets just set in one case, opening onboarding in the other, without either placement being a requirement of the mechanic itself.",
+  "paired": [
+    "progression-gate",
+    "streak",
+    "personal-data-reflection"
+  ],
+  "context": [
+    "retention"
+  ],
+  "sdt": [
+    "autonomy",
+    "ownership"
+  ],
+  "visibility": "public"
+}

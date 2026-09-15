@@ -68,6 +68,7 @@ export const CANONICAL_MECHANIC_IDS = {
   // note above the first entry). None of these have been forced by a real
   // analysis heading yet — sources/taxonomy-map.md marks them "inferred".
   "Clan / Guild": "clans-guilds",
+  "Commitment": "commitment",
   "Community Space": "community-groups", // merges with Group Membership above
   "Companion": "companion",
   "Cosmetic Customization": "cosmetics",
