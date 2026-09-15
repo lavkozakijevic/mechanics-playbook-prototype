@@ -147,24 +147,6 @@
       "suggestedShots": []
     },
     {
-      "id": "limited-time-events",
-      "depth": "supporting",
-      "writeup": {
-        "observed": "The Era of Andor seasonal system is the most structurally integrated limited-time event observed in the library, not a parallel event running alongside the core game but a complete seasonal framework that modifies the quest system, store, collection, and competitive modes simultaneously. Era units are received automatically by logging in during the active era. The era collection shows 7 era-specific characters tracking \"Total Era Level\" with a dedicated era currency. Era-exclusive game modes (Coliseum, Major Partigaz) operate on their own countdowns. Multiple limited-time character bundles with 6–30 day expiry windows appeared across sessions, with a new starter bundle popup appearing every time the player returned to the cantina hub from any other screen.",
-        "presented": "Era introduced via popup at session start. Persistent presence throughout the cantina hub. New bundle popup on every cantina return, the session accumulated 7+ distinct bundle popups in a single play session.",
-        "findings": [
-          "The Era system unifies the quest system, store, collection, and competitive modes under a single named seasonal banner, the most integrated limited-time event framework in the library.",
-          "A new starter bundle popup appeared every time the player returned to the cantina from any other screen, 7+ distinct popups in one session, each with different factions and no price listed until the purchase button is tapped.",
-          "Multiple character bundles display character descriptions and a \"Go\" button with the price revealed only in the payment confirmation, a consistent price-concealment pattern across 7+ offers.",
-          "Era units are received automatically by logging in during the active era, creating a passive collection reward that requires no gameplay action beyond opening the app."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": [
-        "Era of Andor era collection screen showing total era level, era currency, 7 collectible era characters, and the Coliseum and Major Partigaz access points"
-      ]
-    },
-    {
       "id": "social-feed",
       "depth": "shallow",
       "writeup": null,
@@ -218,10 +200,6 @@
       {
         "id": "energy-lives",
         "role": "Three independent energy pools (Regular, Cantina, Ship) gate three different game modes. Level-up bonus energy (20 per level) kept the player above the Regular cap through all 16 observed levels, the energy constraint was absent during the entire new-user experience."
-      },
-      {
-        "id": "limited-time-events",
-        "role": "The Era of Andor seasonal framework modifies the quest system, store, collection, and competitive modes simultaneously, the most integrated seasonal system in the library."
       }
     ],
     "center": {
@@ -258,11 +236,6 @@
       {
         "id": "season-pass",
         "x": 50,
-        "y": 68
-      },
-      {
-        "id": "limited-time-events",
-        "x": 82,
         "y": 68
       }
     ],
@@ -301,13 +274,6 @@
         "title": "Episode Pass+ removes milestone friction",
         "desc": "The $49.99 Episode Pass+ grants 50,000 Episode Points and 10 milestones instantly at purchase. Players who buy this skip the energy-gated quest completion required to reach those milestones organically.",
         "effect": "The pass monetizes the energy constraint indirectly. Players who find energy limiting their quest completion rate are also the most likely to value the instant-milestone offer."
-      },
-      {
-        "from": "energy-lives",
-        "to": "limited-time-events",
-        "title": "Energy pools gate access to era-exclusive modes",
-        "desc": "Cantina Energy gates Cantina Battles. The era's Coliseum mode requires reaching level 20 before its energy pool is accessible. The limited-time event can only be engaged once the corresponding energy gate is passed.",
-        "effect": "Time-limited events create urgency that compounds the energy constraint. Players aware of a countdown on an era event feel the energy gate more acutely than they would without it."
       }
     ]
   }

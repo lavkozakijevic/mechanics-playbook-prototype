@@ -37,7 +37,7 @@ resolvable in code either way; that code change does not change which
 mappings were empirically forced versus reasoned out, which is what
 "confirmed" and "inferred" track here.
 
-## Site mechanic → library entry mapping (35 site mechanics)
+## Site mechanic → library entry mapping (34 site mechanics)
 
 | site mechanic (`id`) | library entry / entries covered | evidence |
 |---|---|---|
@@ -48,7 +48,6 @@ mappings were empirically forced versus reasoned out, which is what
 | variable-reward | Variable Reward Outcome | confirmed |
 | daily-weekly-quests | Daily / Weekly Quests | confirmed |
 | set-collection | Set Collection | inferred |
-| limited-time-events | *(none — see "Site mechanics with no library entry" below)* | — |
 | achievement | Achievement | confirmed |
 | milestone | Milestone | confirmed |
 | challenges | Challenge | confirmed |
@@ -154,10 +153,55 @@ Data Reflection was the prior case in this section and now has a page
 
 ## Site mechanics with no library entry
 
-- **limited-time-events** — predates the 36-entry library; no library entry
-  corresponds to it. Not part of the merge-split work above; a separate
-  decision (deprecate the page, or propose the concept back to the library)
-  is needed whenever this is revisited.
+None. Limited-Time Events was the only site mechanic not traceable to a
+library entry (see the retirement note below); every remaining site
+mechanic now maps to at least one library entry, per the table above.
+
+## Note on Limited-Time Events (retired 15 Sep 2026)
+
+Limited-Time Events has been retired from the site and moved to the
+archive. It is no longer an approved mechanic, and no future analysis will
+apply it. Unlike Advertisement Exposure below, this was never a
+library-level retirement — the page predated the 36-entry library and had
+no library entry to begin with, which made it the only site mechanic not
+traceable to one. Retiring the page rather than writing a library entry
+for it closes that gap by removing the exception instead of resolving it.
+
+The case for retirement rather than write-up: its own `apps` list named
+eight carriers. Four (strava, fc-mobile, royal-match, clash-of-clans) have
+since been re-analysed under the current model, and none of the four
+carries it — in three of them, Seasonal Progression Pass absorbed the
+seasonal/event framing the old page claimed. Zero confirmed carriers
+survived re-analysis. The page's own copy also asserted outcomes no
+analysis ever supported: that missing an event creates a permanent gap in
+standing, that it overrides low-motivation days, that the event's expiry
+does psychological work permanent content cannot — the same kind of
+outcome-claiming language already stripped from every other mechanic page
+on the site.
+
+The remaining four apps on its old `apps` list (solitaire-grand-harvest,
+chrome-valley-customs, swgoh, fiton) are still on the old (pre-v4.1)
+model and were not part of the four re-analysed above. If one of them, on
+re-analysis, turns out to carry a genuine timed-event pattern that Seasonal
+Progression Pass does not already cover, it returns as a Pass Three
+proposal against the library, backed by that evidence — not as this entry
+restored. The retired entry's full original text is preserved as a dated
+comment in `data.js`, in place of the live entry, so the original thinking
+stays visible even though the page is gone.
+
+References to it have been removed from: the `paired` arrays of
+`challenges`, `season-pass`, `clans-guilds`, and `passive-construction`;
+the legacy `mechanics` lists of the eight apps that named it; the `related`
+arrays of the `fomo`, `scarcity-bias`, and `present-bias` glossary entries
+(the `fomo` definition's own outcome-claiming sentence was also rewritten);
+the four system-view `mechanics` nodes and the matching `system.html`
+positions and connection edges for solitaire-grand-harvest, fiton,
+chrome-valley-customs, and swgoh; the five now-unreachable
+`RICH_DESCRIPTIONS` app-detail blocks keyed to it; the `DROPS` entry
+`limited-time-events|strava` and the `featuredMechanics` homepage list in
+`site/scripts/convert-content.mjs`. `CANONICAL_MECHANIC_IDS` never had an
+entry for it — there was no library name for it to resolve to, so there is
+nothing to null out there, unlike Advertisement Exposure.
 
 ## Note on Advertisement Exposure (retired 13 Sep 2026)
 
@@ -587,8 +631,10 @@ future look. A merged mechanic's
 name is inherently a compromise across two or three library entries; the
 right name for each resolves naturally once that merge splits and each side
 gets its own page and its own name, so renaming them now would mean
-renaming them again later. `limited-time-events` (no library entry at all)
-is likewise untouched — there's no library name to reconcile against.
+renaming them again later. `limited-time-events` was the other mechanic
+with no library name to reconcile against; it did not get to keep that
+exception, since it was retired outright on 15 Sep 2026 rather than named
+against a merge (see the retirement note above).
 
 `xp-leveling` also came out of this set on 13 Sep 2026, but by splitting
 rather than by losing a merged side the way `ads` did. Its two successors,

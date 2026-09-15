@@ -51,27 +51,6 @@
       ]
     },
     {
-      "id": "limited-time-events",
-      "depth": "core",
-      "writeup": {
-        "observed": "Five simultaneous events were active at peak session depth: Cheese Rally, Grand Puzzle, Grand Emblems, Bloomlight Garden Season (farm seasonal event), and My Trail. The 30-minute rotating purchase offers appear in the top-right corner with countdown timers. The Cheese Rally is a racing event with completion tiers. Grand Emblems accumulated through play without the analyst explicitly tracking them, 4 grand emblems were accumulated without noticing the mechanic that produced them.",
-        "presented": "Events are accessible as icons in a left-side strip during gameplay. The 30-minute rotating purchase offers appear in the top-right corner, refreshing with a countdown timer. Event icons and offer timers are simultaneously visible.",
-        "noting": "Each event operates on a different cadence, 30-minute offers create micro-urgency; the seasonal farm event runs across months; My Trail progresses with level completion. The overlapping cadences create perpetual return pressure without any single event dominating.",
-        "findings": [
-          "Five simultaneous events were running at peak session depth, the transcript noted 'I have no idea how I got them but I did' for four accumulated grand emblems, indicating some mechanics operate below conscious awareness.",
-          "30-minute rotating purchase offers create micro-urgency at the session level separate from longer-cadence event timers.",
-          "Three sequential purchase offers appeared automatically when credits ran low during an active level, the most direct triggered monetization moment observed in the library.",
-          "The multiplier system links stake to event prize tier, Cheese Rally prizes scale with the selected multiplier, making stake choice affect event reward as well as level reward."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": [
-        "The left-side event icon strip showing simultaneous Cheese Rally, Grand Puzzle, Grand Emblems, and pet icons alongside the main farm view",
-        "The 30-minute timed offer popup for One Plus Five showing countdown, labeled rewards, and the \"max one purchase\" note",
-        "Mid-level popup sequence showing all three purchase options (One Plus Three, Triple Farm Fun, store) opening in sequence as the credit balance ran low"
-      ]
-    },
-    {
       "id": "piggy-bank",
       "depth": "core",
       "writeup": {
@@ -170,10 +149,6 @@
         "role": "Lucky Wheel (free once, $2.99 second spin), card packs tiered by multiplier, and Crop Master pick-from-grid, three distinct variable reward surfaces with different interaction shapes."
       },
       {
-        "id": "limited-time-events",
-        "role": "Five simultaneous events operating on cadences from 30-minute rotating offers to months-long farm seasons, the most concurrent event systems in the library."
-      },
-      {
         "id": "set-collection",
         "role": "Card pack quality determined by bet multiplier, x1 yields common packs, x4 yields rare packs, linking stake size to collection advancement speed."
       },
@@ -200,11 +175,6 @@
       {
         "id": "variable-reward",
         "x": 20,
-        "y": 46
-      },
-      {
-        "id": "limited-time-events",
-        "x": 80,
         "y": 46
       },
       {
@@ -237,13 +207,6 @@
         "title": "Multiplier determines pack quality",
         "desc": "Card pack quality is determined by the bet multiplier, x1 yields common packs, x4 yields rare. The stake decision and the collection advancement rate are directly linked.",
         "effect": "Players motivated by collection completion have a concrete incentive to increase their multiplier, which also increases credit depletion speed."
-      },
-      {
-        "from": "limited-time-events",
-        "to": "energy-lives",
-        "title": "Events scale prizes with multiplier",
-        "desc": "Event prizes scale with the selected bet multiplier. Higher multipliers mean faster credit depletion and better event rewards simultaneously.",
-        "effect": "Events give players an additional reason to bet higher, compounding the stake decision across both the collection system and event rewards."
       },
       {
         "from": "daily-login-reward",

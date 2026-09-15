@@ -20,7 +20,6 @@
   "lifecycle": "Mid-to-late lifecycle. Guild systems land best once the user is invested enough to care about collective standing.",
   "paired": [
     "leaderboards",
-    "limited-time-events",
     "social-feed"
   ],
   "context": [

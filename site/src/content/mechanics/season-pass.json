@@ -20,7 +20,6 @@
   "lifecycle": "Mid-to-late lifecycle. Requires an established economy to land without cannibalising other revenue.",
   "paired": [
     "daily-weekly-quests",
-    "limited-time-events",
     "streak"
   ],
   "context": [

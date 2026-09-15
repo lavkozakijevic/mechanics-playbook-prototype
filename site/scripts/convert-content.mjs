@@ -1050,12 +1050,21 @@ const DROPS = new Set([
   "energy-lives|solitaire-grand-harvest",
   "streak|freeletics",
   "daily-login-reward|fiton",
-  "limited-time-events|strava",
   "credits-tokens|liftoff",
   "ads|chrome-valley-customs",
   "ads|match-creek-motors",
   "gifting|swgoh",
   "soft-currency|fortune-city",
+  // Limited-Time Events retired 15 Sep 2026 (see taxonomy-map.md). These
+  // four apps are still on v3 analyses that named it as an applied tag;
+  // dropped rather than rewritten, since none is a confirmed carrier and
+  // each is due for re-analysis under the current model regardless.
+  "limited-time-events|chrome-valley-customs",
+  "limited-time-events|solitaire-grand-harvest",
+  "limited-time-events|swgoh",
+  "limited-time-events|fiton",
+  "limited-time-events|match-creek-motors",
+  "limited-time-events|subway-surfers",
 ]);
 
 // Standing rule (final owner ruling, 11 Jun 2026): exactly two case studies
@@ -1839,7 +1848,7 @@ fs.writeFileSync(
       // guarded by validate-content.mjs.
       spotlightApp: "strava",
       showcaseSystem: ROTATING_FREE_APP,
-      featuredMechanics: ["energy-lives", "limited-time-events", "clans-guilds", "season-pass", "streak", "leaderboards"],
+      featuredMechanics: ["energy-lives", "clans-guilds", "season-pass", "streak", "leaderboards"],
       // Counted from v44 data.js at conversion time until cheatsheets migrate
       // in Stage 2 — computed, never hardcoded.
       cheatsheetCount: CHEATSHEETS.length,

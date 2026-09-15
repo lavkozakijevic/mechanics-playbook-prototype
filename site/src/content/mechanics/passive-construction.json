@@ -20,7 +20,6 @@
   "lifecycle": "Mid-to-late lifecycle. Needs a persistent entity already established and a reason for the user to keep returning to check on it.",
   "paired": [
     "energy-lives",
-    "limited-time-events",
     "daily-weekly-quests"
   ],
   "context": [

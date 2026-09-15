@@ -20,8 +20,7 @@
   "lifecycle": "Mid-to-late lifecycle. Strongest once the user has formed a baseline habit.",
   "paired": [
     "leaderboards",
-    "achievement",
-    "limited-time-events"
+    "achievement"
   ],
   "context": [
     "retention",

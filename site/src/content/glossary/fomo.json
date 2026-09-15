@@ -1,9 +1,8 @@
 {
   "id": "fomo",
   "term": "FOMO (Fear of Missing Out)",
-  "def": "The anxiety that others are having rewarding experiences from which one is absent. Limited-time events exploit FOMO by making participation time-sensitive and the consequence of inaction permanent, missing an event means a permanent gap in collection or standing.",
+  "def": "The anxiety that others are having rewarding experiences from which one is absent. Season passes and other time-bounded reward tracks exploit FOMO by making participation time-sensitive, so the track's expiry pressures continued engagement.",
   "related": [
-    "limited-time-events",
     "season-pass"
   ],
   "visibility": "public"

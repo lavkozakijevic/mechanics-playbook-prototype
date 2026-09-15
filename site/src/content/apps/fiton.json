@@ -59,13 +59,6 @@
       "suggestedShots": []
     },
     {
-      "id": "limited-time-events",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
-    },
-    {
       "id": "challenges",
       "depth": "shallow",
       "writeup": null,
@@ -98,10 +91,6 @@
       {
         "id": "streak",
         "role": "CR Streak combines workout completions with device step count data, displayed as the primary dashboard element in the For You tab."
-      },
-      {
-        "id": "limited-time-events",
-        "role": "Celebrity and branded workout collections (Lizzo, La La Anthony) and live class schedules create time-bounded content events."
       },
       {
         "id": "challenges",
