@@ -64,6 +64,11 @@ export const CANONICAL_MECHANIC_IDS = {
   // New entry, 15 Sep 2026, from the Wakeout analysis.
   "Active Pass": "active-pass",
 
+  // New entry, 16 Sep 2026, created from two proposals ruled on together:
+  // Post-Activity Mood Check (Insight Timer) and Self-Report Check-In Log
+  // (Calm). No site mechanic yet.
+  "Check-In": "check-in",
+
   // Filled in 11 Sep 2026 to cover the remaining 25 library entries (see the
   // note above the first entry). None of these have been forced by a real
   // analysis heading yet — sources/taxonomy-map.md marks them "inferred".

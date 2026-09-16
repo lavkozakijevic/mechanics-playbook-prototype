@@ -1,0 +1,35 @@
+{
+  "id": "check-in",
+  "n": "50",
+  "name": "Check-In",
+  "cat": "engagement",
+  "tagline": "A prompt that asks the user to report their own current state from a defined set of options and keeps the answer as a record, rather than handing back a record the product already holds.",
+  "desc": "A check-in asks the user to report their own current state, such as mood, feeling, stress, energy, or how well they slept, by choosing from a defined set of options, a rating scale, a list of named states, or a set of descriptor tags, and keeps the answer as a record associated with the user beyond the moment it's given. The product may add a follow-up about what is influencing the state, a note field, or content chosen for the answer, but the report itself has to come from the user in the moment rather than from a record the product already holds. Where the product asks isn't part of the invariant: a check-in can follow the end of an activity, sit before one begins, or wait behind an entry point the user opens on their own, and these are placements of one pattern rather than separate mechanics. The separating test against Personal Data Reflection is which direction the information travels: that entry hands the user's own records back and asks for a response to them, while a check-in asks for something the product doesn't yet hold and keeps what the user supplies.",
+  "principle": "A report is only a check-in if the product didn't already have the answer. The moment a state is asked for rather than read back, whatever the product does with it afterward, is what separates a self-report from a reflection on a record.",
+  "players": [
+    "achiever"
+  ],
+  "warn": "The label is easy to misapply in both directions. Toward a record the product already holds and hands back for a response, which is Personal Data Reflection regardless of how the question is phrased. And toward a report that's asked for but not kept beyond the moment it's given, a mood picker that reloads recommendations, a one-time onboarding question taken in as a setting, or free writing with no defined set of options to choose from, none of which carries this label until the product both offers a defined set and keeps what the user chooses. A reminder to check in, a continuity count over check-ins, or a purchase gate on part of the check-in are each their own entry's behavior, not a reason to withhold or duplicate this one.",
+  "variants": [
+    "Placement variant, the prompt can follow the end of an activity, precede one, or sit behind a standalone entry point the user opens on their own",
+    "Option-shape variant, the defined set of options can be an ordered rating scale or a list of named states",
+    "Influence follow-up, the product asks what is influencing the reported state through context or factor tags",
+    "Note field, the product offers a free-text note alongside the defined options",
+    "Multi-type check-ins, the product runs separate check-ins for different states, such as mood and sleep",
+    "Withheld summary, the product holds back a summary or insight until more entries exist, assessed separately under Progression Gate where a stated count applies"
+  ],
+  "lifecycle": "Needs nothing established before the first prompt, since the report comes from the user rather than from anything the product has to have already tracked. Most consequential once enough occasions have passed that a history, an average, or a summary exists to make individual reports feel like part of something ongoing rather than a one-time question.",
+  "paired": [
+    "personal-data-reflection",
+    "streak",
+    "progression-gate"
+  ],
+  "context": [
+    "retention"
+  ],
+  "sdt": [
+    "autonomy",
+    "ownership"
+  ],
+  "visibility": "public"
+}
