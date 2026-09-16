@@ -1588,6 +1588,31 @@ const V41_APP_META = {
         "FC Mobile runs two separate daily login calendars, countdowns on nearly every surface, and notifications naming exactly what a return would show.",
     },
   },
+  liftoff: {
+    name: "Liftoff",
+    category: "Fitness / Strength Ranking",
+    type: "app",
+    sectionCards: {
+      onboarding:
+        "A language choice, a guided questionnaire, a first rank assessment, a paywall and its exit offer, and account creation all run before Liftoff's first unguided screen.",
+      "core-loop":
+        "The Workout tab runs logging, posting and history alongside a Nutrition tab for meal logging.",
+      goals:
+        "The Ranks tab holds the strength ladder and its supporting surfaces; Profile carries the account level, medals and home-screen goal setting.",
+      access:
+        "A ranked-leagues requirement and a set of features held for Liftoff Pro make up this section.",
+      economy:
+        "Eggs are Liftoff's one named currency, earned through quests, spent in the store, and also sold directly for money.",
+      social:
+        "Home carries three feeds, and the Ranks and Friends tabs carry leaderboards and other users' profiles.",
+      reach:
+        "A Strava link prompt and referral invitations are Liftoff's two routes outside the app.",
+      monetization:
+        "A seven-day trial, a same-day exit offer and several Pro prompts run across onboarding, the store and the home screen.",
+      returns:
+        "A notification opt-in, a widget prompt, a rating request and the streak all run before or alongside the first workout.",
+    },
+  },
 };
 
 beginRegenerate("apps");

@@ -1,182 +1,1483 @@
 {
   "id": "liftoff",
   "name": "Liftoff",
-  "category": "Fitness",
+  "category": "Fitness / Strength Ranking",
   "type": "app",
   "visibility": "public",
-  "analysisDate": "2026-02-24",
-  "lastUpdated": "2026-05-20",
-  "summary": "Liftoff is a strength training app that applies the most explicit XP leveling system observed in the fitness category. Every logged set contributes volume points toward a rank, with named rank tiers visible ahead of the current position. A per-muscle rank system means the user tracks separate progression levels for each muscle group. The variable reward is tied to workout completion rather than spending.",
-  "teaser": "Liftoff tracks a separate rank for every muscle group, so two users training the same number of days can see completely different progress, shaped by what they actually trained.",
+  "analysisDate": "2026-09-15",
+  "lastUpdated": "2026-09-15",
+  "asObserved": "2026-02",
+  "appVersion": "None.",
+  "summary": "Liftoff runs a strength-ranking system, Bronze through Diamond, assigned first from a self-reported rep count during onboarding and then extended by logged workouts. Daily, weekly and one-time quests pay a currency called eggs, which doubles as both an earned and a purchasable balance spent on consumables and cosmetics. A predicted date for reaching the next rank tier, a seven-day trial, and a same-day exit offer all sit on top of the same ranking system before the user has completed a single workout. Leagues, leaderboards and a Pro subscription then extend the ranking comparison to other users.",
+  "teaser": "Liftoff's exit offer promises \"78% off forever\" on a discount that actually runs about 50%.",
   "icon": "/icons/liftoff.png",
   "heroImage": null,
-  "mechanics": [
+  "contentFormat": "v4.1",
+  "observations": [
     {
-      "id": "leveling",
-      "depth": "core",
-      "writeup": {
-        "observed": "The body rank system gives each muscle group an independent rank advancing through Bronze, Silver, Gold, Platinum, and Diamond. Performing exercises targeted at a muscle group fills that muscle's rank bar. At onboarding, a rank assessment asks the user for their best lifts on one chosen exercise and assigns an immediate rank (Bronze 3 for pull-ups in the session), with a predicted date to reach Gold. The account also carries a level displayed on the home screen avatar with a progress bar. A Double XP Shake consumable doubles XP earned during a single workout.",
-        "findings": [
-          "Per-muscle ranking creates visible imbalance: a user who only trains chest sees chest rank advance while back rank stagnates. The imbalance is motivating without any explicit prompt, because the display itself communicates what is missing.",
-          "The \"top 76.23%\" social comparison at rank assignment puts the new user in a competitive context before they have completed a single workout, establishing the leaderboard mindset from the first session.",
-          "The predicted Gold date (\"we predict you can reach Gold by April 26th\") gives the rank a concrete timeline, converting an abstract tier into a calculable near-term goal."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": [
-        "Body rank overview screen showing multiple muscle groups each with their own Bronze/Silver/Gold rank indicator and percentage fill bars, with the \"body graph\" visual showing which muscles are high-ranked vs. lagging"
-      ]
+      "id": "O1",
+      "name": "Language choice at launch",
+      "section": "onboarding",
+      "observed": "On first launch, Liftoff shows a front screen with a Get Started button and an option to sign into an existing account, along with an immediate language choice offering ten languages.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "leaderboards",
-      "depth": "core",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O2",
+      "name": "Introductory slider",
+      "section": "onboarding",
+      "observed": "After Get Started, Liftoff shows a four-part slider with Skip and Next controls. The slides cover reaching fitness goals by climbing ranks, analyzing the body's potential, a personalized workout plan, and Liftoff as an all-in-one fitness companion, ending on a Let's Go button.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "achievement",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": [
-        "Profile screen showing three displayed medals, the body rank summary, follower/following counts, and the option to select which medals to display — with a \"secret\" medal shown as a locked indicator"
-      ]
+      "id": "O3",
+      "name": "Guided questionnaire host",
+      "section": "onboarding",
+      "observed": "After Let's Go, an animated character named Jimbo introduces the questionnaire that follows, with a progress bar running along the top of each screen and answers chosen from button options. The progress bar covers a required flow rather than an optional set of attributes.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "daily-weekly-quests",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O4",
+      "name": "Experience level question",
+      "section": "onboarding",
+      "observed": "The first question asks how experienced the user is with working out, offering never worked out, beginner, intermediate or advanced.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "loot-box",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O5",
+      "name": "Top fitness goal question",
+      "section": "onboarding",
+      "observed": "Liftoff asks for the user's top fitness goal, offering becoming stronger, losing weight, building muscle, an option framed around ranks, and becoming more consistent.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "cosmetics",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O6",
+      "name": "Goal-matched reassurance screen",
+      "section": "onboarding",
+      "observed": "After the goal question, Liftoff shows a screen reading that the user is in the right place, with copy that changes depending on the goal chosen. Two of the goals also show a five-star review matching that goal. The rank-option screen frames Liftoff as the way to step into ranked lifting, without a review shown alongside it.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "social-feed",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O7",
+      "name": "Restarting the questionnaire",
+      "section": "onboarding",
+      "observed": "Going back from the reassurance screen opens a warning that the user will return to the landing page and lose progress. Taking that route restarts the whole questionnaire from its first question, with the goal options appearing in a different order on the restart.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "streak",
-      "depth": "shallow",
-      "writeup": {
-        "observed": "Liftoff tracks consecutive days of logged workouts and surfaces the streak as a named counter in the activity summary. The streak is introduced after the first completed session. The app's logging-first design, where users record exercises, sets, and reps each session, creates a natural completion event that triggers the streak increment. Streak milestones are acknowledged with a notification and a brief animated celebration on the home screen.",
-        "presented": "The streak counter appears in the profile and workout history section alongside total sessions logged and personal bests. Post-session, a summary screen shows the updated streak count alongside volume lifted and exercises completed.",
-        "findings": [
-          "The logging-first design means streak maintenance requires the user to complete the core product behavior (recording a workout) rather than a minimal action like opening the app, aligning the streak with the behavior the product is designed to build.",
-          "Post-session streak display on the summary screen surfaces the counter at peak motivation, immediately after the user has completed the action that earned the increment.",
-          "No streak freeze or recovery mechanic was observed within the session analyzed."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O8",
+      "name": "Acquisition source question",
+      "section": "onboarding",
+      "observed": "After the reassurance screen, Liftoff asks how the user came to hear of it, offering friends or family, TikTok, Instagram, Facebook, YouTube, Snapchat, the App Store, or another source.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "challenges",
-      "depth": "shallow",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O9",
+      "name": "Body information and age",
+      "section": "onboarding",
+      "observed": "Under a basic-info heading, Liftoff asks for sex, height, weight and age on separate screens. Sex is chosen between two illustrated characters that change pose with a thumbs up once picked. Height is set on a fast vertical slider and shown in centimeters, while weight is then asked in pounds. The age selector runs from 13 to 120.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "hard-currency",
-      "depth": "supporting",
-      "provisionalDepth": true,
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O10",
+      "name": "Avatar introduction and selection",
+      "section": "onboarding",
+      "observed": "Liftoff introduces an avatar through a short sequence of copy describing it as a reflection of the user that grows and celebrates wins, then asks the user to pick one of six starting avatars of different ethnicities and ages, stating it can be personalized later.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Cosmetic Customization",
+          "confidence": "O40 and O45 (tier: strongly supported, the items and the avatar editor are offered, but applying a cosmetic is not observed).",
+          "confidences": [
+            "O40 and O45 (tier: strongly supported, the items and the avatar editor are offered, but applying a cosmetic is not observed)."
+          ],
+          "rationale": "Liftoff sells profile banners, several border types and several app theme types as store content, which places them on the content side of the library's boundary with built-in settings (tier: directly observed). The profile offers further avatar editing after the onboarding pick, which promised \"We'll personalize it later\" (tier: directly observed). No cosmetic changes a capability on the observed evidence (tier: strongly supported). The structure corresponds to the Identity Expression pattern (tier: strongly supported).",
+          "alternativeConsidered": "Built-in configuration settings, which carry no label (tier: plausible). Store placement and sale for eggs weigh against it for the themes and borders. For level borders, a presentation tied only to level would be a status indicator rather than a cosmetic, and a session applying one would settle it.",
+          "role": "monetization, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "soft-currency",
-      "depth": "supporting",
-      "provisionalDepth": true,
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O11",
+      "name": "Profiling questions",
+      "section": "onboarding",
+      "observed": "Liftoff asks further questions about mindset, sensitive areas and energy during workouts: how often the user thinks about getting in shape, whether they struggle with a sensitive back, knees, shoulders or wrists, and how their energy levels run during workouts.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O12",
+      "name": "Relate-to-statement screens",
+      "section": "onboarding",
+      "observed": "Liftoff shows three screens each asking whether the user relates to a single first-person statement: that progress is hard to notice, that they don't know which body part needs work, and that they don't push themselves hard enough.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O13",
+      "name": "Problem screens",
+      "section": "onboarding",
+      "observed": "After the statements, Liftoff shows three screens naming a difficulty, invisible progress, blind spots from not knowing which muscle is lagging, and motivation not lasting, each with an illustrated character in a struggling pose, followed by a screen presenting Liftoff ranks as the path to getting stronger. The first problem screen names the same progress difficulty regardless of which statement the user had related to.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O14",
+      "name": "Workout plan and equipment",
+      "section": "onboarding",
+      "observed": "Liftoff asks whether the user has a workout plan, then where they exercise: a large commercial gym, a small gym, a garage gym, or body weight only. Choosing a large commercial gym opens an equipment list with everything preselected; choosing body weight only opens the same list with nothing selected, while dozens of weights and machines stay listed regardless.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O15",
+      "name": "Workout length and frequency",
+      "section": "onboarding",
+      "observed": "Liftoff asks which muscles were worked last, how long a typical workout lasts, and how many times a week the user works out, with the frequency answer receiving an evaluative label such as good, great, incredible, outstanding or unstoppable depending on the number of days chosen.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O16",
+      "name": "First rank assessment",
+      "section": "onboarding",
+      "observed": "After stating that Liftoff has everything it needs for a first rank, it asks for the user's best lift, taking an exercise and a rep count. The user is offered push ups, pull ups, bench press, deadlift or squat, and can enter a rep count for one. Liftoff takes an exercise and a rep count for the first rank test; the exercise chosen appears as pull ups, and the loaded result names the exercise as push ups, with a rank of Bronze 3 and a stated top 76.23 percent.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Leveling",
+          "confidence": "The strength rank ladder in O32 and O33 (tier: directly observed). The account level in O34 (tier: plausible, a level and its progress are mentioned but no level number or change is read out).",
+          "confidences": [
+            "The strength rank ladder in O32 and O33 (tier: directly observed). The account level in O34 (tier: plausible, a level and its progress are mentioned but no level number or change is read out)."
+          ],
+          "rationale": "Liftoff assigns each ranked exercise, and each muscle in the body rank, a current state within an ordered series named Bronze, Silver, Gold, Platinum and Diamond, with numbered steps such as Bronze 3 (tier: directly observed). The state is assessed from performance: a self-reported rep count in O16 and logged sets in O33 (tier: directly observed). Movement between states was not observed. The product frames it through the path-to-Diamond screen in O19 and the predicted date in O17 (tier: directly observed). Under the presence standard, the ordered states, the assigned current state and the product's framing of advancement establish the label, and the reassessment rule is recorded as not observed. Liftoff names its own target obstacle in O13 (\"Progress feels invisible\"), which is stated product intent and not evidence that users meet that obstacle (tier: directly observed). The structure corresponds to the Visible Progress pattern (tier: strongly supported). The account level in O34 is a separate track, recorded at a lower tier.",
+          "alternativeConsidered": "Comparative Rank, because O16 pairs the tier with a percentile (tier: directly observed). That entry excludes a percentile without an assigned position, and no position was shown, so it is not applied. The two entries are not exclusive siblings. A session showing a tier change while the user's own result stays the same would show the tiers depend on other users, and Comparative Rank would then apply alongside Leveling.",
+          "role": "engagement, monetization"
+        },
+        {
+          "name": "Progression Gate",
+          "confidence": "O37 (tier: directly observed).",
+          "confidences": [
+            "O37 (tier: directly observed)."
+          ],
+          "rationale": "Liftoff withholds ranked leagues until the count of ranked exercises reaches 10, and states the requirement in the terms of that count (tier: directly observed). The count advances through use of the product, by the onboarding assessment and by logged workouts, so the condition is a progression measure rather than an eligibility condition (tier: directly observed). The structure corresponds to the Staged Disclosure and Unlocking pattern (tier: strongly supported).",
+          "alternativeConsidered": "An eligibility condition outside the product's own measures, which would carry no label (tier: directly observed, excluded because ranking exercises is done by using the product).",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O17",
+      "name": "Predicted date for gold",
+      "section": "onboarding",
+      "observed": "Liftoff states a predicted date for reaching gold, about two months out from the assessment, beside a graph rising sharply from the present to that date. The copy that follows calls ranks a direct way to measure progress. No assumption behind the date, such as a training frequency or rate of improvement, is stated, and the prediction is not shown again later.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Leveling",
+          "confidence": "The strength rank ladder in O32 and O33 (tier: directly observed). The account level in O34 (tier: plausible, a level and its progress are mentioned but no level number or change is read out).",
+          "confidences": [
+            "The strength rank ladder in O32 and O33 (tier: directly observed). The account level in O34 (tier: plausible, a level and its progress are mentioned but no level number or change is read out)."
+          ],
+          "rationale": "Liftoff assigns each ranked exercise, and each muscle in the body rank, a current state within an ordered series named Bronze, Silver, Gold, Platinum and Diamond, with numbered steps such as Bronze 3 (tier: directly observed). The state is assessed from performance: a self-reported rep count in O16 and logged sets in O33 (tier: directly observed). Movement between states was not observed. The product frames it through the path-to-Diamond screen in O19 and the predicted date in O17 (tier: directly observed). Under the presence standard, the ordered states, the assigned current state and the product's framing of advancement establish the label, and the reassessment rule is recorded as not observed. Liftoff names its own target obstacle in O13 (\"Progress feels invisible\"), which is stated product intent and not evidence that users meet that obstacle (tier: directly observed). The structure corresponds to the Visible Progress pattern (tier: strongly supported). The account level in O34 is a separate track, recorded at a lower tier.",
+          "alternativeConsidered": "Comparative Rank, because O16 pairs the tier with a percentile (tier: directly observed). That entry excludes a percentile without an assigned position, and no position was shown, so it is not applied. The two entries are not exclusive siblings. A session showing a tier change while the user's own result stays the same would show the tiers depend on other users, and Comparative Rank would then apply alongside Leveling.",
+          "role": "engagement, monetization"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O18",
+      "name": "Setup loading sequence",
+      "section": "onboarding",
+      "observed": "Liftoff shows a setup screen with loading steps reading compiling user profile, calculating strength levels and generating body rank, with laurels beneath showing a 4.9 rating from a large number of people.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O19",
+      "name": "Body rank explanation screens",
+      "section": "onboarding",
+      "observed": "Liftoff explains the body rank across three screens before the paywall: how strong each muscle is shown to be, that performing different exercises fills up the body rank, and a screen showing how the user will progress all the way to Diamond, naming the tiers Bronze, Silver, Gold, Platinum and Diamond.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Leveling",
+          "confidence": "The strength rank ladder in O32 and O33 (tier: directly observed). The account level in O34 (tier: plausible, a level and its progress are mentioned but no level number or change is read out).",
+          "confidences": [
+            "The strength rank ladder in O32 and O33 (tier: directly observed). The account level in O34 (tier: plausible, a level and its progress are mentioned but no level number or change is read out)."
+          ],
+          "rationale": "Liftoff assigns each ranked exercise, and each muscle in the body rank, a current state within an ordered series named Bronze, Silver, Gold, Platinum and Diamond, with numbered steps such as Bronze 3 (tier: directly observed). The state is assessed from performance: a self-reported rep count in O16 and logged sets in O33 (tier: directly observed). Movement between states was not observed. The product frames it through the path-to-Diamond screen in O19 and the predicted date in O17 (tier: directly observed). Under the presence standard, the ordered states, the assigned current state and the product's framing of advancement establish the label, and the reassessment rule is recorded as not observed. Liftoff names its own target obstacle in O13 (\"Progress feels invisible\"), which is stated product intent and not evidence that users meet that obstacle (tier: directly observed). The structure corresponds to the Visible Progress pattern (tier: strongly supported). The account level in O34 is a separate track, recorded at a lower tier.",
+          "alternativeConsidered": "Comparative Rank, because O16 pairs the tier with a percentile (tier: directly observed). That entry excludes a percentile without an assigned position, and no position was shown, so it is not applied. The two entries are not exclusive siblings. A session showing a tier change while the user's own result stays the same would show the tiers depend on other users, and Comparative Rank would then apply alongside Leveling.",
+          "role": "engagement, monetization"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O20",
+      "name": "Apple Health connection request",
+      "section": "onboarding",
+      "observed": "After the paywall and its exit offer close, Liftoff asks to connect Apple Health, recommending the user turn on every category, and states that fitness data will stay securely stored on the device. Every category in the system permission sheet starts switched off.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O21",
+      "name": "Account creation and welcome",
+      "section": "onboarding",
+      "observed": "Liftoff asks the user to sign up to save their profile, offering sign up with Apple, sign up with Google, or continue with email, then greets the new account by a generated username combining the account holder's first name and a number. Jimbo celebrates the created profile before a Strava link prompt appears ahead of the main app opening.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O22",
+      "name": "First home screen",
+      "section": "onboarding",
+      "observed": "The first unguided screen is Home, holding a six-item bottom menu for Home, Workout, Ranks, Nutrition, Friends and Profile, a header with the avatar, a flame, a number beside a blue icon, and a bell, three feeds, a prompt to unlock body rank progress for free, a getting-started section, a goal section, a last-14-workouts overview, and a discover section listing a leaderboard, a social feed, a streak calendar and a workout generator.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O23",
+      "name": "Welcome quests",
+      "section": "onboarding",
+      "observed": "The Home getting-started section shows welcome quests framed as wrapping up the first day on Liftoff to earn a special reward, listing adding the Liftoff widget to the home screen and completing a first workout as the two tasks. The reward itself is not identified.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Challenge",
+          "confidence": "O23 (tier: strongly supported, the objective, boundary and reward are framed, but completion or expiry is not observed).",
+          "confidences": [
+            "O23 (tier: strongly supported, the objective, boundary and reward are framed, but completion or expiry is not observed)."
+          ],
+          "rationale": "Liftoff creates a first-day objective, \"Wrap up your first day on Liftoff and earn a special reward\", with a success condition of adding the widget and completing a first workout, and a stated reward (tier: directly observed). The first-day framing supplies the boundary (tier: strongly supported). What happens at the boundary without completion was not observed. The structure corresponds to the Bounded Completable Goals pattern (tier: strongly supported).",
+          "alternativeConsidered": "A getting-started checklist with no boundary, which would carry no label (tier: plausible). A session that passes the first day without completing the tasks would separate the two.",
+          "role": "engagement, retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O24",
+      "name": "Workout tab entry points",
+      "section": "core-loop",
+      "observed": "The Workout tab offers a daily workout, custom workout generation, saved routines and an empty workout. Today's workout was Chest and shoulders, 12 sets, 45 minutes. A workout generator also appears on Home under discover.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O25",
+      "name": "Workout preview",
+      "section": "core-loop",
+      "observed": "Before a workout starts, Liftoff shows its duration, a level, the equipment used, recovered muscles, targeted muscles with percentages, and the exercise list, with knee push ups, wall push ups, body weight military press and knee pike push ups listed for this workout. The workout can be started directly from the preview.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O26",
+      "name": "Logging a workout",
+      "section": "core-loop",
+      "observed": "During a workout, the user taps a check mark to complete each set while a timer runs, and a rest countdown of one and a half minutes starts once an exercise is completed. Liftoff reminds the user to rest between sets, additional sets can be added to an exercise, and the timer keeps counting through the whole workout.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O27",
+      "name": "Posting a finished workout",
+      "section": "core-loop",
+      "observed": "Finishing a workout opens a posting surface where the user can add a photo and caption, choose consumables, tag friends, and post to Discovery and to Strava, showing which muscles were trained before asking whether the user is ready to finish and post. Consumables can also be chosen before the workout starts.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Reward Multiplier",
+          "confidence": "O41 (tier: strongly supported, the factor and scope are stated in item copy, but the shake is not seen applied).",
+          "confidences": [
+            "O41 (tier: strongly supported, the factor and scope are stated in item copy, but the shake is not seen applied)."
+          ],
+          "rationale": "Liftoff states a factor, double, against a reward it already pays, experience gain, within a scope, a workout during which the shake is used (tier: directly observed). The base reward is supported by quest claims paying experience and by the shake's own copy (tier: strongly supported). The shake is a held item consumed on use, but its only stated effect is on the payout, and the library places such an item under this entry rather than Boosters. The structure corresponds to the Earned Access pattern at the point of purchase (tier: plausible).",
+          "alternativeConsidered": "Boosters, because the shake is held in a counted inventory and consumed on use (tier: directly observed). The Reward Multiplier entry sends an item whose only stated effect is to increase a payout to itself, so Boosters is not applied. If a later session showed the shake also changing the workout, Boosters would apply to that effect.",
+          "role": "engagement"
+        },
+        {
+          "name": "Social Feed",
+          "confidence": "O42 (tier: directly observed).",
+          "confidences": [
+            "O42 (tier: directly observed)."
+          ],
+          "rationale": "Liftoff presents Discovery as a stream of posts from multiple users carrying images, avatars, workout durations and streaks, with a report control (tier: directly observed). The For you and Friends labels mark further feeds (tier: directly observed). The ordering rule is not stated. The structure corresponds to the Social Visibility pattern (tier: strongly supported).",
+          "alternativeConsidered": "Community Space, which would require the posts to belong to a persistent shared space rather than a viewer's stream (tier: directly observed, no such space was narrated).",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O28",
+      "name": "Post-workout summary",
+      "section": "core-loop",
+      "observed": "After posting, Liftoff shows a nice-workout message with duration and total volume in kilograms, then a summary, then exercise rank badges loaded one at a time, before returning to the Workout tab with the next day's workout, Back and shoulders, named and ready.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O29",
+      "name": "Quests surface on Profile",
+      "section": "core-loop",
+      "observed": "Profile holds a quests surface with daily quests, weekly quests and referral quests, including a quest to start a streak. Claiming a quest grants eggs and experience points.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Experience Points",
+          "confidence": "Across O29, O34 and O41 (tier: strongly supported, no grant amount, balance or threshold crossing is read out).",
+          "confidences": [
+            "Across O29, O34 and O41 (tier: strongly supported, no grant amount, balance or threshold crossing is read out)."
+          ],
+          "rationale": "Liftoff states that claiming a quest grants experience points (tier: directly observed). The Double XP Shake copy, \"double your experience gain\" during a workout, establishes workouts as a qualifying activity (tier: strongly supported). The Home header shows a level with its progress, and the store sells level borders (tier: directly observed). Together these support an accumulated progression value advancing an account level (tier: strongly supported). The structure corresponds to the Accumulated Investment pattern (tier: plausible).",
+          "alternativeConsidered": "Soft Currency, because quest claims pay experience beside eggs (tier: directly observed). Experience is never shown being spent, while eggs are (O40, O41), so the two values are classified separately. A second alternative is that the avatar progress is a display with no threshold behind it. A session that crosses a level would separate the two.",
+          "role": "engagement"
+        },
+        {
+          "name": "Daily / Weekly Quests",
+          "confidence": "O29 (tier: strongly supported, daily and weekly quest labels and a claim reward are observed, but no refresh at a period boundary is seen).",
+          "confidences": [
+            "O29 (tier: strongly supported, daily and weekly quest labels and a claim reward are observed, but no refresh at a period boundary is seen)."
+          ],
+          "rationale": "Liftoff lists daily quests and weekly quests as separate groups with claim states that grant eggs and experience points (tier: directly observed). Under the presence standard, the product's framing of daily and weekly quests with claimable completion establishes the label, and the refresh rule is recorded as not observed. The structure corresponds to the Scheduled Return Triggers and Bounded Completable Goals patterns (tier: plausible).",
+          "alternativeConsidered": "An undated task list with no recurring issuance, which would carry no label (tier: plausible). A session across a daily boundary showing the quest set refreshed would separate the two.",
+          "role": "retention, engagement"
+        },
+        {
+          "name": "Streak",
+          "confidence": "O58 (tier: strongly supported, a count, a restoration item and a start-a-streak quest are observed, but the continuity rule is not).",
+          "confidences": [
+            "O58 (tier: strongly supported, a count, a restoration item and a start-a-streak quest are observed, but the continuity rule is not)."
+          ],
+          "rationale": "The Home flame shows a count of 1 (tier: directly observed). A count alone would not establish continuity under the entry. Liftoff also sells streak restorers \"if you want to restore our streaks\", which frames the streak as a state that can break and be repaired (tier: directly observed). Other users' streaks appear on their Discovery posts (tier: directly observed). The qualifying activity, period and break rule are not observed. The structure corresponds to the Continuity Stakes and Failure Recovery patterns (tier: strongly supported).",
+          "alternativeConsidered": "A cumulative count of workouts shown with a flame (tier: plausible). The restorers weigh against it, since a count that gaps cannot break needs no restoring. A session that misses a period would separate the two.",
+          "role": "retention"
+        },
+        {
+          "name": "Soft Currency",
+          "confidence": "O29 and O39 (tier: strongly supported, the quest grant of eggs is stated, but no claim amount or balance change is read out).",
+          "confidences": [
+            "O29 and O39 (tier: strongly supported, the quest grant of eggs is stated, but no claim amount or balance change is read out)."
+          ],
+          "rationale": "Liftoff states that claiming a quest grants eggs (tier: directly observed). Quests recur on daily and weekly cadences, which gives a repeatable non-paid route (tier: strongly supported). The narrator held enough eggs to buy a shake without a money purchase (tier: directly observed). The same balance is also sold for money, so both currency labels apply to one balance, as the library directs. The structure corresponds to the Flexible Stored Value and Earned Access patterns (tier: plausible).",
+          "alternativeConsidered": "A one-time starting grant as the only non-paid source (tier: plausible). The quest grant in O29 weighs against it. A session reading the balance before and after a quest claim would close the gap.",
+          "role": "engagement, retention"
+        },
+        {
+          "name": "Reward Multiplier",
+          "confidence": "O41 (tier: strongly supported, the factor and scope are stated in item copy, but the shake is not seen applied).",
+          "confidences": [
+            "O41 (tier: strongly supported, the factor and scope are stated in item copy, but the shake is not seen applied)."
+          ],
+          "rationale": "Liftoff states a factor, double, against a reward it already pays, experience gain, within a scope, a workout during which the shake is used (tier: directly observed). The base reward is supported by quest claims paying experience and by the shake's own copy (tier: strongly supported). The shake is a held item consumed on use, but its only stated effect is on the payout, and the library places such an item under this entry rather than Boosters. The structure corresponds to the Earned Access pattern at the point of purchase (tier: plausible).",
+          "alternativeConsidered": "Boosters, because the shake is held in a counted inventory and consumed on use (tier: directly observed). The Reward Multiplier entry sends an item whose only stated effect is to increase a payout to itself, so Boosters is not applied. If a later session showed the shake also changing the workout, Boosters would apply to that effect.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O30",
+      "name": "Nutrition logging",
+      "section": "core-loop",
+      "observed": "The Nutrition tab lets the user log meals, including by photo, against a calorie goal, showing calories eaten and calories burned through exercise. Meal categories are Breakfast, Lunch, Dinner, Snack and Uncategorized. Logging a meal by photo is available without payment, while macros for protein, carbs and fat are held for Liftoff Pro.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O31",
+      "name": "Training history displays",
+      "section": "core-loop",
+      "observed": "Liftoff shows the user's own training history in three places: a last-14-workouts overview on Home showing volume, duration, calories burned and body weight pulled from Apple Health; a memories calendar showing the avatar on a date with how much was exercised; and a health log showing changes in body weight, height and other measures. None of these displays asks for a response from the user.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O32",
+      "name": "Strength rank ladder",
+      "section": "goals",
+      "observed": "Liftoff ranks strength per exercise and per muscle on an ordered ladder of Bronze, Silver, Gold, Platinum and Diamond, with numbered steps inside a tier such as Bronze 3. The Ranks tab gathers the user's rank, a body graph, leagues, a gallery, a calculator and analysis. The first rank comes from a self-reported rep count during onboarding, and a percentile accompanied that first result. The body rank is framed as showing how strong each muscle is, with the user directed to target lower-ranked muscles.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Leveling",
+          "confidence": "The strength rank ladder in O32 and O33 (tier: directly observed). The account level in O34 (tier: plausible, a level and its progress are mentioned but no level number or change is read out).",
+          "confidences": [
+            "The strength rank ladder in O32 and O33 (tier: directly observed). The account level in O34 (tier: plausible, a level and its progress are mentioned but no level number or change is read out)."
+          ],
+          "rationale": "Liftoff assigns each ranked exercise, and each muscle in the body rank, a current state within an ordered series named Bronze, Silver, Gold, Platinum and Diamond, with numbered steps such as Bronze 3 (tier: directly observed). The state is assessed from performance: a self-reported rep count in O16 and logged sets in O33 (tier: directly observed). Movement between states was not observed. The product frames it through the path-to-Diamond screen in O19 and the predicted date in O17 (tier: directly observed). Under the presence standard, the ordered states, the assigned current state and the product's framing of advancement establish the label, and the reassessment rule is recorded as not observed. Liftoff names its own target obstacle in O13 (\"Progress feels invisible\"), which is stated product intent and not evidence that users meet that obstacle (tier: directly observed). The structure corresponds to the Visible Progress pattern (tier: strongly supported). The account level in O34 is a separate track, recorded at a lower tier.",
+          "alternativeConsidered": "Comparative Rank, because O16 pairs the tier with a percentile (tier: directly observed). That entry excludes a percentile without an assigned position, and no position was shown, so it is not applied. The two entries are not exclusive siblings. A session showing a tier change while the user's own result stays the same would show the tiers depend on other users, and Comparative Rank would then apply alongside Leveling.",
+          "role": "engagement, monetization"
+        },
+        {
+          "name": "Leaderboard",
+          "confidence": "O43 (tier: strongly supported, standings are shown in friends and global scopes, but the measure and the order are not read out).",
+          "confidences": [
+            "O43 (tier: strongly supported, standings are shown in friends and global scopes, but the measure and the order are not read out)."
+          ],
+          "rationale": "Liftoff shows rank standings in a leaderboard, with friends and global scopes and a regional scope held for Pro (tier: directly observed). \"Rank standings\" establishes an ordering of multiple entities (tier: strongly supported). The measure behind the order is not stated, and the rank ladder in O32 is the candidate (tier: plausible). The structure corresponds to the Peer-Matched Comparison pattern through the friends and regional scopes (tier: strongly supported).",
+          "alternativeConsidered": "Comparative Rank for the user's own position (tier: unresolved). No position was read out, and the regional standing is gated (see Unresolved).",
+          "role": "social"
+        },
+        {
+          "name": "Progression Gate",
+          "confidence": "O37 (tier: directly observed).",
+          "confidences": [
+            "O37 (tier: directly observed)."
+          ],
+          "rationale": "Liftoff withholds ranked leagues until the count of ranked exercises reaches 10, and states the requirement in the terms of that count (tier: directly observed). The count advances through use of the product, by the onboarding assessment and by logged workouts, so the condition is a progression measure rather than an eligibility condition (tier: directly observed). The structure corresponds to the Staged Disclosure and Unlocking pattern (tier: strongly supported).",
+          "alternativeConsidered": "An eligibility condition outside the product's own measures, which would carry no label (tier: directly observed, excluded because ranking exercises is done by using the product).",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O33",
+      "name": "Exercise rank badges",
+      "section": "goals",
+      "observed": "After the workout summary, Liftoff loads a rank badge for each exercise performed, reading \"Knee pushups. Bronze. Bring it on,\" then loads the next for wall push ups. The ranks shown are for exercises not ranked during onboarding.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Leveling",
+          "confidence": "The strength rank ladder in O32 and O33 (tier: directly observed). The account level in O34 (tier: plausible, a level and its progress are mentioned but no level number or change is read out).",
+          "confidences": [
+            "The strength rank ladder in O32 and O33 (tier: directly observed). The account level in O34 (tier: plausible, a level and its progress are mentioned but no level number or change is read out)."
+          ],
+          "rationale": "Liftoff assigns each ranked exercise, and each muscle in the body rank, a current state within an ordered series named Bronze, Silver, Gold, Platinum and Diamond, with numbered steps such as Bronze 3 (tier: directly observed). The state is assessed from performance: a self-reported rep count in O16 and logged sets in O33 (tier: directly observed). Movement between states was not observed. The product frames it through the path-to-Diamond screen in O19 and the predicted date in O17 (tier: directly observed). Under the presence standard, the ordered states, the assigned current state and the product's framing of advancement establish the label, and the reassessment rule is recorded as not observed. Liftoff names its own target obstacle in O13 (\"Progress feels invisible\"), which is stated product intent and not evidence that users meet that obstacle (tier: directly observed). The structure corresponds to the Visible Progress pattern (tier: strongly supported). The account level in O34 is a separate track, recorded at a lower tier.",
+          "alternativeConsidered": "Comparative Rank, because O16 pairs the tier with a percentile (tier: directly observed). That entry excludes a percentile without an assigned position, and no position was shown, so it is not applied. The two entries are not exclusive siblings. A session showing a tier change while the user's own result stays the same would show the tiers depend on other users, and Comparative Rank would then apply alongside Leveling.",
+          "role": "engagement, monetization"
+        },
+        {
+          "name": "Progression Gate",
+          "confidence": "O37 (tier: directly observed).",
+          "confidences": [
+            "O37 (tier: directly observed)."
+          ],
+          "rationale": "Liftoff withholds ranked leagues until the count of ranked exercises reaches 10, and states the requirement in the terms of that count (tier: directly observed). The count advances through use of the product, by the onboarding assessment and by logged workouts, so the condition is a progression measure rather than an eligibility condition (tier: directly observed). The structure corresponds to the Staged Disclosure and Unlocking pattern (tier: strongly supported).",
+          "alternativeConsidered": "An eligibility condition outside the product's own measures, which would carry no label (tier: directly observed, excluded because ranking exercises is done by using the product).",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O34",
+      "name": "Account level and experience",
+      "section": "goals",
+      "observed": "The Home header shows the avatar with a level and its progress. The store sells level borders. Quest claims grant experience points, and the Double XP Shake doubles experience gained during a workout.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Leveling",
+          "confidence": "The strength rank ladder in O32 and O33 (tier: directly observed). The account level in O34 (tier: plausible, a level and its progress are mentioned but no level number or change is read out).",
+          "confidences": [
+            "The strength rank ladder in O32 and O33 (tier: directly observed). The account level in O34 (tier: plausible, a level and its progress are mentioned but no level number or change is read out)."
+          ],
+          "rationale": "Liftoff assigns each ranked exercise, and each muscle in the body rank, a current state within an ordered series named Bronze, Silver, Gold, Platinum and Diamond, with numbered steps such as Bronze 3 (tier: directly observed). The state is assessed from performance: a self-reported rep count in O16 and logged sets in O33 (tier: directly observed). Movement between states was not observed. The product frames it through the path-to-Diamond screen in O19 and the predicted date in O17 (tier: directly observed). Under the presence standard, the ordered states, the assigned current state and the product's framing of advancement establish the label, and the reassessment rule is recorded as not observed. Liftoff names its own target obstacle in O13 (\"Progress feels invisible\"), which is stated product intent and not evidence that users meet that obstacle (tier: directly observed). The structure corresponds to the Visible Progress pattern (tier: strongly supported). The account level in O34 is a separate track, recorded at a lower tier.",
+          "alternativeConsidered": "Comparative Rank, because O16 pairs the tier with a percentile (tier: directly observed). That entry excludes a percentile without an assigned position, and no position was shown, so it is not applied. The two entries are not exclusive siblings. A session showing a tier change while the user's own result stays the same would show the tiers depend on other users, and Comparative Rank would then apply alongside Leveling.",
+          "role": "engagement, monetization"
+        },
+        {
+          "name": "Experience Points",
+          "confidence": "Across O29, O34 and O41 (tier: strongly supported, no grant amount, balance or threshold crossing is read out).",
+          "confidences": [
+            "Across O29, O34 and O41 (tier: strongly supported, no grant amount, balance or threshold crossing is read out)."
+          ],
+          "rationale": "Liftoff states that claiming a quest grants experience points (tier: directly observed). The Double XP Shake copy, \"double your experience gain\" during a workout, establishes workouts as a qualifying activity (tier: strongly supported). The Home header shows a level with its progress, and the store sells level borders (tier: directly observed). Together these support an accumulated progression value advancing an account level (tier: strongly supported). The structure corresponds to the Accumulated Investment pattern (tier: plausible).",
+          "alternativeConsidered": "Soft Currency, because quest claims pay experience beside eggs (tier: directly observed). Experience is never shown being spent, while eggs are (O40, O41), so the two values are classified separately. A second alternative is that the avatar progress is a display with no threshold behind it. A session that crosses a level would separate the two.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O35",
+      "name": "Medals",
+      "section": "goals",
+      "observed": "Profile holds medals, and the user can choose up to three to display on the profile. Some medals are secret, with their criteria hidden.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Achievement",
+          "confidence": "O35 (tier: strongly supported, medals and hidden criteria are shown, but no attainment is observed).",
+          "confidences": [
+            "O35 (tier: strongly supported, medals and hidden criteria are shown, but no attainment is observed)."
+          ],
+          "rationale": "Liftoff presents medals as discrete attained states, some with secret criteria, and lets the user choose up to three to display (tier: directly observed). Under the presence standard, the product's framing of medals and their selectable display establishes the label. The criteria, the moment of attainment and any reward are not observed. The structure corresponds to the Milestone Recognition and Identity Expression patterns (tier: plausible).",
+          "alternativeConsidered": "Set Collection, which would require Liftoff to track member-level completeness of a defined set of medals (tier: directly observed, no completeness count or checklist was narrated). A session showing a medal count against a total would add Set Collection alongside Achievement.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O36",
+      "name": "Home screen goal setting",
+      "section": "goals",
+      "observed": "A \"Your goal\" section on Home invites the user to challenge themselves by adding a strength goal, a body weight goal or a consistency goal.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O37",
+      "name": "Ten exercises for leagues",
+      "section": "access",
+      "observed": "Liftoff states that the user needs to rank 10 exercises to take part in ranked leagues, a requirement stated in the Ranks tab where leagues are listed. Exercises gain ranks through the onboarding assessment and through logged workouts. The account stayed below the ten-exercise threshold, and the leagues surface itself never opened.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Progression Gate",
+          "confidence": "O37 (tier: directly observed).",
+          "confidences": [
+            "O37 (tier: directly observed)."
+          ],
+          "rationale": "Liftoff withholds ranked leagues until the count of ranked exercises reaches 10, and states the requirement in the terms of that count (tier: directly observed). The count advances through use of the product, by the onboarding assessment and by logged workouts, so the condition is a progression measure rather than an eligibility condition (tier: directly observed). The structure corresponds to the Staged Disclosure and Unlocking pattern (tier: strongly supported).",
+          "alternativeConsidered": "An eligibility condition outside the product's own measures, which would carry no label (tier: directly observed, excluded because ranking exercises is done by using the product).",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O38",
+      "name": "Features held for Pro",
+      "section": "access",
+      "observed": "Several surfaces are held for Liftoff Pro: full body rank analysis, standing within the user's region on the leaderboard, macro tracking, and Pro-exclusive store deals. Liftoff states that Pro is needed to see where the user stands compared to their region. The Pro prompt from Home also lists workout training and unlimited routines and exercises among its features. Photo meal logging stays available without payment.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O39",
+      "name": "Eggs balance",
+      "section": "economy",
+      "observed": "Liftoff's store names eggs as its currency. Eggs are granted when a quest is claimed and spent in the store; they are also sold for money. The Home header shows a blue icon beside the number 200. No egg balance figure is shown before or after the purchase made.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Daily / Weekly Quests",
+          "confidence": "O29 (tier: strongly supported, daily and weekly quest labels and a claim reward are observed, but no refresh at a period boundary is seen).",
+          "confidences": [
+            "O29 (tier: strongly supported, daily and weekly quest labels and a claim reward are observed, but no refresh at a period boundary is seen)."
+          ],
+          "rationale": "Liftoff lists daily quests and weekly quests as separate groups with claim states that grant eggs and experience points (tier: directly observed). Under the presence standard, the product's framing of daily and weekly quests with claimable completion establishes the label, and the refresh rule is recorded as not observed. The structure corresponds to the Scheduled Return Triggers and Bounded Completable Goals patterns (tier: plausible).",
+          "alternativeConsidered": "An undated task list with no recurring issuance, which would carry no label (tier: plausible). A session across a daily boundary showing the quest set refreshed would separate the two.",
+          "role": "retention, engagement"
+        },
+        {
+          "name": "Hard Currency",
+          "confidence": "The paid packages and the egg-priced purchase (tier: directly observed). The stored balance between acquisition and spend (tier: strongly supported, no egg balance figure is read out).",
+          "confidences": [
+            "The paid packages and the egg-priced purchase (tier: directly observed). The stored balance between acquisition and spend (tier: strongly supported, no egg balance figure is read out)."
+          ],
+          "rationale": "Liftoff names eggs as its currency, sells packages of eggs for money, and lets the user exchange eggs for consumables and cosmetics and for a deal refresh (tier: directly observed). The narrator bought a Double XP Shake with eggs, and it appeared in the inventory (tier: directly observed). The structure corresponds to the Flexible Stored Value pattern (tier: strongly supported). Hard Currency is a specialization of Spendable Credits and Tokens, which is noted as the parent.",
+          "alternativeConsidered": "Direct purchase of store items for money with no stored balance (tier: plausible). The deal refresh priced at 10 eggs and the shake bought with eggs weigh against it, since both draw on a balance. A session that buys eggs and reads the balance before and after would close the gap.",
+          "role": "monetization, engagement"
+        },
+        {
+          "name": "Soft Currency",
+          "confidence": "O29 and O39 (tier: strongly supported, the quest grant of eggs is stated, but no claim amount or balance change is read out).",
+          "confidences": [
+            "O29 and O39 (tier: strongly supported, the quest grant of eggs is stated, but no claim amount or balance change is read out)."
+          ],
+          "rationale": "Liftoff states that claiming a quest grants eggs (tier: directly observed). Quests recur on daily and weekly cadences, which gives a repeatable non-paid route (tier: strongly supported). The narrator held enough eggs to buy a shake without a money purchase (tier: directly observed). The same balance is also sold for money, so both currency labels apply to one balance, as the library directs. The structure corresponds to the Flexible Stored Value and Earned Access patterns (tier: plausible).",
+          "alternativeConsidered": "A one-time starting grant as the only non-paid source (tier: plausible). The quest grant in O29 weighs against it. A session reading the balance before and after a quest claim would close the gap.",
+          "role": "engagement, retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O40",
+      "name": "Store items and deals",
+      "section": "economy",
+      "observed": "The Liftoff store, reached from Profile, offers consumables, cosmetics and deals. Deals can be refreshed by spending 10 eggs. Consumables include XP shakes such as the Double XP Shake, and streak restorers. Cosmetics include profile banners, cosmic borders, elemental borders, level borders, prismatic themes, color themes, special themes and seasonal themes. Pro-exclusive deals open a Pro prompt.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Experience Points",
+          "confidence": "Across O29, O34 and O41 (tier: strongly supported, no grant amount, balance or threshold crossing is read out).",
+          "confidences": [
+            "Across O29, O34 and O41 (tier: strongly supported, no grant amount, balance or threshold crossing is read out)."
+          ],
+          "rationale": "Liftoff states that claiming a quest grants experience points (tier: directly observed). The Double XP Shake copy, \"double your experience gain\" during a workout, establishes workouts as a qualifying activity (tier: strongly supported). The Home header shows a level with its progress, and the store sells level borders (tier: directly observed). Together these support an accumulated progression value advancing an account level (tier: strongly supported). The structure corresponds to the Accumulated Investment pattern (tier: plausible).",
+          "alternativeConsidered": "Soft Currency, because quest claims pay experience beside eggs (tier: directly observed). Experience is never shown being spent, while eggs are (O40, O41), so the two values are classified separately. A second alternative is that the avatar progress is a display with no threshold behind it. A session that crosses a level would separate the two.",
+          "role": "engagement"
+        },
+        {
+          "name": "Streak",
+          "confidence": "O58 (tier: strongly supported, a count, a restoration item and a start-a-streak quest are observed, but the continuity rule is not).",
+          "confidences": [
+            "O58 (tier: strongly supported, a count, a restoration item and a start-a-streak quest are observed, but the continuity rule is not)."
+          ],
+          "rationale": "The Home flame shows a count of 1 (tier: directly observed). A count alone would not establish continuity under the entry. Liftoff also sells streak restorers \"if you want to restore our streaks\", which frames the streak as a state that can break and be repaired (tier: directly observed). Other users' streaks appear on their Discovery posts (tier: directly observed). The qualifying activity, period and break rule are not observed. The structure corresponds to the Continuity Stakes and Failure Recovery patterns (tier: strongly supported).",
+          "alternativeConsidered": "A cumulative count of workouts shown with a flame (tier: plausible). The restorers weigh against it, since a count that gaps cannot break needs no restoring. A session that misses a period would separate the two.",
+          "role": "retention"
+        },
+        {
+          "name": "Hard Currency",
+          "confidence": "The paid packages and the egg-priced purchase (tier: directly observed). The stored balance between acquisition and spend (tier: strongly supported, no egg balance figure is read out).",
+          "confidences": [
+            "The paid packages and the egg-priced purchase (tier: directly observed). The stored balance between acquisition and spend (tier: strongly supported, no egg balance figure is read out)."
+          ],
+          "rationale": "Liftoff names eggs as its currency, sells packages of eggs for money, and lets the user exchange eggs for consumables and cosmetics and for a deal refresh (tier: directly observed). The narrator bought a Double XP Shake with eggs, and it appeared in the inventory (tier: directly observed). The structure corresponds to the Flexible Stored Value pattern (tier: strongly supported). Hard Currency is a specialization of Spendable Credits and Tokens, which is noted as the parent.",
+          "alternativeConsidered": "Direct purchase of store items for money with no stored balance (tier: plausible). The deal refresh priced at 10 eggs and the shake bought with eggs weigh against it, since both draw on a balance. A session that buys eggs and reads the balance before and after would close the gap.",
+          "role": "monetization, engagement"
+        },
+        {
+          "name": "Soft Currency",
+          "confidence": "O29 and O39 (tier: strongly supported, the quest grant of eggs is stated, but no claim amount or balance change is read out).",
+          "confidences": [
+            "O29 and O39 (tier: strongly supported, the quest grant of eggs is stated, but no claim amount or balance change is read out)."
+          ],
+          "rationale": "Liftoff states that claiming a quest grants eggs (tier: directly observed). Quests recur on daily and weekly cadences, which gives a repeatable non-paid route (tier: strongly supported). The narrator held enough eggs to buy a shake without a money purchase (tier: directly observed). The same balance is also sold for money, so both currency labels apply to one balance, as the library directs. The structure corresponds to the Flexible Stored Value and Earned Access patterns (tier: plausible).",
+          "alternativeConsidered": "A one-time starting grant as the only non-paid source (tier: plausible). The quest grant in O29 weighs against it. A session reading the balance before and after a quest claim would close the gap.",
+          "role": "engagement, retention"
+        },
+        {
+          "name": "Reward Multiplier",
+          "confidence": "O41 (tier: strongly supported, the factor and scope are stated in item copy, but the shake is not seen applied).",
+          "confidences": [
+            "O41 (tier: strongly supported, the factor and scope are stated in item copy, but the shake is not seen applied)."
+          ],
+          "rationale": "Liftoff states a factor, double, against a reward it already pays, experience gain, within a scope, a workout during which the shake is used (tier: directly observed). The base reward is supported by quest claims paying experience and by the shake's own copy (tier: strongly supported). The shake is a held item consumed on use, but its only stated effect is on the payout, and the library places such an item under this entry rather than Boosters. The structure corresponds to the Earned Access pattern at the point of purchase (tier: plausible).",
+          "alternativeConsidered": "Boosters, because the shake is held in a counted inventory and consumed on use (tier: directly observed). The Reward Multiplier entry sends an item whose only stated effect is to increase a payout to itself, so Boosters is not applied. If a later session showed the shake also changing the workout, Boosters would apply to that effect.",
+          "role": "engagement"
+        },
+        {
+          "name": "Cosmetic Customization",
+          "confidence": "O40 and O45 (tier: strongly supported, the items and the avatar editor are offered, but applying a cosmetic is not observed).",
+          "confidences": [
+            "O40 and O45 (tier: strongly supported, the items and the avatar editor are offered, but applying a cosmetic is not observed)."
+          ],
+          "rationale": "Liftoff sells profile banners, several border types and several app theme types as store content, which places them on the content side of the library's boundary with built-in settings (tier: directly observed). The profile offers further avatar editing after the onboarding pick, which promised \"We'll personalize it later\" (tier: directly observed). No cosmetic changes a capability on the observed evidence (tier: strongly supported). The structure corresponds to the Identity Expression pattern (tier: strongly supported).",
+          "alternativeConsidered": "Built-in configuration settings, which carry no label (tier: plausible). Store placement and sale for eggs weigh against it for the themes and borders. For level borders, a presentation tied only to level would be a status indicator rather than a cosmetic, and a session applying one would settle it.",
+          "role": "monetization, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O41",
+      "name": "Double XP Shake item",
+      "section": "economy",
+      "observed": "Items bought in the store appear in an inventory. The Double XP Shake states that using it during a workout doubles experience gain, and that the item is consumed upon use. The shake was bought with eggs, and consumables are chosen at the start or end of a workout.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Experience Points",
+          "confidence": "Across O29, O34 and O41 (tier: strongly supported, no grant amount, balance or threshold crossing is read out).",
+          "confidences": [
+            "Across O29, O34 and O41 (tier: strongly supported, no grant amount, balance or threshold crossing is read out)."
+          ],
+          "rationale": "Liftoff states that claiming a quest grants experience points (tier: directly observed). The Double XP Shake copy, \"double your experience gain\" during a workout, establishes workouts as a qualifying activity (tier: strongly supported). The Home header shows a level with its progress, and the store sells level borders (tier: directly observed). Together these support an accumulated progression value advancing an account level (tier: strongly supported). The structure corresponds to the Accumulated Investment pattern (tier: plausible).",
+          "alternativeConsidered": "Soft Currency, because quest claims pay experience beside eggs (tier: directly observed). Experience is never shown being spent, while eggs are (O40, O41), so the two values are classified separately. A second alternative is that the avatar progress is a display with no threshold behind it. A session that crosses a level would separate the two.",
+          "role": "engagement"
+        },
+        {
+          "name": "Hard Currency",
+          "confidence": "The paid packages and the egg-priced purchase (tier: directly observed). The stored balance between acquisition and spend (tier: strongly supported, no egg balance figure is read out).",
+          "confidences": [
+            "The paid packages and the egg-priced purchase (tier: directly observed). The stored balance between acquisition and spend (tier: strongly supported, no egg balance figure is read out)."
+          ],
+          "rationale": "Liftoff names eggs as its currency, sells packages of eggs for money, and lets the user exchange eggs for consumables and cosmetics and for a deal refresh (tier: directly observed). The narrator bought a Double XP Shake with eggs, and it appeared in the inventory (tier: directly observed). The structure corresponds to the Flexible Stored Value pattern (tier: strongly supported). Hard Currency is a specialization of Spendable Credits and Tokens, which is noted as the parent.",
+          "alternativeConsidered": "Direct purchase of store items for money with no stored balance (tier: plausible). The deal refresh priced at 10 eggs and the shake bought with eggs weigh against it, since both draw on a balance. A session that buys eggs and reads the balance before and after would close the gap.",
+          "role": "monetization, engagement"
+        },
+        {
+          "name": "Soft Currency",
+          "confidence": "O29 and O39 (tier: strongly supported, the quest grant of eggs is stated, but no claim amount or balance change is read out).",
+          "confidences": [
+            "O29 and O39 (tier: strongly supported, the quest grant of eggs is stated, but no claim amount or balance change is read out)."
+          ],
+          "rationale": "Liftoff states that claiming a quest grants eggs (tier: directly observed). Quests recur on daily and weekly cadences, which gives a repeatable non-paid route (tier: strongly supported). The narrator held enough eggs to buy a shake without a money purchase (tier: directly observed). The same balance is also sold for money, so both currency labels apply to one balance, as the library directs. The structure corresponds to the Flexible Stored Value and Earned Access patterns (tier: plausible).",
+          "alternativeConsidered": "A one-time starting grant as the only non-paid source (tier: plausible). The quest grant in O29 weighs against it. A session reading the balance before and after a quest claim would close the gap.",
+          "role": "engagement, retention"
+        },
+        {
+          "name": "Reward Multiplier",
+          "confidence": "O41 (tier: strongly supported, the factor and scope are stated in item copy, but the shake is not seen applied).",
+          "confidences": [
+            "O41 (tier: strongly supported, the factor and scope are stated in item copy, but the shake is not seen applied)."
+          ],
+          "rationale": "Liftoff states a factor, double, against a reward it already pays, experience gain, within a scope, a workout during which the shake is used (tier: directly observed). The base reward is supported by quest claims paying experience and by the shake's own copy (tier: strongly supported). The shake is a held item consumed on use, but its only stated effect is on the payout, and the library places such an item under this entry rather than Boosters. The structure corresponds to the Earned Access pattern at the point of purchase (tier: plausible).",
+          "alternativeConsidered": "Boosters, because the shake is held in a counted inventory and consumed on use (tier: directly observed). The Reward Multiplier entry sends an item whose only stated effect is to increase a payout to itself, so Boosters is not applied. If a later session showed the shake also changing the workout, Boosters would apply to that effect.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O42",
+      "name": "Three home feeds",
+      "section": "social",
+      "observed": "Home carries three feeds labeled For You, Friends and Discovery. In Discovery, other users post images, their avatars, workout durations and streaks, and a post can be reported. Finished workouts can be posted to Discovery. The For You and Friends feeds are not described beyond their labels.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "O58 (tier: strongly supported, a count, a restoration item and a start-a-streak quest are observed, but the continuity rule is not).",
+          "confidences": [
+            "O58 (tier: strongly supported, a count, a restoration item and a start-a-streak quest are observed, but the continuity rule is not)."
+          ],
+          "rationale": "The Home flame shows a count of 1 (tier: directly observed). A count alone would not establish continuity under the entry. Liftoff also sells streak restorers \"if you want to restore our streaks\", which frames the streak as a state that can break and be repaired (tier: directly observed). Other users' streaks appear on their Discovery posts (tier: directly observed). The qualifying activity, period and break rule are not observed. The structure corresponds to the Continuity Stakes and Failure Recovery patterns (tier: strongly supported).",
+          "alternativeConsidered": "A cumulative count of workouts shown with a flame (tier: plausible). The restorers weigh against it, since a count that gaps cannot break needs no restoring. A session that misses a period would separate the two.",
+          "role": "retention"
+        },
+        {
+          "name": "Social Feed",
+          "confidence": "O42 (tier: directly observed).",
+          "confidences": [
+            "O42 (tier: directly observed)."
+          ],
+          "rationale": "Liftoff presents Discovery as a stream of posts from multiple users carrying images, avatars, workout durations and streaks, with a report control (tier: directly observed). The For you and Friends labels mark further feeds (tier: directly observed). The ordering rule is not stated. The structure corresponds to the Social Visibility pattern (tier: strongly supported).",
+          "alternativeConsidered": "Community Space, which would require the posts to belong to a persistent shared space rather than a viewer's stream (tier: directly observed, no such space was narrated).",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O43",
+      "name": "Leaderboards and other profiles",
+      "section": "social",
+      "observed": "The Ranks area shows rank standings on leaderboards with friends and global scopes, plus a regional scope held for Pro. Other users' profiles can be opened, showing their successes, ratings and ranks. Friends leaderboards are also listed on the Friends tab.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Leaderboard",
+          "confidence": "O43 (tier: strongly supported, standings are shown in friends and global scopes, but the measure and the order are not read out).",
+          "confidences": [
+            "O43 (tier: strongly supported, standings are shown in friends and global scopes, but the measure and the order are not read out)."
+          ],
+          "rationale": "Liftoff shows rank standings in a leaderboard, with friends and global scopes and a regional scope held for Pro (tier: directly observed). \"Rank standings\" establishes an ordering of multiple entities (tier: strongly supported). The measure behind the order is not stated, and the rank ladder in O32 is the candidate (tier: plausible). The structure corresponds to the Peer-Matched Comparison pattern through the friends and regional scopes (tier: strongly supported).",
+          "alternativeConsidered": "Comparative Rank for the user's own position (tier: unresolved). No position was read out, and the regional standing is gated (see Unresolved).",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O44",
+      "name": "Friends surfaces",
+      "section": "social",
+      "observed": "The Friends tab lets the user show their body rank and muscle ranks, invite friends, send friends a notification, and view friends leaderboards. Friends can also be tagged in a workout post.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O45",
+      "name": "Profile presentation",
+      "section": "social",
+      "observed": "Profile lets the user edit the avatar further and includes a reactions area for setting how the user's name looks and adding emoji reactions. Profile also lists routines, exercises, the health log, the inventory and memories, with up to three medals displayed there.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Cosmetic Customization",
+          "confidence": "O40 and O45 (tier: strongly supported, the items and the avatar editor are offered, but applying a cosmetic is not observed).",
+          "confidences": [
+            "O40 and O45 (tier: strongly supported, the items and the avatar editor are offered, but applying a cosmetic is not observed)."
+          ],
+          "rationale": "Liftoff sells profile banners, several border types and several app theme types as store content, which places them on the content side of the library's boundary with built-in settings (tier: directly observed). The profile offers further avatar editing after the onboarding pick, which promised \"We'll personalize it later\" (tier: directly observed). No cosmetic changes a capability on the observed evidence (tier: strongly supported). The structure corresponds to the Identity Expression pattern (tier: strongly supported).",
+          "alternativeConsidered": "Built-in configuration settings, which carry no label (tier: plausible). Store placement and sale for eggs weigh against it for the themes and borders. For level borders, a presentation tied only to level would be a status indicator rather than a cosmetic, and a session applying one would settle it.",
+          "role": "monetization, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O46",
+      "name": "Strava link prompt",
+      "section": "reach",
+      "observed": "After the welcome screen and before the main app, Liftoff shows a pop-up offering to link the Liftoff and Strava accounts to share workouts across platforms, with a choice to link or not. The workout posting surface also offers posting to Strava directly.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O47",
+      "name": "Invitations and referrals",
+      "section": "reach",
+      "observed": "Liftoff offers invitations and referrals from the Friends tab and lists referral quests among its quests. What the invited person must do, and what the inviting user receives, is not stated.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O48",
+      "name": "Trial introduction screen",
+      "section": "monetization",
+      "observed": "After the body rank explanation, Liftoff states that it offers 7 days free so everyone can get ranked, over a scrolling row of other users' muscle and muscle group rankings, with a \"Try for free\" button.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O49",
+      "name": "Trial-end reminder choice",
+      "section": "monetization",
+      "observed": "After choosing to try for free, Liftoff asks when it should notify the user before the trial ends, offering two days before or three days before, and requires a choice to continue.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O50",
+      "name": "Plan selection paywall",
+      "section": "monetization",
+      "observed": "The paywall reads \"Start getting stronger today with your free 7-day trial,\" showing a timeline with a reminder in five days and billing starting in seven, and preselects the free trial. The other option is a 30-day trial for $1.99. The full price appears under the start button: free access for seven days, then $79.99 per year, stated as $6.67 per month. The screen states the user can cancel any time before billing.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O51",
+      "name": "Exit one-time offer",
+      "section": "monetization",
+      "observed": "Closing the paywall opens a one-time offer headed \"78% off forever\": a yearly plan for $39.99, stated as $3.33 per month, with the seven-day free trial included. Closing the offer leads to the Apple Health request.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O52",
+      "name": "Pro upsell from body rank",
+      "section": "monetization",
+      "observed": "Tapping the Home prompt to unlock body rank progress for free explains that the user can analyze their full body and target the right muscles with their Liftoff body rank, then asks the user to get Liftoff Pro.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O53",
+      "name": "Pro prompt from store deals",
+      "section": "monetization",
+      "observed": "Opening a Pro-exclusive deal in the store opens a screen stating that Pro members become 40% stronger on average, and lists the features Pro unlocks.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O54",
+      "name": "Egg packages priced in money",
+      "section": "monetization",
+      "observed": "The store sells eggs for money in packages ranging from 100 eggs for $0.99 to 14,000 eggs for $99.99. The largest package gives more eggs per dollar than the smallest, about 140 against about 101.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Hard Currency",
+          "confidence": "The paid packages and the egg-priced purchase (tier: directly observed). The stored balance between acquisition and spend (tier: strongly supported, no egg balance figure is read out).",
+          "confidences": [
+            "The paid packages and the egg-priced purchase (tier: directly observed). The stored balance between acquisition and spend (tier: strongly supported, no egg balance figure is read out)."
+          ],
+          "rationale": "Liftoff names eggs as its currency, sells packages of eggs for money, and lets the user exchange eggs for consumables and cosmetics and for a deal refresh (tier: directly observed). The narrator bought a Double XP Shake with eggs, and it appeared in the inventory (tier: directly observed). The structure corresponds to the Flexible Stored Value pattern (tier: strongly supported). Hard Currency is a specialization of Spendable Credits and Tokens, which is noted as the parent.",
+          "alternativeConsidered": "Direct purchase of store items for money with no stored balance (tier: plausible). The deal refresh priced at 10 eggs and the shake bought with eggs weigh against it, since both draw on a balance. A session that buys eggs and reads the balance before and after would close the gap.",
+          "role": "monetization, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O55",
+      "name": "Workout preview notifications",
+      "section": "returns",
+      "observed": "After the frequency question, Liftoff asks whether the user wants workout previews on active days, showing a mock-up of the notification and a time selector. Choosing to be reminded triggers the system notification permission request, with Maybe Later also offered.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O56",
+      "name": "Home screen widget prompt",
+      "section": "returns",
+      "observed": "Liftoff shows a screen offering to support the user from their home screen, with a preview of its widgets and Maybe Later and Next options. Next walks through adding a widget, starting with pressing and holding anywhere on the home screen. Adding the widget is one of the welcome quest tasks.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Challenge",
+          "confidence": "O23 (tier: strongly supported, the objective, boundary and reward are framed, but completion or expiry is not observed).",
+          "confidences": [
+            "O23 (tier: strongly supported, the objective, boundary and reward are framed, but completion or expiry is not observed)."
+          ],
+          "rationale": "Liftoff creates a first-day objective, \"Wrap up your first day on Liftoff and earn a special reward\", with a success condition of adding the widget and completing a first workout, and a stated reward (tier: directly observed). The first-day framing supplies the boundary (tier: strongly supported). What happens at the boundary without completion was not observed. The structure corresponds to the Bounded Completable Goals pattern (tier: strongly supported).",
+          "alternativeConsidered": "A getting-started checklist with no boundary, which would carry no label (tier: plausible). A session that passes the first day without completing the tasks would separate the two.",
+          "role": "engagement, retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O57",
+      "name": "Rating prompt during setup",
+      "section": "returns",
+      "observed": "During the setup loading sequence, below the 4.9 rating laurels, Liftoff prompts the user to rate the app, before the user has seen an exercise or reached the paywall.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O58",
+      "name": "Streak indicator and restorers",
+      "section": "returns",
+      "observed": "The Home header shows a flame with the number 1, the store sells streak restorers, and a quest invites the user to start a streak. Posts in Discovery show other users' streaks. The Home discover section also lists a streak calendar. The qualifying activity, the period, and the rule that breaks a streak are not stated.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Daily / Weekly Quests",
+          "confidence": "O29 (tier: strongly supported, daily and weekly quest labels and a claim reward are observed, but no refresh at a period boundary is seen).",
+          "confidences": [
+            "O29 (tier: strongly supported, daily and weekly quest labels and a claim reward are observed, but no refresh at a period boundary is seen)."
+          ],
+          "rationale": "Liftoff lists daily quests and weekly quests as separate groups with claim states that grant eggs and experience points (tier: directly observed). Under the presence standard, the product's framing of daily and weekly quests with claimable completion establishes the label, and the refresh rule is recorded as not observed. The structure corresponds to the Scheduled Return Triggers and Bounded Completable Goals patterns (tier: plausible).",
+          "alternativeConsidered": "An undated task list with no recurring issuance, which would carry no label (tier: plausible). A session across a daily boundary showing the quest set refreshed would separate the two.",
+          "role": "retention, engagement"
+        },
+        {
+          "name": "Streak",
+          "confidence": "O58 (tier: strongly supported, a count, a restoration item and a start-a-streak quest are observed, but the continuity rule is not).",
+          "confidences": [
+            "O58 (tier: strongly supported, a count, a restoration item and a start-a-streak quest are observed, but the continuity rule is not)."
+          ],
+          "rationale": "The Home flame shows a count of 1 (tier: directly observed). A count alone would not establish continuity under the entry. Liftoff also sells streak restorers \"if you want to restore our streaks\", which frames the streak as a state that can break and be repaired (tier: directly observed). Other users' streaks appear on their Discovery posts (tier: directly observed). The qualifying activity, period and break rule are not observed. The structure corresponds to the Continuity Stakes and Failure Recovery patterns (tier: strongly supported).",
+          "alternativeConsidered": "A cumulative count of workouts shown with a flame (tier: plausible). The restorers weigh against it, since a count that gaps cannot break needs no restoring. A session that misses a period would separate the two.",
+          "role": "retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O59",
+      "name": "Home header bell",
+      "section": "returns",
+      "observed": "The Home header carries a bell. The bell was not opened.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    }
+  ],
+  "systemView": [
+    "Liftoff is a complex system whose spine is the rank a user is assigned: the onboarding assessment sets the first rank, logged workouts and quests keep extending it, and that same ranking measure gates league access, frames the paywall, and anchors the leaderboards and social comparisons built on top of it."
+  ],
+  "mechanicWriteups": [
+    {
+      "name": "Leveling",
+      "summary": "Liftoff assigns a Bronze-to-Diamond rank per exercise and per muscle, first from a self-reported number, then from logged sets.",
+      "observed": "Liftoff places every ranked exercise, and every muscle in the body rank, on an ordered ladder running Bronze, Silver, Gold, Platinum and Diamond, with numbered steps inside a tier such as Bronze 3. The first rank comes from a rep count the user reports during onboarding for one chosen exercise; further exercises gain a rank once a workout logs sets against them. Liftoff also shows a level with a progress bar beside the avatar on the home screen.",
+      "presented": "The rank ladder is explained across dedicated onboarding screens before the first workout, then lives in the Ranks tab alongside a body graph, leagues, a gallery, a calculator and analysis. The account level sits fixed at the top of the home screen, next to the avatar.",
+      "noting": "Liftoff frames the rank ladder as the thing to act on, telling the user to target lower-ranked muscles to get stronger, and stages a screen showing the path all the way to Diamond before any workout is logged. The account level beside the avatar runs alongside the rank ladder without stating its own number, threshold, or what makes it move; the store's level borders are the only other place a level number could show up, and none is shown there either.",
+      "findings": [
+        "The rank ladder runs Bronze, Silver, Gold, Platinum, Diamond, with numbered steps inside a tier.",
+        "The first rank comes from a self-reported rep count during onboarding.",
+        "Further exercises gain a rank once a workout logs sets against them.",
+        "A level and a progress bar sit beside the avatar on the home screen, with no number stated."
+      ],
+      "screenshotsNote": "the rank ladder explanation screen naming all five tiers, and the account level beside the avatar."
+    },
+    {
+      "name": "Experience Points",
+      "summary": "Claiming a quest or finishing a workout pays experience toward the level beside the avatar, with no amount ever shown.",
+      "observed": "Liftoff states that claiming a quest grants experience points, and a store item, the Double XP Shake, is described as doubling experience gained during a workout. Both routes feed the same level shown with a progress bar beside the avatar on the home screen.",
+      "presented": "Experience isn't shown as its own balance anywhere; it surfaces only through the copy on quest claims and the shake's own description, and through the level progress bar it's presumed to advance.",
+      "noting": "Liftoff never shows an experience amount, a level threshold, or a level changing, so what's confirmed is that two routes pay into the same value, not how much either one pays or what crossing a level actually does. The shake's claim to double the gain from a workout has nothing to double against, since no workout's own experience payout is ever shown either.",
+      "findings": [
+        "Claiming a quest grants experience points.",
+        "The Double XP Shake doubles experience gained during a workout.",
+        "Both routes feed the level shown beside the avatar.",
+        "No experience amount, threshold, or level change is shown at any point."
+      ],
+      "screenshotsNote": "a quest claim stating its experience reward, and the Double XP Shake's item description."
+    },
+    {
+      "name": "Achievement",
+      "summary": "Liftoff keeps a medal collection on the profile, some with hidden criteria, and lets the user pin three.",
+      "observed": "Profile holds a set of medals the user can collect, with some medals carrying criteria that stay hidden until met. The user can choose up to three medals to display on the profile.",
+      "presented": "Medals sit on the Profile tab as their own collection, separate from the badges awarded per exercise after a workout, with a display slot for three chosen medals.",
+      "noting": "Liftoff builds real suspense into part of the medal set by hiding what earns them, but nothing shown says whether the account already holds any medal, what a medal's criterion looks like once revealed, or what happens on attainment. The display slot for three medals is the only part of the mechanic actually demonstrated.",
+      "findings": [
+        "Medals sit on the profile as their own collection.",
+        "Some medals have hidden criteria.",
+        "The user can choose up to three medals to display.",
+        "No medal attainment, criterion, or count is shown."
+      ],
+      "screenshotsNote": "the medal collection screen, and the three-medal display slot on the profile."
+    },
+    {
+      "name": "Daily / Weekly Quests",
+      "summary": "Profile lists separate daily, weekly and referral quests, each claimed for eggs and experience.",
+      "observed": "A quests surface on Profile groups tasks into daily quests, weekly quests and referral quests, including a quest to start a streak. Claiming a completed quest grants eggs and experience points.",
+      "presented": "The three quest groups sit together on one surface reached from Profile, with a claim action attached to each completed task.",
+      "noting": "Liftoff names three separate cadences on one screen but doesn't show any individual quest's task, target, or reward amount, and doesn't show whether the set refreshes on a boundary or what a referral quest actually asks the introduced person to do.",
+      "findings": [
+        "Quests are grouped into daily, weekly and referral quests.",
+        "One quest asks the user to start a streak.",
+        "Claiming a quest grants eggs and experience points.",
+        "No individual quest's task, target, or reward amount is shown."
+      ],
+      "screenshotsNote": "the quests surface showing all three groups."
+    },
+    {
+      "name": "Challenge",
+      "summary": "A first-day objective pairs adding the home screen widget with completing one workout for an unnamed reward.",
+      "observed": "Liftoff sets a first-day objective, framed as wrapping up the first day on Liftoff to earn a special reward, with two tasks: adding the Liftoff widget to the home screen and completing a first workout.",
+      "presented": "The objective appears in a \"Getting started\" section on the home screen, listing both tasks together under the promised reward.",
+      "noting": "Liftoff names the reward only as special, never disclosing what it is, and nothing shown says what happens if the first day passes without both tasks done. The widget task is also asked for on its own screen earlier in onboarding, so the objective repeats a step the user may have already completed before it's even framed as a task.",
+      "findings": [
+        "The objective is framed as wrapping up the first day on Liftoff.",
+        "Its two tasks are adding the home screen widget and completing a first workout.",
+        "The reward is named only as special, never identified.",
+        "The widget task is also requested earlier in onboarding, on its own."
+      ],
+      "screenshotsNote": "the \"Getting started\" section showing both tasks and the reward line."
+    },
+    {
+      "name": "Streak",
+      "summary": "A flame count of one sits atop the home screen, next to store items sold to restore a broken streak.",
+      "observed": "The home screen header shows a flame with a count of 1. Liftoff sells streak restorers in the store, described as being for when a user wants to restore their streak, and other users' streaks appear on their posts in Discovery.",
+      "presented": "The flame sits in the header at the top of the home screen, visible on every visit; the restorers are a separate line item in the store, and a quest task offers to start a streak.",
+      "noting": "Selling a restorer is Liftoff's own admission that the count can break, since nothing needs restoring if it can't, but nothing shown states what activity the streak counts, what period it runs on, or what breaks it. The count of 1 could describe a single qualifying day or a single qualifying week; the app doesn't say which.",
+      "findings": [
+        "The home header shows a flame with a count of 1.",
+        "Streak restorers are sold in the store.",
+        "Other users' streaks appear on their Discovery posts.",
+        "A quest task offers to start a streak.",
+        "The qualifying activity, period, and break rule are not stated."
+      ],
+      "screenshotsNote": "the home header flame, and the streak restorer in the store."
+    },
+    {
+      "name": "Soft Currency",
+      "summary": "Completing a quest is the earned route into eggs, the balance the store also sells for real money.",
+      "observed": "Liftoff grants eggs for claiming a completed quest, on daily, weekly and referral cadences. The user held enough eggs from quests alone to buy a Double XP Shake in the store without any money purchase.",
+      "presented": "The egg grant appears as part of the same claim action that pays experience, on the quests surface reached from Profile; the store where eggs are spent has no separate label distinguishing quest-earned eggs from purchased ones.",
+      "noting": "Eggs work as one balance no matter how they arrive, quest-earned or bought outright, which is also covered under Hard Currency for the purchasable side of the same balance. Liftoff never shows a balance figure or a claim amount, so what a quest actually pays into the balance isn't shown, only that it pays something.",
+      "findings": [
+        "Claiming a quest grants eggs, on daily, weekly and referral cadences.",
+        "Eggs earned from quests alone paid for a store purchase, with no money spent.",
+        "No claim amount or balance figure is ever shown.",
+        "The same balance is also sold directly for money."
+      ],
+      "screenshotsNote": "a quest claim showing the egg grant, and the store purchase made with quest-earned eggs."
+    },
+    {
+      "name": "Hard Currency",
+      "summary": "The same eggs quests pay out are also sold directly in packages from $0.99 to $99.99.",
+      "observed": "Liftoff's store sells eggs for money in packages from 100 eggs for $0.99 up to 14,000 eggs for $99.99. The same eggs are spent on consumables, cosmetics and a 10-egg deal refresh in the same store.",
+      "presented": "The egg packages sit in the store as a direct purchase option, priced in real money, alongside the same spend surfaces that quest-earned eggs draw from.",
+      "noting": "The largest package gives noticeably more eggs per dollar than the smallest, about 140 against about 101, which rewards buying in bulk. Since quests pay into the identical balance a shopper can buy directly, Liftoff never has to show the two routes as different currencies, and it doesn't.",
+      "findings": [
+        "Egg packages range from 100 eggs for $0.99 to 14,000 eggs for $99.99.",
+        "The largest package gives about 140 eggs per dollar against about 101 for the smallest.",
+        "Eggs bought for money spend in the same store as quest-earned eggs.",
+        "No separate balance or label distinguishes purchased eggs from earned ones."
+      ],
+      "screenshotsNote": "the egg package store screen showing both ends of the price range."
+    },
+    {
+      "name": "Reward Multiplier",
+      "summary": "A store item consumed during a workout doubles the experience that workout pays, bought with eggs.",
+      "observed": "The Double XP Shake is a store item, bought with eggs, described as doubling experience gained during a workout and consumed on use. It's chosen at the start or end of a workout, alongside other consumables, and lands in an inventory once bought.",
+      "presented": "The shake sits in the store's consumables section next to other XP shakes, with its doubling effect and one-time consumption stated directly in its own item description.",
+      "noting": "Everything the shake does happens to a number Liftoff never shows: no workout's experience payout is stated with or without the shake, so the doubling is a claim about a figure the app keeps invisible on both sides. The shake changes only that payout, not the workout itself, which is what separates it from a held item that changes what happens during play.",
+      "findings": [
+        "The Double XP Shake is bought with eggs and consumed on use.",
+        "Its stated effect is doubling experience gained during a workout.",
+        "It's chosen at the start or end of a workout.",
+        "No experience amount is shown with or without the shake applied."
+      ],
+      "screenshotsNote": "the Double XP Shake's store listing and item description."
+    },
+    {
+      "name": "Cosmetic Customization",
+      "summary": "Eggs buy profile banners, borders, and app themes, on top of an avatar editable after onboarding.",
+      "observed": "The store sells profile banners, several border types including cosmic, elemental and level borders, and several theme types including prismatic, color, special and seasonal themes, all priced in eggs. Profile also offers further avatar editing beyond the six starting options chosen during onboarding.",
+      "presented": "Cosmetics sit in the store as their own category, separate from consumables, while avatar editing is reached from Profile rather than the store.",
+      "noting": "Liftoff sells cosmetics rather than unlocking them through play; every border and theme listed sits behind an egg price, not a rank or level crossed. Level borders are the one item named after a progression measure, but nothing shown ties owning or wearing one to an actual level reached, so it reads as a themed store item rather than a status attached to progress.",
+      "findings": [
+        "The store sells profile banners, several border types, and several theme types.",
+        "All listed cosmetics are priced in eggs.",
+        "Avatar editing continues on Profile after the initial onboarding choice.",
+        "Level borders are named after a progression measure but not shown tied to an actual level."
+      ],
+      "screenshotsNote": "the store's cosmetics category listing borders and themes."
+    },
+    {
+      "name": "Social Feed",
+      "summary": "Discovery streams other users' workout posts, avatars and streaks, alongside separate For You and Friends feeds.",
+      "observed": "Home carries three labeled feeds: For You, Friends and Discovery. Discovery shows posts from multiple users carrying images, avatars, workout durations and streaks, with a report control on each post. Finished workouts can be posted into Discovery from the workout-completion flow.",
+      "presented": "All three feeds sit on the home screen under their own labels; Discovery is the only one described beyond its name.",
+      "noting": "Liftoff runs three feeds side by side but only demonstrates one of them, so what For You and Friends actually surface, and what orders any of the three, stays unstated. The report control on Discovery posts is the one piece of moderation infrastructure shown anywhere in the social layer.",
+      "findings": [
+        "Home carries three labeled feeds: For You, Friends and Discovery.",
+        "Discovery shows posts with images, avatars, workout durations and streaks.",
+        "Posts in Discovery carry a report control.",
+        "Finished workouts can be posted into Discovery.",
+        "For You and Friends are not described beyond their labels."
+      ],
+      "screenshotsNote": "the Discovery feed, and the three-feed layout on Home."
+    },
+    {
+      "name": "Leaderboard",
+      "summary": "Rank standings compare the user against friends and everyone globally, with a regional view held for Pro.",
+      "observed": "The Ranks area shows rank standings on leaderboards with a friends scope and a global scope, plus a regional scope held for Liftoff Pro. Friends leaderboards are also listed on the Friends tab.",
+      "presented": "The leaderboard scopes sit together in the Ranks area, with the regional scope opening a Pro prompt instead of a standing when tapped.",
+      "noting": "Liftoff shows that a comparison exists in three scopes without showing what it orders users by or where the user themselves lands in it; the rank ladder is the most likely candidate for the measure, but nothing on screen states it directly. Pro's regional scope is priced on access to a standing the free scopes never reveal either.",
+      "findings": [
+        "Leaderboards run in friends, global and Pro-only regional scopes.",
+        "Friends leaderboards also appear on the Friends tab.",
+        "The measure the leaderboard orders by is not stated.",
+        "The user's own position on any leaderboard is not shown."
+      ],
+      "screenshotsNote": "the friends and global leaderboard scopes, and the regional scope's Pro prompt."
+    },
+    {
+      "name": "Progression Gate",
+      "summary": "Ranked leagues stay closed until the user has ranked ten separate exercises through the app's own systems.",
+      "observed": "Liftoff states that ranked leagues require the user to rank 10 exercises, a count that advances through the onboarding assessment and through logged workouts. The requirement is stated inside the Ranks tab, where leagues are listed.",
+      "presented": "The 10-exercise requirement appears as a stated line inside the Ranks tab, next to the leagues it gates.",
+      "noting": "The gate's condition is built entirely from the same ranking activity the rest of the app already asks for: ranking an exercise once counts toward leagues whether it happened during onboarding or in a logged workout since. Nothing shown displays a running count toward the ten, so a user has no way to see how close they are without opening the gated leagues screen itself.",
+      "findings": [
+        "Ranked leagues require ranking 10 exercises.",
+        "The count advances through the onboarding assessment and logged workouts.",
+        "The requirement is stated inside the Ranks tab.",
+        "No running count toward the ten is shown."
+      ],
+      "screenshotsNote": "the Ranks tab showing the 10-exercise leagues requirement.\n\n---"
+    }
+  ],
+  "sectionLeadIns": {
+    "onboarding": "A language choice, a guided questionnaire, a first rank assessment, a paywall and its exit offer, and account creation all run before Liftoff's first unguided screen.",
+    "core-loop": "The Workout tab runs logging, posting and history alongside a Nutrition tab for meal logging.",
+    "goals": "The Ranks tab holds the strength ladder and its supporting surfaces; Profile carries the account level, medals and home-screen goal setting.",
+    "access": "A ranked-leagues requirement and a set of features held for Liftoff Pro make up this section.",
+    "economy": "Eggs are Liftoff's one named currency, earned through quests, spent in the store, and also sold directly for money.",
+    "social": "Home carries three feeds, and the Ranks and Friends tabs carry leaderboards and other users' profiles.",
+    "reach": "A Strava link prompt and referral invitations are Liftoff's two routes outside the app.",
+    "monetization": "A seven-day trial, a same-day exit offer and several Pro prompts run across onboarding, the store and the home screen.",
+    "returns": "A notification opt-in, a widget prompt, a rating request and the streak all run before or alongside the first workout."
+  },
+  "sectionCards": {
+    "onboarding": "A language choice, a guided questionnaire, a first rank assessment, a paywall and its exit offer, and account creation all run before Liftoff's first unguided screen.",
+    "core-loop": "The Workout tab runs logging, posting and history alongside a Nutrition tab for meal logging.",
+    "goals": "The Ranks tab holds the strength ladder and its supporting surfaces; Profile carries the account level, medals and home-screen goal setting.",
+    "access": "A ranked-leagues requirement and a set of features held for Liftoff Pro make up this section.",
+    "economy": "Eggs are Liftoff's one named currency, earned through quests, spent in the store, and also sold directly for money.",
+    "social": "Home carries three feeds, and the Ranks and Friends tabs carry leaderboards and other users' profiles.",
+    "reach": "A Strava link prompt and referral invitations are Liftoff's two routes outside the app.",
+    "monetization": "A seven-day trial, a same-day exit offer and several Pro prompts run across onboarding, the store and the home screen.",
+    "returns": "A notification opt-in, a widget prompt, a rating request and the streak all run before or alongside the first workout."
+  },
+  "proposedTags": [
+    {
+      "name": "Predicted Goal Date",
+      "sourceObservations": [
+        "O17",
+        "O15",
+        "O16",
+        "O48"
+      ],
+      "draftDefinition": "A predicted goal date is a date the product states for when the user will reach a named target state that the product itself assigns and will recognize when reached, derived from inputs the user has just supplied and presented as a prediction with a rising visual from the present to that date.",
+      "conditions": "A present state measured or self-reported during onboarding (O16). A named target state in an ordered structure the product maintains and assigns (O19, O32). Placement ahead of a subscription offer (O48), which in this session is a sequence property and not a condition the pattern is shown to need (tier: plausible).",
+      "whyNotCovered": "Future Projection covers a computed state that the product never recognizes as reached, such as a position forty years out that lies outside the product's own accounting. Gold is a tier on the ladder Liftoff assigns (O32, O33) (tier: directly observed). Liftoff would recognize the user reaching it by assigning it (tier: strongly supported). O17 therefore falls outside Future Projection on that entry's defining clause, and widening the entry to admit it was considered and declined on 15 Sep 2026, because that clause is what separates it from a goal and from Milestone. Milestone requires the product to recognize a point when it is reached, which a date stated in advance does not do. Commitment requires the user to state future behavior. No other entry classifies a date the product states for reaching a target state it will itself recognize.",
+      "recurrenceElsewhere": "The pattern can be described without reference to Liftoff: any product that measures a baseline during onboarding and holds an ordered target state it assigns can state a date for reaching it, as fitness, weight, learning and savings products do (tier: plausible, not drawn from the session).",
+      "caveat": "Held open on 15 Sep 2026 rather than written as an entry. The distinction from Future Projection stands, but the evidence is thin where it matters. The narration reads out no assumption behind the date, which does not establish that none is on screen, and the graph's contents beyond a sharp rise were not captured (tier: unresolved). Either of two things would settle it: a Liftoff session that captures the prediction screen in full, including any assumption, figure or label on the graph, or a second app that states a date for a target state the product itself recognizes. The proposal stays open in Pass three until one of them is available."
     }
   ],
   "system": {
-    "tagline": "A strength training app where every muscle group has its own rank, and every logged set advances it.",
-    "overview": "Liftoff applies the most explicit XP leveling system observed in the fitness category. Logged workout volume contributes to an overall rank and to per-muscle rank, with named tier levels visible ahead of the current position. The variable reward at workout completion is tied to performance rather than spending. Cosmetics and social features are present but secondary to the progression mechanics.",
-    "loop": "Log a workout by tracking sets, reps, and weights. Each set contributes volume points to the overall rank and to the relevant muscle group ranks. Complete the workout. Receive a variable reward based on performance. View rank progression across all muscle groups. Check leaderboard position. Return for the next scheduled workout.",
-    "keyInsight": "The per-muscle rank system creates 10 or more simultaneous progression tracks rather than one. A user who trains chest three times per week and legs once per week will see asymmetric rank advancement that reflects their actual training priorities, making the rank feel like an accurate self-portrait rather than a generic progress bar.",
-    "whatMakesItWork": "Volume-based XP means the quality of the reward is determined by the quantity of work logged. There is no way to game the system by opening the app and closing it. The only way to advance is to do the actual workout.",
+    "tagline": "A strength rank assigned in onboarding becomes the gate, the leaderboard measure, and the frame for every paywall that follows.",
+    "overview": "Liftoff assigns a strength rank from a self-reported rep count before the first workout, then extends it through logged sets across a Bronze-to-Diamond ladder covering both exercises and muscles. Quests pay eggs and experience on daily, weekly and referral cadences, the same eggs the store also sells directly for money and spends on consumables, cosmetics and a deal refresh. A ten-exercise threshold gates ranked leagues, a flame counts a streak the store sells restorers for, and a predicted date for reaching the next rank tier appears before the paywall, a seven-day trial followed immediately by a same-day exit offer.",
+    "loop": "Answer the onboarding questionnaire, report a rep count for one exercise, and receive a first rank with a percentile. See a predicted date for reaching the next tier, then the paywall and its exit offer. Log a workout, which produces exercise rank badges and counts toward the ten exercises ranked leagues require. Claim daily, weekly and referral quests for eggs and experience, spend eggs on consumables and cosmetics or save them for a bigger purchase, and buy eggs directly if not. Watch the account level rise beside the avatar, and check a flame count and leaderboards for how the ranking measure looks against other users.",
+    "keyInsight": "Liftoff's economy and its progression system share almost nothing but a currency: eggs fund cosmetics, a deal refresh and the one item, the Double XP Shake, that feeds back into experience, while the rank ladder that gives the app its name advances purely through onboarding input and logged sets, untouched by anything eggs buy. The one place they meet, the shake's XP boost, doubles a number the app never discloses on either side of the purchase.",
+    "whatMakesItWork": "Every currency route lands in the same undifferentiated balance, so Liftoff never has to explain why an egg from a quest spends differently than an egg bought for $99.99, because it doesn't. The rank ladder gets the same treatment from a different direction: it's assigned from the first onboarding answer, before the user has done anything the app could call training, which lets the predicted-date screen and the paywall both borrow the ladder's authority before there's any workout behind it.",
     "roles": [
       {
+        "id": "progression-gate",
+        "role": "Ranked leagues stay closed until the user has ranked ten exercises, counted from both the onboarding assessment and logged workouts."
+      },
+      {
         "id": "leveling",
-        "role": "Overall rank and per-muscle ranks advance through logged workout volume. Named tier levels are visible ahead of the current position across each muscle group independently."
-      },
-      {
-        "id": "leaderboards",
-        "role": "Rankings across multiple metrics and time windows. Per-muscle leaderboards create competitive surfaces beyond total volume."
-      },
-      {
-        "id": "loot-box",
-        "role": "Refreshing Store deals costs 10 eggs for an unresolved new set of deals, eggs are committed before the refreshed contents are known."
+        "role": "A Bronze-to-Diamond ladder ranks every exercise and muscle, first from a self-reported rep count, then from logged sets."
       },
       {
         "id": "achievement",
-        "role": "Milestone badges for rank thresholds, consistency records, and personal bests across individual exercises and muscle groups."
+        "role": "A medal collection on the profile, some with hidden criteria, with a display slot for three chosen medals."
+      },
+      {
+        "id": "daily-weekly-quests",
+        "role": "Daily, weekly and referral quests claimed for eggs and experience, including a quest to start a streak."
+      },
+      {
+        "id": "experience-points",
+        "role": "A value paid by quest claims and workouts, shown only as a level progress bar beside the avatar, with no amount ever stated."
+      },
+      {
+        "id": "challenges",
+        "role": "A first-day objective pairing the home screen widget with a first workout, for a reward never named."
+      },
+      {
+        "id": "streak",
+        "role": "A flame count of one at the top of the home screen, with restorers sold in the store for when it breaks."
+      },
+      {
+        "id": "reward-multiplier",
+        "role": "The Double XP Shake, bought with eggs, doubling a workout's experience payout and consumed on use."
+      },
+      {
+        "id": "soft-currency",
+        "role": "Eggs earned from quest claims, spent in the same store as purchased eggs."
+      },
+      {
+        "id": "hard-currency",
+        "role": "The same eggs sold directly for money, in packages from $0.99 to $99.99."
       },
       {
         "id": "cosmetics",
-        "role": "Avatar customization and profile theming unlocked through rank progression rather than purchase."
+        "role": "Profile banners, borders and app themes, all priced in eggs rather than unlocked by rank."
+      },
+      {
+        "id": "social-feed",
+        "role": "Three home feeds, For You, Friends and Discovery, with Discovery the only one shown carrying other users' posts."
+      },
+      {
+        "id": "leaderboards",
+        "role": "Rank standings in friends and global scopes, with a regional scope held for Pro."
       }
     ],
     "center": {
       "x": 50,
-      "y": 8,
+      "y": 6,
       "label": "LIFTOFF"
     },
     "nodes": [
       {
-        "id": "leveling",
-        "x": 50,
-        "y": 26
+        "id": "progression-gate",
+        "x": 20,
+        "y": 20
       },
       {
-        "id": "leaderboards",
-        "x": 22,
-        "y": 50
+        "id": "leveling",
+        "x": 50,
+        "y": 20
+      },
+      {
+        "id": "achievement",
+        "x": 80,
+        "y": 20
       },
       {
         "id": "daily-weekly-quests",
-        "x": 78,
-        "y": 50
+        "x": 20,
+        "y": 38
       },
       {
-        "id": "credits-tokens",
-        "x": 22,
-        "y": 76
+        "id": "experience-points",
+        "x": 50,
+        "y": 38
+      },
+      {
+        "id": "challenges",
+        "x": 80,
+        "y": 38
+      },
+      {
+        "id": "streak",
+        "x": 35,
+        "y": 56
+      },
+      {
+        "id": "reward-multiplier",
+        "x": 65,
+        "y": 56
+      },
+      {
+        "id": "soft-currency",
+        "x": 20,
+        "y": 74
+      },
+      {
+        "id": "hard-currency",
+        "x": 50,
+        "y": 74
       },
       {
         "id": "cosmetics",
-        "x": 78,
-        "y": 76
+        "x": 80,
+        "y": 74
+      },
+      {
+        "id": "social-feed",
+        "x": 35,
+        "y": 90
+      },
+      {
+        "id": "leaderboards",
+        "x": 65,
+        "y": 90
       }
     ],
     "connections": [
       {
         "from": "leveling",
-        "to": "leaderboards",
-        "title": "Volume-based XP determines leaderboard position",
-        "desc": "The same logged workout volume that advances rank also determines position on volume leaderboards. One logging action serves both systems.",
-        "effect": "Logging workouts carefully is both a personal progression behavior and a competitive one. The motivation to record every set has a leaderboard dimension."
+        "to": "progression-gate",
+        "title": "Ranking exercises is what leagues count toward",
+        "desc": "The ten-exercise requirement for ranked leagues counts the same ranking activity the rank ladder already tracks, whether an exercise was ranked during onboarding or through a logged workout.",
+        "effect": "Nothing new has to happen for the gate to open; whatever the user already does to build their rank ladder is also progress toward leagues."
+      },
+      {
+        "from": "daily-weekly-quests",
+        "to": "soft-currency",
+        "title": "Claiming a quest is how eggs are earned",
+        "desc": "Every quest claim, on a daily, weekly or referral cadence, pays eggs into the same balance the store spends.",
+        "effect": "The quest surface is the app's only shown non-purchase route into the currency, so returning to claim quests is also the free way to afford the store."
+      },
+      {
+        "from": "daily-weekly-quests",
+        "to": "experience-points",
+        "title": "The same claim also pays experience",
+        "desc": "A quest claim grants eggs and experience points together, in the same action.",
+        "effect": "A user checking quests for eggs is banking experience at the same time, without a separate decision to do so."
+      },
+      {
+        "from": "experience-points",
+        "to": "leveling",
+        "title": "Experience feeds the level beside the avatar",
+        "desc": "Workouts and quests both grant experience, and Liftoff shows that experience toward the account level displayed with a progress bar next to the avatar.",
+        "effect": "The account level reads as the sum of everything the user has already done for other reasons, not a track pursued on its own."
+      },
+      {
+        "from": "soft-currency",
+        "to": "hard-currency",
+        "title": "One balance carries both currency labels",
+        "desc": "The eggs a quest pays out and the eggs sold for money spend in the exact same store, with no separate balance or label distinguishing where a given egg came from.",
+        "effect": "A player who never pays can still reach anything in the store, purely on quest income, since Liftoff draws no line between an earned egg and a bought one."
+      },
+      {
+        "from": "soft-currency",
+        "to": "reward-multiplier",
+        "title": "Quest-earned eggs bought the multiplier",
+        "desc": "The Double XP Shake was bought with eggs the user had earned from quests alone, without any money purchase.",
+        "effect": "The shake's doubling effect is reachable through play, not gated behind spending real money, as long as the user keeps claiming quests."
+      },
+      {
+        "from": "reward-multiplier",
+        "to": "experience-points",
+        "title": "The shake doubles a number that's never shown",
+        "desc": "The Double XP Shake is described as doubling experience gained during a workout, the same experience value that otherwise feeds the account level with no amount ever stated.",
+        "effect": "The shake's whole pitch rests on a figure the app never discloses on either side, so its actual value to the level beside the avatar can't be checked against what a workout would have paid without it."
+      },
+      {
+        "from": "daily-weekly-quests",
+        "to": "streak",
+        "title": "A quest exists just to start the streak",
+        "desc": "One of the listed quests specifically asks the user to start a streak, the same flame count shown at the top of the home screen.",
+        "effect": "The streak isn't only a passive count the app happens to track; it's also something the quest surface actively directs the user toward beginning."
+      },
+      {
+        "from": "hard-currency",
+        "to": "cosmetics",
+        "title": "Every cosmetic is priced in the same currency",
+        "desc": "Profile banners, borders and app themes are all store items priced in eggs, the same balance sold directly for money in packages up to $99.99.",
+        "effect": "A cosmetic never has to be earned or unlocked; whoever buys enough eggs, however they got them, can own any of them."
       }
     ]
   }
