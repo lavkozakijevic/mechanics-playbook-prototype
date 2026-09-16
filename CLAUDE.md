@@ -31,10 +31,17 @@ encode. Do not remove or weaken these when Stage 4 fleshes this file out.
 
 ### Thin apps awaiting write-up backfill (owner ruling, 11 Jun 2026)
 
-ladder, fiton, freeletics, liftoff, gymverse, clash-of-clans stay
+ladder, fiton, freeletics, liftoff, clash-of-clans stay
 `subscriber` until their write-ups are backfilled. They must not hold the
 rotating free slot; if an import would hand the slot to one of them, stop
 and ask the owner instead.
+
+Gymverse was removed from this list on 16 Sep 2026: its write-up is
+complete, and it's now `report-only` for an unrelated reason, the
+three-publishable-tag minimum (owner ruling, 16 Sep 2026) — it carries only
+two (Achievement, Shareable Win). It stays off this list rather than being
+folded back in if it's ever republished, since "thin, awaiting backfill"
+would no longer be true of it.
 
 ### Multi-app library entries: tag and block together (owner ruling, 15 Sep 2026)
 

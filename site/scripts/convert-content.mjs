@@ -1095,7 +1095,11 @@ const ALL_APPS = [
   { file: "fortune-city.md", id: "fortune-city", visibility: "subscriber" },
   { file: "freeletics.md", id: "freeletics", visibility: "subscriber" },
   // Batch 3
-  { file: "gymverse.md", id: "gymverse", visibility: "subscriber" },
+  // Unpublished (owner ruling, 16 Sep 2026): the new three-publishable-tag
+  // minimum. Gymverse carries two (Achievement, Shareable Win, both
+  // directly observed), below the floor. Its analysis and content file
+  // stay in the repo; report-only removes it from every rendered page.
+  { file: "gymverse.md", id: "gymverse", visibility: "report-only" },
   { file: "insight-timer.md", id: "insight-timer", visibility: "subscriber" },
   { file: "ladder.md", id: "ladder", visibility: "subscriber" },
   { file: "liftoff.md", id: "liftoff", visibility: "subscriber" },
@@ -1119,7 +1123,11 @@ const ALL_APPS = [
   // this file or anywhere else in the site (data.js, system.html): it was
   // analyzed directly under the v4.1 model and is a first-time addition to
   // this roster, not a migration of an existing entry.
-  { file: "doordash.md", id: "doordash", visibility: "subscriber" },
+  // Unpublished (owner ruling, 16 Sep 2026): the new three-publishable-tag
+  // minimum. DoorDash carries two (Achievement, Reviews and Ratings, both
+  // strongly supported), below the floor. Its analysis and content file
+  // stay in the repo; report-only removes it from every rendered page.
+  { file: "doordash.md", id: "doordash", visibility: "report-only" },
   // Tripsy has no v3 history either, in this file or anywhere else (data.js,
   // system.html): a first-time addition analyzed directly under v4.1, same
   // as DoorDash above.
@@ -1832,6 +1840,16 @@ for (const entry of ALL_APPS) {
       // No screenshots yet under the new {appId}_{observationId} key scheme
       // (spec §6.2) — re-keying existing screenshots is separate work.
     }
+    // A found icon file is only ever withheld from the publicAssets sync
+    // above; the field below used to be set from `icons` unconditionally,
+    // so a report-only app with a real icon file on disk (Gymverse's, once
+    // unpublished under the three-tag minimum, 16 Sep 2026) got a real path
+    // written into its own JSON — exactly what validate-content.mjs's own
+    // report-only-must-ship-no-assets check exists to catch, sitting right
+    // next to the code that was supposed to prevent it. Gating this value on
+    // the same condition as the sync above closes that gap at the source
+    // instead of leaving it live for the next report-only app with an icon.
+    const iconPath = entry.visibility === "report-only" ? null : icons[0] ? "/" + icons[0] : null;
 
     write("apps", entry.id, {
       id: entry.id,
@@ -1847,7 +1865,7 @@ for (const entry of ALL_APPS) {
       appVersion: a.appVersion,
       summary: content.description,
       teaser: content.teaser,
-      icon: icons[0] ? "/" + icons[0] : null,
+      icon: iconPath,
       heroImage: resolveHeroImage(entry.id),
       contentFormat: "v4.1",
       observations: content.observations,
@@ -1917,6 +1935,12 @@ for (const entry of ALL_APPS) {
     for (const icon of icons) publicAssets.add(icon);
     for (const r of relationships) for (const s of r.screenshots) publicAssets.add(s.src.slice(1));
   }
+  // Same gap as the v4.1 branch above (see its comment): the sync guard
+  // above only ever withheld a found icon from being copied, not from being
+  // named in the app's own JSON. Not live for any v3 app today (no current
+  // report-only entry has a matching icon file), but fixed here too rather
+  // than left for the next one to trip over.
+  const iconPath = entry.visibility === "report-only" ? null : icons[0] ? "/" + icons[0] : null;
 
   write("apps", entry.id, {
     id: entry.id,
@@ -1932,7 +1956,7 @@ for (const entry of ALL_APPS) {
     lastUpdated: isoDate(a.meta["Last updated"]) ?? isoDate(a.meta["Analysis date"]),
     summary: v44?.summary ?? a.overview,
     teaser: v44?.teaser ?? null,
-    icon: icons[0] ? "/" + icons[0] : null,
+    icon: iconPath,
     heroImage: resolveHeroImage(entry.id),
     mechanics: relationships,
     system: buildSystemMap(entry.id),

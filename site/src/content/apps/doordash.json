@@ -3,7 +3,7 @@
   "name": "DoorDash",
   "category": "Commerce / Food and Grocery Delivery",
   "type": "app",
-  "visibility": "public",
+  "visibility": "report-only",
   "analysisDate": "2026-09-15",
   "lastUpdated": "2026-09-15",
   "asObserved": "2026-07",
@@ -633,47 +633,5 @@
       "caveat": "Held as an open proposal. The only contributor page opened in the session is the user's own, at zero contributions, reading \"No contributions. You haven't shared anything yet\", and no other contributor's page is opened (tier: directly observed). No follow control or follower relationship appears anywhere in the session (tier: directly observed). The only aggregate figure seen is the user's own \"0 contributions\", and the restricted profile copy states that a restricted profile displays the number of public contributions (tier: directly observed). With no populated page observed, the session does not distinguish a page listing one person's reviews from an ordinary account profile (tier: directly observed). What would settle it is a session in which a real contributor page with contributions is opened, showing whether it carries an aggregate count, a follow control, or anything else DoorDash maintains about that user. The proposal sits adjacent to the dedicated reviews entry that the Community Space entry records as pending; if that entry is written, the two should be settled together. Ratings attached to merchants may fall on the commerce side of the engagement-design test; the designed element proposed here is the contributor identity and its framing rather than the merchant rating itself (tier: plausible, the boundary between the two has not been ruled on)."
     }
   ],
-  "system": {
-    "tagline": "A delivery marketplace where the only tagged mechanics, a review-and-photo contribution loop and the badge it feeds, connect to each other and to nothing else the app does.",
-    "overview": "DoorDash is built around one loop: browse a merchant, fill a per-merchant cart, check out. A second system pairs a named set of delivery and service fees to the DashPass subscription that reduces or removes them. A small connected pair of mechanics sits apart from both: a contributor profile inviting reviews and photos, feeding a two-tier badge that counts what it receives and rewards it with visibility and standing among other contributors rather than with anything spendable.",
-    "loop": "Browsing a merchant, whether through home feed sections, deals, search, the AI recipe assistant, or the grocery, pickup and other verticals, adds items to a cart kept separately per merchant, and carts persist across screens and sign-in. Signing in is deferred to the point of checkout or an account-linked surface rather than required up front. Separately, a contributor profile invites the user to share reviews and photos of stores, holding an approval status, a visibility setting and a contribution count addressed to the contributor; that same count feeds two badge tiers framed entirely around gaining visibility and standing among other customers. Nothing in either mechanic ties back to an order, a credit, or a DashPass benefit.",
-    "keyInsight": "DoorDash's only applied mechanic is also its most isolated: the reviewer badge shares no measure, no currency and no surface with the cart-and-checkout loop or the fee-and-DashPass system that make up the rest of the app. A marketplace this large tests as almost entirely commerce infrastructure, first-order discounts, credits, gift cards, group orders, reviews and merchant rankings among it, with one small, disconnected exception.",
-    "whatMakesItWork": "The badge doesn't need to connect to anything else because it isn't competing with the cart for the user's attention: it lives on a contributor profile most users have no reason to visit, stated in terms of influence and trust rather than savings or unlocked capability. That keeps it legible as what it is, a small side incentive to leave reviews, rather than as a system the rest of the app is quietly built around.",
-    "roles": [
-      {
-        "id": "reviews-and-ratings",
-        "role": "A contributor profile invites reviews and photos of stores, holding an approval status, a restricted-profile visibility setting and a contribution count addressed to the contributor, seen at zero throughout."
-      },
-      {
-        "id": "achievement",
-        "role": "A two-tier badge, Emerging expert at 3 stores and Local expert at 10 or more, counts the reviews or photos that profile invites and is framed around visibility and standing rather than any spendable reward."
-      }
-    ],
-    "center": {
-      "x": 50,
-      "y": 12,
-      "label": "DOORDASH"
-    },
-    "nodes": [
-      {
-        "id": "reviews-and-ratings",
-        "x": 50,
-        "y": 42
-      },
-      {
-        "id": "achievement",
-        "x": 50,
-        "y": 72
-      }
-    ],
-    "connections": [
-      {
-        "from": "reviews-and-ratings",
-        "to": "achievement",
-        "title": "The contribution loop is what the badge counts",
-        "desc": "The same reviews and photos the contributor profile invites are the exact criterion the Emerging expert and Local expert badges track.",
-        "effect": "The badge has nothing of its own to count; every step of its progress is a contribution the reviews-and-ratings loop already invited."
-      }
-    ]
-  }
+  "system": null
 }

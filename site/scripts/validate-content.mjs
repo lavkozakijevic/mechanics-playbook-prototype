@@ -2,7 +2,11 @@
  * Content validation — runs before every build (migration brief, Stage 3).
  *
  * Checks, in plain language, that:
- *  1. every mechanic referenced by an app exists in the mechanics collection
+ *  1. every mechanic or app referenced anywhere (an app's own tags, a
+ *     system's roles and map nodes, a cheatsheet, a glossary entry) is both
+ *     present in its collection and actually published — a report-only
+ *     entry fails a reference check the same way a nonexistent one does,
+ *     since neither one has a page for the reference to reach
  *  2. every system connection points at nodes that exist on that system map
  *  3. every screenshot, icon, and hero image path resolves under site/public
  *  4. required fields are present on every app and mechanic
@@ -60,6 +64,36 @@ function validDate(s) {
 const mechanics = readCollection("mechanics");
 const apps = readCollection("apps");
 const mechanicIds = new Set(mechanics.map((m) => m.data.id));
+const appIds = new Set(apps.map((a) => a.data.id));
+
+// A reference check that only confirms an id exists in the raw collection
+// can't tell "exists" from "renders": a report-only app or mechanic sits in
+// the collection like any other entry, but publishedApps()/
+// publishedMechanics() drop it before any page is built from it, so the
+// thing being referenced never actually has anywhere to point to. That gap
+// is the same shape as the POSITIONS-node-id gap and the duplicate-key
+// gap above — a check that passes while what it's checking silently
+// doesn't render — so every reference check below is stated against these
+// published sets, not the raw ones above. Failing here says specifically
+// which of the two is wrong: gone entirely, or present but report-only.
+const publishedMechanicIds = new Set(mechanics.filter((m) => m.data.visibility !== "report-only").map((m) => m.data.id));
+const publishedAppIds = new Set(apps.filter((a) => a.data.visibility !== "report-only").map((a) => a.data.id));
+
+// Returns null when a reference is fine, or the reason clause to fold into
+// a `references X "${id}" which ${reason}` problem() call otherwise — kept
+// as a reason string rather than a full message so each call site keeps its
+// own precise wording around the id instead of one generic sentence shape
+// getting forced onto every kind of reference.
+function badMechanicRef(id) {
+  if (!mechanicIds.has(id)) return "does not exist in the mechanics library";
+  if (!publishedMechanicIds.has(id)) return "is report-only and would never render";
+  return null;
+}
+function badAppRef(id) {
+  if (!appIds.has(id)) return "does not exist in the apps collection";
+  if (!publishedAppIds.has(id)) return "is report-only and would never render";
+  return null;
+}
 
 // A small number of system-map nodes stand for a precondition the app's
 // mechanics hang off, a bank connection, a health-data connection, rather
@@ -102,8 +136,8 @@ for (const { file, data } of apps) {
 
   // relationships
   for (const m of data.mechanics ?? []) {
-    if (!mechanicIds.has(m.id))
-      problem(file, `references mechanic "${m.id}" which does not exist in the mechanics library`);
+    const badMech = badMechanicRef(m.id);
+    if (badMech) problem(file, `references mechanic "${m.id}" which ${badMech}`);
     if (!DEPTHS.includes(m.depth))
       problem(file, `mechanic "${m.id}" has depth "${m.depth}" — it must be one of: ${DEPTHS.join(", ")}`);
     for (const shot of m.screenshots ?? []) {
@@ -129,8 +163,8 @@ for (const { file, data } of apps) {
         problem(file, `system connection "${c.title}" ends at "${c.to}" but that node is not on the map`);
     }
     for (const r of data.system.roles) {
-      if (!mechanicIds.has(r.id))
-        problem(file, `system role list mentions "${r.id}" which does not exist in the mechanics library`);
+      const bad = badMechanicRef(r.id);
+      if (bad) problem(file, `system role list mentions "${r.id}" which ${bad}`);
     }
     // A node's id comes straight from a POSITIONS key in system.html, a
     // hand-typed, unvalidated source. Unlike a bad roles-list id, a bad node
@@ -143,10 +177,15 @@ for (const { file, data } of apps) {
     // a live page with a green build, the same failure shape as a duplicate
     // POSITIONS block or a v3 SYSTEMS entry asserting a mechanic that isn't
     // there — so this fails the build rather than warning, same as the
-    // roles check just above.
+    // roles check just above. badMechanicRef checks against the published
+    // set, not just the raw one, for the same reason: a report-only
+    // mechanic id would resolve here exactly as badly as one that never
+    // existed at all, and no mechanic is report-only today only because
+    // nothing has tested that path yet.
     for (const n of data.system.nodes) {
-      if (!mechanicIds.has(n.id) && !NON_MECHANIC_SYSTEM_NODES.has(`${data.id}:${n.id}`))
-        problem(file, `system map node "${n.id}" does not exist in the mechanics library`);
+      if (NON_MECHANIC_SYSTEM_NODES.has(`${data.id}:${n.id}`)) continue;
+      const bad = badMechanicRef(n.id);
+      if (bad) problem(file, `system map node "${n.id}" ${bad}`);
     }
     if (!data.system.center) problem(file, "system map has no center point");
   }
@@ -250,20 +289,19 @@ if (REVIEW_WINDOW_OPEN) {
 
 // ---- cheatsheets: mechanic + app references
 const cheatsheets = readCollection("cheatsheets");
-const appIds = new Set(apps.map((a) => a.data.id));
 for (const { file, data } of cheatsheets) {
   for (const id of data.mechanics ?? []) {
-    if (!mechanicIds.has(id))
-      problem(file, `references mechanic "${id}" which does not exist in the mechanics library`);
+    const bad = badMechanicRef(id);
+    if (bad) problem(file, `references mechanic "${id}" which ${bad}`);
   }
   for (const id of data.apps ?? []) {
-    if (!appIds.has(id))
-      problem(file, `references app "${id}" which does not exist in the apps collection`);
+    const bad = badAppRef(id);
+    if (bad) problem(file, `references app "${id}" which ${bad}`);
   }
   for (const step of data.steps ?? []) {
     for (const id of step.apps ?? []) {
-      if (!appIds.has(id))
-        problem(file, `step "${step.heading}" references app "${id}" which does not exist`);
+      const bad = badAppRef(id);
+      if (bad) problem(file, `step "${step.heading}" references app "${id}" which ${bad}`);
     }
   }
 }
@@ -272,8 +310,8 @@ for (const { file, data } of cheatsheets) {
 const glossary = readCollection("glossary");
 for (const { file, data } of glossary) {
   for (const id of data.related ?? []) {
-    if (!mechanicIds.has(id))
-      problem(file, `references mechanic "${id}" which does not exist in the mechanics library`);
+    const bad = badMechanicRef(id);
+    if (bad) problem(file, `references mechanic "${id}" which ${bad}`);
   }
 }
 

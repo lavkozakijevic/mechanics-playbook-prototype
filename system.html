@@ -328,9 +328,9 @@
 <script src="auth.js"></script>
 <script>
 const CONNECTIONS = {
-  "doordash": [
-    { from: "reviews-and-ratings", to: "achievement", title: "The contribution loop is what the badge counts", desc: "The same reviews and photos the contributor profile invites are the exact criterion the Emerging expert and Local expert badges track.", effect: "The badge has nothing of its own to count; every step of its progress is a contribution the reviews-and-ratings loop already invited." },
-  ],
+  // doordash's CONNECTIONS entry was removed here (owner ruling, 16 Sep
+  // 2026): the new three-publishable-tag minimum. See the matching note at
+  // its former data.js APPS entry.
   "cleo": [
     { from: "personal-data-reflection", to: "streak", title: "Reviews and games feed their own streak", desc: "Completing a spending review moves the review streak from zero to one, and playing the money game produces the streak shown on its own stats screen.", effect: "The counters that give a reason to come back are tied to finishing a review or a game round, not to anything in the budget tab." },
   ],
@@ -450,9 +450,9 @@ const CONNECTIONS = {
   "freeletics": [
     { from: "challenges", to: "community-groups", title: "A created challenge becomes something people discuss", desc: "The same observation that shows a challenge, its objective and its participant count also shows other athletes discussing it in the comment thread under a Freeletics post.", effect: "A challenge doesn't stay a private target: once created, it becomes a topic people comment on in the app's own community space." },
   ],
-  "gymverse": [
-    { from: "achievement", to: "shareable-win", title: "Named beside the very thing that leaves", desc: "The Achievements surface sits in the progress area right next to the activity totals, and that same total activity figure is what carries its own route to share outside the app.", effect: "The one mechanic with nothing confirmed behind it sits one screen away from the one built entirely to leave the product." },
-  ],
+  // gymverse's CONNECTIONS entry was removed here (owner ruling, 16 Sep
+  // 2026): the new three-publishable-tag minimum. See the matching note at
+  // its former data.js APPS entry.
   "clash-of-clans": [
     { from: "soft-currency", to: "leveling", title: "Resources raided and collected fund the next town hall level", desc: "Gold and elixir collected and raided are what the town hall's rising cost curve consumes, and storage built from the same currencies has to expand before that cost can even be held.", effect: "A player is never just building or just raiding, both feed the one number, the town hall level, that everything else in the game answers to." },
     { from: "hard-currency", to: "soft-currency", title: "Gems convert directly into the resources raiding would otherwise take hours to gather", desc: "A stated conversion rate turns gems into gold and elixir on demand, no shop trip or exchange screen required.", effect: "A player who doesn't want to raid or wait can buy the same resource position outright, in gems." },
@@ -588,11 +588,9 @@ const POSITIONS = {
     "active-pass":           { x: 78, y: 50 },
     "gifting":               { x: 50, y: 80 },
   },
-  "doordash": {
-    center:                  { x: 50, y: 12, label: "DOORDASH" },
-    "reviews-and-ratings":   { x: 50, y: 42 },
-    "achievement":           { x: 50, y: 72 },
-  },
+  // doordash's POSITIONS entry was removed here (owner ruling, 16 Sep
+  // 2026): the new three-publishable-tag minimum. See the matching note at
+  // its former data.js APPS entry.
   "fc-mobile": {
     center:                  { x: 50, y: 6,  label: "FC MOBILE" },
     "experience-points":     { x: 50, y: 20 },
@@ -694,11 +692,9 @@ const POSITIONS = {
     "community-groups":  { x: 50, y: 62 },
     "leveling":          { x: 80, y: 48 },
   },
-  "gymverse": {
-    center:            { x: 50, y: 15, label: "GYMVERSE" },
-    "achievement":     { x: 30, y: 55 },
-    "shareable-win":   { x: 70, y: 55 },
-  },
+  // gymverse's POSITIONS entry was removed here (owner ruling, 16 Sep
+  // 2026): the new three-publishable-tag minimum. See the matching note at
+  // its former data.js APPS entry.
     "chrome-valley-customs": {
     center:                  { x: 50, y: 15, label: "CHROME VALLEY" },
     "energy-lives":          { x: 50, y: 38 },
