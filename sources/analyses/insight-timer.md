@@ -279,7 +279,7 @@ Source. This analysis is built from one Granola session, "App Mechanics: Insight
 - At good or great: happy, joyful, grateful, content, calm, peaceful, confident, excited, hopeful, satisfied, relieved, amused (tier: directly observed).
 - At awful: angry, disgusted, frustrated, anxious, stressed, overwhelmed, annoyed, disappointed, lonely, guilty, ashamed, sad (tier: directly observed).
 - Tags are asked under "What best describes this feeling", with a further prompt about what is having the biggest impact on it (tier: directly observed).
-- The analyst contrasts this with Calm, whose equivalent tags are stated not to adapt (tier: directly observed, the analyst's comparison).
+- The analyst contrasts this with Calm, recalling that its equivalent tags do not adapt (tier: unresolved, a recollection rather than an observation). The Calm analysis of 16 Sep 2026 does not support it and the remark does not stand: that session reached no post-session screen, chose only one mood, and its closest observation is a sleep check-in in which a good rating still offered negative factors (tier: directly observed, correction recorded 16 Sep 2026).
 - What the answers change afterwards is not observed (tier: unresolved).
 
 *Cross-reference: O20, O22, O28.*
@@ -816,6 +816,26 @@ O41 streams posts from several members of a group and states that My feed collec
 
 **Alternative considered:** For O36, an unattributed display of aggregate activity, which would carry no label (tier: plausible). A session that reads individual community items and shows whether each names a person would separate them (tier: unresolved).
 
+**Tag:** Check-In
+
+**Observations:** O22, O21
+
+**Supporting observations:** O20, O28, O31
+
+**Confidence:** Presence on O22, for the sidebar check-in that records mood and feeds the week's check-in summary and the stats (tier: strongly supported, the mood options other than good are not narrated). Presence on O21, for the post-session reflection (tier: plausible, the options are directly observed but whether the answer is kept is not shown).
+
+**Role:** engagement
+
+The reflection is a step in the sequence Insight Timer runs after a timer session (O20, O21), and the sidebar check-in continues into a journal entry and is counted among the session types in the detailed stats, which state that the activities listed count towards progress (O22, O28) (tier: strongly supported).
+
+**Rationale:** After a session, Insight Timer asks "How are you feeling?" on a slider from awful to great, offers descriptor tags under "What best describes this feeling" that change with the slider position, asks what is having the biggest impact, and offers a journal field (tier: directly observed). The sidebar check-in asks "How are you today?" and records mood, and both the week's check-in summary and the detailed stats carry check-ins (tier: directly observed). The answers are the user's own report of present feeling rather than records the product holds, which the entry separates from Personal Data Reflection (tier: directly observed). Whether the post-session answer is kept, and whether it enters the check-in count or the week's summary, is not shown (tier: unresolved). The remark comparing Calm's tags on O21 is not used: it was a recollection rather than an observation and does not stand (tier: directly observed).
+
+**Variants present:** End-of-activity check-in on O21 (tier: plausible, the answer is not seen kept). Standalone check-in on O22 (tier: directly observed). Rating-scale check-in on O21 (tier: directly observed). Adaptive descriptor tags on O21 (tier: directly observed). Influence follow-up on O21 (tier: directly observed). Note field on O21 (tier: directly observed). Dismissible check-in on O21, through "Don't show me this screen" (tier: directly observed). Counted check-in on O22, with daily check-in listed among the session types on O28 (tier: directly observed). Summarized check-ins on O22, through the week's check-in summary (tier: directly observed). Gated check-in in part, since continuing the O22 check-in into a journal entry raised the Advanced journal paywall on O31 (tier: directly observed).
+
+**Variants not established:** Before-activity check-in, named-state check-in, fixed descriptor tags, options only, dated history, undated record, withheld summary, recommended-content response, reminder-linked check-in, multi-type check-ins, editable entries, delete-only entries, multiple entries per period and streak-counted check-in (tier: unresolved).
+
+**Alternative considered:** For O21 alone, a one-time prompt whose answer is not kept, which would carry no label (tier: plausible). A session that submits the reflection and then opens the stats and the week's check-in summary would separate them (tier: unresolved). Personal Data Reflection, tested on the first run, does not apply because the answers are reported from present experience rather than drawn from the product's records (tier: directly observed).
+
 ## Entries considered and not applied
 
 - **Future Projection.** O10 states a date three months ahead with a rising graph, but Insight Timer holds no present position for the user from which the date is computed, and the prediction is not restated at the goal or minutes steps (O5, O6), which came before it, so two required conditions fail (tier: strongly supported). The screen is recorded in plain language, and the proposal it prompted, Outcome Evidence Screen, is recorded as rejected in this list.
@@ -823,7 +843,7 @@ O41 streams posts from several members of a group and states that My feed collec
 - **Daily / Weekly Quests.** The routine on O14 was tagged at plausible on the first run, and the tag was withdrawn on 16 Sep 2026 because the entry does not apply. The entry requires the product to issue, refresh or release objective instances under a daily or weekly rule, and a routine the user sets up themselves, naming the activity, choosing the days it repeats and attaching a practice, issues nothing: the product stores the user's own schedule and counts it off. Picking the activity from the product's suggestions does not make the product the issuer. This is the same reasoning applied in the FitOn analysis, and a later session showing daily refresh or a completion rule would not change it. The open proposal Self-Set Recurring Target, first proposed in the Strava analysis and held in the FitOn analysis, covers this shape if it is ever approved (tier: directly observed).
 - **Achievement.** The listing of 1, 5, 25 and 100 milestones on O27 may stand for attained states, but no criterion changing to attained and no preserved record was seen, and the milestone count itself is classified under Milestone (tier: strongly supported).
 - **Expert Guidance.** Courses (O12, O16, O37), technique descriptions (O17) and therapist worksheets (O48) instruct on practice and wellbeing, but courses play in the same player and are listed among activities that count towards practice progress (O28), so the material is the product's core activity rather than material alongside it (tier: strongly supported).
-- **Personal Data Reflection.** The reflection on O21 and the check-in on O22 ask the user to report present feelings from memory rather than respond to records the product holds, and the stats on O28 are a display that asks nothing (tier: directly observed).
+- **Personal Data Reflection.** The reflection on O21 and the check-in on O22 ask the user to report present feelings from memory rather than respond to records the product holds, and the stats on O28 are a display that asks nothing (tier: directly observed). That self-report behavior is classified under Check-In, applied above from 16 Sep 2026.
 - **Referral.** Invite a friend and group invite links on O46 show no reward to the inviting user conditioned on anything the invited person does (tier: strongly supported).
 - **Reviews and Ratings.** Star ratings and review counts on O12, O18 and O37, and Plus reviews on O49, are displays to a chooser; no invitation to rate and no contributor-side state were seen (tier: directly observed).
 - **Gifting.** Donations on O53 are real-money payments through Apple's payment sheet directed to a teacher, not a product-defined benefit, and fall under commerce infrastructure (tier: directly observed).
@@ -874,21 +894,9 @@ O41 streams posts from several members of a group and states that My feed collec
 
 # Pass three: proposed new tags
 
-Four proposals were made on this run and all four were ruled on on 16 Sep 2026. Outcome Evidence Screen, Home Screen Widget Prompt and Co-Presence Count were rejected on scope and are recorded above under entries considered and not applied, each with the reasoning that rules it out in future analyses. Post-Activity Mood Check was held rather than rejected: a self-report prompt at the end of an activity, kept as a counted record, is not covered by any approved entry, since Personal Data Reflection needs records the product already holds and excludes self-report from memory. It rests on one app and remains open below, and its caveat states the evidence that would settle it.
+Four proposals were made on this run and all four have been ruled on. Outcome Evidence Screen, Home Screen Widget Prompt and Co-Presence Count were rejected on scope on 16 Sep 2026 and are recorded above under entries considered and not applied, each with the reasoning that rules it out in future analyses. Post-Activity Mood Check was first held pending a second instance in another app. On 16 Sep 2026 it was approved together with Self-Report Check-In Log, proposed from the Calm analysis, as one library entry under the merged name Check-In. The two were ruled one pattern: in both, the product asks the user to report their current state from a defined set of options and keeps the answer as a record, and whether it asks at the end of an activity, before one or from an entry point the user opens is a variant. Check-In is applied in Pass two against O22 and O21. The end-of-activity placement and the adaptive descriptor tags on O21 remain the only instances of those variants in the library. No proposals remain open.
 
-### Post-Activity Mood Check
-
-**Draft definition.** A post-activity mood check asks the user, when the core activity ends, to rate how they feel on a defined scale, offers descriptor tags and a prompt about what is influencing the feeling, and accepts a free-text note, keeping the response as a record the product counts.
-
-**Source observations:** O21, O22
-
-**Conditions it appears to depend on:** A discrete activity with a defined end (O20); a stats surface that counts check-ins (O28); an option to stop showing the screen (O21). Descriptor tags that change with the rating are a candidate variant.
-
-**Why it is not covered.** Personal Data Reflection requires records the product already holds and excludes self-report from memory, so a rating of how the user feels, given in the moment rather than drawn from the product's records, falls outside it. Commitment concerns statements of future behavior. No approved entry covers a self-report prompt placed at the end of an activity and kept as a counted record.
-
-**Recurrence elsewhere:** Not established. The analyst remarks that Calm's equivalent post-session tags do not change with the selected mood, so Calm is expected to carry a comparable screen (tier: plausible, a remark in this transcript rather than an analyzed instance). Calm should be checked for this screen when it is analyzed.
-
-**Caveat.** Held pending a second instance in another app. Two things would settle it. First, a second product that asks for a rating of how the user feels at the end of its core activity, offers descriptors or a note, and keeps the response as a record it counts, which establishes that the shape recurs; Calm is the first place to look. Second, a session that submits a rating and follows it afterwards, into stats, recommendations, later sessions or a check-in summary, which shows what the responses change. If the response turns out not to be kept at all, the proposal collapses into a one-time prompt described in plain language and carries no label. Two points also remain open in this session: O22 is a check-in opened from the sidebar rather than at the end of an activity and may belong to a separate self-tracking behavior, and the week's summary read neutral after a good check-in on O22, which the session does not explain (tier: unresolved).
+The held proposal's recurrence field carried a remark that Calm's equivalent post-session tags do not change with the selected mood. That remark was a recollection rather than an observation, and it does not stand. The Calm session reached no post-session screen, chose only one mood in its mood check-in, and its closest observation is a sleep check-in in which a good rating still offered negative factors, with only that one rating's list seen.
 
 # Close: system view
 
