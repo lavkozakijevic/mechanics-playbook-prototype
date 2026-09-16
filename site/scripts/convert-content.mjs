@@ -980,7 +980,7 @@ const ADDITIONS = {
 //   -> achievement: calm, liftoff, swgoh,
 //      uptime, fiton, fortune-city, match-creek-motors,
 //      fifa-panini-collection, subway-surfers.
-//   -> milestone: insight-timer, chrome-valley-customs,
+//   -> milestone: chrome-valley-customs,
 //      wispr-flow, solitaire-grand-harvest.
 //
 // variable-reward split into loot-box and variable-reward (kept, renamed
@@ -1007,7 +1007,11 @@ const ADDITIONS = {
 // unresolved container resolves. swgoh applied Loot Box and Variable
 // Reward Outcome as separate, independently evidenced v4.1 tags on 16 Sep
 // 2026, clearing the split condition the same way Capybara Go and FC
-// Mobile did below, so it no longer needs a remap entry here. The third
+// Mobile did below, so it no longer needs a remap entry here. insight-timer's
+// own analysis considered Achievement against its milestone listing (1, 5,
+// 25, 100) and rejected it, no criterion changing to attained and no
+// preserved record was seen, classifying the count itself under Milestone
+// instead, so it no longer needs a remap entry here either. The third
 // fused entry, Variable Reward
 // Schedule, has no remap target anywhere below — no app under the current
 // model, v3 or v4.1, has ever applied it, so it was retired rather than
@@ -1024,8 +1028,8 @@ const ADDITIONS = {
 // "Entries considered and not applied" section — both were stale carryovers
 // on the old fused mechanic's apps[] list rather than real evidence, and
 // neither reaches this v3 path in any case (both are v4.1). royal-match,
-// capybara-go, fc-mobile, steam, swgoh and uptime don't appear below
-// either: all six are v4.1 and never reach this path.
+// capybara-go, fc-mobile, steam, swgoh, uptime and insight-timer don't
+// appear below either: all seven are v4.1 and never reach this path.
 const REMAPS = {
   "liftoff": { "xp-leveling": "leveling", "achievements": "achievement", "variable-reward": "loot-box" },
   "solitaire-grand-harvest": { "xp-leveling": "experience-points", "achievements": "milestone" },
@@ -1035,7 +1039,6 @@ const REMAPS = {
   "match-creek-motors": { "achievements": "achievement" },
   "fifa-panini-collection": { "achievements": "achievement" },
   "subway-surfers": { "achievements": "achievement", "variable-reward": "loot-box" },
-  "insight-timer": { "achievements": "milestone" },
   "chrome-valley-customs": { "achievements": "milestone" },
   "wispr-flow": { "achievements": "milestone" },
 };
@@ -1662,6 +1665,31 @@ const V41_APP_META = {
         "Starter deal pop-ups, a five-tab store, crystal and Chromium packs, and an Episode Pass make up this section.",
       returns:
         "Login rewards, a notification pre-prompt, red badge counters and countdown timers on offers and events bring the player back.",
+    },
+  },
+  "insight-timer": {
+    name: "Insight Timer",
+    category: "Wellness / Meditation",
+    type: "app",
+    sectionCards: {
+      onboarding:
+        "An opening usage-share claim, four rounds of profiling questions, three consistency-research screens, and a dated well-being prediction all run before any account is created.",
+      "core-loop":
+        "A home screen anchored by a streak, an intention field, and live usage counts feeds into a meditation timer, a completion sequence, and a stats page that gathers everything into one view.",
+      goals:
+        "A consecutive-day goal chosen at onboarding drives a streak, a milestone countdown, and a stats page that gathers every counted activity into one view.",
+      access:
+        "Account creation asks only for a birth year, Plus content stays visible but locks at the point of use, and setting an intention is blocked until a home screen widget is installed.",
+      economy:
+        "Empty. Insight Timer holds no currency, points, credits, tokens, or other held unit that is earned and then spent or exchanged.",
+      social:
+        "Named groups with admins and a leave control sit alongside open, unmembered surfaces like a gratitude wall and quote comments, with messages and friends left entirely empty.",
+      reach:
+        "A progress share card, group and friend invite links, and routes into real-world retreats and a therapist directory all send the user, or an invitation, outside the app.",
+      monetization:
+        "An onboarding paywall gives way to a free-tier promise, then a trial-extension gift, contextual Plus offers at every locked surface, and a teacher-donation flow.",
+      returns:
+        "A post-practice streak prompt, a set of home screen widgets, and a calendar of live teacher-led events bring the user back.",
     },
   },
 };

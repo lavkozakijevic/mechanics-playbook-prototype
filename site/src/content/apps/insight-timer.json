@@ -1,135 +1,1111 @@
 {
   "id": "insight-timer",
   "name": "Insight Timer",
-  "category": "Wellness",
+  "category": "Wellness / Meditation",
   "type": "app",
   "visibility": "public",
-  "analysisDate": "2026-04-20",
-  "lastUpdated": "2026-06-29",
-  "summary": "Insight Timer opens onboarding with a scientific argument for its own efficacy, graphs of mood improvement, a consistency curve, and a personalized prediction dated three months from sign-up, before showing any content or asking for payment. Installing the home screen widget extends the free trial from seven days to thirty days, rewarding the completion of the app's most powerful habit-formation action with more time to form the habit. It is the only app in the library that framed a trial extension as an achievement unlock.",
-  "teaser": "Insight Timer rewards installing its home screen widget with a longer free trial, more time to build the exact habit the widget exists to support.",
+  "analysisDate": "2026-09-16",
+  "lastUpdated": "2026-09-16",
+  "asObserved": "2026-04",
+  "appVersion": "None.",
+  "summary": "Insight Timer opens with graphs of mood improvement and a consistency curve before asking the user to set a goal, then mechanizes that self-chosen commitment through a streak, a daily intention the product shows back as the user's own statement, and a milestone system that pays out in trial length. A social layer runs alongside on two separate tracks: named groups with admins and membership, and open, unmembered surfaces like a gratitude wall and quote comments. The product's depth, hundreds of thousands of free tracks, thousands of groups, a retreat marketplace, a therapist directory, keeps the mechanics from feeling like a substitute for content.",
+  "teaser": "Insight Timer's most powerful habit-formation tool, a home screen widget, is rewarded with a longer trial — more time to build the exact habit the widget exists to support.",
   "icon": "/icons/insight-timer.png",
   "heroImage": null,
-  "mechanics": [
+  "contentFormat": "v4.1",
+  "observations": [
     {
-      "id": "streak",
-      "depth": "core",
-      "writeup": {
-        "observed": "A consecutive-day streak is the primary retention mechanic, displayed as a flower/plant icon in the top-right corner of the home screen. The streak detail screen shows current consecutive days, progress toward the user's self-set goal (3 / 5 / 7 / 10 days, chosen during onboarding), a calendar of practiced days, and a milestones section. After the first session: 'Can you make it to a two day streak? Come back tomorrow.' An 'I'm committed' button appears. Installing the home screen widget extends the free trial from 7 to 30 days.",
-        "presented": "The streak flower icon is visible immediately on the home screen without navigating anywhere. Goal-setting during onboarding frames the streak as a commitment the user made before their first session. Widget installation is prompted twice in close succession after the first session, with the stated rationale 'you're more likely to be consistent with your practice.'",
-        "noting": "The goal-setting screen during onboarding frames the streak as a self-made commitment, not an imposed requirement. The 'I'm committed' button reinforces that prior commitment at the moment of first completion. The trial extension triggered by widget installation rewards the completion of the app's most powerful habit-formation tool with more time to develop the habit that makes the subscription feel necessary.",
-        "findings": [
-          "The trial extension (7 days to 30 days) is triggered by installing the home screen widget, rewarding the completion of Insight Timer's most powerful habit-formation tool with more time to form the habit.",
-          "The 'I'm committed' button after the first session is the only explicit behavioral commitment extraction mechanic observed across the library.",
-          "The goal-setting screen during onboarding (3 / 5 / 7 / 10 days) frames the streak as a self-made commitment before the user has completed a single session.",
-          "Milestone thresholds: 7 consecutive days (first milestone), then 50 non-consecutive days, the first milestone is designed to be reachable in the first week."
-        ]
-      },
-      "screenshots": [
+      "id": "O1",
+      "name": "Opening usage-share claim",
+      "section": "onboarding",
+      "observed": "On first launch, Insight Timer opens on a claim that more time is spent here than on all other well-being apps combined, backed by a pie chart giving itself 59% against named competitors, under a call to action to join 35 million people. No source for the percentages appears anywhere on the screen.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O2",
+      "name": "Library breadth screen",
+      "section": "onboarding",
+      "observed": "The next screen claims the largest library of guided meditations and music tracks on earth, listing hundreds of thousands of meditations, tens of thousands of teachers, and a million playlists. The figures shift elsewhere in the app: a different user count later in onboarding, a different free-title count on the free-tier promise, a different free-track count in the library search, and a different teacher count on the Teachers tab.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O3",
+      "name": "Profiling questions",
+      "section": "onboarding",
+      "observed": "Four profiling questions ask who the user is meditating for, up to three topics of interest, meditation experience level, and preferred content type. Choosing support for kids surfaces children's content later on the loading screen and as the home screen's top pick, though whether that placement actually follows from the answer is left unclear.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O4",
+      "name": "Consistency research screens",
+      "section": "onboarding",
+      "observed": "Three screens argue that consistent practice improves mood and equanimity and that consistency itself is the key benefit, each illustrated with a chart and none asking for input. The mood and equanimity claims resurface later on the streak page's stats panel.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O5",
+      "name": "Consecutive-day goal",
+      "section": "onboarding",
+      "observed": "\"How many days will you look after yourself?\" offers four graded options from 3 to 10 consecutive days, five days preselected, framed as a goal to measure progress and form habits. No reward attaches to any option, and whether a missed day ends, restarts, or simply continues the goal is left unclear.",
+      "detail": [],
+      "tags": [
         {
-          "src": "/screenshots/streak/insight-timer/01.jpg",
-          "caption": null
+          "name": "Commitment",
+          "confidence": "Presence on O13 (tier: directly observed, a first-person sentence about the user's own behavior that the user sets and the product shows back whole). Presence on O54 (tier: plausible, the undertaking is voiced as the product's question and attributed to the user only by the \"I'm committed\" button).",
+          "confidences": [
+            "Presence on O13 (tier: directly observed, a first-person sentence about the user's own behavior that the user sets and the product shows back whole). Presence on O54 (tier: plausible, the undertaking is voiced as the product's question and attributed to the user only by the \"I'm committed\" button)."
+          ],
+          "rationale": "On O13 Insight Timer supplies \"Today I will...\", the user fills it from a list or edits it, and the product shows the whole statement back as the user's own undertaking and restates it on the widget; the subject is the user's own future behavior, performed by the user (tier: directly observed). On O54 the subject is also the user's own future behavior, returning tomorrow, and the user affirms it in the first person, so the exclusion for a commitment button with no established subject does not apply (tier: plausible). The consecutive-day goal on O5 is a target selection and is excluded under the entry's first exclusion; it carries no label (tier: directly observed).",
+          "alternativeConsidered": "For O54, the product's own exhortation followed by an acknowledgement button, which would carry no label (tier: plausible). A later surface showing the undertaking back as the user's, or a record of the affirmation, would separate them (tier: unresolved).",
+          "role": "engagement, retention"
         }
       ],
-      "suggestedShots": [
-        "Streak detail screen showing the flower icon, \"1 consecutive day — great work,\" the 10-day goal bar, and the April calendar with one day marked",
-        "Post-session \"can you make it to a two day streak?\" screen with the \"I'm committed\" button"
-      ]
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "challenges",
-      "depth": "supporting",
-      "writeup": {
-        "observed": "Challenges are framed as self-set goals during onboarding: the user chooses 3, 5, 7, or 10 consecutive practice days, with labels (Good / Great / Amazing / Incredible). The recommended default is 5 days. After the first session, the 'I'm committed' button explicitly asks the user to affirm their chosen goal. Challenge archive access is gated behind the Plus subscription.",
-        "presented": "The goal-setting screen during onboarding presents the challenge as a commitment the user makes before their first session. Progress displays as 'Day 1 of 10' on the home screen. Post-session, the 'Can you make it to a two day streak?' screen reinforces the challenge framing.",
-        "noting": "Framing the challenge as a user-set goal rather than an app-imposed task shifts psychological ownership. The 'I'm committed' button reinforces the user's own stated commitment rather than making a new demand. The challenge cadence (3–10 days) is calibrated to produce a first milestone within the first week of use.",
-        "findings": [
-          "The goal-setting during onboarding frames the challenge as a self-made commitment, 'I want to practice 10 consecutive days' is a user declaration, not an app requirement.",
-          "Challenge archive access is gated behind Plus, a retention mechanic (completed challenges) is partially paywalled.",
-          "The 'I'm committed' button is the only explicit behavioral commitment extraction mechanic in the library.",
-          "The onboarding makes a behavioral science argument before the challenge prompt, mood graphs, consistency curves, and a personalized prediction, establishing a scientific justification for the commitment before asking for it."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": [
-        "Dopamine Rebalance Challenge page showing the 10-day structure with day-by-day teacher breakdown, 165,000 joined count, and the participant location map"
-      ]
+      "id": "O6",
+      "name": "Daily minutes",
+      "section": "onboarding",
+      "observed": "A curve argues that five minutes a day is enough to notice improvements, then asks the user to choose 5, 10, or 20 daily minutes, each paired with its own outcome line promising faster improvement at higher settings.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "community-groups",
-      "depth": "core",
-      "writeup": {
-        "observed": "7,000+ groups cover Buddhism, poetry, psychology, weight loss, LGBTQIA+ communities, and more. Groups are accessible through the sidebar rather than any primary navigation tab, a user who explores only the five primary tabs will not find them. Live events are free-to-attend digital events with real-time attendee counts. A Therapist Directory lists 42,000 therapists globally, filterable by country and specialty. A Retreats marketplace lists 500+ real-world experiences from $50 to $11,452.",
-        "presented": "Groups are in the sidebar, not primary navigation. Live events show teacher name, topic, attendee count, and scheduled time. The real-time engagement counter ('594,622 people here today, 21,416 right now') is visible on the home screen.",
-        "noting": "7,000 groups with combined active membership means no niche interest goes unrepresented. The breadth makes Insight Timer hard to replace for a user invested in a specific community. The de-emphasis in navigation may reflect a deliberate choice to surface groups to users who seek them out rather than to all users.",
-        "findings": [
-          "Groups are hidden behind the sidebar with no presence in the five primary navigation tabs, a significant community infrastructure deliberately de-emphasized in the main navigation.",
-          "The real-time counter ('594,622 people here today') frames the app as a live communal space rather than a content archive.",
-          "The Retreats section lists 500+ real-world retreats from $50 to $11,452, a real-world service marketplace embedded in a free wellness app, observable immediately after a session completes.",
-          "The app crashed twice during analysis, a stability concern given the app's reliance on the sidebar for key features."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": [
-        "Browse groups view showing type filters (writing, LGBTQIA+, women only, psychology) and popular groups with member counts (Be Here Now 200,000+)"
-      ]
+      "id": "O7",
+      "name": "Practice time, reminder copy and notification permission",
+      "section": "onboarding",
+      "observed": "Choosing a preferred time of day, morning, afternoon, evening, or not sure, rewrites the reminder copy on the following screen to match, then leads into the system notification permission prompt.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "milestone",
-      "depth": "supporting",
-      "provisionalDepth": true,
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": [
-        "Streak screen showing the milestones ladder — 7 consecutive days / 50 non-consecutive days / 1 milestone / 5 milestones / 25 milestones / 100 milestones — with the current 0 milestones state"
-      ]
+      "id": "O8",
+      "name": "Personalization loading screen",
+      "section": "onboarding",
+      "observed": "A loading screen lists benefits tailored to the answers given earlier, including the kids-support answer from the profiling questions, before advancing on its own.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "social-feed",
-      "depth": "supporting",
-      "writeup": {
-        "observed": "Insight Timer's social layer surfaces group activity, teacher posts, and a community gratitude wall. The real-time engagement counter, '594,622 people here today', is visible without navigating to any specific section. Live events appear with attendee counts and scheduled times. Teacher profiles list follower counts, published tracks, and courses. Following a teacher routes their new content into the home screen recommendations.",
-        "presented": "The social layer is distributed across the primary home tab (recommendations from followed teachers), the library (browseable by teacher), and the sidebar (groups, retreats). The real-time counter is on the home screen.",
-        "noting": "The real-time counter frames the app as a live communal space, 594,622 people here today communicates simultaneous presence that converts the solo meditation experience into a shared one without requiring any social interaction.",
-        "findings": [
-          "The real-time counter converts the solo meditation app into a perceived communal space without requiring social interaction.",
-          "Teacher donation amounts run from $1.99 to $199.99, routing through Apple's in-app purchase system, Apple's 30% fee applies to teacher donations, a fact noted in the app's 'Why We're Free' copy.",
-          "Live events appear with attendee counts and can be added to Apple Calendar, converting event discovery into a commitment mechanism.",
-          "Insight Timer's free tier provides access to 280,000+ tracks with no ads, the paywall targets depth of practice (courses, challenges) rather than basic content access."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": [
-        "Home screen mid-scroll showing the \"594,622 people here today — 21,416 right now\" community counter and the Gratitude Wall with user posts"
-      ]
+      "id": "O9",
+      "name": "Acquisition source question",
+      "section": "onboarding",
+      "observed": "\"How did you find us?\" is headed by a claim of 30 million users reached without any ad spend, a figure that differs from the 35 million cited earlier and later in onboarding. The options span friends, professionals, and various discovery channels.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O10",
+      "name": "Dated well-being prediction",
+      "section": "onboarding",
+      "observed": "The last onboarding screen before the paywall predicts the user will be feeling much better by a date three months out, attributed to a large-scale scientific study, with a graph rising toward that date. The prediction ignores every answer given earlier in onboarding and is never restated at the goal or minutes steps that preceded it.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O11",
+      "name": "Onboarding exit",
+      "section": "onboarding",
+      "observed": "Onboarding ends on the home screen without ever asking the user to create an account, having requested only the notification permission along the way. Account creation, when it happens, is started by the user rather than prompted by the app.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O12",
+      "name": "Home screen",
+      "section": "core-loop",
+      "observed": "The home screen carries a goal line reading progress toward the onboarding target, a sidebar control, a flower streak control, a \"Today I will...\" intention field, category shortcuts, a single top pick for the day, a routine list, a quote, live usage counts, duration-filtered recommendations, a gratitude wall, and a community activity section, in a feed that scrolls without an end point. Bottom navigation holds five tabs: Home, Library, Timer, Teachers, and Saved.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Community Space",
+          "confidence": "Presence on O34 (tier: directly observed, other people's posts and a posting control). Presence on O35 (tier: strongly supported, 32 comments by people from different countries with like and comment controls, contribution not tested). Presence on O37 (tier: strongly supported, the teacher's audio replies to student comments show several actors interacting in the course's context, contribution control not narrated).",
+          "confidences": [
+            "Presence on O34 (tier: directly observed, other people's posts and a posting control). Presence on O35 (tier: strongly supported, 32 comments by people from different countries with like and comment controls, contribution not tested). Presence on O37 (tier: strongly supported, the teacher's audio replies to student comments show several actors interacting in the course's context, contribution control not narrated)."
+          ],
+          "rationale": "Each surface is an identifiable shared context in which more than one person contributes, with contributions kept with that context rather than as direct exchanges, and no membership is maintained around it (tier: strongly supported). O34 is seeded by the product's prompt, and O35 by a product-selected quote with product-written reflections (tier: directly observed).",
+          "alternativeConsidered": "Reviews and Ratings for O37 (tier: plausible). The comments and teacher replies are conversation within the course's context rather than evaluations submitted into a contributor loop, and no invitation or contributor state was seen (tier: strongly supported).",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O13",
+      "name": "Daily intention",
+      "section": "core-loop",
+      "observed": "Tapping \"Today I will...\" opens a list of ready-made intentions that can be tapped, saved, and reused, or edited into a custom sentence before being set. Setting an intention required placing a home screen widget first; once placed, the app confirmed the intention and opened a screen marking one consecutive day and counting down six days to the next milestone. The intention is later offered for sharing and is restated on the device widget.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "Presence on O26 (tier: directly observed, the product names the state a streak and moved it from none to one consecutive day when the first intention was set). The restatement of the same state as a two-day target on O54 (tier: directly observed).",
+          "confidences": [
+            "Presence on O26 (tier: directly observed, the product names the state a streak and moved it from none to one consecutive day when the first intention was set). The restatement of the same state as a two-day target on O54 (tier: directly observed)."
+          ],
+          "rationale": "Insight Timer maintains a consecutive-day state, surfaces it on the streak screen, the flower control and a widget, and advanced it in response to qualifying activity, which meets the entry's continuity-state and observability conditions under the presence standard (tier: directly observed). The milestone rule on O27 separates 7 consecutive days from 50 non-consecutive days, which shows the product distinguishing an uninterrupted sequence from a total (tier: strongly supported). What ends, resets or protects the sequence is not shown and is recorded as behavior detail (tier: unresolved).",
+          "alternativeConsidered": "A cumulative count of practice days carrying streak wording (tier: plausible). The product's \"consecutive\" copy and the separate non-consecutive milestone rule weigh against it, and a session that spans a missed day would settle it (tier: strongly supported).",
+          "role": "retention"
+        },
+        {
+          "name": "Commitment",
+          "confidence": "Presence on O13 (tier: directly observed, a first-person sentence about the user's own behavior that the user sets and the product shows back whole). Presence on O54 (tier: plausible, the undertaking is voiced as the product's question and attributed to the user only by the \"I'm committed\" button).",
+          "confidences": [
+            "Presence on O13 (tier: directly observed, a first-person sentence about the user's own behavior that the user sets and the product shows back whole). Presence on O54 (tier: plausible, the undertaking is voiced as the product's question and attributed to the user only by the \"I'm committed\" button)."
+          ],
+          "rationale": "On O13 Insight Timer supplies \"Today I will...\", the user fills it from a list or edits it, and the product shows the whole statement back as the user's own undertaking and restates it on the widget; the subject is the user's own future behavior, performed by the user (tier: directly observed). On O54 the subject is also the user's own future behavior, returning tomorrow, and the user affirms it in the first person, so the exclusion for a commitment button with no established subject does not apply (tier: plausible). The consecutive-day goal on O5 is a target selection and is excluded under the entry's first exclusion; it carries no label (tier: directly observed).",
+          "alternativeConsidered": "For O54, the product's own exhortation followed by an acknowledgement button, which would carry no label (tier: plausible). A later surface showing the undertaking back as the user's, or a record of the affirmation, would separate them (tier: unresolved).",
+          "role": "engagement, retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O14",
+      "name": "My routine",
+      "section": "core-loop",
+      "observed": "My routine lets the user build a daily calendar of activities, each given a name, a repeat rule, a frequency, and an attached practice drawn from the timer, bookmarks, a course, playlists, the journal, or a check-in. The product suggests activities such as meditating, winding down without screens, or appreciating a quiet moment, grouped under themes like sleep and gratitude. What marks an activity complete, and whether its count resets the next day, never surfaced.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O15",
+      "name": "Live usage counts",
+      "section": "core-loop",
+      "observed": "Below the home screen quote sits a running count of how many people are using the app today and right now. No individual in the count is identified, and whether the figures move during a single visit never surfaced.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O16",
+      "name": "Library tab",
+      "section": "core-loop",
+      "observed": "The Library tab opens on a search across the full free catalogue, next to a link explaining why the product is free. Below it sit the same categories as the home screen, courses, topics, brief practices, and duration-filtered recommendations.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O17",
+      "name": "Category pages",
+      "section": "core-loop",
+      "observed": "Every category page follows the same layout: a headline, named techniques or practices, a top pick, recommendations, a top-20 list, individual tracks, courses, and the category's teachers. The ordering rule behind the top-20 list never surfaced.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O18",
+      "name": "Track page and player",
+      "section": "core-loop",
+      "observed": "A track page states its play count and posting date, and shows reviews, the teacher, the teacher's other content, a share control, and a donate control. The player shows a countdown with pause but no skip. A track's menu adds a private-listening mode, a sleep timer, download, save-for-later, bookmarking, playlist and folder controls, following the teacher, donating, and reporting a concern.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O19",
+      "name": "Meditation timer",
+      "section": "core-loop",
+      "observed": "The timer opens promoting its newest bell and ambient-sound set, with a control to revert to a basic version. Both versions let the user set a starting bell, duration, activity type, warm-up, interval bells, ambient sound, ending bell, and volume, and save the setup as a preset. Starting a practice sounds the bell and states how many bells remain before it can be finished or discarded.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O20",
+      "name": "Practice completion screen",
+      "section": "core-loop",
+      "observed": "Finishing a timer practice shows what was completed and a count of how many other people in the community meditated at the same moment, with no individual identified. Continuing leads into a streak prompt, a widget prompt, a reflection screen, and a retreat screen, in that order.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O21",
+      "name": "Post-practice reflection",
+      "section": "core-loop",
+      "observed": "After a practice, a reflection screen asks how the user is feeling on a slider from awful to great, alongside a journaling field and a set of descriptor tags that change depending on where the slider sits. A control lets the user turn the screen off for future practices.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O22",
+      "name": "Sidebar check-in and journal",
+      "section": "core-loop",
+      "observed": "A sidebar check-in asks how the user is feeling today and keeps the answer as a mood record; continuing from it into a journal entry raised a paywall. The journal itself, reachable from the sidebar and the Saved tab, takes a plain entry and saves it. A completed check-in did not visibly change a neutral weekly summary.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O23",
+      "name": "Saved tab",
+      "section": "core-loop",
+      "observed": "The Saved tab gathers recently played items, a listen-later list, bookmarks, playlists, the journal, challenges, courses, and downloads, and lets the user build folders that can be shared with others. Playlists are split between the user's own and friends', described as populating once a friend creates one.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Social Feed",
+          "confidence": "Presence on O41, for the group feed of members' posts (tier: directly observed). The My feed rule on O41 and the My teachers rule on O38, both seen empty (tier: strongly supported, the product states what enters them). Presence on O36 (tier: plausible, attribution of the activity items is not stated).",
+          "confidences": [
+            "Presence on O41, for the group feed of members' posts (tier: directly observed). The My feed rule on O41 and the My teachers rule on O38, both seen empty (tier: strongly supported, the product states what enters them). Presence on O36 (tier: plausible, attribution of the activity items is not stated)."
+          ],
+          "rationale": "Inside a group, Insight Timer presents posts from more than one member as a stream that changes as members post, with a sort for replies by newest or top (tier: directly observed). My feed and My teachers state selection rules based on groups joined and teachers followed (tier: strongly supported). The home community section on O36 fits a global activity feed only if its items name the people doing them, which the transcript does not settle (tier: plausible).",
+          "alternativeConsidered": "For O36, an unattributed display of aggregate activity, which would carry no label (tier: plausible). A session that reads individual community items and shows whether each names a person would separate them (tier: unresolved).",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O24",
+      "name": "Interrupted and resumed practice",
+      "section": "core-loop",
+      "observed": "Leaving and returning to the app opened on a motivation screen ahead of the timer. Closing a guided practice partway offered a restart or continue choice, and the home screen then showed the unfinished practice.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O25",
+      "name": "Consecutive-day goal tracker",
+      "section": "goals",
+      "observed": "The home screen's top line reads \"Day 1 out of 10,\" matching the ten-day goal chosen during onboarding, with the streak page adding \"You're making progress towards your goal.\" The count starts at day one before any practice happens, and whether it advances by calendar days or practiced days, and what happens at day ten, is left unclear.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "Presence on O26 (tier: directly observed, the product names the state a streak and moved it from none to one consecutive day when the first intention was set). The restatement of the same state as a two-day target on O54 (tier: directly observed).",
+          "confidences": [
+            "Presence on O26 (tier: directly observed, the product names the state a streak and moved it from none to one consecutive day when the first intention was set). The restatement of the same state as a two-day target on O54 (tier: directly observed)."
+          ],
+          "rationale": "Insight Timer maintains a consecutive-day state, surfaces it on the streak screen, the flower control and a widget, and advanced it in response to qualifying activity, which meets the entry's continuity-state and observability conditions under the presence standard (tier: directly observed). The milestone rule on O27 separates 7 consecutive days from 50 non-consecutive days, which shows the product distinguishing an uninterrupted sequence from a total (tier: strongly supported). What ends, resets or protects the sequence is not shown and is recorded as behavior detail (tier: unresolved).",
+          "alternativeConsidered": "A cumulative count of practice days carrying streak wording (tier: plausible). The product's \"consecutive\" copy and the separate non-consecutive milestone rule weigh against it, and a session that spans a missed day would settle it (tier: strongly supported).",
+          "role": "retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O26",
+      "name": "Consecutive-day streak",
+      "section": "goals",
+      "observed": "A flower control at the top of the home screen tracks the streak. Setting the first intention opens a screen announcing one consecutive day and a countdown to the next milestone, and tapping the flower repeats the same figure. What ends the streak, and whether any protection exists, is left unclear.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "Presence on O26 (tier: directly observed, the product names the state a streak and moved it from none to one consecutive day when the first intention was set). The restatement of the same state as a two-day target on O54 (tier: directly observed).",
+          "confidences": [
+            "Presence on O26 (tier: directly observed, the product names the state a streak and moved it from none to one consecutive day when the first intention was set). The restatement of the same state as a two-day target on O54 (tier: directly observed)."
+          ],
+          "rationale": "Insight Timer maintains a consecutive-day state, surfaces it on the streak screen, the flower control and a widget, and advanced it in response to qualifying activity, which meets the entry's continuity-state and observability conditions under the presence standard (tier: directly observed). The milestone rule on O27 separates 7 consecutive days from 50 non-consecutive days, which shows the product distinguishing an uninterrupted sequence from a total (tier: strongly supported). What ends, resets or protects the sequence is not shown and is recorded as behavior detail (tier: unresolved).",
+          "alternativeConsidered": "A cumulative count of practice days carrying streak wording (tier: plausible). The product's \"consecutive\" copy and the separate non-consecutive milestone rule weigh against it, and a session that spans a missed day would settle it (tier: strongly supported).",
+          "role": "retention"
+        },
+        {
+          "name": "Milestone",
+          "confidence": "Presence on O27 (tier: strongly supported, the stated thresholds, the milestone count, the countdown on O26, the total milestones figure on O44 and the profile visibility on O39 converge; recognition on reaching a milestone was not seen).",
+          "confidences": [
+            "Presence on O27 (tier: strongly supported, the stated thresholds, the milestone count, the countdown on O26, the total milestones figure on O44 and the profile visibility on O39 converge; recognition on reaching a milestone was not seen)."
+          ],
+          "rationale": "Insight Timer defines thresholds within ongoing practice measures, keeps a milestone count as a record separate from the day count, counts down to the next threshold, and offers the count for sharing and profile visibility (tier: strongly supported). Under the presence standard, the product's own framing establishes the mechanic, and the recognition event when a threshold is crossed is recorded as unobserved behavior detail (tier: unresolved).",
+          "alternativeConsidered": "Achievement, reading 1, 5, 25 and 100 milestones as tiered attained states (tier: plausible). No criterion changing to attained or preserved record was seen; a session that reaches 7 consecutive days and shows what the product records would separate them (tier: unresolved).",
+          "role": "retention"
+        },
+        {
+          "name": "Shareable Win",
+          "confidence": "The routes out and the choice of figure (tier: directly observed). The composed representation (tier: strongly supported, narrated as a preview of how the chosen figure will look).",
+          "confidences": [
+            "The routes out and the choice of figure (tier: directly observed). The composed representation (tier: strongly supported, narrated as a preview of how the chosen figure will look)."
+          ],
+          "rationale": "The subject is a record Insight Timer holds and presents as an accomplishment (\"Great work. We started a streak\"), the product composes it into a representation for an outside reader, and it offers Instagram, WhatsApp, Messenger, Messages and copy link as routes out (tier: strongly supported). The share is attached to the streak and stats records rather than to content the user made (tier: directly observed).",
+          "alternativeConsidered": "An ordinary share control on product content (tier: plausible). The subject here is the user's own streak and totals rather than a track or a quote, which the practice share on O43 and O46 covers separately (tier: directly observed).",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O27",
+      "name": "Milestones",
+      "section": "goals",
+      "observed": "The streak page explains that milestones are reached at 7 consecutive or 50 non-consecutive days of practice, lists further milestone counts of 1, 5, 25, and 100, and counts down to the next one. No milestone was reached, so what the app actually does at that moment stays unclear, as does whether the listed counts are markers, badges, or something else.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "Presence on O26 (tier: directly observed, the product names the state a streak and moved it from none to one consecutive day when the first intention was set). The restatement of the same state as a two-day target on O54 (tier: directly observed).",
+          "confidences": [
+            "Presence on O26 (tier: directly observed, the product names the state a streak and moved it from none to one consecutive day when the first intention was set). The restatement of the same state as a two-day target on O54 (tier: directly observed)."
+          ],
+          "rationale": "Insight Timer maintains a consecutive-day state, surfaces it on the streak screen, the flower control and a widget, and advanced it in response to qualifying activity, which meets the entry's continuity-state and observability conditions under the presence standard (tier: directly observed). The milestone rule on O27 separates 7 consecutive days from 50 non-consecutive days, which shows the product distinguishing an uninterrupted sequence from a total (tier: strongly supported). What ends, resets or protects the sequence is not shown and is recorded as behavior detail (tier: unresolved).",
+          "alternativeConsidered": "A cumulative count of practice days carrying streak wording (tier: plausible). The product's \"consecutive\" copy and the separate non-consecutive milestone rule weigh against it, and a session that spans a missed day would settle it (tier: strongly supported).",
+          "role": "retention"
+        },
+        {
+          "name": "Milestone",
+          "confidence": "Presence on O27 (tier: strongly supported, the stated thresholds, the milestone count, the countdown on O26, the total milestones figure on O44 and the profile visibility on O39 converge; recognition on reaching a milestone was not seen).",
+          "confidences": [
+            "Presence on O27 (tier: strongly supported, the stated thresholds, the milestone count, the countdown on O26, the total milestones figure on O44 and the profile visibility on O39 converge; recognition on reaching a milestone was not seen)."
+          ],
+          "rationale": "Insight Timer defines thresholds within ongoing practice measures, keeps a milestone count as a record separate from the day count, counts down to the next threshold, and offers the count for sharing and profile visibility (tier: strongly supported). Under the presence standard, the product's own framing establishes the mechanic, and the recognition event when a threshold is crossed is recorded as unobserved behavior detail (tier: unresolved).",
+          "alternativeConsidered": "Achievement, reading 1, 5, 25 and 100 milestones as tiered attained states (tier: plausible). No criterion changing to attained or preserved record was seen; a session that reaches 7 consecutive days and shows what the product records would separate them (tier: unresolved).",
+          "role": "retention"
+        },
+        {
+          "name": "Shareable Win",
+          "confidence": "The routes out and the choice of figure (tier: directly observed). The composed representation (tier: strongly supported, narrated as a preview of how the chosen figure will look).",
+          "confidences": [
+            "The routes out and the choice of figure (tier: directly observed). The composed representation (tier: strongly supported, narrated as a preview of how the chosen figure will look)."
+          ],
+          "rationale": "The subject is a record Insight Timer holds and presents as an accomplishment (\"Great work. We started a streak\"), the product composes it into a representation for an outside reader, and it offers Instagram, WhatsApp, Messenger, Messages and copy link as routes out (tier: strongly supported). The share is attached to the streak and stats records rather than to content the user made (tier: directly observed).",
+          "alternativeConsidered": "An ordinary share control on product content (tier: plausible). The subject here is the user's own streak and totals rather than a track or a quote, which the practice share on O43 and O46 covers separately (tier: directly observed).",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O28",
+      "name": "Stats and practice calendar",
+      "section": "goals",
+      "observed": "The streak page carries a monthly practice calendar, time practiced for the week, and a use split between the timer and guided meditation, alongside a panel repeating the mood and equanimity claims from onboarding and naming a large body of aggregate meditation data behind them. Detailed stats break activity down by type and show a running daily average, and the same figures used there can be shared as they are from the streak screen.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "Presence on O26 (tier: directly observed, the product names the state a streak and moved it from none to one consecutive day when the first intention was set). The restatement of the same state as a two-day target on O54 (tier: directly observed).",
+          "confidences": [
+            "Presence on O26 (tier: directly observed, the product names the state a streak and moved it from none to one consecutive day when the first intention was set). The restatement of the same state as a two-day target on O54 (tier: directly observed)."
+          ],
+          "rationale": "Insight Timer maintains a consecutive-day state, surfaces it on the streak screen, the flower control and a widget, and advanced it in response to qualifying activity, which meets the entry's continuity-state and observability conditions under the presence standard (tier: directly observed). The milestone rule on O27 separates 7 consecutive days from 50 non-consecutive days, which shows the product distinguishing an uninterrupted sequence from a total (tier: strongly supported). What ends, resets or protects the sequence is not shown and is recorded as behavior detail (tier: unresolved).",
+          "alternativeConsidered": "A cumulative count of practice days carrying streak wording (tier: plausible). The product's \"consecutive\" copy and the separate non-consecutive milestone rule weigh against it, and a session that spans a missed day would settle it (tier: strongly supported).",
+          "role": "retention"
+        },
+        {
+          "name": "Shareable Win",
+          "confidence": "The routes out and the choice of figure (tier: directly observed). The composed representation (tier: strongly supported, narrated as a preview of how the chosen figure will look).",
+          "confidences": [
+            "The routes out and the choice of figure (tier: directly observed). The composed representation (tier: strongly supported, narrated as a preview of how the chosen figure will look)."
+          ],
+          "rationale": "The subject is a record Insight Timer holds and presents as an accomplishment (\"Great work. We started a streak\"), the product composes it into a representation for an outside reader, and it offers Instagram, WhatsApp, Messenger, Messages and copy link as routes out (tier: strongly supported). The share is attached to the streak and stats records rather than to content the user made (tier: directly observed).",
+          "alternativeConsidered": "An ordinary share control on product content (tier: plausible). The subject here is the user's own streak and totals rather than a track or a quote, which the practice share on O43 and O46 covers separately (tier: directly observed).",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O29",
+      "name": "Account creation",
+      "section": "access",
+      "observed": "The user chose to sign in through Apple without being prompted, after which Insight Timer asks for a birth year only, framed as necessary to keep the community safe, then greets the user by name and returns to the paywall. No day or month of birth is requested, and no sign-in options besides Apple appear.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O30",
+      "name": "Features that require an account",
+      "section": "access",
+      "observed": "The teacher-donation control required signing up before it would open, and friends' shared playlists appear to require an account as well, though that was never tested directly. Nothing else in the app changed noticeably after signing in.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O31",
+      "name": "Plus-locked content and features",
+      "section": "access",
+      "observed": "Plus items stay visible in free use and lock at the point of use rather than being hidden: a course intro plays freely before its paywall, premium timer instruments raise a lock message on tap, and continuing a check-in into a journal entry raises its own paywall. The basic timer, its standard ambient sounds, and the free library all remain usable without Plus.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O32",
+      "name": "Challenges",
+      "section": "access",
+      "observed": "The challenge archive states that no challenge is currently running and locks the rest of the archive behind Plus. A past challenge shows its dates, participant count, and ten days of activities, but joining it raises a paywall written specifically for that challenge. No success condition, completion state, or daily requirement for any challenge ever appears.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O33",
+      "name": "Intention widget requirement",
+      "section": "access",
+      "observed": "Setting an intention for the first time is blocked by a screen requiring the intentions widget to be installed before the feature will work, with a maybe-later option and step-by-step installation instructions. What maybe later does to the pending intention is left unclear.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O34",
+      "name": "Gratitude wall",
+      "section": "social",
+      "observed": "A gratitude wall on the home screen asks what the user is grateful for today and shows what other people have posted. Posting to it requires only a name and a message, with no join step. Whether posts are reviewed before appearing never surfaced.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Community Space",
+          "confidence": "Presence on O34 (tier: directly observed, other people's posts and a posting control). Presence on O35 (tier: strongly supported, 32 comments by people from different countries with like and comment controls, contribution not tested). Presence on O37 (tier: strongly supported, the teacher's audio replies to student comments show several actors interacting in the course's context, contribution control not narrated).",
+          "confidences": [
+            "Presence on O34 (tier: directly observed, other people's posts and a posting control). Presence on O35 (tier: strongly supported, 32 comments by people from different countries with like and comment controls, contribution not tested). Presence on O37 (tier: strongly supported, the teacher's audio replies to student comments show several actors interacting in the course's context, contribution control not narrated)."
+          ],
+          "rationale": "Each surface is an identifiable shared context in which more than one person contributes, with contributions kept with that context rather than as direct exchanges, and no membership is maintained around it (tier: strongly supported). O34 is seeded by the product's prompt, and O35 by a product-selected quote with product-written reflections (tier: directly observed).",
+          "alternativeConsidered": "Reviews and Ratings for O37 (tier: plausible). The comments and teacher replies are conversation within the course's context rather than evaluations submitted into a contributor loop, and no invitation or contributor state was seen (tier: strongly supported).",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O35",
+      "name": "Quote reflections and comments",
+      "section": "social",
+      "observed": "A home screen quote carries likes, a comment count, and a share control, and opening it shows three seeded reflections drawn from different traditions plus a running set of comments left by people from different countries. Whether the quote changes daily never surfaced.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Community Space",
+          "confidence": "Presence on O34 (tier: directly observed, other people's posts and a posting control). Presence on O35 (tier: strongly supported, 32 comments by people from different countries with like and comment controls, contribution not tested). Presence on O37 (tier: strongly supported, the teacher's audio replies to student comments show several actors interacting in the course's context, contribution control not narrated).",
+          "confidences": [
+            "Presence on O34 (tier: directly observed, other people's posts and a posting control). Presence on O35 (tier: strongly supported, 32 comments by people from different countries with like and comment controls, contribution not tested). Presence on O37 (tier: strongly supported, the teacher's audio replies to student comments show several actors interacting in the course's context, contribution control not narrated)."
+          ],
+          "rationale": "Each surface is an identifiable shared context in which more than one person contributes, with contributions kept with that context rather than as direct exchanges, and no membership is maintained around it (tier: strongly supported). O34 is seeded by the product's prompt, and O35 by a product-selected quote with product-written reflections (tier: directly observed).",
+          "alternativeConsidered": "Reviews and Ratings for O37 (tier: plausible). The comments and teacher replies are conversation within the course's context rather than evaluations submitted into a contributor loop, and no invitation or contributor state was seen (tier: strongly supported).",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O36",
+      "name": "Community activity section",
+      "section": "social",
+      "observed": "Near the bottom of the home screen, a community section shows what people around the world are doing in the app at that moment, in a feed that scrolls without an end point. Whether each item names the person behind it is left unclear.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Social Feed",
+          "confidence": "Presence on O41, for the group feed of members' posts (tier: directly observed). The My feed rule on O41 and the My teachers rule on O38, both seen empty (tier: strongly supported, the product states what enters them). Presence on O36 (tier: plausible, attribution of the activity items is not stated).",
+          "confidences": [
+            "Presence on O41, for the group feed of members' posts (tier: directly observed). The My feed rule on O41 and the My teachers rule on O38, both seen empty (tier: strongly supported, the product states what enters them). Presence on O36 (tier: plausible, attribution of the activity items is not stated)."
+          ],
+          "rationale": "Inside a group, Insight Timer presents posts from more than one member as a stream that changes as members post, with a sort for replies by newest or top (tier: directly observed). My feed and My teachers state selection rules based on groups joined and teachers followed (tier: strongly supported). The home community section on O36 fits a global activity feed only if its items name the people doing them, which the transcript does not settle (tier: plausible).",
+          "alternativeConsidered": "For O36, an unattributed display of aggregate activity, which would carry no label (tier: plausible). A session that reads individual community items and shows whether each names a person would separate them (tier: unresolved).",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O37",
+      "name": "Course reviews, comments and teacher audio replies",
+      "section": "social",
+      "observed": "A course page shows a review count and star rating alongside a description of its length, benefits, and teacher, plus audio replies the teacher made to individual student comments. A control for leaving a comment or review of one's own never surfaced.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Community Space",
+          "confidence": "Presence on O34 (tier: directly observed, other people's posts and a posting control). Presence on O35 (tier: strongly supported, 32 comments by people from different countries with like and comment controls, contribution not tested). Presence on O37 (tier: strongly supported, the teacher's audio replies to student comments show several actors interacting in the course's context, contribution control not narrated).",
+          "confidences": [
+            "Presence on O34 (tier: directly observed, other people's posts and a posting control). Presence on O35 (tier: strongly supported, 32 comments by people from different countries with like and comment controls, contribution not tested). Presence on O37 (tier: strongly supported, the teacher's audio replies to student comments show several actors interacting in the course's context, contribution control not narrated)."
+          ],
+          "rationale": "Each surface is an identifiable shared context in which more than one person contributes, with contributions kept with that context rather than as direct exchanges, and no membership is maintained around it (tier: strongly supported). O34 is seeded by the product's prompt, and O35 by a product-selected quote with product-written reflections (tier: directly observed).",
+          "alternativeConsidered": "Reviews and Ratings for O37 (tier: plausible). The comments and teacher replies are conversation within the course's context rather than evaluations submitted into a contributor loop, and no invitation or contributor state was seen (tier: strongly supported).",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O38",
+      "name": "Teachers tab",
+      "section": "social",
+      "observed": "The Teachers tab opens on a headline count of available teachers and mental health professionals. Teachers currently live are shown with a watcher count and a way to join, while \"My teachers\" sits empty until a teacher is followed. The tab continues into live events, retreats, and a therapist directory.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Social Feed",
+          "confidence": "Presence on O41, for the group feed of members' posts (tier: directly observed). The My feed rule on O41 and the My teachers rule on O38, both seen empty (tier: strongly supported, the product states what enters them). Presence on O36 (tier: plausible, attribution of the activity items is not stated).",
+          "confidences": [
+            "Presence on O41, for the group feed of members' posts (tier: directly observed). The My feed rule on O41 and the My teachers rule on O38, both seen empty (tier: strongly supported, the product states what enters them). Presence on O36 (tier: plausible, attribution of the activity items is not stated)."
+          ],
+          "rationale": "Inside a group, Insight Timer presents posts from more than one member as a stream that changes as members post, with a sort for replies by newest or top (tier: directly observed). My feed and My teachers state selection rules based on groups joined and teachers followed (tier: strongly supported). The home community section on O36 fits a global activity feed only if its items name the people doing them, which the transcript does not settle (tier: plausible).",
+          "alternativeConsidered": "For O36, an unattributed display of aggregate activity, which would carry no label (tier: plausible). A session that reads individual community items and shows whether each names a person would separate them (tier: unresolved).",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O39",
+      "name": "Profile and privacy",
+      "section": "social",
+      "observed": "At sign-up, the product frames itself as an open community while offering a public or private profile choice, public by default, governing who can see the user's milestones, activities, and friends. The profile itself takes a cover image, photo, location, tagline, description, and a favorite track, and can be shared. A profile-photo prompt frames a clear photo as supporting \"a safe and transparent community.\"",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Milestone",
+          "confidence": "Presence on O27 (tier: strongly supported, the stated thresholds, the milestone count, the countdown on O26, the total milestones figure on O44 and the profile visibility on O39 converge; recognition on reaching a milestone was not seen).",
+          "confidences": [
+            "Presence on O27 (tier: strongly supported, the stated thresholds, the milestone count, the countdown on O26, the total milestones figure on O44 and the profile visibility on O39 converge; recognition on reaching a milestone was not seen)."
+          ],
+          "rationale": "Insight Timer defines thresholds within ongoing practice measures, keeps a milestone count as a record separate from the day count, counts down to the next threshold, and offers the count for sharing and profile visibility (tier: strongly supported). Under the presence standard, the product's own framing establishes the mechanic, and the recognition event when a threshold is crossed is recorded as unobserved behavior detail (tier: unresolved).",
+          "alternativeConsidered": "Achievement, reading 1, 5, 25 and 100 milestones as tiered attained states (tier: plausible). No criterion changing to attained or preserved record was seen; a session that reaches 7 consecutive days and shows what the product records would separate them (tier: unresolved).",
+          "role": "retention"
+        },
+        {
+          "name": "Group Membership",
+          "confidence": "Presence on O41 and O42 (tier: directly observed).",
+          "confidences": [
+            "Presence on O41 and O42 (tier: directly observed)."
+          ],
+          "rationale": "Insight Timer represents each group as a distinct entity, distinguishes members from non-members through join and leave, keeps membership across visits under stated rules (public groups joined immediately, admins, a welcome message on joining, guidelines), and membership changes what the user can do, including posting, chatting, sharing practices into the group and seeing groups under My groups (tier: directly observed). The member-built group library raised Clan / Guild as a candidate, because both entries name shared resources; the case was escalated during this run and ruled that a member-built group library is shared content under maintained membership and governance, not a collective group-owned state, so the decision ladder selects this entry (tier: directly observed, ruling recorded). The open multi-actor context of each group is subsumed by the more specific membership level (tier: directly observed).",
+          "alternativeConsidered": "Clan / Guild, if the group library is read as a collective group-owned state; ruled out on escalation in this run (tier: directly observed, ruling recorded). Community Space, which the ladder sets aside once maintained membership and governance are present (tier: directly observed).",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O40",
+      "name": "Messages and friends",
+      "section": "social",
+      "observed": "Messages opens on a message asking the user to add friends before a conversation can start, and both the friend-requests list and the friends list sit empty. No control to add a friend surfaced.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O41",
+      "name": "Groups: browsing and joining",
+      "section": "social",
+      "observed": "Groups are reached only from the sidebar, split into Browse, My groups, and My feed tabs. Browse surfaces popular groups by name and size alongside groups organized by type, and My feed states that it collects messages from joined groups. Joining a public group shows the admin's welcome message and community guidelines before entry; inside, a group carries a feed of member posts, a member-built library, a meditation tab, a chat, an about page listing admins and members, an invite link, and a leave control under its menu.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Group Membership",
+          "confidence": "Presence on O41 and O42 (tier: directly observed).",
+          "confidences": [
+            "Presence on O41 and O42 (tier: directly observed)."
+          ],
+          "rationale": "Insight Timer represents each group as a distinct entity, distinguishes members from non-members through join and leave, keeps membership across visits under stated rules (public groups joined immediately, admins, a welcome message on joining, guidelines), and membership changes what the user can do, including posting, chatting, sharing practices into the group and seeing groups under My groups (tier: directly observed). The member-built group library raised Clan / Guild as a candidate, because both entries name shared resources; the case was escalated during this run and ruled that a member-built group library is shared content under maintained membership and governance, not a collective group-owned state, so the decision ladder selects this entry (tier: directly observed, ruling recorded). The open multi-actor context of each group is subsumed by the more specific membership level (tier: directly observed).",
+          "alternativeConsidered": "Clan / Guild, if the group library is read as a collective group-owned state; ruled out on escalation in this run (tier: directly observed, ruling recorded). Community Space, which the ladder sets aside once maintained membership and governance are present (tier: directly observed).",
+          "role": "social"
+        },
+        {
+          "name": "Social Feed",
+          "confidence": "Presence on O41, for the group feed of members' posts (tier: directly observed). The My feed rule on O41 and the My teachers rule on O38, both seen empty (tier: strongly supported, the product states what enters them). Presence on O36 (tier: plausible, attribution of the activity items is not stated).",
+          "confidences": [
+            "Presence on O41, for the group feed of members' posts (tier: directly observed). The My feed rule on O41 and the My teachers rule on O38, both seen empty (tier: strongly supported, the product states what enters them). Presence on O36 (tier: plausible, attribution of the activity items is not stated)."
+          ],
+          "rationale": "Inside a group, Insight Timer presents posts from more than one member as a stream that changes as members post, with a sort for replies by newest or top (tier: directly observed). My feed and My teachers state selection rules based on groups joined and teachers followed (tier: strongly supported). The home community section on O36 fits a global activity feed only if its items name the people doing them, which the transcript does not settle (tier: plausible).",
+          "alternativeConsidered": "For O36, an unattributed display of aggregate activity, which would carry no label (tier: plausible). A session that reads individual community items and shows whether each names a person would separate them (tier: unresolved).",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O42",
+      "name": "Group creation",
+      "section": "social",
+      "observed": "Creating a group offers a public or private setting, a name, an optional description, a cover image, and an optional welcome message, and confirms creation with a prompt to share a unique invite link. My groups then lists both the groups the user manages and the groups they've joined.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Group Membership",
+          "confidence": "Presence on O41 and O42 (tier: directly observed).",
+          "confidences": [
+            "Presence on O41 and O42 (tier: directly observed)."
+          ],
+          "rationale": "Insight Timer represents each group as a distinct entity, distinguishes members from non-members through join and leave, keeps membership across visits under stated rules (public groups joined immediately, admins, a welcome message on joining, guidelines), and membership changes what the user can do, including posting, chatting, sharing practices into the group and seeing groups under My groups (tier: directly observed). The member-built group library raised Clan / Guild as a candidate, because both entries name shared resources; the case was escalated during this run and ruled that a member-built group library is shared content under maintained membership and governance, not a collective group-owned state, so the decision ladder selects this entry (tier: directly observed, ruling recorded). The open multi-actor context of each group is subsumed by the more specific membership level (tier: directly observed).",
+          "alternativeConsidered": "Clan / Guild, if the group library is read as a collective group-owned state; ruled out on escalation in this run (tier: directly observed, ruling recorded). Community Space, which the ladder sets aside once maintained membership and governance are present (tier: directly observed).",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O43",
+      "name": "Recommending a practice to groups",
+      "section": "social",
+      "observed": "Once the user has joined or created groups, a practice's share control adds those groups as destinations alongside friends and family. How a shared practice appears inside the group it was sent to never surfaced.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Group Membership",
+          "confidence": "Presence on O41 and O42 (tier: directly observed).",
+          "confidences": [
+            "Presence on O41 and O42 (tier: directly observed)."
+          ],
+          "rationale": "Insight Timer represents each group as a distinct entity, distinguishes members from non-members through join and leave, keeps membership across visits under stated rules (public groups joined immediately, admins, a welcome message on joining, guidelines), and membership changes what the user can do, including posting, chatting, sharing practices into the group and seeing groups under My groups (tier: directly observed). The member-built group library raised Clan / Guild as a candidate, because both entries name shared resources; the case was escalated during this run and ruled that a member-built group library is shared content under maintained membership and governance, not a collective group-owned state, so the decision ladder selects this entry (tier: directly observed, ruling recorded). The open multi-actor context of each group is subsumed by the more specific membership level (tier: directly observed).",
+          "alternativeConsidered": "Clan / Guild, if the group library is read as a collective group-owned state; ruled out on escalation in this run (tier: directly observed, ruling recorded). Community Space, which the ladder sets aside once maintained membership and governance are present (tier: directly observed).",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O44",
+      "name": "Progress share card",
+      "section": "reach",
+      "observed": "From the streak screen, a share-progress control lets the user pick which figure to send out, consecutive days, total days, total minutes, or total milestones, previews how it will look, and offers named platforms or a copy-link option. The same figures can be shared from the stats page as well.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "Presence on O26 (tier: directly observed, the product names the state a streak and moved it from none to one consecutive day when the first intention was set). The restatement of the same state as a two-day target on O54 (tier: directly observed).",
+          "confidences": [
+            "Presence on O26 (tier: directly observed, the product names the state a streak and moved it from none to one consecutive day when the first intention was set). The restatement of the same state as a two-day target on O54 (tier: directly observed)."
+          ],
+          "rationale": "Insight Timer maintains a consecutive-day state, surfaces it on the streak screen, the flower control and a widget, and advanced it in response to qualifying activity, which meets the entry's continuity-state and observability conditions under the presence standard (tier: directly observed). The milestone rule on O27 separates 7 consecutive days from 50 non-consecutive days, which shows the product distinguishing an uninterrupted sequence from a total (tier: strongly supported). What ends, resets or protects the sequence is not shown and is recorded as behavior detail (tier: unresolved).",
+          "alternativeConsidered": "A cumulative count of practice days carrying streak wording (tier: plausible). The product's \"consecutive\" copy and the separate non-consecutive milestone rule weigh against it, and a session that spans a missed day would settle it (tier: strongly supported).",
+          "role": "retention"
+        },
+        {
+          "name": "Milestone",
+          "confidence": "Presence on O27 (tier: strongly supported, the stated thresholds, the milestone count, the countdown on O26, the total milestones figure on O44 and the profile visibility on O39 converge; recognition on reaching a milestone was not seen).",
+          "confidences": [
+            "Presence on O27 (tier: strongly supported, the stated thresholds, the milestone count, the countdown on O26, the total milestones figure on O44 and the profile visibility on O39 converge; recognition on reaching a milestone was not seen)."
+          ],
+          "rationale": "Insight Timer defines thresholds within ongoing practice measures, keeps a milestone count as a record separate from the day count, counts down to the next threshold, and offers the count for sharing and profile visibility (tier: strongly supported). Under the presence standard, the product's own framing establishes the mechanic, and the recognition event when a threshold is crossed is recorded as unobserved behavior detail (tier: unresolved).",
+          "alternativeConsidered": "Achievement, reading 1, 5, 25 and 100 milestones as tiered attained states (tier: plausible). No criterion changing to attained or preserved record was seen; a session that reaches 7 consecutive days and shows what the product records would separate them (tier: unresolved).",
+          "role": "retention"
+        },
+        {
+          "name": "Shareable Win",
+          "confidence": "The routes out and the choice of figure (tier: directly observed). The composed representation (tier: strongly supported, narrated as a preview of how the chosen figure will look).",
+          "confidences": [
+            "The routes out and the choice of figure (tier: directly observed). The composed representation (tier: strongly supported, narrated as a preview of how the chosen figure will look)."
+          ],
+          "rationale": "The subject is a record Insight Timer holds and presents as an accomplishment (\"Great work. We started a streak\"), the product composes it into a representation for an outside reader, and it offers Instagram, WhatsApp, Messenger, Messages and copy link as routes out (tier: strongly supported). The share is attached to the streak and stats records rather than to content the user made (tier: directly observed).",
+          "alternativeConsidered": "An ordinary share control on product content (tier: plausible). The subject here is the user's own streak and totals rather than a track or a quote, which the practice share on O43 and O46 covers separately (tier: directly observed).",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O45",
+      "name": "Intention share",
+      "section": "reach",
+      "observed": "After the trial-extension gift screen, Insight Timer offers to share the set intention with friends and family, framed as strengthening commitment and accountability, or to simply finish. The destinations available for this particular share are left unclear.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Commitment",
+          "confidence": "Presence on O13 (tier: directly observed, a first-person sentence about the user's own behavior that the user sets and the product shows back whole). Presence on O54 (tier: plausible, the undertaking is voiced as the product's question and attributed to the user only by the \"I'm committed\" button).",
+          "confidences": [
+            "Presence on O13 (tier: directly observed, a first-person sentence about the user's own behavior that the user sets and the product shows back whole). Presence on O54 (tier: plausible, the undertaking is voiced as the product's question and attributed to the user only by the \"I'm committed\" button)."
+          ],
+          "rationale": "On O13 Insight Timer supplies \"Today I will...\", the user fills it from a list or edits it, and the product shows the whole statement back as the user's own undertaking and restates it on the widget; the subject is the user's own future behavior, performed by the user (tier: directly observed). On O54 the subject is also the user's own future behavior, returning tomorrow, and the user affirms it in the first person, so the exclusion for a commitment button with no established subject does not apply (tier: plausible). The consecutive-day goal on O5 is a target selection and is excluded under the entry's first exclusion; it carries no label (tier: directly observed).",
+          "alternativeConsidered": "For O54, the product's own exhortation followed by an acknowledgement button, which would carry no label (tier: plausible). A later surface showing the undertaking back as the user's, or a record of the affirmation, would separate them (tier: unresolved).",
+          "role": "engagement, retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O46",
+      "name": "Invitations and outbound links",
+      "section": "reach",
+      "observed": "Inviting a friend from the sidebar shares a join link through messages, social platforms, and other routes, and groups carry their own separate invite links. Practices can be shared to friends and family directly, and quotes carry the app's logo when shared. No reward for inviting anyone appears anywhere in these flows.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Group Membership",
+          "confidence": "Presence on O41 and O42 (tier: directly observed).",
+          "confidences": [
+            "Presence on O41 and O42 (tier: directly observed)."
+          ],
+          "rationale": "Insight Timer represents each group as a distinct entity, distinguishes members from non-members through join and leave, keeps membership across visits under stated rules (public groups joined immediately, admins, a welcome message on joining, guidelines), and membership changes what the user can do, including posting, chatting, sharing practices into the group and seeing groups under My groups (tier: directly observed). The member-built group library raised Clan / Guild as a candidate, because both entries name shared resources; the case was escalated during this run and ruled that a member-built group library is shared content under maintained membership and governance, not a collective group-owned state, so the decision ladder selects this entry (tier: directly observed, ruling recorded). The open multi-actor context of each group is subsumed by the more specific membership level (tier: directly observed).",
+          "alternativeConsidered": "Clan / Guild, if the group library is read as a collective group-owned state; ruled out on escalation in this run (tier: directly observed, ruling recorded). Community Space, which the ladder sets aside once maintained membership and governance are present (tier: directly observed).",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O47",
+      "name": "Retreats",
+      "section": "reach",
+      "observed": "After the post-practice reflection screen, Insight Timer promotes a featured real-world retreat and offers to browse the rest, sortable by recommendation, date, or price and filterable by type and location. Listed retreats range from fifty dollars in the UK to over eleven thousand dollars in China, spanning dozens of countries and practice types, each with its own detail page covering cost, schedule, accommodation, and cancellation policy. Whether booking and payment happen inside the app is left unclear.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O48",
+      "name": "Therapist directory",
+      "section": "reach",
+      "observed": "The Therapist Directory, reached from the Teachers tab, lists roughly forty-two thousand therapists searchable by location, specialty, and practice type, each with a profile showing credentials, followers, a description, and folders of shared material. A worksheet inside a folder can be added to a personal folder, reported, or shared, but not downloaded. How a user actually contacts or books a therapist is left unclear.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O49",
+      "name": "Onboarding paywall",
+      "section": "monetization",
+      "observed": "Onboarding ends on a Plus paywall promising a reminder two days before the trial ends, followed by a timeline running from today through a stated trial-end date, a note explaining that cancellation is easy, a free-versus-Plus comparison, and reviews from paying members. Accepting opens the App Store's own payment sheet; a skip control leads to the free-tier promise.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O50",
+      "name": "Free tier promise",
+      "section": "monetization",
+      "observed": "Skipping the paywall shows a promise that the app is free forever with hundreds of thousands of tracks and no ads, and the Library's \"Why we're free\" page adds that Insight Timer shares half its income directly with its teachers and that several hundred thousand people already pay for Plus. No advertisement appears anywhere across the app's use.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O51",
+      "name": "Trial extension after the first intention",
+      "section": "monetization",
+      "observed": "Right after the first intention is set, Insight Timer announces a gift, extending the free trial from one week to four, framed as a limited-time offer with a countdown. Accepting shows the same free-versus-Plus comparison under a statistic about member well-being, then a reminder of when the trial ends and the account will be charged. What specifically qualified the account for this gift is left unclear.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O52",
+      "name": "Contextual Plus offers",
+      "section": "monetization",
+      "observed": "Insight Timer raises a Plus offer at every locked surface, each one written for the specific item it's attached to, the track paywall, the challenge paywall, the advanced-journal paywall, and the timer's own promotional pop-up. Trial length differs by entry point: seven days at onboarding, four weeks after the intention gift, and thirty days on the track paywall, settling into the same $59.99-per-year price everywhere it's stated.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O53",
+      "name": "Teacher donations",
+      "section": "monetization",
+      "observed": "Tracks carry a donate control that, once the user has signed in, opens a set of fixed dollar amounts to send a named teacher, handled through Apple's own payment sheet. How much of a donation actually reaches the teacher is left unclear.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O54",
+      "name": "Streak continuation prompt",
+      "section": "returns",
+      "observed": "After the first timer practice ends, Insight Timer asks whether the user can make it to a two-day streak and invites them to come back tomorrow, paired with a button reading \"I'm committed.\" The prompt does not appear to repeat again afterward.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "Presence on O26 (tier: directly observed, the product names the state a streak and moved it from none to one consecutive day when the first intention was set). The restatement of the same state as a two-day target on O54 (tier: directly observed).",
+          "confidences": [
+            "Presence on O26 (tier: directly observed, the product names the state a streak and moved it from none to one consecutive day when the first intention was set). The restatement of the same state as a two-day target on O54 (tier: directly observed)."
+          ],
+          "rationale": "Insight Timer maintains a consecutive-day state, surfaces it on the streak screen, the flower control and a widget, and advanced it in response to qualifying activity, which meets the entry's continuity-state and observability conditions under the presence standard (tier: directly observed). The milestone rule on O27 separates 7 consecutive days from 50 non-consecutive days, which shows the product distinguishing an uninterrupted sequence from a total (tier: strongly supported). What ends, resets or protects the sequence is not shown and is recorded as behavior detail (tier: unresolved).",
+          "alternativeConsidered": "A cumulative count of practice days carrying streak wording (tier: plausible). The product's \"consecutive\" copy and the separate non-consecutive milestone rule weigh against it, and a session that spans a missed day would settle it (tier: strongly supported).",
+          "role": "retention"
+        },
+        {
+          "name": "Commitment",
+          "confidence": "Presence on O13 (tier: directly observed, a first-person sentence about the user's own behavior that the user sets and the product shows back whole). Presence on O54 (tier: plausible, the undertaking is voiced as the product's question and attributed to the user only by the \"I'm committed\" button).",
+          "confidences": [
+            "Presence on O13 (tier: directly observed, a first-person sentence about the user's own behavior that the user sets and the product shows back whole). Presence on O54 (tier: plausible, the undertaking is voiced as the product's question and attributed to the user only by the \"I'm committed\" button)."
+          ],
+          "rationale": "On O13 Insight Timer supplies \"Today I will...\", the user fills it from a list or edits it, and the product shows the whole statement back as the user's own undertaking and restates it on the widget; the subject is the user's own future behavior, performed by the user (tier: directly observed). On O54 the subject is also the user's own future behavior, returning tomorrow, and the user affirms it in the first person, so the exclusion for a commitment button with no established subject does not apply (tier: plausible). The consecutive-day goal on O5 is a target selection and is excluded under the entry's first exclusion; it carries no label (tier: directly observed).",
+          "alternativeConsidered": "For O54, the product's own exhortation followed by an acknowledgement button, which would carry no label (tier: plausible). A later surface showing the undertaking back as the user's, or a record of the affirmation, would separate them (tier: unresolved).",
+          "role": "engagement, retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O55",
+      "name": "Home screen widgets",
+      "section": "returns",
+      "observed": "Insight Timer offers several home screen widgets: a consecutive-day counter, an intention widget in two sizes, quick access to recently played tracks, and a daily quote. The intention widget is required before intentions can be set at all, and a second prompt to install it appears after the first practice ends, framed around consistency, even when a widget is already installed.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "Presence on O26 (tier: directly observed, the product names the state a streak and moved it from none to one consecutive day when the first intention was set). The restatement of the same state as a two-day target on O54 (tier: directly observed).",
+          "confidences": [
+            "Presence on O26 (tier: directly observed, the product names the state a streak and moved it from none to one consecutive day when the first intention was set). The restatement of the same state as a two-day target on O54 (tier: directly observed)."
+          ],
+          "rationale": "Insight Timer maintains a consecutive-day state, surfaces it on the streak screen, the flower control and a widget, and advanced it in response to qualifying activity, which meets the entry's continuity-state and observability conditions under the presence standard (tier: directly observed). The milestone rule on O27 separates 7 consecutive days from 50 non-consecutive days, which shows the product distinguishing an uninterrupted sequence from a total (tier: strongly supported). What ends, resets or protects the sequence is not shown and is recorded as behavior detail (tier: unresolved).",
+          "alternativeConsidered": "A cumulative count of practice days carrying streak wording (tier: plausible). The product's \"consecutive\" copy and the separate non-consecutive milestone rule weigh against it, and a session that spans a missed day would settle it (tier: strongly supported).",
+          "role": "retention"
+        },
+        {
+          "name": "Commitment",
+          "confidence": "Presence on O13 (tier: directly observed, a first-person sentence about the user's own behavior that the user sets and the product shows back whole). Presence on O54 (tier: plausible, the undertaking is voiced as the product's question and attributed to the user only by the \"I'm committed\" button).",
+          "confidences": [
+            "Presence on O13 (tier: directly observed, a first-person sentence about the user's own behavior that the user sets and the product shows back whole). Presence on O54 (tier: plausible, the undertaking is voiced as the product's question and attributed to the user only by the \"I'm committed\" button)."
+          ],
+          "rationale": "On O13 Insight Timer supplies \"Today I will...\", the user fills it from a list or edits it, and the product shows the whole statement back as the user's own undertaking and restates it on the widget; the subject is the user's own future behavior, performed by the user (tier: directly observed). On O54 the subject is also the user's own future behavior, returning tomorrow, and the user affirms it in the first person, so the exclusion for a commitment button with no established subject does not apply (tier: plausible). The consecutive-day goal on O5 is a target selection and is excluded under the entry's first exclusion; it carries no label (tier: directly observed).",
+          "alternativeConsidered": "For O54, the product's own exhortation followed by an acknowledgement button, which would carry no label (tier: plausible). A later surface showing the undertaking back as the user's, or a record of the affirmation, would separate them (tier: unresolved).",
+          "role": "engagement, retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O56",
+      "name": "Live events",
+      "section": "returns",
+      "observed": "The Teachers tab lists upcoming live events and live yoga classes with the teacher, topic, and attendance count, including who is live now or starting within minutes. Attending confirms the time and offers to add the event to the device calendar. Whether the app sends any reminder before the event starts is left unclear.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    }
+  ],
+  "systemView": [
+    "Insight Timer's daily state runs through two entry points that both start at onboarding: setting an intention, which starts the streak and counts down to the next milestone, and a timer practice, which ends in a completion screen, a streak-and-widget prompt sequence, and a reflection screen. The social layer sits apart from this spine on two tracks that don't reference each other: a membership layer of named, admin-run groups, and a set of open, unmembered surfaces seeded by the product itself. Nothing ties the meditation-and-streak spine directly to the social layer beyond a shared profile-visibility setting."
+  ],
+  "mechanicWriteups": [
+    {
+      "name": "Streak",
+      "summary": "A consecutive-day streak set from a goal chosen at onboarding, surfaced on a dedicated flower control and a home screen widget.",
+      "observed": "The user picks a consecutive-day goal during onboarding (3, 5, 7, or 10 days). Setting a daily intention starts the streak at one consecutive day, and the home screen separately counts down to the next milestone. A widget option can show the running count on the device home screen, and a post-practice prompt asks the user to keep it going the next day.",
+      "presented": "A flower icon sits at the top of the home screen tracking the consecutive-day count. The onboarding goal screen and the post-practice prompt both frame the streak as a target the user set for themself, not one the product imposed.",
+      "noting": "The product distinguishes the consecutive-day count from a separate 50-non-consecutive-day milestone rule, which is itself evidence the streak measures an uninterrupted run rather than a total. What resets or protects the sequence never surfaced.",
+      "findings": [
+        "The streak begins the moment a daily intention is set, before any meditation happens.",
+        "Its length is chosen by the user during onboarding, not fixed by the product.",
+        "A home screen widget can display the running count outside the app.",
+        "What breaks or protects the streak never appeared."
+      ],
+      "screenshotsNote": "the onboarding goal-selection screen, and the flower streak control on the home screen."
+    },
+    {
+      "name": "Milestone",
+      "summary": "Thresholds at 7 consecutive days and 50 non-consecutive days, counted down to and tracked separately from the streak.",
+      "observed": "The product states milestone thresholds at 7 consecutive or 50 non-consecutive days, counts down to the next one from the home screen, and lists further milestone counts (1, 5, 25, 100) in the stats view. Reaching the 7-day threshold led directly into a trial-length change, though what the product itself shows at the moment a threshold is crossed never appeared.",
+      "presented": "A countdown to the next milestone sits beside the streak control, and a running milestone count appears on the stats page, the share card, and under profile visibility.",
+      "noting": "The milestone count is kept as its own record, separate from the day count and separate from the streak — the product tracks \"next milestone\" and \"total milestones reached\" as two different figures.",
+      "findings": [
+        "Thresholds are set at 7 consecutive days and separately at 50 non-consecutive days.",
+        "A countdown to the next milestone runs alongside the streak on the home screen.",
+        "Milestone counts (1, 5, 25, 100) appear in stats, on the share card, and under profile visibility.",
+        "What happens onscreen the moment a threshold is crossed never appeared."
+      ],
+      "screenshotsNote": "the milestone countdown on the home screen, and the stats page listing milestone counts."
+    },
+    {
+      "name": "Commitment",
+      "summary": "A daily intention the user composes and the product shows back as their own statement, plus a separate post-practice prompt asking them to return tomorrow.",
+      "observed": "\"Today I will...\" opens a list of ready-made intentions the user can tap, edit, and set; the chosen sentence is shown back whole and restated on the home screen widget. After a practice, a prompt frames returning tomorrow as something the user affirms by tapping \"I'm committed.\"",
+      "presented": "The intention field sits at the top of the home screen before any other action is available. The post-practice prompt appears in the same screen sequence as the streak and widget prompts, worded as the user's own undertaking.",
+      "noting": "The intention-setting behavior is the stronger case: the user supplies the content, the product shows it back as their own words, and it recurs on the widget. The post-practice button rests more lightly — the undertaking is voiced by the product and the user's agreement is inferred from a single tap, so it is described here as a prompt the user can affirm rather than a fully authored statement.",
+      "findings": [
+        "The daily intention is user-composed (from a list or free text) and echoed back as the user's own statement.",
+        "The intention is restated on the home screen widget.",
+        "The intention is set before any meditation happens that day.",
+        "A separate post-practice button asks the user to affirm returning tomorrow, with less shown about what that tap actually records."
+      ],
+      "screenshotsNote": "the \"Today I will...\" intention-setting screen, and the post-practice \"I'm committed\" prompt."
+    },
+    {
+      "name": "Shareable Win",
+      "summary": "A share composer built from the streak count, total days, total minutes, or total milestones, offered right after a streak forms and again from the stats page.",
+      "observed": "The product composes the user's own streak or totals into a preview and offers named platforms and a copy-link option as destinations. It appears on the screen where a streak starts and again on demand from stats.",
+      "presented": "A \"we started a streak\" framing leads into the share screen, where the user chooses which figure to send before picking a destination.",
+      "noting": "What gets shared is the product's own record of the user's streak and totals, not a track or piece of content the user made — a share of standing, not of material.",
+      "findings": [
+        "The share composer draws on streak count, total days, total minutes, or total milestones.",
+        "It is offered both immediately after a streak starts and on demand from stats.",
+        "The user picks which figure to send before choosing a destination.",
+        "The same named platforms are offered across both entry points."
+      ],
+      "screenshotsNote": "the share screen offered after a streak starts, and the same composer opened from stats."
+    },
+    {
+      "name": "Group Membership",
+      "summary": "Named groups with admins, posts, chat, and a leave control, joined from a groups section reached only through the sidebar.",
+      "observed": "Groups are browsed, joined, and created from a sidebar-only section. Public groups are joined immediately and show a welcome message and community guidelines; a group carries its own feed of member posts, a member-built library, a chat, and an about page listing admins and members. Membership persists across visits and changes what the user can do, including posting and sharing a practice into that specific group.",
+      "presented": "Browse, My groups, and My feed sit as tabs inside the Groups section. A group's own screen surfaces its feed, library, chat, and member list, with a leave control under its menu.",
+      "noting": "A member-built resource library inside each group raised the question of whether the group itself is a shared, group-owned resource, but membership, named admins, and a leave control are all present, which is what separates this from a resource held in common with no one belonging to anything.",
+      "findings": [
+        "Groups are reached only through the sidebar, not primary navigation.",
+        "Public groups are joined immediately, with a welcome message and stated guidelines.",
+        "Membership is tracked with named admins and a leave control.",
+        "Joining unlocks posting, chat, and sharing a practice into that group specifically."
+      ],
+      "screenshotsNote": "the Groups sidebar entry with Browse/My groups/My feed tabs, and a joined group's own screen showing its feed and library."
+    },
+    {
+      "name": "Community Space",
+      "summary": "Two open, unmembered surfaces on the home screen, a gratitude wall and a quote with comments, plus teacher audio replies on a course page.",
+      "observed": "A gratitude wall asks what the user is grateful for and shows other people's posts, open to anyone who supplies a name and a message. A home screen quote carries likes and comments, with three seeded reflections and a running set of comments from people in different countries. A course page separately carries teacher audio replies to student comments.",
+      "presented": "Both home screen surfaces sit in the normal scroll of the home feed, seeded by the product's own prompt or quote choice.",
+      "noting": "Nothing here asks the user to join anything first — contributions are kept with the surface itself rather than behind membership, which is what separates this from the groups layer.",
+      "findings": [
+        "The gratitude wall and quote comments are open to any user with no join step.",
+        "The home screen quote is seeded with the product's own choice of text and reflections.",
+        "A course page carries teacher audio replies to student comments in that course's context.",
+        "Whether posts are reviewed before appearing never surfaced."
+      ],
+      "screenshotsNote": "the gratitude wall on the home screen, and the quote screen with its comments."
+    },
+    {
+      "name": "Social Feed",
+      "summary": "A feed of posts inside each joined group, plus stated rules for what a personal \"My feed\" and \"My teachers\" tab collect.",
+      "observed": "Inside a group, posts from multiple members stream in a feed sortable by newest or top. The product states that \"My feed\" collects messages from joined groups and \"My teachers\" collects updates from followed teachers; both sat empty here. A separate community section lower on the home screen shows activity from people using the app, though whether each item ties to a named person never surfaced.",
+      "presented": "The group feed sits inside each joined group's own screen. My feed and My teachers are named tabs with a stated collection rule.",
+      "noting": "The group feed and the stated collection rules are the strongest ground for this tag — the product names exactly what populates each of them. The home screen community section is weaker: it reads as feed-like scrolling activity, but nothing pins down whether its items are attributed to a person, so it's described here as a possible extension of the same pattern rather than a confirmed one.",
+      "findings": [
+        "A group's feed streams posts from multiple members, sortable by newest or top.",
+        "My feed is stated to collect messages from joined groups.",
+        "My teachers is stated to collect updates from followed teachers.",
+        "A separate home screen community section shows app-wide activity, with its attribution left unclear."
+      ],
+      "screenshotsNote": "a joined group's feed, and the empty My feed / My teachers tabs.\n\n---"
+    }
+  ],
+  "sectionLeadIns": {
+    "onboarding": "An opening usage-share claim, four rounds of profiling questions, three consistency-research screens, and a dated well-being prediction all run before any account is created.",
+    "core-loop": "A home screen anchored by a streak, an intention field, and live usage counts feeds into a meditation timer, a completion sequence, and a stats page that gathers everything into one view.",
+    "goals": "A consecutive-day goal chosen at onboarding drives a streak, a milestone countdown, and a stats page that gathers every counted activity into one view.",
+    "access": "Account creation asks only for a birth year, Plus content stays visible but locks at the point of use, and setting an intention is blocked until a home screen widget is installed.",
+    "economy": "Insight Timer holds no currency, points, credits, tokens, or other held unit that is earned and then spent or exchanged. Nothing in the app's use is presented as a balance of any kind.",
+    "social": "Named groups with admins and a leave control sit alongside open, unmembered surfaces like a gratitude wall and quote comments, with messages and friends left entirely empty.",
+    "reach": "A progress share card, group and friend invite links, and routes into real-world retreats and a therapist directory all send the user, or an invitation, outside the app.",
+    "monetization": "An onboarding paywall gives way to a free-tier promise, then a trial-extension gift, contextual Plus offers at every locked surface, and a teacher-donation flow.",
+    "returns": "A post-practice streak prompt, a set of home screen widgets, and a calendar of live teacher-led events bring the user back."
+  },
+  "sectionCards": {
+    "onboarding": "An opening usage-share claim, four rounds of profiling questions, three consistency-research screens, and a dated well-being prediction all run before any account is created.",
+    "core-loop": "A home screen anchored by a streak, an intention field, and live usage counts feeds into a meditation timer, a completion sequence, and a stats page that gathers everything into one view.",
+    "goals": "A consecutive-day goal chosen at onboarding drives a streak, a milestone countdown, and a stats page that gathers every counted activity into one view.",
+    "access": "Account creation asks only for a birth year, Plus content stays visible but locks at the point of use, and setting an intention is blocked until a home screen widget is installed.",
+    "economy": "Empty. Insight Timer holds no currency, points, credits, tokens, or other held unit that is earned and then spent or exchanged.",
+    "social": "Named groups with admins and a leave control sit alongside open, unmembered surfaces like a gratitude wall and quote comments, with messages and friends left entirely empty.",
+    "reach": "A progress share card, group and friend invite links, and routes into real-world retreats and a therapist directory all send the user, or an invitation, outside the app.",
+    "monetization": "An onboarding paywall gives way to a free-tier promise, then a trial-extension gift, contextual Plus offers at every locked surface, and a teacher-donation flow.",
+    "returns": "A post-practice streak prompt, a set of home screen widgets, and a calendar of live teacher-led events bring the user back."
+  },
+  "proposedTags": [
+    {
+      "name": "Post-Activity Mood Check",
+      "sourceObservations": [
+        "O21",
+        "O22"
+      ],
+      "draftDefinition": "A post-activity mood check asks the user, when the core activity ends, to rate how they feel on a defined scale, offers descriptor tags and a prompt about what is influencing the feeling, and accepts a free-text note, keeping the response as a record the product counts.",
+      "conditions": "A discrete activity with a defined end (O20); a stats surface that counts check-ins (O28); an option to stop showing the screen (O21). Descriptor tags that change with the rating are a candidate variant.",
+      "whyNotCovered": "Personal Data Reflection requires records the product already holds and excludes self-report from memory, so a rating of how the user feels, given in the moment rather than drawn from the product's records, falls outside it. Commitment concerns statements of future behavior. No approved entry covers a self-report prompt placed at the end of an activity and kept as a counted record.",
+      "recurrenceElsewhere": "Not established. The analyst remarks that Calm's equivalent post-session tags do not change with the selected mood, so Calm is expected to carry a comparable screen (tier: plausible, a remark in this transcript rather than an analyzed instance). Calm should be checked for this screen when it is analyzed.",
+      "caveat": "Held pending a second instance in another app. Two things would settle it. First, a second product that asks for a rating of how the user feels at the end of its core activity, offers descriptors or a note, and keeps the response as a record it counts, which establishes that the shape recurs; Calm is the first place to look. Second, a session that submits a rating and follows it afterwards, into stats, recommendations, later sessions or a check-in summary, which shows what the responses change. If the response turns out not to be kept at all, the proposal collapses into a one-time prompt described in plain language and carries no label. Two points also remain open in this session: O22 is a check-in opened from the sidebar rather than at the end of an activity and may belong to a separate self-tracking behavior, and the week's summary read neutral after a good check-in on O22, which the session does not explain (tier: unresolved)."
     }
   ],
   "system": {
-    "tagline": "A wellness system that uses behavioral science arguments to earn the commitment it then mechanizes.",
-    "overview": "Insight Timer's system is unusual because it makes its retention design visible rather than concealing it. The onboarding opens with graphs of mood improvement and a consistency curve, establishing a scientific justification for the mechanics that follow. The user sets their own goal (3 / 5 / 7 / 10 consecutive days), then the system mechanizes that self-made commitment through a streak, a behavioral commitment button, and a trial extension reward for installing the home screen widget. The system's depth, 280,000 free tracks, 7,000 groups, a retreat marketplace, ensures that the mechanics never feel like they are substituting for substance.",
-    "loop": "The core loop is: complete a meditation session → streak increments → 'I'm committed' post-session button reinforces the self-made goal → install home screen widget (trial extends from 7 to 30 days) → milestone at day 7 unlocks another gift → explore teacher profiles and groups → attend live events → discover retreats and therapist directory → consider Plus for course archive and offline access. The streak is the daily spine; the social and content depth keeps users engaged on the sessions that don't feel habitual.",
+    "tagline": "A wellness system whose daily spine runs on a self-set goal, and whose social layer runs on two tracks that never meet it.",
+    "overview": "Insight Timer's daily state runs through two entry points that both start at onboarding: setting an intention, which starts the streak and counts down to the next milestone, and a timer practice, which ends in a completion screen, a streak-and-widget prompt sequence, and a reflection screen. A social layer sits apart from this spine on two tracks that don't reference each other: a membership layer of named, admin-run groups, and a set of open, unmembered surfaces (a gratitude wall, quote comments) seeded by the product itself. The system's depth, hundreds of thousands of free tracks, thousands of groups, a retreat marketplace, a therapist directory, keeps the mechanics from feeling like a substitute for content.",
+    "loop": "The core loop is: set a daily intention (after installing the required widget) → streak starts and counts down to the next milestone → complete a timer practice → completion screen → streak-continuation and widget prompts → post-practice reflection → milestone reached pays out in a longer free trial and a shareable card. Alongside this spine, joining a group opens its own feed and library, and the open home-screen surfaces (gratitude wall, quote comments) run without any membership step at all.",
     "keyInsight": "The trial extension triggered by widget installation is the system's most structurally elegant mechanic. The app rewards installing its most powerful habit-formation tool, a home screen widget, with more time to develop the habit that makes the subscription feel necessary. The reward is more opportunity to form the habit that justifies the reward.",
-    "whatMakesItWork": "The system works because its retention mechanics are justified, not just applied. The streak is framed as the user's own goal. The 'I'm committed' button makes the commitment explicit. The widget extends the trial because it genuinely increases retention. The scientific argument in onboarding (mood graphs, consistency curve, personalized prediction) means the user understands why they're being asked to return daily before they're asked. Transparency about the mechanism doesn't weaken it, it strengthens it.",
+    "whatMakesItWork": "The system works because its retention mechanics are justified, not just applied. The streak is framed as the user's own goal. The 'I'm committed' prompt makes the commitment explicit, even where it rests more lightly than the intention itself. The widget extends the trial because it genuinely increases retention. The scientific argument in onboarding (mood graphs, consistency curve, personalized prediction) means the user understands why they're being asked to return daily before they're asked. Transparency about the mechanism doesn't weaken it, it strengthens it.",
     "roles": [
       {
+        "id": "commitment",
+        "role": "A daily intention the user composes from a list or free text, which the product shows back as the user's own statement and restates on a home screen widget, plus a separate post-practice button asking the user to affirm returning tomorrow."
+      },
+      {
         "id": "streak",
-        "role": "The daily retention spine. Displayed as a flower icon on the home screen, tracking consecutive days. The goal was set by the user during onboarding (3–10 days), making the streak a self-made commitment rather than an app-imposed requirement. The 'I'm committed' button after each session reinforces this framing."
+        "role": "The daily retention spine. Displayed as a flower icon on the home screen, tracking consecutive days from a goal the user set during onboarding (3–10 days). The streak begins the moment a daily intention is set, before any meditation happens."
       },
       {
         "id": "milestone",
-        "role": "Milestone thresholds at 7 consecutive days, 50 non-consecutive days, then escalating milestone counts. The first milestone (7 days) triggers a trial extension from 7 to 30 days, framed as 'a gift you've unlocked.' The achievement reward is more product time, making continued engagement the most natural next action."
+        "role": "Milestone thresholds at 7 consecutive days and 50 non-consecutive days, counted down to from the home screen and tracked as a separate running total from the day count. Reaching the first threshold led directly into a trial-length change."
       },
       {
-        "id": "challenges",
-        "role": "Self-set consecutive-day goal chosen during onboarding (Good / Great / Amazing / Incredible). The goal-setting screen establishes the challenge before the first session. The 'I'm committed' post-session button is the only explicit behavioral commitment extraction mechanic observed across the library."
-      },
-      {
-        "id": "social-feed",
-        "role": "The real-time counter ('594,622 people here today') frames the app as a live communal space rather than a content archive, converting the solo meditation experience into a perceived shared practice. Teacher-following routes new content directly into home screen recommendations."
+        "id": "shareable-win",
+        "role": "A share composer built from the streak count, total days, total minutes, or total milestones, offered right after a streak forms and again on demand from the stats page."
       },
       {
         "id": "community-groups",
-        "role": "7,000+ groups covering Buddhism, poetry, psychology, weight loss, LGBTQIA+ communities, hidden behind the sidebar rather than surfaced in primary navigation. The retreat marketplace (500+ real-world retreats from $50 to $11,452) and a 42,000-therapist directory extend the platform into real-world services."
+        "role": "Two separate tracks folded into one site mechanic: named groups with admins, posts, chat, and a leave control, reached only through the sidebar; and open, unmembered surfaces, a gratitude wall and quote comments, that ask nothing of the user beyond a name and a message."
+      },
+      {
+        "id": "social-feed",
+        "role": "A feed of posts inside each joined group, plus stated rules for a personal 'My feed' (joined groups) and 'My teachers' (followed teachers) tab, both empty in this state."
       }
     ],
     "center": {
@@ -139,66 +1115,64 @@
     },
     "nodes": [
       {
+        "id": "commitment",
+        "x": 50,
+        "y": 28
+      },
+      {
         "id": "streak",
         "x": 50,
-        "y": 30
+        "y": 48
       },
       {
         "id": "milestone",
-        "x": 22,
-        "y": 55
+        "x": 25,
+        "y": 66
       },
       {
-        "id": "challenges",
-        "x": 78,
-        "y": 55
-      },
-      {
-        "id": "social-feed",
-        "x": 22,
-        "y": 80
+        "id": "shareable-win",
+        "x": 75,
+        "y": 66
       },
       {
         "id": "community-groups",
-        "x": 78,
-        "y": 80
+        "x": 25,
+        "y": 86
+      },
+      {
+        "id": "social-feed",
+        "x": 75,
+        "y": 86
       }
     ],
     "connections": [
       {
-        "from": "streak",
-        "to": "milestone",
-        "title": "Day 7 streak triggers the first gift",
-        "desc": "The first milestone (7 consecutive days) triggers a trial extension from 7 to 30 days, framed as a gift the user unlocked. The achievement reward is more product time, the most relevant possible prize for a user building a meditation habit.",
-        "effect": "The first milestone creates a moment where the user's commitment is explicitly recognized and rewarded with exactly what they need: more time to develop the habit the streak is tracking."
+        "from": "commitment",
+        "to": "streak",
+        "title": "Setting the intention starts the streak",
+        "desc": "Setting a daily intention is what starts the streak at one consecutive day; the streak does not begin from opening the app or from a completed practice.",
+        "effect": "The daily state runs through the intention first: the user's own composed statement is what sets the retention spine in motion, not the other way around."
       },
       {
         "from": "streak",
-        "to": "challenges",
-        "title": "Streak is the self-made challenge",
-        "desc": "The goal-setting screen during onboarding (3 / 5 / 7 / 10 consecutive days) establishes the streak as a challenge the user created. The 'I'm committed' button post-session reinforces this framing.",
-        "effect": "The streak is not experienced as an app-imposed retention mechanic but as a personal commitment made before the first session. The user is accountable to themselves, which is more durable than accountability to an external system."
-      },
-      {
-        "from": "challenges",
         "to": "milestone",
-        "title": "Commitment prompt leads to milestone",
-        "desc": "The 'I'm committed' behavioral commitment after session 1 establishes an expectation. The achievement at day 7 fulfills it. The arc from commitment to recognition is contained within the first week.",
-        "effect": "The system creates a complete emotional arc, set goal, commit, return, achieve, within the first week of use. Users who complete this arc have a qualitatively different relationship with the app than those who don't."
-      },
-      {
-        "from": "social-feed",
-        "to": "community-groups",
-        "title": "Real-time counter makes community feel live",
-        "desc": "The '594,622 people here today' counter converts the solo meditation experience into a perceived communal practice. It is the entry point to the community layer for users who have not yet found the groups section.",
-        "effect": "Users who engage with the counter are primed to discover that the community infrastructure exists. The number creates curiosity about who those people are, making the hidden groups section a discovery worth seeking."
+        "title": "The streak counts down to the next milestone",
+        "desc": "The home screen counts down to the next milestone (7 consecutive or 50 non-consecutive days) from the moment the streak starts, tracking it as a separate figure from the day count itself.",
+        "effect": "The streak and the milestone are shown as two different records of the same underlying practice, one continuous, one a recognized point along it."
       },
       {
         "from": "milestone",
+        "to": "shareable-win",
+        "title": "The milestone moment offers the share card",
+        "desc": "Reaching a milestone offers a share card built from the streak count, total days, total minutes, or total milestones, right on the screen where the streak or milestone is shown.",
+        "effect": "The system converts a private practice record into an outward-facing artifact at the exact moment the user's own progress is most visible to them."
+      },
+      {
+        "from": "community-groups",
         "to": "social-feed",
-        "title": "Milestone sharing distributes the achievement",
-        "desc": "Streak milestones generate pre-formatted Instagram Stories and messaging shares. The achievement's social distribution is designed into the sharing UI.",
-        "effect": "Every milestone is a potential acquisition moment. The share converts a private habit marker into a public product impression at the moment the user's satisfaction is highest."
+        "title": "Group membership is what populates the feed",
+        "desc": "Joining a group is what enables sharing a practice into it, and the product states directly that 'My feed' collects messages from the groups a user has joined.",
+        "effect": "The feed has nothing to show until membership exists; the social layer's feed component is downstream of its membership component, not a separate acquisition path."
       }
     ]
   }

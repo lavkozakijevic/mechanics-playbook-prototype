@@ -359,11 +359,10 @@ const CONNECTIONS = {
     { from: "challenges", to: "achievement", title: "Challenges surface collection milestones", desc: "Completing challenges (collect team captains, collect host country stickers) aligns with album completion milestones. Both systems point toward the same underlying goal.", effect: "Players pursuing challenges are simultaneously advancing toward album completion milestones. The two systems reinforce each other without requiring separate engagement tracks." },
   ],
   "insight-timer": [
-    { from: "streak", to: "milestone", title: "Day 7 streak triggers the first gift", desc: "The first milestone (7 consecutive days) triggers a trial extension from 7 to 30 days, framed as a gift the user unlocked. The achievement reward is more product time, the most relevant possible prize for a user building a meditation habit.", effect: "The first milestone creates a moment where the user's commitment is explicitly recognized and rewarded with exactly what they need: more time to develop the habit the streak is tracking." },
-    { from: "streak", to: "challenges", title: "Streak is the self-made challenge", desc: "The goal-setting screen during onboarding (3 / 5 / 7 / 10 consecutive days) establishes the streak as a challenge the user created. The 'I'm committed' button post-session reinforces this framing.", effect: "The streak is not experienced as an app-imposed retention mechanic but as a personal commitment made before the first session. The user is accountable to themselves, which is more durable than accountability to an external system." },
-    { from: "challenges", to: "milestone", title: "Commitment prompt leads to milestone", desc: "The 'I'm committed' behavioral commitment after session 1 establishes an expectation. The achievement at day 7 fulfills it. The arc from commitment to recognition is contained within the first week.", effect: "The system creates a complete emotional arc, set goal, commit, return, achieve, within the first week of use. Users who complete this arc have a qualitatively different relationship with the app than those who don't." },
-    { from: "social-feed", to: "community-groups", title: "Real-time counter makes community feel live", desc: "The '594,622 people here today' counter converts the solo meditation experience into a perceived communal practice. It is the entry point to the community layer for users who have not yet found the groups section.", effect: "Users who engage with the counter are primed to discover that the community infrastructure exists. The number creates curiosity about who those people are, making the hidden groups section a discovery worth seeking." },
-    { from: "milestone", to: "social-feed", title: "Milestone sharing distributes the achievement", desc: "Streak milestones generate pre-formatted Instagram Stories and messaging shares. The achievement's social distribution is designed into the sharing UI.", effect: "Every milestone is a potential acquisition moment. The share converts a private habit marker into a public product impression at the moment the user's satisfaction is highest." },
+    { from: "commitment", to: "streak", title: "Setting the intention starts the streak", desc: "Setting a daily intention is what starts the streak at one consecutive day; the streak does not begin from opening the app or from a completed practice.", effect: "The daily state runs through the intention first: the user's own composed statement is what sets the retention spine in motion, not the other way around." },
+    { from: "streak", to: "milestone", title: "The streak counts down to the next milestone", desc: "The home screen counts down to the next milestone (7 consecutive or 50 non-consecutive days) from the moment the streak starts, tracking it as a separate figure from the day count itself.", effect: "The streak and the milestone are shown as two different records of the same underlying practice, one continuous, one a recognized point along it." },
+    { from: "milestone", to: "shareable-win", title: "The milestone moment offers the share card", desc: "Reaching a milestone offers a share card built from the streak count, total days, total minutes, or total milestones, right on the screen where the streak or milestone is shown.", effect: "The system converts a private practice record into an outward-facing artifact at the exact moment the user's own progress is most visible to them." },
+    { from: "community-groups", to: "social-feed", title: "Group membership is what populates the feed", desc: "Joining a group is what enables sharing a practice into it, and the product states directly that 'My feed' collects messages from the groups a user has joined.", effect: "The feed has nothing to show until membership exists; the social layer's feed component is downstream of its membership component, not a separate acquisition path." },
   ],
   strava: [
     { from: "streak", to: "challenges", title: "One logged activity advances both", desc: "The streak advances when a user logs an activity, and the same saved activity counts toward any challenge they have joined.", effect: "A single recorded activity moves more than one part of the system at once." },
@@ -550,11 +549,12 @@ const POSITIONS = {
   },
   "insight-timer": {
     center:                  { x: 50, y: 10, label: "INSIGHT TIMER" },
-    "streak":                { x: 50, y: 30 },
-    "milestone":          { x: 22, y: 55 },
-    "challenges":            { x: 78, y: 55 },
-    "social-feed":           { x: 22, y: 80 },
-    "community-groups":      { x: 78, y: 80 },
+    "commitment":            { x: 50, y: 28 },
+    "streak":                { x: 50, y: 48 },
+    "milestone":             { x: 25, y: 66 },
+    "shareable-win":         { x: 75, y: 66 },
+    "community-groups":      { x: 25, y: 86 },
+    "social-feed":           { x: 75, y: 86 },
   },
   "strava": {
     center:                  { x: 50, y: 8,  label: "STRAVA'S SOCIAL LAYER" },
