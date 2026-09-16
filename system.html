@@ -509,6 +509,12 @@ const CONNECTIONS = {
   "uptime": [
     { from: "streak", to: "shareable-win", title: "The streak record feeds the shareable image", desc: "The daily streak that sits beside the reminder control is one of three records, alongside hours saved and topics covered, that Uptime composes into a shareable image offered on the completion screen and the Discover header.", effect: "A private continuity count becomes something a reader outside the app can see the moment the user chooses to share it, tying the app's own return mechanic to an outward-facing acquisition surface." },
   ],
+  // tripsy has no connections by design: Set Collection, Group Membership and
+  // Cosmetics are three functionally parallel mechanics with no stated tie to
+  // one another in the analysis. Forcing an edge between any pair would
+  // assert a relationship the source doesn't support, so this map is drawn
+  // with three nodes and zero edges rather than padded with an invented one.
+  "tripsy": [],
 };
 
 // Node positions for each system (as % of canvas width/height)
@@ -771,6 +777,12 @@ const POSITIONS = {
     "achievement":         { x: 50, y: 72 },
     "milestone":           { x: 50, y: 90 },
     "season-pass":         { x: 80, y: 72 },
+  },
+  "tripsy": {
+    center:                { x: 50, y: 12, label: "TRIPSY" },
+    "set-collection":      { x: 22, y: 60 },
+    "community-groups":    { x: 50, y: 60 },
+    "cosmetics":           { x: 78, y: 60 },
   },
   };
 

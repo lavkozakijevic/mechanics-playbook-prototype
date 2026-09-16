@@ -1120,6 +1120,10 @@ const ALL_APPS = [
   // analyzed directly under the v4.1 model and is a first-time addition to
   // this roster, not a migration of an existing entry.
   { file: "doordash.md", id: "doordash", visibility: "subscriber" },
+  // Tripsy has no v3 history either, in this file or anywhere else (data.js,
+  // system.html): a first-time addition analyzed directly under v4.1, same
+  // as DoorDash above.
+  { file: "tripsy.md", id: "tripsy", visibility: "subscriber" },
   // Report-only remainder (never appear in deployed output)
   { file: "orbit.md", id: "orbit", visibility: "report-only" },
   { file: "dave.md", id: "dave", visibility: "subscriber" },
@@ -1690,6 +1694,31 @@ const V41_APP_META = {
         "An onboarding paywall gives way to a free-tier promise, then a trial-extension gift, contextual Plus offers at every locked surface, and a teacher-donation flow.",
       returns:
         "A post-practice streak prompt, a set of home screen widgets, and a calendar of live teacher-led events bring the user back.",
+    },
+  },
+  tripsy: {
+    name: "Tripsy",
+    category: "Travel / Trip Planning",
+    type: "app",
+    sectionCards: {
+      onboarding:
+        "Tripsy's first run moves fast toward Pro before a single trip exists, then offers three separate ways to see the product working: building a trip, forwarding a reservation, or opening a populated example.",
+      "core-loop":
+        "Tripsy's core loop runs on the trip itself: building one by hand through category search, or letting forwarded reservation emails fill it in automatically, then managing its itinerary, documents and expenses from the trip screen.",
+      goals:
+        "Tripsy tracks progress two ways: a simple completed mark on individual activities, and a cumulative travel record kept across every trip in My Tripsy Book.",
+      access:
+        "Every Pro lock in Tripsy sits on top of a fully working free trip, visible but inactive, while an account is required only for the features that leave the device.",
+      economy:
+        "Empty. Tripsy issues no currency, points or resource of its own.",
+      social:
+        "Sharing a trip in Tripsy creates named guest roles rather than a single link, set as view-only or collaborators, with a separate setting controlling whether a shared trip counts as the guest's own.",
+      reach:
+        "Tripsy sends a trip outward through view-only web links, social posts, and a personal forwarding address, and connects inward through Claude, Apple Shortcuts and a TripIt importer.",
+      monetization:
+        "Tripsy's Pro offer appears before any trip exists and keeps reappearing everywhere a locked feature sits, backed by a plan catalogue running from a monthly rate to a one-time lifetime purchase.",
+      returns:
+        "Tripsy asks for notification permission right after account creation, then organizes what it sends into four alert categories alongside trip countdowns, home and lock screen widgets, and a review prompt.",
     },
   },
 };
