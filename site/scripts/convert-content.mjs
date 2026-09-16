@@ -127,10 +127,23 @@ function extractObjectLiteral(name) {
 }
 
 // Scans a "{ "key": ... }" object literal's source text (as extracted above)
-// for its immediate (depth-1) quoted keys, string-aware so a brace or
-// bracket inside a description's prose can't miscount nesting depth. Returns
-// every key found, duplicates included, so the caller can decide what a
-// repeat means.
+// for its immediate (depth-1) keys, quoted or bareword, string-aware so a
+// brace or bracket inside a description's prose can't miscount nesting
+// depth. Returns every key found, duplicates included, so the caller can
+// decide what a repeat means.
+//
+// The bareword branch exists because a bareword key (picsart: [...], no
+// quotes) is exactly as valid a JS object key as a quoted one, and exactly
+// as capable of silently shadowing an earlier entry, "last copy wins" per
+// this same file's own comments on this hazard. It was also, until 16 Sep
+// 2026, invisible to this function: PicsArt's v4.1 migration found a
+// bareword "picsart" CONNECTIONS entry sitting well after an already-quoted
+// "picsart" entry, silently winning over it on every build, undetected
+// because the two spellings were never recognized as the same key. Scanned
+// the same way as the quoted branch: only at depth 1, and only counted as a
+// key if a colon (skipping whitespace) follows the identifier, so app-id
+// keys are caught but a per-connection field like `from:` or `title:` two
+// levels deeper is not.
 function topLevelKeys(objectLiteralSrc) {
   const keys = [];
   let depth = 0;
@@ -151,8 +164,23 @@ function topLevelKeys(objectLiteralSrc) {
       i = j;
       continue;
     }
-    if (c === "{" || c === "[") depth++;
-    else if (c === "}" || c === "]") depth--;
+    if (c === "{" || c === "[") {
+      depth++;
+      continue;
+    }
+    if (c === "}" || c === "]") {
+      depth--;
+      continue;
+    }
+    if (depth === 1 && /[A-Za-z_$]/.test(c)) {
+      let j = i;
+      while (j < objectLiteralSrc.length && /[A-Za-z0-9_$]/.test(objectLiteralSrc[j])) j++;
+      let k = j;
+      while (k < objectLiteralSrc.length && /\s/.test(objectLiteralSrc[k])) k++;
+      if (objectLiteralSrc[k] === ":") keys.push(objectLiteralSrc.slice(i, j));
+      i = j - 1;
+      continue;
+    }
   }
   return keys;
 }
@@ -900,7 +928,10 @@ const ADDITIONS = {
   ],
   "clash-of-clans": [{ id: "gifting", depth: "supporting" }],
   "fc-mobile": [{ id: "first-purchase-bonus", depth: "supporting" }],
-  "picsart": [{ id: "credits-tokens", depth: "supporting" }],
+  // picsart's entry here was removed on its v4.1 migration (16 Sep 2026):
+  // ADDITIONS is a v3-only path picsart.md never reaches, and its old
+  // single credits-tokens addition is superseded by the fresh analysis's
+  // own Soft Currency and Hard Currency tags anyway.
   // corrections §3b: set-collection added at shallow (session didn't reach
   // multiplier level 7, so analysis has no observed section for it)
   "subway-surfers": [{ id: "set-collection", depth: "shallow" }],
@@ -1727,6 +1758,31 @@ const V41_APP_META = {
         "Tripsy's Pro offer appears before any trip exists and keeps reappearing everywhere a locked feature sits, backed by a plan catalogue running from a monthly rate to a one-time lifetime purchase.",
       returns:
         "Tripsy asks for notification permission right after account creation, then organizes what it sends into four alert categories alongside trip countdowns, home and lock screen widgets, and a review prompt.",
+    },
+  },
+  picsart: {
+    name: "PicsArt",
+    category: "Creative",
+    type: "app",
+    sectionCards: {
+      onboarding:
+        "PicsArt asks for tracking permission before sign-in, then places its steepest paywall directly after sign-in, before any onboarding question or tool is seen.",
+      "core-loop":
+        "PicsArt's core loop runs through the Create surface into the image editor, with an AI panel, a save and export menu, and a growing files area layered on top.",
+      goals:
+        "PicsArt's only progression measure is a profile completion percentage with no stated path to finishing it.",
+      access:
+        "PicsArt gates its editor at two different points, a photo library permission at the start of an edit and a purchase request placed at two separate moments depending on the tool.",
+      economy:
+        "PicsArt's economy is a single credit balance, priced separately against each AI tool and topped up only through a subscription.",
+      social:
+        "PicsArt's social layer runs on challenges with voting and a winners' history, creator profiles and following, joinable Spaces, and a feed built from other people's work.",
+      reach:
+        "PicsArt's routes outside the app cover a promoted sister app, invitations, per-project sharing with named people, and save and export destinations.",
+      monetization:
+        "PicsArt's Pro and Plus subscriptions are sold from at least three separate entry points, each framing the same purchase differently.",
+      returns:
+        "PicsArt's return machinery is limited to one in-app push prompt during export and the system notification permission reached from the notification bell.",
     },
   },
 };

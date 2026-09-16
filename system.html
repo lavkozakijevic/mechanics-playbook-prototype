@@ -331,6 +331,12 @@ const CONNECTIONS = {
   // doordash's CONNECTIONS entry was removed here (owner ruling, 16 Sep
   // 2026): the new three-publishable-tag minimum. See the matching note at
   // its former data.js APPS entry.
+  "picsart": [
+    { from: "community-groups", to: "challenges", title: "A Space owner can run their own challenge", desc: "A user who owns a Space can start a challenge inside it, in addition to PicsArt's own challenges.", effect: "Space membership isn't only a feed to browse, an owner can turn their own Space into a second source of challenge entries." },
+    { from: "challenges", to: "leaderboards", title: "A concluded challenge becomes a ranked history", desc: "Challenge history turns each concluded challenge into a ranked list of winners from first to tenth place.", effect: "The only ranking PicsArt shows anywhere is downstream of a challenge actually finishing, not a standing measure kept on its own." },
+    { from: "challenges", to: "soft-currency", title: "Challenge prizes pay into the same credit balance", desc: "Some challenges pay their prize in credits, the identical balance the editor prices its AI tools against.", effect: "Winning a challenge and generating an AI result draw on and add to the same number, tying the community side of the app to the economy the editor runs on." },
+    { from: "hard-currency", to: "soft-currency", title: "A subscription adds to the same balance it doesn't replace", desc: "Pro and Plus raise the credit balance to 500 or 200 respectively, on top of the same weekly allowance a free account already has.", effect: "Paying doesn't open a separate premium currency, it just adds more of the identical credits a free user already spends." },
+  ],
   "cleo": [
     { from: "personal-data-reflection", to: "streak", title: "Reviews and games feed their own streak", desc: "Completing a spending review moves the review streak from zero to one, and playing the money game produces the streak shown on its own stats screen.", effect: "The counters that give a reason to come back are tied to finishing a review or a game round, not to anything in the budget tab." },
   ],
@@ -399,11 +405,17 @@ const CONNECTIONS = {
     { from: "experience-points", to: "season-pass", title: "The pass runs the same shape as the level", desc: "Star Pass credits are earned from the same Division Rivals and live-event play that feeds account XP, accumulating toward roughly sixty positions and resetting at the season boundary.", effect: "A player advancing their account level is, without any separate decision, also advancing the pass." },
     { from: "clans-guilds", to: "leaderboards", title: "Standing runs above and inside the league", desc: "Leagues are ranked against each other on a group board with promotion and relegation and on a worldwide board, while members are separately ranked by contribution inside their own league.", effect: "A league's collective activity produces two independent kinds of standing at once, one competing outward and one measuring each member against their own teammates." },
   ],
-  picsart: [
-    { from: "social-feed", to: "challenges", title: "Feed entries become challenge submissions", desc: "Every post in the For You feed is a potential challenge entry. Users who discover a challenge through the feed can submit directly from the creation flow they entered via the Try button.", effect: "The feed, the Try button, and the challenge system form a single funnel, browsing leads to creating, creating leads to competing." },
-    { from: "social-feed", to: "credits-tokens", title: "Feed reveals credit costs at tool entry", desc: "Credit costs for AI tools are not disclosed in the feed, they surface only after the user taps Try and the tool opens. The feed creates desire; the tool reveals the cost at the moment of highest intent.", effect: "Users who tap Try from the feed are in a high-intent state when they encounter the credit cost, improving conversion compared to showing costs upfront." },
-    { from: "challenges", to: "credits-tokens", title: "Challenge wins fund premium tool access", desc: "Winning a platform challenge awards 50 credits, equivalent to 10 weeks of the free tier's allocation. Community participation and the credit economy are directly linked.", effect: "Free users who win challenges can access premium AI tools they could not otherwise afford. Community participation becomes the primary free path to premium features." },
-  ],
+  // A second, bareword-keyed "picsart" CONNECTIONS entry lived here
+  // (picsart: [...], no quotes), a duplicate of the quoted "picsart" entry
+  // above that assertNoDuplicateKeys never caught: it only scans for
+  // quoted-string keys, so a bareword duplicate of an already-quoted key is
+  // invisible to it, and being the *later* of the two, this one was silently
+  // winning over the fresh v4.1 entry above every time the site built. Found
+  // during PicsArt's v4.1 migration (16 Sep 2026) when the build's own
+  // "connection has no position" warnings named edges that didn't match
+  // anything just written. Removed as stale v3-era content asserting a
+  // social-feed-to-credits-tokens link this analysis doesn't support and a
+  // credits-tokens node the fresh analysis no longer applies at all.
   "wispr-flow": [
     { from: "streak", to: "milestone", title: "Five days unlocks the ranking", desc: "The streak's stated purpose, dictate for five days so Flow can adapt, coincides with the 500-word threshold where the speaking speed stat and percentile ranking unlock.", effect: "The streak and the milestone reward are aligned. Completing the streak produces the achievement, making the functional justification and the reward arrive at the same moment." },
     { from: "milestone", to: "streak", title: "Percentile ranking reinforces streak continuation", desc: "The 'top 2% of all Flow users' percentile delivered passively at 500 words frames the user as already exceptional, which strengthens motivation to maintain the streak.", effect: "The achievement reward arrives as affirmation, the user is told they are already performing well, making continuation feel natural rather than effortful." },
@@ -619,10 +631,13 @@ const POSITIONS = {
     "daily-login-reward":    { x: 78, y: 78 },
   },
   "picsart": {
-    center:                  { x: 50, y: 15, label: "PICSART" },
-    "social-feed":           { x: 50, y: 38 },
-    "challenges":            { x: 26, y: 68 },
-    "credits-tokens":        { x: 74, y: 68 },
+    center:                  { x: 50, y: 12, label: "PICSART" },
+    "challenges":            { x: 22, y: 32 },
+    "leaderboards":          { x: 50, y: 32 },
+    "social-feed":           { x: 78, y: 32 },
+    "community-groups":      { x: 22, y: 62 },
+    "soft-currency":         { x: 50, y: 62 },
+    "hard-currency":         { x: 78, y: 62 },
   },
   "wispr-flow": {
     center:                  { x: 50, y: 18, label: "WISPR FLOW" },
