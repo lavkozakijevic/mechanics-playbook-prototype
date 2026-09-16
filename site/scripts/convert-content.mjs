@@ -1002,10 +1002,13 @@ const ADDITIONS = {
 // (see below) all fall through unmapped, by design. Only files whose
 // evidence belongs to the other successor, loot-box, need an actual entry
 // below: liftoff (paying eggs to refresh Store deals with unknown
-// contents), swgoh (Bronzium/Chromium pulls paid in ally points or
-// crystals) and subway-surfers (the coin-priced Mystery Box and the
+// contents) and subway-surfers (the coin-priced Mystery Box and the
 // ad-or-key-gated token box) each describe a value commitment before an
-// unresolved container resolves. The third fused entry, Variable Reward
+// unresolved container resolves. swgoh applied Loot Box and Variable
+// Reward Outcome as separate, independently evidenced v4.1 tags on 16 Sep
+// 2026, clearing the split condition the same way Capybara Go and FC
+// Mobile did below, so it no longer needs a remap entry here. The third
+// fused entry, Variable Reward
 // Schedule, has no remap target anywhere below — no app under the current
 // model, v3 or v4.1, has ever applied it, so it was retired rather than
 // carried forward (see "Library entries with no site mechanic" in
@@ -1021,14 +1024,12 @@ const ADDITIONS = {
 // "Entries considered and not applied" section — both were stale carryovers
 // on the old fused mechanic's apps[] list rather than real evidence, and
 // neither reaches this v3 path in any case (both are v4.1). royal-match,
-// capybara-go, fc-mobile and steam don't appear below either: all four are
-// v4.1 and never reach this path.
+// capybara-go, fc-mobile, steam, swgoh and uptime don't appear below
+// either: all six are v4.1 and never reach this path.
 const REMAPS = {
   "liftoff": { "xp-leveling": "leveling", "achievements": "achievement", "variable-reward": "loot-box" },
   "solitaire-grand-harvest": { "xp-leveling": "experience-points", "achievements": "milestone" },
   "calm": { "achievements": "achievement" },
-  "swgoh": { "achievements": "achievement", "variable-reward": "loot-box" },
-  "uptime": { "achievements": "achievement" },
   "fiton": { "achievements": "achievement" },
   "fortune-city": { "achievements": "achievement" },
   "match-creek-motors": { "achievements": "achievement" },
@@ -1636,6 +1637,31 @@ const V41_APP_META = {
         "Three successive subscription offers run across onboarding and the first hack, each against the same stated $69.99 standard price.",
       returns:
         "A notification pre-prompt, a daily reminder tied to the streak, and eight notification categories bring the user back.",
+    },
+  },
+  swgoh: {
+    name: "Star Wars: Galaxy of Heroes",
+    category: "Collectible RPG",
+    type: "game",
+    sectionCards: {
+      onboarding:
+        "A tracking request, a guided first battle, and free starter items run before account details are even asked for.",
+      "core-loop":
+        "Turn-based squad battles run across three campaigns, with auto-battle, sim tickets and a challenges table layered on top.",
+      goals:
+        "Player level, four character upgrade tracks, campaign maps, journey quests, the Episode Track and achievements make up this section.",
+      access:
+        "Player-level gates on nearly every hub table, combined gates on specific features, and gates inside already-open activities make up this section.",
+      economy:
+        "Crystals, credits, ally points, cantina tokens, shards and lightspeed tokens run alongside the store's Bronzium card and shipment tabs.",
+      social:
+        "Allies, borrowed units, ally requests and player profiles run alongside guild and arena surfaces that stay locked throughout.",
+      reach:
+        "EA Connect linking, forum links and an email invitation to become allies are the app's routes outside itself.",
+      monetization:
+        "Starter deal pop-ups, a five-tab store, crystal and Chromium packs, and an Episode Pass make up this section.",
+      returns:
+        "Login rewards, a notification pre-prompt, red badge counters and countdown timers on offers and events bring the player back.",
     },
   },
 };
