@@ -1,0 +1,34 @@
+{
+  "id": "recall-review",
+  "n": "49",
+  "name": "Recall Review",
+  "cat": "engagement",
+  "tagline": "A structured interaction that returns material the user has already taken in as cards, judged for recall one at a time, with further cards held back for later occasions.",
+  "desc": "A recall review draws cards from material the user has already taken in, a saved passage, a highlight, a finished lesson, and returns them one at a time, asking only whether the user remembers each one before releasing the next. At least one further card is always held back for a later day or occasion, so the review keeps returning rather than ending when the current set is finished. The subject of every card is the material itself, not a record of what the user did: a card carrying a saved passage is this entry, while a card carrying the user's own payments or logged workouts is Personal Data Reflection, built on the same withheld-step shape but over the user's own record instead. This entry also classifies the interaction over the material, not the material itself: an article or a course the user reaches beside the product's core activity is Expert Guidance, but where running the review is the product's core activity rather than something offered beside it, the review belongs here regardless of what the material would be called on its own.",
+  "principle": "The judgement asked for is the user's own report of memory, not a check against an answer, so what the product withholds is a step, not a correct-or-incorrect result. Holding a card back for later is what keeps the review returning; a single pass at everything the user knows would be a quiz, not this.",
+  "players": [
+    "explorer"
+  ],
+  "warn": "The label is easy to misapply toward the material behind the review rather than the review itself: a saved-passage board played back in sequence, or a library of finished lessons browsed at will, asks for no judgement and withholds nothing, and neither takes this label until cards return with a withheld next step. It's just as easy to misapply toward a body of instructional content offered beside the core activity, which is Expert Guidance regardless of how memorable the product claims it is, unless a review is run over it separately. The reverse risk sits with content: a card carrying the user's own record, a payment, a logged workout, a habit, is Personal Data Reflection even when the prompt asks whether the user remembers it, since the subject of the card decides the label, not the wording of the question.",
+  "variants": [
+    "Three-option judgement, the response set includes an uncertain option alongside remembered and not remembered",
+    "Batched set, the review presents a defined number of cards for the current occasion and states when the set is finished",
+    "Early release, a control lets the user bring forward a card otherwise held for a later occasion",
+    "Dismissible card, a control lets the user stop a specific card from being shown again",
+    "Source-setting review, the user chooses through a setting whether the review draws on saved material, finished material, or both"
+  ],
+  "lifecycle": "Needs material the user has already taken in before there's anything to draw a card from, so it has nothing to run in a brand-new account. Most consequential once enough has been saved or finished that a deferred card returning genuinely tests memory, rather than something read a moment ago.",
+  "paired": [
+    "personal-data-reflection",
+    "expert-guidance",
+    "streak"
+  ],
+  "context": [
+    "retention"
+  ],
+  "sdt": [
+    "mastery",
+    "autonomy"
+  ],
+  "visibility": "public"
+}

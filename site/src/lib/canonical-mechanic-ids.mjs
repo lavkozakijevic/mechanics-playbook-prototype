@@ -92,6 +92,7 @@ export const CANONICAL_MECHANIC_IDS = {
   "Progression Fund": "progression-fund",
   "Progression Gate": "progression-gate",
   "Purchase Ladder": "purchase-ladder",
+  "Recall Review": "recall-review",
   // Renamed from Referral Boost and widened, 14 Sep 2026: the invariant is now
   // a reward conditional on a completion event by an introduced person, with
   // the payout form (an enhancement, a separable credit, product currency, or
