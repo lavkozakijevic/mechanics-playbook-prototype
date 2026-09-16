@@ -501,6 +501,9 @@ const CONNECTIONS = {
     { from: "progression-fund", to: "leveling", title: "Funds sell a faster lane on progress already happening", desc: "Each fund's paid lane pays larger rewards at the same talent, tower, or dungeon milestones the player reaches anyway by playing.", effect: "A purchase here doesn't redirect play toward anything new, it just multiplies the payout of runs and tower floors the player was always going to do." },
     { from: "season-pass", to: "daily-login-reward", title: "Event tracks are fed by the same daily habits", desc: "The Battle Pass, the carnival, and the pet events advance from completing daily tasks and clearing runs and tower floors, the same actions the daily cadence layer already rewards.", effect: "A single session's tower clear or chest open can advance a daily task, the weekly track, and an event track at once." },
   ],
+  "uptime": [
+    { from: "streak", to: "shareable-win", title: "The streak record feeds the shareable image", desc: "The daily streak that sits beside the reminder control is one of three records, alongside hours saved and topics covered, that Uptime composes into a shareable image offered on the completion screen and the Discover header.", effect: "A private continuity count becomes something a reader outside the app can see the moment the user chooses to share it, tying the app's own return mechanic to an outward-facing acquisition surface." },
+  ],
 };
 
 // Node positions for each system (as % of canvas width/height)
@@ -668,10 +671,10 @@ const POSITIONS = {
     "expert-guidance":       { x: 80, y: 65 },
   },
   "uptime": {
-    center:                  { x: 50, y: 15, label: "UPTIME" },
-    "streak":                { x: 50, y: 38 },
-    "achievement":          { x: 26, y: 68 },
-    "gifting":               { x: 74, y: 68 },
+    center:          { x: 50, y: 10, label: "UPTIME" },
+    "streak":        { x: 30, y: 35 },
+    "shareable-win": { x: 70, y: 35 },
+    "recall-review": { x: 50, y: 65 },
   },
   "freeletics": {
     center:              { x: 50, y: 8,  label: "FREELETICS" },

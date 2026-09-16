@@ -1,142 +1,742 @@
 {
   "id": "uptime",
   "name": "Uptime",
-  "category": "Learning",
+  "category": "Learning / Micro-learning",
   "type": "app",
   "visibility": "public",
-  "analysisDate": "2026-05-18",
-  "lastUpdated": "2026-05-18",
-  "summary": "Uptime is a micro-learning app delivering five-minute book and course summaries. Its streak requires only one insight per day, the most forgiving streak definition in the library. Achievement cards are designed primarily as social media assets: pre-formatted, branded, shareable images generated automatically from consumption behavior. The app deploys three sequential paywalls across onboarding, each offering a better price than the last, reserving the lowest price for the moment after the first content completion.",
-  "teaser": "Uptime's congratulations screen after a completed lesson asks for a share, a reminder, a next lesson, and an autoplay toggle, all in the same moment the user is most convinced the product works.",
+  "analysisDate": "2026-09-16",
+  "lastUpdated": "2026-09-16",
+  "asObserved": "2026-05",
+  "appVersion": "None.",
+  "summary": "Uptime delivers five-minute summaries of books, courses, documentaries and podcasts, routing a new account through topic selection, three successive subscription offers and a full first hack before it ever reaches an unguided screen. Finishing that hack produces a streak, an hours-saved total and topic credit together, each composed into a shareable image carrying the Uptime logo. Saved or read material returns later through a separate Spark system, presented as recall cards that ask only whether the material is remembered, with a card always held back for the next day. Pricing runs as a sequence of discounts against the same stated $69.99 standard price, each offer arriving only after the last is declined.",
+  "teaser": "Uptime's third subscription offer, the cheapest one, only appears after the first two have both been turned down.",
   "icon": "/icons/uptime.png",
   "heroImage": null,
-  "mechanics": [
+  "contentFormat": "v4.1",
+  "observations": [
     {
-      "id": "streak",
-      "depth": "core",
-      "writeup": {
-        "observed": "The streak counter appears in the top-right corner of the home screen immediately after the first hack is completed. The You tab opens directly to My Stats where the streak is the first element: \"One day complete, complete one insight a day from any hack to get your daily streak.\" The daily minimum is explicitly stated on-screen: one insight from any hack, not a complete hack. After the first hack, a congratulations screen appeared: \"you've saved 11 hours, your streak: one day, you just got smarter in [topics],\" followed immediately by a \"set up a daily reminder\" button. Sharing is built in: tapping share generates a visual card (\"one day, your streak, keep going with your learning habit\") ready to post to social platforms.",
-        "presented": "The streak counter is visible in the top-right corner of the home screen alongside the premium trial countdown. The daily minimum action is defined on-screen in plain language. The post-hack congratulations screen surfaces the reminder setup button at peak engagement rather than during onboarding.",
-        "noting": "The one-insight minimum is the most forgiving streak definition in the library, less demanding than Insight Timer's single session or Strava's weekly activity. A user who has five minutes and opens one card maintains their streak. The reminder setup button appearing after the first hack completion rather than during onboarding follows the same pattern Insight Timer uses, capturing the return habit at the moment the user has just experienced the product's value, not before they have any reason to care.",
-        "findings": [
-          "The one-insight daily minimum is the lowest streak bar in the library, a single card swipe satisfies the streak requirement, making this accessible even on the user's busiest days.",
-          "The reminder setup prompt appears after completing the first hack, at peak motivation, rather than during onboarding, following the same pattern as Insight Timer.",
-          "The streak is shareable as a pre-formatted visual card, making every milestone a potential social post and acquisition moment.",
-          "The streak counter appears on the home screen alongside the premium trial countdown, connecting the streak display to the conversion pressure of an expiring trial."
-        ]
-      },
-      "screenshots": [
+      "id": "O1",
+      "name": "Book cover opener",
+      "section": "onboarding",
+      "observed": "Uptime opens on a screen of book covers moving in several directions in sliding rows, reading \"Get smarter, faster. Stand out from the crowd with five minute summaries of the best books, courses, documentaries and podcasts.\" The proposition names four content formats before any account exists, framed around speed and standing out rather than reading itself. No guest route or browsable preview of the catalogue appears on this screen.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O2",
+      "name": "Sign-in options",
+      "section": "onboarding",
+      "observed": "The first screen features a Continue with Apple button, with Google, email and SSO routes below it and a sign-in control for an existing account. Every route on the screen leads to an account; no route into the content without one appears.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O3",
+      "name": "AI personalization consent",
+      "section": "onboarding",
+      "observed": "Small text at the bottom of the sign-in screen states that Uptime uses AI to personalize the experience based on activity, that continuing counts as consent to that processing, and that deleting the account stops further processing.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O4",
+      "name": "Greeting by name",
+      "section": "onboarding",
+      "observed": "After sign-in, a loading screen states that Uptime is getting the user up and running, then the next screen opens with a greeting by name. No name field is shown before the greeting.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O5",
+      "name": "Topic selection",
+      "section": "onboarding",
+      "observed": "The greeting screen asks which topics the user is most interested in, to personalize the learning experience, offering topics including Personal Growth, Career and Success, Lifestyle, Mind and Philosophy, Arts and Design, Health and Fitness, Business, Leadership and Entrepreneurship, Culture and Society, Biographies, Science and Environment, Parenting and Relationships, Education, History, Technology and the Future, Religion and Spirituality, Money and Investing, and Marketing and Sales, with no stated minimum or maximum. The selection can be changed later under Customize your interests.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O6",
+      "name": "Setup loading screen",
+      "section": "onboarding",
+      "observed": "After the notification request, a loading screen states that setup is complete. Between topic selection and this screen, Uptime shows the trial paywall, the plan list, the three-day Premium gift and the notification pre-prompt, in that order.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O7",
+      "name": "First-hack picker overlay",
+      "section": "onboarding",
+      "observed": "After setup, the home screen is visible in the background under a tinted overlay reading that the user made a great choice of topics, inviting them to check out a few top summaries called hacks. Each hack shows a cover, a content-type tag, a title and author, and Uptime named beneath as the creator. The user is taken from this overlay straight into a hack rather than into the home screen itself.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O8",
+      "name": "Hack instruction overlay",
+      "section": "onboarding",
+      "observed": "When the first hack finishes loading, a pop-up titled \"How to watch a hack\" explains that a hack gives the key insights in five minutes, and lists four controls: tap right to continue, tap left to go back, tap and hold to pause, and tap Spark card to save something liked.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O9",
+      "name": "First-hack completion screen",
+      "section": "onboarding",
+      "observed": "On finishing the hack, Uptime congratulates the user on completing their first hack, stating that they've saved 11 hours, that their streak is one day, and naming the topics they got smarter in, with a Share your progress button and a Set up a daily reminder button above a smaller Next control.",
+      "detail": [],
+      "tags": [
         {
-          "src": "/screenshots/streak/uptime/01.jpeg",
-          "caption": null
+          "name": "Streak",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Exclusions were checked first. This is not a cumulative count, because Uptime shows a current daily streak and a longest streak as separate figures, and a count that ignored gaps would have no use for a longest-run record (tier: directly observed). It is not a recurring goal without linkage, because the product names the linked state itself, \"your daily streak\" (tier: directly observed). The required conditions are met on the product's own framing: the qualifying event is one insight from any hack, the occurrences are ordered by day, a streak state is displayed on the completion screen, in the Discover header and on My Stats, and the continuity rule is stated as a daily one (tier: directly observed). Under the presence standard, the effect of a missed day is a detail of how the streak behaves rather than a condition of its presence, and it is not observed (tier: directly observed).",
+          "alternativeConsidered": "a count of active days that ignores gaps. That reading is rejected because the product labels the figure a daily streak and keeps a longest streak beside it; a session that spans a missed day and shows the counter after it would settle the reset rule without bearing on presence. Daily / Weekly Quests was also weighed for \"one insight a day,\" and does not apply, because the product issues no discrete objective instance under a daily cadence; the rule is a standing qualifying condition for the streak.",
+          "role": "retention"
+        },
+        {
+          "name": "Shareable Win",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Exclusions were checked first. The subject of the O31 images is a record Uptime holds about the user, hours saved, topics covered and a streak, not content the user made and not the hack content shared at O30, which is excluded as ordinary content sharing and carries no label (tier: directly observed). The images are not referral invitations, since they state what the user accomplished rather than what a recipient should do, and no recipient benefit is attached (tier: directly observed). They are not a dashboard without a route out, since each is offered with share and download controls (tier: directly observed). The required conditions are met: the records are presented as accomplishments in the product's own copy, \"Great job,\" \"It's official, you're into six topics,\" \"You've grown your expertise in three topics with Uptime\" (tier: directly observed); the images state the accomplishment in a form a reader outside the product can read, such as \"10 hours saved\" and \"One day. Your streak\" (tier: directly observed); and each is offered with at least one route out, as an image, as text through social sharing, or as a download (tier: directly observed).",
+          "alternativeConsidered": "treating the images as promotional assets, which the entry excludes when the subject is the product rather than the user's record. The Uptime logo and the line \"Get the full story in a fraction of the time\" are promotional, but the headline figure in each image is the user's own record, so the entry applies. Achievement was weighed for the underlying records and is not applied, as set out below; the underlying streak is classified under Streak.",
+          "role": "social"
         }
       ],
-      "suggestedShots": [
-        "You tab My Stats view showing \"1 day complete — complete one insight a day from any hack to get your daily streak\" with the change reminder button and longest streak display",
-        "Post-first-hack congratulations screen showing \"you've saved 11 hours — your streak: 1 day — you just got smarter\" with set up daily reminder button"
-      ]
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "achievement",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": [
-        "My Stats achievement card row showing the streak card (1 day), insights card (3 learned), hours saved card (10 hours), and arts and design expertise card — all shareable"
-      ]
+      "id": "O10",
+      "name": "First unguided screen",
+      "section": "onboarding",
+      "observed": "After the post-completion offer is closed, Uptime shows the home page with four tabs, Discover, Browse, You and Premium, landing on Discover. A diamond icon in the top right corner shows \"72 hours left\" beside a streak counter. Tapping the streak counter opens the You tab, and tapping the diamond opens the expiry prompt.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Exclusions were checked first. This is not a cumulative count, because Uptime shows a current daily streak and a longest streak as separate figures, and a count that ignored gaps would have no use for a longest-run record (tier: directly observed). It is not a recurring goal without linkage, because the product names the linked state itself, \"your daily streak\" (tier: directly observed). The required conditions are met on the product's own framing: the qualifying event is one insight from any hack, the occurrences are ordered by day, a streak state is displayed on the completion screen, in the Discover header and on My Stats, and the continuity rule is stated as a daily one (tier: directly observed). Under the presence standard, the effect of a missed day is a detail of how the streak behaves rather than a condition of its presence, and it is not observed (tier: directly observed).",
+          "alternativeConsidered": "a count of active days that ignores gaps. That reading is rejected because the product labels the figure a daily streak and keeps a longest streak beside it; a session that spans a missed day and shows the counter after it would settle the reset rule without bearing on presence. Daily / Weekly Quests was also weighed for \"one insight a day,\" and does not apply, because the product issues no discrete objective instance under a daily cadence; the rule is a standing qualifying condition for the streak.",
+          "role": "retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "daily-login-reward",
-      "depth": "shallow",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O11",
+      "name": "Hack cover screen",
+      "section": "core-loop",
+      "observed": "Opening a hack shows a loading screen that advances automatically after a few seconds, then a cover screen with the title, author, a line naming the topics it helps the user grow in, and a stated hours-saved figure. Scrolling down reveals a Jump to Insights button, pause and mute controls, and Spark Card, Share and More.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "set-collection",
-      "depth": "shallow",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O12",
+      "name": "Hack sections and narration",
+      "section": "core-loop",
+      "observed": "Once playing, a voice reads what's on screen. A navigation button opens the hack's sections: Overview, three numbered insights, and a wrap up, with a progress bar showing how far the user has gone. Screens run through an opening summary, a favorite quote, an author screen, an image screen, each insight with a specific example, and a wrap up.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "gifting",
-      "depth": "shallow",
-      "writeup": {
-        "observed": "A referral mechanic appears in the discovery feed as a banner: \"give a friend three days of premium for free.\" The gift provides the recipient with three days of full premium access, identical to the auto-grant that all new users receive at onboarding. A shareable link is generated. The same mechanic appeared at the bottom of the My Sparks tab after completing all spaced repetition cards. The referring user's benefit was not stated in the session. The embed mechanic, tapping \"embed hack\" generates code for placing Uptime content on a website or blog, is adjacent to gifting as a content-sharing surface but is not a currency transfer.",
-        "findings": [
-          "The three-day premium gift is identical to the standard new-user auto-grant, meaning recipients receive what they would have received anyway through organic discovery, removing the differentiation premium of the gift.",
-          "The referral mechanic appeared passively in the feed and at the bottom of the spaced repetition completion screen, surfaced at low-friction moments rather than as a primary feature.",
-          "The referring user's benefit was not disclosed in the observed session, the asymmetry of a sender-benefit-unknown gifting mechanic makes it closer to a social sharing mechanic than a bilateral gift system."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O13",
+      "name": "The More panel",
+      "section": "core-loop",
+      "observed": "Tapping More opens a Buy this book link to Amazon, a mode choice between Story, Audio and Text, a Download control, a playback speed control, a toggle for images and videos, and Give feedback, Report content and Content attribution controls. Tapping Download completes without a further step.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O14",
+      "name": "Screenshot redirected to Spark",
+      "section": "core-loop",
+      "observed": "Attempting a screenshot while a hack is loading opens a pop-up stating that a screenshot isn't needed, and that the Spark Card control at the bottom of the page saves part of a hack to a board instead, with Spark Card and Not now as the only options.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O15",
+      "name": "Spark boards",
+      "section": "core-loop",
+      "observed": "Tapping Spark Card opens a choice of board to save to, and once placed, a spark can carry a typed note. A board can be played back automatically, and My Spark Boards shows a count starting at zero with a control to add and name a new board.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Recall Review",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "Exclusions were checked first. This is not Personal Data Reflection, because the subject of each card is book material, a spark or an insight from a hack, rather than a record or figure about the user's own activity (tier: directly observed). It is not Expert Guidance, because the material is Uptime's core activity rather than something offered beside it, and the entry classifies the interaction run over the material rather than the material (tier: directly observed). It is not Daily / Weekly Quests or Challenge, because no objective instance is issued, tracked for a period or bounded by a success condition; \"you have completed all your cards\" closes the current set rather than concluding an objective (tier: directly observed). It is not playback of saved material, which the entry excludes, because each card asks for a judgement, while the board playback at O15 asks nothing and carries no label (tier: directly observed). It is not a checked quiz, because the responses No, Not sure and Yes are the user's own report of recall and nothing is marked correct or incorrect (tier: directly observed). The required conditions are met as follows. The cards carry material the user has already taken in (tier: directly observed), although whether it came from saved sparks or from insights of the finished hack is not settled (tier: plausible, the narration is inconsistent on the order of saving and reviewing). Each card is a discrete step asking \"Do you remember this?\" from a defined set of three responses (tier: directly observed). The next card is released only after a judgement (tier: strongly supported, the narration moves card by card to the count \"You've reviewed three cards\"). Further cards are held for a later day (tier: strongly supported, the product offers a control to \"instantly reveal tomorrow's card\"). The classification sits at strongly supported rather than directly observed because the last two conditions rest on sequence and wording rather than on a transition seen on screen.",
+          "alternativeConsidered": "Personal Data Reflection, on the reading that a saved spark is a record of the user's own activity. That reading is rejected because the subject of the card is the saved passage, not the act of saving it, and the two entries separate on the content of the card; it would reopen only if the cards were shown to carry the user's own history, such as a list of hacks read. Daily / Weekly Quests was also weighed on the \"tomorrow's card\" wording and does not apply, because no objective is issued, refreshed or tracked for the day; a session showing each day's review listed and completed as an objective would add that label alongside this one.",
+          "role": "retention, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O16",
+      "name": "Spark repetition",
+      "section": "core-loop",
+      "observed": "My Sparks shows a spark repetition card asking \"Do you remember this?\" with No, Not sure and Yes, and a Stop showing this card control. After several cards, Uptime reports the count reviewed, then that all cards are complete, offering to reveal tomorrow's card early. A setting controls whether the review draws on sparks alone or sparks and insights together.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Recall Review",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "Exclusions were checked first. This is not Personal Data Reflection, because the subject of each card is book material, a spark or an insight from a hack, rather than a record or figure about the user's own activity (tier: directly observed). It is not Expert Guidance, because the material is Uptime's core activity rather than something offered beside it, and the entry classifies the interaction run over the material rather than the material (tier: directly observed). It is not Daily / Weekly Quests or Challenge, because no objective instance is issued, tracked for a period or bounded by a success condition; \"you have completed all your cards\" closes the current set rather than concluding an objective (tier: directly observed). It is not playback of saved material, which the entry excludes, because each card asks for a judgement, while the board playback at O15 asks nothing and carries no label (tier: directly observed). It is not a checked quiz, because the responses No, Not sure and Yes are the user's own report of recall and nothing is marked correct or incorrect (tier: directly observed). The required conditions are met as follows. The cards carry material the user has already taken in (tier: directly observed), although whether it came from saved sparks or from insights of the finished hack is not settled (tier: plausible, the narration is inconsistent on the order of saving and reviewing). Each card is a discrete step asking \"Do you remember this?\" from a defined set of three responses (tier: directly observed). The next card is released only after a judgement (tier: strongly supported, the narration moves card by card to the count \"You've reviewed three cards\"). Further cards are held for a later day (tier: strongly supported, the product offers a control to \"instantly reveal tomorrow's card\"). The classification sits at strongly supported rather than directly observed because the last two conditions rest on sequence and wording rather than on a transition seen on screen.",
+          "alternativeConsidered": "Personal Data Reflection, on the reading that a saved spark is a record of the user's own activity. That reading is rejected because the subject of the card is the saved passage, not the act of saving it, and the two entries separate on the content of the card; it would reopen only if the cards were shown to carry the user's own history, such as a list of hacks read. Daily / Weekly Quests was also weighed on the \"tomorrow's card\" wording and does not apply, because no objective is issued, refreshed or tracked for the day; a session showing each day's review listed and completed as an objective would add that label alongside this one.",
+          "role": "retention, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O17",
+      "name": "Post-hack next-hack screen",
+      "section": "core-loop",
+      "observed": "After the completion screen and reminder setup, a screen asks whether the user enjoyed the hack, offers sharing and the full book on Amazon, and lists several next hacks with an autoplay toggle. Autoplay is off by default; turned on, the next hack starts automatically after a countdown.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O18",
+      "name": "The Discover tab",
+      "section": "core-loop",
+      "observed": "Discover opens with a progress header and a share control, then runs through editorial and topic-based sections in sequence: top picks, an upgrade banner, trending hacks, The Backdrop, a topic section, collections, saved hacks, editors' picks, further topic and collection sections, an invite banner, new hacks, and a closing section offering topics not yet selected.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O19",
+      "name": "The Backdrop",
+      "section": "core-loop",
+      "observed": "A Discover section presents The Backdrop, a numbered weekly news edition covering several topics with a stated hours-saved figure and a list of included hacks. An edition can be saved, unsaved, reported and shared as a link, and a view-all control opens every past edition.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O20",
+      "name": "Editorial collections",
+      "section": "core-loop",
+      "observed": "Collections group hacks of several formats under an editorial theme with a combined hours-saved figure, such as a themed collection on a current event. Further collections cover a range of editorial topics, and a view-all list can only be scrolled, with no filter or search. Collections can be saved and appear under saved collections in the library.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O21",
+      "name": "Browse tab",
+      "section": "core-loop",
+      "observed": "Browse opens with a search bar for title, author or keyword, a list of topics, and a Deep dive area listing collections and each content format. Opening a topic shows tabs for top hacks, books, courses, documentaries, podcasts and Up hacks.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O22",
+      "name": "My Library",
+      "section": "core-loop",
+      "observed": "The You tab's My Library shows all history, unfinished, saved, saved collections and downloaded hacks. A finished-hacks line states a count of hacks completed, prompting the user to pick up where they left off.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O23",
+      "name": "Settings screen",
+      "section": "core-loop",
+      "observed": "Settings holds notification, language, dark mode, autoplay and default hack mode controls, spark repetition preferences, the Premium subscription entry, account controls including delete account and sign out, and a window to change the topics chosen during onboarding.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Recall Review",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "Exclusions were checked first. This is not Personal Data Reflection, because the subject of each card is book material, a spark or an insight from a hack, rather than a record or figure about the user's own activity (tier: directly observed). It is not Expert Guidance, because the material is Uptime's core activity rather than something offered beside it, and the entry classifies the interaction run over the material rather than the material (tier: directly observed). It is not Daily / Weekly Quests or Challenge, because no objective instance is issued, tracked for a period or bounded by a success condition; \"you have completed all your cards\" closes the current set rather than concluding an objective (tier: directly observed). It is not playback of saved material, which the entry excludes, because each card asks for a judgement, while the board playback at O15 asks nothing and carries no label (tier: directly observed). It is not a checked quiz, because the responses No, Not sure and Yes are the user's own report of recall and nothing is marked correct or incorrect (tier: directly observed). The required conditions are met as follows. The cards carry material the user has already taken in (tier: directly observed), although whether it came from saved sparks or from insights of the finished hack is not settled (tier: plausible, the narration is inconsistent on the order of saving and reviewing). Each card is a discrete step asking \"Do you remember this?\" from a defined set of three responses (tier: directly observed). The next card is released only after a judgement (tier: strongly supported, the narration moves card by card to the count \"You've reviewed three cards\"). Further cards are held for a later day (tier: strongly supported, the product offers a control to \"instantly reveal tomorrow's card\"). The classification sits at strongly supported rather than directly observed because the last two conditions rest on sequence and wording rather than on a transition seen on screen.",
+          "alternativeConsidered": "Personal Data Reflection, on the reading that a saved spark is a record of the user's own activity. That reading is rejected because the subject of the card is the saved passage, not the act of saving it, and the two entries separate on the content of the card; it would reopen only if the cards were shown to carry the user's own history, such as a list of hacks read. Daily / Weekly Quests was also weighed on the \"tomorrow's card\" wording and does not apply, because no objective is issued, refreshed or tracked for the day; a session showing each day's review listed and completed as an objective would add that label alongside this one.",
+          "role": "retention, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O24",
+      "name": "Hours saved total",
+      "section": "goals",
+      "observed": "Every hack, edition and collection states an hours-saved figure, and the completion screen, the Discover header and a My Stats card each restate a total. The completion screen states 11 hours after the first finished hack, while the hack's own cover screen and the Discover header both state 10 hours for the same content. The figure is framed as time won back against the length of the original material, and is not exchanged for anything.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Shareable Win",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Exclusions were checked first. The subject of the O31 images is a record Uptime holds about the user, hours saved, topics covered and a streak, not content the user made and not the hack content shared at O30, which is excluded as ordinary content sharing and carries no label (tier: directly observed). The images are not referral invitations, since they state what the user accomplished rather than what a recipient should do, and no recipient benefit is attached (tier: directly observed). They are not a dashboard without a route out, since each is offered with share and download controls (tier: directly observed). The required conditions are met: the records are presented as accomplishments in the product's own copy, \"Great job,\" \"It's official, you're into six topics,\" \"You've grown your expertise in three topics with Uptime\" (tier: directly observed); the images state the accomplishment in a form a reader outside the product can read, such as \"10 hours saved\" and \"One day. Your streak\" (tier: directly observed); and each is offered with at least one route out, as an image, as text through social sharing, or as a download (tier: directly observed).",
+          "alternativeConsidered": "treating the images as promotional assets, which the entry excludes when the subject is the product rather than the user's record. The Uptime logo and the line \"Get the full story in a fraction of the time\" are promotional, but the headline figure in each image is the user's own record, so the entry applies. Achievement was weighed for the underlying records and is not applied, as set out below; the underlying streak is classified under Streak.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O25",
+      "name": "Topic growth credit",
+      "section": "goals",
+      "observed": "The hack cover screen and the completion screen credit the user with growth in the topics of the hack just finished. The Discover header and its shareable image restate the same credit, stating three topics covered, while My Stats separately states an expert line for one topic and a count of six topics covered, within the same visit.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Shareable Win",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Exclusions were checked first. The subject of the O31 images is a record Uptime holds about the user, hours saved, topics covered and a streak, not content the user made and not the hack content shared at O30, which is excluded as ordinary content sharing and carries no label (tier: directly observed). The images are not referral invitations, since they state what the user accomplished rather than what a recipient should do, and no recipient benefit is attached (tier: directly observed). They are not a dashboard without a route out, since each is offered with share and download controls (tier: directly observed). The required conditions are met: the records are presented as accomplishments in the product's own copy, \"Great job,\" \"It's official, you're into six topics,\" \"You've grown your expertise in three topics with Uptime\" (tier: directly observed); the images state the accomplishment in a form a reader outside the product can read, such as \"10 hours saved\" and \"One day. Your streak\" (tier: directly observed); and each is offered with at least one route out, as an image, as text through social sharing, or as a download (tier: directly observed).",
+          "alternativeConsidered": "treating the images as promotional assets, which the entry excludes when the subject is the product rather than the user's record. The Uptime logo and the line \"Get the full story in a fraction of the time\" are promotional, but the headline figure in each image is the user's own record, so the entry applies. Achievement was weighed for the underlying records and is not applied, as set out below; the underlying streak is classified under Streak.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O26",
+      "name": "Daily streak",
+      "section": "goals",
+      "observed": "A streak counter sits at the top of Discover beside the Premium countdown, and leads the My Stats tab with a stated daily rule of one insight from any hack, a change-reminder control, and a longest streak shown separately from the current one.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Exclusions were checked first. This is not a cumulative count, because Uptime shows a current daily streak and a longest streak as separate figures, and a count that ignored gaps would have no use for a longest-run record (tier: directly observed). It is not a recurring goal without linkage, because the product names the linked state itself, \"your daily streak\" (tier: directly observed). The required conditions are met on the product's own framing: the qualifying event is one insight from any hack, the occurrences are ordered by day, a streak state is displayed on the completion screen, in the Discover header and on My Stats, and the continuity rule is stated as a daily one (tier: directly observed). Under the presence standard, the effect of a missed day is a detail of how the streak behaves rather than a condition of its presence, and it is not observed (tier: directly observed).",
+          "alternativeConsidered": "a count of active days that ignores gaps. That reading is rejected because the product labels the figure a daily streak and keeps a longest streak beside it; a session that spans a missed day and shows the counter after it would settle the reset rule without bearing on presence. Daily / Weekly Quests was also weighed for \"one insight a day,\" and does not apply, because the product issues no discrete objective instance under a daily cadence; the rule is a standing qualifying condition for the streak.",
+          "role": "retention"
+        },
+        {
+          "name": "Shareable Win",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Exclusions were checked first. The subject of the O31 images is a record Uptime holds about the user, hours saved, topics covered and a streak, not content the user made and not the hack content shared at O30, which is excluded as ordinary content sharing and carries no label (tier: directly observed). The images are not referral invitations, since they state what the user accomplished rather than what a recipient should do, and no recipient benefit is attached (tier: directly observed). They are not a dashboard without a route out, since each is offered with share and download controls (tier: directly observed). The required conditions are met: the records are presented as accomplishments in the product's own copy, \"Great job,\" \"It's official, you're into six topics,\" \"You've grown your expertise in three topics with Uptime\" (tier: directly observed); the images state the accomplishment in a form a reader outside the product can read, such as \"10 hours saved\" and \"One day. Your streak\" (tier: directly observed); and each is offered with at least one route out, as an image, as text through social sharing, or as a download (tier: directly observed).",
+          "alternativeConsidered": "treating the images as promotional assets, which the entry excludes when the subject is the product rather than the user's record. The Uptime logo and the line \"Get the full story in a fraction of the time\" are promotional, but the headline figure in each image is the user's own record, so the entry applies. Achievement was weighed for the underlying records and is not applied, as set out below; the underlying streak is classified under Streak.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O27",
+      "name": "My Stats card row",
+      "section": "goals",
+      "observed": "My Stats presents a row of shareable cards above the hack history: the streak, insights learned, hours saved, a topic-expertise card, topics covered, and a closing card encouraging further learning. Each card, and the longest streak below the row, can be shared, and a see-more control on a card opens Browse.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Exclusions were checked first. This is not a cumulative count, because Uptime shows a current daily streak and a longest streak as separate figures, and a count that ignored gaps would have no use for a longest-run record (tier: directly observed). It is not a recurring goal without linkage, because the product names the linked state itself, \"your daily streak\" (tier: directly observed). The required conditions are met on the product's own framing: the qualifying event is one insight from any hack, the occurrences are ordered by day, a streak state is displayed on the completion screen, in the Discover header and on My Stats, and the continuity rule is stated as a daily one (tier: directly observed). Under the presence standard, the effect of a missed day is a detail of how the streak behaves rather than a condition of its presence, and it is not observed (tier: directly observed).",
+          "alternativeConsidered": "a count of active days that ignores gaps. That reading is rejected because the product labels the figure a daily streak and keeps a longest streak beside it; a session that spans a missed day and shows the counter after it would settle the reset rule without bearing on presence. Daily / Weekly Quests was also weighed for \"one insight a day,\" and does not apply, because the product issues no discrete objective instance under a daily cadence; the rule is a standing qualifying condition for the streak.",
+          "role": "retention"
+        },
+        {
+          "name": "Shareable Win",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Exclusions were checked first. The subject of the O31 images is a record Uptime holds about the user, hours saved, topics covered and a streak, not content the user made and not the hack content shared at O30, which is excluded as ordinary content sharing and carries no label (tier: directly observed). The images are not referral invitations, since they state what the user accomplished rather than what a recipient should do, and no recipient benefit is attached (tier: directly observed). They are not a dashboard without a route out, since each is offered with share and download controls (tier: directly observed). The required conditions are met: the records are presented as accomplishments in the product's own copy, \"Great job,\" \"It's official, you're into six topics,\" \"You've grown your expertise in three topics with Uptime\" (tier: directly observed); the images state the accomplishment in a form a reader outside the product can read, such as \"10 hours saved\" and \"One day. Your streak\" (tier: directly observed); and each is offered with at least one route out, as an image, as text through social sharing, or as a download (tier: directly observed).",
+          "alternativeConsidered": "treating the images as promotional assets, which the entry excludes when the subject is the product rather than the user's record. The Uptime logo and the line \"Get the full story in a fraction of the time\" are promotional, but the headline figure in each image is the user's own record, so the entry applies. Achievement was weighed for the underlying records and is not applied, as set out below; the underlying streak is classified under Streak.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O28",
+      "name": "Premium marks on content",
+      "section": "access",
+      "observed": "Podcast and book hacks inside a Discover collection are marked as part of Premium. Throughout the visit the account holds three-day Premium access, shown as 72 hours left, and the expiry prompt states that once it's gone, access to thousands of hacks and Uptime's smart features is lost. Offers describe Premium as unlimited insights, over 8,000 titles and exclusive content from top creators.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O29",
+      "name": "Photo library access",
+      "section": "access",
+      "observed": "Saving a generated share video or image requires giving Uptime access to the photo library.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O30",
+      "name": "Sharing hack content",
+      "section": "reach",
+      "observed": "Tapping Share on a hack offers four images, a favorite quote, an opening summary, a book summary, and a summary of the key insights, alongside options to share a generated video, share an image, share a hack link, or link and embed the hack on a website or blog. The subject of every option is the hack's content rather than anything about the user's own activity.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O31",
+      "name": "Shareable progress images",
+      "section": "reach",
+      "observed": "The completion screen's Share your progress control, the Discover header's share prompt, and the topic and streak lines on My Stats each open a composed image carrying the underlying figure alongside the Uptime logo, offered as an image, as text, or as a download. No reward for sharing is shown.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Exclusions were checked first. This is not a cumulative count, because Uptime shows a current daily streak and a longest streak as separate figures, and a count that ignored gaps would have no use for a longest-run record (tier: directly observed). It is not a recurring goal without linkage, because the product names the linked state itself, \"your daily streak\" (tier: directly observed). The required conditions are met on the product's own framing: the qualifying event is one insight from any hack, the occurrences are ordered by day, a streak state is displayed on the completion screen, in the Discover header and on My Stats, and the continuity rule is stated as a daily one (tier: directly observed). Under the presence standard, the effect of a missed day is a detail of how the streak behaves rather than a condition of its presence, and it is not observed (tier: directly observed).",
+          "alternativeConsidered": "a count of active days that ignores gaps. That reading is rejected because the product labels the figure a daily streak and keeps a longest streak beside it; a session that spans a missed day and shows the counter after it would settle the reset rule without bearing on presence. Daily / Weekly Quests was also weighed for \"one insight a day,\" and does not apply, because the product issues no discrete objective instance under a daily cadence; the rule is a standing qualifying condition for the streak.",
+          "role": "retention"
+        },
+        {
+          "name": "Shareable Win",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Exclusions were checked first. The subject of the O31 images is a record Uptime holds about the user, hours saved, topics covered and a streak, not content the user made and not the hack content shared at O30, which is excluded as ordinary content sharing and carries no label (tier: directly observed). The images are not referral invitations, since they state what the user accomplished rather than what a recipient should do, and no recipient benefit is attached (tier: directly observed). They are not a dashboard without a route out, since each is offered with share and download controls (tier: directly observed). The required conditions are met: the records are presented as accomplishments in the product's own copy, \"Great job,\" \"It's official, you're into six topics,\" \"You've grown your expertise in three topics with Uptime\" (tier: directly observed); the images state the accomplishment in a form a reader outside the product can read, such as \"10 hours saved\" and \"One day. Your streak\" (tier: directly observed); and each is offered with at least one route out, as an image, as text through social sharing, or as a download (tier: directly observed).",
+          "alternativeConsidered": "treating the images as promotional assets, which the entry excludes when the subject is the product rather than the user's record. The Uptime logo and the line \"Get the full story in a fraction of the time\" are promotional, but the headline figure in each image is the user's own record, so the entry applies. Achievement was weighed for the underlying records and is not applied, as set out below; the underlying streak is classified under Streak.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O32",
+      "name": "Friend invitation banner",
+      "section": "reach",
+      "observed": "A Discover banner offers a friend three days of Premium for free, opening a pop-up that generates a shareable link. The same banner appears in My Sparks below the completed-cards message. No benefit to the inviting user is stated anywhere in the flow.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O33",
+      "name": "Amazon book links",
+      "section": "reach",
+      "observed": "The More panel and the post-hack screen both carry a link to buy the full book on Amazon, with small print stating that Uptime may receive a small commission from the purchase.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O34",
+      "name": "Research and content requests",
+      "section": "reach",
+      "observed": "Near the bottom of settings, Take part in research and Request content both open the same pop-up chat with Uptime.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O35",
+      "name": "Trial paywall after topics",
+      "section": "monetization",
+      "observed": "Immediately after topic selection, a pop-up offers one week of Premium free with 57% off if the user continues, listing unlimited insights, exclusive content and over 8,000 titles. The primary button starts the trial at $29.99 a year, stated as $2.50 a month, with small print stating that the standard annual plan is $69.99 and that the user won't be charged if they cancel before the trial ends.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O36",
+      "name": "Plan list",
+      "section": "monetization",
+      "observed": "Viewing all plans shows a monthly option at $3.99 and an annual option at $29.99, stated as $2.50 a month, with the free trial attached to the annual plan. Choosing monthly changes the button from starting a trial to getting Premium directly.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O37",
+      "name": "Three-day Premium gift",
+      "section": "monetization",
+      "observed": "After the plan list closes, a pop-up offers three days of free Premium access as a gift, alongside an exclusive 64% discount if the user upgrades that same day, with a single button reading Thank you that closes the pop-up. The 64% discount offered here is larger than the 57% offered on the trial paywall.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O38",
+      "name": "Post-hack discounted offer",
+      "section": "monetization",
+      "observed": "Closing the post-hack screen without starting the next hack brings up an offer to keep unlimited access, running through five slides naming distraction-free reading, offline listening, a choice of seven speeds, and organizing sparks into boards as benefits to keep. The price is $24.99 a year, stated as $2.08 a month and 64% off, renewing afterward at $29.99.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O39",
+      "name": "Premium countdown prompt",
+      "section": "monetization",
+      "observed": "The diamond icon in the Discover header shows \"72 hours left.\" Tapping it opens a prompt stating that Premium access is running out and that once it's gone, access to thousands of hacks and Uptime's smart features is lost, with a button to upgrade.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O40",
+      "name": "Recurring upgrade banners",
+      "section": "monetization",
+      "observed": "A Discover banner offers access to thousands of hacks at 64% off, opening the same payment pop-up. Premium also has its own tab in the bottom bar, and settings carries a Premium subscription entry that opens the same kind of pop-up.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O41",
+      "name": "Notification pre-prompt",
+      "section": "returns",
+      "observed": "After the gift pop-up, a screen asks the user not to miss personalized recommendations, framing notifications around building a new habit and getting smart fast, with a large button to allow them above smaller text to decline. The system notification request follows.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O42",
+      "name": "Daily reminder setup",
+      "section": "returns",
+      "observed": "Set up a daily reminder on the completion screen opens a prompt asking when the user wants a reminder so they never miss a day, with a time picker and an AM or PM choice. My Stats later carries a Change reminder button under the streak line.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Exclusions were checked first. This is not a cumulative count, because Uptime shows a current daily streak and a longest streak as separate figures, and a count that ignored gaps would have no use for a longest-run record (tier: directly observed). It is not a recurring goal without linkage, because the product names the linked state itself, \"your daily streak\" (tier: directly observed). The required conditions are met on the product's own framing: the qualifying event is one insight from any hack, the occurrences are ordered by day, a streak state is displayed on the completion screen, in the Discover header and on My Stats, and the continuity rule is stated as a daily one (tier: directly observed). Under the presence standard, the effect of a missed day is a detail of how the streak behaves rather than a condition of its presence, and it is not observed (tier: directly observed).",
+          "alternativeConsidered": "a count of active days that ignores gaps. That reading is rejected because the product labels the figure a daily streak and keeps a longest streak beside it; a session that spans a missed day and shows the counter after it would settle the reset rule without bearing on presence. Daily / Weekly Quests was also weighed for \"one insight a day,\" and does not apply, because the product issues no discrete objective instance under a daily cadence; the rule is a standing qualifying condition for the streak.",
+          "role": "retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O43",
+      "name": "Notification categories",
+      "section": "returns",
+      "observed": "Notification settings list eight categories: suggested content, daily reminder, personal reminders, spark repetition, The Backdrop, saved items, updates and offers, and research, each with its own push and email choice. After permission is granted, every category is marked active by default.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Recall Review",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "Exclusions were checked first. This is not Personal Data Reflection, because the subject of each card is book material, a spark or an insight from a hack, rather than a record or figure about the user's own activity (tier: directly observed). It is not Expert Guidance, because the material is Uptime's core activity rather than something offered beside it, and the entry classifies the interaction run over the material rather than the material (tier: directly observed). It is not Daily / Weekly Quests or Challenge, because no objective instance is issued, tracked for a period or bounded by a success condition; \"you have completed all your cards\" closes the current set rather than concluding an objective (tier: directly observed). It is not playback of saved material, which the entry excludes, because each card asks for a judgement, while the board playback at O15 asks nothing and carries no label (tier: directly observed). It is not a checked quiz, because the responses No, Not sure and Yes are the user's own report of recall and nothing is marked correct or incorrect (tier: directly observed). The required conditions are met as follows. The cards carry material the user has already taken in (tier: directly observed), although whether it came from saved sparks or from insights of the finished hack is not settled (tier: plausible, the narration is inconsistent on the order of saving and reviewing). Each card is a discrete step asking \"Do you remember this?\" from a defined set of three responses (tier: directly observed). The next card is released only after a judgement (tier: strongly supported, the narration moves card by card to the count \"You've reviewed three cards\"). Further cards are held for a later day (tier: strongly supported, the product offers a control to \"instantly reveal tomorrow's card\"). The classification sits at strongly supported rather than directly observed because the last two conditions rest on sequence and wording rather than on a transition seen on screen.",
+          "alternativeConsidered": "Personal Data Reflection, on the reading that a saved spark is a record of the user's own activity. That reading is rejected because the subject of the card is the saved passage, not the act of saving it, and the two entries separate on the content of the card; it would reopen only if the cards were shown to carry the user's own history, such as a list of hacks read. Daily / Weekly Quests was also weighed on the \"tomorrow's card\" wording and does not apply, because no objective is issued, refreshed or tracked for the day; a session showing each day's review listed and completed as an objective would add that label alongside this one.",
+          "role": "retention, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
     }
   ],
+  "systemView": [
+    "Uptime is a medium-complexity system whose spine is the first completed hack: finishing it produces three records at once, feeding the app's one shareable-image surface, while a separate Spark recall loop runs beside it, untouched by any of that."
+  ],
+  "mechanicWriteups": [
+    {
+      "name": "Streak",
+      "summary": "One insight from any hack a day keeps Uptime's streak alive, with a reminder control sitting directly beneath it.",
+      "observed": "Uptime counts a daily streak that only requires completing one insight from any hack, not a full hack. The streak appears at the top of Discover beside the Premium countdown, at the top of My Stats with a Change reminder button directly beneath it, and on the completion screen after the first hack. My Stats also shows a longest streak separate from the current one.",
+      "presented": "The streak sits in the same header position as the Premium countdown on Discover, and leads the My Stats tab as its first element, with the reminder control placed immediately under it.",
+      "noting": "Requiring only one insight, not a finished hack, sets a very low daily bar, and Uptime places the reminder setup control directly beneath the streak rather than as a separate step, tying the return mechanic and its own safeguard together on one screen. What a missed day does to the count, and whether any freeze or repair exists, isn't shown.",
+      "findings": [
+        "The streak requires one insight from any hack per day, not a full hack.",
+        "The streak appears on Discover, on My Stats, and on the completion screen.",
+        "My Stats shows a longest streak separate from the current one.",
+        "A reminder control sits directly beneath the streak on My Stats.",
+        "What a missed day does to the count is not shown."
+      ],
+      "screenshotsNote": "the My Stats streak line with its reminder control, and the Discover header showing the streak beside the Premium countdown."
+    },
+    {
+      "name": "Shareable Win",
+      "summary": "Hours saved, topic growth and the streak are each composed into a logoed image offered for sharing outside the app.",
+      "observed": "The completion screen's Share your progress control, the Discover header's share prompt, and the topic and streak lines on My Stats each open a composed image stating the underlying figure, \"10 hours saved,\" \"Three topics covered,\" \"One day. Your streak,\" alongside the Uptime logo. Each image is offered as a downloadable image or as text through social sharing.",
+      "presented": "Every share route opens from a figure already on screen, the completion screen, the Discover header, or a My Stats card, rather than from a dedicated sharing screen.",
+      "noting": "Every image states what the user has done rather than inviting anyone to do anything, and none carries a benefit for sending it. The Uptime logo travels with the user's own figures to whoever the image reaches, so a private return signal, a streak, an hour of reading, becomes something read by someone outside the app the moment it's shared.",
+      "findings": [
+        "Hours saved, topic growth and the streak each open a composed shareable image.",
+        "Each image carries the Uptime logo alongside the user's own figure.",
+        "Images can be shared as an image, as text, or downloaded.",
+        "No benefit for sharing is shown."
+      ],
+      "screenshotsNote": "the completion screen's shared progress image, and a My Stats card's shared image."
+    },
+    {
+      "name": "Recall Review",
+      "summary": "Uptime returns saved or read material as cards asking only whether it's remembered, holding one back for tomorrow.",
+      "observed": "My Sparks presents spark repetition cards one at a time, each asking \"Do you remember this?\" with No, Not sure and Yes as the only responses, and a Stop showing this card control. After a few cards, Uptime reports the count reviewed, then that all cards for the day are complete, with a control to reveal tomorrow's card early.",
+      "presented": "The review sits inside My Sparks, reached from the You tab, with a settings option to draw the review from saved sparks only or from sparks and insights together.",
+      "noting": "The three response options, remembered, not sure, and not remembered, ask for the user's own judgement rather than checking it against anything, and nothing about the response is shown changing when a card returns. Whether the cards drawn came from material the user had saved or from insights of the hack just finished isn't settled, since both are described as sources at different points.",
+      "findings": [
+        "Each card asks \"Do you remember this?\" with three response options.",
+        "A control lets the user reveal tomorrow's card early.",
+        "A setting controls whether the review draws on saved sparks, sparks and insights, or both.",
+        "What a response changes about when a card returns is not shown."
+      ],
+      "screenshotsNote": "a spark repetition card with its three response options, and the completed-set message with the early-reveal control.\n\n---"
+    }
+  ],
+  "sectionLeadIns": {
+    "onboarding": "A sign-in screen, a consent line, topic selection, three subscription offers, a notification request and a full first hack all run before Uptime's first unguided screen.",
+    "core-loop": "Opening and reading a hack, saving sparks, and browsing Discover, The Backdrop, collections and Browse make up this section.",
+    "goals": "Hours saved, topic growth and the daily streak are the three records Uptime keeps on completed activity, shown together on My Stats.",
+    "access": "Premium marks on catalogue items and a photo library permission for saved shares make up this section.",
+    "economy": "Uptime maintains no currency, points, credits, tokens or other held unit that is earned and then spent or exchanged. The hours-saved total accumulates but is never exchanged for anything, and is described under Goals and progression.",
+    "social": "No other identified person appears anywhere in the app: content carries Uptime as its creator, the editors' picks copy refers to creators the app never actually shows, and book authors appear only as subjects of content. Every route that involves another person, sharing hack content, sharing progress, and inviting friends, sends something outward without identifying a recipient inside the product, and is described under Reach beyond the app.",
+    "reach": "Sharing hack content, shareable progress images, an invitation banner and an Amazon link are Uptime's routes outside the app.",
+    "monetization": "Three successive subscription offers run across onboarding and the first hack, each against the same stated $69.99 standard price.",
+    "returns": "A notification pre-prompt, a daily reminder tied to the streak, and eight notification categories bring the user back."
+  },
+  "sectionCards": {
+    "onboarding": "A sign-in screen, a consent line, topic selection, three subscription offers, a notification request and a full first hack all run before Uptime's first unguided screen.",
+    "core-loop": "Opening and reading a hack, saving sparks, and browsing Discover, The Backdrop, collections and Browse make up this section.",
+    "goals": "Hours saved, topic growth and the daily streak are the three records Uptime keeps on completed activity, shown together on My Stats.",
+    "access": "Premium marks on catalogue items and a photo library permission for saved shares make up this section.",
+    "economy": "Empty. Uptime maintains no currency, points, credits, tokens or other held unit that is earned and then spent or exchanged.",
+    "social": "Empty. No other identified person appears anywhere in the app.",
+    "reach": "Sharing hack content, shareable progress images, an invitation banner and an Amazon link are Uptime's routes outside the app.",
+    "monetization": "Three successive subscription offers run across onboarding and the first hack, each against the same stated $69.99 standard price.",
+    "returns": "A notification pre-prompt, a daily reminder tied to the streak, and eight notification categories bring the user back."
+  },
+  "proposedTags": [],
   "system": {
-    "tagline": "A micro-learning app where achievement cards are designed as social media content rather than in-app trophies.",
-    "overview": "Uptime's system is built around the most forgiving streak in the library (one insight per day from any hack), achievement cards designed as pre-formatted shareable images rather than in-app badges, and a post-hack congratulations screen that captures four distinct engagement actions at the single highest-motivation moment in the session.",
-    "loop": "The core loop is: open app → select a hack → read through cards → save Sparks → complete hack → see congratulations screen (streak, hours saved, reminder setup, next hack, autoplay) → review Sparks via spaced repetition → browse discovery. The post-hack congratulations screen is the system's highest-density engagement moment.",
-    "keyInsight": "The post-hack congratulations screen captures four distinct engagement actions at the single highest-motivation moment: social sharing, reminder setup, next hack suggestion, and autoplay toggle. All four at once, when the user has just experienced the product's core value for the first time.",
-    "whatMakesItWork": "Achievement cards work because they are social media content first. Every milestone produces a branded shareable image with motivational copy. Users share their progress not to promote Uptime but because the cards look good and say something flattering about them. The achievement system's primary output is user acquisition through organic social sharing.",
+    "tagline": "Three records from one completed hack, hours saved, topics grown, a streak, are composed into shareable images before the user ever reaches an unguided screen.",
+    "overview": "Uptime routes a new account straight into a hack before it ever reaches an unguided home screen, through topic selection, three escalating subscription offers, a notification request and a full completion sequence. Finishing that one hack produces three records at once, hours saved, topic growth and a one-day streak, all composed into shareable images carrying the Uptime logo outward. A separate Spark system runs beside the hack loop: saved or read material returns later as recall cards the user judges for memory, with at least one card always held for a following day. Pricing runs as a sequence of discounts against the same stated $69.99 standard price, each offer arriving after the last is declined.",
+    "loop": "Sign in, choose topics, decline or receive three successive subscription offers, and grant notifications, all before the first hack opens. Complete the guided first hack, which produces a streak, an hours-saved total and topic credit together, each composed into a shareable image on the completion screen and the Discover header. Save sparks while reading, then review them later as recall cards that ask only whether the material is remembered, with a card withheld for the next day. Return through a daily reminder tied to the streak, a notification set spanning eight categories, and a Premium countdown that never resolves within the same visit.",
+    "keyInsight": "Uptime turns one completed hack into three separate records, hours saved, topic growth, a streak, and routes all three into the same shareable-image surface before the user has reached an unguided screen. The Spark recall system runs entirely apart from that loop: nothing shown ties reviewing a card back to the streak, the hours total, or the shareable images the rest of the app is built around.",
+    "whatMakesItWork": "Composing every record into a shareable image the moment it's produced means the app's own retention signals, a day of streak, an hour of reading saved, double as outward-facing content the moment the user taps share, without a separate campaign or asset to build. The recall system works on a different logic entirely: it doesn't need the streak or the sharing loop to justify itself, since holding a card back for tomorrow is what brings the user back to that surface specifically, independent of whether anything else in the app does.",
     "roles": [
       {
         "id": "streak",
-        "role": "One insight per day from any hack, the lowest streak bar in the library. The reminder setup button appears at the post-hack congratulations screen at peak motivation rather than during onboarding."
+        "role": "A daily streak requiring one insight from any hack, shown beside the reminder control and folded into the completion screen's shareable image."
       },
       {
-        "id": "achievement",
-        "role": "Pre-formatted shareable image cards generated automatically from consumption behavior, expertise badges appear without explicit achievement hunting and function as content discovery entry points and social sharing assets."
+        "id": "shareable-win",
+        "role": "Hours saved, topic growth and the streak are composed into images carrying the Uptime logo, offered on the completion screen and the Discover header."
       },
       {
-        "id": "gifting",
-        "role": "A three-day premium referral gift surfaced passively in the feed and at the bottom of spaced repetition completion."
+        "id": "recall-review",
+        "role": "Saved or read material returns later as cards asking only whether it's remembered, with at least one card held for the next day."
       }
     ],
     "center": {
       "x": 50,
-      "y": 15,
+      "y": 10,
       "label": "UPTIME"
     },
     "nodes": [
       {
         "id": "streak",
+        "x": 30,
+        "y": 35
+      },
+      {
+        "id": "shareable-win",
+        "x": 70,
+        "y": 35
+      },
+      {
+        "id": "recall-review",
         "x": 50,
-        "y": 38
-      },
-      {
-        "id": "achievement",
-        "x": 26,
-        "y": 68
-      },
-      {
-        "id": "gifting",
-        "x": 74,
-        "y": 68
+        "y": 65
       }
     ],
     "connections": [
       {
         "from": "streak",
-        "to": "achievement",
-        "title": "Daily return generates expertise badges",
-        "desc": "Returning daily to complete hacks in a topic generates 'expert in X' expertise badges automatically, without any explicit achievement hunting.",
-        "effect": "Users who maintain the streak for topic-specific reasons discover they have been accumulating expertise badges, achievements arrive as noticed facts rather than pursued goals."
-      },
-      {
-        "from": "achievement",
-        "to": "gifting",
-        "title": "Achievement cards are referral content",
-        "desc": "Pre-formatted achievement cards, 'you're saving time by hacking knowledge', are the primary social sharing content. Sharing an achievement card is functionally a referral.",
-        "effect": "Every achievement milestone is a potential user acquisition moment. The achievement and referral mechanisms share the same shareable image assets."
-      },
-      {
-        "from": "streak",
-        "to": "gifting",
-        "title": "Post-hack screen captures both mechanics",
-        "desc": "The post-first-hack screen surfaces the streak counter, reminder setup, and referral gift at the same moment, the peak engagement point of the first session.",
-        "effect": "The highest-intent moment captures three retention and acquisition actions simultaneously: streak habit formation, reminder installation, and referral sharing."
+        "to": "shareable-win",
+        "title": "The streak record feeds the shareable image",
+        "desc": "The daily streak that sits beside the reminder control is one of three records, alongside hours saved and topics covered, that Uptime composes into a shareable image offered on the completion screen and the Discover header.",
+        "effect": "A private continuity count becomes something a reader outside the app can see the moment the user chooses to share it, tying the app's own return mechanic to an outward-facing acquisition surface."
       }
     ]
   }
