@@ -61,6 +61,21 @@ const mechanics = readCollection("mechanics");
 const apps = readCollection("apps");
 const mechanicIds = new Set(mechanics.map((m) => m.data.id));
 
+// A small number of system-map nodes stand for a precondition the app's
+// mechanics hang off, a bank connection, a health-data connection, rather
+// than an applied mechanic in their own right. Each one is already
+// documented at its SYSTEMS entry in data.js, right where the mechanics/
+// roles list deliberately omits it for this exact reason: the id has no
+// home in the mechanics library and should not gain one just to satisfy a
+// check. Keyed by "app-id:node-id" so a coincidentally identical string on
+// a different app isn't silently exempted too. Add an entry here only for a
+// new node of the same kind, documented the same way at its SYSTEMS entry —
+// a real typo should fail this check, not get quietly allowed through it.
+const NON_MECHANIC_SYSTEM_NODES = new Set([
+  "acorns:Bank Connection",
+  "wakeout:Apple Health Connection",
+]);
+
 // ---- mechanics: required fields + visibility
 for (const { file, data } of mechanics) {
   for (const field of ["id", "name", "cat", "tagline", "desc"]) {
@@ -116,6 +131,22 @@ for (const { file, data } of apps) {
     for (const r of data.system.roles) {
       if (!mechanicIds.has(r.id))
         problem(file, `system role list mentions "${r.id}" which does not exist in the mechanics library`);
+    }
+    // A node's id comes straight from a POSITIONS key in system.html, a
+    // hand-typed, unvalidated source. Unlike a bad roles-list id, a bad node
+    // id doesn't fail to render anywhere: resolveMechanicNode() in props.ts
+    // can't match it to the mechanics collection or to the app's own written
+    // mechanic block either, and falls through to its last-resort defaults —
+    // the raw id string as the label, "retention" as the category regardless
+    // of the mechanic's real one, and a /subscribe/ link instead of the
+    // mechanic's real page. That's a plausible-looking wrong node shipped on
+    // a live page with a green build, the same failure shape as a duplicate
+    // POSITIONS block or a v3 SYSTEMS entry asserting a mechanic that isn't
+    // there — so this fails the build rather than warning, same as the
+    // roles check just above.
+    for (const n of data.system.nodes) {
+      if (!mechanicIds.has(n.id) && !NON_MECHANIC_SYSTEM_NODES.has(`${data.id}:${n.id}`))
+        problem(file, `system map node "${n.id}" does not exist in the mechanics library`);
     }
     if (!data.system.center) problem(file, "system map has no center point");
   }
