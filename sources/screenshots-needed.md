@@ -2,7 +2,9 @@
 
 Every "Screenshots needed" line from a mechanic block in `sources/content/*.md`, one row per request, grouped by app and then by mechanic. Section pages carry no screenshot requests of their own — every request lives on a mechanic block. Tick off the Status column as captures land.
 
-Total: 222 requests across 27 apps.
+Total: 218 requests across 25 apps.
+
+Not included: DoorDash and Gymverse have v4.1 content and requests of their own (2 each), but both are unpublished under the three-publishable-tag minimum and are left out of capture planning while that holds.
 
 Not included yet: Chrome Valley Customs, FIFA Panini Collection, Fortune City, Match Creek Motors and Wispr Flow have no v4.1 content file. Their screenshot requests get added here once each is through Stage 2.
 
@@ -93,13 +95,6 @@ Not included yet: Chrome Valley Customs, FIFA Panini Collection, Fortune City, M
 | Earning Tasks | the survey list showing payout, duration and the monthly total; the intro questionnaire or its closing animation; the mid-survey disqualification message; the Grow tab's job board with the survey feature featured first. | |
 | Referral Boost | the referral offer screen stating the 20%/$100 terms; the eligibility qualifier and 60-day expiry line; the four-step "how to earn" screen; the referral FAQ list. | |
 
-## DoorDash
-
-| Mechanic | Description | Status |
-|---|---|---|
-| Reviews and Ratings | the contributor profile's zero-contributions state, and a store page's ratings and reviews view. | |
-| Achievement | the profile badges screen showing the 0 of 3 counter and the locked Local expert badge. | |
-
 ## FC Mobile
 
 | Mechanic | Description | Status |
@@ -147,13 +142,6 @@ Not included yet: Chrome Valley Customs, FIFA Panini Collection, Fortune City, M
 | Challenge | the Challenges section of the Community tab, and the challenge-creation flow. | |
 | Community Space | a Freeletics post in the Community feed showing its comment thread. | |
 | Leveling | the profile tab showing Level 1, and a search result showing another athlete's level. | |
-
-## Gymverse
-
-| Mechanic | Description | Status |
-|---|---|---|
-| Achievement | the progress area showing the Achievements entry point alongside the activity totals. | |
-| Shareable Win | the share composer opened from a screenshot, showing its stat and sticker options; the end-of-workout completion image. | |
 
 ## Insight Timer
 

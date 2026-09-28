@@ -8,7 +8,9 @@
  *     entry fails a reference check the same way a nonexistent one does,
  *     since neither one has a page for the reference to reach
  *  2. every system connection points at nodes that exist on that system map
- *  3. every screenshot, icon, and hero image path resolves under site/public
+ *  3. every screenshot, icon, and hero image path resolves under site/public,
+ *     and every screenshot is close enough to the site's display ratio that
+ *     it won't be silently cropped or letterboxed
  *  4. required fields are present on every app and mechanic
  *  5. dates are real dates in YYYY-MM-DD form
  *  6. every content item carries a valid visibility value
@@ -20,6 +22,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import sharp from "sharp";
 import { V41_SECTIONS } from "../src/lib/v41-sections.mjs";
 import { REVIEW_WINDOW_OPEN } from "../src/lib/review-window.mjs";
 
@@ -59,6 +62,42 @@ function validDate(s) {
   if (!DATE_RE.test(s)) return false;
   const d = new Date(s + "T00:00:00Z");
   return !isNaN(d) && d.toISOString().slice(0, 10) === s;
+}
+
+// The site displays every screenshot at a fixed aspect ratio (screenshots/
+// README.md: "585x1266px or as close to that ratio (9:20) as possible") and
+// crops or letterboxes anything else, silently, with nothing anywhere in
+// that path that would tell you it happened. The README's own two numbers
+// don't quite agree — 585:1266 is a ratio of ~0.462, not 9:20's 0.45 — so
+// the tolerance below is wide enough to cover both, and the ordinary device
+// variance a real capture has (a native, non-halved retina screenshot at
+// 1170x2532 is the same ratio as 585x1266 exactly), while still catching a
+// screenshot that's landscape, square, or otherwise the wrong shape.
+const SHOT_TARGET_RATIO = 585 / 1266;
+const SHOT_RATIO_TOLERANCE = 0.05;
+
+async function checkScreenshotRatio(file, shotSrc) {
+  const absPath = path.join(pub, shotSrc);
+  if (!fs.existsSync(absPath)) return; // already reported by the existence check
+  let metadata;
+  try {
+    metadata = await sharp(absPath).metadata();
+  } catch (e) {
+    problem(file, `screenshot ${shotSrc} could not be read as an image (${e.message})`);
+    return;
+  }
+  const { width, height } = metadata;
+  if (!width || !height) {
+    problem(file, `screenshot ${shotSrc} has no readable dimensions`);
+    return;
+  }
+  const ratio = width / height;
+  const deviation = Math.abs(ratio - SHOT_TARGET_RATIO) / SHOT_TARGET_RATIO;
+  if (deviation > SHOT_RATIO_TOLERANCE)
+    problem(
+      file,
+      `screenshot ${shotSrc} is ${width}x${height} (ratio ${ratio.toFixed(3)}) — too far from the site's display ratio (~585x1266, ratio ${SHOT_TARGET_RATIO.toFixed(3)}) and will be cropped or letterboxed on the live site`
+    );
 }
 
 const mechanics = readCollection("mechanics");
@@ -134,7 +173,7 @@ for (const { file, data } of apps) {
   if (data.analysisDate === null)
     problem(file, "analysisDate is empty — the analysis file's date line probably failed to parse");
 
-  // relationships
+  // relationships (v3 shape: screenshots keyed per mechanic)
   for (const m of data.mechanics ?? []) {
     const badMech = badMechanicRef(m.id);
     if (badMech) problem(file, `references mechanic "${m.id}" which ${badMech}`);
@@ -144,6 +183,17 @@ for (const { file, data } of apps) {
       const shotSrc = typeof shot === "string" ? shot : shot.src;
       if (!fs.existsSync(path.join(pub, shotSrc)))
         problem(file, `screenshot ${shotSrc} does not exist under site/public — it would be a broken image on the live site`);
+      await checkScreenshotRatio(file, shotSrc);
+    }
+  }
+
+  // observations (v4.1 shape: screenshots keyed per observation, spec §6.2)
+  for (const o of data.observations ?? []) {
+    for (const shot of o.screenshots ?? []) {
+      const shotSrc = typeof shot === "string" ? shot : shot.src;
+      if (!fs.existsSync(path.join(pub, shotSrc)))
+        problem(file, `screenshot ${shotSrc} does not exist under site/public — it would be a broken image on the live site`);
+      await checkScreenshotRatio(file, shotSrc);
     }
   }
 
@@ -196,6 +246,15 @@ for (const { file, data } of apps) {
     for (const m of data.mechanics ?? []) {
       if ((m.screenshots ?? []).length)
         problem(file, "report-only app has screenshots — report-only content must not ship any assets");
+    }
+    // Same rule, v4.1 shape: convert-content.mjs populates obs.screenshots
+    // for every app regardless of visibility (it relies on this check, the
+    // same way it already relies on it for the v3 mechanics shape above),
+    // so a report-only v4.1 app with a real, matching file on disk would
+    // otherwise ship it with nothing catching it.
+    for (const o of data.observations ?? []) {
+      if ((o.screenshots ?? []).length)
+        problem(file, `report-only app has a screenshot on observation ${o.id} — report-only content must not ship any assets`);
     }
   }
 

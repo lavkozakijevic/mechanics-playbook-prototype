@@ -2079,11 +2079,25 @@ for (const entry of ALL_APPS) {
     }
 
     const icons = resolveIcons(entry.id);
+    // Screenshots attach to observations under this model (spec §6.2): the
+    // key is {appId}_{observationId}, e.g. "dave_O11" — not the old
+    // {mechanicId}_{appId} scheme the v3 branch below still uses. Existing
+    // entries written under the old scheme are not migrated automatically
+    // by this change: a screenshot was captured to illustrate one specific
+    // observation, and only a person who looked at it can say which
+    // observation that was, so re-keying each app's pre-existing shots
+    // stays separate, manual work, done as each one comes up for re-capture
+    // rather than guessed at here.
+    for (const obs of content.observations) {
+      const rawShots = (SCREENSHOTS[entry.id + "_" + obs.id] ?? [])
+        .map((p) => (typeof p === "string" ? { src: p, caption: null } : { src: p.src, caption: p.caption ?? null }));
+      const registered = rawShots.filter((p) => fs.existsSync(path.join(repo, p.src)));
+      obs.screenshots = registered.map((p) => ({ src: "/" + p.src, caption: p.caption }));
+    }
     // Collect assets to sync into public/ — but never for report-only apps.
     if (entry.visibility !== "report-only") {
       for (const icon of icons) publicAssets.add(icon);
-      // No screenshots yet under the new {appId}_{observationId} key scheme
-      // (spec §6.2) — re-keying existing screenshots is separate work.
+      for (const obs of content.observations) for (const s of obs.screenshots) publicAssets.add(s.src.slice(1));
     }
     // A found icon file is only ever withheld from the publicAssets sync
     // above; the field below used to be set from `icons` unconditionally,
