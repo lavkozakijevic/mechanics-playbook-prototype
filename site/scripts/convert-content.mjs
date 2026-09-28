@@ -1076,27 +1076,31 @@ const ADDITIONS = {
 // once (uptime, fifa-panini-collection); the remap follows whichever framing
 // the file's own words lead with, since one file can only remap to one id.
 // Neither clash-of-clans, canva, tiimo, capybara-go, dave, cleo,
-// royal-match, gymverse, fc-mobile, acorns, ladder, freeletics, nor
-// fortune-city appears below: all thirteen are v4.1 and never reach this
-// path (royal-match, gymverse, fc-mobile, acorns, ladder, freeletics and
-// fortune-city each carried an entry here before their own migration to
-// v4.1, removed once each analysis stopped using the v3 inline-id form).
-// freeletics's own assignment to achievement does not hold up the way
-// liftoff's does: the fresh analysis leaves Achievement unresolved rather
-// than applying it ("no achievement, criterion, locked entry or attained
-// state is narrated on an account that has done no workouts") — a garbled
-// passage and a blank account, not a confirmed criterion. The entry is
-// retired here regardless, since freeletics.md is v4.1 format and never
-// reaches this path, but unlike liftoff's this was never a settled case to
-// begin with. fortune-city's fresh analysis does apply Achievement, on
-// different grounds entirely (100 named criteria evaluated against
-// activity), so its removal from the list below reflects the same v3-path
-// retirement as the others, not a rejection.
+// royal-match, gymverse, fc-mobile, acorns, ladder, freeletics,
+// fortune-city, nor chrome-valley-customs appears below: all fourteen are
+// v4.1 and never reach this path (royal-match, gymverse, fc-mobile, acorns,
+// ladder, freeletics, fortune-city and chrome-valley-customs each carried
+// an entry here before their own migration to v4.1, removed once each
+// analysis stopped using the v3 inline-id form). freeletics's own
+// assignment to achievement does not hold up the way liftoff's does: the
+// fresh analysis leaves Achievement unresolved rather than applying it
+// ("no achievement, criterion, locked entry or attained state is narrated
+// on an account that has done no workouts") — a garbled passage and a
+// blank account, not a confirmed criterion. The entry is retired here
+// regardless, since freeletics.md is v4.1 format and never reaches this
+// path, but unlike liftoff's this was never a settled case to begin with.
+// fortune-city's fresh analysis does apply Achievement, on different
+// grounds entirely (100 named criteria evaluated against activity), so its
+// removal from the list below reflects the same v3-path retirement as the
+// others, not a rejection. chrome-valley-customs's fresh analysis
+// considers Achievement too and rejects it outright ("'Perfect restoration'
+// and 'Episode complete' are level and episode results, not separately
+// recorded attained criteria"), so its own removal from the milestone list
+// below is likewise retirement, not agreement with the old remap.
 //   -> achievement: calm, liftoff, swgoh,
 //      uptime, fiton, match-creek-motors,
 //      fifa-panini-collection, subway-surfers.
-//   -> milestone: chrome-valley-customs,
-//      wispr-flow, solitaire-grand-harvest.
+//   -> milestone: wispr-flow, solitaire-grand-harvest.
 //
 // variable-reward split into loot-box and variable-reward (kept, renamed
 // from Variable Reward Schedule) on 14 Sep 2026 (sources/taxonomy-map.md):
@@ -1108,8 +1112,7 @@ const ADDITIONS = {
 // "### Variable Reward (`variable-reward`) · Depth" heading still resolves
 // correctly with NO remap needed whenever that file's own evidence belongs
 // to the kept id: acorns (variable-amount survey payouts, no acquisition
-// step), chrome-valley-customs (variable per-level currency yields),
-// match-creek-motors (the buyer negotiation's concealed sequential offers),
+// step), match-creek-motors (the buyer negotiation's concealed sequential offers),
 // solitaire-grand-harvest (a free Lucky Wheel spin and a free Crop Master
 // pick dominate the section, even though its $2.99 second spin is
 // loot-box-shaped on its own — REMAPS holds one id per app, so the file's
@@ -1137,14 +1140,18 @@ const ADDITIONS = {
 // (variable-reward) by the same no-remap-needed mechanism as the others
 // above, but flagged here explicitly as an unevidenced default rather than
 // a real classification decision, pending its own write-up. Neither
-// fortune-city nor clash-of-clans appears below: fortune-city's own
-// analysis never mentions this concept at all, and clash-of-clans's analysis
-// explicitly considers and rejects all three fused library entries in its
-// "Entries considered and not applied" section — both were stale carryovers
-// on the old fused mechanic's apps[] list rather than real evidence, and
-// neither reaches this v3 path in any case (both are v4.1). royal-match,
-// capybara-go, fc-mobile, steam, swgoh, uptime and insight-timer don't
-// appear below either: all seven are v4.1 and never reach this path.
+// fortune-city, clash-of-clans, nor chrome-valley-customs appears below:
+// fortune-city's own analysis never mentions this concept at all, and
+// clash-of-clans's and chrome-valley-customs's analyses each explicitly
+// consider and reject Variable Reward Outcome in their own "Entries
+// considered and not applied" sections ("every level ended in the same
+// 'perfect restoration' result, and no reward event is shown resolving to
+// materially different results" for the latter) — all three were stale
+// carryovers on the old fused mechanic's apps[] list rather than real
+// evidence, and none reaches this v3 path in any case, all being v4.1.
+// royal-match, capybara-go, fc-mobile, steam, swgoh, uptime and
+// insight-timer don't appear below either: all seven are v4.1 and never
+// reach this path.
 const REMAPS = {
   "liftoff": { "xp-leveling": "leveling", "achievements": "achievement", "variable-reward": "loot-box" },
   // calm's entry here was removed on its v4.1 migration (28 Sep 2026):
@@ -1158,7 +1165,10 @@ const REMAPS = {
   "fifa-panini-collection": { "achievements": "achievement" },
   // subway-surfers's entry here was removed on its v4.1 migration (28 Sep
   // 2026): REMAPS is a v3-only path subway-surfers.md never reaches.
-  "chrome-valley-customs": { "achievements": "milestone" },
+  // chrome-valley-customs's entry here was removed on its own v4.1
+  // migration (28 Sep 2026), for the same reason — and its fresh analysis
+  // rejects Achievement outright rather than agreeing with the old remap
+  // (see the comment above this block).
   "wispr-flow": { "achievements": "milestone" },
 };
 // Strava's unrecognized "hard-currency" section is about the subscription
@@ -1176,17 +1186,18 @@ const DROPS = new Set([
   "streak|freeletics",
   "daily-login-reward|fiton",
   "credits-tokens|liftoff",
-  "ads|chrome-valley-customs",
   "ads|match-creek-motors",
   "gifting|swgoh",
   // fortune-city's "soft-currency|fortune-city" entry here was removed on
   // its v4.1 migration (28 Sep 2026): DROPS is a v3-only path
-  // fortune-city.md no longer reaches.
+  // fortune-city.md no longer reaches. chrome-valley-customs's
+  // "ads|chrome-valley-customs" and "limited-time-events|chrome-valley-customs"
+  // entries here were removed on its own v4.1 migration (28 Sep 2026), for
+  // the same reason.
   // Limited-Time Events retired 15 Sep 2026 (see taxonomy-map.md). These
-  // four apps are still on v3 analyses that named it as an applied tag;
-  // dropped rather than rewritten, since none is a confirmed carrier and
-  // each is due for re-analysis under the current model regardless.
-  "limited-time-events|chrome-valley-customs",
+  // apps are still on v3 analyses that named it as an applied tag; dropped
+  // rather than rewritten, since none is a confirmed carrier and each is
+  // due for re-analysis under the current model regardless.
   "limited-time-events|swgoh",
   "limited-time-events|fiton",
   "limited-time-events|match-creek-motors",
@@ -2004,6 +2015,31 @@ const V41_APP_META = {
         "A subscription paywall, five diamond packs, a theme store and four rewarded-ad placements sit alongside interstitials with no reward attached.",
       returns:
         "A nightly reminder, a seven-day reward calendar, next-day building capacity and a handful of timed refreshes bring the mayor back.",
+    },
+  },
+  "chrome-valley-customs": {
+    name: "Chrome Valley Customs",
+    category: "Puzzle / Meta",
+    type: "game",
+    sectionCards: {
+      onboarding:
+        "Fifteen observations carry the player from the App Store listing through a fully guided first car, with five crew characters directing each step before handing over control.",
+      "core-loop":
+        "Winning a puzzle level pays coins that fund the next restoration task on the current car, a loop that repeats through customization choices, crew commentary and the finished reveal.",
+      goals:
+        "A restoration percentage, a puzzle level number, and a scrapbook of 52 episodes track progress across the car being built and the episodes still ahead.",
+      access:
+        "Home screen elements and a showroom's own upgrades each stay locked behind conditions Chrome Valley Customs doesn't state.",
+      economy:
+        "Coins fund the current car alone, gems are sold and earned with no shown use, and hearts and infinite health each bound how play continues.",
+      social:
+        "A global and country leaderboard ranks other players by puzzle level, without stating the viewer's own position.",
+      reach:
+        "A photo mode is the only route that sends anything from Chrome Valley Customs outward.",
+      monetization:
+        "A car-themed bundle, three gem packs and a larger offers catalogue sell gems, power-ups and timed infinite health, all discounted against a stated original price.",
+      returns:
+        "A timed event with a multi-day countdown is the one thing that brings the player back.",
     },
   },
 };

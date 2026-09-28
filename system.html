@@ -522,7 +522,15 @@ const CONNECTIONS = {
     { from: "hard-currency", to: "cosmetics", title: "Every cosmetic is priced in the same currency", desc: "Profile banners, borders and app themes are all store items priced in eggs, the same balance sold directly for money in packages up to $99.99.", effect: "A cosmetic never has to be earned or unlocked; whoever buys enough eggs, however they got them, can own any of them." },
   ],
     "chrome-valley-customs": [
-    { from: "energy-lives", to: "variable-reward", title: "Energy cost makes variable yield feel earned", desc: "Each heart spent on a match-3 level produces a variable coin and gem yield. The energy cost makes the variable outcome feel like an investment rather than a free spin.", effect: "Players who deplete energy on a low-yield level are motivated to try again on the next session, sustaining return without requiring an explicit re-engagement mechanic." },
+    { from: "challenges", to: "soft-currency", title: "Every level pays coins", desc: "Winning a puzzle level pays a coin reward every time.", effect: "Coins have exactly one source, so funding the next restoration task always means playing another level." },
+    { from: "challenges", to: "hard-currency", title: "Every level also pays gems", desc: "Winning a puzzle level pays a gem reward alongside its coins.", effect: "The premium balance accrues from ordinary play, not only from purchases." },
+    { from: "challenges", to: "leveling", title: "Winning advances the level number", desc: "The puzzle level number shown on the home screen climbs by one with every level won.", effect: "The same action that funds the restoration economy also advances the player's own progression marker." },
+    { from: "challenges", to: "season-pass", title: "Gas cans are collected inside levels", desc: "The timed event's currency, gas cans, is collected as part of ordinary puzzle levels rather than through a separate action.", effect: "Participating in the event costs nothing beyond the play the player is already doing." },
+    { from: "soft-currency", to: "milestone", title: "Coins fund the tasks that fill the completion bar", desc: "Each coin-priced restoration task completed advances the car's restoration percentage toward its 100% reward.", effect: "The currency spent on cosmetic choices is also what drives the episode toward its terminal reward." },
+    { from: "milestone", to: "boosters", title: "The episode reward pays power-ups back into the loop", desc: "Completing an episode grants one of each power-up alongside its coin and gem reward.", effect: "Finishing a car restocks the booster supply used to win the next episode's levels." },
+    { from: "milestone", to: "energy-lives", title: "The episode reward also grants timed infinite health", desc: "The Episode complete screen grants 30 minutes of infinite health alongside its other rewards.", effect: "Completing a car removes the heart count as a factor for a stated period immediately afterward." },
+    { from: "leveling", to: "leaderboards", title: "The leaderboard ranks players by the same level number", desc: "Each row on the global and country leaderboard states a player's puzzle level, the same number shown on the home screen.", effect: "Winning a level is simultaneously personal progress and a competitive move." },
+    { from: "season-pass", to: "energy-lives", title: "The event's first reward is also timed infinite health", desc: "Reaching 50 gas cans on the event track unlocks 30 minutes of infinite health, the same reward type the episode grants.", effect: "Two independent systems both pay out in the same currency that suspends the heart count." },
   ],
   "match-creek-motors": [
     { from: "energy-lives", to: "variable-reward", title: "Energy gates the episode's variable outcome", desc: "Match-3 levels cost hearts. Each completed level produces a variable wrench yield that funds the next restoration task. The energy system determines how many attempts at the variable outcome are available.", effect: "Heart scarcity is also yield scarcity. Players who exhaust hearts before completing a task have to wait or pay, increasing the perceived value of each successful level." },
@@ -784,9 +792,16 @@ const POSITIONS = {
   // 2026): the new three-publishable-tag minimum. See the matching note at
   // its former data.js APPS entry.
     "chrome-valley-customs": {
-    center:                  { x: 50, y: 15, label: "CHROME VALLEY" },
-    "energy-lives":          { x: 50, y: 38 },
-    "variable-reward":       { x: 26, y: 68 },
+    center:               { x: 50, y: 8,  label: "CHROME VALLEY" },
+    "challenges":         { x: 50, y: 26 },
+    "soft-currency":      { x: 26, y: 44 },
+    "hard-currency":      { x: 74, y: 44 },
+    "leveling":           { x: 50, y: 44 },
+    "milestone":          { x: 38, y: 62 },
+    "boosters":           { x: 62, y: 62 },
+    "energy-lives":       { x: 50, y: 78 },
+    "leaderboards":       { x: 74, y: 78 },
+    "season-pass":        { x: 26, y: 78 },
   },
   "match-creek-motors": {
     center:                  { x: 50, y: 15, label: "MATCH CREEK" },

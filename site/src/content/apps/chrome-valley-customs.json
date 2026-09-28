@@ -4,131 +4,1160 @@
   "category": "Puzzle / Meta",
   "type": "game",
   "visibility": "public",
-  "analysisDate": "2026-03-03",
-  "lastUpdated": "2026-05-19",
-  "summary": "Chrome Valley Customs wraps a match-3 core inside a car restoration meta-game where every coin earned from a level is immediately spent on a named restoration task. Each task produces a visible change to a 3D car model the player is authoring across roughly 22 choices per episode. Five named NPCs with domain-specific expertise (engine, paint, mechanics, sourcing, ownership) comment on every choice, and the episode-end client dialogue references specific decisions the player made, making the car feel personally authored rather than procedurally generated.",
-  "teaser": "An NPC references a player's exact customization choices by name, so the finished car reads as authored rather than assembled.",
+  "analysisDate": "2026-09-28",
+  "lastUpdated": "2026-09-28",
+  "asObserved": "2026-03",
+  "appVersion": "None.",
+  "summary": "Chrome Valley Customs pairs a match-three puzzle with a car-restoration meta-game: every level played earns coins and gems that fund a running list of named restoration tasks on the current car, each with a three-option cosmetic choice the crew comments on by name. Five garage characters guide the first episode step by step before handing control to the player, and a single time-limited event and a shop selling gems, power-ups and timed infinite health sit alongside the loop. The restoration itself never fails or blocks; every level played ends in the same successful result, and the puzzle exists to fund the next visible change to the car.",
+  "teaser": "Chrome Valley Customs spends every match-three win on a car part its own crew will comment on by name.",
   "icon": "/icons/chrome-valley-customs.png",
   "heroImage": null,
-  "mechanics": [
+  "contentFormat": "v4.1",
+  "observations": [
     {
-      "id": "passive-construction",
-      "depth": "core",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": [
-        "Task panel showing approximately 8 active tasks with progress bar at 52%, alongside the partially restored car model",
-        "Car reveal cinematic showing the finished Episode 1 car with client Taylor and his personalized dialogue referencing specific chosen parts"
-      ]
+      "id": "O1",
+      "name": "Store listing identity",
+      "section": "onboarding",
+      "observed": "The App Store lists Chrome Valley Customs, published by Offroad Games, with the subtitle Restore and Customize cars and the category Puzzle. The listing is free, rated 9+, available for iPhone and iPad, and offered in English plus eight more languages. Listed tags include car customization, vehicle game and car repair. Screenshots show customization, repairs, racing, painting, restoration and puzzle play in the garage, and a gameplay video shows features and the minigames present.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "energy-lives",
-      "depth": "core",
-      "writeup": {
-        "observed": "Players start with 5 hearts. Each failed match-3 level costs one heart. The session never reached a hard heart block because the Rig's Road Trip event awarded 30 minutes of infinite health before natural exhaustion occurred, the energy system was visible throughout but was not experienced as a blocker in the first episode. Multiple sources of infinite health were available from the start: from event rewards (30 minutes), from store bundles (1 hour, 6 hours, 18 hours), and from standalone store packages.",
-        "presented": "Hearts display in the top bar alongside coins and gems. When infinite health is active, a countdown timer shows the remaining duration. The infinite health award from the event was delivered narratively by the guide character, framing it as a game reward rather than a monetization prompt.",
-        "noting": "Granting infinite health through event participation before the natural energy cap is reached removes the hard blocker from the new user experience entirely. The player is aware of the energy system but does not experience its constraint during their first episode, a deliberate design choice to maximize content exposure before monetization pressure begins.",
-        "findings": [
-          "The event reward (30 minutes infinite health) preceded natural heart exhaustion, meaning the energy system was never experienced as a blocker during Episode 1, a deliberate new-player design choice.",
-          "Multiple infinite health tiers are available in the store (1 hour, 6 hours, 18 hours), creating a premium alternative to the event-granted free version at multiple price points.",
-          "The game requires approximately 10 match-3 levels to fund one full episode, heart exhaustion within an episode is the primary monetization pressure point."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O2",
+      "name": "Store listing event promotion",
+      "section": "onboarding",
+      "observed": "The listing shows an event running at the time of this analysis, a Winter Games-themed promotion promising exclusive rewards. The title screen carries matching seasonal art, a dog carrying a torch.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "variable-reward",
-      "depth": "core",
-      "writeup": {
-        "observed": "Match-3 levels produce variable coin and gem yields. Each completed level awards coins (primary restoration currency), gems (secondary premium currency), and gas cans (Rig's Road Trip event currency) simultaneously. A \"perfect restoration\" rating on a level appeared to affect yield. Toolboxes were awarded with disclosed contents shown before opening, removing the variable element for that specific reward type. In-level power-ups (hammer, rockets, bombs) appear as randomly placed board elements at different positions each level.",
-        "presented": "Reward delivery after each level uses a collection animation. Toolboxes show their contents before opening. The Rig's Road Trip event disclosed its milestone reward sequence progressively: gems → multipliers → 30 minutes infinite health → toolbox → coins grand prize.",
-        "findings": [
-          "Toolboxes are a named reward container with disclosed contents, the variable reward element is removed at the point where contents are revealed, making toolbox claims feel more like milestone rewards than random pulls.",
-          "The match-3 level itself is the primary variable surface, each level run produces an unknown quantity of coins, gems, and event currency, making every level a three-currency variable outcome.",
-          "The \"perfect restoration\" rating implies a variable yield multiplier based on gameplay quality, not confirmed but described as affecting reward amounts."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O3",
+      "name": "Store ratings and reviews",
+      "section": "onboarding",
+      "observed": "The listing shows a 4.7 rating from 89,000 ratings. Positive reviews shown describe the game as a Candy Crush-style puzzle in which winning levels earns coins to restore vehicles, praise it as relaxing, and two older reviews state it has no ads. Recent critical reviews shown complain about difficulty spikes after a specific power-up, repeated prompts to buy credits after a loss, needing the matching game to earn restoration money, freezing, long waits for new levels, being greedy, and one reviewer losing progress after an update. These are third-party statements shown on the listing; none of the reviewers' specific complaints about continue prompts, difficulty or progress loss appears anywhere else in this analysis. The developer had not responded to the recent negative reviews shown.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "daily-weekly-quests",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O4",
+      "name": "Update cadence",
+      "section": "onboarding",
+      "observed": "The version history shows the last update three weeks before this analysis, with earlier updates at intervals of roughly one to two months going back several updates. Chrome Valley Customs doesn't state a version number.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "leaderboards",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O5",
+      "name": "Terms consent at first launch",
+      "section": "onboarding",
+      "observed": "Chrome Valley Customs opens in landscape orientation to a Welcome to Chrome Valley screen stating that data is collected to run the game, and asks the user to accept the terms of service and privacy policy.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "cosmetics",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O6",
+      "name": "Tracking permission request",
+      "section": "onboarding",
+      "observed": "After a loading screen, the app shows the system prompt asking permission to track activity across other companies' apps and websites. This is the only permission request in the entire run; no notification, camera, microphone or location request appears. Nothing around this prompt explains how the app makes money or mentions advertising.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "milestone",
-      "depth": "shallow",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O7",
+      "name": "Title screen",
+      "section": "onboarding",
+      "observed": "The front screen offers Play and Save Progress buttons and a settings button in the top right, with the seasonal dog-and-torch art in place. Settings holds toggles for music, sound and vibration, each playing an audio cue when switched.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "soft-currency",
-      "depth": "supporting",
-      "provisionalDepth": true,
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O8",
+      "name": "Optional sign-in",
+      "section": "onboarding",
+      "observed": "Save Progress asks the user to sign in to save progress, offering Google or X as the only two methods; no Apple or Facebook option is offered. Signing in is not required: pressing Play continues without an account, and Chrome Valley Customs doesn't offer a guest mode or ask for a name, email, password, phone or date of birth. After opening Save Progress and returning to the title screen, the settings button in the top right disappears.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O9",
+      "name": "Asset download before play",
+      "section": "onboarding",
+      "observed": "Pressing Play leads to further loading and an asset download screen before the game begins.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O10",
+      "name": "Narrative introduction",
+      "section": "onboarding",
+      "observed": "With rock music playing, the garage owner, later named Uncle Hank, welcomes the user to the best auto shop around; Donna, the engine specialist, says the shop was the best until someone robbed them blind and that the user must save it; a big rig mechanic asks what to call the user, settling on boss. The dialogue can be skipped or continued, and the user is cast as the boss of the garage from this first exchange.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O11",
+      "name": "Name entry",
+      "section": "onboarding",
+      "observed": "Chrome Valley Customs asks for a name, accepting letters and numbers only, and every following line of dialogue uses the entered name.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O12",
+      "name": "First guided task and spend",
+      "section": "onboarding",
+      "observed": "A Strip Down and Assess button appears in the top left, and a pointer indicates the task box in a lower corner. Hank says tasks cost coins and prompts a spend; the user spends 50 coins, and an animation shows the car being taken apart. A customer, Taylor, then asks for the car to be restored as a wedding anniversary surprise due the following week. Four more tasks appear after this exchange, and Hank prompts another while coins remain.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O13",
+      "name": "First guided customization choice",
+      "section": "onboarding",
+      "observed": "The first choice task, replacing the front fenders, asks the user to pick one of three options, rendered as factory stock, flared and vented arches, each with its own description and notes from Hank. After the choice, the big rig mechanic and Donna comment approvingly.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O14",
+      "name": "First guided puzzle level",
+      "section": "onboarding",
+      "observed": "When coins run out, Hank points to a button resembling an ad button that instead opens Level 1 of the match-three game. The level states a target of 30 pieces to clear, explains matching, and produces a bomb piece during play. Completing it shows a perfect restoration result with coins and gems, after which Chrome Valley Customs states its purpose directly: beat levels, earn coins, restore cars.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Soft Currency",
+          "confidence": "directly observed, coins are earned from every level and the episode reward and are spent on priced tasks throughout episode one",
+          "confidences": [
+            "directly observed, coins are earned from every level and the episode reward and are spent on priced tasks throughout episode one"
+          ],
+          "rationale": "Chrome Valley Customs maintains a coin balance that rises through repeatable non-paid activity (winning puzzle levels, the episode reward) and falls when the user buys a restoration task, which satisfies the invariant. Soft Currency specializes Spendable Credits and Tokens; the more specific label is reported and the parent noted.",
+          "alternativeConsidered": "Hard Currency, rejected because no paid route adds coins in the session; if a coin package exists outside the screens seen, both labels would apply.",
+          "role": "engagement"
+        },
+        {
+          "name": "Challenge",
+          "confidence": "strongly supported, each level states a target count and a move limit and ends in a completion result, but no level ends without completion",
+          "confidences": [
+            "strongly supported, each level states a target count and a move limit and ends in a completion result, but no level ends without completion"
+          ],
+          "rationale": "Chrome Valley Customs makes each puzzle level a discrete instance with a stated success condition (clear the stated number of pieces) and a boundary (a limited number of moves), concluding with a \"perfect restoration\" result on success. The response when moves run out is not observed and is not described.",
+          "alternativeConsidered": "Minigame, rejected because the levels pay coins and gems into balances the product maintains outside them and are the core loop.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O15",
+      "name": "First unguided home screen",
+      "section": "onboarding",
+      "observed": "After Level 1, the crew stops directing each step. The home screen now shows the puzzle level indicator, a booster selection when the level is tapped, an exclamation mark on the task box, an episode progress bar at 8%, five hearts, a gem balance with a purchase control, a coin balance, and a photo button beside settings. Chrome Valley Customs doesn't explain what the exclamation mark means at this point.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Boosters",
+          "confidence": "strongly supported, pre-level booster selection, the hammer's in-level effect and power-ups granted in stated quantities are observed, but a held count falling on use is not described",
+          "confidences": [
+            "strongly supported, pre-level booster selection, the hammer's in-level effect and power-ups granted in stated quantities are observed, but a held count falling on use is not described"
+          ],
+          "rationale": "Chrome Valley Customs grants and sells power-ups in counted quantities, offers them for selection before a level, and lets the user apply a hammer inside a level to smash a chosen object, which changes the level in progress. The product's selection surface and stated effects establish presence; the reduction of the holding on use is behavior not shown and is not described.",
+          "alternativeConsidered": "Treating rockets and bombs as boosters, rejected because they are pieces formed by ordinary matches inside the level rather than items held outside it.",
+          "role": "engagement, monetization"
+        },
+        {
+          "name": "Challenge",
+          "confidence": "strongly supported, each level states a target count and a move limit and ends in a completion result, but no level ends without completion",
+          "confidences": [
+            "strongly supported, each level states a target count and a move limit and ends in a completion result, but no level ends without completion"
+          ],
+          "rationale": "Chrome Valley Customs makes each puzzle level a discrete instance with a stated success condition (clear the stated number of pieces) and a boundary (a limited number of moves), concluding with a \"perfect restoration\" result on success. The response when moves run out is not observed and is not described.",
+          "alternativeConsidered": "Minigame, rejected because the levels pay coins and gems into balances the product maintains outside them and are the core loop.",
+          "role": "engagement"
+        },
+        {
+          "name": "Leveling",
+          "confidence": "strongly supported, the level number advances with each level won and is shown as each player's current state on the leaderboard",
+          "confidences": [
+            "strongly supported, the level number advances with each level won and is shown as each player's current state on the leaderboard"
+          ],
+          "rationale": "Chrome Valley Customs displays a current puzzle level on the home screen that moves up one state each time a level is won, and the leaderboard lists other players by the same level, which shows the product maintains the number as the player's current progression state rather than only as a content label.",
+          "alternativeConsidered": "Numbered content stages only, which would exclude the label; the leaderboard's use of the level as a per-player value is what separates them. A remaining reading is that the number is only the next stage index reused on the leaderboard.",
+          "role": "engagement, social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O16",
+      "name": "The earn-and-spend loop",
+      "section": "core-loop",
+      "observed": "Chrome Valley Customs repeats one unit throughout an episode: play a puzzle level, receive coins, spend the coins on a restoration task for the current car, and return to a level once the next task costs more than the balance holds. Some tasks, such as rust removal and the trim and dash colors, can be paid from coins left over from an earlier level without playing again. A full episode ran to at least ten puzzle levels in this analysis, with each level taking roughly 15 to 30 seconds.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Soft Currency",
+          "confidence": "directly observed, coins are earned from every level and the episode reward and are spent on priced tasks throughout episode one",
+          "confidences": [
+            "directly observed, coins are earned from every level and the episode reward and are spent on priced tasks throughout episode one"
+          ],
+          "rationale": "Chrome Valley Customs maintains a coin balance that rises through repeatable non-paid activity (winning puzzle levels, the episode reward) and falls when the user buys a restoration task, which satisfies the invariant. Soft Currency specializes Spendable Credits and Tokens; the more specific label is reported and the parent noted.",
+          "alternativeConsidered": "Hard Currency, rejected because no paid route adds coins in the session; if a coin package exists outside the screens seen, both labels would apply.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O17",
+      "name": "Task list in batches",
+      "section": "core-loop",
+      "observed": "Tasks are listed in a task box and arrive in small batches, each batch introduced by a crew member in dialogue asking for a specific piece of work. Completing a batch brings a further batch, sometimes before the car looks close to finished. Tasks carry their own numbers; fitting the back bumper is shown as task 22. Crew members suggest which task to take next, and following the suggestion was how tasks were chosen in this analysis.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O18",
+      "name": "Task prices climb",
+      "section": "core-loop",
+      "observed": "Restoration tasks carry coin prices: 50 coins for the first task, 250 for a later batch, 200 for the paint step, and 250 for the car reveal itself. Chrome Valley Customs states that later replacements cost more and that levels have to be played more often as an episode goes on, though a stated price schedule across the whole episode isn't shown.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Soft Currency",
+          "confidence": "directly observed, coins are earned from every level and the episode reward and are spent on priced tasks throughout episode one",
+          "confidences": [
+            "directly observed, coins are earned from every level and the episode reward and are spent on priced tasks throughout episode one"
+          ],
+          "rationale": "Chrome Valley Customs maintains a coin balance that rises through repeatable non-paid activity (winning puzzle levels, the episode reward) and falls when the user buys a restoration task, which satisfies the invariant. Soft Currency specializes Spendable Credits and Tokens; the more specific label is reported and the parent noted.",
+          "alternativeConsidered": "Hard Currency, rejected because no paid route adds coins in the session; if a coin package exists outside the screens seen, both labels would apply.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O19",
+      "name": "Puzzle level rules",
+      "section": "core-loop",
+      "observed": "Each puzzle level states a target number of pieces to clear and a limited number of moves. Matching four pieces creates a rocket, and other matches form a bomb, with combos explained as levels progress. Every level played in this analysis ended in a \"perfect restoration\" result with coins and gems; Chrome Valley Customs doesn't show what happens when a level's moves run out. Event items are collected inside levels once an event is active.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Challenge",
+          "confidence": "strongly supported, each level states a target count and a move limit and ends in a completion result, but no level ends without completion",
+          "confidences": [
+            "strongly supported, each level states a target count and a move limit and ends in a completion result, but no level ends without completion"
+          ],
+          "rationale": "Chrome Valley Customs makes each puzzle level a discrete instance with a stated success condition (clear the stated number of pieces) and a boundary (a limited number of moves), concluding with a \"perfect restoration\" result on success. The response when moves run out is not observed and is not described.",
+          "alternativeConsidered": "Minigame, rejected because the levels pay coins and gems into balances the product maintains outside them and are the core loop.",
+          "role": "engagement"
+        },
+        {
+          "name": "Seasonal Progression Pass",
+          "confidence": "directly observed, the countdown, the ordered reward positions, advancement by gas cans collected in levels, and unlocked rewards are all seen",
+          "confidences": [
+            "directly observed, the countdown, the ordered reward positions, advancement by gas cans collected in levels, and unlocked rewards are all seen"
+          ],
+          "rationale": "Chrome Valley Customs runs Rig's Road Trip as a time-bounded track of 25 ordered reward positions, advanced by gas cans collected in puzzle levels, with positions unlocking rewards as counts are reached (50 cans for infinite health, later 150 gems). What happens when the countdown ends is not observed and is not described.",
+          "alternativeConsidered": "Challenge, since the event opens as \"collect 50 gas cans\" within a deadline. Not assigned because the event's success structure is the ordered track itself, with the grand prize at its final position, rather than a separate bounded objective alongside it.",
+          "role": "retention, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O20",
+      "name": "Customization choices",
+      "section": "core-loop",
+      "observed": "Most restoration tasks ask for one of three options for a part, each with its own description and notes from a crew member. Choices cover fenders, quarter panels, rims and rim color, tires, the hood scoop, bumpers, headlights, tail lights, interior style, seats, trim and dash colors, the steering wheel, window tint, paint and decals, offered as six options. Stance is set with a slider moving the car between lower, stock and raised settings in a live preview, and the interior view places the camera inside the car. Chrome Valley Customs doesn't state a price or outcome difference between a task's three options. One crew member's line about a factory-correct engine adding value to the build raises the possibility that a choice affects a tracked value, without this analysis showing which value or whether one changes.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O21",
+      "name": "Reversible build view",
+      "section": "core-loop",
+      "observed": "At any point the car can be rotated as a 3D model and viewed from any angle, and any earlier choice, parts, decals or color, can be changed. Chrome Valley Customs doesn't state whether changing a choice after the fact costs coins.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O22",
+      "name": "Crew and customer reactions",
+      "section": "core-loop",
+      "observed": "A crew member comments on each choice, usually approvingly and often with a joke, using the player's own name, and at the car's reveal the customer comments on specific choices made along the way. Five characters are introduced across the first car: the garage owner, an engine specialist, a body-work mechanic, a parts sourcer, and a paint and interiors expert. These reactions are Chrome Valley Customs responding to what's chosen; nothing about a choice is withheld or accumulated by making it, and the reaction itself doesn't change any balance, task or level the game tracks.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O23",
+      "name": "The car reveal",
+      "section": "core-loop",
+      "observed": "Revealing the finished car is itself a task, costing 250 coins, and plays a video of the car inside and out with engine sound. The customer reacts to the finished result and drives the car away. Before the reveal, the whole car can be reviewed from every side.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Milestone",
+          "confidence": "O26 (tier: directly observed); O25 (tier: plausible)",
+          "confidences": [
+            "O26 (tier: directly observed); O25 (tier: plausible)"
+          ],
+          "rationale": "Chrome Valley Customs tracks each car's restoration as a percentage and recognizes the 100% point with an \"Episode complete\" screen and rewards, separate from ordinary progress updates. Box icons with shown boosters sit at intermediate points on the same bar; their recognition when crossed is not described in sequence.",
+          "alternativeConsidered": "Achievement, rejected because the recognized point is a position within the episode's progression rather than a standalone criterion.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O24",
+      "name": "Handover to next car",
+      "section": "core-loop",
+      "observed": "After the reveal, the garage is shown empty with a control to start the next car, at no cost, and the crew's dialogue frames the empty space as an opportunity rather than a loss. The following episode opens with a new customer and a first task already waiting.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O25",
+      "name": "Episode completion percentage",
+      "section": "goals",
+      "observed": "A progress bar shows the current car's restoration as a percentage, moving from 8% after the first tasks through the eighties and into the low nineties later in the episode. Box icons sit along the bar marking points where boosters will be received. Chrome Valley Customs doesn't show one of these boxes actually being opened in sequence.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Milestone",
+          "confidence": "O26 (tier: directly observed); O25 (tier: plausible)",
+          "confidences": [
+            "O26 (tier: directly observed); O25 (tier: plausible)"
+          ],
+          "rationale": "Chrome Valley Customs tracks each car's restoration as a percentage and recognizes the 100% point with an \"Episode complete\" screen and rewards, separate from ordinary progress updates. Box icons with shown boosters sit at intermediate points on the same bar; their recognition when crossed is not described in sequence.",
+          "alternativeConsidered": "Achievement, rejected because the recognized point is a position within the episode's progression rather than a standalone criterion.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O26",
+      "name": "Episode completion reward",
+      "section": "goals",
+      "observed": "Reaching 100% and completing the reveal opens an Episode complete screen granting one of each power-up, 250 coins, 1,000 gems and 30 minutes of infinite health.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Soft Currency",
+          "confidence": "directly observed, coins are earned from every level and the episode reward and are spent on priced tasks throughout episode one",
+          "confidences": [
+            "directly observed, coins are earned from every level and the episode reward and are spent on priced tasks throughout episode one"
+          ],
+          "rationale": "Chrome Valley Customs maintains a coin balance that rises through repeatable non-paid activity (winning puzzle levels, the episode reward) and falls when the user buys a restoration task, which satisfies the invariant. Soft Currency specializes Spendable Credits and Tokens; the more specific label is reported and the parent noted.",
+          "alternativeConsidered": "Hard Currency, rejected because no paid route adds coins in the session; if a coin package exists outside the screens seen, both labels would apply.",
+          "role": "engagement"
+        },
+        {
+          "name": "Boosters",
+          "confidence": "strongly supported, pre-level booster selection, the hammer's in-level effect and power-ups granted in stated quantities are observed, but a held count falling on use is not described",
+          "confidences": [
+            "strongly supported, pre-level booster selection, the hammer's in-level effect and power-ups granted in stated quantities are observed, but a held count falling on use is not described"
+          ],
+          "rationale": "Chrome Valley Customs grants and sells power-ups in counted quantities, offers them for selection before a level, and lets the user apply a hammer inside a level to smash a chosen object, which changes the level in progress. The product's selection surface and stated effects establish presence; the reduction of the holding on use is behavior not shown and is not described.",
+          "alternativeConsidered": "Treating rockets and bombs as boosters, rejected because they are pieces formed by ordinary matches inside the level rather than items held outside it.",
+          "role": "engagement, monetization"
+        },
+        {
+          "name": "Milestone",
+          "confidence": "O26 (tier: directly observed); O25 (tier: plausible)",
+          "confidences": [
+            "O26 (tier: directly observed); O25 (tier: plausible)"
+          ],
+          "rationale": "Chrome Valley Customs tracks each car's restoration as a percentage and recognizes the 100% point with an \"Episode complete\" screen and rewards, separate from ordinary progress updates. Box icons with shown boosters sit at intermediate points on the same bar; their recognition when crossed is not described in sequence.",
+          "alternativeConsidered": "Achievement, rejected because the recognized point is a position within the episode's progression rather than a standalone criterion.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O27",
+      "name": "Puzzle level number",
+      "section": "goals",
+      "observed": "The puzzle level number is shown on the home screen and advances by one with every level won, reaching at least Level 10 in this analysis. The same number is shown for other players on the leaderboard.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Leveling",
+          "confidence": "strongly supported, the level number advances with each level won and is shown as each player's current state on the leaderboard",
+          "confidences": [
+            "strongly supported, the level number advances with each level won and is shown as each player's current state on the leaderboard"
+          ],
+          "rationale": "Chrome Valley Customs displays a current puzzle level on the home screen that moves up one state each time a level is won, and the leaderboard lists other players by the same level, which shows the product maintains the number as the player's current progression state rather than only as a content label.",
+          "alternativeConsidered": "Numbered content stages only, which would exclude the label; the leaderboard's use of the level as a per-player value is what separates them. A remaining reading is that the number is only the next stage index reused on the leaderboard.",
+          "role": "engagement, social"
+        },
+        {
+          "name": "Leaderboard",
+          "confidence": "directly observed, global and country rankings list multiple players in order with their level and a trophy-like count",
+          "confidences": [
+            "directly observed, global and country rankings list multiple players in order with their level and a trophy-like count"
+          ],
+          "rationale": "Chrome Valley Customs presents global and Serbia rankings that order many players by a stated measure, with the top three highlighted.",
+          "alternativeConsidered": "Comparative Rank, not applied because the user's own position is not stated in the session.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O28",
+      "name": "Scrapbook of episodes",
+      "section": "goals",
+      "observed": "A scrapbook lists episodes as car icons, 52 of them at the time of this analysis, and opening one shows the missions it contains. Chrome Valley Customs doesn't distinguish locked or future episodes from available ones in what's shown.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O29",
+      "name": "Story stakes across episodes",
+      "section": "goals",
+      "observed": "The episode dialogue builds a continuing story: the garage was robbed by an antagonist named Greasy Joe, the first build is framed as the chance to set things right so Hank can retire in peace, and the second episode hints that someone is targeting car businesses across town and that more about Greasy Joe may surface. At the end of the first episode Hank tells the user the garage is theirs, and the paint expert says to keep restoring cars to grow the business.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O30",
+      "name": "Staged home screen elements",
+      "section": "access",
+      "observed": "Home screen elements appear progressively through Chrome Valley Customs rather than all at once: an event banner appears once an event is first shown, a sale button appears after the first purchase offer, and a leaderboard tab appears in the task panel later still. Chrome Valley Customs doesn't state the condition that triggers any one of these appearances.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Seasonal Progression Pass",
+          "confidence": "directly observed, the countdown, the ordered reward positions, advancement by gas cans collected in levels, and unlocked rewards are all seen",
+          "confidences": [
+            "directly observed, the countdown, the ordered reward positions, advancement by gas cans collected in levels, and unlocked rewards are all seen"
+          ],
+          "rationale": "Chrome Valley Customs runs Rig's Road Trip as a time-bounded track of 25 ordered reward positions, advanced by gas cans collected in puzzle levels, with positions unlocking rewards as counts are reached (50 cans for infinite health, later 150 gems). What happens when the countdown ends is not observed and is not described.",
+          "alternativeConsidered": "Challenge, since the event opens as \"collect 50 gas cans\" within a deadline. Not assigned because the event's success structure is the ordered track itself, with the grand prize at its final position, rather than a separate bounded objective alongside it.",
+          "role": "retention, engagement"
+        },
+        {
+          "name": "Leaderboard",
+          "confidence": "directly observed, global and country rankings list multiple players in order with their level and a trophy-like count",
+          "confidences": [
+            "directly observed, global and country rankings list multiple players in order with their level and a trophy-like count"
+          ],
+          "rationale": "Chrome Valley Customs presents global and Serbia rankings that order many players by a stated measure, with the top three highlighted.",
+          "alternativeConsidered": "Comparative Rank, not applied because the user's own position is not stated in the session.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O31",
+      "name": "Showroom upgrades not unlocked",
+      "section": "access",
+      "observed": "The showroom, visited at the start of the second episode, holds upgrades that aren't yet unlocked, so nothing there can be changed. Chrome Valley Customs doesn't state what the upgrades are or what unlocks them.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O32",
+      "name": "Next car available without unlock",
+      "section": "access",
+      "observed": "The second car starts from a control in the empty garage, with no unlock or payment required.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O33",
+      "name": "Coins",
+      "section": "economy",
+      "observed": "Coins are earned from every puzzle level and from the episode completion reward, and spent on restoration tasks for the current car. Tapping the coin balance opens a puzzle level rather than a shop, and no coin package appears anywhere in the shop.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Soft Currency",
+          "confidence": "directly observed, coins are earned from every level and the episode reward and are spent on priced tasks throughout episode one",
+          "confidences": [
+            "directly observed, coins are earned from every level and the episode reward and are spent on priced tasks throughout episode one"
+          ],
+          "rationale": "Chrome Valley Customs maintains a coin balance that rises through repeatable non-paid activity (winning puzzle levels, the episode reward) and falls when the user buys a restoration task, which satisfies the invariant. Soft Currency specializes Spendable Credits and Tokens; the more specific label is reported and the parent noted.",
+          "alternativeConsidered": "Hard Currency, rejected because no paid route adds coins in the session; if a coin package exists outside the screens seen, both labels would apply.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O34",
+      "name": "Gems",
+      "section": "economy",
+      "observed": "Gems, also shown as emeralds at one point, are held as a balance, read at 2,046 after the first level, with a control to buy more. They're earned from puzzle levels, from event thresholds and from the episode reward, and sold in packs and bundles in the shop. Chrome Valley Customs doesn't show any item, action or result being bought with gems.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Hard Currency",
+          "confidence": "strongly supported, gem packs sold for money and a stored gem balance are directly observed, but no exchange of gems for any result is seen in the session",
+          "confidences": [
+            "strongly supported, gem packs sold for money and a stored gem balance are directly observed, but no exchange of gems for any result is seen in the session"
+          ],
+          "rationale": "Chrome Valley Customs sells gem packages for money that add to a displayed, stored gem balance, and presents gems as its purchasable currency. Under the presence standard the product's own currency store and balance establish the mechanic; the spending side, what gems buy, was not seen and is left undescribed. Hard Currency specializes Spendable Credits and Tokens; the more specific label is reported and the parent noted.",
+          "alternativeConsidered": "Soft Currency for gems, since gems are also earned; not assigned separately because the Earnable hard currency variant covers the non-paid route on this balance. Seeing what gems are spent on would settle the description of the sink but not the classification.",
+          "role": "monetization"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O35",
+      "name": "Hearts",
+      "section": "economy",
+      "observed": "The home screen shows a heart count, capped at five, with a next-life message stating the count is full once it reaches that maximum. The count stayed at five through every puzzle level played in this analysis. Chrome Valley Customs doesn't show a heart being lost.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Lives",
+          "confidence": "strongly supported, hearts with a five-heart maximum, a next-life message and a timed unlimited state are observed, but no level was lost and heart removal on failure is not observed",
+          "confidences": [
+            "strongly supported, hearts with a five-heart maximum, a next-life message and a timed unlimited state are observed, but no level was lost and heart removal on failure is not observed"
+          ],
+          "rationale": "Chrome Valley Customs shows a discrete heart count with a maximum of five and a next-life message, and grants or sells periods of infinite health that suspend the count. The transcript left open whether hearts are spent by playing (Energy) or lost on failure (Lives). The question was put to the analyst in this run: the heart count stayed at five after winning levels. With participation not consuming hearts, the surface is classified as Lives. The rule that removes a heart and the regeneration timing are not observed and are not described. No gap in either entry's boundary was revealed; the case turned on a transcript ambiguity.",
+          "alternativeConsidered": "Energy, set aside by the analyst's ruling that hearts did not fall after won levels. Observing a lost level and whether the count then falls would settle the classification.",
+          "role": "engagement, monetization"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O36",
+      "name": "Timed infinite health",
+      "section": "economy",
+      "observed": "Infinite health is granted for a stated period, 30 minutes from the first event threshold and from the episode reward, and sold in bundles for periods of 15 minutes, one hour, or longer. While active, a countdown shows the time remaining. The same state is called infinite health, infinite hearts and infinite lives at different points.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Lives",
+          "confidence": "strongly supported, hearts with a five-heart maximum, a next-life message and a timed unlimited state are observed, but no level was lost and heart removal on failure is not observed",
+          "confidences": [
+            "strongly supported, hearts with a five-heart maximum, a next-life message and a timed unlimited state are observed, but no level was lost and heart removal on failure is not observed"
+          ],
+          "rationale": "Chrome Valley Customs shows a discrete heart count with a maximum of five and a next-life message, and grants or sells periods of infinite health that suspend the count. The transcript left open whether hearts are spent by playing (Energy) or lost on failure (Lives). The question was put to the analyst in this run: the heart count stayed at five after winning levels. With participation not consuming hearts, the surface is classified as Lives. The rule that removes a heart and the regeneration timing are not observed and are not described. No gap in either entry's boundary was revealed; the case turned on a transcript ambiguity.",
+          "alternativeConsidered": "Energy, set aside by the analyst's ruling that hearts did not fall after won levels. Observing a lost level and whether the count then falls would settle the classification.",
+          "role": "engagement, monetization"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O37",
+      "name": "Power-ups and boosters",
+      "section": "economy",
+      "observed": "Tapping a level from the home screen offers boosters to start it with, and a later level prompts the same choice again before starting. A hammer power-up lets the user select and smash any object during a level. Power-ups arrive as episode rewards, one of each, and in paid bundles in stated quantities, with bundles also selling timed periods of infinite boosters. Rockets and bombs formed by matches are pieces of a level rather than held items. Chrome Valley Customs doesn't show a held power-up count, or that count falling on use.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Boosters",
+          "confidence": "strongly supported, pre-level booster selection, the hammer's in-level effect and power-ups granted in stated quantities are observed, but a held count falling on use is not described",
+          "confidences": [
+            "strongly supported, pre-level booster selection, the hammer's in-level effect and power-ups granted in stated quantities are observed, but a held count falling on use is not described"
+          ],
+          "rationale": "Chrome Valley Customs grants and sells power-ups in counted quantities, offers them for selection before a level, and lets the user apply a hammer inside a level to smash a chosen object, which changes the level in progress. The product's selection surface and stated effects establish presence; the reduction of the holding on use is behavior not shown and is not described.",
+          "alternativeConsidered": "Treating rockets and bombs as boosters, rejected because they are pieces formed by ordinary matches inside the level rather than items held outside it.",
+          "role": "engagement, monetization"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O38",
+      "name": "Leaderboard",
+      "section": "social",
+      "observed": "The task panel gains a leaderboard tab showing a global ranking with the top three highlighted and more than 100 players listed, alongside a separate country ranking for Serbia. Each row shows a player's puzzle level and a count of a trophy-like item. Chrome Valley Customs doesn't state whether the viewer's own position appears anywhere on either ranking. No friends list, messaging, groups or other identified-person features appear anywhere else.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Leveling",
+          "confidence": "strongly supported, the level number advances with each level won and is shown as each player's current state on the leaderboard",
+          "confidences": [
+            "strongly supported, the level number advances with each level won and is shown as each player's current state on the leaderboard"
+          ],
+          "rationale": "Chrome Valley Customs displays a current puzzle level on the home screen that moves up one state each time a level is won, and the leaderboard lists other players by the same level, which shows the product maintains the number as the player's current progression state rather than only as a content label.",
+          "alternativeConsidered": "Numbered content stages only, which would exclude the label; the leaderboard's use of the level as a per-player value is what separates them. A remaining reading is that the number is only the next stage index reused on the leaderboard.",
+          "role": "engagement, social"
+        },
+        {
+          "name": "Leaderboard",
+          "confidence": "directly observed, global and country rankings list multiple players in order with their level and a trophy-like count",
+          "confidences": [
+            "directly observed, global and country rankings list multiple players in order with their level and a trophy-like count"
+          ],
+          "rationale": "Chrome Valley Customs presents global and Serbia rankings that order many players by a stated measure, with the top three highlighted.",
+          "alternativeConsidered": "Comparative Rank, not applied because the user's own position is not stated in the session.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O39",
+      "name": "Photo mode and sharing",
+      "section": "reach",
+      "observed": "A photo button lets the user rotate the 3D car, take a photo from any angle, and either add it to the scrapbook or share it. Chrome Valley Customs doesn't describe where a shared photo can be sent.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O40",
+      "name": "Car-themed bundle",
+      "section": "monetization",
+      "observed": "Late in the first episode, after an event reward, Chrome Valley Customs shows its first purchase prompt: a bundle named after the car being restored, with two offers each marked 50% off and a countdown of six days and 23 hours. The first offer gives 1,500 gems, two of each power-up and 15 minutes of infinite health for $2.99, reduced from $5.99. The second gives 5,000 gems, three of each power-up, 15 minutes of infinite use of three power-ups and one hour of infinite health for $7.99, reduced from $15.99. The offer stays available in the shop after the prompt is dismissed.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Hard Currency",
+          "confidence": "strongly supported, gem packs sold for money and a stored gem balance are directly observed, but no exchange of gems for any result is seen in the session",
+          "confidences": [
+            "strongly supported, gem packs sold for money and a stored gem balance are directly observed, but no exchange of gems for any result is seen in the session"
+          ],
+          "rationale": "Chrome Valley Customs sells gem packages for money that add to a displayed, stored gem balance, and presents gems as its purchasable currency. Under the presence standard the product's own currency store and balance establish the mechanic; the spending side, what gems buy, was not seen and is left undescribed. Hard Currency specializes Spendable Credits and Tokens; the more specific label is reported and the parent noted.",
+          "alternativeConsidered": "Soft Currency for gems, since gems are also earned; not assigned separately because the Earnable hard currency variant covers the non-paid route on this balance. Seeing what gems are spent on would settle the description of the sink but not the classification.",
+          "role": "monetization"
+        },
+        {
+          "name": "Lives",
+          "confidence": "strongly supported, hearts with a five-heart maximum, a next-life message and a timed unlimited state are observed, but no level was lost and heart removal on failure is not observed",
+          "confidences": [
+            "strongly supported, hearts with a five-heart maximum, a next-life message and a timed unlimited state are observed, but no level was lost and heart removal on failure is not observed"
+          ],
+          "rationale": "Chrome Valley Customs shows a discrete heart count with a maximum of five and a next-life message, and grants or sells periods of infinite health that suspend the count. The transcript left open whether hearts are spent by playing (Energy) or lost on failure (Lives). The question was put to the analyst in this run: the heart count stayed at five after winning levels. With participation not consuming hearts, the surface is classified as Lives. The rule that removes a heart and the regeneration timing are not observed and are not described. No gap in either entry's boundary was revealed; the case turned on a transcript ambiguity.",
+          "alternativeConsidered": "Energy, set aside by the analyst's ruling that hearts did not fall after won levels. Observing a lost level and whether the count then falls would settle the classification.",
+          "role": "engagement, monetization"
+        },
+        {
+          "name": "Boosters",
+          "confidence": "strongly supported, pre-level booster selection, the hammer's in-level effect and power-ups granted in stated quantities are observed, but a held count falling on use is not described",
+          "confidences": [
+            "strongly supported, pre-level booster selection, the hammer's in-level effect and power-ups granted in stated quantities are observed, but a held count falling on use is not described"
+          ],
+          "rationale": "Chrome Valley Customs grants and sells power-ups in counted quantities, offers them for selection before a level, and lets the user apply a hammer inside a level to smash a chosen object, which changes the level in progress. The product's selection surface and stated effects establish presence; the reduction of the holding on use is behavior not shown and is not described.",
+          "alternativeConsidered": "Treating rockets and bombs as boosters, rejected because they are pieces formed by ordinary matches inside the level rather than items held outside it.",
+          "role": "engagement, monetization"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O41",
+      "name": "Sale button",
+      "section": "monetization",
+      "observed": "After the first bundle prompt, a sale button appears on the home screen and reopens the same bundle at any time.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O42",
+      "name": "Gem shop",
+      "section": "monetization",
+      "observed": "Tapping the gem balance opens the shop, showing the car bundle and three gem packs: 1,000 gems for $1.99, 5,000 for $7.99 and 12,000 for $15.99. The $7.99 bundle gives the same 5,000 gems as the matching gem pack, plus power-ups and infinite health, for the same price.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Hard Currency",
+          "confidence": "strongly supported, gem packs sold for money and a stored gem balance are directly observed, but no exchange of gems for any result is seen in the session",
+          "confidences": [
+            "strongly supported, gem packs sold for money and a stored gem balance are directly observed, but no exchange of gems for any result is seen in the session"
+          ],
+          "rationale": "Chrome Valley Customs sells gem packages for money that add to a displayed, stored gem balance, and presents gems as its purchasable currency. Under the presence standard the product's own currency store and balance establish the mechanic; the spending side, what gems buy, was not seen and is left undescribed. Hard Currency specializes Spendable Credits and Tokens; the more specific label is reported and the parent noted.",
+          "alternativeConsidered": "Soft Currency for gems, since gems are also earned; not assigned separately because the Earnable hard currency variant covers the non-paid route on this balance. Seeing what gems are spent on would settle the description of the sink but not the classification.",
+          "role": "monetization"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O43",
+      "name": "More offers catalogue",
+      "section": "monetization",
+      "observed": "A more offers control opens a larger catalogue: the car bundle; a Starter Sale at $1.99 reduced from $9.99, giving 2,000 gems, power-ups, infinite boosters and one hour of infinite health; a second starter package at $5.99 giving 2,000 gems and three of each booster; a Turbo Package marked popular at $9.99 giving 5,000 gems and one hour of infinite add-ons; and Track, Performance, Luxury and Executive packages, the last at $99.99 for 65,000 gems, 13 add-ons, several days of infinite boosters and 18 hours of infinite health. Nothing shown makes any package conditional on buying another first.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Hard Currency",
+          "confidence": "strongly supported, gem packs sold for money and a stored gem balance are directly observed, but no exchange of gems for any result is seen in the session",
+          "confidences": [
+            "strongly supported, gem packs sold for money and a stored gem balance are directly observed, but no exchange of gems for any result is seen in the session"
+          ],
+          "rationale": "Chrome Valley Customs sells gem packages for money that add to a displayed, stored gem balance, and presents gems as its purchasable currency. Under the presence standard the product's own currency store and balance establish the mechanic; the spending side, what gems buy, was not seen and is left undescribed. Hard Currency specializes Spendable Credits and Tokens; the more specific label is reported and the parent noted.",
+          "alternativeConsidered": "Soft Currency for gems, since gems are also earned; not assigned separately because the Earnable hard currency variant covers the non-paid route on this balance. Seeing what gems are spent on would settle the description of the sink but not the classification.",
+          "role": "monetization"
+        },
+        {
+          "name": "Lives",
+          "confidence": "strongly supported, hearts with a five-heart maximum, a next-life message and a timed unlimited state are observed, but no level was lost and heart removal on failure is not observed",
+          "confidences": [
+            "strongly supported, hearts with a five-heart maximum, a next-life message and a timed unlimited state are observed, but no level was lost and heart removal on failure is not observed"
+          ],
+          "rationale": "Chrome Valley Customs shows a discrete heart count with a maximum of five and a next-life message, and grants or sells periods of infinite health that suspend the count. The transcript left open whether hearts are spent by playing (Energy) or lost on failure (Lives). The question was put to the analyst in this run: the heart count stayed at five after winning levels. With participation not consuming hearts, the surface is classified as Lives. The rule that removes a heart and the regeneration timing are not observed and are not described. No gap in either entry's boundary was revealed; the case turned on a transcript ambiguity.",
+          "alternativeConsidered": "Energy, set aside by the analyst's ruling that hearts did not fall after won levels. Observing a lost level and whether the count then falls would settle the classification.",
+          "role": "engagement, monetization"
+        },
+        {
+          "name": "Boosters",
+          "confidence": "strongly supported, pre-level booster selection, the hammer's in-level effect and power-ups granted in stated quantities are observed, but a held count falling on use is not described",
+          "confidences": [
+            "strongly supported, pre-level booster selection, the hammer's in-level effect and power-ups granted in stated quantities are observed, but a held count falling on use is not described"
+          ],
+          "rationale": "Chrome Valley Customs grants and sells power-ups in counted quantities, offers them for selection before a level, and lets the user apply a hammer inside a level to smash a chosen object, which changes the level in progress. The product's selection surface and stated effects establish presence; the reduction of the holding on use is behavior not shown and is not described.",
+          "alternativeConsidered": "Treating rockets and bombs as boosters, rejected because they are pieces formed by ordinary matches inside the level rather than items held outside it.",
+          "role": "engagement, monetization"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O44",
+      "name": "No advertising",
+      "section": "monetization",
+      "observed": "No advertisement appears at any point in this analysis. The button Hank points to when coins run out resembles an ad button but opens the puzzle level instead.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O45",
+      "name": "Rig's Road Trip event",
+      "section": "returns",
+      "observed": "Late in the first episode, before the steering wheel task, Chrome Valley Customs shows for the first time a timed event, Rig's Road Trip, ending in two days and nine hours: collect 50 gas cans to earn rewards, with a grand prize at the end. The event then sits as a banner pinned at the top of the home screen showing progress and time remaining. Gas cans are collected inside puzzle levels. The opening screen suggests 50 cans wins the grand prize, while the track itself reveals 25 reward positions with the grand prize at the final one. Chrome Valley Customs doesn't show what happens once the countdown ends.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Seasonal Progression Pass",
+          "confidence": "directly observed, the countdown, the ordered reward positions, advancement by gas cans collected in levels, and unlocked rewards are all seen",
+          "confidences": [
+            "directly observed, the countdown, the ordered reward positions, advancement by gas cans collected in levels, and unlocked rewards are all seen"
+          ],
+          "rationale": "Chrome Valley Customs runs Rig's Road Trip as a time-bounded track of 25 ordered reward positions, advanced by gas cans collected in puzzle levels, with positions unlocking rewards as counts are reached (50 cans for infinite health, later 150 gems). What happens when the countdown ends is not observed and is not described.",
+          "alternativeConsidered": "Challenge, since the event opens as \"collect 50 gas cans\" within a deadline. Not assigned because the event's success structure is the ordered track itself, with the grand prize at its final position, rather than a separate bounded objective alongside it.",
+          "role": "retention, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O46",
+      "name": "Road trip reward track",
+      "section": "returns",
+      "observed": "Collecting 50 cans unlocks the first reward, 30 minutes of infinite health, and further positions follow in order: gems, an item labelled \"x2\", power-ups, a toolbox whose contents are shown in advance, and more infinite power-ups. The count reached 84 and later 228 in this analysis, unlocking two more rewards including 150 gems. Chrome Valley Customs doesn't show what the \"x2\" item actually does.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Seasonal Progression Pass",
+          "confidence": "directly observed, the countdown, the ordered reward positions, advancement by gas cans collected in levels, and unlocked rewards are all seen",
+          "confidences": [
+            "directly observed, the countdown, the ordered reward positions, advancement by gas cans collected in levels, and unlocked rewards are all seen"
+          ],
+          "rationale": "Chrome Valley Customs runs Rig's Road Trip as a time-bounded track of 25 ordered reward positions, advanced by gas cans collected in puzzle levels, with positions unlocking rewards as counts are reached (50 cans for infinite health, later 150 gems). What happens when the countdown ends is not observed and is not described.",
+          "alternativeConsidered": "Challenge, since the event opens as \"collect 50 gas cans\" within a deadline. Not assigned because the event's success structure is the ordered track itself, with the grand prize at its final position, rather than a separate bounded objective alongside it.",
+          "role": "retention, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O47",
+      "name": "No notification request",
+      "section": "returns",
+      "observed": "Chrome Valley Customs doesn't ask for notification permission at any point, including after the event with its countdown appears. No rating prompt appears either.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     }
   ],
+  "systemView": [
+    "This is a medium system. Its spine is the puzzle level: winning one is the only way to earn the coins a restoration task costs, and every other system, the level number, the event, gems, boosters, hearts, reads off or feeds into that same loop. Two systems from outside the loop, the timed event and the shop, sell or grant the same resources the loop produces rather than opening a separate one, so the puzzle level stays the one action everything else depends on."
+  ],
+  "mechanicWriteups": [
+    {
+      "name": "Challenge",
+      "summary": "Each match-three level states a target piece count and a move limit, and every level played ends in the same successful result.",
+      "observed": "Chrome Valley Customs states, at the start of each puzzle level, a target number of pieces to clear and a limited number of moves to clear them in. Matching four pieces creates a rocket, and other matches form a bomb; both are explained as levels progress. Every level completes with a \"perfect restoration\" result that pays out coins and gems.",
+      "presented": "The target and move count are shown before a level starts, and the result screen appears immediately on clearing the target, before returning to the car.",
+      "noting": "Chrome Valley Customs never shows what happens when a level's moves run out; every level reaching a result in this app's own display is a completion, not an attempt that fell short.",
+      "findings": [
+        "Each level states a target piece count and a move limit before it starts.",
+        "Matching four pieces creates a rocket; other matches form a bomb.",
+        "Every level shown ends in a \"perfect restoration\" result paying coins and gems.",
+        "Chrome Valley Customs doesn't show what happens when a level's moves run out."
+      ],
+      "screenshotsNote": "a level's opening screen showing its target count and move limit; the \"perfect restoration\" result screen."
+    },
+    {
+      "name": "Milestone",
+      "summary": "Reaching 100% on a car's restoration bar fires its own \"Episode complete\" screen and reward, apart from the ordinary percentage climbing.",
+      "observed": "Chrome Valley Customs tracks each car's restoration as a percentage, rising from single digits after the first tasks toward 100%. Reaching 100% and completing the reveal opens an \"Episode complete\" screen granting one of each power-up, coins, gems and a timed period of infinite health. Box icons sit at intermediate points along the same bar, marked as places boosters will be received.",
+      "presented": "The percentage and its box icons sit on a persistent bar on the home screen throughout the episode. The Episode complete screen appears once, directly after the finished car is revealed to its customer.",
+      "noting": "The bar's box icons promise a reward at points short of 100%, but Chrome Valley Customs never shows one of those boxes actually opening; only the terminal, 100% reward is shown paying out.",
+      "findings": [
+        "A restoration percentage bar runs from single digits to 100% across an episode.",
+        "Reaching 100% opens an Episode complete screen paying power-ups, coins, gems and timed infinite health.",
+        "Box icons on the bar mark points where boosters will be received.",
+        "Chrome Valley Customs doesn't show one of the bar's box icons being opened."
+      ],
+      "screenshotsNote": "the restoration bar with its box icons mid-episode; the Episode complete reward screen."
+    },
+    {
+      "name": "Leveling",
+      "summary": "A puzzle level number climbs by one with every level won and doubles as the measure shown for other players on the leaderboard.",
+      "observed": "Chrome Valley Customs shows a current puzzle level number on the home screen, advancing by one each time a level is won, reaching at least Level 10 in a single episode. The same level number is the value shown for other players on the leaderboard.",
+      "presented": "The level number sits in the top right of the home screen throughout play, and reappears next to each player's name on the leaderboard.",
+      "noting": "Using the same level number as both the player's own progress marker and the value that ranks them against others means winning a level is simultaneously personal progress and a competitive move.",
+      "findings": [
+        "The puzzle level number advances by one with every level won.",
+        "The level reached at least 10 within a single episode.",
+        "The same level number is shown for other players on the leaderboard."
+      ],
+      "screenshotsNote": "the home screen's level number; a leaderboard row showing another player's level."
+    },
+    {
+      "name": "Soft Currency",
+      "summary": "Coins earned from every puzzle level and episode reward are spent entirely on the current car's restoration tasks.",
+      "observed": "Chrome Valley Customs pays coins for winning a puzzle level and for completing an episode, and coins are spent on the priced tasks that restore the current car. Tapping the coin balance sends the user to play a puzzle level rather than to a shop.",
+      "presented": "The coin balance sits in the top bar throughout play, and every restoration task states its coin price before it's chosen.",
+      "noting": "Chrome Valley Customs gives coins nowhere to go but back into the same car; no coin package appears anywhere in the shop, so the only route to more coins is another level.",
+      "findings": [
+        "Coins are earned from puzzle levels and the episode completion reward.",
+        "Coins are spent on restoration tasks priced individually.",
+        "Tapping the coin balance opens a puzzle level, not the shop.",
+        "No coin package is sold anywhere in the shop."
+      ],
+      "screenshotsNote": "the coin balance in the top bar; a restoration task showing its coin price."
+    },
+    {
+      "name": "Hard Currency",
+      "summary": "Gems are sold directly in three packs and bundled into offers, with no purchase seen using them for anything in the app.",
+      "observed": "Chrome Valley Customs sells gems in three packs from the shop and in bundles alongside power-ups and timed infinite health. Gems are also earned from puzzle levels, the event and the episode reward, and are held as a stored balance shown with a purchase control.",
+      "presented": "The gem balance sits beside the coin balance in the top bar, with a plus control that opens the shop directly.",
+      "noting": "Chrome Valley Customs shows every route into the gem balance, earned and bought, but no route out; nothing in the app is shown being bought with gems themselves.",
+      "findings": [
+        "Gems are sold in three packs and bundled into larger offers alongside power-ups and infinite health.",
+        "Gems are also earned from puzzle levels, the event and the episode reward.",
+        "The gem balance sits in the top bar with a control that opens the shop.",
+        "Chrome Valley Customs doesn't show anything being bought with gems."
+      ],
+      "screenshotsNote": "the gem balance and its purchase control in the top bar; the shop's three gem packs."
+    },
+    {
+      "name": "Lives",
+      "summary": "A five-heart count sits in the top bar, and Chrome Valley Customs sells or grants a timed state that suspends it.",
+      "observed": "Chrome Valley Customs shows a heart count capped at five, with a next-life message stating the count is full once it reaches that maximum. Timed infinite health, sold in bundles and granted by the event and episode rewards, suspends the count for a stated period, during which a countdown shows the time left. Coins spent on the current car's tasks are separate from the heart count.",
+      "presented": "The hearts sit in the top bar throughout play. Tapping them opens the next-life message. Infinite health, when active, replaces the heart display with a countdown.",
+      "noting": "Chrome Valley Customs doesn't show a heart being lost anywhere; the count stayed at five throughout. What actually removes one isn't something this write-up can describe.",
+      "findings": [
+        "Hearts are capped at five, with a next-life message shown once the count is full.",
+        "Timed infinite health is sold in bundles of stated lengths and granted by the event and episode rewards.",
+        "A countdown shows the time remaining while infinite health is active.",
+        "Chrome Valley Customs doesn't show a heart being lost."
+      ],
+      "screenshotsNote": "the five-heart display in the top bar; the next-life message at full count; the infinite health countdown."
+    },
+    {
+      "name": "Boosters",
+      "summary": "Power-ups are offered for selection before a level, used inside it with a hammer that smashes a chosen piece, and sold in quantities or as timed unlimited states.",
+      "observed": "Chrome Valley Customs offers power-ups for selection when a level is tapped from the home screen, and a later level prompts the same choice before starting. A hammer power-up lets the user select and smash any object during a level. Power-ups are also granted as episode rewards, one of each, and sold in stated quantities or as timed unlimited periods in shop bundles.",
+      "presented": "The booster selection screen appears between tapping a level and playing it. The hammer is used directly on the board during a level. Bundles listing booster quantities and unlimited periods sit in the shop alongside gem packs.",
+      "noting": "Chrome Valley Customs doesn't show how many of a power-up the user is holding, or that count falling when one is used, only that a selection screen offers them and a level accepts one.",
+      "findings": [
+        "Power-ups are offered for selection before a level starts.",
+        "A hammer power-up lets the user smash a chosen object during a level.",
+        "Power-ups are granted at episode completion, one of each, and sold in stated quantities or as timed unlimited periods.",
+        "Chrome Valley Customs doesn't show a held power-up count falling on use."
+      ],
+      "screenshotsNote": "the pre-level booster selection screen; the hammer's in-level smash action."
+    },
+    {
+      "name": "Leaderboard",
+      "summary": "A global and country ranking lists more than a hundred players by puzzle level and a trophy-like count, without stating the viewer's own position.",
+      "observed": "Chrome Valley Customs adds a leaderboard tab to the task panel showing a global ranking with the top three highlighted, more than 100 players listed, and a separate country ranking for Serbia. Each row shows a player's puzzle level and a count of a trophy-like item.",
+      "presented": "The leaderboard tab sits in the task panel alongside the task list, reached the same way tasks are.",
+      "noting": "Chrome Valley Customs doesn't state where the viewer's own position sits on either ranking, only the ordered list of other players.",
+      "findings": [
+        "A global ranking highlights the top three among more than 100 listed players.",
+        "A separate country ranking is shown for Serbia.",
+        "Each row states a player's puzzle level and a trophy-like count.",
+        "Chrome Valley Customs doesn't state the viewer's own position on either ranking."
+      ],
+      "screenshotsNote": "the global leaderboard with its top three highlighted; the country ranking tab."
+    },
+    {
+      "name": "Seasonal Progression Pass",
+      "summary": "A time-limited event track pays out 25 ordered rewards for gas cans collected inside ordinary puzzle levels, ending in a grand prize.",
+      "observed": "Chrome Valley Customs introduces a timed event, running on a multi-day countdown, that asks the user to collect gas cans inside puzzle levels toward a track of 25 ordered reward positions ending in a grand prize. A banner pinned to the home screen shows the running count and time remaining. Reaching 50 cans unlocked the first reward, timed infinite health, with further positions paying gems, an item labelled \"x2\", power-ups and a toolbox whose contents are shown before it's earned.",
+      "presented": "The event banner sits pinned at the top of the home screen once the event starts, showing progress and the countdown together. The reward track itself is opened from the banner.",
+      "noting": "Chrome Valley Customs states the grand prize up front but shows the 25-position track only once the event has started, so the full shape of what stands between the opening count and the grand prize isn't visible before the event begins.",
+      "findings": [
+        "A timed event asks the user to collect gas cans inside puzzle levels toward 25 ordered reward positions.",
+        "A home screen banner shows running progress and time remaining once the event starts.",
+        "The first reward position, reached at 50 cans, pays 30 minutes of infinite health.",
+        "A toolbox reward's contents are shown before it's earned."
+      ],
+      "screenshotsNote": "the event's home screen banner showing progress and countdown; the 25-position reward track.\n\n---"
+    }
+  ],
+  "sectionLeadIns": {
+    "onboarding": "Chrome Valley Customs runs a fully guided first car before handing control to the player. This section covers the App Store listing, first launch, and the guided steps that introduce spending, choices and the puzzle itself.",
+    "core-loop": "Winning a puzzle level is what pays for every step in a car's restoration. This section covers the loop between the two, the priced tasks that consume coins, the choices inside each task, and the reveal that closes one car and opens the next.",
+    "goals": "Chrome Valley Customs tracks progress on the current car and across the wider set of episodes at once. This section covers the completion bar, the puzzle level number, the scrapbook, and the story that continues across cars.",
+    "access": "Chrome Valley Customs introduces its own surfaces gradually rather than all at once, and holds some content locked behind conditions it doesn't state. This section covers the staged appearance of home screen elements, the showroom, and how the second car becomes available.",
+    "economy": "Chrome Valley Customs runs three separate balances and one bounded count alongside them. This section covers coins, gems, hearts and the timed infinite-health state that suspends the heart count.",
+    "social": "Chrome Valley Customs' only social surface is a leaderboard ranking other players.",
+    "reach": "A single photo feature is the only route Chrome Valley Customs offers for sending anything outside the app.",
+    "monetization": "Chrome Valley Customs sells gems, power-ups and timed infinite health through a car-themed bundle, a gem shop and a larger offers catalogue, with no advertising shown anywhere in this analysis.",
+    "returns": "A single timed event is the one mechanism Chrome Valley Customs uses to bring the player back outside of the main loop."
+  },
+  "sectionCards": {
+    "onboarding": "Fifteen observations carry the player from the App Store listing through a fully guided first car, with five crew characters directing each step before handing over control.",
+    "core-loop": "Winning a puzzle level pays coins that fund the next restoration task on the current car, a loop that repeats through customization choices, crew commentary and the finished reveal.",
+    "goals": "A restoration percentage, a puzzle level number, and a scrapbook of 52 episodes track progress across the car being built and the episodes still ahead.",
+    "access": "Home screen elements and a showroom's own upgrades each stay locked behind conditions Chrome Valley Customs doesn't state.",
+    "economy": "Coins fund the current car alone, gems are sold and earned with no shown use, and hearts and infinite health each bound how play continues.",
+    "social": "A global and country leaderboard ranks other players by puzzle level, without stating the viewer's own position.",
+    "reach": "A photo mode is the only route that sends anything from Chrome Valley Customs outward.",
+    "monetization": "A car-themed bundle, three gem packs and a larger offers catalogue sell gems, power-ups and timed infinite health, all discounted against a stated original price.",
+    "returns": "A timed event with a multi-day countdown is the one thing that brings the player back."
+  },
+  "proposedTags": [],
   "system": {
-    "tagline": "A puzzle game where every match-3 coin is immediately converted into a named change on a 3D car the player is authoring.",
-    "overview": "Chrome Valley Customs uses the match-3 format as a pure funding mechanism for a car restoration meta-game. Every coin earned from a level is spent on a specific named task (replace front fenders, fit headlights, choose paint), and each task produces a visible change to a 3D car model. Five NPCs with domain-specific expertise comment on every choice, and the episode-end client dialogue references specific decisions the player made, making the cosmetic output feel authored rather than procedural.",
-    "loop": "The core loop is: play match-3 level → earn coins and gems → spend coins on named restoration task → car model updates → choose customization option (one of three) → NPC expert comments on choice → repeat until 100% episode completion → car reveal cinematic → client dialogue references your specific choices → Episode 2 begins. The match-3 game and the car restoration are in a direct economic relationship, every level played directly funds a specific named restoration action.",
-    "keyInsight": "The client's episode-end dialogue references specific customization decisions by name ('I'm glad you kept the factory springs, keep it classic, baby'). The cosmetic output is not generic, it is acknowledged by an NPC who names the player's choices. This is the mechanic that makes the car feel authored rather than procedurally generated, and it justifies the 30–40 minutes of match-3 play that funded it.",
-    "whatMakesItWork": "The system works because the match-3 levels are deliberately short (15–30 seconds each) and the restoration tasks are deliberately varied in cost, so the rhythm alternates between quick match-3 sessions and satisfying visual updates to the car. The match-3 is framed as a means to an end, the car, rather than as the product itself, which inverts the typical puzzle game experience.",
+    "tagline": "A match-three puzzle whose every coin funds a named change on a car its own crew comments on, with a heart count and a timed event running alongside.",
+    "overview": "Chrome Valley Customs treats its match-three levels as pure funding for a car-restoration meta-game: every level won pays coins that go straight to the next named task on the current car, and the crew and customer comment on the specific choices made along the way. A heart count, gems, boosters and a timed event all sit around the same loop, either bounding it, selling into it, or paying out the same resources it produces.",
+    "loop": "Winning a puzzle level pays coins and gems, and the level number climbs by one. Coins fund the next restoration task, each carrying a three-option customization choice the crew comments on, and the car's completion percentage rises toward the episode reward, which pays coins, gems, power-ups and timed infinite health back into the same loop. A running heart count, capped at five, sits beside the loop without a shown consumption rule; infinite health, sold or granted, suspends it for a stated period. A timed event runs alongside on its own countdown, paying gas cans collected inside ordinary levels into a 25-position reward track. The leaderboard reads the same level number the loop advances. The shop sells gems, power-ups and timed infinite health directly, the same resources the loop and the event both grant for free.",
+    "keyInsight": "The puzzle level is the one action every other system in Chrome Valley Customs either feeds or reads. Coins, gems, the level number, the leaderboard's own ranking value, and the timed event's gas cans all come from winning the same levels, so nothing else in the system has its own independent input; each one is a different way of accounting for the same repeated action.",
+    "whatMakesItWork": "Because every resource traces back to the same puzzle level, adding a new system, the event, the leaderboard, a shop bundle, costs the game nothing structurally: each one just reads or pays into a loop that's already running for an unrelated reason, the car. The heart count is the one piece that doesn't fit this pattern cleanly: it sits beside the loop without a shown rule connecting it to level play, so what actually bounds a return to the puzzle, if anything does, isn't something this analysis can describe.",
     "roles": [
       {
-        "id": "energy-lives",
-        "role": "Hearts gate match-3 access, which gates coin earning, which gates task completion. The episode-1 event grant of 30 minutes infinite health removed this constraint before it was felt, a deliberate new-player design choice."
+        "id": "challenges",
+        "role": "Each puzzle level is a bounded objective with a stated target and move limit, the action every coin, gem and event resource in the system comes from."
       },
       {
-        "id": "variable-reward",
-        "role": "Match-3 levels produce variable coin, gem, and event currency yields simultaneously. Each level run is a three-currency variable outcome that funds the restoration economy."
+        "id": "soft-currency",
+        "role": "Coins earned from every level fund the current car's restoration tasks, with no other use and no purchasable route onto the balance."
+      },
+      {
+        "id": "hard-currency",
+        "role": "Gems are sold in packs and bundles and also earned from levels, the event and the episode reward, with no shown spend anywhere in the app."
+      },
+      {
+        "id": "energy-lives",
+        "role": "A five-heart count sits beside the loop with no shown consumption rule; timed infinite health, sold and granted, suspends the count for a stated period."
+      },
+      {
+        "id": "boosters",
+        "role": "Power-ups are offered before a level, used inside one with a hammer, granted at episode end, and sold in quantities or as timed unlimited states."
+      },
+      {
+        "id": "leveling",
+        "role": "The puzzle level number climbs by one with every win and is the same value the leaderboard ranks players by."
+      },
+      {
+        "id": "milestone",
+        "role": "Reaching 100% on the restoration bar fires its own Episode complete reward, separate from the ordinary percentage climbing."
+      },
+      {
+        "id": "leaderboards",
+        "role": "A global and country ranking orders other players by puzzle level, without stating the viewer's own position."
+      },
+      {
+        "id": "season-pass",
+        "role": "A timed event pays gas cans collected inside ordinary levels into a 25-position reward track ending in a grand prize."
       }
     ],
     "center": {
       "x": 50,
-      "y": 15,
+      "y": 8,
       "label": "CHROME VALLEY"
     },
     "nodes": [
       {
-        "id": "energy-lives",
+        "id": "challenges",
         "x": 50,
-        "y": 38
+        "y": 26
       },
       {
-        "id": "variable-reward",
+        "id": "soft-currency",
         "x": 26,
-        "y": 68
+        "y": 44
+      },
+      {
+        "id": "hard-currency",
+        "x": 74,
+        "y": 44
+      },
+      {
+        "id": "leveling",
+        "x": 50,
+        "y": 44
+      },
+      {
+        "id": "milestone",
+        "x": 38,
+        "y": 62
+      },
+      {
+        "id": "boosters",
+        "x": 62,
+        "y": 62
+      },
+      {
+        "id": "energy-lives",
+        "x": 50,
+        "y": 78
+      },
+      {
+        "id": "leaderboards",
+        "x": 74,
+        "y": 78
+      },
+      {
+        "id": "season-pass",
+        "x": 26,
+        "y": 78
       }
     ],
     "connections": [
       {
-        "from": "energy-lives",
-        "to": "variable-reward",
-        "title": "Energy cost makes variable yield feel earned",
-        "desc": "Each heart spent on a match-3 level produces a variable coin and gem yield. The energy cost makes the variable outcome feel like an investment rather than a free spin.",
-        "effect": "Players who deplete energy on a low-yield level are motivated to try again on the next session, sustaining return without requiring an explicit re-engagement mechanic."
+        "from": "challenges",
+        "to": "soft-currency",
+        "title": "Every level pays coins",
+        "desc": "Winning a puzzle level pays a coin reward every time.",
+        "effect": "Coins have exactly one source, so funding the next restoration task always means playing another level."
+      },
+      {
+        "from": "challenges",
+        "to": "hard-currency",
+        "title": "Every level also pays gems",
+        "desc": "Winning a puzzle level pays a gem reward alongside its coins.",
+        "effect": "The premium balance accrues from ordinary play, not only from purchases."
+      },
+      {
+        "from": "challenges",
+        "to": "leveling",
+        "title": "Winning advances the level number",
+        "desc": "The puzzle level number shown on the home screen climbs by one with every level won.",
+        "effect": "The same action that funds the restoration economy also advances the player's own progression marker."
+      },
+      {
+        "from": "challenges",
+        "to": "season-pass",
+        "title": "Gas cans are collected inside levels",
+        "desc": "The timed event's currency, gas cans, is collected as part of ordinary puzzle levels rather than through a separate action.",
+        "effect": "Participating in the event costs nothing beyond the play the player is already doing."
+      },
+      {
+        "from": "soft-currency",
+        "to": "milestone",
+        "title": "Coins fund the tasks that fill the completion bar",
+        "desc": "Each coin-priced restoration task completed advances the car's restoration percentage toward its 100% reward.",
+        "effect": "The currency spent on cosmetic choices is also what drives the episode toward its terminal reward."
+      },
+      {
+        "from": "milestone",
+        "to": "boosters",
+        "title": "The episode reward pays power-ups back into the loop",
+        "desc": "Completing an episode grants one of each power-up alongside its coin and gem reward.",
+        "effect": "Finishing a car restocks the booster supply used to win the next episode's levels."
+      },
+      {
+        "from": "milestone",
+        "to": "energy-lives",
+        "title": "The episode reward also grants timed infinite health",
+        "desc": "The Episode complete screen grants 30 minutes of infinite health alongside its other rewards.",
+        "effect": "Completing a car removes the heart count as a factor for a stated period immediately afterward."
+      },
+      {
+        "from": "leveling",
+        "to": "leaderboards",
+        "title": "The leaderboard ranks players by the same level number",
+        "desc": "Each row on the global and country leaderboard states a player's puzzle level, the same number shown on the home screen.",
+        "effect": "Winning a level is simultaneously personal progress and a competitive move."
+      },
+      {
+        "from": "season-pass",
+        "to": "energy-lives",
+        "title": "The event's first reward is also timed infinite health",
+        "desc": "Reaching 50 gas cans on the event track unlocks 30 minutes of infinite health, the same reward type the episode grants.",
+        "effect": "Two independent systems both pay out in the same currency that suspends the heart count."
       }
     ]
   }
