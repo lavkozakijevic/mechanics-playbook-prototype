@@ -320,6 +320,40 @@ video") than to special-case.
   that's single-spaced needs reformatting before it will parse at all, and
   the resulting error message (an "unrecognized confidence value" that's
   actually five fields of prose) doesn't obviously point at the real cause.
+  This bit again on 28 Sep 2026, past the point of just Confidence:
+  `Role`, `Rationale` and `Alternative considered` were each swallowing
+  their neighbors too, silently, since nothing downstream throws on a
+  polluted rationale or alternative-considered string the way the
+  publishing-bar check does on a polluted confidence one. Fixed by
+  locating every field's own label by name and position in one pass
+  (`locateLabeledFields`) instead of guessing at "the next bold label
+  after a blank line," which is also what turned a missing-or-reordered
+  field from something nothing checked into something the build now names
+  and throws on for the mechanic write-up block specifically.
+- **The Confidence field has three distinct written shapes across the
+  corpus, not one, each found only because a parser broke on it.** A bare
+  tier value alone (`directly observed`), the large majority case, ~190
+  lines across 20 files. A prose paragraph carrying one or more
+  `(tier: ...)` parenthetical annotations, sometimes one tier per
+  observation id inside the parens (`O35 (tier: strongly supported,
+  ...)`), used across insight-timer, ladder, liftoff, cleo, wakeout and
+  others. And a per-observation breakdown with no parenthetical wrapper at
+  all, the tier phrase stated bare right after the id
+  (`O34 directly observed; O35 strongly supported`), found only in
+  solitaire-grand-harvest.md (six instances, 28 Sep 2026) — it broke
+  `confidenceTiers()` on Hard Currency's tag, since the function only
+  recognized a bare single value or a `(tier: ...)` annotation, and this
+  is neither. `confidenceTiers()` now recognizes all three, the third
+  anchored to an observation id so it can't pick up a tier word mentioned
+  in passing prose elsewhere in the string. There is no v4.1
+  analysis-writing prompt in this repo to check against (see above), so
+  whether any of these three is actually specified there, or all three
+  are just convention that happened to survive contact with three
+  different parsers, isn't something this repo can answer. Either way, a
+  fourth shape showing up in a future upload is a live possibility, not a
+  hypothetical one — the pattern so far is that each new shape is
+  discovered by breaking something, not by someone checking the source
+  format ahead of time.
 - **Renumbering observations wrong.** Any time observations move across a
   section boundary (a re-derivation, or moving one observation like Canva's
   O18), cross-references have to be renumbered too. The failure mode that
