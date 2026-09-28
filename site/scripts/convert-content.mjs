@@ -1199,7 +1199,20 @@ const DROPS = new Set([
   // entries here were removed on its own v4.1 migration (28 Sep 2026), for
   // the same reason. match-creek-motors's "ads|match-creek-motors" and
   // "limited-time-events|match-creek-motors" entries here were removed on
-  // its own v4.1 migration (29 Sep 2026) — the last app on the v3 model.
+  // its own v4.1 migration (29 Sep 2026) — corrected the same day: this was
+  // stated here as "the last app on the v3 model", which was wrong.
+  // fifa-panini-collection is still on a v3 analysis, genuinely missed
+  // rather than deferred on purpose, and is the one app in the library still
+  // awaiting re-analysis before it can migrate. wispr-flow is also still v3
+  // format, unpublished rather than migrated on 29 Sep 2026 (a re-analysis
+  // produced only two publishable tags, short of the three-tag minimum) —
+  // see its own comment in ALL_APPS above. Both still reach this v3 branch
+  // on every build, so DROPS, REMAPS, HARVEST_EXCLUDE, CURRENCY_DEPTH and
+  // parseAnalysisV3 below are not dead code yet. They become dead once
+  // fifa-panini-collection's own migration lands, at which point every
+  // remaining v3-format entry in ALL_APPS is report-only (wispr-flow, orbit,
+  // starling-bank, george-erste-bank) and none of them will ever reach this
+  // path again — but that's a fact to state then, not assumed now.
   // Limited-Time Events was retired 15 Sep 2026 (see taxonomy-map.md); its
   // remaining two entries here, swgoh's and fiton's, were left behind
   // uncleaned when each of those two apps migrated to v4.1 earlier in this
@@ -1256,7 +1269,12 @@ const ALL_APPS = [
   { file: "subway-surfers.md", id: "subway-surfers", visibility: "subscriber" },
   { file: "tiimo.md", id: "tiimo", visibility: "subscriber" },
   { file: "uptime.md", id: "uptime", visibility: "subscriber" },
-  { file: "wispr-flow.md", id: "wispr-flow", visibility: "subscriber" },
+  // Unpublished 29 Sep 2026: re-analysed and produced two publishable tags,
+  // which fails the three-publishable-tag minimum (16 Sep 2026 ruling).
+  // Same treatment as DoorDash and Gymverse. Its own analysis is still v3
+  // format, so it still reaches the v3 branch and REMAPS below exactly as
+  // before; only its visibility changed.
+  { file: "wispr-flow.md", id: "wispr-flow", visibility: "report-only" },
   // Batch 6
   { file: "wakeout.md", id: "wakeout", visibility: "subscriber" },
   // Not part of any prior batch — DoorDash has no v3 history at all, in

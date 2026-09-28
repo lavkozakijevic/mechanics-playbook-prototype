@@ -1,14 +1,14 @@
 {
   "id": "wispr-flow",
   "name": "Wispr Flow",
-  "category": "Productivity",
+  "category": "Productivity / Voice Dictation",
   "type": "app",
-  "visibility": "public",
+  "visibility": "report-only",
   "analysisDate": "2026-04-26",
   "lastUpdated": "2026-05-15",
-  "summary": "Wispr Flow frames its streak as a product improvement mechanism rather than a retention mechanic: 'continue dictating for the next five days so Flow can adapt to you.' This is the only instance in the library where a streak is justified to the user on functional grounds. After crossing 500 words dictated, a speaking speed stat unlocks with a percentile ranking, a social comparison metric delivered passively through usage, not through any competitive entry.",
-  "teaser": "Wispr Flow never asks users to protect a streak. It asks them to keep dictating so the AI learns their voice, the same daily return dressed as product improvement instead of guilt.",
-  "icon": "/icons/wispr-flow.png",
+  "summary": "Wispr Flow is a voice-first keyboard app that replaces the iOS system keyboard with an AI-powered dictation interface. Users speak and Flow transcribes, reformats, and adapts the output to different tones (formal, casual, very casual, excited). It functions across all apps via the custom keyboard mechanism. The app offers a free Basic tier (1,000 words/week on iOS, 2,000/week on desktop) and a paid Pro tier (unlimited words, all devices, command mode). The session covered onboarding through full app exploration while attempting to exhaust the free word limit to unlock a stats feature.",
+  "teaser": null,
+  "icon": null,
   "heroImage": null,
   "mechanics": [
     {
@@ -25,12 +25,7 @@
           "The referral gift (one month Pro) is more generous than the standard new-user trial (two weeks Pro), making referral the highest-value acquisition path for recipients."
         ]
       },
-      "screenshots": [
-        {
-          "src": "/screenshots/streak/wispr-flow/01.jpeg",
-          "caption": null
-        }
-      ],
+      "screenshots": [],
       "suggestedShots": [
         "One-day streak celebration screen showing \"1 day streak — continue dictating for the next five days so Flow can adapt to you\" with the Continue button",
         "Home screen showing all four summary cards: streak (Day 1, momentum begins), word count (674 words, 13 postcards), speed (129 wpm, top 2%), and trial status"
@@ -53,54 +48,5 @@
       "suggestedShots": []
     }
   ],
-  "system": {
-    "tagline": "A productivity tool that justifies its retention mechanic on functional grounds, the only app in the library to do so.",
-    "overview": "Wispr Flow is a voice dictation app whose engagement mechanics are minimal and unusually honest. The streak is framed as a product improvement mechanism rather than a retention device, 'continue dictating for the next five days so Flow can adapt to you', the only stated functional justification for a streak in the library. The word-count milestone that unlocks a percentile ranking is delivered passively through normal use, making it a discovered reward rather than a pursued one.",
-    "loop": "The core loop is: dictate text → word count accumulates → at 500 words, speaking speed unlocks and a percentile ranking appears → the streak increments daily → Flow's AI adapts to the user's voice patterns. The mechanic layer is thin by design, the product's value is in the dictation quality, not in engagement systems.",
-    "keyInsight": "The streak framing is the most honest in the library. Instead of 'keep your streak,' Wispr Flow says 'dictate for five more days so the AI gets better at understanding you.' The behavioral outcome is identical; the psychological framing is fundamentally different, the user is investing in product quality, not protecting a number.",
-    "whatMakesItWork": "The system works because the functional justification is true. Five days of dictation does improve Flow's voice model accuracy. The mechanic and the product benefit are aligned. This makes the retention system feel like product advice rather than manipulation.",
-    "roles": [
-      {
-        "id": "streak",
-        "role": "Framed as a product improvement mechanism ('so Flow can adapt to you') rather than a retention incentive, the only streak in the library with a stated functional justification rather than a behavioral one."
-      },
-      {
-        "id": "milestone",
-        "role": "The 500-word milestone unlocks a speaking speed stat and a percentile ranking delivered passively through normal use, a social comparison metric that appears as a discovered fact about the user rather than a pursued achievement."
-      }
-    ],
-    "center": {
-      "x": 50,
-      "y": 18,
-      "label": "WISPR FLOW"
-    },
-    "nodes": [
-      {
-        "id": "streak",
-        "x": 32,
-        "y": 58
-      },
-      {
-        "id": "milestone",
-        "x": 68,
-        "y": 58
-      }
-    ],
-    "connections": [
-      {
-        "from": "streak",
-        "to": "milestone",
-        "title": "Five days unlocks the ranking",
-        "desc": "The streak's stated purpose, dictate for five days so Flow can adapt, coincides with the 500-word threshold where the speaking speed stat and percentile ranking unlock.",
-        "effect": "The streak and the milestone reward are aligned. Completing the streak produces the achievement, making the functional justification and the reward arrive at the same moment."
-      },
-      {
-        "from": "milestone",
-        "to": "streak",
-        "title": "Percentile ranking reinforces streak continuation",
-        "desc": "The 'top 2% of all Flow users' percentile delivered passively at 500 words frames the user as already exceptional, which strengthens motivation to maintain the streak.",
-        "effect": "The achievement reward arrives as affirmation, the user is told they are already performing well, making continuation feel natural rather than effortful."
-      }
-    ]
-  }
+  "system": null
 }
