@@ -911,16 +911,9 @@ const ADDITIONS = {
     // observed content beats the addendum's seed-list minimum.
     { id: "passive-construction", depth: "core" },
   ],
-  // Stage 2 review ruling: analysis recommends mapping the guest pass to
-  // gifting; keep the v44 write-up. Shallow — two passes a year is
-  // peripheral to Calm's model.
-  "calm": [
-    {
-      id: "gifting",
-      depth: "shallow",
-      note: "Implementation targets non-users as a referral device (gift-framed guest pass), not in-app transfer between existing users.",
-    },
-  ],
+  // calm's entry here was removed on its v4.1 migration (28 Sep 2026):
+  // ADDITIONS is a v3-only path calm.md never reaches, and its old gifting
+  // addition is superseded by the fresh analysis's own Pass Two gifting tag.
   "canva": [{ id: "credits-tokens", depth: "supporting" }],
   "capybara-go": [
     { id: "first-purchase-bonus", depth: "supporting" },
@@ -1064,7 +1057,8 @@ const ADDITIONS = {
 const REMAPS = {
   "liftoff": { "xp-leveling": "leveling", "achievements": "achievement", "variable-reward": "loot-box" },
   "solitaire-grand-harvest": { "xp-leveling": "experience-points", "achievements": "milestone" },
-  "calm": { "achievements": "achievement" },
+  // calm's entry here was removed on its v4.1 migration (28 Sep 2026):
+  // REMAPS is a v3-only path calm.md never reaches.
   "fiton": { "achievements": "achievement" },
   "fortune-city": { "achievements": "achievement" },
   "match-creek-motors": { "achievements": "achievement" },
@@ -1108,7 +1102,7 @@ const DROPS = new Set([
 // newly imported app; the previous holder flips back to subscriber simply by
 // no longer being named here. Validation enforces the exactly-two invariant.
 // Thin apps awaiting write-up backfill must not hold this slot.
-const ROTATING_FREE_APP = "uptime"; // newest addition (analyzed 18 May 2026)
+const ROTATING_FREE_APP = "calm"; // newest addition (migrated 28 Sep 2026)
 
 const ALL_APPS = [
   { file: "royal-match.md", id: "royal-match", visibility: "subscriber" },
@@ -1708,6 +1702,31 @@ const V41_APP_META = {
         "Starter deal pop-ups, a five-tab store, crystal and Chromium packs, and an Episode Pass make up this section.",
       returns:
         "Login rewards, a notification pre-prompt, red badge counters and countdown timers on offers and events bring the player back.",
+    },
+  },
+  calm: {
+    name: "Calm",
+    category: "Wellness / Meditation",
+    type: "app",
+    sectionCards: {
+      onboarding:
+        "Calm places nine steps between first launch and the first unguided screen, including two separate paywalls before any content is heard.",
+      "core-loop":
+        "Calm's core loop runs through a mostly locked content catalogue and a mood-based recommendation row on Home, with the check-in suite sitting separately inside Profile.",
+      goals:
+        "Calm's stats and streaks are the product's only progression measures, and both move only when a check-in is completed.",
+      access:
+        "A subscription gates nearly everything in Calm's catalogue, with a handful of free exceptions and a few changes that appear only after signing in.",
+      economy:
+        "Calm's economy is a single stated allowance of free listens, with nothing earned, spent, or exchanged anywhere else.",
+      social:
+        "No other identified person appears anywhere inside Calm; every social-shaped surface points outward instead.",
+      reach:
+        "Calm sends a guest pass from two places, composes stats and streaks into outbound shares, and connects to Apple Health from settings.",
+      monetization:
+        "Calm's Pro subscription is offered from at least three separate screens, each with its own framing, discount or trial length.",
+      returns:
+        "Every one of Calm's five check-ins ends by asking when the user will check in again, each with its own preset time and no confirmation once set.",
     },
   },
   "insight-timer": {

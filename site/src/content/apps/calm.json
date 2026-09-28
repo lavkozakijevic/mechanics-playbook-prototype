@@ -1,157 +1,892 @@
 {
   "id": "calm",
   "name": "Calm",
-  "category": "Wellness",
+  "category": "Wellness / Meditation",
   "type": "app",
   "visibility": "public",
-  "analysisDate": "2026-04-20",
-  "lastUpdated": "2026-05-15",
-  "summary": "Calm presents two paywalls back to back before the user has seen a single piece of app content, then surfaces a third after sign-in. The free tier is built around a check-in suite, mood, sleep, gratitude, daily calm reflection, quick journal, each with its own reminder channel, creating five separate daily reasons to open the app without accessing any gated content. The 30-day guest pass is a referral mechanic framed as a gift, more generous than the standard new-user trial.",
-  "teaser": "Calm's free tier hides five separate daily check-ins, each with its own reminder, making the retention machinery richer than the content behind the paywall.",
+  "analysisDate": "2026-09-16",
+  "lastUpdated": "2026-09-16",
+  "asObserved": "2026-04",
+  "appVersion": "None.",
+  "summary": "Calm is a meditation and wellness app whose free tier centers on a suite of self-report check-ins, mood, sleep, gratitude, a daily reflection, and a journal, reached from a tab inside Profile rather than from the main navigation. Nearly every piece of listening content sits behind a subscription, with only a handful of free soundscapes and meditations under a stated number of listens. A streak and running stats track how often the check-ins happen, and both are composed into shareable images sent outside the app. A 30-day guest pass, framed as a gift to someone the user cares about, can be sent from the home screen, from Profile, and bundled automatically into one check-in's own share image.",
+  "teaser": "Calm's free check-in suite is what actually moves its streak and stats; the subscription content it recommends afterward is what stays locked.",
   "icon": "/icons/calm.png",
   "heroImage": null,
-  "mechanics": [
+  "contentFormat": "v4.1",
+  "observations": [
     {
-      "id": "streak",
-      "depth": "core",
-      "writeup": {
-        "observed": "Streaks are tracked on the profile page under 'My Streaks,' showing current streak, total streaks, and longest streak alongside a calendar marking practice days. Stats on the same screen show mindful days, total sessions, mindful minutes, and longest streak. Mood check-ins, the Daily Calm reflection, and gratitude check-ins all appear to contribute to the daily practice count. The streak counter is togglable in settings and shareable via pre-formatted Instagram Stories and messaging options.",
-        "presented": "The streak is on the profile tab, not the home screen, navigating to the profile is required to find it. Unlike Insight Timer, where the streak flower icon is immediately visible on the home screen, Calm does not surface the current streak number in primary navigation.",
-        "noting": "The streak sharing mechanic is distinctive: streak milestones generate formatted Instagram Stories and messaging options as separate formatted cards. Each streak milestone shared is a product impression in a social context. Multiple check-in types contribute to the daily practice count, giving the streak multiple completion paths beyond content playback.",
-        "findings": [
-          "The streak is located on the profile tab rather than the home screen, significantly lower prominence than Insight Timer's home screen flower icon or Strava's dashboard carousel placement.",
-          "Multiple check-in types (mood, gratitude, Daily Calm reflection) contribute to the daily practice count, giving the streak multiple completion paths beyond content playback.",
-          "Streak milestones generate pre-formatted Instagram Stories and messaging shares, the streak's social distribution is designed into the sharing UI.",
-          "The renewal reminder toggle is off by default on both the standard and limited-time trial paywalls, users who don't notice and enable it will not receive a renewal warning."
-        ]
-      },
-      "screenshots": [
+      "id": "O1",
+      "name": "Nine steps before Home",
+      "section": "onboarding",
+      "observed": "On first launch, Calm runs through a loading screen, a notification permission request, a cross-app tracking permission request, a goal selection screen, an account creation screen, a plan paywall, a limited-time offer, and an attribution question, in that order, before reaching Home. No content plays until all of these have been passed. The account creation screen can be closed without signing in, continuing straight to the paywall, and both offer screens come before the attribution question. The only way past each offer screen is closing it.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O2",
+      "name": "Loading screen cue",
+      "section": "onboarding",
+      "observed": "While loading, Calm displays a line asking the user to take a deep breath. The same cue appears on later launches while Home loads.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O3",
+      "name": "Notification permission request",
+      "section": "onboarding",
+      "observed": "The first prompt after loading is the system request for Calm to send notifications, shown before goals, an account, or any content. No Calm screen explaining the request comes before it.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O4",
+      "name": "Tracking permission request",
+      "section": "onboarding",
+      "observed": "Directly after the notification prompt, Calm asks to allow tracking of activity across other companies' apps and websites.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O5",
+      "name": "Goal selection screen",
+      "section": "onboarding",
+      "observed": "Calm's first screen asks what brings the user to Calm, stating that it will personalize recommendations based on the goals chosen, with options including building self esteem, developing gratitude, improving performance, reducing stress, reducing anxiety, sleeping better, and increasing happiness. Several can be selected before continuing. No later screen names the goals chosen here.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O6",
+      "name": "Account creation offer",
+      "section": "onboarding",
+      "observed": "After goals, Calm offers to create an account to save progress, with continue options for email, Apple and Google, an option to hear about offers and promos, and a login link at the bottom. Closing the screen continues onboarding without an account. While logged out, Profile repeats the same invitation to create an account and see stats.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O7",
+      "name": "Attribution question",
+      "section": "onboarding",
+      "observed": "After the offer screens close, Calm asks how the user heard about it, with options including friend or family, an article or blog, social media or an online ad, a YouTube influencer, an employer, the App Store or Google, a TV ad, a podcast ad, and a therapist or health professional. Choosing an answer opens Home.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O8",
+      "name": "First Home screen",
+      "section": "onboarding",
+      "observed": "The first screen the user faces unguided is Home, topped by a banner promoting the family plan for six members. Beneath it sit a time-of-day greeting, a Popular row, and a Today's dailies row. Every item in the Popular row is locked, including a one-minute reset, alpha waves and rain for deep relaxation, calming anxiety, rain on leaves, and Mindfulness for Beginners presented as a course. The row mixes breathing exercises, playlists, courses and meditations together.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O9",
+      "name": "Catalogue content types",
+      "section": "core-loop",
+      "observed": "Calm presents its catalogue as audio items of several types, including meditations, sleep stories, music, soundscapes, playlists, breathing exercises, movement practices and courses, each labelled with its duration. Durations run from a five-minute playlist and a six-minute movement item up to a 31-minute sleep story. The onboarding paywall lists masterclasses taught by well known experts among what the subscription includes.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O10",
+      "name": "Today's dailies row",
+      "section": "core-loop",
+      "observed": "Home and Discover both carry a Today's dailies row listing recurring items: Daily Calm, Daily J, Daily Move, Daily Trip, Moment of Calm and Slow downtown. Calm describes Daily Move as a daily stretching practice for everyone, Daily J as a daily piece of wisdom, and Daily Calm as an original meditation every day. On the day seen, Daily Move was grip strength training and Daily Calm's topic was savoring. No completion state is shown for any item in the row, and the row's daily change is stated only by Calm's own copy.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O11",
+      "name": "Mood-based recommendations",
+      "section": "core-loop",
+      "observed": "After a full scroll, Home asks how the user is feeling from six moods: calm, sad, tired, anxious, panicked and unsure. Before a mood is chosen, Calm shows a default set with a refresh control that swaps in new items; choosing tired reloads the section with a different set framed around that mood. The default set includes a Daily Move item, a green noise soundscape, a bilateral stimulation meditation for burnout recovery, and a sleep story; the tired set includes a music track, lo-fi beats, a focus meditation, and several soundscapes. Every item in every version of this section is locked. Below it sit entry points to browse by meditation, sleep and music.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O12",
+      "name": "Sleep tab library",
+      "section": "core-loop",
+      "observed": "The Sleep tab opens with a line about soothing bedtime stories, offering filters for all, meditations, tools, music, soundscapes, playlists, downloads and sleep stories. It shows featured sleep stories, a row of popular ones presented by well known voices, sleep stories for kids, and themed playlists covering trains, nature, travel, fiction, non-fiction, naps and ASMR. Kids stories include classic tales and stories featuring licensed characters, with no age filter shown.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O13",
+      "name": "Discover tab",
+      "section": "core-loop",
+      "observed": "Discover offers search by title, voice, artist or topic, repeats the Today's dailies row, and lists categories including movement, dailies, work, wisdom, kids, soundscapes, music, reflections, meditation, Calm lifestyle, mindful tools and sleep. Further down it shows new and noteworthy items, browsing by goal, browsing meditations by length with options such as 3 and 20 minutes, and featured collections. Searching for the word free returns no free items.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O14",
+      "name": "Audio player controls",
+      "section": "core-loop",
+      "observed": "Playing a free heavy rain soundscape opens a player with download, cast and minimize controls and a sleep timer, alongside a notice that the item is a free listen.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O15",
+      "name": "Pre-meditation mood question",
+      "section": "core-loop",
+      "observed": "Opening a meditation shows a brief countdown, then asks how the user is feeling and invites a moment to reflect before it begins. Settings carry a toggle for showing this mood question before meditations, visible both before and after sign-in. The meditation that follows opens with a quotation describing meditation as an act that shifts who a person is. What the answer to this question changes afterward is left unclear.",
+      "detail": [],
+      "tags": [
         {
-          "src": "/screenshots/streak/calm/01.jpg",
-          "caption": null
+          "name": "Check-In",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Calm's mood check-in asks the user to choose one of twelve named moods, then offers context tags and a note, and keeps each answer in a history in which tapping a day shows what was written (tier: directly observed). The sleep check-in asks for a rating on a five-point scale from horrible to great, the hours slept and factor tags, and keeps the entries in a last seven days view with an average and a log that accepts further entries (tier: directly observed). Both are opened from a Check-ins tab in Profile rather than prompted by an activity (tier: directly observed). The answers are the user's own report and are not drawn from records Calm holds, which is what the entry separates from Personal Data Reflection (tier: directly observed). The gratitude check-in (O19) and Quick Journal (O17) are not included, because their answers are free writing with no defined set of options, and the mood picker on Home (O11) is not included, because it reloads recommendations and no record of the answer is shown (tier: directly observed). The question before a session on O15 is supporting only: its options and any record are not shown (tier: unresolved).",
+          "alternativeConsidered": "Daily / Weekly Quests, which would apply if Calm issued each day's check-in as an objective it tracks as incomplete or complete. The check-ins are answered whenever the user opens them, two were accepted for the same night (O22), and nothing is issued, so the calendar is a record of reports rather than the completion state of a quest. Personal Data Reflection is ruled out by that entry's own exclusion, because the content of each step comes from the user's report rather than from Calm's records.",
+          "role": "retention, engagement"
         }
       ],
-      "suggestedShots": [
-        "Profile page showing My Streaks with current streak, total streaks, longest streak, and the calendar marking practice days"
-      ]
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "daily-login-reward",
-      "depth": "supporting",
-      "writeup": {
-        "observed": "Today's Dailies is a curated set of daily content that refreshes each day: Daily Calm (an original meditation), Daily J (a journaling prompt), Daily Move (a movement practice), Daily Trip, Moment of Calm, and Slow Downtown. The Daily Calm Reflection is a daily check-in tied specifically to the day's Daily Calm content. On completing the first reflection, the app recommends setting a daily reminder at a chosen time. Each check-in type prompts its own separate reminder on first completion.",
-        "presented": "Today's Dailies appears on the home tab with current-day content displayed. The Daily Calm Reflection prompt appears after completing the Daily Calm listening. Reminder setup is suggested proactively after first completion of each check-in type.",
-        "noting": "Content freshness, a new Daily Calm every day, provides a pull reason distinct from the streak. The five separate reminder channels create multiple distinct daily return touchpoints, each anchored to a different time of day and a different habit type.",
-        "findings": [
-          "Today's Dailies refreshes daily but some content requires a subscription, the free tier access to daily content is partial.",
-          "The check-in suite creates five separate daily reminder channels, mood, sleep, gratitude, Daily Calm reflection, and quick journal, each with its own reminder time and first-completion prompt.",
-          "The sleep check-in allows multiple conflicting entries for the same night without a conflict warning, a data integrity issue observed during analysis.",
-          "Two paywalls appear back to back before the user has seen any app content, with a third after sign-in, three paywall interactions before the first content access."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": [
-        "Home screen showing Today's Dailies strip — Daily Calm, Daily J, Daily Move, Daily Trip, Moment of Calm, Slow Downtown — with the subscription banner above them"
-      ]
+      "id": "O16",
+      "name": "Locating the check-ins",
+      "section": "core-loop",
+      "observed": "Calm's five check-ins, Quick Journal, Daily Calm reflection, gratitude, mood and sleep, are all reached through a Check-ins tab inside Profile, itself one of three tabs there alongside Library and History. Nothing else in the app points to this tab.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "achievement",
-      "depth": "shallow",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": [
-        "Profile stats section showing mindful days, total sessions, mindful minutes, and longest streak with the share button"
-      ]
+      "id": "O17",
+      "name": "Quick Journal",
+      "section": "core-loop",
+      "observed": "Quick Journal opens empty, with no prompt or guide shown until the add button is tapped. Tapping add introduces it as a way to capture memories, feelings and dreams, states that each day brings a fresh prompt, and allows an entry to be text, a photo or an emoji, capped at 300 characters; a control lets the user refresh the prompt to find a different one. Prompts seen include a question about legacy and a prompt to list worries outside the user's control. After saving, Calm shows the prompt with the answer, animates entry cards across the screen, and closes with a line about how a small moment of joy can come from a laugh or a silly prompt. Quick Journal shows no calendar and offers no share route.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "challenges",
-      "depth": "shallow",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O18",
+      "name": "Daily Calm reflection",
+      "section": "core-loop",
+      "observed": "The Daily Calm reflection page opens stating that no reflections have been completed yet, and describes itself as a new thoughtful topic each day inspired by the Daily Calm. Starting it shows a quote, then a single question, answered by typing; completing it shows a short closing line followed by a completion message pointing back to that day's Daily Calm topic. The page then holds the written response with its own share control, a history of past reflections, a week calendar and list, and a reminder section. Adding a second reflection the same day returns the identical quote and question.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "gifting",
-      "depth": "shallow",
-      "note": "Implementation targets non-users as a referral device (gift-framed guest pass), not in-app transfer between existing users.",
-      "writeup": {
-        "observed": "After sign-in, the app presents a 'Gift a free 30-day Calm guest pass' feature. The gift provides the recipient with 30 days of full Premium access at no cost to the sender. It is shareable via any messaging or social channel using a unique link. No stated limit on the number of guest passes that can be sent was described during analysis. The share sheet did not close automatically after sharing, suggesting multiple shares were possible from a single session.",
-        "presented": "The guest pass gift popup appears as the first thing shown after sign-in, a proactive presentation not triggered by any user action. The share sheet opens standard messaging and social options.",
-        "noting": "The gift-framed referral positions inviting someone as giving them a gift rather than recruiting them. The 30-day duration is more generous than the standard new-user free trial, making the referral path more valuable for recipients than organic discovery. The immediate post-sign-in placement captures the user at the moment of highest enthusiasm for the product.",
-        "findings": [
-          "The guest pass targets non-users rather than existing users, a referral mechanic with gift-framed UI rather than an in-app gifting system between existing users.",
-          "The 30-day guest pass is more generous than the standard 7-day free trial, making referral the highest-value acquisition path for recipients.",
-          "The share sheet did not close automatically, suggesting multiple shares could be initiated from a single popup interaction.",
-          "The popup appears immediately after sign-in with no trigger action required, a proactive referral prompt at the moment of highest new-user enthusiasm."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O19",
+      "name": "Gratitude check-in",
+      "section": "core-loop",
+      "observed": "The gratitude page opens stating that no gratitude check-ins have been completed yet, with a start control in the middle of the screen. It asks what the user is grateful for today across three lines, with a control to swap the prompt for others, such as a question about where the user found beauty or what they can celebrate. Completing it shows a closing line, then a completion message, with sharing offered first. An info control explains that reflecting on gratitude builds a more positive outlook and resilience. The week calendar marks a gratitude day in its own color, and recommended content follows: a mindfulness series, a relationship-focused series, a happiness series, and a loving kindness track.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O20",
+      "name": "Mood check-in",
+      "section": "core-loop",
+      "observed": "The mood check-in opens with a line explaining that a minute of reflection builds mindfulness into daily life and that Calm will track feelings and recommend matching content, alongside a preview of a week of emoji-marked days. It greets the user by time of day and asks how they're feeling from twelve named moods, then shows a body-awareness line for the chosen mood, optional context tags covering areas like work, family, money and health, and a note field. Completing it shows a completion message, a history where tapping a day shows what was written, recommended content, and a quote chosen to match the mood. After choosing grateful, the body-awareness line, the recommended content, a masterclass and two series, and the quote all matched that mood. The introduction to this check-in can be skipped.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Check-In",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Calm's mood check-in asks the user to choose one of twelve named moods, then offers context tags and a note, and keeps each answer in a history in which tapping a day shows what was written (tier: directly observed). The sleep check-in asks for a rating on a five-point scale from horrible to great, the hours slept and factor tags, and keeps the entries in a last seven days view with an average and a log that accepts further entries (tier: directly observed). Both are opened from a Check-ins tab in Profile rather than prompted by an activity (tier: directly observed). The answers are the user's own report and are not drawn from records Calm holds, which is what the entry separates from Personal Data Reflection (tier: directly observed). The gratitude check-in (O19) and Quick Journal (O17) are not included, because their answers are free writing with no defined set of options, and the mood picker on Home (O11) is not included, because it reloads recommendations and no record of the answer is shown (tier: directly observed). The question before a session on O15 is supporting only: its options and any record are not shown (tier: unresolved).",
+          "alternativeConsidered": "Daily / Weekly Quests, which would apply if Calm issued each day's check-in as an objective it tracks as incomplete or complete. The check-ins are answered whenever the user opens them, two were accepted for the same night (O22), and nothing is issued, so the calendar is a record of reports rather than the completion state of a quest. Personal Data Reflection is ruled out by that entry's own exclusion, because the content of each step comes from the user's report rather than from Calm's records.",
+          "role": "retention, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O21",
+      "name": "Sleep check-in",
+      "section": "core-loop",
+      "observed": "The sleep check-in is introduced as a new way to track sleep, stating that it will show patterns to guide the user toward better sleep habits. It asks for a rating on a five-point scale from horrible to great, sets hours slept with a bedtime and wake time slider, then asks what affected the sleep through factor tags grouped as before sleep and during sleep, with a skip control on this step. Completing it shows a completion message, a seven-day view with an average sleep time, an insights area stating that more check-ins are needed to unlock sleep insights, recommended content, and a reminder section. After a good rating, the factor tags offered still included negative options like stress, anxiety, illness, pain and alcohol alongside positive ones.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Check-In",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Calm's mood check-in asks the user to choose one of twelve named moods, then offers context tags and a note, and keeps each answer in a history in which tapping a day shows what was written (tier: directly observed). The sleep check-in asks for a rating on a five-point scale from horrible to great, the hours slept and factor tags, and keeps the entries in a last seven days view with an average and a log that accepts further entries (tier: directly observed). Both are opened from a Check-ins tab in Profile rather than prompted by an activity (tier: directly observed). The answers are the user's own report and are not drawn from records Calm holds, which is what the entry separates from Personal Data Reflection (tier: directly observed). The gratitude check-in (O19) and Quick Journal (O17) are not included, because their answers are free writing with no defined set of options, and the mood picker on Home (O11) is not included, because it reloads recommendations and no record of the answer is shown (tier: directly observed). The question before a session on O15 is supporting only: its options and any record are not shown (tier: unresolved).",
+          "alternativeConsidered": "Daily / Weekly Quests, which would apply if Calm issued each day's check-in as an objective it tracks as incomplete or complete. The check-ins are answered whenever the user opens them, two were accepted for the same night (O22), and nothing is issued, so the calendar is a record of reports rather than the completion state of a quest. Personal Data Reflection is ruled out by that entry's own exclusion, because the content of each step comes from the user's report rather than from Calm's records.",
+          "role": "retention, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O22",
+      "name": "Editing sleep entries",
+      "section": "core-loop",
+      "observed": "Entries in the sleep log can be deleted but not edited. Adding a second check-in for the same night with a different rating is accepted and produces its own completion message, leaving two entries for that night with conflicting ratings at the same times and no warning shown.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Check-In",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Calm's mood check-in asks the user to choose one of twelve named moods, then offers context tags and a note, and keeps each answer in a history in which tapping a day shows what was written (tier: directly observed). The sleep check-in asks for a rating on a five-point scale from horrible to great, the hours slept and factor tags, and keeps the entries in a last seven days view with an average and a log that accepts further entries (tier: directly observed). Both are opened from a Check-ins tab in Profile rather than prompted by an activity (tier: directly observed). The answers are the user's own report and are not drawn from records Calm holds, which is what the entry separates from Personal Data Reflection (tier: directly observed). The gratitude check-in (O19) and Quick Journal (O17) are not included, because their answers are free writing with no defined set of options, and the mood picker on Home (O11) is not included, because it reloads recommendations and no record of the answer is shown (tier: directly observed). The question before a session on O15 is supporting only: its options and any record are not shown (tier: unresolved).",
+          "alternativeConsidered": "Daily / Weekly Quests, which would apply if Calm issued each day's check-in as an objective it tracks as incomplete or complete. The check-ins are answered whenever the user opens them, two were accepted for the same night (O22), and nothing is issued, so the calendar is a record of reports rather than the completion state of a quest. Personal Data Reflection is ruled out by that entry's own exclusion, because the content of each step comes from the user's report rather than from Calm's records.",
+          "role": "retention, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O23",
+      "name": "Manually logged activity",
+      "section": "core-loop",
+      "observed": "Profile History shows a calendar of completed activity, and an entry can be added manually by stating when it started and how long it lasted.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O24",
+      "name": "Library tab contents",
+      "section": "core-loop",
+      "observed": "Profile Library states that no history exists yet, prompting the user to start a meditation, sleep story or other content, and shows no playlists, favorites, collections or courses. Downloads lists a timed meditation and an open-ended meditation, neither of which the user recalls downloading.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O25",
+      "name": "Settings and defaults",
+      "section": "core-loop",
+      "observed": "Settings govern the app's core experience and add new defaults after sign-in. Before signing in, Settings offer signing up or logging in, restoring a purchase, notifications, downloads, a toggle for the mood question before meditations, language, an Apple Health connection, help and support, and an about page. After signing in, Settings add haptic feedback, showing streaks, and autoplaying the next movement item, all switched on by default; haptic feedback can be turned off.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Calm presents a My streaks view with current, longest and total streaks and a calendar marking the streak within the month (tier: directly observed). The view and its history changed after the session's check-ins, so the state responds to activity (tier: directly observed). Under the operating card's presence standard, the product's own framing and the state responding to activity establish presence, and the entry's clause on what gaps do applies to describing the streak rather than to asserting it (tier: directly observed). The qualifying activity, the continuity period and the effect of a missed day are not established by the session (tier: unresolved).",
+          "alternativeConsidered": "A cumulative count of active days labelled as streaks, which the entry excludes. Calm separates a current streak from a longest streak, which a cumulative count would not need, but the separating evidence is a session that spans a missed day and shows the current streak reset or hold.",
+          "role": "retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O26",
+      "name": "Stats panel",
+      "section": "goals",
+      "observed": "Once signed in, Profile shows stats framed as mindful days, alongside total activity, mindful minutes, and longest streak, reading a prompt to begin meditating before anything has happened. After the check-ins, the stats had changed, even though no content had been played, so the check-ins alone moved them. Tapping a stat animates it without opening anything further. Above the stats sits a motivational line and a button to unlock Calm Premium. A share control on the stats opens a prepared story.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Calm presents a My streaks view with current, longest and total streaks and a calendar marking the streak within the month (tier: directly observed). The view and its history changed after the session's check-ins, so the state responds to activity (tier: directly observed). Under the operating card's presence standard, the product's own framing and the state responding to activity establish presence, and the entry's clause on what gaps do applies to describing the streak rather than to asserting it (tier: directly observed). The qualifying activity, the continuity period and the effect of a missed day are not established by the session (tier: unresolved).",
+          "alternativeConsidered": "A cumulative count of active days labelled as streaks, which the entry excludes. Calm separates a current streak from a longest streak, which a cumulative count would not need, but the separating evidence is a session that spans a missed day and shows the current streak reset or hold.",
+          "role": "retention"
+        },
+        {
+          "name": "Shareable Win",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "Calm composes the user's stats into a prepared Instagram story carrying the stats badge and offers message and other routes out (tier: directly observed). The streaks view offers its own share, composed differently from the stats share (tier: directly observed). The subject is a record Calm holds about the user and presents as mindful days and streaks, not something the user made (tier: strongly supported, the story's contents beyond the badge are not described). The shares at O38 and O39 are not included. What the gratitude share contains is not described, the reflection share carries the user's own written response, which the entry excludes as the user's work, and the quote image's subject is Calm's quote rather than a record about the user (tier: strongly supported).",
+          "alternativeConsidered": "No label, reading the control as an ordinary share of a stats screen. The prepared story format, composed separately for stats and for streaks, separates it from a plain screenshot export; seeing the full contents of the story would settle whether it states an accomplishment that a reader outside Calm can read.",
+          "role": "social"
+        },
+        {
+          "name": "Check-In",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Calm's mood check-in asks the user to choose one of twelve named moods, then offers context tags and a note, and keeps each answer in a history in which tapping a day shows what was written (tier: directly observed). The sleep check-in asks for a rating on a five-point scale from horrible to great, the hours slept and factor tags, and keeps the entries in a last seven days view with an average and a log that accepts further entries (tier: directly observed). Both are opened from a Check-ins tab in Profile rather than prompted by an activity (tier: directly observed). The answers are the user's own report and are not drawn from records Calm holds, which is what the entry separates from Personal Data Reflection (tier: directly observed). The gratitude check-in (O19) and Quick Journal (O17) are not included, because their answers are free writing with no defined set of options, and the mood picker on Home (O11) is not included, because it reloads recommendations and no record of the answer is shown (tier: directly observed). The question before a session on O15 is supporting only: its options and any record are not shown (tier: unresolved).",
+          "alternativeConsidered": "Daily / Weekly Quests, which would apply if Calm issued each day's check-in as an objective it tracks as incomplete or complete. The check-ins are answered whenever the user opens them, two were accepted for the same night (O22), and nothing is issued, so the calendar is a record of reports rather than the completion state of a quest. Personal Data Reflection is ruled out by that entry's own exclusion, because the content of each step comes from the user's report rather than from Calm's records.",
+          "role": "retention, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O27",
+      "name": "Streaks view",
+      "section": "goals",
+      "observed": "Profile carries a My streaks view showing total streaks, longest streak and current streak, with a calendar marking the streak within the current month. After the check-ins, the streak view and its history had changed as well. Streaks are shared through their own control, displayed differently from the stats share. Longest streak also appears inside the stats panel. A show-streaks setting appears after sign-in, on by default. What activity qualifies, what the continuity period is, and what a missed day does to the streak are left unclear.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Streak",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Calm presents a My streaks view with current, longest and total streaks and a calendar marking the streak within the month (tier: directly observed). The view and its history changed after the session's check-ins, so the state responds to activity (tier: directly observed). Under the operating card's presence standard, the product's own framing and the state responding to activity establish presence, and the entry's clause on what gaps do applies to describing the streak rather than to asserting it (tier: directly observed). The qualifying activity, the continuity period and the effect of a missed day are not established by the session (tier: unresolved).",
+          "alternativeConsidered": "A cumulative count of active days labelled as streaks, which the entry excludes. Calm separates a current streak from a longest streak, which a cumulative count would not need, but the separating evidence is a session that spans a missed day and shows the current streak reset or hold.",
+          "role": "retention"
+        },
+        {
+          "name": "Shareable Win",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "Calm composes the user's stats into a prepared Instagram story carrying the stats badge and offers message and other routes out (tier: directly observed). The streaks view offers its own share, composed differently from the stats share (tier: directly observed). The subject is a record Calm holds about the user and presents as mindful days and streaks, not something the user made (tier: strongly supported, the story's contents beyond the badge are not described). The shares at O38 and O39 are not included. What the gratitude share contains is not described, the reflection share carries the user's own written response, which the entry excludes as the user's work, and the quote image's subject is Calm's quote rather than a record about the user (tier: strongly supported).",
+          "alternativeConsidered": "No label, reading the control as an ordinary share of a stats screen. The prepared story format, composed separately for stats and for streaks, separates it from a plain screenshot export; seeing the full contents of the story would settle whether it states an accomplishment that a reader outside Calm can read.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O28",
+      "name": "Subscription gates content",
+      "section": "access",
+      "observed": "Without a subscription, Calm locks the Popular row and every recommended item, including refreshed and mood-based sets. Browsing sleep stories by voice and viewing the full sleep story list both lead to the paywall. Based on browsing rather than opening every item, almost nothing can be listened to without subscribing.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O29",
+      "name": "Free listen allowance",
+      "section": "access",
+      "observed": "A heavy rain soundscape on Home plays without a subscription, and opening it states that three free listens are included before a seven-day free trial is needed for full access. Some meditations also open for free. The free items are few and not easy to find, and a search for the word free does not surface them. Whether a listen is counted down, and what happens after three listens, is left unclear.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O30",
+      "name": "Sleep insights lock",
+      "section": "access",
+      "observed": "After a sleep check-in, the insights area for the last seven and last 30 days reads that more check-ins are needed to unlock sleep insights, with no number stated. The insights stay locked even after two entries have been logged for the same night.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Check-In",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Calm's mood check-in asks the user to choose one of twelve named moods, then offers context tags and a note, and keeps each answer in a history in which tapping a day shows what was written (tier: directly observed). The sleep check-in asks for a rating on a five-point scale from horrible to great, the hours slept and factor tags, and keeps the entries in a last seven days view with an average and a log that accepts further entries (tier: directly observed). Both are opened from a Check-ins tab in Profile rather than prompted by an activity (tier: directly observed). The answers are the user's own report and are not drawn from records Calm holds, which is what the entry separates from Personal Data Reflection (tier: directly observed). The gratitude check-in (O19) and Quick Journal (O17) are not included, because their answers are free writing with no defined set of options, and the mood picker on Home (O11) is not included, because it reloads recommendations and no record of the answer is shown (tier: directly observed). The question before a session on O15 is supporting only: its options and any record are not shown (tier: unresolved).",
+          "alternativeConsidered": "Daily / Weekly Quests, which would apply if Calm issued each day's check-in as an objective it tracks as incomplete or complete. The check-ins are answered whenever the user opens them, two were accepted for the same night (O22), and nothing is issued, so the calendar is a record of reports rather than the completion state of a quest. Personal Data Reflection is ruled out by that entry's own exclusion, because the content of each step comes from the user's report rather than from Calm's records.",
+          "role": "retention, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O31",
+      "name": "Changes after sign-in",
+      "section": "access",
+      "observed": "Signing in with Apple turns Profile into a personalized view and adds managing the account, managing the subscription, and linking an organization subscription to Settings, the last option intended for subscriptions provided through an employer. Home, Sleep and Discover otherwise stay unchanged after signing in, and Apple Health is not requested at this point.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O32",
+      "name": "No currency or balance",
+      "section": "economy",
+      "observed": "Calm shows no currency, points, balance, or spendable quantity anywhere. The only counted allowance is a stated number of free listens. Stats count activity and minutes, but nothing is spent from either figure.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O33",
+      "name": "No other users inside Calm",
+      "section": "social",
+      "observed": "Calm shows no friends, contacts, groups, messaging, shared state, or comparison against named others anywhere. Other people appear only as the family plan's other members, the recipient of a guest pass sent outward, and an aggregate of Calm members behind a stated popular reminder time.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O34",
+      "name": "Guest pass offer on Home",
+      "section": "reach",
+      "observed": "On the first Home visit after signing in, Calm offers to gift a free 30-day guest pass, framed around someone who needs support reducing stress and improving sleep. Continuing states that a guest pass sent to someone the user cares about gives them free access to all of Calm Premium for a month, with a share control attached. The sending account holds no subscription itself. After sharing, a thank-you pop-up stays open rather than closing, which may allow further sharing. The recipient's side, any limit on passes sent, and any benefit to the sender are left unclear.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Gifting",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "Calm asks the user to send a 30 day guest pass to someone they care about and states that the recipient gets free access to all of Calm Premium for a month (tier: directly observed). The user initiates the send through the share control (tier: directly observed). The benefit is an access right to Calm's own subscription, which the entry includes, rather than physical goods or a currency-denominated card (tier: directly observed). The recipient is chosen through the share route rather than identified inside Calm, and the recipient's state change is not seen (tier: strongly supported, the product's framing and the send action converge while delivery is not observed). No reward to the sender and no completion event required of the recipient is shown (tier: directly observed).",
+          "alternativeConsidered": "Referral, which would apply if a reward accrued to the sender once the recipient completed a defined event; none is shown (O34). Content sharing without a benefit would apply if the pass carried no entitlement, which Calm's own statement of a month of Premium rules out at the level of presence. A session on the recipient's side would settle the delivery variants.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O35",
+      "name": "Gift offer in Profile",
+      "section": "reach",
+      "observed": "Profile prominently offers to give a loved one a 30-day trial of Calm, still available after a pass has already been shared from Home.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Gifting",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "Calm asks the user to send a 30 day guest pass to someone they care about and states that the recipient gets free access to all of Calm Premium for a month (tier: directly observed). The user initiates the send through the share control (tier: directly observed). The benefit is an access right to Calm's own subscription, which the entry includes, rather than physical goods or a currency-denominated card (tier: directly observed). The recipient is chosen through the share route rather than identified inside Calm, and the recipient's state change is not seen (tier: strongly supported, the product's framing and the send action converge while delivery is not observed). No reward to the sender and no completion event required of the recipient is shown (tier: directly observed).",
+          "alternativeConsidered": "Referral, which would apply if a reward accrued to the sender once the recipient completed a defined event; none is shown (O34). Content sharing without a benefit would apply if the pass carried no entitlement, which Calm's own statement of a month of Premium rules out at the level of presence. A session on the recipient's side would settle the delivery variants.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O36",
+      "name": "Sharing stats",
+      "section": "reach",
+      "observed": "The share control on stats produces a prepared Instagram story, carrying the same badge shown with the stats, alongside options to send it as a message or through other routes. The share is used before the stats show any activity. What the story shows beyond its badge is left unclear.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Shareable Win",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "Calm composes the user's stats into a prepared Instagram story carrying the stats badge and offers message and other routes out (tier: directly observed). The streaks view offers its own share, composed differently from the stats share (tier: directly observed). The subject is a record Calm holds about the user and presents as mindful days and streaks, not something the user made (tier: strongly supported, the story's contents beyond the badge are not described). The shares at O38 and O39 are not included. What the gratitude share contains is not described, the reflection share carries the user's own written response, which the entry excludes as the user's work, and the quote image's subject is Calm's quote rather than a record about the user (tier: strongly supported).",
+          "alternativeConsidered": "No label, reading the control as an ordinary share of a stats screen. The prepared story format, composed separately for stats and for streaks, separates it from a plain screenshot export; seeing the full contents of the story would settle whether it states an accomplishment that a reader outside Calm can read.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O37",
+      "name": "Sharing streaks",
+      "section": "reach",
+      "observed": "The streaks view carries its own share control, and what it shares is displayed differently from the stats share. The destinations offered for the streak share are not listed separately from the general share sheet.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Shareable Win",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "Calm composes the user's stats into a prepared Instagram story carrying the stats badge and offers message and other routes out (tier: directly observed). The streaks view offers its own share, composed differently from the stats share (tier: directly observed). The subject is a record Calm holds about the user and presents as mindful days and streaks, not something the user made (tier: strongly supported, the story's contents beyond the badge are not described). The shares at O38 and O39 are not included. What the gratitude share contains is not described, the reflection share carries the user's own written response, which the entry excludes as the user's work, and the quote image's subject is Calm's quote rather than a record about the user (tier: strongly supported).",
+          "alternativeConsidered": "No label, reading the control as an ordinary share of a stats screen. The prepared story format, composed separately for stats and for streaks, separates it from a plain screenshot export; seeing the full contents of the story would settle whether it states an accomplishment that a reader outside Calm can read.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O38",
+      "name": "Sharing after a check-in",
+      "section": "reach",
+      "observed": "After a gratitude check-in, the first thing Calm offers is sharing, to Instagram stories and other routes. After a Daily Calm reflection, the user's written response is shown with its own share control. What the gratitude share contains is left unclear, and Quick Journal offers no share route at all.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O39",
+      "name": "Reflection quote carries a guest pass",
+      "section": "reach",
+      "observed": "At the bottom of the Daily Calm reflection page, Calm offers the day's quote as a free image to share, stating that the image also includes a free 30-day Calm guest pass.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Gifting",
+          "confidence": "strongly supported.",
+          "confidences": [
+            "strongly supported."
+          ],
+          "rationale": "Calm asks the user to send a 30 day guest pass to someone they care about and states that the recipient gets free access to all of Calm Premium for a month (tier: directly observed). The user initiates the send through the share control (tier: directly observed). The benefit is an access right to Calm's own subscription, which the entry includes, rather than physical goods or a currency-denominated card (tier: directly observed). The recipient is chosen through the share route rather than identified inside Calm, and the recipient's state change is not seen (tier: strongly supported, the product's framing and the send action converge while delivery is not observed). No reward to the sender and no completion event required of the recipient is shown (tier: directly observed).",
+          "alternativeConsidered": "Referral, which would apply if a reward accrued to the sender once the recipient completed a defined event; none is shown (O34). Content sharing without a benefit would apply if the pass carried no entitlement, which Calm's own statement of a month of Premium rules out at the level of presence. A session on the recipient's side would settle the delivery variants.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O40",
+      "name": "Apple Health connection",
+      "section": "reach",
+      "observed": "Settings list Apple Health as a connection option. It is never actively prompted anywhere else.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O41",
+      "name": "Onboarding paywall",
+      "section": "monetization",
+      "observed": "After the account screen closes, Calm shows a paywall offering unlimited free access for seven days, with its plan list expanding on its own without being tapped. Collapsing it lists what the subscription includes: tens of thousands of minutes of audio for anxiety and stress relief, sleep stories narrated by familiar voices, exclusive music, and masterclasses taught by well known experts. The featured plan is an individual year at $79.99, shown as $6.67 a month with a stated 61% saving and a seven-day free trial. Plans without a trial include a family year for six members at $119.99, and a monthly plan at $16.99, restated as $203 a year beside the yearly option.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O42",
+      "name": "Renewal reminder default",
+      "section": "monetization",
+      "observed": "The trial paywalls, seen on the onboarding paywall and on the Premium screen inside Profile, each carry a toggle to send a reminder two days before renewal, off by default.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O43",
+      "name": "Limited-time discount offer",
+      "section": "monetization",
+      "observed": "Closing the plan paywall opens a second screen immediately, offering a year of Calm for $47.99 with a stated 40% discount. The terms state that price applies to the first year only, renewing at $79.99 afterward. The copy lists calming the mind with meditations, breathing exercises and music, sleeping more soundly with celebrity-read sleep stories and soundscapes, and relaxing the body with mindful stretches.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O44",
+      "name": "Premium screen in Profile",
+      "section": "monetization",
+      "observed": "Tapping Premium inside Profile opens a separate paywall offering a seven-day free trial for $0. Its renewal reminder toggle is also off by default.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O45",
+      "name": "Paywall after sign-in",
+      "section": "monetization",
+      "observed": "Immediately after signing in, Calm shows the same onboarding-style paywall again, this time with more plans available.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O46",
+      "name": "Family plan banner",
+      "section": "monetization",
+      "observed": "A banner promoting the family plan holds the top position on Home and appears prominently on Sleep and Discover as well. Later, Home's banner is replaced by a welcome offer instead; what triggers the replacement is left unclear.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O47",
+      "name": "Today-only welcome offer",
+      "section": "monetization",
+      "observed": "Later, Home's top banner switches to a special welcome offer promising 40% off Calm Premium for that day only, and tapping it opens the same $47.99 offer seen during onboarding. Refreshing Home afterward brings the family plan banner back. What happens to the offer once the day ends is left unclear.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O48",
+      "name": "Reflection reminder prompt",
+      "section": "returns",
+      "observed": "After a reflection, the page asks when the user would like to reflect next, offering morning, afternoon and night. Choosing night opens a picker stating the most popular Daily Calm reflection time among Calm members at night, preset to that time and repeating through the week. The stated time is 22:30. Setting the reminder closes the picker with no confirmation, and a second, afternoon reminder can then be set as well with no warning about the first.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O49",
+      "name": "Gratitude reminder prompt",
+      "section": "returns",
+      "observed": "After a gratitude check-in, Calm asks when the user would like to check in next, with the night option preset to 9 pm. Choosing a slot and closing without setting a reminder raises a prompt asking if the user is sure, framed around how hard it can be to build a daily habit without help. Setting it gives no confirmation and leaves no visible record of the reminder.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O50",
+      "name": "Mood check-in reminder prompt",
+      "section": "returns",
+      "observed": "After a mood check-in, Calm asks when the user would like to check in next, framed around reflecting consistently being key to tracking and understanding moods, with the night option preset to 10 pm. Closing without setting a reminder raises the same are-you-sure prompt. Setting it gives no confirmation.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Check-In",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Calm's mood check-in asks the user to choose one of twelve named moods, then offers context tags and a note, and keeps each answer in a history in which tapping a day shows what was written (tier: directly observed). The sleep check-in asks for a rating on a five-point scale from horrible to great, the hours slept and factor tags, and keeps the entries in a last seven days view with an average and a log that accepts further entries (tier: directly observed). Both are opened from a Check-ins tab in Profile rather than prompted by an activity (tier: directly observed). The answers are the user's own report and are not drawn from records Calm holds, which is what the entry separates from Personal Data Reflection (tier: directly observed). The gratitude check-in (O19) and Quick Journal (O17) are not included, because their answers are free writing with no defined set of options, and the mood picker on Home (O11) is not included, because it reloads recommendations and no record of the answer is shown (tier: directly observed). The question before a session on O15 is supporting only: its options and any record are not shown (tier: unresolved).",
+          "alternativeConsidered": "Daily / Weekly Quests, which would apply if Calm issued each day's check-in as an objective it tracks as incomplete or complete. The check-ins are answered whenever the user opens them, two were accepted for the same night (O22), and nothing is issued, so the calendar is a record of reports rather than the completion state of a quest. Personal Data Reflection is ruled out by that entry's own exclusion, because the content of each step comes from the user's report rather than from Calm's records.",
+          "role": "retention, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O51",
+      "name": "Sleep check-in reminder prompt",
+      "section": "returns",
+      "observed": "The sleep check-in page offers a daily reminder, with night preset to 11 pm and a morning option also available.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Check-In",
+          "confidence": "directly observed.",
+          "confidences": [
+            "directly observed."
+          ],
+          "rationale": "Calm's mood check-in asks the user to choose one of twelve named moods, then offers context tags and a note, and keeps each answer in a history in which tapping a day shows what was written (tier: directly observed). The sleep check-in asks for a rating on a five-point scale from horrible to great, the hours slept and factor tags, and keeps the entries in a last seven days view with an average and a log that accepts further entries (tier: directly observed). Both are opened from a Check-ins tab in Profile rather than prompted by an activity (tier: directly observed). The answers are the user's own report and are not drawn from records Calm holds, which is what the entry separates from Personal Data Reflection (tier: directly observed). The gratitude check-in (O19) and Quick Journal (O17) are not included, because their answers are free writing with no defined set of options, and the mood picker on Home (O11) is not included, because it reloads recommendations and no record of the answer is shown (tier: directly observed). The question before a session on O15 is supporting only: its options and any record are not shown (tier: unresolved).",
+          "alternativeConsidered": "Daily / Weekly Quests, which would apply if Calm issued each day's check-in as an objective it tracks as incomplete or complete. The check-ins are answered whenever the user opens them, two were accepted for the same night (O22), and nothing is issued, so the calendar is a record of reports rather than the completion state of a quest. Personal Data Reflection is ruled out by that entry's own exclusion, because the content of each step comes from the user's report rather than from Calm's records.",
+          "role": "retention, engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O52",
+      "name": "Reminders accumulate unconfirmed",
+      "section": "returns",
+      "observed": "Across the check-ins, reminders can be set for several different times without Calm confirming any of them or flagging that they overlap. The only sign that a reminder has registered is the are-you-sure prompt that appears when leaving without setting one. Night presets differ by check-in: 22:30 for reflection, 9 pm for gratitude, 10 pm for mood, and 11 pm for sleep. Whether any reminder actually fires is left unclear.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     }
   ],
+  "systemView": [
+    "Calm is a medium system. Its spine is the check-in suite: five self-report entry points reached only through Profile, the one part of the free tier the streak and stats actually respond to, while almost the entire content catalogue and every recommendation surface stay locked behind a subscription that's never purchased."
+  ],
+  "mechanicWriteups": [
+    {
+      "name": "Streak",
+      "summary": "Calm's streak sits inside Profile rather than on the home screen, and moves only when a check-in is completed, not when content is played.",
+      "observed": "Calm's Profile carries a My streaks view showing a current streak, a longest streak and a total, marked on a calendar for the current month. Signing in turns on a setting that displays streaks by default. Completing the check-ins changed both the streak view and its calendar history before any audio content had been played.",
+      "presented": "The streak sits inside Profile, reached through its own view separate from the main stats panel, with a calendar highlighting the streak days within the month. It carries its own share control, distinct from the one on the stats panel.",
+      "noting": "The streak responds to the check-in suite rather than to listening activity: it changed after check-ins alone, with nothing played. What actually breaks or protects a streak, and what counts as the qualifying day, is left unclear, since no day boundary is ever crossed to test it.",
+      "findings": [
+        "Streaks are shown as current, longest and total, on a monthly calendar inside Profile.",
+        "Streaks display by default once the user signs in.",
+        "The streak view and its calendar changed after check-ins alone, with no content played.",
+        "What breaks or protects a streak is left unclear."
+      ],
+      "screenshotsNote": "the My streaks view with its calendar, and the streaks setting toggle after sign-in."
+    },
+    {
+      "name": "Shareable Win",
+      "summary": "Calm composes stats and streaks into separately designed share images, each built from Calm's own record rather than anything the user created.",
+      "observed": "Calm turns the stats panel into a prepared Instagram story carrying a stats badge, offered alongside a message option and other routes out. The streaks view carries its own share control, built and displayed differently from the stats share. Both were used before any content had been played, since it was the check-ins alone that gave the panels something to show.",
+      "presented": "A share control sits directly on the stats panel and a separate one on the streaks view, each composing its own image rather than sharing a plain screenshot.",
+      "noting": "The two shares stay separate rather than folding into one control: stats and streaks are framed as different records worth sending out on their own terms, even though both come from the same underlying activity. What the shared story shows beyond its badge is left unclear, so what a reader outside Calm would actually see stays open.",
+      "findings": [
+        "Stats compose into a prepared Instagram story carrying a stats badge, with message and other share routes offered too.",
+        "Streaks carry their own separate share control, distinct from the stats share.",
+        "Both shares were used before any content had been played.",
+        "What the shared story shows beyond its badge is left unclear."
+      ],
+      "screenshotsNote": "the stats share composing its Instagram story, and the separate streaks share control."
+    },
+    {
+      "name": "Gifting",
+      "summary": "Calm's 30-day guest pass is sent from an account holding no subscription of its own, and one check-in's share image bundles a pass automatically.",
+      "observed": "Calm offers a 30-day guest pass on the first Home screen after signing in and again from Profile, framed as something to send a loved one or someone who needs support. Continuing states plainly that the recipient gets a full month of Calm Premium for free. The sending account holds no subscription itself. The Daily Calm reflection's own share image, offered as a free quote to send out, also carries a guest pass bundled into it without a separate request.",
+      "presented": "The offer appears prominently at the top of Home right after signing in, and again inside Profile, worded around giving to someone the user cares about rather than around the app itself. The reflection's guest-pass image sits at the bottom of that check-in's own page.",
+      "noting": "The gift needs no subscription behind it: an account with nothing to give still sends a full month of Premium access. Nothing accrues to the sender for sending it, and what happens on the recipient's side, whether the pass is limited, or what happens after sharing beyond a pop-up that stays open, is left unclear.",
+      "findings": [
+        "A 30-day guest pass grants full Calm Premium access to a named recipient for free.",
+        "The sending account holds no subscription of its own.",
+        "The offer repeats on Home and inside Profile.",
+        "The Daily Calm reflection's own share image bundles a guest pass automatically."
+      ],
+      "screenshotsNote": "the guest pass offer on Home, and the Daily Calm reflection's share image carrying its own guest pass."
+    },
+    {
+      "name": "Check-In",
+      "summary": "Calm runs two kept self-reports, mood and sleep, each reached only from a Profile tab nothing else in the app points to.",
+      "observed": "Calm's Check-ins tab, reached only through Profile, holds a mood check-in and a sleep check-in among its five entries, with nothing elsewhere in the app pointing to the tab. The mood check-in asks the user to choose one of twelve named moods, then offers context tags and a note, and keeps every answer in a history where tapping a day shows what was written. The sleep check-in asks for a rating on a five-point scale, the hours slept, and factor tags grouped by before and during sleep, and keeps entries in a running seven-day view with an average; entries can be deleted but not edited, and a second entry for the same night is accepted and kept alongside the first rather than replacing it. Completing either one moves the stats and streak views even before any content has been played, and each ends by asking when the user would like to check in next.",
+      "presented": "Both check-ins sit behind their own tab inside Profile, reached independently of any other activity. Each opens with a short framing line about what the report is for, walks through its options, and closes with a completion message, a kept history or running average, recommended content, and a prompt to set a reminder.",
+      "noting": "Both check-ins are the strongest case for this mechanic: the product states plainly that it keeps a history and a running average, and the stats visibly respond to a completed check-in with nothing else happening. The sleep check-in additionally shows what a kept record can look like when it's inconsistent: two entries for the same night, with different ratings, sit side by side with no warning. Calm's other self-report surfaces, a gratitude prompt and a short journal, ask the same kind of question but with free-form answers rather than a defined set of options, which is what keeps them out of this tag.",
+      "findings": [
+        "The mood check-in offers twelve named moods, then context tags and a note, kept in a dated history.",
+        "The sleep check-in offers a five-point rating, hours slept, and factor tags, kept in a running seven-day average.",
+        "Both check-ins are reached only from a tab inside Profile, with nothing elsewhere pointing to them.",
+        "A second sleep entry for the same night is kept alongside the first rather than replacing it.",
+        "Completing either check-in moved the stats and streak views with no content played."
+      ],
+      "screenshotsNote": "the mood check-in's mood selection and history, and the sleep check-in's rating and seven-day view.\n\n---"
+    }
+  ],
+  "sectionLeadIns": {
+    "onboarding": "Calm places nine steps between first launch and the first unguided screen, including two separate paywalls before any content is heard.",
+    "core-loop": "Calm's core loop runs through a mostly locked content catalogue and a mood-based recommendation row on Home, with the check-in suite sitting separately inside Profile.",
+    "goals": "Calm's stats and streaks are the product's only progression measures, and both move only when a check-in is completed.",
+    "access": "A subscription gates nearly everything in Calm's catalogue, with a handful of free exceptions and a few changes that appear only after signing in.",
+    "economy": "Calm's economy is a single stated allowance of free listens, with nothing earned, spent, or exchanged anywhere else.",
+    "social": "No other identified person appears anywhere inside Calm; every social-shaped surface points outward instead.",
+    "reach": "Calm sends a guest pass from two places, composes stats and streaks into outbound shares, and connects to Apple Health from settings.",
+    "monetization": "Calm's Pro subscription is offered from at least three separate screens, each with its own framing, discount or trial length.",
+    "returns": "Every one of Calm's five check-ins ends by asking when the user will check in again, each with its own preset time and no confirmation once set."
+  },
+  "sectionCards": {
+    "onboarding": "Calm places nine steps between first launch and the first unguided screen, including two separate paywalls before any content is heard.",
+    "core-loop": "Calm's core loop runs through a mostly locked content catalogue and a mood-based recommendation row on Home, with the check-in suite sitting separately inside Profile.",
+    "goals": "Calm's stats and streaks are the product's only progression measures, and both move only when a check-in is completed.",
+    "access": "A subscription gates nearly everything in Calm's catalogue, with a handful of free exceptions and a few changes that appear only after signing in.",
+    "economy": "Calm's economy is a single stated allowance of free listens, with nothing earned, spent, or exchanged anywhere else.",
+    "social": "No other identified person appears anywhere inside Calm; every social-shaped surface points outward instead.",
+    "reach": "Calm sends a guest pass from two places, composes stats and streaks into outbound shares, and connects to Apple Health from settings.",
+    "monetization": "Calm's Pro subscription is offered from at least three separate screens, each with its own framing, discount or trial length.",
+    "returns": "Every one of Calm's five check-ins ends by asking when the user will check in again, each with its own preset time and no confirmation once set."
+  },
+  "proposedTags": [],
   "system": {
-    "tagline": "A wellness app that builds five daily return reasons from a single free check-in suite.",
-    "overview": "Calm's retention layer is built around five separate check-in types, mood, sleep, gratitude, Daily Calm reflection, quick journal, each of which triggers its own reminder channel on first completion. Five independent daily return touchpoints, all free, all anchored to different times of day. The daily content layer (Today's Dailies) is partially paywalled, but the check-in suite that drives daily returns requires no subscription.",
-    "loop": "The core loop is: open app → complete Daily Calm → complete mood check-in → complete sleep check-in → set daily reminder for each → accumulate streak → reach milestone → share streak card to social. The check-in suite's five reminder channels create five separate daily entry moments, each anchored to a different context.",
-    "keyInsight": "The check-in suite creates five reminder channels from one feature set. A user who completes all five check-ins has installed five separate daily return triggers at different times of day. The free tier's retention infrastructure is more sophisticated than its content access.",
-    "whatMakesItWork": "The system works because the check-ins are genuinely useful without the content library. A user who cannot afford the subscription can still maintain a mood log, sleep log, gratitude journal, and daily reflection, all free, all with reminder support. The free tier is a complete daily wellness practice, not a teaser.",
+    "tagline": "A wellness app where a free check-in suite is what actually moves the streak and stats, while nearly everything else waits behind a subscription.",
+    "overview": "Calm's daily state runs through the check-in suite, five self-report entry points reached only through Profile, which is the one part of the free tier the streak and stats actually respond to. Completing a check-in feeds the streak, the streak's record is what a dedicated share control turns into an outward image, and one check-in's own share screen bundles a free guest pass alongside its content. Almost the entire content catalogue and every recommendation surface stay locked behind a subscription that's never purchased.",
+    "loop": "The core loop is: open a check-in from Profile → report a mood or sleep state from a defined set of options → the answer is kept as a record and the streak and stats update → the streak's own share control composes an outward image, and finishing the Daily Calm reflection offers its own quote image with a guest pass already attached → the guest pass, once sent, needs no subscription behind it, and reaches someone outside Calm entirely. Everything else, the content catalogue, the mood-based recommendations, the masterclasses, sits behind a paywall this loop never touches.",
+    "keyInsight": "Check-in is the only mechanic here that generates anything: it's what moves the streak, and the streak is what gets shared. The subscription content Calm spends most of its screens recommending never enters this loop at all, since nothing in it requires a single piece of audio to be played.",
+    "whatMakesItWork": "The free check-in suite doesn't need the paid catalogue to function, because it never draws on it: the streak, the stats and the outward shares all run entirely on the reports the user volunteers, not on anything behind the paywall. That's also what makes the guest pass credible attached to a check-in rather than a purchase, an account with nothing to give can still send a full month of it to someone else.",
     "roles": [
       {
-        "id": "streak",
-        "role": "Located on the profile tab rather than the home screen, the lowest-prominence streak placement in the library, but shareable as a pre-formatted Instagram Stories card at each milestone."
+        "id": "check-in",
+        "role": "Two kept self-reports, mood and sleep, reached only from a Profile tab nothing else in the app points to; completing either one moves the streak and stats before any content is played."
       },
       {
-        "id": "daily-login-reward",
-        "role": "Today's Dailies refreshes daily with five distinct content types, each with its own first-completion reminder channel, mood, sleep, gratitude, reflection, quick journal."
+        "id": "streak",
+        "role": "A current, longest and total streak tracked inside Profile rather than on the home screen, responding only to completed check-ins rather than to listening activity."
+      },
+      {
+        "id": "shareable-win",
+        "role": "Stats and streaks each compose into their own separately designed outward image, built from Calm's own record of the user rather than anything the user made."
       },
       {
         "id": "gifting",
-        "role": "The 30-day guest pass gift is more generous than the standard 7-day new-user trial, making referral the highest-value acquisition path for recipients."
+        "role": "A 30-day guest pass sent from an account holding no subscription of its own, bundled automatically into the Daily Calm reflection's own share image alongside its quote."
       }
     ],
     "center": {
       "x": 50,
-      "y": 15,
+      "y": 10,
       "label": "CALM"
     },
     "nodes": [
       {
-        "id": "daily-login-reward",
+        "id": "check-in",
         "x": 50,
-        "y": 40
+        "y": 32
       },
       {
         "id": "streak",
-        "x": 26,
-        "y": 70
+        "x": 32,
+        "y": 56
       },
       {
         "id": "gifting",
-        "x": 74,
-        "y": 70
+        "x": 68,
+        "y": 56
+      },
+      {
+        "id": "shareable-win",
+        "x": 32,
+        "y": 80
       }
     ],
     "connections": [
       {
-        "from": "daily-login-reward",
+        "from": "check-in",
         "to": "streak",
-        "title": "Daily content creates streak surface",
-        "desc": "Each Today's Dailies type contributes to the daily practice count the streak tracks. Completing daily content and maintaining the streak are the same action.",
-        "effect": "Users who engage with the daily content layer are simultaneously maintaining their streak without thinking about streak maintenance as a separate objective."
-      },
-      {
-        "from": "daily-login-reward",
-        "to": "gifting",
-        "title": "Daily engagement peak triggers referral",
-        "desc": "The guest pass gift popup appears immediately after sign-in, at the same session moment that Today's Dailies is surfaced. The referral prompt arrives when engagement is highest.",
-        "effect": "The gifting mechanic captures the user at the moment they are most enthusiastic about the product, maximizing the likelihood that the referral feels like sharing something valuable."
+        "title": "A completed check-in is what moves the streak",
+        "desc": "The current, longest and total streak tracked in Profile respond only to a completed mood or sleep check-in, not to any listening activity in the paid catalogue.",
+        "effect": "The retention spine runs entirely on the free check-in suite; nothing behind the subscription can advance it."
       },
       {
         "from": "streak",
+        "to": "shareable-win",
+        "title": "The streak's own record composes the share image",
+        "desc": "A dedicated share control turns the streak and stats into a separately designed outward image, built from Calm's record of the check-ins rather than anything the user made.",
+        "effect": "A private daily habit becomes an outward-facing artifact without the user writing or designing anything themselves."
+      },
+      {
+        "from": "check-in",
         "to": "gifting",
-        "title": "Streak milestones generate shareable cards",
-        "desc": "Streak milestones generate pre-formatted Instagram Stories cards. Each milestone is a referral moment framed as personal achievement sharing rather than recruitment.",
-        "effect": "The streak milestone card is unsolicited and personal; the guest pass is solicited and generous. Together they cover different referral contexts."
+        "title": "One check-in's own share screen bundles the gift",
+        "desc": "Finishing the Daily Calm reflection, one of the check-in suite's five entries, offers a quote share image with a 30-day guest pass already attached to it.",
+        "effect": "The gift reaches someone outside Calm through the same screen a completed check-in already opens, not through a separate purchase or referral flow."
       }
     ]
   }

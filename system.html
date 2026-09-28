@@ -364,6 +364,11 @@ const CONNECTIONS = {
     { from: "daily-login-reward", to: "achievement", title: "Coca-Cola scans are counted achievements", desc: "Scanning a Coca-Cola product grants a daily pack equivalent and advances the Coke Scans achievement tier (1 / 10 / 25 items). The physical scanning behaviour is tracked, milestoned, and rewarded.", effect: "The physical product interaction is integrated into the achievement system, making real-world brand engagement part of the in-app progression. The partnership is measurable, not decorative." },
     { from: "challenges", to: "achievement", title: "Challenges surface collection milestones", desc: "Completing challenges (collect team captains, collect host country stickers) aligns with album completion milestones. Both systems point toward the same underlying goal.", effect: "Players pursuing challenges are simultaneously advancing toward album completion milestones. The two systems reinforce each other without requiring separate engagement tracks." },
   ],
+  "calm": [
+    { from: "check-in", to: "streak", title: "A completed check-in is what moves the streak", desc: "The current, longest and total streak tracked in Profile respond only to a completed mood or sleep check-in, not to any listening activity in the paid catalogue.", effect: "The retention spine runs entirely on the free check-in suite; nothing behind the subscription can advance it." },
+    { from: "streak", to: "shareable-win", title: "The streak's own record composes the share image", desc: "A dedicated share control turns the streak and stats into a separately designed outward image, built from Calm's record of the check-ins rather than anything the user made.", effect: "A private daily habit becomes an outward-facing artifact without the user writing or designing anything themselves." },
+    { from: "check-in", to: "gifting", title: "One check-in's own share screen bundles the gift", desc: "Finishing the Daily Calm reflection, one of the check-in suite's five entries, offers a quote share image with a 30-day guest pass already attached to it.", effect: "The gift reaches someone outside Calm through the same screen a completed check-in already opens, not through a separate purchase or referral flow." },
+  ],
   "insight-timer": [
     { from: "commitment", to: "streak", title: "Setting the intention starts the streak", desc: "Setting a daily intention is what starts the streak at one consecutive day; the streak does not begin from opening the app or from a completed practice.", effect: "The daily state runs through the intention first: the user's own composed statement is what sets the retention spine in motion, not the other way around." },
     { from: "streak", to: "milestone", title: "The streak counts down to the next milestone", desc: "The home screen counts down to the next milestone (7 consecutive or 50 non-consecutive days) from the moment the streak starts, tracking it as a separate figure from the day count itself.", effect: "The streak and the milestone are shown as two different records of the same underlying practice, one continuous, one a recognized point along it." },
@@ -423,11 +428,11 @@ const CONNECTIONS = {
   "dave": [
     { from: "earning-tasks", to: "piggy-bank", title: "Survey earnings land in the same account round-ups draw from", desc: "Survey earnings inside the Grow tab are paid into the same Dave Checking account that round-ups draw from and that an advance settles against.", effect: "A user earning through surveys is funding the same account balance that round-ups pull from and that Extra Cash settlement depends on, so two of Dave's three mechanics share funding without needing a direct relationship to each other." },
   ],
-  calm: [
-    { from: "daily-login-reward", to: "streak", title: "Daily content creates streak surface", desc: "Each Today's Dailies type contributes to the daily practice count the streak tracks. Completing daily content and maintaining the streak are the same action.", effect: "Users who engage with the daily content layer are simultaneously maintaining their streak without thinking about streak maintenance as a separate objective." },
-    { from: "daily-login-reward", to: "gifting", title: "Daily engagement peak triggers referral", desc: "The guest pass gift popup appears immediately after sign-in, at the same session moment that Today's Dailies is surfaced. The referral prompt arrives when engagement is highest.", effect: "The gifting mechanic captures the user at the moment they are most enthusiastic about the product, maximizing the likelihood that the referral feels like sharing something valuable." },
-    { from: "streak", to: "gifting", title: "Streak milestones generate shareable cards", desc: "Streak milestones generate pre-formatted Instagram Stories cards. Each milestone is a referral moment framed as personal achievement sharing rather than recruitment.", effect: "The streak milestone card is unsolicited and personal; the guest pass is solicited and generous. Together they cover different referral contexts." },
-  ],
+  // calm's bareword-keyed entry here was removed on its v4.1 migration (28
+  // Sep 2026): stale v3-era content asserting daily-login-reward edges the
+  // fresh analysis doesn't support (daily-login-reward was never observed)
+  // and a milestone-driven share claim Milestone itself rejects. Superseded
+  // by the quoted "calm" entry above.
   canva: [
     { from: "challenges", to: "achievement", title: "The test produces the badge", desc: "Passing the certification test flips a badge from unattained to attained, evaluated the moment the test's stated success condition is met.", effect: "The badge fires directly from the test result, not from any broader course progress, so completing the course itself is not required to receive it." },
     { from: "achievement", to: "shareable-win", title: "The same result composes the certificate", desc: "The same passed test that produces the badge also composes a certificate, presented in a second screen immediately after the badge.", effect: "A cheap, checkable credential is available as soon as the test is passed, which is what makes it easy to hand out and easy to share." },
@@ -652,10 +657,11 @@ const POSITIONS = {
     "referral-boost":        { x: 50, y: 80 },
   },
   "calm": {
-    center:                  { x: 50, y: 15, label: "CALM" },
-    "daily-login-reward":    { x: 50, y: 40 },
-    "streak":                { x: 26, y: 70 },
-    "gifting":               { x: 74, y: 70 },
+    center:                  { x: 50, y: 10, label: "CALM" },
+    "check-in":              { x: 50, y: 32 },
+    "streak":                { x: 32, y: 56 },
+    "gifting":               { x: 68, y: 56 },
+    "shareable-win":         { x: 32, y: 80 },
   },
   "canva": {
     center:                  { x: 50, y: 8,  label: "CANVA" },
