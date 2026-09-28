@@ -455,7 +455,29 @@ function parseAnalysisV41(file) {
     // which tags. Fixed by folding both lines into one id list per block;
     // nothing downstream needs to know which line an id came from.
     const supportingLine = block.match(/\*\*Supporting observations:\*\*\s*(.+)/);
-    const confidence = field(block, "Confidence");
+    // Confidence, like Role below, is a single-line value ("plausible (tier:
+    // plausible, ...)"), never multi-paragraph prose — but field()'s generic
+    // "capture until the next blank-line-delimited **Label**" regex assumes a
+    // blank line separates fields, which this format never uses between
+    // Confidence and the Role line right after it. With no blank line to stop
+    // at, field() pulled the entire rest of the block (Role, its elaboration
+    // paragraph, Rationale, Variants present/not established, Alternative
+    // considered) into `confidence` too. That went unnoticed as long as every
+    // "(tier: ...)" annotation buried in that swallowed text happened to
+    // clear the same bar the tag's own stated confidence already did — until
+    // Subway Surfers' First-Purchase Bonus and Cosmetic Customization, both
+    // genuinely plausible, whose Rationale text cites a directly-observed
+    // supporting fact ("(tier: directly observed)") for a different, higher
+    // confidence claim than the tag itself carries. confidenceTiers() then
+    // found that stray higher tier via its own tier-scanning regex and
+    // tagPublishes() let the tag through, which is what let two apps
+    // effectively unpublished then get tagged onto their observations
+    // anyway, then fail with "applied tag has no composed mechanic block"
+    // since no block was written for either (correctly, since neither should
+    // have published at all). Fixed the same way Role's identical bug was
+    // fixed (see roleLine below): read only the Confidence line itself.
+    const confidenceLine = block.match(/\*\*Confidence:\*\*\s*(.+)/);
+    const confidence = confidenceLine ? confidenceLine[1].trim() : "";
     if (!obsLine || !confidence) throw new Error(`${file}: tag "${tagName}" is missing Observations or Confidence`);
     if (!supportingLine) throw new Error(`${file}: tag "${tagName}" is missing Supporting observations`);
 
@@ -834,9 +856,11 @@ const ADDITIONS = {
   // ADDITIONS is a v3-only path picsart.md never reaches, and its old
   // single credits-tokens addition is superseded by the fresh analysis's
   // own Soft Currency and Hard Currency tags anyway.
-  // corrections §3b: set-collection added at shallow (session didn't reach
-  // multiplier level 7, so analysis has no observed section for it)
-  "subway-surfers": [{ id: "set-collection", depth: "shallow" }],
+  // subway-surfers's entry here was removed on its v4.1 migration (28 Sep
+  // 2026): ADDITIONS is a v3-only path subway-surfers.md never reaches, and
+  // its old shallow set-collection addition is superseded by the fresh
+  // analysis's own explicit rejection of Set Collection for insufficient
+  // evidence (the item-collection requirement was never established).
 };
 // Per-app id remaps from an analysis's own naming onto this library's ids.
 // Strava needed one while its clubs were classified as clans-guilds; the
@@ -972,7 +996,8 @@ const REMAPS = {
   "fortune-city": { "achievements": "achievement" },
   "match-creek-motors": { "achievements": "achievement" },
   "fifa-panini-collection": { "achievements": "achievement" },
-  "subway-surfers": { "achievements": "achievement", "variable-reward": "loot-box" },
+  // subway-surfers's entry here was removed on its v4.1 migration (28 Sep
+  // 2026): REMAPS is a v3-only path subway-surfers.md never reaches.
   "chrome-valley-customs": { "achievements": "milestone" },
   "wispr-flow": { "achievements": "milestone" },
 };
@@ -1002,7 +1027,8 @@ const DROPS = new Set([
   "limited-time-events|swgoh",
   "limited-time-events|fiton",
   "limited-time-events|match-creek-motors",
-  "limited-time-events|subway-surfers",
+  // subway-surfers's entry here was removed on its v4.1 migration (28 Sep
+  // 2026): DROPS is a v3-only path subway-surfers.md never reaches.
 ]);
 
 // Standing rule (final owner ruling, 11 Jun 2026): exactly two case studies
@@ -1141,6 +1167,31 @@ function resolveHeroImage(appId) {
 // v41-sections.mjs). Not part of spec §1.7's content-file list, so it stays
 // here for now. Optional — complete for Dave.
 const V41_APP_META = {
+  "subway-surfers": {
+    name: "Subway Surfers",
+    category: "Casual / Endless Runner",
+    type: "game",
+    sectionCards: {
+      onboarding:
+        "Subway Surfers asks for an age and a tracking permission before anything else, then puts the player straight into a guided first run with no menu in between.",
+      "core-loop":
+        "Subway Surfers' core loop is a run through the subway, ended by being caught, between which the player manages a home screen full of missions, boosts and offers.",
+      goals:
+        "The score multiplier is Subway Surfers' one long-term number, raised by missions and read by several of the game's other surfaces.",
+      access:
+        "Four surfaces in Subway Surfers stay locked behind a stated threshold: Quests, Collections, the Freebird board, and Events.",
+      economy:
+        "Subway Surfers runs on two spendable currencies, coins and keys, alongside a separate ad-ticket product and an event-specific currency.",
+      social:
+        "Subway Surfers' social surfaces are thin and reward-linked: adding a friend pays a fixed bonus, and a weekly leaderboard compares the player against friends and their country.",
+      reach:
+        "Two surfaces in Subway Surfers send something outside the game: a shareable player profile, and a photo studio built around the player's own character.",
+      monetization:
+        "Subway Surfers' shop sits behind three tabs, Offers, Store and Boosts, with ad-related offers given the store's leading position ahead of the currency packs themselves.",
+      returns:
+        "Four separate surfaces greet the player on opening Subway Surfers: a login calendar, a fully ad-based rewards track, a timed currency offer, and a daily gift in the store.",
+    },
+  },
   dave: {
     name: "Dave",
     category: "Finance / Neo-bank + Cash Advance",
