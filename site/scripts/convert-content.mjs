@@ -295,6 +295,18 @@ function confidenceTiers(confidence) {
       m[1].toLowerCase()
     );
   }
+  // A fourth shape: a tier word at the very start of the field, followed by a
+  // comma and an explanatory clause, e.g. "strongly supported, the reward
+  // screen appears in both sessions but the streak reset is never shown." —
+  // the reason for the tier lives in the same field as the tier itself. The
+  // trailing-punctuation strip above only touches the end of the string, so
+  // this reached the no-tiers-found throw below until this path was added.
+  // Anchored to the start so a tier word appearing later in the clause isn't
+  // picked up as if it were the field's own value.
+  if (!tiers.length) {
+    const lead = cleaned.match(/^(unresolved|plausible|strongly supported|directly observed)\s*,/i);
+    if (lead) tiers = [lead[1].toLowerCase()];
+  }
   // A bare value that isn't a recognized tier AND carries no "(tier: ...)"
   // annotation and no per-observation breakdown either used to fall through
   // to an empty array here, which tagPublishes below read as "doesn't
