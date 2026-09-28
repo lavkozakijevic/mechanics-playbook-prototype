@@ -18,6 +18,7 @@ import { fileURLToPath } from "node:url";
 import { V41_SECTIONS } from "../src/lib/v41-sections.mjs";
 import { REVIEW_WINDOW_OPEN } from "../src/lib/review-window.mjs";
 import { CANONICAL_MECHANIC_IDS, resolveMechanicId } from "../src/lib/canonical-mechanic-ids.mjs";
+import { extractObjectLiteral, assertNoDuplicateKeys } from "../src/lib/system-html-keys.mjs";
 
 // Temporary public review window (see review-window.mjs, the single
 // switch). Report-only stays excluded regardless — that is a content-safety
@@ -109,134 +110,17 @@ const { MECHANICS, APPS, SYSTEMS, RICH_DESCRIPTIONS, SCREENSHOTS, CHEATSHEETS, G
 // leftover "cleo" entry from an earlier draft silently win over the real one
 // and drop its personal-data-reflection node undetected through a build and
 // a push (spec review, 11 Sep 2026). Checked for below rather than relied on.
+//
+// The extraction and scanning logic, plus this check's own history (a
+// bareword-key blind spot found 16 Sep 2026, then a much worse scanning bug
+// found fixing that same blind spot's aftermath on 28 Sep 2026), lives in
+// system-html-keys.mjs, split out so it can be unit tested directly against
+// synthetic literals — see system-html-keys.test.mjs — rather than only ever
+// being exercised by a real build against real content, which is how the 28
+// Sep bug went unnoticed for twelve days.
 const systemHtml = fs.readFileSync(path.join(repo, "system.html"), "utf8");
-function extractObjectLiteral(name) {
-  const i = systemHtml.indexOf("const " + name);
-  if (i < 0) throw new Error(name + " not found in system.html");
-  const start = systemHtml.indexOf("{", i);
-  let depth = 0,
-    j = start;
-  for (; j < systemHtml.length; j++) {
-    if (systemHtml[j] === "{") depth++;
-    else if (systemHtml[j] === "}") {
-      depth--;
-      if (depth === 0) break;
-    }
-  }
-  return systemHtml.slice(start, j + 1);
-}
-
-// Scans a "{ "key": ... }" object literal's source text (as extracted above)
-// for its immediate (depth-1) keys, quoted or bareword, string-aware so a
-// brace or bracket inside a description's prose can't miscount nesting
-// depth. Returns every key found, duplicates included, so the caller can
-// decide what a repeat means.
-//
-// The bareword branch exists because a bareword key (picsart: [...], no
-// quotes) is exactly as valid a JS object key as a quoted one, and exactly
-// as capable of silently shadowing an earlier entry, "last copy wins" per
-// this same file's own comments on this hazard. It was also, until 16 Sep
-// 2026, invisible to this function: PicsArt's v4.1 migration found a
-// bareword "picsart" CONNECTIONS entry sitting well after an already-quoted
-// "picsart" entry, silently winning over it on every build, undetected
-// because the two spellings were never recognized as the same key. Scanned
-// the same way as the quoted branch: only at depth 1, and only counted as a
-// key if a colon (skipping whitespace) follows the identifier, so app-id
-// keys are caught but a per-connection field like `from:` or `title:` two
-// levels deeper is not.
-//
-// Two more bareword duplicates (calm, uptime) turned up on a sweep on 28
-// Sep 2026 — and this function had been silently failing to find almost any
-// key, quoted or bareword, since the 16 Sep fix above. It was treating a
-// bare apostrophe as a string delimiter exactly like `"` and `` ` ``, on the
-// assumption that it would only ever open and close around a real string.
-// It doesn't: every comment in this file is full of possessives and
-// contractions ("doordash's", "wispr-flow's"), and this scanner has no
-// concept of `//` comments at all, so it read the apostrophe in the very
-// first comment as opening a string, hunted for the next apostrophe
-// (anywhere, including deep inside real prose) as the close, and stayed
-// desynced for the rest of the file from there — occasionally landing back
-// on a depth-1 position by coincidence and logging a stray prose word
-// ("one", "all", "simultaneously") as a bareword key. A live check of every
-// entry confirmed neither CONNECTIONS nor POSITIONS ever uses a real
-// single-quoted string: the only appearances of `'` are contractions,
-// possessives, and nested quotation marks inside double-quoted strings, so
-// the fix is to stop treating `'` as a delimiter at all and to skip `//`
-// comments outright, rather than trying to make apostrophe-matching
-// comment-aware.
-function topLevelKeys(objectLiteralSrc) {
-  const keys = [];
-  let depth = 0;
-  for (let i = 0; i < objectLiteralSrc.length; i++) {
-    const c = objectLiteralSrc[i];
-    if (c === "/" && objectLiteralSrc[i + 1] === "/") {
-      const nl = objectLiteralSrc.indexOf("\n", i);
-      i = nl < 0 ? objectLiteralSrc.length : nl;
-      continue;
-    }
-    if (c === '"' || c === "`") {
-      const quote = c;
-      let j = i + 1;
-      while (j < objectLiteralSrc.length && objectLiteralSrc[j] !== quote) {
-        if (objectLiteralSrc[j] === "\\") j++;
-        j++;
-      }
-      if (depth === 1) {
-        let k = j + 1;
-        while (k < objectLiteralSrc.length && /\s/.test(objectLiteralSrc[k])) k++;
-        if (objectLiteralSrc[k] === ":") keys.push(objectLiteralSrc.slice(i + 1, j));
-      }
-      i = j;
-      continue;
-    }
-    if (c === "{" || c === "[") {
-      depth++;
-      continue;
-    }
-    if (c === "}" || c === "]") {
-      depth--;
-      continue;
-    }
-    if (depth === 1 && /[A-Za-z_$]/.test(c)) {
-      let j = i;
-      while (j < objectLiteralSrc.length && /[A-Za-z0-9_$]/.test(objectLiteralSrc[j])) j++;
-      let k = j;
-      while (k < objectLiteralSrc.length && /\s/.test(objectLiteralSrc[k])) k++;
-      if (objectLiteralSrc[k] === ":") keys.push(objectLiteralSrc.slice(i, j));
-      i = j - 1;
-      continue;
-    }
-  }
-  return keys;
-}
-
-// Warns loudly, rather than failing outright, on a repeated app-id key in a
-// system.html literal — the literal itself would silently keep only the
-// last copy. This is a warning and not a build failure (spec review, 11 Sep
-// 2026) because turning up this check surfaced six apps (ladder, fiton,
-// freeletics, liftoff, gymverse, clash-of-clans) already carrying two
-// different, non-identical connection sets each — not a leftover accident
-// like Cleo's, but two genuinely different authored sets where the second
-// silently wins and the first has been invisible on the live site all
-// along. Resolving those means deciding how to merge two real, differing
-// accounts of the same app, an editorial call outside this fix's scope, so
-// failing the build here now would block on content this check doesn't
-// itself know how to reconcile. Promote this to `throw` once the rest are
-// resolved, so a *new* accidental duplicate can't slip in the same way
-// again. clash-of-clans and gymverse are already down to one copy each,
-// resolved during their own v4.1 onboarding — four remain: ladder, fiton,
-// freeletics, liftoff.
-function assertNoDuplicateKeys(name, src) {
-  const counts = new Map();
-  for (const k of topLevelKeys(src)) counts.set(k, (counts.get(k) ?? 0) + 1);
-  const dupes = [...counts.entries()].filter(([, n]) => n > 1);
-  if (dupes.length) {
-    const list = dupes.map(([k, n]) => `"${k}" (${n} times)`).join(", ");
-    console.error(`\n=== DUPLICATE APP-ID KEY: system.html ${name} ===\n${list}\nOnly the last copy is used; the rest are silently dropped. Remove or merge the extras.\n`);
-  }
-}
-const connectionsSrc = extractObjectLiteral("CONNECTIONS");
-const positionsSrc = extractObjectLiteral("POSITIONS");
+const connectionsSrc = extractObjectLiteral(systemHtml, "CONNECTIONS");
+const positionsSrc = extractObjectLiteral(systemHtml, "POSITIONS");
 assertNoDuplicateKeys("CONNECTIONS", connectionsSrc);
 assertNoDuplicateKeys("POSITIONS", positionsSrc);
 
