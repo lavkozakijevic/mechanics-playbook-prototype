@@ -489,12 +489,11 @@ function parseAnalysisV41(file) {
     // Loot Box block: "**Role:** monetization, engagement" then a blank
     // line then "O43 prices draws in gems sold for money..." then another
     // blank line then "**Rationale:**". field()'s generic "capture until the
-    // next **Label**" regex, correct for Rationale and Alternative
-    // considered, was pulling that whole paragraph into `role` too — silent
-    // until something actually rendered role (this index's cards, and every
-    // "ROLE DISAGREEMENT ACROSS BLOCKS" build warning, which has been
-    // printing this same polluted text all along). Fixed by reading only
-    // the Role line itself.
+    // next **Label**" regex was pulling that whole paragraph into `role`
+    // too — silent until something actually rendered role (this index's
+    // cards, and every "ROLE DISAGREEMENT ACROSS BLOCKS" build warning,
+    // which has been printing this same polluted text all along). Fixed by
+    // reading only the Role line itself.
     const roleLine = block.match(/\*\*Role:\*\*\s*(.+)/);
 
     // Strip a single trailing "." or "," here, at the source, rather than
@@ -506,11 +505,37 @@ function parseAnalysisV41(file) {
     // guard would render a blank chip.
     const role = roleLine ? roleLine[1].trim().replace(/[.,]\s*$/, "") : "";
 
+    // Rationale and Alternative considered are the same shape as Role and
+    // Confidence above: one long single-line value, not multi-paragraph
+    // prose spanning several physical lines (verified across all 227
+    // instances of each in sources/analyses/*.md — every one is followed
+    // immediately by another "**Label:**" line or a blank line, never a
+    // continuation). The comment that used to sit here called field()
+    // "correct for Rationale and Alternative considered" — checked only
+    // because Alternative considered happens to be the LAST field in every
+    // block, so its swallow-to-blank-line behavior coincidentally lands on
+    // the real boundary. Rationale is not the last field: Variants present,
+    // Variants not established and Alternative considered all follow it
+    // with no blank line in between, so field() was swallowing all three
+    // into `rationale` for every tag in every v4.1 analysis, the same bug
+    // as Role's and Confidence's, just never surfaced because nothing
+    // downstream failed loudly on a polluted rationale string the way the
+    // publishing-bar check did on a polluted confidence string. Found while
+    // checking whether any other field in this block shares the same
+    // no-blank-line construction, after Role (Capybara Go) and Confidence
+    // (Subway Surfers) each turned out to. Fixed the same way, and
+    // Alternative considered converted too so its safety no longer depends
+    // on staying the last field forever.
+    const rationaleLine = block.match(/\*\*Rationale:\*\*\s*(.+)/);
+    const rationale = rationaleLine ? rationaleLine[1].trim() : "";
+    const alternativeConsideredLine = block.match(/\*\*Alternative considered:\*\*\s*(.+)/);
+    const alternativeConsidered = alternativeConsideredLine ? alternativeConsideredLine[1].trim() : "";
+
     if (!blocksByName.has(tagName)) blocksByName.set(tagName, []);
     blocksByName.get(tagName).push({
       confidence,
-      rationale: field(block, "Rationale"),
-      alternativeConsidered: field(block, "Alternative considered"),
+      rationale,
+      alternativeConsidered,
       role,
       obsIds: [...new Set([...idsIn(obsLine[1]), ...idsIn(supportingLine[1])])],
     });
