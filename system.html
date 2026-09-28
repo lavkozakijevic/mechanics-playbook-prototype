@@ -553,6 +553,14 @@ const CONNECTIONS = {
   // assert a relationship the source doesn't support, so this map is drawn
   // with three nodes and zero edges rather than padded with an invented one.
   "tripsy": [],
+  // leaderboards is deliberately left unconnected: the analysis is explicit
+  // that it doesn't know what the profile's stated rank is measured by, and
+  // co-occurring with achievement on the same profile page isn't the same
+  // as one feeding the other.
+  "vivino": [
+    { from: "reviews-and-ratings", to: "set-collection", title: "Rating feeds the tried-and-rated counts", desc: "The rating composer is what raises the tried and rated counts kept against styles, regions and grapes.", effect: "Writing one review moves the same counts the catalogue marks on every browsed page." },
+    { from: "reviews-and-ratings", to: "achievement", title: "Rating counts are what achievements are built from", desc: "A contributor's achievements, Ambassador and the styles-based criterion, are both stated directly in terms of a ratings count.", effect: "The same activity that publishes a review is what a profile's achievements are quietly measuring." },
+  ],
 };
 
 // Node positions for each system (as % of canvas width/height)
@@ -842,6 +850,13 @@ const POSITIONS = {
     "set-collection":      { x: 22, y: 60 },
     "community-groups":    { x: 50, y: 60 },
     "cosmetics":           { x: 78, y: 60 },
+  },
+  "vivino": {
+    center:                   { x: 50, y: 10, label: "VIVINO" },
+    "reviews-and-ratings":    { x: 50, y: 34 },
+    "set-collection":         { x: 25, y: 62 },
+    "achievement":            { x: 50, y: 62 },
+    "leaderboards":           { x: 78, y: 84 },
   },
   };
 

@@ -1,0 +1,780 @@
+{
+  "id": "vivino",
+  "name": "Vivino",
+  "category": "Food & Drink",
+  "type": "app",
+  "visibility": "public",
+  "analysisDate": "2026-09-28",
+  "lastUpdated": "2026-09-28",
+  "asObserved": "2026-08",
+  "appVersion": "None.",
+  "summary": "Vivino is a wine app where rating is the action everything else is arranged around: the rating composer feeds published reviews, review-derived flavor descriptors, a contributor's achievements, tried-and-rated counts across styles, regions and grapes, and user-rated weekly top lists. Scanning a label and searching are the two routes onto a wine's own page, where rating, a cellar, a wishlist, an AI sommelier and food pairing sit together. A subscription, Premium, is offered throughout sign-up and encountered again as a lock on wine adventures, the scanner's fuller tools, and the deeper versions of the taste profile, Sommelier and cellar.",
+  "teaser": "Vivino's whole catalogue, from a wine's own page to a critic's public profile, is built to point back at one action: rating.",
+  "icon": null,
+  "heroImage": null,
+  "contentFormat": "v4.1",
+  "observations": [
+    {
+      "id": "O1",
+      "name": "Launch screen and sign-in options",
+      "section": "onboarding",
+      "observed": "Vivino opens on a screen inviting the user to buy the right wine, over a background of wine images scrolling upward. Continue with email is the highlighted option, with continue with Apple, Google or Facebook beneath it. Signing in continued with Apple.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O2",
+      "name": "Account details prefilled from the sign-in provider",
+      "section": "onboarding",
+      "observed": "After Apple sign-in, an account details screen asks for email, first name, last name and country, prefilled from the Apple account, framed around referring to the user by name and keeping things relevant to where they live. Continuing requires switching on a toggle agreeing to the terms and conditions and privacy policy, which stays off until the user turns it on.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O3",
+      "name": "Plan selection step inside the sign-up flow",
+      "section": "onboarding",
+      "observed": "After the notification permission, a plan screen offers three options, Premium, Premium trial and Free, with a button that changes to \"Continue for free\" once the free option is chosen. An \"Explore benefits\" button on the same screen opens a free-versus-premium comparison. Choosing Free leads to home.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O4",
+      "name": "Tracking permission request on arrival at home",
+      "section": "onboarding",
+      "observed": "On first arrival at home after choosing Free, Vivino raises the system request asking permission to track activity across other companies' apps and websites, overlaid on the Premium trial offer, and is answered before that offer.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O5",
+      "name": "Home as the first unguided screen",
+      "section": "onboarding",
+      "observed": "Home carries a notification bell, a search bar with an adjacent AI button, a \"Stories from your community\" section, and a \"Discover wineries around the world\" section of scrollable winery cards. The bottom navigation holds Home, Explore, My wines and a More button, with a separate camera button. The notification bell shows no notifications on the first visit. Winery cards show name, logo, location, number of wines listed, average rating and total rating count, spanning several countries. More opens the user's profile.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O6",
+      "name": "Label scanning",
+      "section": "core-loop",
+      "observed": "The camera button opens a scanner that asks the user to position a wine label within the frame, after a system camera-access request. The empty scan history states that scanned wines are kept there as a record of the user's wine journey, with a button to scan the first wine. No label was successfully scanned. The scanner also carries Premium promotions for a wine list scanner and a quick-compare scanner.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O7",
+      "name": "Wine search, Explore, sorting and filtering",
+      "section": "core-loop",
+      "observed": "Explore offers a wine search with All wines and My wines tabs and a set of popular categories. A sort control offers highest rated as the default, along with most popular, price highest first, price lowest first and most discounted, and a filter covers type, rating, price, country, grape, style and region. Result cards show the bottle, winery, wine, location, rating, rating count and a price. In Explore, the rating filter defaults to 3.8 and above.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O8",
+      "name": "Winery directory and filters",
+      "section": "core-loop",
+      "observed": "Explore wineries opens a winery search with a filter whose button states a wine count before any filter is set. Filters cover type, a rating slider in 0.1 steps up to 4.9+, country, grape, style and region, each option carrying a count, with a Show all list ordered by count for each group. The winery rating filter defaults to one star. The country list includes countries with no wineries listed, and the list loads continuously on scroll, starting from the user's own country. Winery cards show a cover picture, logo, a verification shield, the country crest, city and country, number of wines and total ratings.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O9",
+      "name": "Winery profile",
+      "section": "core-loop",
+      "observed": "A winery profile shows a cover image, logo, name, a verified partner label, number of wines, average rating and total rating count, a description, photos, facts including country, region, winemaker and owner, links to the winery's site, Instagram and Facebook, and all of its wines, ordered by rating. Each wine card on the profile shows winery, wine, region, rating, rating count and a picture.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O10",
+      "name": "Wine page structure",
+      "section": "core-loop",
+      "observed": "A wine page opens with a video or picture, a share button, the bottle, the rating and rating count, and like and dislike buttons under a prompt asking whether the user likes the wine. A swipe-up card carries the verified winery name, the wine, and a vintage selector reaching back to 1982, sortable by recent or top rated, with per-vintage ratings and tags such as most popular and top rated. Beside the Rate button sit a cellar button, a bookmark button, a three-dot menu and an AI button. For the wine viewed, all vintages together showed 4.7 from 1,901 ratings, though not every vintage carries a rating. The three-dot menu offers change wine, wishlist, share, add to cellar, add personal note, add place, add price, add drinking window, and remove this entry. Further down the page sit an insights card, taste mentions, taste characteristics, food pairings, a winery card, community reviews, and nutritional information and allergens.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O11",
+      "name": "Rating and review composer",
+      "section": "core-loop",
+      "observed": "Rate opens a slider that starts a rating out of five, its label changing as it moves and reading \"Top marks\" at five. Choosing a rating opens a review field with a 520-character limit, along with options to add flavors, mention someone, add a place and add a price, and Facebook and Instagram toggles. Add flavors shows the descriptors most talked about across the wine's reviews, such as blackberry, oak, black cherry, chocolate and vanilla. Mention someone returned no user found for this account, which has no connections. Add place lists nearby places the wine might have been bought, with a time-limited offer toggle that opens an expiration date. Add price takes a price, a quantity and a bottle size from a long list running from miniature and glass up to magnum, double magnum, bag-in-box and a box of six. A five-star rating was submitted unintentionally while exploring the composer.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Reviews and Ratings",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Vivino carries a catalogue of wines and invites contributions to it: a rating slider, a written review, flavors, place and price (O11), and an invitation on the top list to rate favourites so they appear (O19) (tier: directly observed). Each contribution is attributed: reviews on the wine page carry the reviewer's name and rating count (O29), and a contributor's ratings are gathered on their profile (O31) (tier: directly observed). The product holds a state addressed to the contributor: the user's own rating can be removed through \"Remove this entry\" (O12), My wines states \"Your ratings live here\", and published reviews collect likes and comments (O30) (tier: directly observed). The aggregate ratings, counts and review excerpts shown to someone choosing a wine are commerce infrastructure and are not the evidence for this tag (tier: directly observed). Layer three: the loop fits Social Visibility, since contributions are exposed to other users under the reviewer's name (tier: plausible, the session shows the exposure, not its effect).",
+          "alternativeConsidered": "Community Space, on the likes and comments attached to reviews (O30). Rejected: Community Space excludes reviews and ratings attached to commerce listings, and Vivino's catalogue is presented as one to buy from (O1, O42).",
+          "role": "engagement, social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O12",
+      "name": "Removing a submitted rating",
+      "section": "core-loop",
+      "observed": "After the unintended rating, no way to remove it was found at first. The wine page's three-dot menu offers \"Remove this entry,\" which removes the rating. Removal sits in that menu rather than inside the composer itself.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Reviews and Ratings",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Vivino carries a catalogue of wines and invites contributions to it: a rating slider, a written review, flavors, place and price (O11), and an invitation on the top list to rate favourites so they appear (O19) (tier: directly observed). Each contribution is attributed: reviews on the wine page carry the reviewer's name and rating count (O29), and a contributor's ratings are gathered on their profile (O31) (tier: directly observed). The product holds a state addressed to the contributor: the user's own rating can be removed through \"Remove this entry\" (O12), My wines states \"Your ratings live here\", and published reviews collect likes and comments (O30) (tier: directly observed). The aggregate ratings, counts and review excerpts shown to someone choosing a wine are commerce infrastructure and are not the evidence for this tag (tier: directly observed). Layer three: the loop fits Social Visibility, since contributions are exposed to other users under the reviewer's name (tier: plausible, the session shows the exposure, not its effect).",
+          "alternativeConsidered": "Community Space, on the likes and comments attached to reviews (O30). Rejected: Community Space excludes reviews and ratings attached to commerce listings, and Vivino's catalogue is presented as one to buy from (O1, O42).",
+          "role": "engagement, social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O13",
+      "name": "Wine insights and the region, style and grape cards",
+      "section": "core-loop",
+      "observed": "An insights card states the wine's region, country and blend, a window for when it drinks best, and an option to show more insights, which opens a screen marking the region, style and each grape with a \"you haven't tried\" or \"haven't rated\" state. Region, style and grape each open their own card: the region card shown listed a subregion tree, winery and wine counts, common grapes, and wines with rating and price; the style card shown listed acidity, body, grapes, pairings, a \"featured in top list\" entry, and similar styles marked as not yet rated; the grape card shown listed flavors, a description, acidity and body, how the grape is used by wine type, and where it's planted by country. The insights screen also states wine type and alcohol content.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Set Collection",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Vivino defines three bounded sets, 747 styles, 4,184 regions and 2,229 grapes, and holds a member-level state for each: individual regions, styles and grapes are marked \"You haven't tried\" (O13), and the profile counts how many members of each set have been tried or rated (O20, O31) (tier: directly observed). The sets are distinct named members, not interchangeable counts, which clears the cumulative-count exclusion (tier: directly observed). How a member moves from untried to tried was not observed, and under the presence standard that rule is stated as not observed rather than filled in (tier: directly observed). Layer three: the counts fit Visible Progress and Accumulated Investment (tier: plausible, no user response was observed).",
+          "alternativeConsidered": "Profile Completion. Rejected: the members are not attributes the user types in; they are catalogue members the account encounters by trying or rating wines, which is the Set Collection side of the boundary Profile Completion draws.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O14",
+      "name": "Taste mentions and editable taste characteristics",
+      "section": "core-loop",
+      "observed": "A \"how does this wine taste\" section groups descriptors drawn from reviews into counts, such as several mentions of black fruit notes, oaky notes and red fruit. A separate taste characteristics section shows soft-to-acidic, dry-to-sweet, smooth-to-tannic and light-to-bold scales with an edit control; editing turns the heading into a request for help describing the taste and turns the scales into sliders the user sets. What happens to a user's slider input after submission isn't stated.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Reviews and Ratings",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Vivino carries a catalogue of wines and invites contributions to it: a rating slider, a written review, flavors, place and price (O11), and an invitation on the top list to rate favourites so they appear (O19) (tier: directly observed). Each contribution is attributed: reviews on the wine page carry the reviewer's name and rating count (O29), and a contributor's ratings are gathered on their profile (O31) (tier: directly observed). The product holds a state addressed to the contributor: the user's own rating can be removed through \"Remove this entry\" (O12), My wines states \"Your ratings live here\", and published reviews collect likes and comments (O30) (tier: directly observed). The aggregate ratings, counts and review excerpts shown to someone choosing a wine are commerce infrastructure and are not the evidence for this tag (tier: directly observed). Layer three: the loop fits Social Visibility, since contributions are exposed to other users under the reviewer's name (tier: plausible, the session shows the exposure, not its effect).",
+          "alternativeConsidered": "Community Space, on the likes and comments attached to reviews (O30). Rejected: Community Space excludes reviews and ratings attached to commerce listings, and Vivino's catalogue is presented as one to buy from (O1, O42).",
+          "role": "engagement, social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O15",
+      "name": "Food pairing checker and food search",
+      "section": "core-loop",
+      "observed": "The wine page lists foods the wine pairs well with and a control to choose a dish from an alphabetical list; choosing a dish returns a verdict, from a clear mismatch to a strong match. A dish opens its own card with pairings by wine type, taste ranges, top and good pairings, and a show-all control. A separate food-and-wine search in the profile menu offers a pairing search by dish, with recent items and alphabetical cards.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O16",
+      "name": "Sommelier AI assistant",
+      "section": "core-loop",
+      "observed": "The AI button on a wine page opens Sommelier, a chat assistant that opens with a written assessment of the wine and its likely pairings and ends by offering to go further on food pairings or aging. It offers suggested follow-up questions, a free question field, scan and search shortcuts, and a chat history. The assistant worked for the free account. The free plan is described as limited access to Sommelier and Premium as full access; where the limit falls isn't shown.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O17",
+      "name": "Cellar entry",
+      "section": "core-loop",
+      "observed": "The cellar button on a wine page opens an add-bottles form with a bottle count, a bottle size defaulting to 0.75, a cellar note, a bin number, a purchase price, a purchase date and a purchase location. Cellar location and tags are both labelled coming soon. The free plan is described as limited access to the cellar, with Premium listing cellar upgrades including desktop access, collection value and drinking windows.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O18",
+      "name": "Wishlist and bookmarking",
+      "section": "core-loop",
+      "observed": "Wines carry a bookmark button that toggles on and off, and wine cards in lists carry their own wishlist button. Wishlist is also a named option in the wine page's three-dot menu.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O19",
+      "name": "Top lists",
+      "section": "core-loop",
+      "observed": "A style card's \"featured in top list\" entry opens a top 25 list for that style, described as the top 25 wines as rated by Vivino users, with a line inviting the viewer to rate their favourites so they appear on the list and to check back every week, stating the next update comes in 7 days. Each listed wine shows winery, wine, location, rating, rating count and a wishlist button, and some show excerpts of reviews from featured users or Premium members. Such lists are stated to exist for other styles and blends as well.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Reviews and Ratings",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Vivino carries a catalogue of wines and invites contributions to it: a rating slider, a written review, flavors, place and price (O11), and an invitation on the top list to rate favourites so they appear (O19) (tier: directly observed). Each contribution is attributed: reviews on the wine page carry the reviewer's name and rating count (O29), and a contributor's ratings are gathered on their profile (O31) (tier: directly observed). The product holds a state addressed to the contributor: the user's own rating can be removed through \"Remove this entry\" (O12), My wines states \"Your ratings live here\", and published reviews collect likes and comments (O30) (tier: directly observed). The aggregate ratings, counts and review excerpts shown to someone choosing a wine are commerce infrastructure and are not the evidence for this tag (tier: directly observed). Layer three: the loop fits Social Visibility, since contributions are exposed to other users under the reviewer's name (tier: plausible, the session shows the exposure, not its effect).",
+          "alternativeConsidered": "Community Space, on the likes and comments attached to reviews (O30). Rejected: Community Space excludes reviews and ratings attached to commerce listings, and Vivino's catalogue is presented as one to buy from (O1, O42).",
+          "role": "engagement, social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O20",
+      "name": "Tried and rated counts over styles, regions and grapes",
+      "section": "goals",
+      "observed": "Vivino maintains counts against fixed totals: a new account's taste profile reads 0 out of 4,184 regions tried and 0 out of 2,229 grapes rated, and a critic's profile reads 439 out of 747 styles tried. The same state appears on catalogue pages as \"you haven't tried this region/style/grape\" and \"you haven't rated this style yet.\" The totals are 747 styles, 4,184 regions and 2,229 grapes. On a critic's profile the counts break down per style, region and grape with the number of ratings and average rating given for each. The copy alternates between \"tried\" and \"rated\" for the same kind of count, and what action moves a member from untried to tried isn't stated.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Set Collection",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Vivino defines three bounded sets, 747 styles, 4,184 regions and 2,229 grapes, and holds a member-level state for each: individual regions, styles and grapes are marked \"You haven't tried\" (O13), and the profile counts how many members of each set have been tried or rated (O20, O31) (tier: directly observed). The sets are distinct named members, not interchangeable counts, which clears the cumulative-count exclusion (tier: directly observed). How a member moves from untried to tried was not observed, and under the presence standard that rule is stated as not observed rather than filled in (tier: directly observed). Layer three: the counts fit Visible Progress and Accumulated Investment (tier: plausible, no user response was observed).",
+          "alternativeConsidered": "Profile Completion. Rejected: the members are not attributes the user types in; they are catalogue members the account encounters by trying or rating wines, which is the Set Collection side of the boundary Profile Completion draws.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O21",
+      "name": "Taste profile as a state built from interactions",
+      "section": "goals",
+      "observed": "After the preference questions, My wines states that the taste profile keeps track of the wines the user interacts with to find recommendations, and \"My taste profile\" shows tabs for red, white, rosé, sparkling, fortified and dessert, each with a taste preferences card and styles, regions and grapes sections with an edit control. Before the questions are answered, the screen states that the taste profile will show once preferences are tuned. The free plan is described as a basic taste profile and Premium as advanced, though the free account could still open an \"Advanced taste profile\" button. Other users' profiles expose a taste profile to viewers.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O22",
+      "name": "Preference tuner",
+      "section": "goals",
+      "observed": "The taste profile begins with swipeable cards asking whether the user enjoys red wine, and the same for white, sparkling, rosé, fortified and dessert, each answered with a sad, neutral or happy face. A preference tuner then offers sliders per wine type, light to bold, smooth to tannic, dry to sweet, soft to acidic, and a price range choice. Answers can be changed after they're given. The advanced profile also invites the user to add favourite styles and to mark regions they like and dislike.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O23",
+      "name": "Achievements and wine adventure progress on profiles",
+      "section": "goals",
+      "observed": "A critic's public profile ends with an achievements section listing an Ambassador title for 100 or more ratings, a top-ten position in the United States based on four styles, and 100 or more ratings for 45 styles. The same profile shows wine adventure cards; opening one shows the critic's progress as 7 out of 7 challenges completed beside the viewer's own progress of 0 out of 7. Vivino states that a wine adventure is made of challenges the app tracks progress against; we did not cover what completing a challenge involves in this analysis, since the challenge entries on the card can't be tapped. The achievements were seen only on another user's profile; the new account's own profile showed none.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Achievement",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Vivino lists achievements on a user's profile with stated criteria: Ambassador for 100+ ratings, 100+ ratings for 45 styles, and a top-ten position in the United States based on four styles (O23) (tier: directly observed). Each is a discrete attained state separate from the rating count it rests on, preserved on the profile (tier: directly observed). The achievements were seen only on another user's profile, so how an attainment is announced to its holder was not observed (tier: directly observed).",
+          "alternativeConsidered": "Leveling, for Ambassador as a contributor status. Rejected on the product's own framing: Ambassador sits in a list headed achievements beside other criteria, and no ordered series of statuses or movement between them was seen.",
+          "role": "engagement, social"
+        },
+        {
+          "name": "Comparative Rank",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "A critic's profile shows their rank in the United States (O31), and their achievements state a top-ten position in the United States based on four styles (O23) (tier: directly observed). Two observations converge on a position within a named geographic comparison set, which is more than the word \"rank\" alone (tier: strongly supported). The measure the ordering uses and the rank's value were not captured, and are stated as not observed (tier: directly observed). The Premium comparison lists \"Social rank\" as a Premium feature (O39), which suggests the new account's own rank sits behind Premium (tier: plausible, no rank was shown for the new account and the feature was not opened).",
+          "alternativeConsidered": "An absolute status label rather than a comparative position. The \"top 10\" wording and the national scope favour a comparison against other users; a view of the ordered set, or the new account's own rank with its measure, would separate the two.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O24",
+      "name": "Wine adventures behind Premium",
+      "section": "access",
+      "observed": "Opening a wine adventure card shows a welcome message framing it as a closer look at old world and new world wines. Vivino states that getting started opens the adventure, but both \"Get started\" and \"Wine adventures\" in the profile menu lead instead to the Premium screen. Premium's carousel describes the feature as smarter wine adventures, learning, tasting and playing through named wine regions. Wine adventures exist in Vivino behind Premium; we did not cover what's inside one in this analysis, since the Premium screen is as far as this account could go.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O25",
+      "name": "Taste preferences withheld until more wines are rated",
+      "section": "access",
+      "observed": "Each wine type's taste preferences card states that no preferences are available yet, and that tasting a few more wines of that type will reveal them. Vivino does not name how many wines are required. Edit preferences remains available beside the withheld card regardless.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O26",
+      "name": "Premium locks in the scanner",
+      "section": "access",
+      "observed": "The scanner promotes a wine list scanner and a quick-compare scanner, both tied to Premium, framed around guiding restaurant wine choices and comparing multiple scans quickly. Both prompts can be closed, and ordinary label scanning remains available without Premium.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O27",
+      "name": "Features marked as coming soon",
+      "section": "access",
+      "observed": "In the cellar entry, \"Cellar location\" and \"Tags\" are both labelled coming soon.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O28",
+      "name": "Community stories and friend activity entry points",
+      "section": "social",
+      "observed": "Home's \"Stories from your community\" section, for a new account, shows a card inviting the user to follow friends and see their ratings, finds and wine moments as they happen, with buttons to find friends or hide the card. The profile menu separately lists a Friends feed item. A friend activity feed exists in Vivino, populated once the user follows people; we did not see it populated in this analysis, since it stayed unopened after following two people. The notification centre names friends reviewing a wine as one of the things it reports.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O29",
+      "name": "Community reviews on the wine page",
+      "section": "social",
+      "observed": "A wine page's community reviews show the distribution of one- to five-star ratings as bars, the total rating count, and individual reviews with the rating, the text, the reviewer's name, how many ratings that reviewer has left in total, when the review was left, and likes. One reviewer card showed a person with 11,578 ratings.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Reviews and Ratings",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Vivino carries a catalogue of wines and invites contributions to it: a rating slider, a written review, flavors, place and price (O11), and an invitation on the top list to rate favourites so they appear (O19) (tier: directly observed). Each contribution is attributed: reviews on the wine page carry the reviewer's name and rating count (O29), and a contributor's ratings are gathered on their profile (O31) (tier: directly observed). The product holds a state addressed to the contributor: the user's own rating can be removed through \"Remove this entry\" (O12), My wines states \"Your ratings live here\", and published reviews collect likes and comments (O30) (tier: directly observed). The aggregate ratings, counts and review excerpts shown to someone choosing a wine are commerce infrastructure and are not the evidence for this tag (tier: directly observed). Layer three: the loop fits Social Visibility, since contributions are exposed to other users under the reviewer's name (tier: plausible, the session shows the exposure, not its effect).",
+          "alternativeConsidered": "Community Space, on the likes and comments attached to reviews (O30). Rejected: Community Space excludes reviews and ratings attached to commerce listings, and Vivino's catalogue is presented as one to buy from (O1, O42).",
+          "role": "engagement, social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O30",
+      "name": "Featured reviews and review interactions",
+      "section": "social",
+      "observed": "On a top list, some wines show excerpts of reviews from featured users or Premium members. A review opens in full with its date and reviewer, and a three-dot control offers follow, block user and report. Other users can like and comment on a review. Whether a featured review comes from a featured user or a Premium member isn't distinguished.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Reviews and Ratings",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Vivino carries a catalogue of wines and invites contributions to it: a rating slider, a written review, flavors, place and price (O11), and an invitation on the top list to rate favourites so they appear (O19) (tier: directly observed). Each contribution is attributed: reviews on the wine page carry the reviewer's name and rating count (O29), and a contributor's ratings are gathered on their profile (O31) (tier: directly observed). The product holds a state addressed to the contributor: the user's own rating can be removed through \"Remove this entry\" (O12), My wines states \"Your ratings live here\", and published reviews collect likes and comments (O30) (tier: directly observed). The aggregate ratings, counts and review excerpts shown to someone choosing a wine are commerce infrastructure and are not the evidence for this tag (tier: directly observed). Layer three: the loop fits Social Visibility, since contributions are exposed to other users under the reviewer's name (tier: plausible, the session shows the exposure, not its effect).",
+          "alternativeConsidered": "Community Space, on the likes and comments attached to reviews (O30). Rejected: Community Space excludes reviews and ratings attached to commerce listings, and Vivino's catalogue is presented as one to buy from (O1, O42).",
+          "role": "engagement, social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O31",
+      "name": "Another user's public profile",
+      "section": "social",
+      "observed": "A reviewer's profile identifies the person as a wine critic and wine blogger, links to their Instagram, and shows following and follower counts, their rank in the United States, a follow or unfollow button, and their ratings, wishlist, photos, taste profile, wine adventures and achievements. Their ratings list sorts by latest or top rated and shows their rating beside the average, the date, likes and comments, with a save control on each wine. The profile states a ratings count that doesn't match the count shown on that same reviewer's card elsewhere.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Reviews and Ratings",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Vivino carries a catalogue of wines and invites contributions to it: a rating slider, a written review, flavors, place and price (O11), and an invitation on the top list to rate favourites so they appear (O19) (tier: directly observed). Each contribution is attributed: reviews on the wine page carry the reviewer's name and rating count (O29), and a contributor's ratings are gathered on their profile (O31) (tier: directly observed). The product holds a state addressed to the contributor: the user's own rating can be removed through \"Remove this entry\" (O12), My wines states \"Your ratings live here\", and published reviews collect likes and comments (O30) (tier: directly observed). The aggregate ratings, counts and review excerpts shown to someone choosing a wine are commerce infrastructure and are not the evidence for this tag (tier: directly observed). Layer three: the loop fits Social Visibility, since contributions are exposed to other users under the reviewer's name (tier: plausible, the session shows the exposure, not its effect).",
+          "alternativeConsidered": "Community Space, on the likes and comments attached to reviews (O30). Rejected: Community Space excludes reviews and ratings attached to commerce listings, and Vivino's catalogue is presented as one to buy from (O1, O42).",
+          "role": "engagement, social"
+        },
+        {
+          "name": "Set Collection",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Vivino defines three bounded sets, 747 styles, 4,184 regions and 2,229 grapes, and holds a member-level state for each: individual regions, styles and grapes are marked \"You haven't tried\" (O13), and the profile counts how many members of each set have been tried or rated (O20, O31) (tier: directly observed). The sets are distinct named members, not interchangeable counts, which clears the cumulative-count exclusion (tier: directly observed). How a member moves from untried to tried was not observed, and under the presence standard that rule is stated as not observed rather than filled in (tier: directly observed). Layer three: the counts fit Visible Progress and Accumulated Investment (tier: plausible, no user response was observed).",
+          "alternativeConsidered": "Profile Completion. Rejected: the members are not attributes the user types in; they are catalogue members the account encounters by trying or rating wines, which is the Set Collection side of the boundary Profile Completion draws.",
+          "role": "engagement"
+        },
+        {
+          "name": "Achievement",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Vivino lists achievements on a user's profile with stated criteria: Ambassador for 100+ ratings, 100+ ratings for 45 styles, and a top-ten position in the United States based on four styles (O23) (tier: directly observed). Each is a discrete attained state separate from the rating count it rests on, preserved on the profile (tier: directly observed). The achievements were seen only on another user's profile, so how an attainment is announced to its holder was not observed (tier: directly observed).",
+          "alternativeConsidered": "Leveling, for Ambassador as a contributor status. Rejected on the product's own framing: Ambassador sits in a list headed achievements beside other criteria, and no ordered series of statuses or movement between them was seen.",
+          "role": "engagement, social"
+        },
+        {
+          "name": "Comparative Rank",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "A critic's profile shows their rank in the United States (O31), and their achievements state a top-ten position in the United States based on four styles (O23) (tier: directly observed). Two observations converge on a position within a named geographic comparison set, which is more than the word \"rank\" alone (tier: strongly supported). The measure the ordering uses and the rank's value were not captured, and are stated as not observed (tier: directly observed). The Premium comparison lists \"Social rank\" as a Premium feature (O39), which suggests the new account's own rank sits behind Premium (tier: plausible, no rank was shown for the new account and the feature was not opened).",
+          "alternativeConsidered": "An absolute status label rather than a comparative position. The \"top 10\" wording and the national scope favour a comparison against other users; a view of the ordered set, or the new account's own rank with its measure, would separate the two.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O32",
+      "name": "Following and suggested people",
+      "section": "social",
+      "observed": "Following two people adds them to the profile's following list with an unfollow button. An add-person button opens \"Discover people\" with a QR code scanner, a route to find friends already on Vivino, and suggested people to follow, some marked with a star as featured. Tapping the user's own name or photo on their profile card does nothing.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O33",
+      "name": "Share a Vivino moment",
+      "section": "reach",
+      "observed": "A wine page's share button opens \"Share a Vivino moment,\" with a tip to swipe for more layouts and choose how to showcase the wine's rating and review. Three layouts show the bottle, rating, winery, wine and vintage with the Vivino logo, or the same without the bottle and with the rating count instead; the background can be a gradient, an uploaded photo, or the winery's own photo or video. The result can be downloaded, sent straight to Instagram, or passed to the system share sheet. The card was composed before the user had rated the wine, carrying the wine's own rating rather than the user's.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O34",
+      "name": "Posting a rating to Facebook and Instagram",
+      "section": "reach",
+      "observed": "The review composer carries Facebook and Instagram toggles that are on by default. Tapping them asks the user to log in to those networks; posting requires a login not yet given.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O35",
+      "name": "Sharing a food pairing",
+      "section": "reach",
+      "observed": "A food card can be shared, with the shared message reading \"Thought you'd like this wine and this food.\"",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O36",
+      "name": "External links on winery and user profiles",
+      "section": "reach",
+      "observed": "Winery profiles link out to the winery's website, Instagram and Facebook, and a critic's profile links to their Instagram.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O37",
+      "name": "Friend-finding through outside accounts",
+      "section": "reach",
+      "observed": "\"Find your friends in Vivino\" offers to connect to Google or to contacts to find people the user knows, alongside a QR code scanner. Neither connection was made, and no reward for inviting or finding friends was shown.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O38",
+      "name": "Plan cards and price framing",
+      "section": "monetization",
+      "observed": "The plan step shows Premium at $47.90 per year, restated as $3.99 per month, framed for the wine curious looking to grow their knowledge; Premium trial, tagged \"Recommended,\" free for 7 days then $4.99 per month, framed for anyone wanting full access; and Free, framed for the casual drinker wanting quick answers or good deals. The trial card shows no annual price, and the screen offers no separate monthly plan alongside it. The Premium card leads with the annual price and restates it monthly, while the trial card states only a monthly price. Whether the trial converts to monthly or annual billing isn't stated on the screen.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O39",
+      "name": "Benefits comparison and the Premium carousel",
+      "section": "monetization",
+      "observed": "\"Explore benefits\" opens a two-tab comparison: Premium at $4.99 per month lists everything in Free plus an advanced taste profile, advanced wine recommendations, full access to Sommelier, full access to cellar, social rank, exclusive wine deals and the quick compare scanner; Free lists scanning, rating, reviewing and exploring wines, a basic taste profile, basic wine recommendations, limited access to Sommelier and limited access to cellar. Items with a chevron open an auto-advancing six-slide carousel covering AI wine summaries, exclusive deals and priority offers, the wine list scanner, the quick compare scanner, smarter wine adventures, and cellar upgrades, each stating 7 days free then $47.90 per year. Every chevron opens the same carousel. The comparison prices Premium at $4.99 per month while the plan card states $3.99 per month for the same annual plan.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Comparative Rank",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "A critic's profile shows their rank in the United States (O31), and their achievements state a top-ten position in the United States based on four styles (O23) (tier: directly observed). Two observations converge on a position within a named geographic comparison set, which is more than the word \"rank\" alone (tier: strongly supported). The measure the ordering uses and the rank's value were not captured, and are stated as not observed (tier: directly observed). The Premium comparison lists \"Social rank\" as a Premium feature (O39), which suggests the new account's own rank sits behind Premium (tier: plausible, no rank was shown for the new account and the feature was not opened).",
+          "alternativeConsidered": "An absolute status label rather than a comparative position. The \"top 10\" wording and the national scope favour a comparison against other users; a view of the ordered set, or the new account's own rank with its measure, would separate the two.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O40",
+      "name": "Free Premium trial offer with a countdown",
+      "section": "monetization",
+      "observed": "On first arrival at home after choosing Free, Vivino offers seven days of Premium with no payment required, cancel anytime, under a countdown, alongside a \"level up your wine game\" list of tagged features and the same $47.90 per year or $3.99 per month pricing stated elsewhere. The countdown read 00:55:05 and did not appear to move while watched; whether the 55 is minutes or hours isn't stated. The offer can be closed from the top right corner, and its feature tags open the same carousel as the benefits comparison.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O41",
+      "name": "Premium entry points across the app",
+      "section": "monetization",
+      "observed": "Premium is offered from the profile menu, the scanner, wine adventures and the trial offer on first arrival at home.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O42",
+      "name": "Wine sales signals",
+      "section": "monetization",
+      "observed": "Vivino's launch screen invites the user to buy the right wine, wine cards show prices, a sort option surfaces the most discounted wines, exclusive wine deals are named as a Premium benefit, and the notification centre mentions updates on orders. No purchase flow, cart or checkout appeared.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O43",
+      "name": "Notification permission request",
+      "section": "returns",
+      "observed": "Immediately after account details, Vivino raises the system request to send notifications, with Allow and Don't Allow, before the plan step and before home. How it was answered isn't shown.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O44",
+      "name": "Notification centre and its stated contents",
+      "section": "returns",
+      "observed": "The notification centre states that it has nothing to show yet, and that it will report special wine offers, updates on orders, or when friends review a wine. The bell is reachable from home and from My wines.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O45",
+      "name": "Weekly top-list update notice",
+      "section": "returns",
+      "observed": "The top list tells the viewer to check the list every week and states the next update comes in 7 days. Whether a notification accompanies the update isn't shown.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    }
+  ],
+  "systemView": [
+    "This is a medium system. Its spine is rating: a single composer action feeds the published reviews other users read, the achievement and rank shown on a contributor's profile, the tried-and-rated counts kept across styles, regions and grapes, and the weekly top lists that ask the viewer to rate favourites to see them listed."
+  ],
+  "mechanicWriteups": [
+    {
+      "name": "Reviews and Ratings",
+      "summary": "A five-star rating and written review, submitted once per wine per user, publishes under the contributor's name with their running rating count attached, feeding review distributions, top lists and profile pages.",
+      "observed": "Vivino asks the user to rate a wine on a five-star slider, then opens a review field for a written note, flavor tags, a place and a price. A submitted rating can be removed only from the wine page's own three-dot menu, not from inside the composer itself. Published reviews show on the wine page with the reviewer's name, their total rating count, when the review was left, and likes, and a top list invites the viewer to rate their favourites so those wines appear on it.",
+      "presented": "The composer opens from a Rate button on the wine page itself, with the rating count and aggregate score already shown above it. Once published, a review carries the same identity and count everywhere it resurfaces, on the wine's own page, on a top list, and on the reviewer's public profile.",
+      "noting": "Vivino gives contribution nowhere to hide once it's made: a review always carries the same name and running count, whether it's read on the wine that prompted it or on the reviewer's own profile. Making removal a menu action apart from the composer means an accidental rating isn't obviously reversible from the screen that created it.",
+      "findings": [
+        "A rating and review is submitted from a five-star slider and a 520-character text field.",
+        "A submitted rating can be removed only from the wine page's three-dot menu.",
+        "Published reviews carry the reviewer's name, their total rating count, the date and likes.",
+        "A top list tells viewers to rate their favourites so those wines appear on it."
+      ],
+      "screenshotsNote": "the rating slider and review composer; a published review showing the reviewer's name and rating count."
+    },
+    {
+      "name": "Set Collection",
+      "summary": "Three fixed catalogues, styles, regions and grapes, mark each member the account hasn't tried or rated, with a running count of how many of each the account has reached.",
+      "observed": "Vivino defines 747 styles, 4,184 regions and 2,229 grapes as fixed sets, and marks individual members \"You haven't tried this region\", \"You haven't tried this style\" or \"You haven't rated this style yet\" wherever they appear in the catalogue. A profile shows how many of each set have been tried or rated, for example 0 out of 4,184 regions.",
+      "presented": "The untried marker sits directly on a region, style or grape's own catalogue card, the same page anyone browsing wine would land on. The running counts against each set's total are shown on the taste profile and on a user's public profile.",
+      "noting": "Marking every catalogue page with the account's own untried state, rather than keeping progress on a separate tracker, turns ordinary browsing into a constant reminder of what hasn't been tried yet.",
+      "findings": [
+        "Three fixed sets are tracked: 747 styles, 4,184 regions and 2,229 grapes.",
+        "Untried or unrated members are marked directly on their own catalogue page.",
+        "A profile shows a running count against each set's total.",
+        "What action moves a member from untried to tried isn't stated."
+      ],
+      "screenshotsNote": "a region or style card showing its \"haven't tried\" marker; a profile's tried-and-rated counts."
+    },
+    {
+      "name": "Achievement",
+      "summary": "A contributor's public profile lists named, permanently attained states, a ratings-count title and a ranked position, each kept apart from the ongoing rating count they're built from.",
+      "observed": "A critic's public profile lists an Ambassador title for 100 or more ratings, a top-ten position in the United States based on four styles, and 100 or more ratings across 45 separate styles.",
+      "presented": "The achievements sit in their own section at the end of the profile, below the ratings, wishlist and taste profile, stated as attained facts rather than progress toward them.",
+      "noting": "Every achievement seen is a byproduct of the same rating count Set Collection and the profile's own tried counts already track, so contributing to one figure is what quietly satisfies several separate criteria at once.",
+      "findings": [
+        "Ambassador is attained at 100 or more ratings.",
+        "A separate criterion attains at 100 or more ratings across 45 styles.",
+        "A top-ten position in the United States is listed alongside the ratings-based criteria.",
+        "Achievements were seen only on another user's profile; the new account's own profile showed none."
+      ],
+      "screenshotsNote": "a public profile's achievements section."
+    },
+    {
+      "name": "Comparative Rank",
+      "summary": "A contributor's public profile states their rank in the United States, without naming the measure it orders by or showing anyone else's position.",
+      "observed": "A critic's public profile states a rank in the United States, and the same profile's achievements separately state a top-ten position in the United States based on four styles.",
+      "presented": "The rank sits on the profile as a single stated position, with no ordered list of other users shown alongside it.",
+      "noting": "Listing social rank as a Premium feature suggests a new account's own rank sits behind a subscription, though no rank was shown for the new account and the feature was never opened to confirm it.",
+      "findings": [
+        "A critic's profile states their rank in the United States.",
+        "The same profile separately states a top-ten position based on four styles.",
+        "The measure the ranking uses, and the rank's own value, aren't stated.",
+        "Social rank is listed as a Premium feature."
+      ],
+      "screenshotsNote": "a public profile showing the stated national rank.\n\n---"
+    }
+  ],
+  "sectionLeadIns": {
+    "onboarding": "Sign-in, account details and a plan choice run before the tracking permission and a trial offer greet the user on first arrival at home.",
+    "core-loop": "Scanning a label and searching are the two routes onto a wine's own page in Vivino, where rating, a cellar, a wishlist, an AI sommelier and food pairing all sit together.",
+    "goals": "Tried and rated counts across styles, regions and grapes, and a taste profile built from what the account has interacted with, run alongside a fixed rating spine.",
+    "access": "Wine adventures, the scanner's fuller tools and a wine type's own taste preferences each stay locked until Premium or a stated condition is met.",
+    "social": "Vivino's social layer runs entirely on the same contributions the rest of the app is built around: a contributor's public profile, published reviews, and a following system with no group or shared space behind it.",
+    "reach": "A shareable wine card, social posting toggles and a shared food pairing message each send something outside the app.",
+    "monetization": "A three-way plan choice, a benefits comparison and a trial offer with a countdown all lead to the same Premium subscription.",
+    "returns": "A notification permission request and a weekly top-list update notice bring the viewer back on two different clocks."
+  },
+  "sectionCards": {
+    "onboarding": "Sign-in, account details and a plan choice run before the tracking permission and a trial offer greet the user on first arrival at home.",
+    "core-loop": "Scanning a label and searching are the two routes onto a wine's own page, where rating, a cellar, a wishlist, an AI sommelier and food pairing all sit together.",
+    "goals": "Tried and rated counts across styles, regions and grapes, and a taste profile built from what the account has interacted with, run alongside a fixed rating spine.",
+    "access": "Wine adventures, the scanner's fuller tools and a wine type's own taste preferences each stay locked until Premium or a stated condition is met.",
+    "economy": "Empty. Vivino holds no product-defined currency, points balance, or other held or earned quantity with faucets and sinks.",
+    "social": "A contributor's public profile, published reviews and a following system make up a thin social layer built entirely from the same ratings the rest of the app runs on.",
+    "reach": "A shareable wine card, social posting toggles and a shared food pairing message each send something outside the app.",
+    "monetization": "A three-way plan choice, a benefits comparison and a trial offer with a countdown all lead to the same Premium subscription.",
+    "returns": "A notification permission request and a weekly top-list update notice bring the viewer back on two different clocks."
+  },
+  "proposedTags": [],
+  "system": {
+    "tagline": "A wine app where every catalogue page is built to point back at one action: rating.",
+    "overview": "Vivino is a medium system built around rating: a single composer action feeds the published reviews other users read, the achievement and rank shown on a contributor's profile, the tried-and-rated counts kept across styles, regions and grapes, and the weekly top lists that ask the viewer to rate favourites to see them listed. Scanning a label and searching are the two routes onto a wine's own page, where rating sits beside a cellar, a wishlist, an AI sommelier and food pairing. A subscription, Premium, is offered throughout and encountered again as a lock on wine adventures, the scanner's fuller tools, and the deeper versions of the taste profile, Sommelier and cellar.",
+    "loop": "The core loop is: scan a label or search for a wine, open its page, rate it and write a review, see the rating and review published under your name, feeding review distributions, top lists and your own profile, browse the catalogue and find untried styles, regions and grapes marked against your own account, and build a taste profile from what you've rated.",
+    "keyInsight": "Every mechanic here is a byproduct of the same single action: rating. Set Collection's tried counts and Achievement's criteria both read off the same rating activity, so the product needs the user to do exactly one thing to advance both of them at once.",
+    "whatMakesItWork": "Because Set Collection and Achievement both trace back to rating, Vivino doesn't need separate systems to reward separate behaviors: writing one review simultaneously moves a tried count and edges the account toward an achievement criterion. The rank shown on a profile sits apart from this, since the analysis never establishes what it's actually measured by.",
+    "roles": [
+      {
+        "id": "reviews-and-ratings",
+        "role": "A five-star rating and written review, submitted once per wine per user, publishes under the contributor's name with their running rating count attached, feeding review distributions, top lists and profile pages."
+      },
+      {
+        "id": "set-collection",
+        "role": "Three fixed catalogues, styles, regions and grapes, mark each member the account hasn't tried or rated, with a running count of how many of each the account has reached."
+      },
+      {
+        "id": "achievement",
+        "role": "A contributor's public profile lists named, permanently attained states, a ratings-count title and a ranked position, each kept apart from the ongoing rating count they're built from."
+      },
+      {
+        "id": "leaderboards",
+        "role": "A contributor's public profile states their rank in the United States, without naming the measure it orders by or showing anyone else's position."
+      }
+    ],
+    "center": {
+      "x": 50,
+      "y": 10,
+      "label": "VIVINO"
+    },
+    "nodes": [
+      {
+        "id": "reviews-and-ratings",
+        "x": 50,
+        "y": 34
+      },
+      {
+        "id": "set-collection",
+        "x": 25,
+        "y": 62
+      },
+      {
+        "id": "achievement",
+        "x": 50,
+        "y": 62
+      },
+      {
+        "id": "leaderboards",
+        "x": 78,
+        "y": 84
+      }
+    ],
+    "connections": [
+      {
+        "from": "reviews-and-ratings",
+        "to": "set-collection",
+        "title": "Rating feeds the tried-and-rated counts",
+        "desc": "The rating composer is what raises the tried and rated counts kept against styles, regions and grapes.",
+        "effect": "Writing one review moves the same counts the catalogue marks on every browsed page."
+      },
+      {
+        "from": "reviews-and-ratings",
+        "to": "achievement",
+        "title": "Rating counts are what achievements are built from",
+        "desc": "A contributor's achievements, Ambassador and the styles-based criterion, are both stated directly in terms of a ratings count.",
+        "effect": "The same activity that publishes a review is what a profile's achievements are quietly measuring."
+      }
+    ]
+  }
+}

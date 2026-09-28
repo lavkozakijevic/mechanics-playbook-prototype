@@ -1236,6 +1236,10 @@ const ALL_APPS = [
   // system.html): a first-time addition analyzed directly under v4.1, same
   // as DoorDash above.
   { file: "tripsy.md", id: "tripsy", visibility: "subscriber" },
+  // Vivino has no v3 history either, in this file or anywhere else (data.js,
+  // system.html): a first-time addition analyzed directly under v4.1, same
+  // as Tripsy above.
+  { file: "vivino.md", id: "vivino", visibility: "subscriber" },
   // Report-only remainder (never appear in deployed output)
   { file: "orbit.md", id: "orbit", visibility: "report-only" },
   { file: "dave.md", id: "dave", visibility: "subscriber" },
@@ -1311,6 +1315,31 @@ function resolveHeroImage(appId) {
 // v41-sections.mjs). Not part of spec §1.7's content-file list, so it stays
 // here for now. Optional — complete for Dave.
 const V41_APP_META = {
+  "vivino": {
+    name: "Vivino",
+    category: "Food & Drink",
+    type: "app",
+    sectionCards: {
+      onboarding:
+        "Sign-in, account details and a plan choice run before the tracking permission and a trial offer greet the user on first arrival at home.",
+      "core-loop":
+        "Scanning a label and searching are the two routes onto a wine's own page, where rating, a cellar, a wishlist, an AI sommelier and food pairing all sit together.",
+      goals:
+        "Tried and rated counts across styles, regions and grapes, and a taste profile built from what the account has interacted with, run alongside a fixed rating spine.",
+      access:
+        "Wine adventures, the scanner's fuller tools and a wine type's own taste preferences each stay locked until Premium or a stated condition is met.",
+      economy:
+        "Empty. Vivino holds no product-defined currency, points balance, or other held or earned quantity with faucets and sinks.",
+      social:
+        "A contributor's public profile, published reviews and a following system make up a thin social layer built entirely from the same ratings the rest of the app runs on.",
+      reach:
+        "A shareable wine card, social posting toggles and a shared food pairing message each send something outside the app.",
+      monetization:
+        "A three-way plan choice, a benefits comparison and a trial offer with a countdown all lead to the same Premium subscription.",
+      returns:
+        "A notification permission request and a weekly top-list update notice bring the viewer back on two different clocks.",
+    },
+  },
   "solitaire-grand-harvest": {
     name: "Solitaire Grand Harvest",
     category: "Casual / Card Game",
