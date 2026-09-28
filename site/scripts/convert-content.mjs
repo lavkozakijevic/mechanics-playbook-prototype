@@ -144,12 +144,37 @@ function extractObjectLiteral(name) {
 // key if a colon (skipping whitespace) follows the identifier, so app-id
 // keys are caught but a per-connection field like `from:` or `title:` two
 // levels deeper is not.
+//
+// Two more bareword duplicates (calm, uptime) turned up on a sweep on 28
+// Sep 2026 — and this function had been silently failing to find almost any
+// key, quoted or bareword, since the 16 Sep fix above. It was treating a
+// bare apostrophe as a string delimiter exactly like `"` and `` ` ``, on the
+// assumption that it would only ever open and close around a real string.
+// It doesn't: every comment in this file is full of possessives and
+// contractions ("doordash's", "wispr-flow's"), and this scanner has no
+// concept of `//` comments at all, so it read the apostrophe in the very
+// first comment as opening a string, hunted for the next apostrophe
+// (anywhere, including deep inside real prose) as the close, and stayed
+// desynced for the rest of the file from there — occasionally landing back
+// on a depth-1 position by coincidence and logging a stray prose word
+// ("one", "all", "simultaneously") as a bareword key. A live check of every
+// entry confirmed neither CONNECTIONS nor POSITIONS ever uses a real
+// single-quoted string: the only appearances of `'` are contractions,
+// possessives, and nested quotation marks inside double-quoted strings, so
+// the fix is to stop treating `'` as a delimiter at all and to skip `//`
+// comments outright, rather than trying to make apostrophe-matching
+// comment-aware.
 function topLevelKeys(objectLiteralSrc) {
   const keys = [];
   let depth = 0;
   for (let i = 0; i < objectLiteralSrc.length; i++) {
     const c = objectLiteralSrc[i];
-    if (c === '"' || c === "'" || c === "`") {
+    if (c === "/" && objectLiteralSrc[i + 1] === "/") {
+      const nl = objectLiteralSrc.indexOf("\n", i);
+      i = nl < 0 ? objectLiteralSrc.length : nl;
+      continue;
+    }
+    if (c === '"' || c === "`") {
       const quote = c;
       let j = i + 1;
       while (j < objectLiteralSrc.length && objectLiteralSrc[j] !== quote) {

@@ -450,11 +450,13 @@ const CONNECTIONS = {
   tiimo: [
     { from: "streak", to: "milestone", title: "The day count feeds the marker row", desc: "One of the row's two tracks is keyed directly to the streak day count, so a day maintained crosses the same thresholds the row displays.", effect: "The row's sense of standing depends on the streak's own continuity rule, which a single day of use can't show operating." },
   ],
-  uptime: [
-    { from: "streak", to: "achievement", title: "Daily return generates expertise badges", desc: "Returning daily to complete hacks in a topic generates 'expert in X' expertise badges automatically, without any explicit achievement hunting.", effect: "Users who maintain the streak for topic-specific reasons discover they have been accumulating expertise badges, achievements arrive as noticed facts rather than pursued goals." },
-    { from: "achievement", to: "gifting", title: "Achievement cards are referral content", desc: "Pre-formatted achievement cards, 'you're saving time by hacking knowledge', are the primary social sharing content. Sharing an achievement card is functionally a referral.", effect: "Every achievement milestone is a potential user acquisition moment. The achievement and referral mechanisms share the same shareable image assets." },
-    { from: "streak", to: "gifting", title: "Post-hack screen captures both mechanics", desc: "The post-first-hack screen surfaces the streak counter, reminder setup, and referral gift at the same moment, the peak engagement point of the first session.", effect: "The highest-intent moment captures three retention and acquisition actions simultaneously: streak habit formation, reminder installation, and referral sharing." },
-  ],
+  // uptime's bareword-keyed entry here was removed on this sweep (28 Sep
+  // 2026): a stale v3-era duplicate of the quoted "uptime" entry below,
+  // invisible to assertNoDuplicateKeys for the same reason PicsArt's and
+  // Calm's were (see that fix, and the topLevelKeys fix, above). Its edges
+  // named "achievement" and "gifting" nodes uptime's current v4.1 map
+  // doesn't carry at all (streak, shareable-win, recall-review only), so it
+  // was already fully dead, just not visibly so.
   "ladder": [
     { from: "community-groups", to: "progression-gate", title: "The matched team decides which gate the user faces", desc: "A preference filter assigns one coaching team before the welcome workout is ever shown, and that team decides which specific welcome workout the completion gate is built around.", effect: "The social layer is established before the gate, not after it, so completing the gate is always completing that team's own workout." },
     { from: "progression-gate", to: "achievement", title: "The same completion that clears the gate earns the badge", desc: "Rating the completed welcome workout both clears the one-workout threshold on chat, nutrition and the plan and awards the 3D badge in the same sequence.", effect: "A single action produces an access change and a recognition event at once, with no separate step for either." },
