@@ -4,161 +4,1185 @@
   "category": "Puzzle / Meta",
   "type": "game",
   "visibility": "public",
-  "analysisDate": "2026-03-05",
-  "lastUpdated": "2026-05-19",
-  "summary": "Match Creek Motors runs the same match-3-funds-restoration loop as Chrome Valley Customs, with a buyer negotiation mechanic at episode end: three buyers make sequential concealed offers and the player must accept or reject each without seeing the remaining offers. An interpersonal NPC subplot (Aaron, Brooke, Logan, the absent brother Mitch) runs across episodes, providing ongoing narrative investment separate from the car itself. Achievements and leaderboards are fully delegated to Apple Game Center and are invisible during normal play.",
-  "teaser": "Each episode ends with a blind negotiation: three sequential offers, and the player must accept or reject each one without seeing what comes next.",
+  "analysisDate": "2026-09-29",
+  "lastUpdated": "2026-09-29",
+  "asObserved": "2026-03",
+  "appVersion": "None.",
+  "summary": "Match Creek Motors rebuilds a broken car one priced task at a time, funded by wrenches earned from a match-three puzzle running alongside it. A returning cast, led by the player's best friend Aaron and the shop's accountant Brooke, narrates the first project step by step, and the finished car is sold through a sequential, blind negotiation with three buyers rather than a simple reveal. A second balance, gold coins, grows throughout the same play and is sold directly in the shop, with nothing shown that it buys.",
+  "teaser": "Match Creek Motors ends its first car with a blind negotiation: three buyers, one offer at a time, no way to see what's still coming.",
   "icon": "/icons/match-creek-motors.png",
   "heroImage": null,
-  "mechanics": [
+  "contentFormat": "v4.1",
+  "observations": [
     {
-      "id": "passive-construction",
-      "depth": "core",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": [
-        "Task list showing the progress arc from broken car to complete car, with intermediate reward chests visible and current task (headlights) highlighted",
-        "Buyer negotiation screen showing three offer cards — Terry (20 gold coins + 1 booster), Hank (20 gold coins), Liz (100 gold coins + 3 boosters) — with drag-left-to-reject and drag-right-to-accept instructions"
-      ]
+      "id": "O1",
+      "name": "App Store listing",
+      "section": "onboarding",
+      "observed": "The App Store lists Match Creek Motors under a subtitle read as Solve Puzzles, modify rides, with screenshots of car customization and the match-three board, a video preview, and a description covering the opening story and features. The listing shows an in-app event card described as a new obstacle, a toy car, happening now. The rating shown is 4.8 out of 5 from about 24,000 ratings, in the puzzle, car customization and vehicle game simulation categories, rated 13+, from developer Hutch Games Limited, available in English and 11 or more other languages at 1.23 GB, for iPhone and iPad. The last update shown was two weeks before this analysis, with updates roughly once or twice a month before that.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "energy-lives",
-      "depth": "supporting",
-      "writeup": {
-        "observed": "Hearts display in the top bar from the first screen. Tapping the hearts icon early in the session produced \"your lives are full, let's play some levels,\" confirming the standard 5-heart maximum. No hearts were lost during the session, all approximately 11 match-3 levels were completed on first attempt, suggesting Episode 1 difficulty is calibrated to ensure success during first-install play. The energy system was present and visible without creating friction in the observed session.",
-        "findings": [
-          "Episode 1 difficulty appears calibrated so that new players do not fail match-3 levels, the heart system is visible but non-limiting during the first episode, ensuring the restoration meta is not interrupted by energy exhaustion on first install.",
-          "The \"let's play some levels\" copy embedded in the hearts tap response frames the energy system as encouragement rather than a constraint, a different tone from most energy prompts in the library."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O2",
+      "name": "Reviews on the listing",
+      "section": "onboarding",
+      "observed": "The listing surfaces a mix of reviews, with Most helpful including one titled Can't complain, one Really good game and one Avoid this game. Favorable reviews praise the graphics, the builds, the choice of parts and the short time needed to finish a vehicle. Critical reviews describe the game as mostly match-three with little car customization and no driving, one reporting being stuck around level 50 even with all boosters and wishing for a pay-to-skip option, and one criticizing the headlight options on a specific car model. These are App Store statements rather than behavior shown in this analysis.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "variable-reward",
-      "depth": "supporting",
-      "writeup": {
-        "observed": "Match-3 level completion produces wrenches and gold coins. Milestone reward chests at task completion points on the progress arc disclosed their contents at delivery (25 gold coins), transparent rather than variable. The buyer negotiation at episode end is the primary variable-adjacent mechanic: three buyers present offers sequentially with unknown values. In the observed session: Terry (20 gold coins + 1 booster, rejected), Hank (20 gold coins, rejected), Liz (100 gold coins + 3 boosters, accepted). The player cannot see all three offers simultaneously, each requires an accept or reject decision before the next is revealed.",
-        "presented": "Brooke introduces the negotiation: \"time to try out your negotiation skills, I've arranged three buyers, try and get the best deal you can.\" The game guided the first-time player to the correct answer on first play (\"okay, this is the one, drag right to accept it\" appearing on Liz's card). At higher levels with less guidance, the negotiation implies genuine strategic uncertainty.",
-        "findings": [
-          "The buyer negotiation is a sequential concealed-offer mechanic, the player must decide without knowing whether a better offer is coming, creating controlled strategic tension at the episode's highest-investment moment.",
-          "The game guided the first-time player to accept the best offer, making the mechanic feel rewarding rather than punishing on first encounter, the uncertainty increases with reduced guidance at higher levels.",
-          "Gold coin purpose was not explained during Episode 1, the episode rewards a currency whose spend mechanic has not been introduced, making the reward feel abstract rather than meaningful at this stage."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": [
-        "Match-3 level completion screen showing wrenches and gold coin reward delivery animation"
-      ]
+      "id": "O3",
+      "name": "Tracking permission first",
+      "section": "onboarding",
+      "observed": "On first launch, the first thing Match Creek Motors shows is the system request asking whether the app may track the user across other companies' apps and websites, with no screen before it explaining why. A loading screen showing a car and a barn follows.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "achievement",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O4",
+      "name": "Terms confirmation",
+      "section": "onboarding",
+      "observed": "The next screen reads a request to confirm having read and agreed to the terms of service and privacy and cookie policies, with a Confirm button beneath it and no decline path described.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "leaderboards",
-      "depth": "supporting",
-      "writeup": {
-        "observed": "Two leaderboards accessible via Apple Game Center through Settings → Account → Leaderboards: \"High Win Streak\" and \"First Try Wins.\" Both a Friends view and a Global view are available. No in-game leaderboard surface exists, all access is through Game Center. No leaderboard position data was accessible in the observed session as only one episode had been completed.",
-        "findings": [
-          "Both leaderboard metrics (win streak and first-try wins) measure match-3 skill rather than restoration progress or social activity, the competitive axis is the puzzle game, not the meta-game.",
-          "Routing all leaderboard access through Game Center with no in-game surface makes this the most invisible leaderboard implementation in the library, sharing the same approach as its sister game Chrome Valley Customs."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O5",
+      "name": "The opening letter",
+      "section": "onboarding",
+      "observed": "The game opens on a letter addressed to Max, the player's character, from his brother Mitch, asking Max to come manage the family garage in Match Creek while Mitch deals with trouble that requires him to leave town. A photo of three other characters, Aaron, Brooke and Mitch, appears with the letter. The player's character isn't shown in the photo and isn't introduced beyond the name Max.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "daily-weekly-quests",
-      "depth": "shallow",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O6",
+      "name": "Optional account save",
+      "section": "onboarding",
+      "observed": "A button showing a rotating cloud sits in the top left corner from the opening letter onward. Tapping it opens a Save Progress screen inviting sign-in with Apple as the only option. Match Creek Motors never separately prompts the player to create an account; account creation is optional and reachable from this button or from Settings at any time.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "soft-currency",
-      "depth": "supporting",
-      "provisionalDepth": true,
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O7",
+      "name": "Story introduction",
+      "section": "onboarding",
+      "observed": "A dialogue sequence introduces the garage's cast: Aaron, the player's best friend, first appears stern before smiling and giving a bear hug with haptic feedback; Brooke, the accountant and the player's high school sweetheart, tells the pair to restore the 1970 GMC Jimmy so it can be sold, since Mitch left them without help and clients are waiting. A Skip button sits at the top of the dialogue throughout. The exchange sets both a business goal, restoring and selling the truck, and an unresolved personal thread between Aaron's comment and the player's history with Brooke.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O8",
+      "name": "First car arrives",
+      "section": "onboarding",
+      "observed": "Aaron asks for help getting the GMC Jimmy into the workshop, and the car rolls into the garage in a 3D scene. The first project's car is fixed by the story; no choice of car is offered at this point.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O9",
+      "name": "First home screen",
+      "section": "onboarding",
+      "observed": "On the first home screen, Aaron's face appears with a prompt to head to the task list, which is enlarged, ringed and glowing with an arrow pointing at it while everything else is dimmed. The home screen also shows a hearts counter shown full, a gold coin balance read as one thousand, a second balance the player has 300 of, a photo button, a settings button and a match-three play button in the bottom right.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O10",
+      "name": "The strip-down task",
+      "section": "onboarding",
+      "observed": "The task list shows a track running from a broken car to a fully finished one, with two boxes placed between them along the way. Aaron says tasks cost points and asks for the first one, Strip Down, priced at 150 wrenches. Tapping it deducts the wrenches, lifts the car, removes its parts, and leaves a clean shell, after which Aaron says it's time to add some parts and new tasks appear starting with the front of the car.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Soft Currency",
+          "confidence": "directly observed, the wrench balance is seen rising from match-3 wins and falling by each task's stated cost",
+          "confidences": [
+            "directly observed, the wrench balance is seen rising from match-3 wins and falling by each task's stated cost"
+          ],
+          "rationale": "Wrenches meet every required condition: a quantified balance (O9, O34), a repeatable non-paid acquisition path through winning levels (O14, O16), stored units that carry between activities, deliberately selected exchanges for car tasks at stated prices (O11, O17), and a balance reduction on each exchange (O10). The app's own explainer ties the units to winning levels (O34). No paid path for wrenches is observed, so Hard Currency does not apply to this balance.",
+          "alternativeConsidered": "Experience Points, rejected because wrenches are spent and reduced rather than accumulated toward a threshold. Energy, rejected because the user chooses which task to buy rather than having units consumed by participating.",
+          "role": "engagement"
+        },
+        {
+          "name": "Milestone",
+          "confidence": "directly observed, both reward boxes on the project track pay out when reached and the project's completion is marked with rewards",
+          "confidences": [
+            "directly observed, both reward boxes on the project track pay out when reached and the project's completion is marked with rewards"
+          ],
+          "rationale": "The project track represents one ongoing progression from broken to finished car (O10). The boxes placed along it are recognised when reached with a grant of gold coins, separate from ordinary task completion (O26), and the end of the project is marked complete with its own rewards (O27).",
+          "alternativeConsidered": "Achievement, rejected because the recognitions are tied to position on the project track rather than to a standalone criterion, and no attained state is recorded after them. Loot Box and Variable Reward Outcome for the boxes are set out under entries considered and not applied.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O11",
+      "name": "Guided task selection",
+      "section": "onboarding",
+      "observed": "With the screen still dimmed, Aaron points at the task list again. The available tasks are front fenders at 150, headlights at 100, front bumper at 120 and hood at 200, with 150 wrenches remaining; only front fenders is highlighted and selectable, though headlights and the front bumper are also affordable at that balance. The hood is unaffordable at 200.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Soft Currency",
+          "confidence": "directly observed, the wrench balance is seen rising from match-3 wins and falling by each task's stated cost",
+          "confidences": [
+            "directly observed, the wrench balance is seen rising from match-3 wins and falling by each task's stated cost"
+          ],
+          "rationale": "Wrenches meet every required condition: a quantified balance (O9, O34), a repeatable non-paid acquisition path through winning levels (O14, O16), stored units that carry between activities, deliberately selected exchanges for car tasks at stated prices (O11, O17), and a balance reduction on each exchange (O10). The app's own explainer ties the units to winning levels (O34). No paid path for wrenches is observed, so Hard Currency does not apply to this balance.",
+          "alternativeConsidered": "Experience Points, rejected because wrenches are spent and reduced rather than accumulated toward a threshold. Energy, rejected because the user chooses which task to buy rather than having units consumed by participating.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O12",
+      "name": "First style choice",
+      "section": "onboarding",
+      "observed": "Aaron asks the player to choose the option that shows off their style, and the player picks one of three fender options; tapping an option shows it on the car with a short bounce. Aaron closes the step approvingly. The three options are described only as keeping it classic or giving it a twist, with no text describing how they differ or what result each produces.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Cosmetic Customization",
+          "confidence": "strongly supported, the style choices and the revisable applied state are directly observed and the app frames them as style, while their effect on the sale is not observed",
+          "confidences": [
+            "strongly supported, the style choices and the revisable applied state are directly observed and the app frames them as style, while their effect on the sale is not observed"
+          ],
+          "rationale": "Each part task offers alternative presentations of the same part, applied on tap and confirmed (O12, O18), and the app frames the choice as \"the one that shows off your style\" (O12). No option carries a stated capability or effect (O18). The app maintains the applied state and lets the user revisit it in the garage view (O19). The options are content reached through tasks rather than built-in settings. The wrench price buys the task itself, which is recorded under Soft Currency; the variant chosen within it is the cosmetic state.",
+          "alternativeConsidered": "Unresolved under the entry's clause for cases where the functional effect is not established, since the sale offers (O25) could in principle depend on the build. Set aside because nothing in the session ties a choice to any outcome and the app's own framing is stylistic. Aaron's headlight remark about night visibility (O20) is flavour text with no observed effect. A session comparing sale offers across different builds would separate the readings.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O13",
+      "name": "Pointer to the puzzle",
+      "section": "onboarding",
+      "observed": "With the screen still dimmed, Aaron moves from the task list to the play button, saying more points are needed. The level 1 screen sets a target of 12 turbos and offers a row of breakers to select from, all shown locked.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Challenge",
+          "confidence": "strongly supported, each level's collection target and its completion screen are directly observed, while the end boundary and a failed outcome are not observed",
+          "confidences": [
+            "strongly supported, each level's collection target and its completion screen are directly observed, while the end boundary and a failed outcome are not observed"
+          ],
+          "rationale": "Each match-3 level states a success condition, such as collecting 12 turbos (O13), tracks the remaining count on the board (O14), and concludes with a success state that pays out (O14, O22). Each level is a discrete instance. The limit within which the target must be met, and the response to missing it, are not seen, because every level played is won and no move count is read out (O22). Under the presence standard the level surface is a recognizable bounded objective, and the unseen boundary is recorded as not observed.",
+          "alternativeConsidered": "Minigame, rejected because the levels pay wrenches and gold coins into the product's balances (O14, O16). The level sequence as a whole was also considered as progression; that is recorded under the numbered levels (O30) and not tagged here.",
+          "role": "engagement"
+        },
+        {
+          "name": "Boosters",
+          "confidence": "O23 (tier: strongly supported); O36 (tier: plausible)",
+          "confidences": [
+            "O23 (tier: strongly supported); O36 (tier: plausible)"
+          ],
+          "rationale": "Before level 9 and the following level the app offers breakers held in a counted quantity, three of each, and the user decides whether to start the level with them (O23). The app grants items it calls boosters through the sale and project completion (O25, O27, O36), which is a replenishment route if these are the same items. What a breaker does and whether applying one reduces the count are not established from the transcript (O23). O36 is recorded at plausible because the app does not state that the granted boosters are the breakers.",
+          "alternativeConsidered": "Unresolved under the entry's clause for cases where a reduction on use is not established. Set aside because the presence standard is met by the counted pre-level selection surface and the product's own booster framing, while the unobserved effect and reduction are stated as not observed. A single play with a breaker applied would settle both.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O14",
+      "name": "Guided first level",
+      "section": "onboarding",
+      "observed": "After a loading screen, Aaron teaches piece-swapping, with instructions in red capital letters, the rest of the screen dimmed, and the remaining turbo count highlighted. A skip option is available during the tutorial. On success, the result screen shows that the level paid wrenches and gold coins, though the exact amounts aren't read out.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Soft Currency",
+          "confidence": "directly observed, the wrench balance is seen rising from match-3 wins and falling by each task's stated cost",
+          "confidences": [
+            "directly observed, the wrench balance is seen rising from match-3 wins and falling by each task's stated cost"
+          ],
+          "rationale": "Wrenches meet every required condition: a quantified balance (O9, O34), a repeatable non-paid acquisition path through winning levels (O14, O16), stored units that carry between activities, deliberately selected exchanges for car tasks at stated prices (O11, O17), and a balance reduction on each exchange (O10). The app's own explainer ties the units to winning levels (O34). No paid path for wrenches is observed, so Hard Currency does not apply to this balance.",
+          "alternativeConsidered": "Experience Points, rejected because wrenches are spent and reduced rather than accumulated toward a threshold. Energy, rejected because the user chooses which task to buy rather than having units consumed by participating.",
+          "role": "engagement"
+        },
+        {
+          "name": "Hard Currency",
+          "confidence": "strongly supported, the paid coin packs and the growing stored balance are directly observed, while no exchange of gold coins for any result occurs in the session",
+          "confidences": [
+            "strongly supported, the paid coin packs and the growing stored balance are directly observed, while no exchange of gold coins for any result occurs in the session"
+          ],
+          "rationale": "The app sells gold coins in defined packs for money (O40), maintains them as a stored balance (O9, O35), and adds to the same balance from play, track boxes and the sale (O14, O25, O26, O27). The entry's exchange condition is not observed: no result priced in gold coins appears. The operating card's presence standard asserts the mechanic from its characteristic surface, a currency sold in packs in a shop and held as a balance, and states the unobserved exchange rules as not observed rather than filling them in. The analyst's own statements that the use of gold coins is never shown are recorded in O35 and carried to the Unresolved list.",
+          "alternativeConsidered": "Unresolved under the entry's own exclusion, which asks for the case to be marked unresolved when later spending is not established. Set aside because the operating card assigns entry clauses about conditional behavior to the description of the mechanic, not to its presence. Soft Currency on the same balance was also considered: the non-paid path is directly observed, but with the sink unseen the second label adds nothing beyond the Earnable variant recorded here. A session reaching the first gold coin price would separate these readings.",
+          "role": "monetization"
+        },
+        {
+          "name": "Challenge",
+          "confidence": "strongly supported, each level's collection target and its completion screen are directly observed, while the end boundary and a failed outcome are not observed",
+          "confidences": [
+            "strongly supported, each level's collection target and its completion screen are directly observed, while the end boundary and a failed outcome are not observed"
+          ],
+          "rationale": "Each match-3 level states a success condition, such as collecting 12 turbos (O13), tracks the remaining count on the board (O14), and concludes with a success state that pays out (O14, O22). Each level is a discrete instance. The limit within which the target must be met, and the response to missing it, are not seen, because every level played is won and no move count is read out (O22). Under the presence standard the level surface is a recognizable bounded objective, and the unseen boundary is recorded as not observed.",
+          "alternativeConsidered": "Minigame, rejected because the levels pay wrenches and gold coins into the product's balances (O14, O16). The level sequence as a whole was also considered as progression; that is recorded under the numbered levels (O30) and not tagged here.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O15",
+      "name": "End of guidance",
+      "section": "onboarding",
+      "observed": "When the home screen returns after the first match-three win, nothing is dimmed and no pointer or character leads the player; the only cue is an exclamation mark on the task list. This is the first point at which the player acts without being led. Onboarding asks no questions, shows no progress indicator, and collects no preferences; the story choices don't branch the flow, and the sequence is the same regardless.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O16",
+      "name": "The earn-and-spend loop",
+      "section": "core-loop",
+      "observed": "Match Creek Motors repeats one unit throughout the first project: win a match-three level, receive wrenches and gold coins, spend the wrenches on a car task, and return to a level once the balance runs short. The balance was spent to zero several times across the project. Eleven match-three levels were played to complete the first car in this analysis.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Soft Currency",
+          "confidence": "directly observed, the wrench balance is seen rising from match-3 wins and falling by each task's stated cost",
+          "confidences": [
+            "directly observed, the wrench balance is seen rising from match-3 wins and falling by each task's stated cost"
+          ],
+          "rationale": "Wrenches meet every required condition: a quantified balance (O9, O34), a repeatable non-paid acquisition path through winning levels (O14, O16), stored units that carry between activities, deliberately selected exchanges for car tasks at stated prices (O11, O17), and a balance reduction on each exchange (O10). The app's own explainer ties the units to winning levels (O34). No paid path for wrenches is observed, so Hard Currency does not apply to this balance.",
+          "alternativeConsidered": "Experience Points, rejected because wrenches are spent and reduced rather than accumulated toward a threshold. Energy, rejected because the user chooses which task to buy rather than having units consumed by participating.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O17",
+      "name": "Task list rules",
+      "section": "core-loop",
+      "observed": "Car work is organized as a list of tasks, each carrying its own wrench cost, and completing a task can bring several new ones onto the list at once. After the guided opening, the player chooses which available task to take next. The final task on the list is selling the finished car. Stated costs seen include 150 wrenches for stripping the car down, 150 for the front fenders, 100 for headlights, 120 for the front bumper and 200 for the hood. A task can sit on the list priced above the current balance until more wrenches are earned.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Soft Currency",
+          "confidence": "directly observed, the wrench balance is seen rising from match-3 wins and falling by each task's stated cost",
+          "confidences": [
+            "directly observed, the wrench balance is seen rising from match-3 wins and falling by each task's stated cost"
+          ],
+          "rationale": "Wrenches meet every required condition: a quantified balance (O9, O34), a repeatable non-paid acquisition path through winning levels (O14, O16), stored units that carry between activities, deliberately selected exchanges for car tasks at stated prices (O11, O17), and a balance reduction on each exchange (O10). The app's own explainer ties the units to winning levels (O34). No paid path for wrenches is observed, so Hard Currency does not apply to this balance.",
+          "alternativeConsidered": "Experience Points, rejected because wrenches are spent and reduced rather than accumulated toward a threshold. Energy, rejected because the user chooses which task to buy rather than having units consumed by participating.",
+          "role": "engagement"
+        },
+        {
+          "name": "Cosmetic Customization",
+          "confidence": "strongly supported, the style choices and the revisable applied state are directly observed and the app frames them as style, while their effect on the sale is not observed",
+          "confidences": [
+            "strongly supported, the style choices and the revisable applied state are directly observed and the app frames them as style, while their effect on the sale is not observed"
+          ],
+          "rationale": "Each part task offers alternative presentations of the same part, applied on tap and confirmed (O12, O18), and the app frames the choice as \"the one that shows off your style\" (O12). No option carries a stated capability or effect (O18). The app maintains the applied state and lets the user revisit it in the garage view (O19). The options are content reached through tasks rather than built-in settings. The wrench price buys the task itself, which is recorded under Soft Currency; the variant chosen within it is the cosmetic state.",
+          "alternativeConsidered": "Unresolved under the entry's clause for cases where the functional effect is not established, since the sale offers (O25) could in principle depend on the build. Set aside because nothing in the session ties a choice to any outcome and the app's own framing is stylistic. Aaron's headlight remark about night visibility (O20) is flavour text with no observed effect. A session comparing sale offers across different builds would separate the readings.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O18",
+      "name": "Style choice per part",
+      "section": "core-loop",
+      "observed": "Each part task opens a choice among three options, applied to the car on tap and confirmed by the player. No option carries a description, a stated effect or a price difference. Some tasks are settings rather than parts, such as ride height offered as low rider, high rider or normal.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Cosmetic Customization",
+          "confidence": "strongly supported, the style choices and the revisable applied state are directly observed and the app frames them as style, while their effect on the sale is not observed",
+          "confidences": [
+            "strongly supported, the style choices and the revisable applied state are directly observed and the app frames them as style, while their effect on the sale is not observed"
+          ],
+          "rationale": "Each part task offers alternative presentations of the same part, applied on tap and confirmed (O12, O18), and the app frames the choice as \"the one that shows off your style\" (O12). No option carries a stated capability or effect (O18). The app maintains the applied state and lets the user revisit it in the garage view (O19). The options are content reached through tasks rather than built-in settings. The wrench price buys the task itself, which is recorded under Soft Currency; the variant chosen within it is the cosmetic state.",
+          "alternativeConsidered": "Unresolved under the entry's clause for cases where the functional effect is not established, since the sale offers (O25) could in principle depend on the build. Set aside because nothing in the session ties a choice to any outcome and the app's own framing is stylistic. Aaron's headlight remark about night visibility (O20) is flavour text with no observed effect. A session comparing sale offers across different builds would separate the readings.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O19",
+      "name": "Revising installed parts",
+      "section": "core-loop",
+      "observed": "A small wrench button opens a view listing every change made to the car so far, and the player can go back and change a part installed earlier. Match Creek Motors doesn't state whether changing an already-installed part costs wrenches.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Cosmetic Customization",
+          "confidence": "strongly supported, the style choices and the revisable applied state are directly observed and the app frames them as style, while their effect on the sale is not observed",
+          "confidences": [
+            "strongly supported, the style choices and the revisable applied state are directly observed and the app frames them as style, while their effect on the sale is not observed"
+          ],
+          "rationale": "Each part task offers alternative presentations of the same part, applied on tap and confirmed (O12, O18), and the app frames the choice as \"the one that shows off your style\" (O12). No option carries a stated capability or effect (O18). The app maintains the applied state and lets the user revisit it in the garage view (O19). The options are content reached through tasks rather than built-in settings. The wrench price buys the task itself, which is recorded under Soft Currency; the variant chosen within it is the cosmetic state.",
+          "alternativeConsidered": "Unresolved under the entry's clause for cases where the functional effect is not established, since the sale offers (O25) could in principle depend on the build. Set aside because nothing in the session ties a choice to any outcome and the app's own framing is stylistic. Aaron's headlight remark about night visibility (O20) is flavour text with no observed effect. A session comparing sale offers across different builds would separate the readings.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O20",
+      "name": "Crew comments on choices",
+      "section": "core-loop",
+      "observed": "The garage's cast comments on some installed choices and stays silent after others. Comments heard include approval of the headlights for night visibility, the front bumper's fit, the wheels, and the interior. No comment follows several other tasks, including the hood, the rear fenders and the tires.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Cosmetic Customization",
+          "confidence": "strongly supported, the style choices and the revisable applied state are directly observed and the app frames them as style, while their effect on the sale is not observed",
+          "confidences": [
+            "strongly supported, the style choices and the revisable applied state are directly observed and the app frames them as style, while their effect on the sale is not observed"
+          ],
+          "rationale": "Each part task offers alternative presentations of the same part, applied on tap and confirmed (O12, O18), and the app frames the choice as \"the one that shows off your style\" (O12). No option carries a stated capability or effect (O18). The app maintains the applied state and lets the user revisit it in the garage view (O19). The options are content reached through tasks rather than built-in settings. The wrench price buys the task itself, which is recorded under Soft Currency; the variant chosen within it is the cosmetic state.",
+          "alternativeConsidered": "Unresolved under the entry's clause for cases where the functional effect is not established, since the sale offers (O25) could in principle depend on the build. Set aside because nothing in the session ties a choice to any outcome and the app's own framing is stylistic. Aaron's headlight remark about night visibility (O20) is flavour text with no observed effect. A session comparing sale offers across different builds would separate the readings.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O21",
+      "name": "No pointers after onboarding",
+      "section": "core-loop",
+      "observed": "After the guided opening, Match Creek Motors stops pointing anywhere: the match-three play button carries no marker, and the task list isn't highlighted again once its balance runs short. The one standing cue is an exclamation mark on the task list when a task becomes affordable.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O22",
+      "name": "Match-three level rules",
+      "section": "core-loop",
+      "observed": "Each match-three level states a collection target at the top of the board, a single shape on the earliest levels and combined shapes with breakable crates on later ones. Levels took 15 to 20 seconds each in this analysis and were described as easy early on, growing harder as they progressed. Level 9 was reached by the side-mirror task, and level 11 by the end of the project.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Challenge",
+          "confidence": "strongly supported, each level's collection target and its completion screen are directly observed, while the end boundary and a failed outcome are not observed",
+          "confidences": [
+            "strongly supported, each level's collection target and its completion screen are directly observed, while the end boundary and a failed outcome are not observed"
+          ],
+          "rationale": "Each match-3 level states a success condition, such as collecting 12 turbos (O13), tracks the remaining count on the board (O14), and concludes with a success state that pays out (O14, O22). Each level is a discrete instance. The limit within which the target must be met, and the response to missing it, are not seen, because every level played is won and no move count is read out (O22). Under the presence standard the level surface is a recognizable bounded objective, and the unseen boundary is recorded as not observed.",
+          "alternativeConsidered": "Minigame, rejected because the levels pay wrenches and gold coins into the product's balances (O14, O16). The level sequence as a whole was also considered as progression; that is recorded under the numbered levels (O30) and not tagged here.",
+          "role": "engagement"
+        },
+        {
+          "name": "Lives",
+          "confidence": "strongly supported, the hearts counter and the app's own wording \"Your lives are full. Let's play some levels.\" are directly observed, while no heart is lost in the session",
+          "confidences": [
+            "strongly supported, the hearts counter and the app's own wording \"Your lives are full. Let's play some levels.\" are directly observed, while no heart is lost in the session"
+          ],
+          "rationale": "The app shows a hearts counter and names it lives, pairing the full state with a prompt to play levels (O24). Under the presence standard the product's own framing establishes the mechanic. What removes a heart, what happens at zero and how hearts return are not observed, because every level is won (O22).",
+          "alternativeConsidered": "Energy, since the session does not show whether a heart leaves on starting a level or on failing one. Set aside because the app's own framing as lives settles the sibling choice under the operating card, and no heart was seen leaving at the start of any level played. A failed level would separate the two.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O23",
+      "name": "Pre-level breaker selection",
+      "section": "core-loop",
+      "observed": "Starting on level 9, the pre-level screen offers a row of items the player can choose to start the level with, three of each. Match Creek Motors doesn't state what one of these items does during a level, and whether the count of three falls after one is used isn't something this analysis can describe.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Boosters",
+          "confidence": "O23 (tier: strongly supported); O36 (tier: plausible)",
+          "confidences": [
+            "O23 (tier: strongly supported); O36 (tier: plausible)"
+          ],
+          "rationale": "Before level 9 and the following level the app offers breakers held in a counted quantity, three of each, and the user decides whether to start the level with them (O23). The app grants items it calls boosters through the sale and project completion (O25, O27, O36), which is a replenishment route if these are the same items. What a breaker does and whether applying one reduces the count are not established from the transcript (O23). O36 is recorded at plausible because the app does not state that the granted boosters are the breakers.",
+          "alternativeConsidered": "Unresolved under the entry's clause for cases where a reduction on use is not established. Set aside because the presence standard is met by the counted pre-level selection surface and the product's own booster framing, while the unobserved effect and reduction are stated as not observed. A single play with a breaker applied would settle both.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O24",
+      "name": "Hearts as lives",
+      "section": "core-loop",
+      "observed": "Tapping the hearts counter shows a message stating the count is full, with a button to play levels beneath it. The count stayed full throughout this analysis, and Match Creek Motors doesn't show a heart leaving the counter.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Lives",
+          "confidence": "strongly supported, the hearts counter and the app's own wording \"Your lives are full. Let's play some levels.\" are directly observed, while no heart is lost in the session",
+          "confidences": [
+            "strongly supported, the hearts counter and the app's own wording \"Your lives are full. Let's play some levels.\" are directly observed, while no heart is lost in the session"
+          ],
+          "rationale": "The app shows a hearts counter and names it lives, pairing the full state with a prompt to play levels (O24). Under the presence standard the product's own framing establishes the mechanic. What removes a heart, what happens at zero and how hearts return are not observed, because every level is won (O22).",
+          "alternativeConsidered": "Energy, since the session does not show whether a heart leaves on starting a level or on failing one. Set aside because the app's own framing as lives settles the sibling choice under the operating card, and no heart was seen leaving at the start of any level played. A failed level would separate the two.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O25",
+      "name": "The buyer negotiation",
+      "section": "core-loop",
+      "observed": "When the car is finished, a scout named Logan is introduced, and the accountant Brooke opens the final task: negotiating a sale. Three buyers make offers one at a time, shown as cards the player drags left to reject or right to accept, without seeing the offers still to come. The first offer, 20 gold coins and one booster, is called a lowball by Brooke, who tells the player to reject it; a second offer of 20 gold coins follows; a third, three boosters and 100 gold coins, is the one Brooke says to accept. Accepting triggers a celebration animation. Brooke's instructions determined which card was rejected and which was accepted in this first sale.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Hard Currency",
+          "confidence": "strongly supported, the paid coin packs and the growing stored balance are directly observed, while no exchange of gold coins for any result occurs in the session",
+          "confidences": [
+            "strongly supported, the paid coin packs and the growing stored balance are directly observed, while no exchange of gold coins for any result occurs in the session"
+          ],
+          "rationale": "The app sells gold coins in defined packs for money (O40), maintains them as a stored balance (O9, O35), and adds to the same balance from play, track boxes and the sale (O14, O25, O26, O27). The entry's exchange condition is not observed: no result priced in gold coins appears. The operating card's presence standard asserts the mechanic from its characteristic surface, a currency sold in packs in a shop and held as a balance, and states the unobserved exchange rules as not observed rather than filling them in. The analyst's own statements that the use of gold coins is never shown are recorded in O35 and carried to the Unresolved list.",
+          "alternativeConsidered": "Unresolved under the entry's own exclusion, which asks for the case to be marked unresolved when later spending is not established. Set aside because the operating card assigns entry clauses about conditional behavior to the description of the mechanic, not to its presence. Soft Currency on the same balance was also considered: the non-paid path is directly observed, but with the sink unseen the second label adds nothing beyond the Earnable variant recorded here. A session reaching the first gold coin price would separate these readings.",
+          "role": "monetization"
+        },
+        {
+          "name": "Milestone",
+          "confidence": "directly observed, both reward boxes on the project track pay out when reached and the project's completion is marked with rewards",
+          "confidences": [
+            "directly observed, both reward boxes on the project track pay out when reached and the project's completion is marked with rewards"
+          ],
+          "rationale": "The project track represents one ongoing progression from broken to finished car (O10). The boxes placed along it are recognised when reached with a grant of gold coins, separate from ordinary task completion (O26), and the end of the project is marked complete with its own rewards (O27).",
+          "alternativeConsidered": "Achievement, rejected because the recognitions are tied to position on the project track rather than to a standalone criterion, and no attained state is recorded after them. Loot Box and Variable Reward Outcome for the boxes are set out under entries considered and not applied.",
+          "role": "engagement"
+        },
+        {
+          "name": "Boosters",
+          "confidence": "O23 (tier: strongly supported); O36 (tier: plausible)",
+          "confidences": [
+            "O23 (tier: strongly supported); O36 (tier: plausible)"
+          ],
+          "rationale": "Before level 9 and the following level the app offers breakers held in a counted quantity, three of each, and the user decides whether to start the level with them (O23). The app grants items it calls boosters through the sale and project completion (O25, O27, O36), which is a replenishment route if these are the same items. What a breaker does and whether applying one reduces the count are not established from the transcript (O23). O36 is recorded at plausible because the app does not state that the granted boosters are the breakers.",
+          "alternativeConsidered": "Unresolved under the entry's clause for cases where a reduction on use is not established. Set aside because the presence standard is met by the counted pre-level selection surface and the product's own booster framing, while the unobserved effect and reduction are stated as not observed. A single play with a breaker applied would settle both.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O26",
+      "name": "Reward boxes along the track",
+      "section": "goals",
+      "observed": "The two boxes placed on the project track between the broken and finished car pay out as the project advances. The first box's contents weren't read out; the second paid 25 gold coins.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Hard Currency",
+          "confidence": "strongly supported, the paid coin packs and the growing stored balance are directly observed, while no exchange of gold coins for any result occurs in the session",
+          "confidences": [
+            "strongly supported, the paid coin packs and the growing stored balance are directly observed, while no exchange of gold coins for any result occurs in the session"
+          ],
+          "rationale": "The app sells gold coins in defined packs for money (O40), maintains them as a stored balance (O9, O35), and adds to the same balance from play, track boxes and the sale (O14, O25, O26, O27). The entry's exchange condition is not observed: no result priced in gold coins appears. The operating card's presence standard asserts the mechanic from its characteristic surface, a currency sold in packs in a shop and held as a balance, and states the unobserved exchange rules as not observed rather than filling them in. The analyst's own statements that the use of gold coins is never shown are recorded in O35 and carried to the Unresolved list.",
+          "alternativeConsidered": "Unresolved under the entry's own exclusion, which asks for the case to be marked unresolved when later spending is not established. Set aside because the operating card assigns entry clauses about conditional behavior to the description of the mechanic, not to its presence. Soft Currency on the same balance was also considered: the non-paid path is directly observed, but with the sink unseen the second label adds nothing beyond the Earnable variant recorded here. A session reaching the first gold coin price would separate these readings.",
+          "role": "monetization"
+        },
+        {
+          "name": "Milestone",
+          "confidence": "directly observed, both reward boxes on the project track pay out when reached and the project's completion is marked with rewards",
+          "confidences": [
+            "directly observed, both reward boxes on the project track pay out when reached and the project's completion is marked with rewards"
+          ],
+          "rationale": "The project track represents one ongoing progression from broken to finished car (O10). The boxes placed along it are recognised when reached with a grant of gold coins, separate from ordinary task completion (O26), and the end of the project is marked complete with its own rewards (O27).",
+          "alternativeConsidered": "Achievement, rejected because the recognitions are tied to position on the project track rather than to a standalone criterion, and no attained state is recorded after them. Loot Box and Variable Reward Outcome for the boxes are set out under entries considered and not applied.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O27",
+      "name": "Project completion reward",
+      "section": "goals",
+      "observed": "After the sale, the finished car rolls out of the garage into the light, the project is marked complete, and Match Creek Motors grants a set of rewards including boosters and gold coins. The exact reward amounts weren't read out.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Hard Currency",
+          "confidence": "strongly supported, the paid coin packs and the growing stored balance are directly observed, while no exchange of gold coins for any result occurs in the session",
+          "confidences": [
+            "strongly supported, the paid coin packs and the growing stored balance are directly observed, while no exchange of gold coins for any result occurs in the session"
+          ],
+          "rationale": "The app sells gold coins in defined packs for money (O40), maintains them as a stored balance (O9, O35), and adds to the same balance from play, track boxes and the sale (O14, O25, O26, O27). The entry's exchange condition is not observed: no result priced in gold coins appears. The operating card's presence standard asserts the mechanic from its characteristic surface, a currency sold in packs in a shop and held as a balance, and states the unobserved exchange rules as not observed rather than filling them in. The analyst's own statements that the use of gold coins is never shown are recorded in O35 and carried to the Unresolved list.",
+          "alternativeConsidered": "Unresolved under the entry's own exclusion, which asks for the case to be marked unresolved when later spending is not established. Set aside because the operating card assigns entry clauses about conditional behavior to the description of the mechanic, not to its presence. Soft Currency on the same balance was also considered: the non-paid path is directly observed, but with the sink unseen the second label adds nothing beyond the Earnable variant recorded here. A session reaching the first gold coin price would separate these readings.",
+          "role": "monetization"
+        },
+        {
+          "name": "Milestone",
+          "confidence": "directly observed, both reward boxes on the project track pay out when reached and the project's completion is marked with rewards",
+          "confidences": [
+            "directly observed, both reward boxes on the project track pay out when reached and the project's completion is marked with rewards"
+          ],
+          "rationale": "The project track represents one ongoing progression from broken to finished car (O10). The boxes placed along it are recognised when reached with a grant of gold coins, separate from ordinary task completion (O26), and the end of the project is marked complete with its own rewards (O27).",
+          "alternativeConsidered": "Achievement, rejected because the recognitions are tied to position on the project track rather than to a standalone criterion, and no attained state is recorded after them. Loot Box and Variable Reward Outcome for the boxes are set out under entries considered and not applied.",
+          "role": "engagement"
+        },
+        {
+          "name": "Boosters",
+          "confidence": "O23 (tier: strongly supported); O36 (tier: plausible)",
+          "confidences": [
+            "O23 (tier: strongly supported); O36 (tier: plausible)"
+          ],
+          "rationale": "Before level 9 and the following level the app offers breakers held in a counted quantity, three of each, and the user decides whether to start the level with them (O23). The app grants items it calls boosters through the sale and project completion (O25, O27, O36), which is a replenishment route if these are the same items. What a breaker does and whether applying one reduces the count are not established from the transcript (O23). O36 is recorded at plausible because the app does not state that the granted boosters are the breakers.",
+          "alternativeConsidered": "Unresolved under the entry's clause for cases where a reduction on use is not established. Set aside because the presence standard is met by the counted pre-level selection surface and the product's own booster framing, while the unobserved effect and reduction are stated as not observed. A single play with a breaker applied would settle both.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O28",
+      "name": "Story scene after completion",
+      "section": "goals",
+      "observed": "A dialogue scene follows the completed project in which Logan reveals he's been dating Brooke for five years, and Brooke says her past with the player is ancient history and that they need to focus on the present. The scene leaves open why Mitch left, called a mystery for another time, and closes with Brooke saying they need to keep finding, customizing and selling cars until Mitch gets back. Logan then offers three cars to choose from for the next project.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O29",
+      "name": "Missions map",
+      "section": "goals",
+      "observed": "A map button beside the task list shows the missions ahead: the first, Homecoming, is in progress with the current car, and 13 missions are listed in total, the last marked coming soon. Reaching the later missions requires repeatedly tapping a right arrow. Match Creek Motors doesn't describe what distinguishes one mission from another beyond the cars involved.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O30",
+      "name": "Numbered match-three levels",
+      "section": "goals",
+      "observed": "The match-three levels are numbered and advance one by one as they're won, reaching level 11 by the end of the first project. Match Creek Motors doesn't display the player's current level anywhere outside the level screens themselves. Level demands change with the numbers: new collection targets, combined shapes and crates.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Challenge",
+          "confidence": "strongly supported, each level's collection target and its completion screen are directly observed, while the end boundary and a failed outcome are not observed",
+          "confidences": [
+            "strongly supported, each level's collection target and its completion screen are directly observed, while the end boundary and a failed outcome are not observed"
+          ],
+          "rationale": "Each match-3 level states a success condition, such as collecting 12 turbos (O13), tracks the remaining count on the board (O14), and concludes with a success state that pays out (O14, O22). Each level is a discrete instance. The limit within which the target must be met, and the response to missing it, are not seen, because every level played is won and no move count is read out (O22). Under the presence standard the level surface is a recognizable bounded objective, and the unseen boundary is recorded as not observed.",
+          "alternativeConsidered": "Minigame, rejected because the levels pay wrenches and gold coins into the product's balances (O14, O16). The level sequence as a whole was also considered as progression; that is recorded under the numbered levels (O30) and not tagged here.",
+          "role": "engagement"
+        },
+        {
+          "name": "Progression Gate",
+          "confidence": "strongly supported, the stated requirement is directly observed and the numbered level sequence exists, while the app never displays the level the requirement reads",
+          "confidences": [
+            "strongly supported, the stated requirement is directly observed and the numbered level sequence exists, while the app never displays the level the requirement reads"
+          ],
+          "rationale": "The app withholds the player profile and states the requirement in terms of a level, \"unlocks at level 14\" (O32). The profile is a separate part of the product, not the next unit of a sequence. The numbered match-3 levels (O30) are a progression measure the product advances through play, and they are the only level sequence observed. The app does not say which measure the requirement reads and shows no current level.",
+          "alternativeConsidered": "Leaving the case untagged because the measure is not displayed. Set aside because the requirement is stated in the terms of a level and a product-advanced level sequence is directly observed. The breaker lock (O33) was considered for this entry and not tagged, because no requirement is stated on it.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O31",
+      "name": "Achievements in Game Center",
+      "section": "goals",
+      "observed": "Settings, Account, Achievements opens Apple's Game Center on a list of the achievements that can be collected in Match Creek Motors. The list doesn't compare the player's own achievements against other players. No achievement was attained during this analysis.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Achievement",
+          "confidence": "directly observed, the list of the game's achievements is shown in Game Center, while no achievement is attained during the session",
+          "confidences": [
+            "directly observed, the list of the game's achievements is shown in Game Center, while no achievement is attained during the session"
+          ],
+          "rationale": "The game defines a set of achievements that the user can collect and exposes them through Game Center (O31). Under the presence standard the list of defined achievements is the characteristic surface. The transition from unattained to attained is not observed.",
+          "alternativeConsidered": "Milestone, rejected because the list is a set of criteria separate from the project track rather than points recognised along it.",
+          "role": "engagement"
+        },
+        {
+          "name": "Leaderboard",
+          "confidence": "strongly supported, the named leaderboards and their Friends and Global scopes are directly observed, while their ordered entries are not read out",
+          "confidences": [
+            "strongly supported, the named leaderboards and their Friends and Global scopes are directly observed, while their ordered entries are not read out"
+          ],
+          "rationale": "The game defines leaderboards on named measures, \"High win streak\" and \"First try wins\", presented in Game Center with Friends and Global comparison scopes (O37). Under the presence standard the named boards with scopes are the characteristic surface. The ordered positions themselves are not described.",
+          "alternativeConsidered": "Comparative Rank, rejected because the user's own position is not shown.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O32",
+      "name": "Player profile locked at level 14",
+      "section": "access",
+      "observed": "Tapping the character portrait shows that the player profile unlocks at level 14. Match Creek Motors doesn't show the player's current level anywhere to compare against that requirement, and doesn't state whether the level in question is the numbered match-three level count or some other measure.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Progression Gate",
+          "confidence": "strongly supported, the stated requirement is directly observed and the numbered level sequence exists, while the app never displays the level the requirement reads",
+          "confidences": [
+            "strongly supported, the stated requirement is directly observed and the numbered level sequence exists, while the app never displays the level the requirement reads"
+          ],
+          "rationale": "The app withholds the player profile and states the requirement in terms of a level, \"unlocks at level 14\" (O32). The profile is a separate part of the product, not the next unit of a sequence. The numbered match-3 levels (O30) are a progression measure the product advances through play, and they are the only level sequence observed. The app does not say which measure the requirement reads and shows no current level.",
+          "alternativeConsidered": "Leaving the case untagged because the measure is not displayed. Set aside because the requirement is stated in the terms of a level and a product-advanced level sequence is directly observed. The breaker lock (O33) was considered for this entry and not tagged, because no requirement is stated on it.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O33",
+      "name": "Breakers locked on early levels",
+      "section": "access",
+      "observed": "On level 1, every breaker in the Select Breakers row is shown locked. Breakers first become selectable on level 9. Match Creek Motors doesn't state a requirement for unlocking them.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Boosters",
+          "confidence": "O23 (tier: strongly supported); O36 (tier: plausible)",
+          "confidences": [
+            "O23 (tier: strongly supported); O36 (tier: plausible)"
+          ],
+          "rationale": "Before level 9 and the following level the app offers breakers held in a counted quantity, three of each, and the user decides whether to start the level with them (O23). The app grants items it calls boosters through the sale and project completion (O25, O27, O36), which is a replenishment route if these are the same items. What a breaker does and whether applying one reduces the count are not established from the transcript (O23). O36 is recorded at plausible because the app does not state that the granted boosters are the breakers.",
+          "alternativeConsidered": "Unresolved under the entry's clause for cases where a reduction on use is not established. Set aside because the presence standard is met by the counted pre-level selection surface and the product's own booster framing, while the unobserved effect and reduction are stated as not observed. A single play with a breaker applied would settle both.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O34",
+      "name": "Wrenches",
+      "section": "economy",
+      "observed": "Wrenches, which the app also calls points, are earned by winning match-three levels and spent on car tasks, with each task deducting its stated cost. Tapping the wrench counter opens an explainer stating plainly that winning levels is how points are earned. The starting balance is 300; stripping the car down and adding the front fenders, 150 each, exhaust it. No other source of wrenches and no other use for them appears anywhere else.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Soft Currency",
+          "confidence": "directly observed, the wrench balance is seen rising from match-3 wins and falling by each task's stated cost",
+          "confidences": [
+            "directly observed, the wrench balance is seen rising from match-3 wins and falling by each task's stated cost"
+          ],
+          "rationale": "Wrenches meet every required condition: a quantified balance (O9, O34), a repeatable non-paid acquisition path through winning levels (O14, O16), stored units that carry between activities, deliberately selected exchanges for car tasks at stated prices (O11, O17), and a balance reduction on each exchange (O10). The app's own explainer ties the units to winning levels (O34). No paid path for wrenches is observed, so Hard Currency does not apply to this balance.",
+          "alternativeConsidered": "Experience Points, rejected because wrenches are spent and reduced rather than accumulated toward a threshold. Energy, rejected because the user chooses which task to buy rather than having units consumed by participating.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O35",
+      "name": "Gold coins",
+      "section": "economy",
+      "observed": "A gold coin balance, read as one thousand at the start, grows from every match-three win, from the boxes on the project track, from the sale and from project completion. Amounts seen include 25 from a track box, 20 in each of two rejected sale offers, and 100 in the accepted offer. Gold coins are also sold in the shop. Match Creek Motors doesn't show anything being bought with gold coins anywhere in this analysis.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Hard Currency",
+          "confidence": "strongly supported, the paid coin packs and the growing stored balance are directly observed, while no exchange of gold coins for any result occurs in the session",
+          "confidences": [
+            "strongly supported, the paid coin packs and the growing stored balance are directly observed, while no exchange of gold coins for any result occurs in the session"
+          ],
+          "rationale": "The app sells gold coins in defined packs for money (O40), maintains them as a stored balance (O9, O35), and adds to the same balance from play, track boxes and the sale (O14, O25, O26, O27). The entry's exchange condition is not observed: no result priced in gold coins appears. The operating card's presence standard asserts the mechanic from its characteristic surface, a currency sold in packs in a shop and held as a balance, and states the unobserved exchange rules as not observed rather than filling them in. The analyst's own statements that the use of gold coins is never shown are recorded in O35 and carried to the Unresolved list.",
+          "alternativeConsidered": "Unresolved under the entry's own exclusion, which asks for the case to be marked unresolved when later spending is not established. Set aside because the operating card assigns entry clauses about conditional behavior to the description of the mechanic, not to its presence. Soft Currency on the same balance was also considered: the non-paid path is directly observed, but with the sink unseen the second label adds nothing beyond the Earnable variant recorded here. A session reaching the first gold coin price would separate these readings.",
+          "role": "monetization"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O36",
+      "name": "Boosters as granted items",
+      "section": "economy",
+      "observed": "The sale offers and the project-completion reward grant items the app calls boosters: one in one sale offer, three in another, and a larger unspecified number at project completion. Match Creek Motors doesn't state whether these granted boosters are the same items as the breakers offered before a level, or where they're held once granted.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Boosters",
+          "confidence": "O23 (tier: strongly supported); O36 (tier: plausible)",
+          "confidences": [
+            "O23 (tier: strongly supported); O36 (tier: plausible)"
+          ],
+          "rationale": "Before level 9 and the following level the app offers breakers held in a counted quantity, three of each, and the user decides whether to start the level with them (O23). The app grants items it calls boosters through the sale and project completion (O25, O27, O36), which is a replenishment route if these are the same items. What a breaker does and whether applying one reduces the count are not established from the transcript (O23). O36 is recorded at plausible because the app does not state that the granted boosters are the breakers.",
+          "alternativeConsidered": "Unresolved under the entry's clause for cases where a reduction on use is not established. Set aside because the presence standard is met by the counted pre-level selection surface and the product's own booster framing, while the unobserved effect and reduction are stated as not observed. A single play with a breaker applied would settle both.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O37",
+      "name": "Leaderboards in Game Center",
+      "section": "social",
+      "observed": "Settings, Account, Leaderboards opens Apple's Game Center on the game's leaderboards, named High win streak and First try wins, each viewable in Friends and Global scopes. Match Creek Motors doesn't read out the ordered entries or the player's own position on either board, and doesn't show any win-streak measure inside the game itself.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Leaderboard",
+          "confidence": "strongly supported, the named leaderboards and their Friends and Global scopes are directly observed, while their ordered entries are not read out",
+          "confidences": [
+            "strongly supported, the named leaderboards and their Friends and Global scopes are directly observed, while their ordered entries are not read out"
+          ],
+          "rationale": "The game defines leaderboards on named measures, \"High win streak\" and \"First try wins\", presented in Game Center with Friends and Global comparison scopes (O37). Under the presence standard the named boards with scopes are the characteristic surface. The ordered positions themselves are not described.",
+          "alternativeConsidered": "Comparative Rank, rejected because the user's own position is not shown.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O38",
+      "name": "Community links",
+      "section": "reach",
+      "observed": "Settings contains a community option that sends the player to follow the studio's social media profiles. Settings also holds music, sound effects, high quality, vibration, credits, help and support, and an account area covering achievements, leaderboards, terms of service, privacy policy, save progress and account deletion.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O39",
+      "name": "Photo mode with system sharing",
+      "section": "reach",
+      "observed": "The photo button lets the player move the camera around the car in any direction, take a picture, and share it through the iOS share sheet or go back. The picture is of the player's own car build. Match Creek Motors doesn't say whether photos are kept in a gallery, and no gallery is visible.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Cosmetic Customization",
+          "confidence": "strongly supported, the style choices and the revisable applied state are directly observed and the app frames them as style, while their effect on the sale is not observed",
+          "confidences": [
+            "strongly supported, the style choices and the revisable applied state are directly observed and the app frames them as style, while their effect on the sale is not observed"
+          ],
+          "rationale": "Each part task offers alternative presentations of the same part, applied on tap and confirmed (O12, O18), and the app frames the choice as \"the one that shows off your style\" (O12). No option carries a stated capability or effect (O18). The app maintains the applied state and lets the user revisit it in the garage view (O19). The options are content reached through tasks rather than built-in settings. The wrench price buys the task itself, which is recorded under Soft Currency; the variant chosen within it is the cosmetic state.",
+          "alternativeConsidered": "Unresolved under the entry's clause for cases where the functional effect is not established, since the sale offers (O25) could in principle depend on the build. Set aside because nothing in the session ties a choice to any outcome and the app's own framing is stylistic. Aaron's headlight remark about night visibility (O20) is flavour text with no observed effect. A session comparing sale offers across different builds would separate the readings.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O40",
+      "name": "Coin shop",
+      "section": "monetization",
+      "observed": "Tapping the gold coin balance opens the shop directly, and after the first match-three win the shop sells only gold coin packs: 1,000 coins for $1.99, 2,700 for $4.99, 5,500 for $9.99 marked Popular, and 75,000 for $99.99 marked best value. No special offers appear, and the shop states no bonus percentage or per-dollar comparison between packs.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Hard Currency",
+          "confidence": "strongly supported, the paid coin packs and the growing stored balance are directly observed, while no exchange of gold coins for any result occurs in the session",
+          "confidences": [
+            "strongly supported, the paid coin packs and the growing stored balance are directly observed, while no exchange of gold coins for any result occurs in the session"
+          ],
+          "rationale": "The app sells gold coins in defined packs for money (O40), maintains them as a stored balance (O9, O35), and adds to the same balance from play, track boxes and the sale (O14, O25, O26, O27). The entry's exchange condition is not observed: no result priced in gold coins appears. The operating card's presence standard asserts the mechanic from its characteristic surface, a currency sold in packs in a shop and held as a balance, and states the unobserved exchange rules as not observed rather than filling them in. The analyst's own statements that the use of gold coins is never shown are recorded in O35 and carried to the Unresolved list.",
+          "alternativeConsidered": "Unresolved under the entry's own exclusion, which asks for the case to be marked unresolved when later spending is not established. Set aside because the operating card assigns entry clauses about conditional behavior to the description of the mechanic, not to its presence. Soft Currency on the same balance was also considered: the non-paid path is directly observed, but with the sink unseen the second label adds nothing beyond the Earnable variant recorded here. A session reaching the first gold coin price would separate these readings.",
+          "role": "monetization"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O41",
+      "name": "Notification permission requested early",
+      "section": "returns",
+      "observed": "Immediately after the terms confirmation, Match Creek Motors shows the system request to send notifications, before anything about the game has appeared and with no screen explaining what the notifications will contain. This is the third screen of the first launch, after the tracking request and the terms confirmation.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    }
+  ],
+  "systemView": [
+    "This is a medium system. Wrenches are the currency every restoration task draws from, earned only by winning a match-three level, so the puzzle and the car are locked together for the length of the project. A second balance, gold coins, and a running heart count both grow or sit alongside that same loop without a shown rule tying them back into it, and the project closes with a negotiated sale rather than an automatic reward."
+  ],
+  "mechanicWriteups": [
+    {
+      "name": "Cosmetic Customization",
+      "summary": "Each restoration task offers three unlabeled style options for a part, applied on tap and revisable later in a dedicated garage view.",
+      "observed": "Match Creek Motors opens most restoration tasks on a choice among three presentations of the same part, framed as showing off the player's own style. Some tasks are settings rather than physical parts, such as a suspension-height slider offering low rider, high rider or normal. A separate garage view lists every change made to the car and lets the player revisit and change an earlier choice.",
+      "presented": "Tapping an option applies it to the 3D car immediately, with a short bounce animation, before the choice is confirmed. No option carries a description, a stated effect or a price difference from the other two.",
+      "noting": "Match Creek Motors frames every choice as a matter of look rather than function, and nothing in the app ties a specific choice to the offers the finished car later receives; whether a build's parts affect the sale isn't something this write-up can describe.",
+      "findings": [
+        "Most restoration tasks offer three style options for a part, applied on tap.",
+        "Some tasks are settings, such as ride height, rather than physical parts.",
+        "A garage view lists every change made and lets the player revise an earlier choice.",
+        "Match Creek Motors doesn't state a price or outcome difference between a task's three options."
+      ],
+      "screenshotsNote": "a part task's three-option choice screen; the garage view listing installed changes."
+    },
+    {
+      "name": "Challenge",
+      "summary": "Each match-three level states a piece-collection target that grows more complex over successive levels, and every level played ends in a win.",
+      "observed": "Match Creek Motors states a collection target at the top of the board for each level, starting with a single shape and later combining several shapes with crates that must be broken. The remaining count updates as pieces are matched, and a completion screen follows a cleared target.",
+      "presented": "The target sits at the top of the board throughout a level, and the completion screen appears immediately once it's cleared, paying wrenches and gold coins.",
+      "noting": "Match Creek Motors doesn't show a move limit, a timer or what happens when a level isn't cleared; every level played in this analysis reached its target.",
+      "findings": [
+        "Each level states a piece-collection target at the top of the board.",
+        "Later levels combine several shapes and add crates that must be broken.",
+        "A completion screen pays wrenches and gold coins once the target is cleared.",
+        "Match Creek Motors doesn't show a move limit, a timer or an unsuccessful outcome."
+      ],
+      "screenshotsNote": "a level's target display at the top of the board; the completion screen paying wrenches and gold coins."
+    },
+    {
+      "name": "Boosters",
+      "summary": "Starting from level 9, a pre-level screen offers three of a kind of item held outside the level, with no shown effect or use.",
+      "observed": "From level 9 onward, the pre-level screen offers a row of items the player can choose to start a level with, three of each. Match Creek Motors also grants items it calls boosters through the sale and at project completion.",
+      "presented": "The selection row sits on the pre-level screen, with a choice of whether to start the level carrying them or not.",
+      "noting": "Match Creek Motors doesn't say what one of these items does inside a level, or whether the count of three falls after it's used; this write-up describes the selection screen and the grants, not an effect that wasn't shown.",
+      "findings": [
+        "From level 9, a pre-level screen offers three of an item the player can start the level with.",
+        "The same items, or similarly named ones, are granted through the sale and at project completion.",
+        "Match Creek Motors doesn't state what one of these items does during a level.",
+        "Match Creek Motors doesn't show whether the held count falls after use."
+      ],
+      "screenshotsNote": "the pre-level selection screen showing three held items; the sale or completion screen granting them."
+    },
+    {
+      "name": "Lives",
+      "summary": "A hearts counter, named lives by the app itself, is shown full throughout, with a prompt to keep playing levels attached to it.",
+      "observed": "Match Creek Motors shows a hearts counter on the home screen. Tapping it states the count is full and invites the player to play levels.",
+      "presented": "The counter sits on the home screen alongside the currency balances, and tapping it opens the full-count message directly.",
+      "noting": "The count stayed full throughout this analysis, and Match Creek Motors doesn't show a heart leaving the counter at any point; what actually removes one isn't something this write-up can describe.",
+      "findings": [
+        "A hearts counter sits on the home screen, named lives by the app's own wording.",
+        "Tapping the counter shows a message stating the count is full, with a prompt to play levels.",
+        "The count stayed full throughout this analysis.",
+        "Match Creek Motors doesn't show a heart being lost."
+      ],
+      "screenshotsNote": "the hearts counter on the home screen; the full-count message."
+    },
+    {
+      "name": "Milestone",
+      "summary": "Two reward boxes placed along the restoration track pay out as the project advances, separate from the project's own completion reward.",
+      "observed": "Match Creek Motors places two boxes on the task-list track between the broken and finished car, each paying gold coins once the project reaches them. Completing the project itself is marked separately, with its own reward.",
+      "presented": "The boxes are visible on the track before they're reached, though their contents aren't shown until opened. The project-completion reward appears once the finished car is sold and rolls out of the garage.",
+      "noting": "Match Creek Motors treats reaching a point on the track and finishing the whole project as two different kinds of recognition, one paid mid-track without ceremony, the other marking the project closed.",
+      "findings": [
+        "Two reward boxes sit on the task-list track and pay gold coins once reached.",
+        "Box contents aren't shown before they're opened.",
+        "Completing the project pays its own reward, separate from the track boxes.",
+        "The project's completion reward includes boosters and gold coins."
+      ],
+      "screenshotsNote": "the task-list track showing both reward boxes; the project-completion reward screen."
+    },
+    {
+      "name": "Achievement",
+      "summary": "A list of collectible achievements for Match Creek Motors is reached entirely through Apple's Game Center rather than the game's own screens.",
+      "observed": "Opening Settings, Account, Achievements takes the player to Apple's Game Center, showing a list of the achievements that can be collected in Match Creek Motors. The list doesn't compare the player's own achievements against other players.",
+      "presented": "The achievement list lives outside the game entirely, reached only through the Game Center surface Settings routes to.",
+      "noting": "Match Creek Motors keeps its achievement list off its own screens completely; nothing about an achievement is shown, named or celebrated anywhere inside the game itself.",
+      "findings": [
+        "A list of collectible achievements is shown through Apple's Game Center.",
+        "The achievement list doesn't compare the player against other players.",
+        "No achievement was attained during this analysis.",
+        "The achievement surface is reached only through Settings, Account, Achievements."
+      ],
+      "screenshotsNote": "the Game Center achievement list reached from Settings."
+    },
+    {
+      "name": "Progression Gate",
+      "summary": "A locked player profile states a level-14 requirement without showing what level the player currently holds.",
+      "observed": "Tapping the character portrait in Match Creek Motors shows a message stating the player profile unlocks at level 14. Nothing on screen shows the player's current level to compare against that requirement.",
+      "presented": "The locked message appears directly when the portrait is tapped, standing in for the profile itself until the requirement is met.",
+      "noting": "Match Creek Motors states the unlock condition in terms of a level without saying which level counter it means or showing where the player currently stands against it.",
+      "findings": [
+        "Tapping the character portrait shows that the player profile unlocks at level 14.",
+        "Match Creek Motors doesn't show the player's current level anywhere on screen.",
+        "Match Creek Motors doesn't describe what the player profile contains."
+      ],
+      "screenshotsNote": "the locked player-profile message stating its level-14 requirement."
+    },
+    {
+      "name": "Soft Currency",
+      "summary": "Wrenches earned from winning match-three levels are spent entirely on the restoration tasks that rebuild the current car.",
+      "observed": "Match Creek Motors pays wrenches for winning a match-three level, and wrenches are spent on the individual tasks that make up a car's restoration, each stated at its own price. When the wrench balance can't cover the next task, the player returns to a level to earn more.",
+      "presented": "The wrench balance sits on the home screen throughout play, and an explainer reached by tapping it states plainly that winning levels is how points are earned. Every task states its wrench cost before it's chosen.",
+      "noting": "Match Creek Motors ties the wrench balance to exactly one use, buying the next task, with winning a level as the only way stated to refill it.",
+      "findings": [
+        "Wrenches are earned by winning match-three levels and spent on restoration tasks.",
+        "An in-app explainer states that winning levels is how wrenches are earned.",
+        "Each task states its wrench cost before it's chosen.",
+        "No other source of wrenches, and no other use for them, appears anywhere else."
+      ],
+      "screenshotsNote": "the wrench balance and its explainer; a task showing its stated wrench cost."
+    },
+    {
+      "name": "Hard Currency",
+      "summary": "Gold coins grow throughout the same loop that earns wrenches and are also sold directly in four packs, with no purchase shown for anything they buy.",
+      "observed": "Match Creek Motors sells gold coins in four packs in the shop. The same balance also grows from winning match-three levels, from the reward boxes on the project track, from the sale, and from completing the project.",
+      "presented": "The gold coin balance sits on the home screen beside the wrench balance, and tapping it opens the shop directly. The four packs are listed together with their prices.",
+      "noting": "Match Creek Motors shows every route into the gold coin balance, earned and bought, but no route out; nothing in this write-up claims a price or use for gold coins beyond what's shown, because nothing spending them appears anywhere in the app.",
+      "findings": [
+        "Gold coins are sold in four packs in the shop.",
+        "The same balance also grows from levels, track rewards, the sale and project completion.",
+        "Tapping the gold coin balance opens the shop.",
+        "Match Creek Motors doesn't show anything being bought with gold coins."
+      ],
+      "screenshotsNote": "the gold coin balance on the home screen; the shop's four coin packs."
+    },
+    {
+      "name": "Leaderboard",
+      "summary": "Two named leaderboards, reached through Apple's Game Center, rank players in separate Friends and Global scopes.",
+      "observed": "Opening Settings, Account, Leaderboards takes the player to Apple's Game Center, showing two named boards, one tracking win streaks and one tracking first-try wins, each viewable in a Friends scope and a Global scope.",
+      "presented": "Both boards live outside the game, reached only through the Game Center surface Settings routes to, the same way the achievement list is reached.",
+      "noting": "Match Creek Motors doesn't show the ordered standings on either board, or where the player's own position sits on either one.",
+      "findings": [
+        "Two named leaderboards, tracking win streaks and first-try wins, are reached through Apple's Game Center.",
+        "Each board is viewable in a Friends scope and a Global scope.",
+        "Match Creek Motors doesn't show the ordered standings or the player's own position on either board."
+      ],
+      "screenshotsNote": "the Game Center leaderboard list reached from Settings, showing both named boards.\n\n---"
+    }
+  ],
+  "sectionLeadIns": {
+    "onboarding": "Match Creek Motors runs a fully guided first project before handing control to the player. This section covers the App Store listing, first launch, and the guided steps that introduce spending and choices.",
+    "core-loop": "Winning a match-three level is what funds every step of a car's restoration. This section covers the loop between the two, the task list and its choices, and the negotiation that closes the project.",
+    "goals": "Match Creek Motors tracks the current car's progress and the wider set of projects ahead at once. This section covers the project track's reward boxes, project completion, the story scene that follows it, the missions map, and the achievement list.",
+    "access": "Match Creek Motors locks a player profile and a pre-level item selection behind conditions it states only partly. This section covers both.",
+    "economy": "Match Creek Motors runs two currencies and a counted item alongside its match-three levels. This section covers wrenches, gold coins and the pre-level breakers.",
+    "social": "Match Creek Motors' only comparison surfaces are two leaderboards reached through Apple's Game Center.",
+    "reach": "A settings link to the studio's social pages and a photo mode with system sharing are the two routes Match Creek Motors offers for reaching outside the app.",
+    "monetization": "Match Creek Motors' only purchase surface reached in this analysis is a shop selling gold coins directly.",
+    "returns": "A single notification request, arriving before any game content, is the one return-oriented prompt Match Creek Motors shows in this analysis."
+  },
+  "sectionCards": {
+    "onboarding": "Fifteen observations carry the player from the App Store listing through a fully guided first project, with the garage's cast directing each step before handing over control.",
+    "core-loop": "Winning a match-three level pays wrenches that fund the next restoration task, a loop that repeats through customization choices, crew comments and a blind sale negotiation.",
+    "goals": "Reward boxes on the project track, the project's own completion, a missions map of cars still ahead, and an achievement list all track progress at once.",
+    "access": "A player profile and the pre-level breaker selection each stay locked behind conditions Match Creek Motors doesn't fully explain.",
+    "economy": "Wrenches fund the current car alone, gold coins are sold and earned with no shown use, and hearts and boosters each sit without a shown consumption rule.",
+    "social": "Two named leaderboards rank players by win streak and first-try wins, reached entirely through Apple's Game Center.",
+    "reach": "A community link to the studio's social pages and a photo mode with system sharing are the two routes that send anything outward.",
+    "monetization": "A coin shop sells four gold coin packs, the only purchase surface reached in this analysis.",
+    "returns": "A notification permission request arrives before any game content, the earliest of the app's first-launch screens."
+  },
+  "proposedTags": [
+    {
+      "name": "Serialized Story Reveal",
+      "sourceObservations": [
+        "O5",
+        "O7",
+        "O27",
+        "O28"
+      ],
+      "draftDefinition": "A serialized story reveal is a narrative scene that the product releases when the user completes a defined unit of progression, which advances a continuing story and ends on at least one question the product states as unresolved and carries forward to later units.",
+      "conditions": "A progression built from discrete units, such as projects, chapters or episodes; a persistent cast or narrative thread spanning those units; release of the scene tied to completing a unit rather than to time; an explicit statement in the scene that a question remains open (\"that's a mystery for another time\").",
+      "whyNotCovered": "Milestone covers the recognition of reaching a point on a progression and its rewarded and unlocking variants, but not the release of narrative content that advances a continuing story and carries an open question across units. Companion does not apply because the characters are not acquired, assigned or developed. No approved entry covers story content as the payoff of completing progression.",
+      "recurrenceElsewhere": "The Chrome Valley Customs analysis (session 03 Mar 2026) records a partial second instance. Its O29 describes a continuing story across episodes: the garage was robbed by an antagonist, Greasy Joe, the first build is framed as the chance to make things right, and the second episode hints that someone is ripping off car businesses across town and that more about Greasy Joe may be found. The second episode opens only after the first car is completed and revealed (its O24), and no time-based release of story is recorded, so the story there advances on completion rather than on time. The Greasy Joe thread is carried across the episode boundary as an open question. Two differences limit the match: story beats in Chrome Valley Customs arrive with each batch of tasks (its O17) rather than in one closing scene, and the hint about Greasy Joe is recorded at the opening of the second episode rather than stated as unresolved at the close of the first. That record also covers only one completed episode, so it does not show whether the thread is resolved, extended or dropped later. The Royal Match analysis describes its king as a narrative host; it has not been checked here for this shape.",
+      "caveat": "Only one project and its closing scene are observed. Whether the next project resolves or extends the open question about Mitch, whether scenes can be replayed, and whether story release ever depends on anything other than project completion are not observed. The introduction (O7) precedes any progression and is not itself a reveal under this definition. Two pieces of evidence would settle the proposal. First, a Match Creek Motors session that completes a second project and records whether the question about Mitch is carried into that project's scenes, extended, resolved or dropped, and whether the scene is released on completion alone. Second, a second app showing the same shape in full: a scene released on completing a unit that states a question as open and carries it into a later unit. Chrome Valley Customs comes closest, and a session there that completes a second episode and records whether the Greasy Joe thread is picked up at its close would settle whether it qualifies."
     }
   ],
   "system": {
-    "tagline": "A puzzle game where the episode ends with a buyer negotiation instead of a reveal cinematic, making the player an active participant in the sale.",
-    "overview": "Match Creek Motors runs the same match-3-funds-restoration loop as Chrome Valley Customs, with a distinct episode-end mechanic: three buyers present sequential concealed offers, and the player must accept or reject each without seeing the remaining offers. The interpersonal NPC subplot (Aaron, Brooke, Logan's love triangle, the absent brother Mitch) provides narrative investment across episodes beyond the car itself. Achievement and leaderboard systems are fully delegated to Apple Game Center and are invisible during normal play.",
-    "loop": "The core loop is: play match-3 level → earn wrenches → spend wrenches on named customization task → car model updates → choose customization option → NPC may or may not comment → repeat to 100% episode completion → buyer negotiation (three sequential concealed offers, drag to accept or reject) → gold coin reward → Episode 2 car selection (choose from three options).",
-    "keyInsight": "The buyer negotiation makes the episode end interactive in a way that Chrome Valley Customs' passive cinematic does not. The player must make a real decision (accept or reject) without full information, at the moment they are most invested in the episode's car. On first play, the game guides the correct choice, but the mechanic implies genuine strategic tension at higher levels with less guidance.",
-    "whatMakesItWork": "The interpersonal subplot (Aaron and Brooke's complicated history, Mitch's mysterious departure, Logan's role as rival and scout) provides return motivation that is not tied to any individual car. A player who has completed the Episode 1 car still has unresolved narrative threads pulling them into Episode 2, a retention mechanism that game mechanics alone cannot provide.",
+    "tagline": "A match-three puzzle whose every win funds a car restoration that ends in a blind sale negotiation, with achievements and leaderboards routed entirely outside the game.",
+    "overview": "Match Creek Motors treats its match-three levels as pure funding for a car-restoration story: every level won pays wrenches that go straight to the next priced task on the current car, each carrying a cosmetic choice the crew sometimes comments on. Gold coins, hearts and boosters all sit around the same loop without a shown rule connecting them to it, and the project closes with a sale negotiated across three sequential, blind offers rather than a straightforward reveal.",
+    "loop": "Winning a match-three level pays wrenches and gold coins, and the numbered level count climbs by one. Wrenches fund the next restoration task, each carrying a three-option cosmetic choice, and reward boxes along the project track pay gold coins as the car nears completion. Selling the finished car through a sequential, blind negotiation closes the project, paying a final round of gold coins and boosters, and opens a story scene before the next car is chosen. A running heart count and a pre-level booster selection both sit beside the loop without a shown consumption rule, and a locked player profile reads a level-14 requirement against the same numbered level count the loop advances. Gold coins are also sold directly in the shop, the same balance the loop already grows for free.",
+    "keyInsight": "The match-three level is the one action every other system in Match Creek Motors either feeds or reads. Wrenches, gold coins, the numbered level count, and the milestone boxes on the project track all come from winning the same levels, so the achievement and leaderboard systems are the only two pieces that don't touch that loop at all, sitting entirely outside the game in Game Center instead.",
+    "whatMakesItWork": "Because nearly every resource traces back to the same match-three level, the restoration loop needs nothing else to keep running: wrenches fund it, gold coins accumulate alongside it, and the project track's milestones mark its progress, all from the same repeated action. The sale negotiation is the one point where the game asks for a real decision rather than leading one, though the first instance played out was still narrated by the cast rather than left open.",
     "roles": [
       {
+        "id": "challenges",
+        "role": "Each match-three level is a bounded objective with a stated collection target, the action every currency and level-count advance in the system comes from."
+      },
+      {
+        "id": "soft-currency",
+        "role": "Wrenches earned from every level fund the current car's restoration tasks, with no other stated use."
+      },
+      {
+        "id": "cosmetics",
+        "role": "Each restoration task carries a three-option style choice, applied and revisable, with no stated effect on anything the game tracks."
+      },
+      {
+        "id": "milestone",
+        "role": "Two reward boxes on the project track pay out as the car nears completion, separate from the project's own completion reward."
+      },
+      {
+        "id": "boosters",
+        "role": "A pre-level selection screen offers three of an item from level 9 onward, with no shown effect or reduction on use."
+      },
+      {
         "id": "energy-lives",
-        "role": "Hearts are visible but non-limiting during Episode 1, difficulty is calibrated so new players do not fail levels, removing the energy constraint from the first-install experience."
+        "role": "A hearts counter, named lives by the app itself, sits beside the loop with no shown consumption rule."
       },
       {
-        "id": "variable-reward",
-        "role": "The buyer negotiation at episode end is the primary variable-adjacent mechanic: three buyers with concealed offer values, each requiring an accept or reject decision without knowing what comes next."
+        "id": "progression-gate",
+        "role": "A locked player profile states a level-14 requirement against the same numbered level count the loop advances."
       },
       {
-        "id": "achievement",
-        "role": "High Win Streak and First Try Wins achievement categories route entirely through Apple Game Center, invisible during normal play, accessible only via Settings → Account → Achievements."
+        "id": "hard-currency",
+        "role": "Gold coins are sold directly in four packs and also earned throughout the loop, with no shown spend anywhere in the app."
       },
       {
         "id": "leaderboards",
-        "role": "High Win Streak and First Try Wins leaderboards in Game Center, same invisible routing as achievements, accessible only outside normal gameplay flow."
+        "role": "Two named boards rank players by win streak and first-try wins, reached entirely outside the game through Game Center."
+      },
+      {
+        "id": "achievement",
+        "role": "A list of collectible achievements is reached entirely through Game Center, with no achievement named or shown inside the game itself."
       }
     ],
     "center": {
       "x": 50,
-      "y": 15,
+      "y": 8,
       "label": "MATCH CREEK"
     },
     "nodes": [
       {
-        "id": "energy-lives",
+        "id": "challenges",
         "x": 50,
-        "y": 38
+        "y": 26
       },
       {
-        "id": "variable-reward",
-        "x": 20,
-        "y": 65
+        "id": "soft-currency",
+        "x": 30,
+        "y": 42
+      },
+      {
+        "id": "hard-currency",
+        "x": 70,
+        "y": 42
+      },
+      {
+        "id": "progression-gate",
+        "x": 82,
+        "y": 58
+      },
+      {
+        "id": "cosmetics",
+        "x": 18,
+        "y": 58
+      },
+      {
+        "id": "milestone",
+        "x": 50,
+        "y": 58
+      },
+      {
+        "id": "boosters",
+        "x": 38,
+        "y": 76
+      },
+      {
+        "id": "energy-lives",
+        "x": 62,
+        "y": 76
       },
       {
         "id": "achievement",
-        "x": 50,
-        "y": 65
+        "x": 20,
+        "y": 76
       },
       {
         "id": "leaderboards",
-        "x": 80,
-        "y": 65
+        "x": 82,
+        "y": 76
       }
     ],
     "connections": [
       {
-        "from": "energy-lives",
-        "to": "variable-reward",
-        "title": "Energy gates the episode's variable outcome",
-        "desc": "Match-3 levels cost hearts. Each completed level produces a variable wrench yield that funds the next restoration task. The energy system determines how many attempts at the variable outcome are available.",
-        "effect": "Heart scarcity is also yield scarcity. Players who exhaust hearts before completing a task have to wait or pay, increasing the perceived value of each successful level."
+        "from": "challenges",
+        "to": "soft-currency",
+        "title": "Every level pays wrenches",
+        "desc": "Winning a match-three level pays a wrench reward every time.",
+        "effect": "Wrenches have exactly one source, so funding the next restoration task always means playing another level."
       },
       {
-        "from": "variable-reward",
-        "to": "achievement",
-        "title": "Win streaks and first-try wins emerge from level runs",
-        "desc": "High Win Streak and First Try Wins are the two achievement categories. Both measure match-3 performance quality. Variable level difficulty means neither is guaranteed.",
-        "effect": "Players aware of the streak achievement play more carefully, attending to level quality rather than rushing. The achievement system gives the variable reward surface a second layer of stakes."
+        "from": "challenges",
+        "to": "hard-currency",
+        "title": "Every level also pays gold coins",
+        "desc": "Winning a match-three level pays a gold coin reward alongside its wrenches.",
+        "effect": "The second balance accrues from ordinary play, not only from purchases."
+      },
+      {
+        "from": "challenges",
+        "to": "progression-gate",
+        "title": "Winning advances the numbered level count the gate reads",
+        "desc": "The numbered match-three level climbs by one with every level won, the same count the player-profile requirement is stated against.",
+        "effect": "Reaching the profile's level-14 requirement, whatever it turns out to measure, runs through the same repeated action as everything else."
+      },
+      {
+        "from": "soft-currency",
+        "to": "cosmetics",
+        "title": "Wrenches buy the tasks that carry each style choice",
+        "desc": "Every restoration task, each opening a three-option style choice, is bought with wrenches.",
+        "effect": "The currency spent on cosmetic choices is earned from the same puzzle that funds the rest of the project."
+      },
+      {
+        "from": "soft-currency",
+        "to": "milestone",
+        "title": "Task spending advances the car toward the track's reward boxes",
+        "desc": "Completing coin-priced tasks moves the project track forward, past the two reward boxes placed along it.",
+        "effect": "Spending wrenches on the car is also what triggers the track's own milestone payouts."
+      },
+      {
+        "from": "milestone",
+        "to": "hard-currency",
+        "title": "Project completion pays a final round of gold coins",
+        "desc": "The Episode complete screen grants gold coins alongside boosters once the project is finished.",
+        "effect": "Finishing a car adds directly to the same balance the shop also sells."
+      },
+      {
+        "from": "milestone",
+        "to": "boosters",
+        "title": "Project completion grants boosters alongside coins",
+        "desc": "The project-completion reward grants a number of boosters together with its coin payout.",
+        "effect": "Finishing a car restocks whatever boosters are, independent of the pre-level breaker selection."
       },
       {
         "from": "achievement",
         "to": "leaderboards",
-        "title": "Achievement metrics feed the leaderboards",
-        "desc": "High Win Streak and First Try Wins are both achievement categories and leaderboard metrics. The same performance tracked for personal achievement is also tracked for competitive ranking.",
-        "effect": "Players competing on leaderboards are simultaneously advancing achievement categories. The two systems share the same underlying metric, making each tracked behaviour count twice."
+        "title": "Both systems are reached through the same Game Center surface",
+        "desc": "Achievements and leaderboards both route through Settings, Account, and Apple's Game Center, invisible during normal play.",
+        "effect": "Neither system is discoverable from inside the game itself; both depend on the player looking in Settings."
       }
     ]
   }

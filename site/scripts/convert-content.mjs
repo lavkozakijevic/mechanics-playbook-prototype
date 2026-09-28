@@ -1077,29 +1077,30 @@ const ADDITIONS = {
 // the file's own words lead with, since one file can only remap to one id.
 // Neither clash-of-clans, canva, tiimo, capybara-go, dave, cleo,
 // royal-match, gymverse, fc-mobile, acorns, ladder, freeletics,
-// fortune-city, nor chrome-valley-customs appears below: all fourteen are
-// v4.1 and never reach this path (royal-match, gymverse, fc-mobile, acorns,
-// ladder, freeletics, fortune-city and chrome-valley-customs each carried
-// an entry here before their own migration to v4.1, removed once each
-// analysis stopped using the v3 inline-id form). freeletics's own
-// assignment to achievement does not hold up the way liftoff's does: the
-// fresh analysis leaves Achievement unresolved rather than applying it
-// ("no achievement, criterion, locked entry or attained state is narrated
-// on an account that has done no workouts") — a garbled passage and a
-// blank account, not a confirmed criterion. The entry is retired here
-// regardless, since freeletics.md is v4.1 format and never reaches this
-// path, but unlike liftoff's this was never a settled case to begin with.
-// fortune-city's fresh analysis does apply Achievement, on different
-// grounds entirely (100 named criteria evaluated against activity), so its
-// removal from the list below reflects the same v3-path retirement as the
-// others, not a rejection. chrome-valley-customs's fresh analysis
-// considers Achievement too and rejects it outright ("'Perfect restoration'
-// and 'Episode complete' are level and episode results, not separately
+// fortune-city, chrome-valley-customs, nor match-creek-motors appears
+// below: all fifteen are v4.1 and never reach this path (royal-match,
+// gymverse, fc-mobile, acorns, ladder, freeletics, fortune-city,
+// chrome-valley-customs and match-creek-motors each carried an entry here
+// before their own migration to v4.1, removed once each analysis stopped
+// using the v3 inline-id form). freeletics's own assignment to achievement
+// does not hold up the way liftoff's does: the fresh analysis leaves
+// Achievement unresolved rather than applying it ("no achievement,
+// criterion, locked entry or attained state is narrated on an account that
+// has done no workouts") — a garbled passage and a blank account, not a
+// confirmed criterion. The entry is retired here regardless, since
+// freeletics.md is v4.1 format and never reaches this path, but unlike
+// liftoff's this was never a settled case to begin with. fortune-city's and
+// match-creek-motors's fresh analyses both apply Achievement, on different
+// grounds entirely (100 named criteria evaluated against activity for the
+// former; a Game Center achievement list for the latter), so their removal
+// from the list below reflects the same v3-path retirement as the others,
+// not a rejection. chrome-valley-customs's fresh analysis considers
+// Achievement too and rejects it outright ("'Perfect restoration' and
+// 'Episode complete' are level and episode results, not separately
 // recorded attained criteria"), so its own removal from the milestone list
 // below is likewise retirement, not agreement with the old remap.
 //   -> achievement: calm, liftoff, swgoh,
-//      uptime, fiton, match-creek-motors,
-//      fifa-panini-collection, subway-surfers.
+//      uptime, fiton, fifa-panini-collection, subway-surfers.
 //   -> milestone: wispr-flow, solitaire-grand-harvest.
 //
 // variable-reward split into loot-box and variable-reward (kept, renamed
@@ -1112,8 +1113,7 @@ const ADDITIONS = {
 // "### Variable Reward (`variable-reward`) · Depth" heading still resolves
 // correctly with NO remap needed whenever that file's own evidence belongs
 // to the kept id: acorns (variable-amount survey payouts, no acquisition
-// step), match-creek-motors (the buyer negotiation's concealed sequential offers),
-// solitaire-grand-harvest (a free Lucky Wheel spin and a free Crop Master
+// step), solitaire-grand-harvest (a free Lucky Wheel spin and a free Crop Master
 // pick dominate the section, even though its $2.99 second spin is
 // loot-box-shaped on its own — REMAPS holds one id per app, so the file's
 // dominant, free-to-resolve framing wins) and fifa-panini-collection
@@ -1140,16 +1140,20 @@ const ADDITIONS = {
 // (variable-reward) by the same no-remap-needed mechanism as the others
 // above, but flagged here explicitly as an unevidenced default rather than
 // a real classification decision, pending its own write-up. Neither
-// fortune-city, clash-of-clans, nor chrome-valley-customs appears below:
-// fortune-city's own analysis never mentions this concept at all, and
-// clash-of-clans's and chrome-valley-customs's analyses each explicitly
-// consider and reject Variable Reward Outcome in their own "Entries
-// considered and not applied" sections ("every level ended in the same
-// 'perfect restoration' result, and no reward event is shown resolving to
-// materially different results" for the latter) — all three were stale
-// carryovers on the old fused mechanic's apps[] list rather than real
-// evidence, and none reaches this v3 path in any case, all being v4.1.
-// royal-match, capybara-go, fc-mobile, steam, swgoh, uptime and
+// fortune-city, clash-of-clans, chrome-valley-customs, nor
+// match-creek-motors appears below: fortune-city's own analysis never
+// mentions this concept at all, and clash-of-clans's, chrome-valley-customs's
+// and match-creek-motors's analyses each explicitly consider and reject
+// Variable Reward Outcome in their own "Entries considered and not applied"
+// sections ("every level ended in the same 'perfect restoration' result,
+// and no reward event is shown resolving to materially different results"
+// for chrome-valley-customs; "The three sale offers are chosen by the user
+// one card at a time under instructions... so multiple possible results for
+// one resolution event are not established" for match-creek-motors, whose
+// old entry had named that same negotiation as its variable-reward carrier)
+// — all four were stale carryovers on the old fused mechanic's apps[] list
+// rather than real evidence, and none reaches this v3 path in any case, all
+// being v4.1. royal-match, capybara-go, fc-mobile, steam, swgoh, uptime and
 // insight-timer don't appear below either: all seven are v4.1 and never
 // reach this path.
 const REMAPS = {
@@ -1161,14 +1165,15 @@ const REMAPS = {
   "fiton": { "achievements": "achievement" },
   // fortune-city's entry here was removed on its own v4.1 migration (28 Sep
   // 2026), for the same reason.
-  "match-creek-motors": { "achievements": "achievement" },
   "fifa-panini-collection": { "achievements": "achievement" },
   // subway-surfers's entry here was removed on its v4.1 migration (28 Sep
   // 2026): REMAPS is a v3-only path subway-surfers.md never reaches.
   // chrome-valley-customs's entry here was removed on its own v4.1
   // migration (28 Sep 2026), for the same reason — and its fresh analysis
   // rejects Achievement outright rather than agreeing with the old remap
-  // (see the comment above this block).
+  // (see the comment above this block). match-creek-motors's entry here
+  // was removed on its own v4.1 migration (29 Sep 2026), the same
+  // retirement as fortune-city's, not agreement or rejection.
   "wispr-flow": { "achievements": "milestone" },
 };
 // Strava's unrecognized "hard-currency" section is about the subscription
@@ -1186,21 +1191,22 @@ const DROPS = new Set([
   "streak|freeletics",
   "daily-login-reward|fiton",
   "credits-tokens|liftoff",
-  "ads|match-creek-motors",
   "gifting|swgoh",
   // fortune-city's "soft-currency|fortune-city" entry here was removed on
   // its v4.1 migration (28 Sep 2026): DROPS is a v3-only path
   // fortune-city.md no longer reaches. chrome-valley-customs's
   // "ads|chrome-valley-customs" and "limited-time-events|chrome-valley-customs"
   // entries here were removed on its own v4.1 migration (28 Sep 2026), for
-  // the same reason.
-  // Limited-Time Events retired 15 Sep 2026 (see taxonomy-map.md). These
-  // apps are still on v3 analyses that named it as an applied tag; dropped
-  // rather than rewritten, since none is a confirmed carrier and each is
-  // due for re-analysis under the current model regardless.
-  "limited-time-events|swgoh",
-  "limited-time-events|fiton",
-  "limited-time-events|match-creek-motors",
+  // the same reason. match-creek-motors's "ads|match-creek-motors" and
+  // "limited-time-events|match-creek-motors" entries here were removed on
+  // its own v4.1 migration (29 Sep 2026) — the last app on the v3 model.
+  // Limited-Time Events was retired 15 Sep 2026 (see taxonomy-map.md); its
+  // remaining two entries here, swgoh's and fiton's, were left behind
+  // uncleaned when each of those two apps migrated to v4.1 earlier in this
+  // project and are equally dead already — DROPS is a v3-only path neither
+  // swgoh.md nor fiton.md reaches any more. Removed now that this cleanup
+  // pass has actually noticed them, rather than left for a tenth app that
+  // no longer exists.
   // subway-surfers's entry here was removed on its v4.1 migration (28 Sep
   // 2026): DROPS is a v3-only path subway-surfers.md never reaches.
 ]);
@@ -2040,6 +2046,31 @@ const V41_APP_META = {
         "A car-themed bundle, three gem packs and a larger offers catalogue sell gems, power-ups and timed infinite health, all discounted against a stated original price.",
       returns:
         "A timed event with a multi-day countdown is the one thing that brings the player back.",
+    },
+  },
+  "match-creek-motors": {
+    name: "Match Creek Motors",
+    category: "Puzzle / Meta",
+    type: "game",
+    sectionCards: {
+      onboarding:
+        "Fifteen observations carry the player from the App Store listing through a fully guided first project, with the garage's cast directing each step before handing over control.",
+      "core-loop":
+        "Winning a match-three level pays wrenches that fund the next restoration task, a loop that repeats through customization choices, crew comments and a blind sale negotiation.",
+      goals:
+        "Reward boxes on the project track, the project's own completion, a missions map of cars still ahead, and an achievement list all track progress at once.",
+      access:
+        "A player profile and the pre-level breaker selection each stay locked behind conditions Match Creek Motors doesn't fully explain.",
+      economy:
+        "Wrenches fund the current car alone, gold coins are sold and earned with no shown use, and hearts and boosters each sit without a shown consumption rule.",
+      social:
+        "Two named leaderboards rank players by win streak and first-try wins, reached entirely through Apple's Game Center.",
+      reach:
+        "A community link to the studio's social pages and a photo mode with system sharing are the two routes that send anything outward.",
+      monetization:
+        "A coin shop sells four gold coin packs, the only purchase surface reached in this analysis.",
+      returns:
+        "A notification permission request arrives before any game content, the earliest of the app's first-launch screens.",
     },
   },
 };
