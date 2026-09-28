@@ -8,7 +8,7 @@
   "lastUpdated": "2026-09-16",
   "asObserved": "2026-04",
   "appVersion": "None.",
-  "summary": "Insight Timer opens with graphs of mood improvement and a consistency curve before asking the user to set a goal, then mechanizes that self-chosen commitment through a streak, a daily intention the product shows back as the user's own statement, and a milestone system that pays out in trial length. A social layer runs alongside on two separate tracks: named groups with admins and membership, and open, unmembered surfaces like a gratitude wall and quote comments. The product's depth, hundreds of thousands of free tracks, thousands of groups, a retreat marketplace, a therapist directory, keeps the mechanics from feeling like a substitute for content.",
+  "summary": "Insight Timer opens with graphs of mood improvement and a consistency curve before asking the user to set a goal, then mechanizes that self-chosen commitment through a streak, a daily intention the product shows back as the user's own statement, and a milestone system that pays out in trial length. A social layer runs alongside on two separate tracks: named groups with admins and membership, and open, unmembered surfaces like a gratitude wall and quote comments. A separate sidebar check-in asks how the user is feeling and keeps the answer as a record, apart from both the streak-and-intention spine and the social layer. The product's depth, hundreds of thousands of free tracks, thousands of groups, a retreat marketplace, a therapist directory, keeps the mechanics from feeling like a substitute for content.",
   "teaser": "Insight Timer's most powerful habit-formation tool, a home screen widget, is rewarded with a longer trial — more time to build the exact habit the widget exists to support.",
   "icon": "/icons/insight-timer.png",
   "heroImage": null,
@@ -253,7 +253,18 @@
       "section": "core-loop",
       "observed": "Finishing a timer practice shows what was completed and a count of how many other people in the community meditated at the same moment, with no individual identified. Continuing leads into a streak prompt, a widget prompt, a reflection screen, and a retreat screen, in that order.",
       "detail": [],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Check-In",
+          "confidence": "Presence on O22, for the sidebar check-in that records mood and feeds the week's check-in summary and the stats (tier: strongly supported, the mood options other than good are not narrated). Presence on O21, for the post-session reflection (tier: plausible, the options are directly observed but whether the answer is kept is not shown).",
+          "confidences": [
+            "Presence on O22, for the sidebar check-in that records mood and feeds the week's check-in summary and the stats (tier: strongly supported, the mood options other than good are not narrated). Presence on O21, for the post-session reflection (tier: plausible, the options are directly observed but whether the answer is kept is not shown)."
+          ],
+          "rationale": "After a session, Insight Timer asks \"How are you feeling?\" on a slider from awful to great, offers descriptor tags under \"What best describes this feeling\" that change with the slider position, asks what is having the biggest impact, and offers a journal field (tier: directly observed). The sidebar check-in asks \"How are you today?\" and records mood, and both the week's check-in summary and the detailed stats carry check-ins (tier: directly observed). The answers are the user's own report of present feeling rather than records the product holds, which the entry separates from Personal Data Reflection (tier: directly observed). Whether the post-session answer is kept, and whether it enters the check-in count or the week's summary, is not shown (tier: unresolved). The remark comparing Calm's tags on O21 is not used: it was a recollection rather than an observation and does not stand (tier: directly observed).",
+          "alternativeConsidered": "For O21 alone, a one-time prompt whose answer is not kept, which would carry no label (tier: plausible). A session that submits the reflection and then opens the stats and the week's check-in summary would separate them (tier: unresolved). Personal Data Reflection, tested on the first run, does not apply because the answers are reported from present experience rather than drawn from the product's records (tier: directly observed).",
+          "role": "engagement"
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -263,7 +274,18 @@
       "section": "core-loop",
       "observed": "After a practice, a reflection screen asks how the user is feeling on a slider from awful to great, alongside a journaling field and a set of descriptor tags that change depending on where the slider sits. A control lets the user turn the screen off for future practices.",
       "detail": [],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Check-In",
+          "confidence": "Presence on O22, for the sidebar check-in that records mood and feeds the week's check-in summary and the stats (tier: strongly supported, the mood options other than good are not narrated). Presence on O21, for the post-session reflection (tier: plausible, the options are directly observed but whether the answer is kept is not shown).",
+          "confidences": [
+            "Presence on O22, for the sidebar check-in that records mood and feeds the week's check-in summary and the stats (tier: strongly supported, the mood options other than good are not narrated). Presence on O21, for the post-session reflection (tier: plausible, the options are directly observed but whether the answer is kept is not shown)."
+          ],
+          "rationale": "After a session, Insight Timer asks \"How are you feeling?\" on a slider from awful to great, offers descriptor tags under \"What best describes this feeling\" that change with the slider position, asks what is having the biggest impact, and offers a journal field (tier: directly observed). The sidebar check-in asks \"How are you today?\" and records mood, and both the week's check-in summary and the detailed stats carry check-ins (tier: directly observed). The answers are the user's own report of present feeling rather than records the product holds, which the entry separates from Personal Data Reflection (tier: directly observed). Whether the post-session answer is kept, and whether it enters the check-in count or the week's summary, is not shown (tier: unresolved). The remark comparing Calm's tags on O21 is not used: it was a recollection rather than an observation and does not stand (tier: directly observed).",
+          "alternativeConsidered": "For O21 alone, a one-time prompt whose answer is not kept, which would carry no label (tier: plausible). A session that submits the reflection and then opens the stats and the week's check-in summary would separate them (tier: unresolved). Personal Data Reflection, tested on the first run, does not apply because the answers are reported from present experience rather than drawn from the product's records (tier: directly observed).",
+          "role": "engagement"
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -273,7 +295,18 @@
       "section": "core-loop",
       "observed": "A sidebar check-in asks how the user is feeling today and keeps the answer as a mood record; continuing from it into a journal entry raised a paywall. The journal itself, reachable from the sidebar and the Saved tab, takes a plain entry and saves it. A completed check-in did not visibly change a neutral weekly summary.",
       "detail": [],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Check-In",
+          "confidence": "Presence on O22, for the sidebar check-in that records mood and feeds the week's check-in summary and the stats (tier: strongly supported, the mood options other than good are not narrated). Presence on O21, for the post-session reflection (tier: plausible, the options are directly observed but whether the answer is kept is not shown).",
+          "confidences": [
+            "Presence on O22, for the sidebar check-in that records mood and feeds the week's check-in summary and the stats (tier: strongly supported, the mood options other than good are not narrated). Presence on O21, for the post-session reflection (tier: plausible, the options are directly observed but whether the answer is kept is not shown)."
+          ],
+          "rationale": "After a session, Insight Timer asks \"How are you feeling?\" on a slider from awful to great, offers descriptor tags under \"What best describes this feeling\" that change with the slider position, asks what is having the biggest impact, and offers a journal field (tier: directly observed). The sidebar check-in asks \"How are you today?\" and records mood, and both the week's check-in summary and the detailed stats carry check-ins (tier: directly observed). The answers are the user's own report of present feeling rather than records the product holds, which the entry separates from Personal Data Reflection (tier: directly observed). Whether the post-session answer is kept, and whether it enters the check-in count or the week's summary, is not shown (tier: unresolved). The remark comparing Calm's tags on O21 is not used: it was a recollection rather than an observation and does not stand (tier: directly observed).",
+          "alternativeConsidered": "For O21 alone, a one-time prompt whose answer is not kept, which would carry no label (tier: plausible). A session that submits the reflection and then opens the stats and the week's check-in summary would separate them (tier: unresolved). Personal Data Reflection, tested on the first run, does not apply because the answers are reported from present experience rather than drawn from the product's records (tier: directly observed).",
+          "role": "engagement"
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -437,6 +470,16 @@
           "rationale": "The subject is a record Insight Timer holds and presents as an accomplishment (\"Great work. We started a streak\"), the product composes it into a representation for an outside reader, and it offers Instagram, WhatsApp, Messenger, Messages and copy link as routes out (tier: strongly supported). The share is attached to the streak and stats records rather than to content the user made (tier: directly observed).",
           "alternativeConsidered": "An ordinary share control on product content (tier: plausible). The subject here is the user's own streak and totals rather than a track or a quote, which the practice share on O43 and O46 covers separately (tier: directly observed).",
           "role": "social"
+        },
+        {
+          "name": "Check-In",
+          "confidence": "Presence on O22, for the sidebar check-in that records mood and feeds the week's check-in summary and the stats (tier: strongly supported, the mood options other than good are not narrated). Presence on O21, for the post-session reflection (tier: plausible, the options are directly observed but whether the answer is kept is not shown).",
+          "confidences": [
+            "Presence on O22, for the sidebar check-in that records mood and feeds the week's check-in summary and the stats (tier: strongly supported, the mood options other than good are not narrated). Presence on O21, for the post-session reflection (tier: plausible, the options are directly observed but whether the answer is kept is not shown)."
+          ],
+          "rationale": "After a session, Insight Timer asks \"How are you feeling?\" on a slider from awful to great, offers descriptor tags under \"What best describes this feeling\" that change with the slider position, asks what is having the biggest impact, and offers a journal field (tier: directly observed). The sidebar check-in asks \"How are you today?\" and records mood, and both the week's check-in summary and the detailed stats carry check-ins (tier: directly observed). The answers are the user's own report of present feeling rather than records the product holds, which the entry separates from Personal Data Reflection (tier: directly observed). Whether the post-session answer is kept, and whether it enters the check-in count or the week's summary, is not shown (tier: unresolved). The remark comparing Calm's tags on O21 is not used: it was a recollection rather than an observation and does not stand (tier: directly observed).",
+          "alternativeConsidered": "For O21 alone, a one-time prompt whose answer is not kept, which would carry no label (tier: plausible). A session that submits the reflection and then opens the stats and the week's check-in summary would separate them (tier: unresolved). Personal Data Reflection, tested on the first run, does not apply because the answers are reported from present experience rather than drawn from the product's records (tier: directly observed).",
+          "role": "engagement"
         }
       ],
       "crossRefs": [],
@@ -468,7 +511,18 @@
       "section": "access",
       "observed": "Plus items stay visible in free use and lock at the point of use rather than being hidden: a course intro plays freely before its paywall, premium timer instruments raise a lock message on tap, and continuing a check-in into a journal entry raises its own paywall. The basic timer, its standard ambient sounds, and the free library all remain usable without Plus.",
       "detail": [],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Check-In",
+          "confidence": "Presence on O22, for the sidebar check-in that records mood and feeds the week's check-in summary and the stats (tier: strongly supported, the mood options other than good are not narrated). Presence on O21, for the post-session reflection (tier: plausible, the options are directly observed but whether the answer is kept is not shown).",
+          "confidences": [
+            "Presence on O22, for the sidebar check-in that records mood and feeds the week's check-in summary and the stats (tier: strongly supported, the mood options other than good are not narrated). Presence on O21, for the post-session reflection (tier: plausible, the options are directly observed but whether the answer is kept is not shown)."
+          ],
+          "rationale": "After a session, Insight Timer asks \"How are you feeling?\" on a slider from awful to great, offers descriptor tags under \"What best describes this feeling\" that change with the slider position, asks what is having the biggest impact, and offers a journal field (tier: directly observed). The sidebar check-in asks \"How are you today?\" and records mood, and both the week's check-in summary and the detailed stats carry check-ins (tier: directly observed). The answers are the user's own report of present feeling rather than records the product holds, which the entry separates from Personal Data Reflection (tier: directly observed). Whether the post-session answer is kept, and whether it enters the check-in count or the week's summary, is not shown (tier: unresolved). The remark comparing Calm's tags on O21 is not used: it was a recollection rather than an observation and does not stand (tier: directly observed).",
+          "alternativeConsidered": "For O21 alone, a one-time prompt whose answer is not kept, which would carry no label (tier: plausible). A session that submits the reflection and then opens the stats and the week's check-in summary would separate them (tier: unresolved). Personal Data Reflection, tested on the first run, does not apply because the answers are reported from present experience rather than drawn from the product's records (tier: directly observed).",
+          "role": "engagement"
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -938,7 +992,7 @@
     }
   ],
   "systemView": [
-    "Insight Timer's daily state runs through two entry points that both start at onboarding: setting an intention, which starts the streak and counts down to the next milestone, and a timer practice, which ends in a completion screen, a streak-and-widget prompt sequence, and a reflection screen. The social layer sits apart from this spine on two tracks that don't reference each other: a membership layer of named, admin-run groups, and a set of open, unmembered surfaces seeded by the product itself. Nothing ties the meditation-and-streak spine directly to the social layer beyond a shared profile-visibility setting."
+    "Insight Timer's daily state runs through two entry points that both start at onboarding: setting an intention, which starts the streak and counts down to the next milestone, and a timer practice, which ends in a completion screen, a streak-and-widget prompt sequence, and a reflection screen asking how the user feels. A separate sidebar check-in asks the same kind of question on its own, and is the one place a self-report is kept as a record. The social layer sits apart from all of this on two tracks that don't reference each other: a membership layer of named, admin-run groups, and a set of open, unmembered surfaces seeded by the product itself. Nothing ties the meditation-and-streak spine, the check-in, or the social layer to each other beyond a shared profile-visibility setting."
   ],
   "mechanicWriteups": [
     {
@@ -1037,12 +1091,26 @@
         "My teachers is stated to collect updates from followed teachers.",
         "A separate home screen community section shows app-wide activity, with its attribution left unclear."
       ],
-      "screenshotsNote": "a joined group's feed, and the empty My feed / My teachers tabs.\n\n---"
+      "screenshotsNote": "a joined group's feed, and the empty My feed / My teachers tabs."
+    },
+    {
+      "name": "Check-In",
+      "summary": "A sidebar mood check-in keeps its answer as a record; a near-identical post-practice screen exists too, but whether it feeds that record is unclear.",
+      "observed": "Insight Timer's sidebar offers a check-in that asks how the user is feeling today and keeps the answer as a mood record, counted among the activities the detailed stats track toward progress; continuing the same check-in into a journal entry raises the Advanced journal paywall. A near-identical prompt also appears at the end of a timer practice, on a slider from awful to great with descriptor tags that change depending on where the slider sits, a further question about what's having the biggest impact, a journaling field, and a control to turn the screen off for future practices. Whether that post-practice answer is kept anywhere is left unclear, unlike the sidebar check-in, whose answer is kept even though a completed one didn't visibly move a neutral weekly summary.",
+      "presented": "The sidebar check-in sits behind its own entry point, reached independently of any practice. The post-practice version appears automatically in the same screen sequence as the streak and widget prompts, right after a practice ends, framed as a moment for reflection rather than as a request.",
+      "noting": "The standalone sidebar check-in is the stronger case: the user reports a present feeling from a defined set of options, and the product states plainly that it keeps the answer as a record. The post-practice version looks like the same pattern, the same kind of question and a comparable set of options, but where its answer goes afterward is left unclear, so it's described here as a screen that likely extends the same behavior rather than a settled second instance of it.",
+      "findings": [
+        "The sidebar check-in asks how the user is feeling and keeps the answer as a mood record.",
+        "Sidebar check-ins are counted among the activities the detailed stats track.",
+        "Continuing a sidebar check-in into a journal entry raises the Advanced journal paywall.",
+        "A near-identical prompt appears after a timer practice, with descriptor tags that change by slider position, but whether its answer is kept anywhere is left unclear."
+      ],
+      "screenshotsNote": "the sidebar check-in screen asking how the user is feeling, and the post-practice reflection screen with its descriptor tags.\n\n---"
     }
   ],
   "sectionLeadIns": {
     "onboarding": "An opening usage-share claim, four rounds of profiling questions, three consistency-research screens, and a dated well-being prediction all run before any account is created.",
-    "core-loop": "A home screen anchored by a streak, an intention field, and live usage counts feeds into a meditation timer, a completion sequence, and a stats page that gathers everything into one view.",
+    "core-loop": "A home screen anchored by a streak, an intention field, and live usage counts feeds into a meditation timer, a completion sequence that includes a check-in, and a stats page that gathers everything into one view.",
     "goals": "A consecutive-day goal chosen at onboarding drives a streak, a milestone countdown, and a stats page that gathers every counted activity into one view.",
     "access": "Account creation asks only for a birth year, Plus content stays visible but locks at the point of use, and setting an intention is blocked until a home screen widget is installed.",
     "economy": "Insight Timer holds no currency, points, credits, tokens, or other held unit that is earned and then spent or exchanged. Nothing in the app's use is presented as a balance of any kind.",
@@ -1053,7 +1121,7 @@
   },
   "sectionCards": {
     "onboarding": "An opening usage-share claim, four rounds of profiling questions, three consistency-research screens, and a dated well-being prediction all run before any account is created.",
-    "core-loop": "A home screen anchored by a streak, an intention field, and live usage counts feeds into a meditation timer, a completion sequence, and a stats page that gathers everything into one view.",
+    "core-loop": "A home screen anchored by a streak, an intention field, and live usage counts feeds into a meditation timer, a completion sequence that includes a check-in, and a stats page that gathers everything into one view.",
     "goals": "A consecutive-day goal chosen at onboarding drives a streak, a milestone countdown, and a stats page that gathers every counted activity into one view.",
     "access": "Account creation asks only for a birth year, Plus content stays visible but locks at the point of use, and setting an intention is blocked until a home screen widget is installed.",
     "economy": "Empty. Insight Timer holds no currency, points, credits, tokens, or other held unit that is earned and then spent or exchanged.",
@@ -1062,24 +1130,11 @@
     "monetization": "An onboarding paywall gives way to a free-tier promise, then a trial-extension gift, contextual Plus offers at every locked surface, and a teacher-donation flow.",
     "returns": "A post-practice streak prompt, a set of home screen widgets, and a calendar of live teacher-led events bring the user back."
   },
-  "proposedTags": [
-    {
-      "name": "Post-Activity Mood Check",
-      "sourceObservations": [
-        "O21",
-        "O22"
-      ],
-      "draftDefinition": "A post-activity mood check asks the user, when the core activity ends, to rate how they feel on a defined scale, offers descriptor tags and a prompt about what is influencing the feeling, and accepts a free-text note, keeping the response as a record the product counts.",
-      "conditions": "A discrete activity with a defined end (O20); a stats surface that counts check-ins (O28); an option to stop showing the screen (O21). Descriptor tags that change with the rating are a candidate variant.",
-      "whyNotCovered": "Personal Data Reflection requires records the product already holds and excludes self-report from memory, so a rating of how the user feels, given in the moment rather than drawn from the product's records, falls outside it. Commitment concerns statements of future behavior. No approved entry covers a self-report prompt placed at the end of an activity and kept as a counted record.",
-      "recurrenceElsewhere": "Not established. The analyst remarks that Calm's equivalent post-session tags do not change with the selected mood, so Calm is expected to carry a comparable screen (tier: plausible, a remark in this transcript rather than an analyzed instance). Calm should be checked for this screen when it is analyzed.",
-      "caveat": "Held pending a second instance in another app. Two things would settle it. First, a second product that asks for a rating of how the user feels at the end of its core activity, offers descriptors or a note, and keeps the response as a record it counts, which establishes that the shape recurs; Calm is the first place to look. Second, a session that submits a rating and follows it afterwards, into stats, recommendations, later sessions or a check-in summary, which shows what the responses change. If the response turns out not to be kept at all, the proposal collapses into a one-time prompt described in plain language and carries no label. Two points also remain open in this session: O22 is a check-in opened from the sidebar rather than at the end of an activity and may belong to a separate self-tracking behavior, and the week's summary read neutral after a good check-in on O22, which the session does not explain (tier: unresolved)."
-    }
-  ],
+  "proposedTags": [],
   "system": {
     "tagline": "A wellness system whose daily spine runs on a self-set goal, and whose social layer runs on two tracks that never meet it.",
-    "overview": "Insight Timer's daily state runs through two entry points that both start at onboarding: setting an intention, which starts the streak and counts down to the next milestone, and a timer practice, which ends in a completion screen, a streak-and-widget prompt sequence, and a reflection screen. A social layer sits apart from this spine on two tracks that don't reference each other: a membership layer of named, admin-run groups, and a set of open, unmembered surfaces (a gratitude wall, quote comments) seeded by the product itself. The system's depth, hundreds of thousands of free tracks, thousands of groups, a retreat marketplace, a therapist directory, keeps the mechanics from feeling like a substitute for content.",
-    "loop": "The core loop is: set a daily intention (after installing the required widget) → streak starts and counts down to the next milestone → complete a timer practice → completion screen → streak-continuation and widget prompts → post-practice reflection → milestone reached pays out in a longer free trial and a shareable card. Alongside this spine, joining a group opens its own feed and library, and the open home-screen surfaces (gratitude wall, quote comments) run without any membership step at all.",
+    "overview": "Insight Timer's daily state runs through two entry points that both start at onboarding: setting an intention, which starts the streak and counts down to the next milestone, and a timer practice, which ends in a completion screen, a streak-and-widget prompt sequence, and a reflection screen asking how the user feels. A separate sidebar check-in asks the same kind of question on its own, and is the one place a self-report is kept as a record. A social layer sits apart from all of this on two tracks that don't reference each other: a membership layer of named, admin-run groups, and a set of open, unmembered surfaces (a gratitude wall, quote comments) seeded by the product itself. The system's depth, hundreds of thousands of free tracks, thousands of groups, a retreat marketplace, a therapist directory, keeps the mechanics from feeling like a substitute for content.",
+    "loop": "The core loop is: set a daily intention (after installing the required widget) → streak starts and counts down to the next milestone → complete a timer practice → completion screen → streak-continuation and widget prompts → post-practice reflection → milestone reached pays out in a longer free trial and a shareable card. Alongside this spine, joining a group opens its own feed and library, the open home-screen surfaces (gratitude wall, quote comments) run without any membership step at all, and a standalone sidebar check-in runs independently of either.",
     "keyInsight": "The trial extension triggered by widget installation is the system's most structurally elegant mechanic. The app rewards installing its most powerful habit-formation tool, a home screen widget, with more time to develop the habit that makes the subscription feel necessary. The reward is more opportunity to form the habit that justifies the reward.",
     "whatMakesItWork": "The system works because its retention mechanics are justified, not just applied. The streak is framed as the user's own goal. The 'I'm committed' prompt makes the commitment explicit, even where it rests more lightly than the intention itself. The widget extends the trial because it genuinely increases retention. The scientific argument in onboarding (mood graphs, consistency curve, personalized prediction) means the user understands why they're being asked to return daily before they're asked. Transparency about the mechanism doesn't weaken it, it strengthens it.",
     "roles": [
@@ -1106,6 +1161,10 @@
       {
         "id": "social-feed",
         "role": "A feed of posts inside each joined group, plus stated rules for a personal 'My feed' (joined groups) and 'My teachers' (followed teachers) tab, both empty in this state."
+      },
+      {
+        "id": "check-in",
+        "role": "A sidebar mood check-in that keeps its answer as a record, counted among the activities the stats track; a near-identical screen appears after a timer practice, but whether that answer is kept anywhere is left unclear."
       }
     ],
     "center": {
@@ -1132,6 +1191,11 @@
       {
         "id": "shareable-win",
         "x": 75,
+        "y": 66
+      },
+      {
+        "id": "check-in",
+        "x": 50,
         "y": 66
       },
       {

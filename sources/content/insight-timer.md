@@ -2,13 +2,13 @@
 
 **Teaser:** Insight Timer's most powerful habit-formation tool, a home screen widget, is rewarded with a longer trial — more time to build the exact habit the widget exists to support.
 
-Insight Timer opens with graphs of mood improvement and a consistency curve before asking the user to set a goal, then mechanizes that self-chosen commitment through a streak, a daily intention the product shows back as the user's own statement, and a milestone system that pays out in trial length. A social layer runs alongside on two separate tracks: named groups with admins and membership, and open, unmembered surfaces like a gratitude wall and quote comments. The product's depth, hundreds of thousands of free tracks, thousands of groups, a retreat marketplace, a therapist directory, keeps the mechanics from feeling like a substitute for content.
+Insight Timer opens with graphs of mood improvement and a consistency curve before asking the user to set a goal, then mechanizes that self-chosen commitment through a streak, a daily intention the product shows back as the user's own statement, and a milestone system that pays out in trial length. A social layer runs alongside on two separate tracks: named groups with admins and membership, and open, unmembered surfaces like a gratitude wall and quote comments. A separate sidebar check-in asks how the user is feeling and keeps the answer as a record, apart from both the streak-and-intention spine and the social layer. The product's depth, hundreds of thousands of free tracks, thousands of groups, a retreat marketplace, a therapist directory, keeps the mechanics from feeling like a substitute for content.
 
 ---
 
 ## System view
 
-Insight Timer's daily state runs through two entry points that both start at onboarding: setting an intention, which starts the streak and counts down to the next milestone, and a timer practice, which ends in a completion screen, a streak-and-widget prompt sequence, and a reflection screen. The social layer sits apart from this spine on two tracks that don't reference each other: a membership layer of named, admin-run groups, and a set of open, unmembered surfaces seeded by the product itself. Nothing ties the meditation-and-streak spine directly to the social layer beyond a shared profile-visibility setting.
+Insight Timer's daily state runs through two entry points that both start at onboarding: setting an intention, which starts the streak and counts down to the next milestone, and a timer practice, which ends in a completion screen, a streak-and-widget prompt sequence, and a reflection screen asking how the user feels. A separate sidebar check-in asks the same kind of question on its own, and is the one place a self-report is kept as a record. The social layer sits apart from all of this on two tracks that don't reference each other: a membership layer of named, admin-run groups, and a set of open, unmembered surfaces seeded by the product itself. Nothing ties the meditation-and-streak spine, the check-in, or the social layer to each other beyond a shared profile-visibility setting.
 
 ---
 
@@ -147,6 +147,25 @@ Insight Timer's daily state runs through two entry points that both start at onb
 
 **Screenshots needed:** a joined group's feed, and the empty My feed / My teachers tabs.
 
+### Check-In
+
+**Implementation summary:** A sidebar mood check-in keeps its answer as a record; a near-identical post-practice screen exists too, but whether it feeds that record is unclear.
+
+**What was observed:** Insight Timer's sidebar offers a check-in that asks how the user is feeling today and keeps the answer as a mood record, counted among the activities the detailed stats track toward progress; continuing the same check-in into a journal entry raises the Advanced journal paywall. A near-identical prompt also appears at the end of a timer practice, on a slider from awful to great with descriptor tags that change depending on where the slider sits, a further question about what's having the biggest impact, a journaling field, and a control to turn the screen off for future practices. Whether that post-practice answer is kept anywhere is left unclear, unlike the sidebar check-in, whose answer is kept even though a completed one didn't visibly move a neutral weekly summary.
+
+**How it is presented:** The sidebar check-in sits behind its own entry point, reached independently of any practice. The post-practice version appears automatically in the same screen sequence as the streak and widget prompts, right after a practice ends, framed as a moment for reflection rather than as a request.
+
+**What is worth noting:** The standalone sidebar check-in is the stronger case: the user reports a present feeling from a defined set of options, and the product states plainly that it keeps the answer as a record. The post-practice version looks like the same pattern, the same kind of question and a comparable set of options, but where its answer goes afterward is left unclear, so it's described here as a screen that likely extends the same behavior rather than a settled second instance of it.
+
+**Key findings:**
+
+- The sidebar check-in asks how the user is feeling and keeps the answer as a mood record.
+- Sidebar check-ins are counted among the activities the detailed stats track.
+- Continuing a sidebar check-in into a journal entry raises the Advanced journal paywall.
+- A near-identical prompt appears after a timer practice, with descriptor tags that change by slider position, but whether its answer is kept anywhere is left unclear.
+
+**Screenshots needed:** the sidebar check-in screen asking how the user is feeling, and the post-practice reflection screen with its descriptor tags.
+
 ---
 
 ## Onboarding and first run
@@ -201,7 +220,7 @@ Onboarding ends on the home screen without ever asking the user to create an acc
 
 ## Core loop and automation
 
-A home screen anchored by a streak, an intention field, and live usage counts feeds into a meditation timer, a completion sequence, and a stats page that gathers everything into one view.
+A home screen anchored by a streak, an intention field, and live usage counts feeds into a meditation timer, a completion sequence that includes a check-in, and a stats page that gathers everything into one view.
 
 ### O12. Home screen
 

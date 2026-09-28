@@ -1718,7 +1718,7 @@ const V41_APP_META = {
       onboarding:
         "An opening usage-share claim, four rounds of profiling questions, three consistency-research screens, and a dated well-being prediction all run before any account is created.",
       "core-loop":
-        "A home screen anchored by a streak, an intention field, and live usage counts feeds into a meditation timer, a completion sequence, and a stats page that gathers everything into one view.",
+        "A home screen anchored by a streak, an intention field, and live usage counts feeds into a meditation timer, a completion sequence that includes a check-in, and a stats page that gathers everything into one view.",
       goals:
         "A consecutive-day goal chosen at onboarding drives a streak, a milestone countdown, and a stats page that gathers every counted activity into one view.",
       access:
