@@ -960,7 +960,7 @@
       "conditions": "Uncategorized records in the user's data (tier: directly observed). A conversational interface (tier: directly observed).",
       "whyNotCovered": "Personal Data Reflection covers interactions in which the product hands the user's records back to the user, and excludes interactions in which the user labels, categorizes, confirms or corrects records so that the product's classification improves, because the output flows to the product rather than to the user. O24 asks the user to choose a category for each transaction under the framing \"make Cleo smarter\", which is that second case (tier: directly observed). Earning Tasks does not apply because no compensation is disclosed (tier: directly observed).",
       "recurrenceElsewhere": "Not established from the source material, which is limited to this session.",
-      "caveat": "Only the start of one sequence is described, and what the labels change is not observed (tier: directly observed).\n\n---"
+      "caveat": "Only the start of one sequence is described, and what the labels change is not observed (tier: directly observed)."
     }
   ],
   "system": {

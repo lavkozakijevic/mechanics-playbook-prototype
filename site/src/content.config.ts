@@ -111,6 +111,11 @@ const proposedTag = z.object({
   whyNotCovered: z.string(),
   recurrenceElsewhere: z.string(),
   caveat: z.string(),
+  // Present once a proposal has been ruled on (approved or rejected);
+  // absent while it's still open. Previously read as part of `caveat`
+  // itself when present, a parsing defect fixed alongside the Rationale
+  // and Confidence field-boundary fixes above.
+  status: z.string().optional(),
 });
 
 const apps = defineCollection({

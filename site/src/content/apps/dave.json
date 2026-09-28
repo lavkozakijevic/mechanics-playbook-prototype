@@ -1515,7 +1515,7 @@
       "conditions": "An action outside the product's control that materially changes the product's value to the user; more than one route to that action, differentiated by effort or speed; a route in which the product does the work and the user only supplies identifying details; an option to commit part rather than all; a statement that the choice can be changed later.",
       "whyNotCovered": "No approved entry addresses the product assisting an action performed in another system. The behaviour is not a quest, a challenge or an achievement, because the product neither issues an objective nor records a completion state; it reduces the cost of a step it cannot perform.",
       "recurrenceElsewhere": "Payroll redirection, utility and insurance switching, subscription migration, number porting and pension transfer flows all take this shape. The structure is describable without reference to this product.",
-      "caveat": "The session shows the routes and the partial option but no completed redirection, and it does not show how the partial amount is specified. Whether the pre-signature checkbox is on by default is also not established, and that default bears on any definition of the assisted route.\n\n---"
+      "caveat": "The session shows the routes and the partial option but no completed redirection, and it does not show how the partial amount is specified. Whether the pre-signature checkbox is on by default is also not established, and that default bears on any definition of the assisted route."
     }
   ],
   "system": {

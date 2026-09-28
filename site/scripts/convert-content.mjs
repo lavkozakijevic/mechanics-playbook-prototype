@@ -346,22 +346,83 @@ function h1Section(md, heading) {
   return hit ? hit.body : null;
 }
 
-// Reads one labeled field out of a block, e.g. "**Rationale:** ...". Field
-// labels are inconsistently punctuated in the source ("Draft definition."
-// vs "Source observations:"), so both are accepted. Stops at the next
-// capitalised bold label or the end of the block.
+// Locates a set of known "**Label:**" fields inside a block by name and
+// position, in one pass, rather than reading one label and guessing where
+// its value ends by scanning forward for "a blank line, then any bold
+// capitalized text" — the construction that silently swallowed Role,
+// Confidence, Rationale and Alternative considered into whichever of those
+// four happened to come first in a Pass Two tag block, because that
+// format never puts a blank line between consecutive labels. Every other
+// labeled-field format in these analyses (this one included) currently
+// happens to put a blank line between its fields too, so that guess has
+// never yet been caught being wrong anywhere else — but nothing checked
+// that it held, which is exactly the same risk sitting unexercised rather
+// than fixed, in as many places as reused the same generic approach.
 //
-// No "m" flag: every prior caller's field values happened to be a single
-// unwrapped line, so `$` matching end-of-line rather than end-of-string
-// never showed up. A multi-line bullet list (mechanic-block "Key findings",
-// spec §2.1) exposed it — `$` was matching after the first bullet's line
-// instead of after the whole list. Dropping "m" makes `$` mean true
-// end-of-string, which is what "end of the block" was always meant to be.
-function field(block, label) {
-  const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const re = new RegExp("\\*\\*" + escaped + "[.:]\\*\\*\\s*([\\s\\S]*?)(?=\\n\\n\\*\\*[A-Z]|$)");
-  const m = block.match(re);
-  return m ? m[1].trim() : "";
+// `slots` is an ordered list of label groups, each an array of one or more
+// accepted spellings for the same field (Pass three's "Caveat" is also
+// written "Caveat on the third test" in places). A field's value is the
+// text between its own label and whichever OTHER known label sits next by
+// POSITION in the source, never by scanning forward for an unrelated
+// pattern and hoping it lands on the right one. A label appearing more
+// than once (under any of its accepted spellings) always throws, since
+// that's unambiguously a defect regardless of caller. Returns the values
+// found (keyed by each slot's first/canonical spelling) plus the order
+// they actually appeared in, so a caller whose format has a fixed,
+// spec'd order (the mechanic write-up block) can check it and one whose
+// format doesn't (Pass three's more free-form proposals) can skip that
+// check without needing a second implementation of the position-finding
+// itself.
+function locateLabeledFields(file, blockName, block, slots) {
+  const found = [];
+  for (const names of slots) {
+    const matches = [];
+    for (const label of names) {
+      const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      const re = new RegExp("\\*\\*" + escaped + "[.:]\\*\\*\\s*", "g");
+      matches.push(...block.matchAll(re));
+    }
+    if (matches.length > 1) throw new Error(`${file}: ${blockName} has "${names[0]}" more than once`);
+    if (matches.length === 1)
+      found.push({ key: names[0], start: matches[0].index, valueStart: matches[0].index + matches[0][0].length });
+  }
+  found.sort((a, b) => a.start - b.start);
+  const values = {};
+  for (let i = 0; i < found.length; i++) {
+    const end = i + 1 < found.length ? found[i + 1].start : block.length;
+    values[found[i].key] = block.slice(found[i].valueStart, end).trim();
+  }
+  return { values, order: found.map((f) => f.key) };
+}
+
+// The six labeled parts of a mechanic write-up block (spec §2.1), in the
+// fixed order the stage2 prompt asks for them: Implementation summary,
+// then the four required composed parts, then a screenshots note. This
+// format is spec'd to have all six in exactly this order, so — unlike
+// Pass three's proposals below — a block missing one, or carrying them
+// out of order, is a real defect worth naming and throwing on rather than
+// a case nothing has ever exercised.
+const MECHANIC_BLOCK_LABELS = [
+  "Implementation summary",
+  "What was observed",
+  "How it is presented",
+  "What is worth noting",
+  "Key findings",
+  "Screenshots needed",
+];
+function mechanicBlockFields(file, name, block) {
+  const { values, order } = locateLabeledFields(
+    file,
+    `mechanic block "${name}"`,
+    block,
+    MECHANIC_BLOCK_LABELS.map((l) => [l])
+  );
+  const expectedOrder = MECHANIC_BLOCK_LABELS.filter((l) => order.includes(l));
+  if (order.join("|") !== expectedOrder.join("|"))
+    throw new Error(
+      `${file}: mechanic block "${name}" has its labels out of order — found ${order.join(", ")}, expected ${expectedOrder.join(", ")}`
+    );
+  return values;
 }
 
 function idsIn(text) {
@@ -605,16 +666,52 @@ function parseAnalysisV41(file) {
   // (spec §1.6), but kept parsed rather than dropped: it's the library's
   // growth queue, and re-deriving it from forty analysis files later would
   // mean re-parsing all of them.
-  const passThree = h1Section(md, "Pass three: proposed new tags") ?? "";
-  const proposedTags = headingChunks(passThree, 3).map(({ heading, body }) => ({
-    name: heading,
-    sourceObservations: idsIn(field(body, "Source observations")),
-    draftDefinition: field(body, "Draft definition"),
-    conditions: field(body, "Conditions it appears to depend on"),
-    whyNotCovered: field(body, "Why it is not covered"),
-    recurrenceElsewhere: field(body, "Recurrence elsewhere"),
-    caveat: field(body, "Caveat") || field(body, "Caveat on the third test"),
-  }));
+  // Trailing "---\n\n" divider before the next "# " heading stripped up
+  // front, same as the content file's own section parser does — otherwise
+  // it lands inside whichever field of the LAST entry now genuinely
+  // extends to the true end of the section, which nothing did until
+  // Status started being read (see below).
+  const passThree = (h1Section(md, "Pass three: proposed new tags") ?? "").replace(/\n{1,2}---\s*$/, "");
+  // No fixed order enforced here, unlike the mechanic write-up block: this
+  // format's own fields vary more than that one's (Caveat's own name
+  // varies), so a missing or reordered field isn't a known violation worth
+  // failing the build on — locateLabeledFields still fixes the underlying
+  // swallow-the-rest-of-the-block risk regardless, since a missing value
+  // just resolves to "" the same way field() used to, and a genuine
+  // duplicate still throws.
+  //
+  // Status is a seventh field, seen on a proposal once it's been ruled on
+  // (approved or rejected), and always the last one when it's there —
+  // which is exactly why leaving it off this list at first mislabeled the
+  // fix: with Status unlisted, Caveat had no known field after it to stop
+  // at in an entry that carries one, so it swallowed Status's own text
+  // into caveat, corrupting exactly two apps' worth of entries (both
+  // caught by re-diffing every app.json against the prior commit after
+  // this change, the same empirical check used for the Confidence and
+  // Rationale fixes). Found by auditing every label actually used across
+  // Pass Three in the whole corpus rather than trusting the six-ish names
+  // the old code happened to already know about.
+  const proposedTags = headingChunks(passThree, 3).map(({ heading, body }) => {
+    const { values } = locateLabeledFields(file, `Pass three entry "${heading}"`, body, [
+      ["Source observations"],
+      ["Draft definition"],
+      ["Conditions it appears to depend on"],
+      ["Why it is not covered"],
+      ["Recurrence elsewhere"],
+      ["Caveat", "Caveat on the third test"],
+      ["Status"],
+    ]);
+    return {
+      name: heading,
+      status: values["Status"] || undefined,
+      sourceObservations: idsIn(values["Source observations"] || ""),
+      draftDefinition: values["Draft definition"] || "",
+      conditions: values["Conditions it appears to depend on"] || "",
+      whyNotCovered: values["Why it is not covered"] || "",
+      recurrenceElsewhere: values["Recurrence elsewhere"] || "",
+      caveat: values["Caveat"] || "",
+    };
+  });
 
   // ---- Pass one: section headings, kept only to cross-check against the
   // content file's (see the call site). These headings are prose only —
@@ -675,27 +772,35 @@ function parseContentV41(file) {
 
   // ---- Mechanics (spec §2.1): one composed block per applied tag, in four
   // labelled parts plus a screenshots note, using the same "**Label:**"
-  // convention the analysis file's Pass Two already uses — field() below is
-  // the same helper that reads Rationale/Alternative considered there.
+  // convention the analysis file's Pass Two uses — mechanicBlockFields()
+  // above locates all six by name and position rather than guessing at
+  // where each one ends.
   // Optional: an app with no applied tags has nothing to compose here.
   let mechanicWriteups = [];
   let fixedSectionChunks = h2s.slice(1);
   if (h2s[1] && h2s[1].heading.toLowerCase() === "mechanics") {
-    mechanicWriteups = headingChunks(h2s[1].body, 3).map(({ heading: name, body: block }) => {
+    mechanicWriteups = headingChunks(h2s[1].body, 3).map(({ heading: rawName, body: block }) => {
+      const name = rawName.trim();
+      const values = mechanicBlockFields(file, name, block);
       // Optional (stage2-website-content.md amendment, 16 Sep 2026): not
       // one of the four required composed parts below, and not present at
       // all until each app's write-up is backfilled with it — see the
       // schema comment on mechanicWriteup (content.config.ts).
-      const summary = field(block, "Implementation summary") || undefined;
-      const observed = field(block, "What was observed");
-      const presented = field(block, "How it is presented");
-      const noting = field(block, "What is worth noting");
-      const findingsRaw = field(block, "Key findings");
+      const summary = values["Implementation summary"] || undefined;
+      const observed = values["What was observed"] || "";
+      const presented = values["How it is presented"] || "";
+      const noting = values["What is worth noting"] || "";
+      const findingsRaw = values["Key findings"] || "";
       const findings = [...findingsRaw.matchAll(/^- (.+)$/gm)].map((m) => m[1].trim());
-      const screenshotsNote = field(block, "Screenshots needed");
-      if (!observed || !presented || !noting || !findings.length)
-        throw new Error(`${file}: mechanic block "${name}" is missing one of its four composed parts`);
-      return { name: name.trim(), summary, observed, presented, noting, findings, screenshotsNote };
+      const screenshotsNote = values["Screenshots needed"] || "";
+      const missing = [];
+      if (!observed) missing.push("What was observed");
+      if (!presented) missing.push("How it is presented");
+      if (!noting) missing.push("What is worth noting");
+      if (!findings.length) missing.push("Key findings");
+      if (missing.length)
+        throw new Error(`${file}: mechanic block "${name}" is missing: ${missing.join(", ")}`);
+      return { name, summary, observed, presented, noting, findings, screenshotsNote };
     });
     fixedSectionChunks = h2s.slice(2);
   }

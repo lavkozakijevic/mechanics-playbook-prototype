@@ -2297,6 +2297,7 @@
   "proposedTags": [
     {
       "name": "P1. Companion Units",
+      "status": "Approved and written into the library as the entry Companion on 11 Sep 2026. The caveat is carried in that entry as an open separating-evidence note.",
       "sourceObservations": [
         "O23",
         "O34",
@@ -2311,6 +2312,7 @@
     },
     {
       "name": "P4. Progression Fund",
+      "status": "Approved and written into the library as the entry Progression Fund on 11 Sep 2026. The caveat is carried in that entry as an open separating-evidence note.",
       "sourceObservations": [
         "O56"
       ],
