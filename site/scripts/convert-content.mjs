@@ -282,15 +282,28 @@ function confidenceTiers(confidence) {
   const cleaned = confidence.trim().replace(/[.,]\s*$/, "");
   const bare = cleaned.toLowerCase();
   if (bare in TAG_CONFIDENCE_RANK) return [bare];
-  const tiers = [...cleaned.matchAll(/\(tier:\s*([^,)]+)/gi)].map((m) => m[1].trim().toLowerCase());
+  let tiers = [...cleaned.matchAll(/\(tier:\s*([^,)]+)/gi)].map((m) => m[1].trim().toLowerCase());
+  // A third shape, seen in solitaire-grand-harvest.md: a per-observation
+  // breakdown with no "(tier: ...)" wrapper at all, e.g. "O34 directly
+  // observed; O35 strongly supported; O37 strongly supported." Matched
+  // narrowly, anchored to an observation id immediately before the tier
+  // phrase, rather than scanning the whole string for a bare tier phrase
+  // anywhere in it — the anchor is what keeps this from picking up a tier
+  // word mentioned in passing prose rather than actually asserted as one.
+  if (!tiers.length) {
+    tiers = [...cleaned.matchAll(/\bO\d+\s+(unresolved|plausible|strongly supported|directly observed)\b/gi)].map((m) =>
+      m[1].toLowerCase()
+    );
+  }
   // A bare value that isn't a recognized tier AND carries no "(tier: ...)"
-  // annotation at all used to fall through to an empty array here, which
-  // tagPublishes below read as "doesn't publish" — indistinguishable from a
-  // tag that legitimately failed the bar. That's the silent-failure path a
-  // retired or misspelled value took; it now throws instead.
+  // annotation and no per-observation breakdown either used to fall through
+  // to an empty array here, which tagPublishes below read as "doesn't
+  // publish" — indistinguishable from a tag that legitimately failed the
+  // bar. That's the silent-failure path a retired or misspelled value took;
+  // it now throws instead.
   if (!tiers.length)
     throw new Error(
-      `unrecognized confidence value "${confidence}" — must be one of: ${Object.keys(TAG_CONFIDENCE_RANK).join(", ")}, or a paragraph containing one or more "(tier: ...)" annotations using those values`
+      `unrecognized confidence value "${confidence}" — must be one of: ${Object.keys(TAG_CONFIDENCE_RANK).join(", ")}, a paragraph containing one or more "(tier: ...)" annotations using those values, or a per-observation breakdown like "O1 directly observed; O2 strongly supported"`
     );
   for (const t of tiers) {
     if (!(t in TAG_CONFIDENCE_RANK))
@@ -1030,13 +1043,12 @@ const ADDITIONS = {
 // too narrow even on the merits, not just moot. It's moot as well, now:
 // steam.md is v4.1 format, so detectAnalysisFormat() never routes it
 // through this REMAPS path regardless of this entry's value.
-// solitaire-grand-harvest is still on the list below and still v3 — its
-// own write-up describes named levels too (a farm level and a solitaire
-// level counter with named unlock thresholds), the same assumption error
-// found in steam's entry, but flagged rather than changed here: unlike
-// steam, solitaire-grand-harvest hasn't been migrated to v4.1, so
-// correcting its mapping would change what's currently live for that app,
-// outside this cleanup's scope.
+// solitaire-grand-harvest's own entry below was removed on its v4.1
+// migration (28 Sep 2026): REMAPS is a v3-only path
+// solitaire-grand-harvest.md no longer reaches, and the fresh analysis
+// resolves the same assumption error found in steam's entry on its own
+// merits, applying Leveling and Experience Points as separate tags
+// directly rather than needing a remap at all.
 // achievements split into achievement and milestone on 13 Sep 2026
 // (sources/taxonomy-map.md), the same day and for the same reason as the
 // xp-leveling split above: Clash of Clans and Tiimo each applied Achievement
@@ -1119,9 +1131,10 @@ const ADDITIONS = {
 // appear below either: all seven are v4.1 and never reach this path.
 const REMAPS = {
   "liftoff": { "xp-leveling": "leveling", "achievements": "achievement", "variable-reward": "loot-box" },
-  "solitaire-grand-harvest": { "xp-leveling": "experience-points", "achievements": "milestone" },
   // calm's entry here was removed on its v4.1 migration (28 Sep 2026):
   // REMAPS is a v3-only path calm.md never reaches.
+  // solitaire-grand-harvest's entry here was removed on its own v4.1
+  // migration (28 Sep 2026), for the same reason.
   "fiton": { "achievements": "achievement" },
   "fortune-city": { "achievements": "achievement" },
   "match-creek-motors": { "achievements": "achievement" },
@@ -1140,7 +1153,9 @@ const HARVEST_EXCLUDE = new Set(["hard-currency|strava", "hard-currency|steam"])
 // provisional value flagged for review in the Stage 1 notes.
 const CURRENCY_DEPTH = "supporting";
 const DROPS = new Set([
-  "energy-lives|solitaire-grand-harvest",
+  // solitaire-grand-harvest's entries here were removed on its v4.1
+  // migration (28 Sep 2026): DROPS is a v3-only path
+  // solitaire-grand-harvest.md no longer reaches.
   "streak|freeletics",
   "daily-login-reward|fiton",
   "credits-tokens|liftoff",
@@ -1153,7 +1168,6 @@ const DROPS = new Set([
   // dropped rather than rewritten, since none is a confirmed carrier and
   // each is due for re-analysis under the current model regardless.
   "limited-time-events|chrome-valley-customs",
-  "limited-time-events|solitaire-grand-harvest",
   "limited-time-events|swgoh",
   "limited-time-events|fiton",
   "limited-time-events|match-creek-motors",
@@ -1297,6 +1311,31 @@ function resolveHeroImage(appId) {
 // v41-sections.mjs). Not part of spec §1.7's content-file list, so it stays
 // here for now. Optional — complete for Dave.
 const V41_APP_META = {
+  "solitaire-grand-harvest": {
+    name: "Solitaire Grand Harvest",
+    category: "Casual / Card Game",
+    type: "game",
+    sectionCards: {
+      onboarding:
+        "Solitaire Grand Harvest runs through a terms screen and a tracking request before a guided first level, then introduces a second balance, credits, within the first few levels.",
+      "core-loop":
+        "Each level in Solitaire Grand Harvest is a solitaire layout that costs credits to enter, played by moving cards one higher or one lower than a base card, with power-ups, a streak meter and a stake multiplier all sitting around that same core action.",
+      goals:
+        "Levels sit on a path that grows crops in sequence, with fixed-level gifts, a win-streak meter and profile stats layered around that same path, and a separate set of tracks, Crop Master, My Trail, the farm and the album, each running its own progression alongside it.",
+      access:
+        "Player level and farm level each withhold a named set of features until a stated threshold, and a small number of modes and level types carry their own separate conditions.",
+      economy:
+        "Solitaire Grand Harvest runs six separate balances, credits, gems, free rounds, puzzle pieces, cookies and crowns, most of them earned through ordinary play and several of them also sold for money.",
+      social:
+        "Solitaire Grand Harvest's social surfaces are thin: a friends tab, a team feature behind a level gate, a card-trading notice with no surface behind it, and a race against named characters.",
+      reach:
+        "Settings offers sign-in through three services, an invite link sends a reward outside the app, and a newsletter sign-up is the first request for an email address encountered.",
+      monetization:
+        "Solitaire Grand Harvest's monetization runs through a store, a rotating set of timed offers, a piggy bank, a second paid wheel spin and a small puzzle-piece sale, all selling into the same handful of balances.",
+      returns:
+        "Solitaire Grand Harvest brings the player back on three separate clocks, daily, hourly and three-hourly, alongside a notification prompt and a set of multi-day event countdowns.",
+    },
+  },
   "subway-surfers": {
     name: "Subway Surfers",
     category: "Casual / Endless Runner",
