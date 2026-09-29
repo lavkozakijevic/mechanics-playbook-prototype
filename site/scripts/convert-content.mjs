@@ -18,6 +18,7 @@ import { fileURLToPath } from "node:url";
 import { V41_SECTIONS } from "../src/lib/v41-sections.mjs";
 import { REVIEW_WINDOW_OPEN } from "../src/lib/review-window.mjs";
 import { CANONICAL_MECHANIC_IDS, resolveMechanicId } from "../src/lib/canonical-mechanic-ids.mjs";
+import { HELD_BACK_MECHANIC_IDS } from "../src/lib/held-back-mechanic-ids.mjs";
 import { extractObjectLiteral, assertNoDuplicateKeys } from "../src/lib/system-html-keys.mjs";
 
 // Temporary public review window (see review-window.mjs, the single
@@ -2124,6 +2125,14 @@ const V41_APP_META = {
   },
 };
 
+// Which v4.1 apps apply which library-entry name, across the whole corpus —
+// filled as the main loop below runs, read once after it to report each
+// held-back merge's live split status (see the report after the loop).
+// Only v4.1 apps ever populate this: the split condition is explicitly
+// "apps analysed under the current model," so a v3 app's tags, however
+// suggestive, never count toward it and are never added here.
+const tagNameAppearances = new Map(); // libraryEntryName -> Set(appId)
+
 beginRegenerate("apps");
 for (const entry of ALL_APPS) {
   if (detectAnalysisFormat(entry.file) === "v4.1") {
@@ -2220,6 +2229,12 @@ for (const entry of ALL_APPS) {
       if (!id) continue;
       if (!namesByMechanicId.has(id)) namesByMechanicId.set(id, []);
       namesByMechanicId.get(id).push(tagName);
+
+      // Feeds the held-back-merge split-status report printed after the main
+      // loop below (see tagNameAppearances above) — only v4.1 apps ever reach
+      // this line, which is exactly the population the split condition asks for.
+      if (!tagNameAppearances.has(tagName)) tagNameAppearances.set(tagName, new Set());
+      tagNameAppearances.get(tagName).add(entry.id);
     }
     for (const [id, names] of namesByMechanicId) {
       if (names.length > 1)
@@ -2370,6 +2385,43 @@ for (const entry of ALL_APPS) {
   });
 }
 commitRegenerate("apps");
+
+// Each held-back merge's split status, computed fresh on every build rather
+// than hand-maintained (sources/taxonomy-map.md, "The merge-split
+// procedure" in sources/repo-notes.md) — a hand-kept list of which apps
+// carry which side is exactly the record that went stale as apps migrated.
+// The two library-entry names behind a merged id live in
+// CANONICAL_MECHANIC_IDS (inverted below); which v4.1 apps applied each
+// name as its own tag lives in tagNameAppearances, built above as the main
+// loop ran. The split condition (repo-notes.md): at least two apps, each
+// independently applying BOTH names as separate tags.
+{
+  const namesByHeldBackId = new Map();
+  for (const [name, id] of Object.entries(CANONICAL_MECHANIC_IDS)) {
+    if (!HELD_BACK_MECHANIC_IDS.has(id)) continue;
+    if (!namesByHeldBackId.has(id)) namesByHeldBackId.set(id, []);
+    namesByHeldBackId.get(id).push(name);
+  }
+  console.log("\nHeld-back merge split status:");
+  for (const id of HELD_BACK_MECHANIC_IDS) {
+    const names = namesByHeldBackId.get(id) ?? [];
+    if (names.length !== 2) {
+      console.log(`  ${id}: expected 2 library entries mapped to it, found ${names.length} (${names.join(", ")}) — check CANONICAL_MECHANIC_IDS`);
+      continue;
+    }
+    const [nameA, nameB] = names;
+    const appsA = tagNameAppearances.get(nameA) ?? new Set();
+    const appsB = tagNameAppearances.get(nameB) ?? new Set();
+    const both = [...appsA].filter((a) => appsB.has(a)).sort();
+    const onlyA = [...appsA].filter((a) => !appsB.has(a)).sort();
+    const onlyB = [...appsB].filter((a) => !appsA.has(a)).sort();
+    const met = both.length >= 2;
+    console.log(`  ${id} (${nameA} / ${nameB}): split condition ${met ? "MET" : "not met"}`);
+    console.log(`    both sides (${both.length}): ${both.join(", ") || "none"}`);
+    console.log(`    ${nameA} only (${onlyA.length}): ${onlyA.join(", ") || "none"}`);
+    console.log(`    ${nameB} only (${onlyB.length}): ${onlyB.join(", ") || "none"}`);
+  }
+}
 
 function headerName(file) {
   const md = fs.readFileSync(path.join(repo, "sources/analyses", file), "utf8");
