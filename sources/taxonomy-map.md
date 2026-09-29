@@ -499,13 +499,14 @@ evidence — the four do not move together.
 variable-reward split" above) once Capybara Go and FC Mobile each applied
 Loot Box and Variable Reward Outcome as separate, independently-evidenced
 tags — the third merge to split out of this set, after xp-leveling and
-achievements. As of this document, one app analysed under
-the current model, Capybara Go, carries several of the remaining four
-merged ids — Leaderboard (leaderboards), Energy (energy-lives), and
-Seasonal Progression Pass (season-pass) — but none of the four has cleared
-its split condition yet, since that needs two apps each independently
-carrying both sides distinctly, and each merge so far has only one side
-evidenced by Capybara Go. Every other occurrence below is from the old
+achievements. As of this document, two apps analysed under the current
+model carry some of the remaining four merged ids: Capybara Go —
+Leaderboard (leaderboards), Energy (energy-lives), and Seasonal
+Progression Pass (season-pass) — and FIFA Panini Collection — Energy
+(energy-lives) and Group Membership (community-groups). None of the four
+has cleared its split condition yet, since that needs one app carrying
+both sides of the same merge distinctly, and every occurrence so far, from
+either app, is only one side. Every other occurrence below is from the old
 (v3) model, and none of it counts toward the threshold; it is recorded
 here so that checking progress, once v4.1 re-analysis reaches these apps,
 is a lookup rather than a recount.
@@ -515,13 +516,17 @@ is a lookup rather than a recount.
 clash-of-clans, fc-mobile, freeletics, liftoff, match-creek-motors,
 royal-match, strava, subway-surfers, swgoh.
 
-**community-groups** (Community Space, Group Membership) — 7 apps, all v3:
-fifa-panini-collection, fiton, insight-timer, ladder, picsart, steam,
-strava.
+**community-groups** (Community Space, Group Membership) — 7 apps:
+fifa-panini-collection (v4.1, Group Membership only — Community Space
+explicitly considered and rejected, "no open persistent multi-actor context
+for contribution or conversation was seen"), and 6 more, all v3: fiton,
+insight-timer, ladder, picsart, steam, strava.
 
-**energy-lives** (Energy, Lives) — 7 apps: capybara-go (v4.1, Energy
-only), and 6 more, all v3: chrome-valley-customs, fifa-panini-collection,
-fortune-city, match-creek-motors, royal-match, swgoh.
+**energy-lives** (Energy, Lives) — 7 apps: capybara-go and
+fifa-panini-collection (both v4.1, Energy only — neither carries Lives,
+which fifa-panini-collection's own analysis places under "Entries never
+observed"), and 5 more, all v3: chrome-valley-customs, fortune-city,
+match-creek-motors, royal-match, swgoh.
 
 **season-pass** (Season Content Pass, Seasonal Progression Pass) — 5 apps:
 capybara-go (v4.1, Seasonal Progression Pass only), and 4 more, all v3:

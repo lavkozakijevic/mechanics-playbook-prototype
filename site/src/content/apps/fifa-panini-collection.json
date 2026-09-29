@@ -4,182 +4,1061 @@
   "category": "Sports / Collectibles",
   "type": "app",
   "visibility": "public",
-  "analysisDate": "2026-05-15",
-  "lastUpdated": "2026-06-29",
-  "summary": "FIFA Panini Collection is a digital sticker album tied to the FIFA World Cup 2026, extending the physical sticker-collecting experience into a digital format. Coca-Cola product scanning is structural rather than decorative, it is a named achievement category and a daily pack source that effectively doubles the daily pack intake for users with a product at hand. The app has a fixed availability window through September 30, 2026, making the entire experience a limited-time event at the macro level.",
-  "teaser": "Scanning a Coca-Cola bottle grants the same pack as the free daily pull, quietly doubling how often a sponsor's product enters the loop.",
+  "analysisDate": "2026-09-29",
+  "lastUpdated": "2026-09-29",
+  "asObserved": "2026-05",
+  "appVersion": "None.",
+  "summary": "FIFA Panini Collection digitizes sticker collecting for the FIFA World Cup 2026: packs opened from a held count reveal players that get glued into an album with one slot per player, duplicates go to a swap stack, and a Coca-Cola partnership runs through scanning, the packs and a whole badge category. A guest can play with reduced daily allowances before registering through a FIFA.com account unlocks the full set of packs, swap requests and challenges. A $2 deluxe pack and two purchase-count rewards are the only paid routes, both converging on a keepsake album sold outside the app, and the whole collection is available only until 30 September 2026.",
+  "teaser": "FIFA Panini Collection states every guest limit as an exact number next to what registering would unlock, before asking the user to choose.",
   "icon": "/icons/fifa-panini-collection.png",
   "heroImage": null,
-  "mechanics": [
+  "contentFormat": "v4.1",
+  "observations": [
     {
-      "id": "daily-login-reward",
-      "depth": "supporting",
-      "writeup": {
-        "observed": "Registered users receive two free packs per day and can open up to four packs per day. Guests receive one free pack per day and can open one. The pack opening cap operates on a 15-hour reset window rather than a calendar day. After hitting the cap: 'You've reached your daily limit of four packs. Please retry in 15 hours.' Coca-Cola product scanning grants one additional pack per day per product, with its own daily cadence.",
-        "presented": "The free daily pack is surfaced on the home screen in the promo code section. The guest vs. registered account comparison screen presents the pack limit as a primary differentiator at first launch. The Coca-Cola scan bonus operates through the Scan Content section with its own camera flow and daily cap.",
-        "noting": "The 15-hour reset window creates a rolling return incentive, a user who opens their packs at 6pm returns at 9am the next morning rather than waiting until 6pm, pulling the natural session time earlier over successive days. The Coca-Cola integration effectively doubles the daily pack intake for users with a product at hand.",
-        "findings": [
-          "The 15-hour reset window creates a rolling return incentive, each day's session pulls the return time slightly earlier, preventing lock-in to a fixed daily session time.",
-          "Coca-Cola product scanning grants a daily pack equivalent, users with a Coca-Cola product available effectively have double the daily free pack intake.",
-          "The guest vs. registered account comparison screen presents pack limits as the primary differentiation at first launch, making registration value immediately calculable.",
-          "Scanning a Panini album cover granted a free pack immediately without a stated daily cap, the album scan may operate on a one-time or different cadence from the product scan."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": [
-        "The guest vs. registered account comparison screen showing \"1 free pack every day\" vs. \"2 free packs every day\" and \"open one pack per day\" vs. \"open four packs per day\"",
-        "The \"you've reached your daily limit of four packs. Please retry in 15 hours\" message after hitting the registered user cap"
-      ]
+      "id": "O1",
+      "name": "Privacy notice first",
+      "section": "onboarding",
+      "observed": "On opening, FIFA Panini Collection shows a privacy notice stating that it values the user's privacy and, with trusted partners, collects certain personal data for a more personalized experience, with a link to read more and a Let's start button. The screen carries illustrations of Canada, Mexico and the United States, the tournament's three host countries, alongside three mascots. No decline option is described; tapping Let's start is the only route forward shown.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "challenges",
-      "depth": "supporting",
-      "writeup": {
-        "observed": "Three challenges were observed in the dedicated Challenges tab. Challenge 1 (Hosting Countries): collect 2 stickers from each host country, reward: official mascots sticker, expired. Challenge 2 (2022 FIFA World Cup winner team): collect 5 stickers of the winning team, reward: digital power pack, expired. Challenge 3 (Team Captains): collect 10 team captains, reward: Panini logo sticker, 2 days remaining. A 'participate in this challenge' opt-in button changes to 'you are already participating' after tapping. Stickers only count toward a challenge if glued into the album.",
-        "presented": "Challenges are in a dedicated tab in the bottom navigation. Each challenge shows reward, task description, progress counter, remaining time, and a participate status. Challenges are not accessible to guest accounts.",
-        "noting": "The opt-in structure with a visible endpoint and a defined reward creates the defining features of the challenges mechanic, voluntary commitment, visible accountability, concrete goal. The album-gluing requirement adds an intermediate step that reinforces the core collection loop.",
-        "findings": [
-          "Two of three visible challenges had already expired at time of analysis, with no explanation of cycle cadence, suggesting calendar-based challenges tied to real-world events rather than recurring weekly resets.",
-          "Challenges require stickers to be glued into the album before counting toward progress, reinforcing the album as the organizing hub.",
-          "Challenges are not accessible to guest accounts, registration-gating creates a meaningful differentiation between guest and registered experiences.",
-          "The third challenge (Team Captains, 2 days remaining) was the only active challenge at time of analysis, creating urgency that expired challenges could not provide."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": [
-        "Challenge 3 \"Team Captains\" screen showing the reward (Panini logo sticker), 0/10 progress, 2-day timer, and \"participate in this challenge\" button"
-      ]
+      "id": "O2",
+      "name": "Tracking and privacy prompts",
+      "section": "onboarding",
+      "observed": "After Let's start, FIFA Panini Collection requests permission to track the user's activity across other companies' apps and websites, using the name FIFA Panini, followed by a privacy settings pop-up. FIFA Panini Collection doesn't state what was chosen on either prompt.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "set-collection",
-      "depth": "core",
-      "writeup": {
-        "observed": "The album is the organizing structure of the entire app. Users open packs to receive sticker cards and glue them into named slots across the digital album. The album contains multiple sections: host countries (Canada, Mexico, USA), team rosters, Cosmic Stickers (special rarity), and poster stickers. Duplicates go to the swap stack for trading with other collectors. The Deluxe Pack ($2.00) delivers 9 specifically missing Cosmic stickers and 1 missing poster sticker, removing uncertainty for the two premium collection categories.",
-        "presented": "The album displays all sticker slots, filled slots show the sticker, empty slots show the outline. Swaps are managed through a dedicated swap stack. The Collector's Team enables private swap requests with trusted contacts. Challenges require stickers to be glued into the album before counting toward challenge progress.",
-        "noting": "The Deluxe Pack removes the primary frustration of randomized collection, the possibility of missing a specific known item, for its two premium content categories. A collector who needs specific Cosmic stickers can buy exactly those nine missing items for $2.00 rather than pulling random packs. The known outcome makes the $2 price point calculable.",
-        "findings": [
-          "The Deluxe Pack delivers specifically missing Cosmic and poster stickers rather than random pulls, a targeted completion product that eliminates uncertainty for premium collection categories.",
-          "The entire app is available only until September 30, 2026, a macro-level time limit framing the entire collection experience as a limited-time event.",
-          "Stickers must be glued into the album before counting toward challenges, reinforcing the album as the organizing hub.",
-          "Duplicates route to a swap stack for trading, converting excess randomized pulls into social currency for targeted exchanges."
-        ]
-      },
-      "screenshots": [],
-      "suggestedShots": [
-        "Album page open during the sticker-gluing interaction, showing the target slot with the plus button highlighted above it and the dragged sticker mid-placement",
-        "The Deluxe Pack description screen showing \"9 missing Cosmic stickers,\" \"1 missing poster sticker,\" and \"10 regular stickers (can contain duplicates)\" with the $2 price"
-      ]
+      "id": "O3",
+      "name": "Sticker download screen",
+      "section": "onboarding",
+      "observed": "The app shows a downloading stickers state, then a screen showing the album with stickers outside it and two buttons, Resume your game and Start playing.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "achievement",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": [
-        "The achievements page in the album showing the full grid of named achievement categories with their three-tier structure and earned/unearned badge status"
-      ]
+      "id": "O4",
+      "name": "Guest versus account choice",
+      "section": "onboarding",
+      "observed": "After Start playing, FIFA Panini Collection presents a screen headed to unlock the full experience by connecting an account, with two options side by side. Connecting with FIFA for free lists starting with three packs, two free packs every day, opening four packs a day, creating three swap requests, participating in challenges, promo codes and forming a collector's team. Being a guest lists starting with one pack, one free pack a day, opening one pack a day and creating one swap request, with challenges, promo codes and the collector's team all left off that list. Every allowance on this screen is stated as a number before the user chooses.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Energy",
+          "confidence": "O8 (tier: directly observed); O10 (tier: plausible)",
+          "confidences": [
+            "O8 (tier: directly observed); O10 (tier: plausible)"
+          ],
+          "rationale": "The app maintains a per-day opening allowance, one for a guest and four for a registered account, that each opening consumes, that blocks further opening at zero while packs remain held, and that is stated to return after 15 hours (tier: directly observed). The concurrent swap-request cap behaves as a capacity occupied by each open request (tier: plausible, the cap and its account tiers are shown, but whether a slot is freed when a request ends was not seen). Exclusion conditions were checked first: the allowance is not a timer on one action, since it counts units across openings, and it is not removed by failure (tier: directly observed).",
+          "alternativeConsidered": "For O10, a plain limit on open listings that is not a consumed capacity; it would stand if a slot were never released until the request completed (tier: plausible). Evidence that would separate them: a request withdrawn and a new one created at the cap.",
+          "role": "engagement, retention"
+        },
+        {
+          "name": "Daily Login Rewards",
+          "confidence": "O39 (tier: strongly supported); O4 (tier: directly observed)",
+          "confidences": [
+            "O39 (tier: strongly supported); O4 (tier: directly observed)"
+          ],
+          "rationale": "The account choice screen states one free pack every day for a guest and two for a FIFA account, and a \"Get a free pack\" control granted a pack on a tap with no task attached (tier: directly observed). The link between that control and the daily promise rests on the narrator's identification and on it being the only free-pack control described (tier: strongly supported). The daily reset itself was not observed and is recorded as behavior detail not seen. Exclusion conditions were checked first: no substantive task is required, and the grant is not the Coca-Cola scan, which requires a product in front of the camera (tier: directly observed).",
+          "alternativeConsidered": "A one-time promotional free pack placed in the promo code area; it would stand if the control did not return the next day (tier: plausible). Evidence that would separate them: the same control offering a pack on a later day.",
+          "role": "retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "variable-reward",
-      "depth": "core",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O5",
+      "name": "Guest setup",
+      "section": "onboarding",
+      "observed": "Choosing to play as a guest opens a welcome screen asking for a country of residence. The notification permission request follows this screen.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "energy-lives",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O6",
+      "name": "First home screen",
+      "section": "onboarding",
+      "observed": "The guest arrives on a home screen with a stadium background and five main items: Scan content, My stickers, My album, Open packs and Promo code, with Challenges, Swap area, My team and More in the bottom navigation. A banner promotes the deluxe pack's exclusive poster stickers. No tutorial or guided step runs between the guest setup and this screen. More opens a menu listing the public profile, collection rewards, prizes, rules, sharing, account settings, FAQs, completing the account, terms, privacy, accessibility and credits.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
     },
     {
-      "id": "community-groups",
-      "depth": "supporting",
-      "writeup": null,
-      "screenshots": [],
-      "suggestedShots": []
+      "id": "O7",
+      "name": "Opening a pack",
+      "section": "core-loop",
+      "observed": "The Open packs item states how many unopened packs the user holds. Tapping it opens a pack, swiped open, revealing stickers of album players with a control to share them. Different openings produce different players, and a pack granted by scanning wasn't opened at the moment of the scan, only showing up later in the Open packs count.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Loot Box",
+          "confidence": "O7 (tier: directly observed); O36 (tier: strongly supported)",
+          "confidences": [
+            "O7 (tier: directly observed); O36 (tier: strongly supported)"
+          ],
+          "rationale": "The app gives the user discrete packs held as a count and consumed on opening, and different openings resolve to different players (tier: directly observed). The user surrenders a held pack, and a unit of the daily opening allowance, before the contents are known (tier: directly observed). Loot Box is a specialization of Variable Reward Outcome; the specialization is reported and the parent is noted, following the overlap rule. The deluxe pack is a real-money container whose copy guarantees categories and missing items but does not name the stickers (tier: directly observed). Its opened contents were not seen because no purchase was made (tier: strongly supported, the offer copy establishes the unresolved contents while the purchase and reveal are absent). Exclusion conditions were checked first: the free packs are not opened by viewing an advertisement, and their contents are not fixed by a visible rule (tier: directly observed).",
+          "alternativeConsidered": "Variable Reward Outcome alone for the free packs, on the reading that a free pack involves no value commitment; rejected because the pack is a held entitlement that is consumed on opening, which the entry's earned-key variant covers (tier: strongly supported). Evidence that would separate them: packs that open automatically on grant, with no held count.",
+          "role": "engagement, monetization"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O8",
+      "name": "Daily opening limit",
+      "section": "core-loop",
+      "observed": "As a guest, after opening one pack, FIFA Panini Collection blocks the next with a message stating a guest can open only one pack a day, that 15 hours remain, and inviting the user to complete their account to open more. After registering, the same block appeared after four openings, stating the daily limit had been reached. The allowance limits opening only; held packs beyond it simply wait.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Loot Box",
+          "confidence": "O7 (tier: directly observed); O36 (tier: strongly supported)",
+          "confidences": [
+            "O7 (tier: directly observed); O36 (tier: strongly supported)"
+          ],
+          "rationale": "The app gives the user discrete packs held as a count and consumed on opening, and different openings resolve to different players (tier: directly observed). The user surrenders a held pack, and a unit of the daily opening allowance, before the contents are known (tier: directly observed). Loot Box is a specialization of Variable Reward Outcome; the specialization is reported and the parent is noted, following the overlap rule. The deluxe pack is a real-money container whose copy guarantees categories and missing items but does not name the stickers (tier: directly observed). Its opened contents were not seen because no purchase was made (tier: strongly supported, the offer copy establishes the unresolved contents while the purchase and reveal are absent). Exclusion conditions were checked first: the free packs are not opened by viewing an advertisement, and their contents are not fixed by a visible rule (tier: directly observed).",
+          "alternativeConsidered": "Variable Reward Outcome alone for the free packs, on the reading that a free pack involves no value commitment; rejected because the pack is a held entitlement that is consumed on opening, which the entry's earned-key variant covers (tier: strongly supported). Evidence that would separate them: packs that open automatically on grant, with no held count.",
+          "role": "engagement, monetization"
+        },
+        {
+          "name": "Energy",
+          "confidence": "O8 (tier: directly observed); O10 (tier: plausible)",
+          "confidences": [
+            "O8 (tier: directly observed); O10 (tier: plausible)"
+          ],
+          "rationale": "The app maintains a per-day opening allowance, one for a guest and four for a registered account, that each opening consumes, that blocks further opening at zero while packs remain held, and that is stated to return after 15 hours (tier: directly observed). The concurrent swap-request cap behaves as a capacity occupied by each open request (tier: plausible, the cap and its account tiers are shown, but whether a slot is freed when a request ends was not seen). Exclusion conditions were checked first: the allowance is not a timer on one action, since it counts units across openings, and it is not removed by failure (tier: directly observed).",
+          "alternativeConsidered": "For O10, a plain limit on open listings that is not a consumed capacity; it would stand if a slot were never released until the request completed (tier: plausible). Evidence that would separate them: a request withdrawn and a new one created at the cap.",
+          "role": "engagement, retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O9",
+      "name": "Gluing stickers in",
+      "section": "core-loop",
+      "observed": "My stickers shows the user's stickers in stacks, with instructions to move stickers between stacks, glue new ones into the album or swap them with other players. A red star marks each sticker not yet in the album. Dragging a sticker toward the album opens it at the matching player's page, with a plus button placing it on tap. Dragging a sticker to the swap stack instead makes it available for a swap request.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Set Collection",
+          "confidence": "directly observed, the album with a slot per player, the red star on unplaced stickers and the completion percentage are all shown in the session",
+          "confidences": [
+            "directly observed, the album with a slot per player, the red star on unplaced stickers and the completion percentage are all shown in the session"
+          ],
+          "rationale": "The app defines a set of distinct players and cities' posters, tracks which of them have been glued, and reports completeness as a percentage (tier: directly observed). Gluing a missing player fills that player's slot, while duplicates stay in the stacks and go to swaps (tier: directly observed). Completion states are recognized at more than one level: the whole album, all cosmic stickers, and a count of completed teams on the achievements page (tier: directly observed). Exclusion conditions were checked first: the app does not track a quantity of interchangeable items, and the album is not a browsing catalog, because the red star and the percentage show member-level state (tier: directly observed).",
+          "alternativeConsidered": "An inventory of held stickers without set tracking; rejected because the app distinguishes placed from unplaced members and reports completeness (tier: directly observed). Achievement for the completion tiers is carried by its own tag rather than folded in here.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O10",
+      "name": "Swap request cap",
+      "section": "core-loop",
+      "observed": "In the swap area, a guest sees a banner stating that a guest can create only a single swap request, and that completing the account allows up to three running at a time. After registration, two further slots for creating swap requests appear. The cap counts requests running at a time, a limit on concurrent open requests rather than a daily one. Dragging an offered sticker back to My stickers disables its swap request.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Energy",
+          "confidence": "O8 (tier: directly observed); O10 (tier: plausible)",
+          "confidences": [
+            "O8 (tier: directly observed); O10 (tier: plausible)"
+          ],
+          "rationale": "The app maintains a per-day opening allowance, one for a guest and four for a registered account, that each opening consumes, that blocks further opening at zero while packs remain held, and that is stated to return after 15 hours (tier: directly observed). The concurrent swap-request cap behaves as a capacity occupied by each open request (tier: plausible, the cap and its account tiers are shown, but whether a slot is freed when a request ends was not seen). Exclusion conditions were checked first: the allowance is not a timer on one action, since it counts units across openings, and it is not removed by failure (tier: directly observed).",
+          "alternativeConsidered": "For O10, a plain limit on open listings that is not a consumed capacity; it would stand if a slot were never released until the request completed (tier: plausible). Evidence that would separate them: a request withdrawn and a new one created at the cap.",
+          "role": "engagement, retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O11",
+      "name": "Rules and FAQ",
+      "section": "core-loop",
+      "observed": "The Rules page presents the game as FIFA Panini Collection, powered by The Coca-Cola Company, a web and mobile application enhancing FIFA World Cup 26 based on the classic sticker album, available on Google Play and the App Store. It lists topics covering getting started, extra packs, opening packs, managing sticker stacks and albums, swapping, challenges, achievements, cosmic stickers, the dream team and support, with an FAQ reachable from inside the app. The contents of each topic aren't read out.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O12",
+      "name": "The album itself",
+      "section": "goals",
+      "observed": "My album opens the virtual album, browsable by swiping or by a country-searchable index. Each player has a slot for their country, filled only when glued. The public profile reports album completion as a percentage, the number of stickers collected and the number of glued cosmic stickers. Cosmic stickers are holographic versions of regular stickers that glue into the same slot. The album includes poster pages for the hosting cities, and its index includes a Dream Team entry, with the achievements page as its last page.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Set Collection",
+          "confidence": "directly observed, the album with a slot per player, the red star on unplaced stickers and the completion percentage are all shown in the session",
+          "confidences": [
+            "directly observed, the album with a slot per player, the red star on unplaced stickers and the completion percentage are all shown in the session"
+          ],
+          "rationale": "The app defines a set of distinct players and cities' posters, tracks which of them have been glued, and reports completeness as a percentage (tier: directly observed). Gluing a missing player fills that player's slot, while duplicates stay in the stacks and go to swaps (tier: directly observed). Completion states are recognized at more than one level: the whole album, all cosmic stickers, and a count of completed teams on the achievements page (tier: directly observed). Exclusion conditions were checked first: the app does not track a quantity of interchangeable items, and the album is not a browsing catalog, because the red star and the percentage show member-level state (tier: directly observed).",
+          "alternativeConsidered": "An inventory of held stickers without set tracking; rejected because the app distinguishes placed from unplaced members and reports completeness (tier: directly observed). Achievement for the completion tiers is carried by its own tag rather than folded in here.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O13",
+      "name": "Collection rewards",
+      "section": "goals",
+      "observed": "The Collection rewards page lists four rewards. Two are tied to the album: completing 100% gives a personalized recap animation marked coming soon, and gluing every cosmic sticker gives a full discount coupon on a digital keepsake album. The other two are tied to deluxe pack purchases. No partial-completion reward is listed.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Set Collection",
+          "confidence": "directly observed, the album with a slot per player, the red star on unplaced stickers and the completion percentage are all shown in the session",
+          "confidences": [
+            "directly observed, the album with a slot per player, the red star on unplaced stickers and the completion percentage are all shown in the session"
+          ],
+          "rationale": "The app defines a set of distinct players and cities' posters, tracks which of them have been glued, and reports completeness as a percentage (tier: directly observed). Gluing a missing player fills that player's slot, while duplicates stay in the stacks and go to swaps (tier: directly observed). Completion states are recognized at more than one level: the whole album, all cosmic stickers, and a count of completed teams on the achievements page (tier: directly observed). Exclusion conditions were checked first: the app does not track a quantity of interchangeable items, and the album is not a browsing catalog, because the red star and the percentage show member-level state (tier: directly observed).",
+          "alternativeConsidered": "An inventory of held stickers without set tracking; rejected because the app distinguishes placed from unplaced members and reports completeness (tier: directly observed). Achievement for the completion tiers is carried by its own tag rather than folded in here.",
+          "role": "engagement"
+        },
+        {
+          "name": "Purchase Ladder",
+          "confidence": "directly observed, the offer screen shows the purchase count at zero and the two rewards, and the rewards page ties them to 20 and 25 purchases",
+          "confidences": [
+            "directly observed, the offer screen shows the purchase count at zero and the two rewards, and the rewards page ties them to 20 and 25 purchases"
+          ],
+          "rationale": "The app places two rewards at stated purchase counts of a repeatable offer, shows the user's count of purchased deluxe packs, and reveals both positions before any purchase (tier: directly observed). No progression measure advanced by play moves the count; only deluxe purchases do (tier: directly observed). The Prizes page's wording \"upon obtaining\" leaves open whether deluxe packs obtained otherwise count, recorded as not established (tier: unresolved). Exclusion conditions were checked first: the positions are not released by play, so this is not Progression Fund; the benefit depends on a cumulative count rather than the first purchase, so this is not First-Purchase Bonus (tier: directly observed).",
+          "alternativeConsidered": "Milestone on a purchase count; not applied because the entry for Purchase Ladder names this exact shape as its threshold variant, and no recognition event was seen (tier: directly observed).",
+          "role": "monetization"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O14",
+      "name": "Achievement badges",
+      "section": "goals",
+      "observed": "The album's last page is headed to collect stickers and earn badges, listing seven categories each with three tiers: album progress, teams completed, challenges completed, team captains, swaps, previous World Cup winners, and Coca-Cola items scanned. The public profile carries its own achievements section, reading no big achievements yet for the guest. No reward is listed against any individual badge, and none was attained in this analysis.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Set Collection",
+          "confidence": "directly observed, the album with a slot per player, the red star on unplaced stickers and the completion percentage are all shown in the session",
+          "confidences": [
+            "directly observed, the album with a slot per player, the red star on unplaced stickers and the completion percentage are all shown in the session"
+          ],
+          "rationale": "The app defines a set of distinct players and cities' posters, tracks which of them have been glued, and reports completeness as a percentage (tier: directly observed). Gluing a missing player fills that player's slot, while duplicates stay in the stacks and go to swaps (tier: directly observed). Completion states are recognized at more than one level: the whole album, all cosmic stickers, and a count of completed teams on the achievements page (tier: directly observed). Exclusion conditions were checked first: the app does not track a quantity of interchangeable items, and the album is not a browsing catalog, because the red star and the percentage show member-level state (tier: directly observed).",
+          "alternativeConsidered": "An inventory of held stickers without set tracking; rejected because the app distinguishes placed from unplaced members and reports completeness (tier: directly observed). Achievement for the completion tiers is carried by its own tag rather than folded in here.",
+          "role": "engagement"
+        },
+        {
+          "name": "Challenge",
+          "confidence": "directly observed, three challenge instances are shown with success conditions, rewards, a two-day remaining window and expired states",
+          "confidences": [
+            "directly observed, three challenge instances are shown with success conditions, rewards, a two-day remaining window and expired states"
+          ],
+          "rationale": "The app creates numbered objective instances with a defined success condition, such as collecting 10 team captains, a stated reward, an opt-in participate step, a progress count and an end boundary, and marks past instances \"challenge expired\" (tier: directly observed). Exclusion conditions were checked first: the objectives are not open indefinitely and are tracked with progress, so they are not recommendations (tier: directly observed).",
+          "alternativeConsidered": "Achievement, for the collect-N criteria; rejected because the objectives exist prospectively, carry a deadline and can expire uncompleted (tier: directly observed).",
+          "role": "engagement, retention"
+        },
+        {
+          "name": "Achievement",
+          "confidence": "directly observed, the badge page lists named criteria in three tiers per category and the profile carries an achievements section; no attainment was seen",
+          "confidences": [
+            "directly observed, the badge page lists named criteria in three tiers per category and the profile carries an achievements section; no attainment was seen"
+          ],
+          "rationale": "The app defines criteria that are unattained until satisfied, such as 12 teams completed or 10 Coca-Cola items scanned, groups them into tiered badges, and states that collecting earns them (tier: directly observed). The attained state was not seen, because no badge was earned in the session; under the presence standard the surface and the product's framing assert presence and the attainment behavior is recorded as not observed. Exclusion conditions were checked first: the badges are not a cumulative count displayed alone, since each names a discrete criterion (tier: directly observed).",
+          "alternativeConsidered": "Milestone, for the album progress tiers; not applied because the badges are listed as criteria rather than as recognized points on one measure, and no recognition event was seen (tier: directly observed).",
+          "role": "engagement, social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O15",
+      "name": "The three challenges",
+      "section": "goals",
+      "observed": "After registration, the Challenges screen reads that completing challenges earns rewards, and shows three numbered challenges. The first, on the hosting countries, rewarded the official mascots and is marked expired. The second rewarded a digital power pack for collecting five stickers of the last World Cup's winning team, also expired. The third, on team captains, rewards a Panini logo sticker for ten captains, shows zero of ten progress and two days remaining. A sticker must be in the album and clicked to count toward this challenge, and a participate button must be tapped to join. Expired challenges stay listed. The account screens describe challenges as weekly; guests can't open the Challenges screen at all, meeting a registration prompt instead.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Challenge",
+          "confidence": "directly observed, three challenge instances are shown with success conditions, rewards, a two-day remaining window and expired states",
+          "confidences": [
+            "directly observed, three challenge instances are shown with success conditions, rewards, a two-day remaining window and expired states"
+          ],
+          "rationale": "The app creates numbered objective instances with a defined success condition, such as collecting 10 team captains, a stated reward, an opt-in participate step, a progress count and an end boundary, and marks past instances \"challenge expired\" (tier: directly observed). Exclusion conditions were checked first: the objectives are not open indefinitely and are tracked with progress, so they are not recommendations (tier: directly observed).",
+          "alternativeConsidered": "Achievement, for the collect-N criteria; rejected because the objectives exist prospectively, carry a deadline and can expire uncompleted (tier: directly observed).",
+          "role": "engagement, retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O16",
+      "name": "Locked-feature prompts",
+      "section": "access",
+      "observed": "As a guest, tapping My team, Challenges or the promo code entry opens a prompt to register. Tapping to get the deluxe pack opens a pop-up stating that completing the account unlocks all features. Held packs beyond the guest's daily allowance can't be opened, with the same message directing the user to complete their account. Each prompt appears at the moment the guest tries to use the locked feature, and can be closed to return to the home screen.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Challenge",
+          "confidence": "directly observed, three challenge instances are shown with success conditions, rewards, a two-day remaining window and expired states",
+          "confidences": [
+            "directly observed, three challenge instances are shown with success conditions, rewards, a two-day remaining window and expired states"
+          ],
+          "rationale": "The app creates numbered objective instances with a defined success condition, such as collecting 10 team captains, a stated reward, an opt-in participate step, a progress count and an end boundary, and marks past instances \"challenge expired\" (tier: directly observed). Exclusion conditions were checked first: the objectives are not open indefinitely and are tracked with progress, so they are not recommendations (tier: directly observed).",
+          "alternativeConsidered": "Achievement, for the collect-N criteria; rejected because the objectives exist prospectively, carry a deadline and can expire uncompleted (tier: directly observed).",
+          "role": "engagement, retention"
+        },
+        {
+          "name": "Group Membership",
+          "confidence": "directly observed, team creation, the ID and password join rule, member completion and the team-only swap request type are all shown",
+          "confidences": [
+            "directly observed, team creation, the ID and password join rule, member completion and the team-only swap request type are all shown"
+          ],
+          "rationale": "The app maintains a named team with an ID, a password and a slogan, joined only with the ID and password, capped at 10 friends, with leave and invite controls (tier: directly observed). Membership changes a product condition: only members can create a collector's group swap request (tier: directly observed). Under the sibling decision ladder, no collective group-owned state was observed; member completion is shown per member and no team total, rank or reward appeared, so the most specific observed level is maintained membership and governance (tier: directly observed).",
+          "alternativeConsidered": "Clan / Guild; it would apply if the team held a group-level state such as a combined completion figure or team reward (tier: plausible). Evidence that would separate them: a team with several members showing a team total or ranking.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O17",
+      "name": "Complete-account benefits",
+      "section": "access",
+      "observed": "Continuing from the deluxe pack pop-up opens a screen titled completing the account to unlock the full game experience, listing three additional free packs per FIFA account, promo codes, weekly challenges, forming a collector's team, and more benefits, with buttons for an existing account or registering. Complete account is also a permanent entry in the More menu.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O18",
+      "name": "Owned-sticker details",
+      "section": "access",
+      "observed": "Tapping a player in the album shows details only for players whose sticker the user has: name, sticker, date of birth, height, weight, position and current club, with a share control. For one player, Irving Lozano, a button under the stats opens two historic stickers from previous competitions. FIFA Panini Collection doesn't establish whether every player has historic stickers available the same way.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O19",
+      "name": "Availability end date",
+      "section": "access",
+      "observed": "The screen reached by tapping to get new packs states that FIFA Panini Collection will be available until September 30, 2026. The statement applies to the whole collection, not to one offer. FIFA Panini Collection doesn't state what happens to the album and held packs after that date.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Set Collection",
+          "confidence": "directly observed, the album with a slot per player, the red star on unplaced stickers and the completion percentage are all shown in the session",
+          "confidences": [
+            "directly observed, the album with a slot per player, the red star on unplaced stickers and the completion percentage are all shown in the session"
+          ],
+          "rationale": "The app defines a set of distinct players and cities' posters, tracks which of them have been glued, and reports completeness as a percentage (tier: directly observed). Gluing a missing player fills that player's slot, while duplicates stay in the stacks and go to swaps (tier: directly observed). Completion states are recognized at more than one level: the whole album, all cosmic stickers, and a count of completed teams on the achievements page (tier: directly observed). Exclusion conditions were checked first: the app does not track a quantity of interchangeable items, and the album is not a browsing catalog, because the red star and the percentage show member-level state (tier: directly observed).",
+          "alternativeConsidered": "An inventory of held stickers without set tracking; rejected because the app distinguishes placed from unplaced members and reports completeness (tier: directly observed). Achievement for the completion tiers is carried by its own tag rather than folded in here.",
+          "role": "engagement"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O20",
+      "name": "Account settings",
+      "section": "access",
+      "observed": "Account settings and preferences offers language choice, the account state, audio settings, a route for sticker image problems including redownloading assets, competition and privacy preferences reached through a consent center, and a Manage Preferences button, which for the guest reported no preferences to manage.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O21",
+      "name": "Held packs and sources",
+      "section": "economy",
+      "observed": "FIFA Panini Collection holds unopened packs as a single count on the Open packs item. Packs enter that count from scanning the physical album, packs or a Coca-Cola can, the promo code area's free pack, and bonus packs granted on sign-up, with further sources listed as promo codes, QR codes, challenge rewards and deluxe pack purchases. Opening is the only way a pack leaves the count. The count can exceed the daily opening allowance, so packs wait unopened across days.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Loot Box",
+          "confidence": "O7 (tier: directly observed); O36 (tier: strongly supported)",
+          "confidences": [
+            "O7 (tier: directly observed); O36 (tier: strongly supported)"
+          ],
+          "rationale": "The app gives the user discrete packs held as a count and consumed on opening, and different openings resolve to different players (tier: directly observed). The user surrenders a held pack, and a unit of the daily opening allowance, before the contents are known (tier: directly observed). Loot Box is a specialization of Variable Reward Outcome; the specialization is reported and the parent is noted, following the overlap rule. The deluxe pack is a real-money container whose copy guarantees categories and missing items but does not name the stickers (tier: directly observed). Its opened contents were not seen because no purchase was made (tier: strongly supported, the offer copy establishes the unresolved contents while the purchase and reveal are absent). Exclusion conditions were checked first: the free packs are not opened by viewing an advertisement, and their contents are not fixed by a visible rule (tier: directly observed).",
+          "alternativeConsidered": "Variable Reward Outcome alone for the free packs, on the reading that a free pack involves no value commitment; rejected because the pack is a held entitlement that is consumed on opening, which the entry's earned-key variant covers (tier: strongly supported). Evidence that would separate them: packs that open automatically on grant, with no held count.",
+          "role": "engagement, monetization"
+        },
+        {
+          "name": "Energy",
+          "confidence": "O8 (tier: directly observed); O10 (tier: plausible)",
+          "confidences": [
+            "O8 (tier: directly observed); O10 (tier: plausible)"
+          ],
+          "rationale": "The app maintains a per-day opening allowance, one for a guest and four for a registered account, that each opening consumes, that blocks further opening at zero while packs remain held, and that is stated to return after 15 hours (tier: directly observed). The concurrent swap-request cap behaves as a capacity occupied by each open request (tier: plausible, the cap and its account tiers are shown, but whether a slot is freed when a request ends was not seen). Exclusion conditions were checked first: the allowance is not a timer on one action, since it counts units across openings, and it is not removed by failure (tier: directly observed).",
+          "alternativeConsidered": "For O10, a plain limit on open listings that is not a consumed capacity; it would stand if a slot were never released until the request completed (tier: plausible). Evidence that would separate them: a request withdrawn and a new one created at the cap.",
+          "role": "engagement, retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O22",
+      "name": "Sticker stacks",
+      "section": "economy",
+      "observed": "Stickers a user holds sit in stacks: new stickers, and a swap stack described for making swap requests. Moving a sticker between stacks is done by dragging. The home screen states how many stickers are new and how many are set aside for swapping. Regular stickers can be duplicates, and a swap request can specifically allow duplicates.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Set Collection",
+          "confidence": "directly observed, the album with a slot per player, the red star on unplaced stickers and the completion percentage are all shown in the session",
+          "confidences": [
+            "directly observed, the album with a slot per player, the red star on unplaced stickers and the completion percentage are all shown in the session"
+          ],
+          "rationale": "The app defines a set of distinct players and cities' posters, tracks which of them have been glued, and reports completeness as a percentage (tier: directly observed). Gluing a missing player fills that player's slot, while duplicates stay in the stacks and go to swaps (tier: directly observed). Completion states are recognized at more than one level: the whole album, all cosmic stickers, and a count of completed teams on the achievements page (tier: directly observed). Exclusion conditions were checked first: the app does not track a quantity of interchangeable items, and the album is not a browsing catalog, because the red star and the percentage show member-level state (tier: directly observed).",
+          "alternativeConsidered": "An inventory of held stickers without set tracking; rejected because the app distinguishes placed from unplaced members and reports completeness (tier: directly observed). Achievement for the completion tiers is carried by its own tag rather than folded in here.",
+          "role": "engagement"
+        },
+        {
+          "name": "Loot Box",
+          "confidence": "O7 (tier: directly observed); O36 (tier: strongly supported)",
+          "confidences": [
+            "O7 (tier: directly observed); O36 (tier: strongly supported)"
+          ],
+          "rationale": "The app gives the user discrete packs held as a count and consumed on opening, and different openings resolve to different players (tier: directly observed). The user surrenders a held pack, and a unit of the daily opening allowance, before the contents are known (tier: directly observed). Loot Box is a specialization of Variable Reward Outcome; the specialization is reported and the parent is noted, following the overlap rule. The deluxe pack is a real-money container whose copy guarantees categories and missing items but does not name the stickers (tier: directly observed). Its opened contents were not seen because no purchase was made (tier: strongly supported, the offer copy establishes the unresolved contents while the purchase and reveal are absent). Exclusion conditions were checked first: the free packs are not opened by viewing an advertisement, and their contents are not fixed by a visible rule (tier: directly observed).",
+          "alternativeConsidered": "Variable Reward Outcome alone for the free packs, on the reading that a free pack involves no value commitment; rejected because the pack is a held entitlement that is consumed on opening, which the entry's earned-key variant covers (tier: strongly supported). Evidence that would separate them: packs that open automatically on grant, with no held count.",
+          "role": "engagement, monetization"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O23",
+      "name": "Sign-up bonus packs",
+      "section": "economy",
+      "observed": "On returning to the home screen after registration, FIFA Panini Collection shows a message thanking the user for signing up and granting bonus packs. The exact number isn't stated; the account screens promise three packs per FIFA account.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O24",
+      "name": "Promo code redemption",
+      "section": "economy",
+      "observed": "The promo code area of the home screen carries a control for getting a free pack. Activating a promo code requires registration. After registering, the route to new packs adds options to redeem a code or scan a QR code. FIFA Panini Collection doesn't state where codes and QR codes actually come from.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Daily Login Rewards",
+          "confidence": "O39 (tier: strongly supported); O4 (tier: directly observed)",
+          "confidences": [
+            "O39 (tier: strongly supported); O4 (tier: directly observed)"
+          ],
+          "rationale": "The account choice screen states one free pack every day for a guest and two for a FIFA account, and a \"Get a free pack\" control granted a pack on a tap with no task attached (tier: directly observed). The link between that control and the daily promise rests on the narrator's identification and on it being the only free-pack control described (tier: strongly supported). The daily reset itself was not observed and is recorded as behavior detail not seen. Exclusion conditions were checked first: no substantive task is required, and the grant is not the Coca-Cola scan, which requires a product in front of the camera (tier: directly observed).",
+          "alternativeConsidered": "A one-time promotional free pack placed in the promo code area; it would stand if the control did not return the next day (tier: plausible). Evidence that would separate them: the same control offering a pack on a later day.",
+          "role": "retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O25",
+      "name": "Public swap requests",
+      "section": "social",
+      "observed": "The swap area lets a user offer stickers from their swap stack in exchange for stickers they want, matched by the app rather than browsed by the user. A public request has two halves, what's offered and what's wanted, built by picking players from country lists, with an option to allow duplicates on the wanted side. A separate request type is scoped to a collector's team instead of the public pool, blocked for anyone not in a team. No match was found in this analysis, so the app's own next step once one is found wasn't shown.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Group Membership",
+          "confidence": "directly observed, team creation, the ID and password join rule, member completion and the team-only swap request type are all shown",
+          "confidences": [
+            "directly observed, team creation, the ID and password join rule, member completion and the team-only swap request type are all shown"
+          ],
+          "rationale": "The app maintains a named team with an ID, a password and a slogan, joined only with the ID and password, capped at 10 friends, with leave and invite controls (tier: directly observed). Membership changes a product condition: only members can create a collector's group swap request (tier: directly observed). Under the sibling decision ladder, no collective group-owned state was observed; member completion is shown per member and no team total, rank or reward appeared, so the most specific observed level is maintained membership and governance (tier: directly observed).",
+          "alternativeConsidered": "Clan / Guild; it would apply if the team held a group-level state such as a combined completion figure or team reward (tier: plausible). Evidence that would separate them: a team with several members showing a team total or ranking.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O26",
+      "name": "The collector's team",
+      "section": "social",
+      "observed": "A registered user can create or join a team of up to ten friends, using a team ID and password to join, or a name, password and slogan to create one. The team page shows the ID, the slogan, the password, and controls to leave, invite friends and view what each member has completed. No team total, level or reward is shown; teams are closed to guests.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Group Membership",
+          "confidence": "directly observed, team creation, the ID and password join rule, member completion and the team-only swap request type are all shown",
+          "confidences": [
+            "directly observed, team creation, the ID and password join rule, member completion and the team-only swap request type are all shown"
+          ],
+          "rationale": "The app maintains a named team with an ID, a password and a slogan, joined only with the ID and password, capped at 10 friends, with leave and invite controls (tier: directly observed). Membership changes a product condition: only members can create a collector's group swap request (tier: directly observed). Under the sibling decision ladder, no collective group-owned state was observed; member completion is shown per member and no team total, rank or reward appeared, so the most specific observed level is maintained membership and governance (tier: directly observed).",
+          "alternativeConsidered": "Clan / Guild; it would apply if the team held a group-level state such as a combined completion figure or team reward (tier: plausible). Evidence that would separate them: a team with several members showing a team total or ranking.",
+          "role": "social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O27",
+      "name": "The public profile",
+      "section": "social",
+      "observed": "The public profile states a user's status, album completion percentage, cosmic stickers glued, stickers collected and swaps executed, with a share control. It also carries the dream team, an achievements section and a completed-challenges section. For an unregistered guest, achievements read no achievements yet and completed challenges read no challenges completed yet.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Achievement",
+          "confidence": "directly observed, the badge page lists named criteria in three tiers per category and the profile carries an achievements section; no attainment was seen",
+          "confidences": [
+            "directly observed, the badge page lists named criteria in three tiers per category and the profile carries an achievements section; no attainment was seen"
+          ],
+          "rationale": "The app defines criteria that are unattained until satisfied, such as 12 teams completed or 10 Coca-Cola items scanned, groups them into tiered badges, and states that collecting earns them (tier: directly observed). The attained state was not seen, because no badge was earned in the session; under the presence standard the surface and the product's framing assert presence and the attainment behavior is recorded as not observed. Exclusion conditions were checked first: the badges are not a cumulative count displayed alone, since each names a discrete criterion (tier: directly observed).",
+          "alternativeConsidered": "Milestone, for the album progress tiers; not applied because the badges are listed as criteria rather than as recognized points on one measure, and no recognition event was seen (tier: directly observed).",
+          "role": "engagement, social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O28",
+      "name": "The dream team",
+      "section": "social",
+      "observed": "The dream team lets a user fill goalkeeper, defender, midfielder and forward positions from their own glued stickers, changeable at any time, and the saved team appears on the public profile. Only glued stickers are eligible, and FIFA Panini Collection doesn't clearly show whether a player can be moved between positions once placed.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O29",
+      "name": "Scanning the physical album",
+      "section": "reach",
+      "observed": "Scan content opens a screen inviting the user to unlock extra content with the camera, offering three buttons: scanning the FIFA World Cup album and packs, scanning Coca-Cola products, and scanning stickers from Coca-Cola. Choosing one requests camera access. Pointing the camera at the physical album shows a search state, then a check mark and an unlock free pack button; unlocking shows a congratulations message with the reward and a share control. The unlocked pack is added to held packs rather than opened immediately.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O30",
+      "name": "Scanning Coca-Cola products",
+      "section": "reach",
+      "observed": "Scanning Coca-Cola products asks the user to place a special Coca-Cola bottle in front of the camera and tap unlock once recognized. A can was recognized and unlocked a free pack with a first-scan message; the same can was then not recognized again. A different can was recognized the same way, but unlocking then stated the day's bonus for that item had already been claimed. The third option, scanning a special sticker from Coca-Cola, wasn't tried. The Coca-Cola scan reward is limited per day, though FIFA Panini Collection doesn't settle whether the limit is one total or one per product type.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Achievement",
+          "confidence": "directly observed, the badge page lists named criteria in three tiers per category and the profile carries an achievements section; no attainment was seen",
+          "confidences": [
+            "directly observed, the badge page lists named criteria in three tiers per category and the profile carries an achievements section; no attainment was seen"
+          ],
+          "rationale": "The app defines criteria that are unattained until satisfied, such as 12 teams completed or 10 Coca-Cola items scanned, groups them into tiered badges, and states that collecting earns them (tier: directly observed). The attained state was not seen, because no badge was earned in the session; under the presence standard the surface and the product's framing assert presence and the attainment behavior is recorded as not observed. Exclusion conditions were checked first: the badges are not a cumulative count displayed alone, since each names a discrete criterion (tier: directly observed).",
+          "alternativeConsidered": "Milestone, for the album progress tiers; not applied because the badges are listed as criteria rather than as recognized points on one measure, and no recognition event was seen (tier: directly observed).",
+          "role": "engagement, social"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O31",
+      "name": "Coca-Cola branding",
+      "section": "reach",
+      "observed": "Coca-Cola appears on three of the home screen items, as an advertising display, a Coca-Cola stand, and surrounding the packs, and the rules describe the collection as powered by The Coca-Cola Company. No benefit is attached to viewing the branding itself.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O32",
+      "name": "FIFA.com registration",
+      "section": "reach",
+      "observed": "Register opens a FIFA.com login or sign-up screen stating that FIFA shares certain account information with Panini to operate the game and fulfil rewards, and that continuing links the FIFA.com account to FIFA Panini Collection. Continuing moves to the FIFA website. Sign-up runs three steps: date of birth, name, email, country, gender and communication language; a nickname seen by other users, a favourite team and consent to FIFA communication; then a password, followed by a registration code sent by email. No Google, Apple or other third-party sign-up route is offered on this screen. The verification email didn't arrive in this analysis; the link was reported expired, and creating the account again returned that the user already exists. The sign-in screen did offer a Google route, which was used to log in. Registration happened after the guest had already explored the home screen, scanned, opened a pack and created a swap request, not during first launch.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O33",
+      "name": "Post-login consent",
+      "section": "reach",
+      "observed": "After login, FIFA Panini Collection shows a preferences screen with two statements. The first, required, confirms having read and accepted the terms of the prize promotion Complete the FIFA Panini Collection. The second, optional, consents to Panini sharing gaming data with FIFA for linked features, analytics and personalized experiences, withdrawable at any time.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O34",
+      "name": "Share routes",
+      "section": "reach",
+      "observed": "Share controls appear on stickers revealed from a pack, the scan reward screen, a sticker's detail view, each challenge, the public profile, the dream team, the game itself, and the collector's team through Invite friends, sending a link through social media or messaging apps. No reward for sharing or inviting is stated anywhere in this analysis, and FIFA Panini Collection doesn't describe what a recipient of a shared sticker, challenge or profile actually sees.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O35",
+      "name": "Rewards redeemed outside",
+      "section": "reach",
+      "observed": "Several rewards are fulfilled outside the app: a code for ten printed copies of a MyPanini sticker ordered on an external website with shipping not included, and discount codes on the digital keepsake album secured in the Panini America Blockchain Hub. The 100%-completion recap animation is the only collection reward described as delivered inside the app itself.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Purchase Ladder",
+          "confidence": "directly observed, the offer screen shows the purchase count at zero and the two rewards, and the rewards page ties them to 20 and 25 purchases",
+          "confidences": [
+            "directly observed, the offer screen shows the purchase count at zero and the two rewards, and the rewards page ties them to 20 and 25 purchases"
+          ],
+          "rationale": "The app places two rewards at stated purchase counts of a repeatable offer, shows the user's count of purchased deluxe packs, and reveals both positions before any purchase (tier: directly observed). No progression measure advanced by play moves the count; only deluxe purchases do (tier: directly observed). The Prizes page's wording \"upon obtaining\" leaves open whether deluxe packs obtained otherwise count, recorded as not established (tier: unresolved). Exclusion conditions were checked first: the positions are not released by play, so this is not Progression Fund; the benefit depends on a cumulative count rather than the first purchase, so this is not First-Purchase Bonus (tier: directly observed).",
+          "alternativeConsidered": "Milestone on a purchase count; not applied because the entry for Purchase Ladder names this exact shape as its threshold variant, and no recognition event was seen (tier: directly observed).",
+          "role": "monetization"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O36",
+      "name": "The deluxe pack offer",
+      "section": "monetization",
+      "observed": "The deluxe pack is promoted by a home screen banner and, for a registered user, a Buy deluxe pack banner under Open packs. The offer states it contains nine missing cosmic stickers, one missing poster sticker from the hosting cities' pages, and ten regular stickers that can include duplicates, priced at $2. The specific stickers aren't named before purchase; the copy guarantees categories and that the cosmic and poster stickers are ones the user is missing. For a guest, the banner leads to the registration prompt rather than the offer itself. No purchase was made, so the payment flow and opened contents weren't seen.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Set Collection",
+          "confidence": "directly observed, the album with a slot per player, the red star on unplaced stickers and the completion percentage are all shown in the session",
+          "confidences": [
+            "directly observed, the album with a slot per player, the red star on unplaced stickers and the completion percentage are all shown in the session"
+          ],
+          "rationale": "The app defines a set of distinct players and cities' posters, tracks which of them have been glued, and reports completeness as a percentage (tier: directly observed). Gluing a missing player fills that player's slot, while duplicates stay in the stacks and go to swaps (tier: directly observed). Completion states are recognized at more than one level: the whole album, all cosmic stickers, and a count of completed teams on the achievements page (tier: directly observed). Exclusion conditions were checked first: the app does not track a quantity of interchangeable items, and the album is not a browsing catalog, because the red star and the percentage show member-level state (tier: directly observed).",
+          "alternativeConsidered": "An inventory of held stickers without set tracking; rejected because the app distinguishes placed from unplaced members and reports completeness (tier: directly observed). Achievement for the completion tiers is carried by its own tag rather than folded in here.",
+          "role": "engagement"
+        },
+        {
+          "name": "Loot Box",
+          "confidence": "O7 (tier: directly observed); O36 (tier: strongly supported)",
+          "confidences": [
+            "O7 (tier: directly observed); O36 (tier: strongly supported)"
+          ],
+          "rationale": "The app gives the user discrete packs held as a count and consumed on opening, and different openings resolve to different players (tier: directly observed). The user surrenders a held pack, and a unit of the daily opening allowance, before the contents are known (tier: directly observed). Loot Box is a specialization of Variable Reward Outcome; the specialization is reported and the parent is noted, following the overlap rule. The deluxe pack is a real-money container whose copy guarantees categories and missing items but does not name the stickers (tier: directly observed). Its opened contents were not seen because no purchase was made (tier: strongly supported, the offer copy establishes the unresolved contents while the purchase and reveal are absent). Exclusion conditions were checked first: the free packs are not opened by viewing an advertisement, and their contents are not fixed by a visible rule (tier: directly observed).",
+          "alternativeConsidered": "Variable Reward Outcome alone for the free packs, on the reading that a free pack involves no value commitment; rejected because the pack is a held entitlement that is consumed on opening, which the entry's earned-key variant covers (tier: strongly supported). Evidence that would separate them: packs that open automatically on grant, with no held count.",
+          "role": "engagement, monetization"
+        },
+        {
+          "name": "Purchase Ladder",
+          "confidence": "directly observed, the offer screen shows the purchase count at zero and the two rewards, and the rewards page ties them to 20 and 25 purchases",
+          "confidences": [
+            "directly observed, the offer screen shows the purchase count at zero and the two rewards, and the rewards page ties them to 20 and 25 purchases"
+          ],
+          "rationale": "The app places two rewards at stated purchase counts of a repeatable offer, shows the user's count of purchased deluxe packs, and reveals both positions before any purchase (tier: directly observed). No progression measure advanced by play moves the count; only deluxe purchases do (tier: directly observed). The Prizes page's wording \"upon obtaining\" leaves open whether deluxe packs obtained otherwise count, recorded as not established (tier: unresolved). Exclusion conditions were checked first: the positions are not released by play, so this is not Progression Fund; the benefit depends on a cumulative count rather than the first purchase, so this is not First-Purchase Bonus (tier: directly observed).",
+          "alternativeConsidered": "Milestone on a purchase count; not applied because the entry for Purchase Ladder names this exact shape as its threshold variant, and no recognition event was seen (tier: directly observed).",
+          "role": "monetization"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O37",
+      "name": "Purchase-count rewards",
+      "section": "monetization",
+      "observed": "The deluxe pack screen states rewards for purchased deluxe packs, reading that zero have been purchased so far, and lists two: a coupon for ten printed copies of the user's MyPanini sticker, and a 50% discount coupon on the digital keepsake album. The Collection rewards page ties these to 20 and 25 deluxe packs respectively, while the Prizes page words the same conditions as obtaining rather than purchasing. The 25-pack reward is a 50% discount on the same keepsake album that gluing every cosmic sticker discounts by 100% instead. A running count of deluxe purchases is shown on the offer screen.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Purchase Ladder",
+          "confidence": "directly observed, the offer screen shows the purchase count at zero and the two rewards, and the rewards page ties them to 20 and 25 purchases",
+          "confidences": [
+            "directly observed, the offer screen shows the purchase count at zero and the two rewards, and the rewards page ties them to 20 and 25 purchases"
+          ],
+          "rationale": "The app places two rewards at stated purchase counts of a repeatable offer, shows the user's count of purchased deluxe packs, and reveals both positions before any purchase (tier: directly observed). No progression measure advanced by play moves the count; only deluxe purchases do (tier: directly observed). The Prizes page's wording \"upon obtaining\" leaves open whether deluxe packs obtained otherwise count, recorded as not established (tier: unresolved). Exclusion conditions were checked first: the positions are not released by play, so this is not Progression Fund; the benefit depends on a cumulative count rather than the first purchase, so this is not First-Purchase Bonus (tier: directly observed).",
+          "alternativeConsidered": "Milestone on a purchase count; not applied because the entry for Purchase Ladder names this exact shape as its threshold variant, and no recognition event was seen (tier: directly observed).",
+          "role": "monetization"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O38",
+      "name": "Notification permission",
+      "section": "returns",
+      "observed": "After the guest enters a country of residence, FIFA Panini Collection requests permission to send notifications, arriving before the user reaches the home screen. The swap area states that a found match is announced by a notification on the main screen. FIFA Panini Collection doesn't state the user's answer or any notification received afterward.",
+      "detail": [],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O39",
+      "name": "The daily free pack",
+      "section": "returns",
+      "observed": "The promo code area of the home screen shows a control to get a free pack, and tapping it granted one, identified as the daily free pack promised on the account choice screen. The guest couldn't open the claimed pack because the day's opening allowance was already used. The claim requires only a tap, with no task attached. FIFA Panini Collection doesn't show the daily reset itself happening, or state whether an unclaimed day's pack carries over.",
+      "detail": [],
+      "tags": [
+        {
+          "name": "Daily Login Rewards",
+          "confidence": "O39 (tier: strongly supported); O4 (tier: directly observed)",
+          "confidences": [
+            "O39 (tier: strongly supported); O4 (tier: directly observed)"
+          ],
+          "rationale": "The account choice screen states one free pack every day for a guest and two for a FIFA account, and a \"Get a free pack\" control granted a pack on a tap with no task attached (tier: directly observed). The link between that control and the daily promise rests on the narrator's identification and on it being the only free-pack control described (tier: strongly supported). The daily reset itself was not observed and is recorded as behavior detail not seen. Exclusion conditions were checked first: no substantive task is required, and the grant is not the Coca-Cola scan, which requires a product in front of the camera (tier: directly observed).",
+          "alternativeConsidered": "A one-time promotional free pack placed in the promo code area; it would stand if the control did not return the next day (tier: plausible). Evidence that would separate them: the same control offering a pack on a later day.",
+          "role": "retention"
+        }
+      ],
+      "crossRefs": [],
+      "screenshots": []
+    }
+  ],
+  "systemView": [
+    "This is a medium system. Its spine is the pack: every source of stickers in the app, whether scanning, a daily claim, sign-up or a challenge reward, arrives as an unopened pack in one held count, and opening one is the only way stickers reach the album. A daily allowance sits between the held count and the album, capping only how many packs can be opened rather than how many can be held, and registering through a FIFA.com account raises every one of the app's allowances at once rather than unlocking separate features one at a time."
+  ],
+  "mechanicWriteups": [
+    {
+      "name": "Loot Box",
+      "summary": "Packs held as a count resolve into different players on opening, and a $2 deluxe pack guarantees categories of stickers without naming them.",
+      "observed": "FIFA Panini Collection holds packs as a count the user opens by swiping, and different openings produce different players. A $2 deluxe pack promises nine missing cosmic stickers, one missing poster sticker, and ten regular stickers that can include duplicates, without naming which stickers these will be.",
+      "presented": "Regular packs sit on the Open packs item as a running count, opened one at a time. The deluxe pack is promoted through a home screen banner and a dedicated offer screen stating its guaranteed categories before purchase.",
+      "noting": "FIFA Panini Collection guarantees the deluxe pack's categories rather than its contents; missing items are promised within those categories without saying which ones, so the same uncertainty running through the free packs also runs through the paid one.",
+      "findings": [
+        "Regular packs are held as a count and opened one at a time, each producing different players.",
+        "The deluxe pack costs $2 and promises nine missing cosmic stickers, one missing poster sticker and ten regular stickers.",
+        "Deluxe pack copy guarantees categories, not which specific stickers will be received.",
+        "No purchase was made, so the deluxe pack's actual resolved contents aren't part of this record."
+      ],
+      "screenshotsNote": "opening a regular pack and its revealed stickers; the deluxe pack offer screen stating its guaranteed categories."
+    },
+    {
+      "name": "Energy",
+      "summary": "A daily allowance limits how many packs can be opened, one for a guest and four registered, with a separate, less-established limit on open swap requests.",
+      "observed": "FIFA Panini Collection blocks further pack opening once the day's allowance is used, one opening for a guest and four for a registered account, stating a wait of about 15 hours before the next opening. Held packs beyond that allowance simply wait; opening is the only thing capped. The swap area separately states a cap on how many swap requests can run at once, one for a guest and three for a registered account.",
+      "presented": "The opening block appears as a message the moment the allowance runs out, naming the wait and inviting the user to complete their account for a higher daily limit. The swap cap appears as a banner in the swap area stating the same guest-versus-registered contrast.",
+      "noting": "FIFA Panini Collection states the swap-request cap in the same guest-versus-registered terms as the opening allowance, but only the opening allowance's return is actually shown; whether a swap slot frees up when a request is matched or withdrawn isn't something this write-up can describe.",
+      "findings": [
+        "Pack opening is capped at one per day for a guest and four for a registered account.",
+        "The block message states a wait of about 15 hours rather than a clock time.",
+        "Holding packs isn't capped, only opening them; packs can accumulate across days.",
+        "A separate, stated cap of one open swap request for a guest and three for a registered account exists in the swap area."
+      ],
+      "screenshotsNote": "the pack-opening limit message stating the wait; the swap area banner stating its request cap."
+    },
+    {
+      "name": "Set Collection",
+      "summary": "An album with one slot per player tracks completion as a percentage, with duplicates routed to a swap stack instead.",
+      "observed": "FIFA Panini Collection gives every player a slot in a virtual album, filled only once its sticker is glued in; unglued stickers carry a red star. The public profile reports album completion as a percentage, alongside the number of stickers collected and cosmic stickers glued. Completing 100% of the album promises a personalized recap animation, marked as coming soon, and gluing every cosmic sticker unlocks a full discount coupon on a digital keepsake album sold outside the app.",
+      "presented": "Dragging a sticker toward the album opens it at the matching player's page, with a plus button over the empty slot. Completion figures sit on the public profile; the two completion rewards are listed on a dedicated Collection rewards page.",
+      "noting": "FIFA Panini Collection recognizes completion at more than one level at once, the whole album and the cosmic-sticker subset separately, each with its own named reward, rather than treating the album as a single finish line.",
+      "findings": [
+        "Each player has a slot filled only when the matching sticker is glued in.",
+        "Unglued stickers are marked with a red star.",
+        "The public profile states album completion as a percentage alongside stickers collected and cosmic stickers glued.",
+        "Completing 100% of the album promises a recap animation marked coming soon; gluing every cosmic sticker unlocks a full discount coupon on an outside keepsake album."
+      ],
+      "screenshotsNote": "the album showing a red-starred unglued sticker beside a filled slot; the Collection rewards page listing both completion rewards."
+    },
+    {
+      "name": "Achievement",
+      "summary": "A tiered badge page names criteria across collecting, swapping, challenges and scanning, each in three named tiers, with no badge attained in this analysis.",
+      "observed": "The last page of the digital album lists achievement badge categories, each in three tiers: album progress, teams completed, challenges completed, team captains, swaps, previous World Cup winners, and Coca-Cola items scanned. The public profile carries its own achievements section, reading no achievements yet for an unregistered guest.",
+      "presented": "The badge page sits as the final page of the album, reached by scrolling past every country's stickers. Each category names its three tiers directly; no reward is listed against any of them.",
+      "noting": "FIFA Panini Collection folds a sponsor's own product into the same badge system as the collecting and swapping it otherwise recognizes, naming Coca-Cola items scanned as one of seven tiered categories rather than treating it separately.",
+      "findings": [
+        "Achievement badges span seven categories, each with three named tiers.",
+        "Categories include album progress, teams completed, challenges completed, captains, swaps, past World Cup winners and Coca-Cola items scanned.",
+        "No reward is listed against any individual badge.",
+        "No badge was attained during this analysis."
+      ],
+      "screenshotsNote": "the achievement page listing its seven tiered categories."
+    },
+    {
+      "name": "Challenge",
+      "summary": "Three numbered challenges each state a target, a reward and an end date, with two already expired and the third counting down two days.",
+      "observed": "FIFA Panini Collection lists three numbered challenges with a stated success condition and reward each. The first two, tied to the hosting countries and the reigning champion team, are marked expired. The third, collecting ten team captains, shows zero of ten progress and two days remaining, and requires tapping a participate button before it counts.",
+      "presented": "Challenges sit on their own screen reached from the bottom navigation, each showing its target, reward and remaining time or expired state together. Expired challenges stay listed rather than disappearing.",
+      "noting": "FIFA Panini Collection keeps expired challenges visible alongside the active one, so a user opening the screen sees what was missed as clearly as what's still open.",
+      "findings": [
+        "Three numbered challenges are listed, each with its own success condition and reward.",
+        "Two of the three are marked expired.",
+        "The active challenge shows zero of ten progress with two days remaining.",
+        "A participate button must be tapped before progress on a challenge counts."
+      ],
+      "screenshotsNote": "the challenges screen showing an expired challenge beside the active one with its countdown."
+    },
+    {
+      "name": "Group Membership",
+      "summary": "A named team of up to ten friends, joined by ID and password, unlocks a team-only swap request type and shows each member's own completion.",
+      "observed": "FIFA Panini Collection lets a registered user create or join a team of up to ten friends using a team ID and password. Creating one sets a name, password and slogan; the team page shows the ID, the slogan, the password, and controls to leave the team, invite friends and view member completion.",
+      "presented": "My team opens directly to team creation or joining for a user with no team yet. Once formed, the team page lists these controls together, with member completion shown per member rather than as a combined figure.",
+      "noting": "FIFA Panini Collection's team carries no total, level or reward of its own; what it adds is a private swap scope and a view of what each individual friend has completed, not a shared state the team holds together.",
+      "findings": [
+        "Teams hold up to ten friends, joined by ID and password.",
+        "Creating a team sets a name, password and slogan.",
+        "Member completion is shown per member, not as a combined team figure.",
+        "No team total, level or reward is shown."
+      ],
+      "screenshotsNote": "the team page showing its ID, slogan and member controls."
+    },
+    {
+      "name": "Purchase Ladder",
+      "summary": "Two rewards sit at fixed counts of deluxe packs purchased, both positions and their contents shown before any purchase is made.",
+      "observed": "FIFA Panini Collection states two rewards tied to a running count of deluxe packs purchased: printed sticker copies at 20 packs, and a discount coupon on a keepsake album at 25. The offer screen shows the count starting at zero, with both rewards and their thresholds visible from the outset.",
+      "presented": "The purchase count and both reward positions sit together on the deluxe pack offer screen, visible before a single pack is bought.",
+      "noting": "FIFA Panini Collection reveals the full reward sequence and its thresholds up front rather than surfacing the next reward only as the count approaches it.",
+      "findings": [
+        "Two rewards sit at 20 and 25 deluxe packs purchased.",
+        "The purchase count and both thresholds are shown from zero, before any purchase.",
+        "The reward at 20 packs is printed sticker copies; at 25, a discount coupon on an outside keepsake album.",
+        "FIFA Panini Collection doesn't state whether packs obtained another way count toward either threshold."
+      ],
+      "screenshotsNote": "the deluxe pack offer screen showing the purchase count and both reward positions."
+    },
+    {
+      "name": "Daily Login Rewards",
+      "summary": "A free pack is available once a day for a tap, with no task attached, though its own reset was never actually seen resetting.",
+      "observed": "FIFA Panini Collection offers a \"Get a free pack\" control that grants a pack on a single tap, identified as the daily free pack promised on the account choice screen, one per day for a guest and two for a registered account.",
+      "presented": "The control sits in the promo code area of the home screen, requiring only a tap to claim.",
+      "noting": "FIFA Panini Collection's account choice screen states the daily grant up front, in the same breath as every other allowance difference between a guest and a registered account, so the free pack reads as part of the same tiered package rather than a separate mechanic.",
+      "findings": [
+        "A free pack is claimed with a single tap, no task required.",
+        "The account choice screen states one free pack a day for a guest and two for a registered account.",
+        "FIFA Panini Collection doesn't show the daily grant actually resetting.",
+        "The claimed pack still counts against the same daily opening allowance as any other pack."
+      ],
+      "screenshotsNote": "the \"Get a free pack\" control in the promo code area.\n\n---"
+    }
+  ],
+  "sectionLeadIns": {
+    "onboarding": "FIFA Panini Collection asks for tracking and notification permissions before offering a choice between playing as a guest and registering through a FIFA account. This section covers that opening sequence through to the first unguided home screen.",
+    "core-loop": "Opening a pack is the one action every source of stickers in FIFA Panini Collection leads to. This section covers pack opening, the daily limit on it, and how a sticker moves from a pack into the album or a swap request.",
+    "goals": "FIFA Panini Collection tracks the album's own completion alongside a separate badge page and a set of time-limited challenges. This section covers all three.",
+    "access": "A guest's limits, the features locked behind registration, and what registering through FIFA.com actually asks for all sit in this section.",
+    "economy": "FIFA Panini Collection holds two things: packs waiting to be opened, and the stickers those packs produce, split between the album and a swap stack. This section covers where packs come from and how stickers move once they're out.",
+    "social": "FIFA Panini Collection's social layer runs through a matched swap system and a private team of friends. This section covers both, along with the public profile and dream team each exposes.",
+    "reach": "Scanning physical products, sharing controls placed on nearly every screen, and registering through a FIFA.com account are FIFA Panini Collection's three routes beyond its own screens. This section covers all three, along with the rewards that get fulfilled outside the app entirely.",
+    "monetization": "A single $2 deluxe pack and two rewards tied to a running purchase count are FIFA Panini Collection's only paid routes.",
+    "returns": "A notification request arriving before the home screen, and a free pack claimed once a day, are FIFA Panini Collection's two return mechanisms."
+  },
+  "sectionCards": {
+    "onboarding": "A privacy notice, tracking and notification requests, and a guest-versus-account choice run before the guest reaches an unguided home screen.",
+    "core-loop": "Opening a pack reveals players that get glued into the album or routed to a swap stack, bounded by a daily opening allowance and a cap on open swap requests.",
+    "goals": "An album tracked by completion percentage, a tiered achievement badge page, and three numbered challenges all track progress at once.",
+    "access": "A guest's allowances, feature locks and the registration path through a FIFA.com account all set what the rest of the app opens up.",
+    "economy": "Packs held as a count, and stickers split between an album stack and a swap stack, are the two things FIFA Panini Collection actually holds.",
+    "social": "A public swap system the app matches on its own, and a private team of up to ten friends, are the two ways other players enter the app.",
+    "reach": "Scanning physical Coca-Cola products and Panini packaging, sharing routes on nearly every screen, and registration through FIFA.com are FIFA Panini Collection's three routes beyond its own screens.",
+    "monetization": "A $2 deluxe pack and two purchase-count rewards are the only paid routes, both converging on a keepsake album sold outside the app.",
+    "returns": "A daily free pack and a notification permission requested before the home screen are FIFA Panini Collection's two return mechanisms."
+  },
+  "proposedTags": [
+    {
+      "name": "Matched Swap Request",
+      "sourceObservations": [
+        "O25",
+        "O22",
+        "O10",
+        "O26"
+      ],
+      "draftDefinition": "A matched swap request lets a user post a standing offer to exchange specified items from their own holdings for specified items they lack, and the product, rather than the user, searches other users' requests for a counterpart and completes or proposes the reciprocal exchange when one is found.",
+      "conditions": "Items that can be transferred between users; a collection that produces duplicates; a pool of other users with open requests; a limit on how many requests one user can hold open.",
+      "whyNotCovered": "Gifting excludes reciprocal exchanges. Set Collection lists trading only as a non-required condition of the collection. Group Membership covers the team scope of some requests but not the exchange itself.",
+      "recurrenceElsewhere": "The pattern is described in general terms that apply to any product where users hold duplicate collectible items; no other analysis in this workspace was consulted to confirm it.",
+      "caveat": "Held open. No match and no completed exchange were observed, so whether the exchange completes automatically or asks the user to confirm is not established, and that is the mechanic itself rather than a detail around it. Two pieces of evidence would settle it: a session that posts a request and sees it matched, showing what the product does at the moment a counterpart is found; and a second app carrying the same shape, a product-run search of other users' standing offers that completes or proposes the reciprocal exchange."
+    },
+    {
+      "name": "Product Scan Reward",
+      "sourceObservations": [
+        "O29",
+        "O30",
+        "O14",
+        "O21"
+      ],
+      "draftDefinition": "A product scan reward grants an in-product benefit when the user points the device camera at a recognized physical item, such as a sponsor's product or a physical edition of the product's own content, with the grant limited per item or per period.",
+      "conditions": "Camera access; physical items the product can recognize; a benefit held in the product; a limit on repeat scans.",
+      "whyNotCovered": "Rewarded Advertisement excludes benefits granted for using or purchasing the promoted offering. Earning Tasks requires disclosed effort, a catalogue separate from the core activity and a continuation layer. Daily Login Rewards requires access alone.",
+      "recurrenceElsewhere": "Stated in general terms applicable to products tied to physical goods or packaging; no other analysis in this workspace was consulted to confirm it.",
+      "caveat": "Held open. In this app the scan sits inside a sponsorship, and a commercial arrangement is not a tag. One app cannot settle whether the scan-to-unlock pattern holds without a sponsor behind the scanned item, or whether it is a form the sponsorship takes. What would settle it is a second app in which the scanned item is the product's own rather than a sponsor's, and scanning it grants an in-product benefit under a repeat limit. The per-item versus per-category limit was also not settled in this session."
     }
   ],
   "system": {
-    "tagline": "A digital collectible system where the physical world is an integral acquisition channel.",
-    "overview": "FIFA Panini Collection is organized entirely around album completion. The app is a digital extension of the physical Panini sticker album, but with mechanics that the physical format cannot provide: daily pack limits, structured challenges, social swap coordination, and achievement milestones tied to physical product scanning. Every mechanic in the system either drives pack acquisition (daily login, physical scanning, Deluxe Pack purchase) or drives album completion (set collection, challenges, Collector's Team swaps). The entire experience has a hard end date of September 30, 2026.",
-    "loop": "The core loop is: open daily packs → glue stickers into the album → send duplicates to the swap stack → request missing stickers from Collector's Team members → scan physical Coca-Cola products for additional packs → check active challenges for stickers required → buy Deluxe Pack for specifically missing Cosmic stickers → repeat until album is complete. The 15-hour reset on pack openings creates a rolling daily return cadence rather than a fixed daily session time.",
-    "keyInsight": "The Coca-Cola integration is structural, not decorative. Scanning a Coca-Cola product grants the same pack reward as the standard daily free pack, effectively doubling the daily pack intake for users with a product at hand. 'Coke Scans' is a named achievement category with three tiers (1 / 10 / 25 items). The physical product interaction is tracked, milestoned, and rewarded, making the brand partnership a mechanics layer rather than a logo placement.",
-    "whatMakesItWork": "The system works because album completion is a clear, finite, personally meaningful goal, and every mechanic feeds it. Unlike engagement systems in games that manufacture goals through abstract progression, the album already exists as a cultural artifact that millions of people recognise from childhood. The digital mechanics (daily resets, challenge deadlines, private swaps) solve real problems in the analogue collector experience: randomness, gaps, and the inability to trade at scale.",
+    "tagline": "A digital sticker album for the FIFA World Cup where every source of stickers, scanning, daily claims, purchases, converges on one held pack count, and registering through FIFA.com raises every allowance at once.",
+    "overview": "FIFA Panini Collection channels every way of getting stickers, scanning physical products, a daily free pack, sign-up bonuses, challenge rewards and a paid deluxe pack, into one held count of unopened packs, with a daily allowance governing only how many can be opened rather than how many can be held. Registering through a FIFA.com account raises that allowance and several others at once rather than unlocking features one at a time. Duplicates route to a swap stack matched against other users by the app itself, and a private team of friends layers a second swap scope and a public profile on top of the same album.",
+    "loop": "Packs enter a held count from scanning, a daily claim, sign-up, promo codes, challenge rewards and deluxe pack purchases. Opening one resolves into players; missing ones glue into the album and advance its completion, feeding the achievement badges, the challenges' collect-N conditions and the public profile's own figures, while duplicates go to a swap stack and into swap requests the app matches on its own. A daily allowance limits opening to one pack for a guest and four for a registered account, and a separate cap limits how many swap requests can run at once. Registration through FIFA.com raises both figures together, along with unlocking challenges, teams and promo codes. The $2 deluxe pack and two purchase-count rewards are the only paid entries, both eventually converging on a keepsake album sold outside the app, and the whole collection stops being available on 30 September 2026.",
+    "keyInsight": "Registration is the one action that raises nearly every capacity in the system at once: the pack-opening allowance, the swap-request cap, and access to challenges, teams and promo codes all move together the moment a FIFA.com account is linked, rather than unlocking one at a time. The account choice screen states every one of these allowances as an exact number before the user picks a route, so the trade a guest is making is fully quantified before they decide.",
+    "whatMakesItWork": "Every route into the system, scanning a product, claiming a daily pack, completing a challenge or paying for a deluxe pack, resolves into the same held count of packs, so adding a new acquisition source costs the system nothing structurally: it just adds another way to fill a count the rest of the loop already knows how to spend. The one place this convergence breaks is the swap system, which the app matches on its own rather than letting the user browse for a partner, and whose own resolution, what happens the moment a match is found, was never actually shown.",
     "roles": [
       {
         "id": "set-collection",
-        "role": "The organizing logic of the entire app. Album completion drives all other mechanics, daily login rewards generate packs that fill the album, challenges require stickers to be glued, and achievements track collection milestones. The Deluxe Pack removes uncertainty for the two premium categories (Cosmic and poster stickers) by delivering specifically missing items."
+        "role": "An album with one slot per player recognizes completion at more than one level at once, the whole album and its cosmic-sticker subset separately, each with its own named reward."
+      },
+      {
+        "id": "loot-box",
+        "role": "Packs held as a count resolve into different players on opening, and the $2 deluxe pack guarantees categories of stickers without naming which ones."
+      },
+      {
+        "id": "energy-lives",
+        "role": "A daily allowance caps pack opening at one for a guest and four registered, stated to return in 15 hours; a separately stated, less-confirmed cap limits open swap requests."
       },
       {
         "id": "daily-login-reward",
-        "role": "Registered users receive two free packs per day with a 15-hour reset window, creating a rolling return incentive that pulls the natural session time earlier each day. Coca-Cola product scanning grants an equivalent daily pack, effectively doubling the intake for users with a product at hand."
+        "role": "A free pack is granted for a single tap, once a day, at a higher rate for a registered account."
       },
       {
         "id": "challenges",
-        "role": "Opt-in structured objectives tied to real-world events (2022 World Cup winner, hosting countries, team captains). Challenges require stickers to be glued into the album before counting, reinforcing the album as the organizing hub. Challenges are calendar-based rather than recurring weekly, two of three observed had already expired."
+        "role": "Three numbered challenges each state a target, a reward and an end date, staying visible after they expire."
       },
       {
         "id": "achievement",
-        "role": "Tracks collection milestones including Coca-Cola scan tiers (1 / 10 / 25 scans), swap history, and album completion. Completing all Cosmic Stickers unlocks a 100% discount on the digital keepsake album, the most valuable single-item completion reward in the app."
+        "role": "A tiered badge page names criteria across collecting, swapping, challenges and a sponsor's own scanned products."
+      },
+      {
+        "id": "community-groups",
+        "role": "A named team of up to ten friends, joined by ID and password, unlocks a private swap scope and shows each member's own completion."
+      },
+      {
+        "id": "purchase-ladder",
+        "role": "Two rewards sit at fixed counts of deluxe packs purchased, both positions and their contents shown before any purchase is made."
       }
     ],
     "center": {
       "x": 50,
-      "y": 10,
+      "y": 8,
       "label": "FIFA PANINI"
     },
     "nodes": [
       {
         "id": "set-collection",
         "x": 50,
-        "y": 30
+        "y": 26
+      },
+      {
+        "id": "loot-box",
+        "x": 26,
+        "y": 42
+      },
+      {
+        "id": "energy-lives",
+        "x": 14,
+        "y": 60
       },
       {
         "id": "daily-login-reward",
-        "x": 22,
-        "y": 56
-      },
-      {
-        "id": "challenges",
-        "x": 78,
-        "y": 56
+        "x": 38,
+        "y": 60
       },
       {
         "id": "achievement",
+        "x": 62,
+        "y": 42
+      },
+      {
+        "id": "challenges",
+        "x": 74,
+        "y": 60
+      },
+      {
+        "id": "community-groups",
         "x": 50,
-        "y": 80
+        "y": 78
+      },
+      {
+        "id": "purchase-ladder",
+        "x": 86,
+        "y": 42
       }
     ],
     "connections": [
       {
-        "from": "set-collection",
-        "to": "daily-login-reward",
-        "title": "Album drives daily pack consumption",
-        "desc": "The daily pack limit (4 for registered users) and daily free packs exist entirely to serve album completion. The login reward is pack fuel for the collection, not an independent engagement mechanic.",
-        "effect": "Players experience the daily login not as a general reward but as the primary means of advancing toward a personally meaningful goal. The return motivation is the album, not the reward itself."
+        "from": "loot-box",
+        "to": "set-collection",
+        "title": "Opened packs feed the album",
+        "desc": "Each opened pack resolves into players, and any that are missing from the album get glued into their own slot.",
+        "effect": "The album's completion depends entirely on what the loot box resolves to, not on a separate acquisition step."
+      },
+      {
+        "from": "energy-lives",
+        "to": "loot-box",
+        "title": "The daily allowance limits how many packs get opened",
+        "desc": "Pack opening is capped at one a day for a guest and four for a registered account, stated to return in 15 hours.",
+        "effect": "The rate stickers can enter the album is set by the opening allowance, not by how many packs are held."
+      },
+      {
+        "from": "daily-login-reward",
+        "to": "loot-box",
+        "title": "The daily free pack is itself an unopened pack",
+        "desc": "The daily grant adds one pack to the same held count that scanning, sign-up and challenges also feed.",
+        "effect": "The daily login reward has no separate resolution of its own; it just adds another entry to the loot box's held count."
       },
       {
         "from": "set-collection",
         "to": "challenges",
-        "title": "Stickers must be glued to count",
-        "desc": "Challenges require stickers to be glued into the album before they count toward challenge progress. The challenge system reinforces the album as the organizing hub rather than allowing inventory to count directly.",
-        "effect": "Challenges create a structured reason to engage with the gluing mechanic, the core activity of album building. The two mechanics are inseparable: challenge progress requires album progress."
+        "title": "Challenges require stickers already glued into the album",
+        "desc": "A sticker must be in the album and clicked before it counts toward a challenge's progress.",
+        "effect": "Challenge progress is downstream of album progress, not a separate track running alongside it."
       },
       {
-        "from": "daily-login-reward",
+        "from": "set-collection",
         "to": "achievement",
-        "title": "Coca-Cola scans are counted achievements",
-        "desc": "Scanning a Coca-Cola product grants a daily pack equivalent and advances the Coke Scans achievement tier (1 / 10 / 25 items). The physical scanning behaviour is tracked, milestoned, and rewarded.",
-        "effect": "The physical product interaction is integrated into the achievement system, making real-world brand engagement part of the in-app progression. The partnership is measurable, not decorative."
+        "title": "Album completion advances the badge tiers",
+        "desc": "Album progress, teams completed and swap counts are all read directly off the same album and profile state the achievement badges track.",
+        "effect": "The achievement system adds no state of its own; it recognizes points already reached on the album."
       },
       {
         "from": "challenges",
         "to": "achievement",
-        "title": "Challenges surface collection milestones",
-        "desc": "Completing challenges (collect team captains, collect host country stickers) aligns with album completion milestones. Both systems point toward the same underlying goal.",
-        "effect": "Players pursuing challenges are simultaneously advancing toward album completion milestones. The two systems reinforce each other without requiring separate engagement tracks."
+        "title": "Completed challenges are their own badge tier",
+        "desc": "Challenges completed is one of the seven achievement categories, tiered at one, three and five.",
+        "effect": "A challenge's reward and its contribution to a badge tier are earned by the same completion, not two separate systems."
+      },
+      {
+        "from": "community-groups",
+        "to": "set-collection",
+        "title": "Team members' own completion is read off the same album state",
+        "desc": "The team page shows each member's completion, drawn from the same percentage the public profile states for an individual.",
+        "effect": "The team adds no separate progress measure; it surfaces the same album state for more than one person at once."
+      },
+      {
+        "from": "purchase-ladder",
+        "to": "loot-box",
+        "title": "Each purchase toward the ladder is itself a deluxe pack",
+        "desc": "The count of deluxe packs purchased, which the ladder's two rewards key off, rises with the same purchase that opens a deluxe loot box.",
+        "effect": "Progress toward the ladder's rewards and opening another loot box are the same action, not two separate spends."
       }
     ]
   }

@@ -1077,30 +1077,32 @@ const ADDITIONS = {
 // the file's own words lead with, since one file can only remap to one id.
 // Neither clash-of-clans, canva, tiimo, capybara-go, dave, cleo,
 // royal-match, gymverse, fc-mobile, acorns, ladder, freeletics,
-// fortune-city, chrome-valley-customs, nor match-creek-motors appears
-// below: all fifteen are v4.1 and never reach this path (royal-match,
-// gymverse, fc-mobile, acorns, ladder, freeletics, fortune-city,
-// chrome-valley-customs and match-creek-motors each carried an entry here
-// before their own migration to v4.1, removed once each analysis stopped
-// using the v3 inline-id form). freeletics's own assignment to achievement
-// does not hold up the way liftoff's does: the fresh analysis leaves
-// Achievement unresolved rather than applying it ("no achievement,
-// criterion, locked entry or attained state is narrated on an account that
-// has done no workouts") — a garbled passage and a blank account, not a
-// confirmed criterion. The entry is retired here regardless, since
-// freeletics.md is v4.1 format and never reaches this path, but unlike
-// liftoff's this was never a settled case to begin with. fortune-city's and
-// match-creek-motors's fresh analyses both apply Achievement, on different
-// grounds entirely (100 named criteria evaluated against activity for the
-// former; a Game Center achievement list for the latter), so their removal
-// from the list below reflects the same v3-path retirement as the others,
-// not a rejection. chrome-valley-customs's fresh analysis considers
-// Achievement too and rejects it outright ("'Perfect restoration' and
-// 'Episode complete' are level and episode results, not separately
-// recorded attained criteria"), so its own removal from the milestone list
-// below is likewise retirement, not agreement with the old remap.
+// fortune-city, chrome-valley-customs, match-creek-motors, nor
+// fifa-panini-collection appears below: all sixteen are v4.1 and never
+// reach this path (royal-match, gymverse, fc-mobile, acorns, ladder,
+// freeletics, fortune-city, chrome-valley-customs, match-creek-motors and
+// fifa-panini-collection each carried an entry here before their own
+// migration to v4.1, removed once each analysis stopped using the v3
+// inline-id form). freeletics's own assignment to achievement does not
+// hold up the way liftoff's does: the fresh analysis leaves Achievement
+// unresolved rather than applying it ("no achievement, criterion, locked
+// entry or attained state is narrated on an account that has done no
+// workouts") — a garbled passage and a blank account, not a confirmed
+// criterion. The entry is retired here regardless, since freeletics.md is
+// v4.1 format and never reaches this path, but unlike liftoff's this was
+// never a settled case to begin with. fortune-city's, match-creek-motors's
+// and fifa-panini-collection's fresh analyses all apply Achievement, on
+// different grounds entirely (100 named criteria evaluated against
+// activity; a Game Center achievement list; a tiered badge page spanning
+// collecting, swapping, challenges and scanning), so their removal from
+// the list below reflects the same v3-path retirement as the others, not a
+// rejection. chrome-valley-customs's fresh analysis considers Achievement
+// too and rejects it outright ("'Perfect restoration' and 'Episode
+// complete' are level and episode results, not separately recorded
+// attained criteria"), so its own removal from the milestone list below is
+// likewise retirement, not agreement with the old remap.
 //   -> achievement: calm, liftoff, swgoh,
-//      uptime, fiton, fifa-panini-collection, subway-surfers.
+//      uptime, fiton, subway-surfers.
 //   -> milestone: wispr-flow, solitaire-grand-harvest.
 //
 // variable-reward split into loot-box and variable-reward (kept, renamed
@@ -1113,12 +1115,11 @@ const ADDITIONS = {
 // "### Variable Reward (`variable-reward`) · Depth" heading still resolves
 // correctly with NO remap needed whenever that file's own evidence belongs
 // to the kept id: acorns (variable-amount survey payouts, no acquisition
-// step), solitaire-grand-harvest (a free Lucky Wheel spin and a free Crop Master
-// pick dominate the section, even though its $2.99 second spin is
+// step) and solitaire-grand-harvest (a free Lucky Wheel spin and a free Crop
+// Master pick dominate the section, even though its $2.99 second spin is
 // loot-box-shaped on its own — REMAPS holds one id per app, so the file's
-// dominant, free-to-resolve framing wins) and fifa-panini-collection
-// (see below) all fall through unmapped, by design. Only files whose
-// evidence belongs to the other successor, loot-box, need an actual entry
+// dominant, free-to-resolve framing wins) fall through unmapped, by design.
+// Only files whose evidence belongs to the other successor, loot-box, need an actual entry
 // below: liftoff (paying eggs to refresh Store deals with unknown
 // contents) and subway-surfers (the coin-priced Mystery Box and the
 // ad-or-key-gated token box) each describe a value commitment before an
@@ -1134,26 +1135,32 @@ const ADDITIONS = {
 // Schedule, has no remap target anywhere below — no app under the current
 // model, v3 or v4.1, has ever applied it, so it was retired rather than
 // carried forward (see "Library entries with no site mechanic" in
-// taxonomy-map.md). fifa-panini-collection's own write-up under the
-// Variable Reward heading reads "Write-up pending" — no observed text to
-// classify from — so it falls through unmapped to the kept id
+// taxonomy-map.md). fifa-panini-collection's old v3 write-up under the
+// Variable Reward heading once read "Write-up pending" — no observed text
+// to classify from — so it fell through unmapped to the kept id
 // (variable-reward) by the same no-remap-needed mechanism as the others
-// above, but flagged here explicitly as an unevidenced default rather than
-// a real classification decision, pending its own write-up. Neither
-// fortune-city, clash-of-clans, chrome-valley-customs, nor
-// match-creek-motors appears below: fortune-city's own analysis never
-// mentions this concept at all, and clash-of-clans's, chrome-valley-customs's
-// and match-creek-motors's analyses each explicitly consider and reject
+// above, flagged at the time as an unevidenced default rather than a real
+// classification decision. That file no longer exists: the fresh v4.1
+// analysis applies Loot Box directly, with Variable Reward Outcome
+// correctly left as the noted, unapplied parent under the overlap rule
+// (the same shape as capybara-go's, fc-mobile's and swgoh's own Loot Box
+// tags), not a rejection so much as a resolved case the old file's gap
+// never reached. Neither fortune-city, clash-of-clans, chrome-valley-customs,
+// match-creek-motors, nor fifa-panini-collection appears below: fortune-city's
+// own analysis never mentions this concept at all, clash-of-clans's and
+// chrome-valley-customs's analyses each explicitly consider and reject
 // Variable Reward Outcome in their own "Entries considered and not applied"
 // sections ("every level ended in the same 'perfect restoration' result,
 // and no reward event is shown resolving to materially different results"
-// for chrome-valley-customs; "The three sale offers are chosen by the user
-// one card at a time under instructions... so multiple possible results for
-// one resolution event are not established" for match-creek-motors, whose
-// old entry had named that same negotiation as its variable-reward carrier)
-// — all four were stale carryovers on the old fused mechanic's apps[] list
-// rather than real evidence, and none reaches this v3 path in any case, all
-// being v4.1. royal-match, capybara-go, fc-mobile, steam, swgoh, uptime and
+// for chrome-valley-customs), match-creek-motors's analysis does the same
+// ("The three sale offers are chosen by the user one card at a time under
+// instructions... so multiple possible results for one resolution event
+// are not established", whose old entry had named that same negotiation as
+// its variable-reward carrier), and fifa-panini-collection's applies the
+// more specific Loot Box instead, as above — all five were stale
+// carryovers on the old fused mechanic's apps[] list rather than real
+// evidence, and none reaches this v3 path in any case, all being v4.1.
+// royal-match, capybara-go, fc-mobile, steam, swgoh, uptime and
 // insight-timer don't appear below either: all seven are v4.1 and never
 // reach this path.
 const REMAPS = {
@@ -1165,7 +1172,6 @@ const REMAPS = {
   "fiton": { "achievements": "achievement" },
   // fortune-city's entry here was removed on its own v4.1 migration (28 Sep
   // 2026), for the same reason.
-  "fifa-panini-collection": { "achievements": "achievement" },
   // subway-surfers's entry here was removed on its v4.1 migration (28 Sep
   // 2026): REMAPS is a v3-only path subway-surfers.md never reaches.
   // chrome-valley-customs's entry here was removed on its own v4.1
@@ -1174,6 +1180,9 @@ const REMAPS = {
   // (see the comment above this block). match-creek-motors's entry here
   // was removed on its own v4.1 migration (29 Sep 2026), the same
   // retirement as fortune-city's, not agreement or rejection.
+  // fifa-panini-collection's entry here was removed on its own v4.1
+  // migration (29 Sep 2026) — its fresh analysis applies Achievement on a
+  // seven-category tiered badge page, unrelated grounds to the old remap.
   "wispr-flow": { "achievements": "milestone" },
 };
 // Strava's unrecognized "hard-currency" section is about the subscription
@@ -1201,18 +1210,15 @@ const DROPS = new Set([
   // "limited-time-events|match-creek-motors" entries here were removed on
   // its own v4.1 migration (29 Sep 2026) — corrected the same day: this was
   // stated here as "the last app on the v3 model", which was wrong.
-  // fifa-panini-collection is still on a v3 analysis, genuinely missed
-  // rather than deferred on purpose, and is the one app in the library still
-  // awaiting re-analysis before it can migrate. wispr-flow is also still v3
-  // format, unpublished rather than migrated on 29 Sep 2026 (a re-analysis
-  // produced only two publishable tags, short of the three-tag minimum) —
-  // see its own comment in ALL_APPS above. Both still reach this v3 branch
-  // on every build, so DROPS, REMAPS, HARVEST_EXCLUDE, CURRENCY_DEPTH and
-  // parseAnalysisV3 below are not dead code yet. They become dead once
-  // fifa-panini-collection's own migration lands, at which point every
-  // remaining v3-format entry in ALL_APPS is report-only (wispr-flow, orbit,
-  // starling-bank, george-erste-bank) and none of them will ever reach this
-  // path again — but that's a fact to state then, not assumed now.
+  // fifa-panini-collection's own migration landed 29 Sep 2026, the last
+  // subscriber app on the v3 model. Every remaining v3-format entry in
+  // ALL_APPS is now report-only: wispr-flow (unpublished rather than
+  // migrated, 29 Sep 2026, a re-analysis produced only two publishable
+  // tags, short of the three-tag minimum — see its own comment in ALL_APPS
+  // above), orbit, starling-bank and george-erste-bank. DROPS, REMAPS,
+  // HARVEST_EXCLUDE, CURRENCY_DEPTH and parseAnalysisV3 below are reachable
+  // only by those four now — not dead code, since a report-only app still
+  // gets parsed, just no longer reachable by any subscriber-visible app.
   // Limited-Time Events was retired 15 Sep 2026 (see taxonomy-map.md); its
   // remaining two entries here, swgoh's and fiton's, were left behind
   // uncleaned when each of those two apps migrated to v4.1 earlier in this
@@ -2089,6 +2095,31 @@ const V41_APP_META = {
         "A coin shop sells four gold coin packs, the only purchase surface reached in this analysis.",
       returns:
         "A notification permission request arrives before any game content, the earliest of the app's first-launch screens.",
+    },
+  },
+  "fifa-panini-collection": {
+    name: "FIFA Panini Collection",
+    category: "Sports / Collectibles",
+    type: "app",
+    sectionCards: {
+      onboarding:
+        "A privacy notice, tracking and notification requests, and a guest-versus-account choice run before the guest reaches an unguided home screen.",
+      "core-loop":
+        "Opening a pack reveals players that get glued into the album or routed to a swap stack, bounded by a daily opening allowance and a cap on open swap requests.",
+      goals:
+        "An album tracked by completion percentage, a tiered achievement badge page, and three numbered challenges all track progress at once.",
+      access:
+        "A guest's allowances, feature locks and the registration path through a FIFA.com account all set what the rest of the app opens up.",
+      economy:
+        "Packs held as a count, and stickers split between an album stack and a swap stack, are the two things FIFA Panini Collection actually holds.",
+      social:
+        "A public swap system the app matches on its own, and a private team of up to ten friends, are the two ways other players enter the app.",
+      reach:
+        "Scanning physical Coca-Cola products and Panini packaging, sharing routes on nearly every screen, and registration through FIFA.com are FIFA Panini Collection's three routes beyond its own screens.",
+      monetization:
+        "A $2 deluxe pack and two purchase-count rewards are the only paid routes, both converging on a keepsake album sold outside the app.",
+      returns:
+        "A daily free pack and a notification permission requested before the home screen are FIFA Panini Collection's two return mechanisms.",
     },
   },
 };
