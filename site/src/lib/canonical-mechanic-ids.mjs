@@ -43,7 +43,12 @@ export const CANONICAL_MECHANIC_IDS = {
   "Milestone": "milestone",
   "Achievement": "achievement",
   "Boosters": "boosters",
-  "Group Membership": "community-groups",
+  // Split 29 Sep 2026 (sources/taxonomy-map.md): Insight Timer and Ladder
+  // each apply Group Membership and Community Space as separate,
+  // independently evidenced v4.1 tags, clearing the split condition. Each
+  // now resolves to its own site mechanic rather than both collapsing onto
+  // "community-groups".
+  "Group Membership": "group-membership",
   // Wakeout's analysis classifies Wake Out Watts as "Experience Points",
   // which is now this entry's own site mechanic directly — no translation
   // needed since xp-leveling split into experience-points and leveling on
@@ -79,7 +84,7 @@ export const CANONICAL_MECHANIC_IDS = {
   // analysis heading yet — sources/taxonomy-map.md marks them "inferred".
   "Clan / Guild": "clans-guilds",
   "Commitment": "commitment",
-  "Community Space": "community-groups", // merges with Group Membership above
+  "Community Space": "community-space",
   "Companion": "companion",
   "Cosmetic Customization": "cosmetics",
   "Daily Claim Pack": "monthly-card", // renamed and widened from Monthly Reward Card, 11 Sep 2026

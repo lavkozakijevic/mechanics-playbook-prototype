@@ -1021,7 +1021,7 @@ const ADDITIONS = {
 // Per-app id remaps from an analysis's own naming onto this library's ids.
 // Strava needed one while its clubs were classified as clans-guilds; the
 // reviewed analysis classifies them as Group Membership, which the canonical
-// name map resolves to community-groups directly, so no remap is needed.
+// name map resolves to group-membership directly, so no remap is needed.
 //
 // xp-leveling split into experience-points and leveling on 13 Sep 2026
 // (sources/taxonomy-map.md). These v3 files still carry the old inline id

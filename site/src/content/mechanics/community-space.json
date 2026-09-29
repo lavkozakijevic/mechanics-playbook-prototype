@@ -1,0 +1,32 @@
+{
+  "id": "community-space",
+  "n": "54",
+  "name": "Community Space",
+  "cat": "social",
+  "tagline": "A shared context where more than one person's contributions accumulate and persist, without requiring the contributor to hold any tracked membership in it.",
+  "desc": "Community Space is an identifiable shared context, a wall, a feed of comments, a discussion thread, where contributions from more than one person collect and persist for others to see, and no membership relationship gates who can add to it or see it. What makes it distinct from Group Membership is the absence of a tracked belonging state: nobody joins or leaves the space itself, they simply contribute into it, and what a person can do there doesn't change based on any standing relationship the product remembers about them. The space can be seeded by the product itself, by one piece of content, or by an activity everyone completing it feeds into.",
+  "principle": "A space people contribute into together feels alive even when nobody has joined anything. The contributions themselves, not a membership roll, are what make the context worth returning to.",
+  "players": [
+    "socializer"
+  ],
+  "warn": "The label is easy to misapply toward a named group the product actually tracks belonging in, joining, leaving, admin roles, a chat scoped to members, that's Group Membership regardless of how open or informal the group feels. It's just as easy to miss on a private one-to-one exchange or a review submitted into a commerce catalogue, neither of which is a shared context multiple people contribute into together.",
+  "variants": [
+    "Content-attached space, the shared context is attached to one specific piece of content rather than standing on its own",
+    "System-seeded space, the product supplies the first contribution or prompt rather than waiting for a user to start it",
+    "Activity-based space, the context is organized around everyone who completed the same activity rather than a topic",
+    "Open-contribution space, any user can add to the space with no approval step before it appears"
+  ],
+  "lifecycle": "Needs the space itself already seeded, by the product or by a first contributor, before there's anything to see, so it offers nothing to a brand-new account ahead of any activity. Most alive once enough contributions have accumulated that a new visitor sees an active context rather than an empty one.",
+  "paired": [
+    "group-membership",
+    "social-feed"
+  ],
+  "context": [
+    "retention"
+  ],
+  "sdt": [
+    "relatedness",
+    "purpose"
+  ],
+  "visibility": "public"
+}

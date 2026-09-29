@@ -1024,7 +1024,7 @@
         "role": "The same passed test composes a certificate carrying a credential ID and an issue date, offered for social sharing, download, or email delivery, with two badges paid out only for sending it further, one of them naming LinkedIn specifically."
       },
       {
-        "id": "community-groups",
+        "id": "group-membership",
         "role": "Teams exist, invitation-managed, and a user can belong to more than one, but no effect of membership on content, permission or shared state is stated anywhere. It sits beside per-design sharing and comments as a thin, mostly self-contained social layer."
       }
     ],
@@ -1055,7 +1055,7 @@
         "y": 40
       },
       {
-        "id": "community-groups",
+        "id": "group-membership",
         "x": 72,
         "y": 74
       }

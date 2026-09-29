@@ -891,7 +891,7 @@
         "role": "Countries and territories visited, tracked against a fixed world total of 250 inside a lifetime travel statistics book that fills as trips accumulate over time, independent of any single trip."
       },
       {
-        "id": "community-groups",
+        "id": "group-membership",
         "role": "A shared trip's named guest roster, with view-only and collaborator roles and a delegated right to manage other guests, dependent on a trip existing to share."
       },
       {
@@ -911,7 +911,7 @@
         "y": 60
       },
       {
-        "id": "community-groups",
+        "id": "group-membership",
         "x": 50,
         "y": 60
       },

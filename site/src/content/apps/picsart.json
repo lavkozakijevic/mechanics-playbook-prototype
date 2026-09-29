@@ -815,7 +815,7 @@
         "role": "A never-ending Discover feed of other creators' work where every item carries a Try control that opens the exact tool or effect used to make it, applied to the viewer's own material."
       },
       {
-        "id": "community-groups",
+        "id": "group-membership",
         "role": "Joinable, owner-run Spaces with their own stated rules and bookmarked tools; a Space owner can run a challenge inside their own Space, but nothing else changes once a user joins."
       },
       {
@@ -849,7 +849,7 @@
         "y": 32
       },
       {
-        "id": "community-groups",
+        "id": "group-membership",
         "x": 22,
         "y": 62
       },
@@ -866,7 +866,7 @@
     ],
     "connections": [
       {
-        "from": "community-groups",
+        "from": "group-membership",
         "to": "challenges",
         "title": "A Space owner can run their own challenge",
         "desc": "A user who owns a Space can start a challenge inside it, in addition to PicsArt's own challenges.",

@@ -20,7 +20,7 @@
   "lifecycle": "Needs a catalogue already carrying activity, an order placed, a store visited, a game played, before there's anything for a contribution to evaluate, so it has nothing to ask a brand-new account for. Most visible right after that activity completes, when the product can address the user as someone who just formed an opinion worth capturing.",
   "paired": [
     "achievement",
-    "community-groups",
+    "community-space",
     "social-feed"
   ],
   "context": [

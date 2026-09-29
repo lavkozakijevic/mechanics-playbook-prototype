@@ -61,7 +61,8 @@ mappings were empirically forced versus reasoned out, which is what
 | cosmetics | Cosmetic Customization | inferred |
 | ads | Rewarded Advertisement | inferred |
 | social-feed | Social Feed | confirmed |
-| community-groups | Community Space, Group Membership | confirmed (Group Membership); inferred (Community Space) |
+| group-membership | Group Membership | confirmed |
+| community-space | Community Space | confirmed |
 | clans-guilds | Clan / Guild | inferred |
 | leaderboard | Leaderboard | confirmed |
 | standing | Comparative Rank | confirmed |
@@ -121,13 +122,14 @@ one-into-two shape as the three splits above. Both new mechanics are
 Comparative Rank as separate, independently-evidenced tags under the
 current (v4.1) model.
 
-## The three merged mechanics (split deferred)
+37 site mechanics, not 36 — `community-groups` split into
+`group-membership` and `community-space` on 29 Sep 2026 (see "The
+community-groups split" below), the same one-into-two shape as the four
+splits above. Both new mechanics are *confirmed*: Insight Timer and
+Ladder each apply Group Membership and Community Space as separate,
+independently-evidenced tags under the current (v4.1) model.
 
-**community-groups** — Community Space, Group Membership. Tagline covers
-both, but the description and all four variants (public clubs, private
-groups, interest-based communities, local groups) describe group types and
-belonging, not the shared venue itself. Community Space has no independent
-content to draw from.
+## The two merged mechanics (split deferred)
 
 **energy-lives** — Energy, Lives. The description is entirely about the
 energy-resource economy (units, regeneration, depletion as purchase
@@ -545,6 +547,67 @@ same as `xp-leveling` and `achievements`: the page didn't move, it split
 into two different things, and neither successor is "the same content at
 a new address."
 
+## The community-groups split (29 Sep 2026)
+
+`community-groups` fused two library entries: Community Space and Group
+Membership. The split condition fired on real evidence: Insight Timer and
+Ladder each apply Group Membership and Community Space as separate,
+independently-evidenced tags under the current (v4.1) model — each
+app's own analysis runs the sibling decision ladder explicitly between
+the two, keeping a maintained membership relationship (join, leave, an
+admin role, content or permission scoped to members) separate from an
+open shared context that takes contributions from more than one person
+with no membership gating who can add to it.
+
+The old fused page's own tagline covered both (*"Named groups... that
+users join and return to as members"*), but its description and all four
+variants (public clubs, private groups, interest-based communities, local
+groups) describe belonging and group types only, the Group Membership
+side; Community Space had no independent content to draw from at all. So,
+as with the other splits, both new pages were written fresh against each
+library entry's own applied-tag text, drawn from Insight Timer's and
+Ladder's own Pass Two write-ups, rather than divided from the old fused
+prose. Names are the library entries' own names directly, kebab-cased,
+the same pattern as `loot-box` and `reviews-and-ratings`: no ambiguity
+here the way there was for the leaderboards split's Comparative Rank, so
+no separate naming ruling was needed.
+
+Both new mechanics carry the old fused entry's app list unchanged, plus
+two corrections: `freeletics` and `steam` were both missing from the old
+entry's app list entirely despite each already carrying `community-groups`
+in its own `APPS[].mechanics[]` array, and despite each app's own analysis
+having independent evidence for the side it carries (Freeletics: a
+running comment thread with no membership state; Steam: Community Awards,
+Broadcasts, and per-item discussions with no membership state). Both were
+pre-existing gaps, fixed by adding them to both successors' app lists
+rather than carried forward.
+
+Per-app disposition in `APPS[].mechanics[]` was decided from each app's
+own v4.1 analysis: `insight-timer` and `ladder` carry both, the two apps
+whose evidence cleared the split condition. `fifa-panini-collection`,
+`strava`, `picsart`, `fiton`, and `tripsy` carry `group-membership` only,
+each evidenced by a maintained relationship the product tracks as
+belonging. `steam` and `freeletics` carry `community-space` only, each
+evidenced by a shared context multiple people contribute into with no
+membership state. Canva's own analysis applies Group Membership at
+`plausible` confidence, below the publishing bar (Section on tagPublishes,
+`convert-content.mjs`), so the tag never actually reaches Canva's
+published page; its system-map node, which discusses the same
+below-the-bar evidence editorially, was renamed to `group-membership` in
+place along with the others, but Canva was not added to either
+successor's `apps` list, since the real, published evidence doesn't clear
+the bar the split condition itself relies on.
+
+Zero older v3 analysis files carry a literal `community-groups` inline
+id, checked across all four remaining v3 files (orbit, starling-bank,
+george-erste-bank, wispr-flow): none names the entry at all. No `REMAPS`
+entries were needed for this split.
+
+The old `/mechanics/community-groups/` URL 404s rather than redirects,
+the same as every split above: the page didn't move, it split into two
+different things, and neither successor is "the same content at a new
+address."
+
 ## When each merge splits
 
 A merged page splits when at least two apps analysed under the current
@@ -555,51 +618,49 @@ condition, not a threshold picked for its own sake: these pages are fused
 writing, not divided content, so splitting from the library's definitions
 alone, without real implementations to draw the dividing line from, would
 produce two new pages that get rewritten again the moment real evidence
-arrives. Two independent v4.1 observations turn the split into a lookup
-against actual analysis rather than a guess. Each pair unlocks on its own
-evidence — the four do not move together.
+arrives. Each pair unlocks on its own evidence — the remaining merges do
+not move together.
 
-`variable-reward` cleared this condition on 14 Sep 2026 (see "The
-variable-reward split" above) once Capybara Go and FC Mobile each applied
-Loot Box and Variable Reward Outcome as separate, independently-evidenced
-tags — the third merge to split out of this set, after xp-leveling and
-achievements. As of this document, two apps analysed under the current
-model carry some of the remaining four merged ids: Capybara Go —
-Leaderboard (leaderboards), Energy (energy-lives), and Seasonal
-Progression Pass (season-pass) — and FIFA Panini Collection — Energy
-(energy-lives) and Group Membership (community-groups). None of the four
-has cleared its split condition yet, since that needs one app carrying
-both sides of the same merge distinctly, and every occurrence so far, from
-either app, is only one side. Every other occurrence below is from the old
-(v3) model, and none of it counts toward the threshold; it is recorded
-here so that checking progress, once v4.1 re-analysis reaches these apps,
-is a lookup rather than a recount.
+Which apps carry which side of each remaining merge, and whether the
+condition is met, is not recorded here. It went stale twice: the
+leaderboards and community-groups merges both sat available for weeks
+before anything re-checked them, and a hand-edit made while migrating one
+app to v4.1 updated that app's own line without re-auditing the others
+already recorded against the same merge (owner-caught, 29 Sep 2026). The
+data needed to answer it already exists structurally — every held-back
+id's two library-entry names live in `CANONICAL_MECHANIC_IDS`
+(`site/src/lib/canonical-mechanic-ids.mjs`), and which v4.1 app applies
+which name is in that app's own generated content — so `convert-content.mjs`
+computes the answer fresh from both on every build and prints a
+"Held-back merge split status" report: which apps carry both sides, which
+carry one side only and which, and whether the condition is met, for
+every id still in `HELD_BACK_MECHANIC_IDS`
+(`site/src/lib/held-back-mechanic-ids.mjs`). Run the build and read that
+report for the current state, rather than trusting a list here.
 
-**leaderboards** (Leaderboard, Comparative Rank) — 11 apps: capybara-go
-(v4.1, Leaderboard only), and 10 more, all v3: chrome-valley-customs,
-clash-of-clans, fc-mobile, freeletics, liftoff, match-creek-motors,
-royal-match, strava, subway-surfers, swgoh.
+**energy-lives** (Energy, Lives) stays merged, and exists as a single
+fused page rather than two, because the library treats a regenerating
+resource (Energy) and a resource lost specifically on failure (Lives) as
+two different mechanisms, but no app analysed under the current model has
+yet applied both as separate, independently-evidenced tags — the
+evidence so far leans toward the energy-resource economy (regeneration,
+depletion as a purchase trigger) on one side and a discrete lost-on-failure
+event on the other, without one app clearing the bar for both at once.
 
-**community-groups** (Community Space, Group Membership) — 7 apps:
-fifa-panini-collection (v4.1, Group Membership only — Community Space
-explicitly considered and rejected, "no open persistent multi-actor context
-for contribution or conversation was seen"), and 6 more, all v3: fiton,
-insight-timer, ladder, picsart, steam, strava.
+**season-pass** (Season Content Pass, Seasonal Progression Pass) stays
+merged for the same structural reason: the library separates a
+content-delivery framing from a progression/reward-track framing, but no
+app under the current model has applied the content-delivery side
+(Season Content Pass) at all yet, let alone alongside the other.
 
-**energy-lives** (Energy, Lives) — 7 apps: capybara-go and
-fifa-panini-collection (both v4.1, Energy only — neither carries Lives,
-which fifa-panini-collection's own analysis places under "Entries never
-observed"), and 5 more, all v3: chrome-valley-customs, fortune-city,
-match-creek-motors, royal-match, swgoh.
-
-**season-pass** (Season Content Pass, Seasonal Progression Pass) — 5 apps:
-capybara-go (v4.1, Seasonal Progression Pass only), and 4 more, all v3:
-fc-mobile, royal-match, solitaire-grand-harvest, swgoh.
+Once either clears its condition, follow "The merge-split procedure" in
+`sources/repo-notes.md` and add its own "## The `<name>` split" section
+here, the same as the five splits above.
 
 ## Visibility, pending the split
 
 This is deliberately not a visibility distinction. All mechanics,
-including the four still-merged ones, carry declared visibility `public` — the
+including the two still-merged ones, carry declared visibility `public` — the
 same as before this work. Publishing a merged page would assert a taxonomy
 the library has already moved past, which has nothing to do with
 subscriptions: declaring a merge `subscriber` instead would only make its
@@ -609,21 +670,21 @@ subscriber read a page that isn't supposed to exist at all yet (an earlier
 draft of this work made exactly that mistake and was corrected before
 shipping).
 
-Instead, the four merged mechanics are excluded outright from
+Instead, the two merged mechanics are excluded outright from
 `getStaticPaths` in `mechanics/[id].astro`, against `HELD_BACK_MECHANIC_IDS`
-(`site/src/lib/content.ts`) — a plain set of the four ids, unconditional
-and independent of both each mechanic's own declared visibility and of
-`REVIEW_WINDOW_OPEN`. The page does not exist, in either window state,
-until the merge clears the split condition above; verified directly by
-building with the window both open and closed and confirming zero links to
-any of the four in either output. Real gating (a locked page like
+(`site/src/lib/held-back-mechanic-ids.mjs`) — a plain set of the remaining
+ids, unconditional and independent of both each mechanic's own declared
+visibility and of `REVIEW_WINDOW_OPEN`. The page does not exist, in either
+window state, until the merge clears the split condition above; verified
+directly by building with the window both open and closed and confirming
+zero links to either in either output. Real gating (a locked page like
 subscriber apps and case studies get) was considered and rejected: it's
 auth-adjacent work that would be discarded the moment a merge splits and
 both sides go public, and shipping the pages live-but-unlinked would leave
 the fused content readable at its direct URL regardless — exactly what
 holding them back is meant to avoid.
 
-Every other page that can reference one of the four (the 27 v3 case
+Every other page that can reference one of the two (the remaining v3 case
 studies, the mechanics index, paired-mechanic sidebars on glossary and
 cheatsheet pages, the homepage's featured-mechanics strip, v4.1 case study
 tag chips and system-map nodes) resolves its href through the same shared
@@ -633,16 +694,18 @@ can't be missed in one spot and linked from another. It renders the
 reference unlinked — the name and category still show, there's simply no
 link to click — reusing the fallback already built for a mechanic with no
 reference page at all, rather than a broken link or a misleading
-`/subscribe/` CTA. The other 31 mechanics — the 19 original clean
+`/subscribe/` CTA. The other 35 mechanics — the 19 original clean
 one-to-one mappings, `personal-data-reflection`, `companion`,
 `progression-fund`, and `ads` now that Advertisement Exposure's retirement
 has left it a clean one-to-one mapping too, `experience-points` and
 `leveling` now that the xp-leveling split has left them clean one-to-one
 mappings as well, `achievement` and `milestone` now that the achievements
 split has done the same, `shareable-win` and `expert-guidance`, two
-more one-to-one mappings added alongside that split, and `loot-box` and
-`variable-reward` now that the variable-reward split has done the same —
-are unaffected. A merge gets
+more one-to-one mappings added alongside that split, `loot-box` and
+`variable-reward` now that the variable-reward split has done the same,
+`leaderboard` and `standing` now that the leaderboards split has done the
+same, and `group-membership` and `community-space` now that the
+community-groups split has done the same — are unaffected. A merge gets
 its own page back, for both sides, once it clears the split condition
 above.
 

@@ -1,0 +1,35 @@
+{
+  "id": "group-membership",
+  "n": "53",
+  "name": "Group Membership",
+  "cat": "social",
+  "tagline": "A maintained relationship between a user and a named group that the product tracks as belonging, and that changes what the user can see or do once held.",
+  "desc": "Group Membership is a maintained relationship between a user and a named group: the product tracks who belongs, applies a stated rule for joining or leaving, and being a member persists across visits rather than resetting each time. What separates it from an ordinary shared space is the state itself: membership is a fact the product holds about the user, and holding it changes what the user can see, post, or do, a team's chat, a group's shared library, content scoped to members only. A group can be open to anyone or gated by approval, run by the product or by its own members, and can exist alongside other groups the same user also belongs to.",
+  "principle": "Belonging is a state the product remembers, not a place the user happens to be standing. What changes once a user is a member, not merely present, is what makes the relationship worth tracking.",
+  "players": [
+    "socializer"
+  ],
+  "warn": "The label is easy to misapply toward an open space anyone can post into without ever becoming a member of anything, that's Community Space; the separating test is whether membership is itself a tracked state that changes access, not just whether people gather in the same place. It's just as easy to miss on a collective resource or shared progress owned by the group itself rather than by tracking who belongs, that shape is Clan / Guild.",
+  "variants": [
+    "Invitation-only group, membership is created by another member's invitation rather than open joining",
+    "Approval-gated group, a request to join must be accepted by an admin before membership starts",
+    "Overlapping group, the product lets one user belong to more than one group of the same kind at once",
+    "Role-based group, the product distinguishes an admin or owner role from an ordinary member within the same group",
+    "System-assigned group, the product places the user into a group rather than the user choosing or creating one"
+  ],
+  "lifecycle": "Needs at least one named group already defined before there's a membership to hold, so a brand-new account with no groups yet has nothing here. Most valuable once a user has been a member long enough that leaving would mean losing an established place among people they know.",
+  "paired": [
+    "community-space",
+    "challenges",
+    "clans-guilds"
+  ],
+  "context": [
+    "retention"
+  ],
+  "sdt": [
+    "relatedness",
+    "purpose",
+    "autonomy"
+  ],
+  "visibility": "public"
+}

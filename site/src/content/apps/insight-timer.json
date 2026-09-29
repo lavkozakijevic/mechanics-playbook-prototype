@@ -1155,8 +1155,12 @@
         "role": "A share composer built from the streak count, total days, total minutes, or total milestones, offered right after a streak forms and again on demand from the stats page."
       },
       {
-        "id": "community-groups",
-        "role": "Two separate tracks folded into one site mechanic: named groups with admins, posts, chat, and a leave control, reached only through the sidebar; and open, unmembered surfaces, a gratitude wall and quote comments, that ask nothing of the user beyond a name and a message."
+        "id": "group-membership",
+        "role": "Named groups with admins, posts, chat, and a leave control, reached only through the sidebar."
+      },
+      {
+        "id": "community-space",
+        "role": "Open, unmembered surfaces, a gratitude wall and quote comments, that ask nothing of the user beyond a name and a message."
       },
       {
         "id": "social-feed",
@@ -1199,8 +1203,13 @@
         "y": 66
       },
       {
-        "id": "community-groups",
-        "x": 25,
+        "id": "group-membership",
+        "x": 18,
+        "y": 86
+      },
+      {
+        "id": "community-space",
+        "x": 40,
         "y": 86
       },
       {
@@ -1232,7 +1241,7 @@
         "effect": "The system converts a private practice record into an outward-facing artifact at the exact moment the user's own progress is most visible to them."
       },
       {
-        "from": "community-groups",
+        "from": "group-membership",
         "to": "social-feed",
         "title": "Group membership is what populates the feed",
         "desc": "Joining a group is what enables sharing a practice into it, and the product states directly that 'My feed' collects messages from the groups a user has joined.",

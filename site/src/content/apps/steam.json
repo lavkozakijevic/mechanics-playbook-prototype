@@ -825,7 +825,7 @@
         "role": "A profile level shown to every visitor, built from badge collection, including a seasonal badge upgraded directly with points."
       },
       {
-        "id": "community-groups",
+        "id": "community-space",
         "role": "Community Home, Broadcasts, Workshop and per-item discussions built around shared content, plus Community Awards that spend points to place a visible marker on someone else's work."
       },
       {
@@ -855,7 +855,7 @@
         "y": 52
       },
       {
-        "id": "community-groups",
+        "id": "community-space",
         "x": 78,
         "y": 52
       },
@@ -875,7 +875,7 @@
       },
       {
         "from": "soft-currency",
-        "to": "community-groups",
+        "to": "community-space",
         "title": "The same balance buys recognition instead of items",
         "desc": "Community Awards spend Steam Points to place a visible marker on another user's review, profile or created content, the identical balance that buys the user's own cosmetics.",
         "effect": "Points spent on someone else's content and points spent on the user's own profile draw from one shared balance."
@@ -889,7 +889,7 @@
       },
       {
         "from": "social-feed",
-        "to": "community-groups",
+        "to": "community-space",
         "title": "A comment opens its own discussion space",
         "desc": "Commenting on a News tab item does not stay inline, it opens that item's own discussion, organized into tabs for artwork, videos, news and guides.",
         "effect": "The feed's main function beyond reading is to route the user into the community hub's discussion spaces."

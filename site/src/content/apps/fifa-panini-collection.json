@@ -948,7 +948,7 @@
         "role": "A tiered badge page names criteria across collecting, swapping, challenges and a sponsor's own scanned products."
       },
       {
-        "id": "community-groups",
+        "id": "group-membership",
         "role": "A named team of up to ten friends, joined by ID and password, unlocks a private swap scope and shows each member's own completion."
       },
       {
@@ -993,7 +993,7 @@
         "y": 60
       },
       {
-        "id": "community-groups",
+        "id": "group-membership",
         "x": 50,
         "y": 78
       },
@@ -1047,7 +1047,7 @@
         "effect": "A challenge's reward and its contribution to a badge tier are earned by the same completion, not two separate systems."
       },
       {
-        "from": "community-groups",
+        "from": "group-membership",
         "to": "set-collection",
         "title": "Team members' own completion is read off the same album state",
         "desc": "The team page shows each member's completion, drawn from the same percentage the public profile states for an individual.",

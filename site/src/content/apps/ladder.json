@@ -944,8 +944,12 @@
         "role": "An offer to share proof of the completed workout to Instagram, sitting on the same completion screen as the badge."
       },
       {
-        "id": "community-groups",
-        "role": "A matched coaching team with its own chat, plus a 13,728-completion community wall that appears immediately after the welcome workout badge."
+        "id": "group-membership",
+        "role": "A matched coaching team with its own chat."
+      },
+      {
+        "id": "community-space",
+        "role": "A 13,728-completion community wall that appears immediately after the welcome workout badge."
       },
       {
         "id": "commitment",
@@ -964,8 +968,13 @@
         "y": 28
       },
       {
-        "id": "community-groups",
-        "x": 10,
+        "id": "group-membership",
+        "x": 4,
+        "y": 50
+      },
+      {
+        "id": "community-space",
+        "x": 17,
         "y": 50
       },
       {
@@ -996,7 +1005,7 @@
     ],
     "connections": [
       {
-        "from": "community-groups",
+        "from": "group-membership",
         "to": "progression-gate",
         "title": "The matched team decides which gate the user faces",
         "desc": "A preference filter assigns one coaching team before the welcome workout is ever shown, and that team decides which specific welcome workout the completion gate is built around.",
@@ -1011,7 +1020,7 @@
       },
       {
         "from": "progression-gate",
-        "to": "community-groups",
+        "to": "community-space",
         "title": "The wall appears the moment the gate opens",
         "desc": "The 13,728-completion wall is shown directly after the completion badge, immediately following the same welcome workout that clears the gate.",
         "effect": "The new user sees evidence of community scale at the exact moment they cross the gate, before they have formed any expectation of what the community looks like."

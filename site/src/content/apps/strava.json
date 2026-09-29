@@ -2119,7 +2119,7 @@
         "role": "Graded achievements attached to activities and a personal record preserved against the user's own history, both held apart from later activity."
       },
       {
-        "id": "community-groups",
+        "id": "group-membership",
         "role": "User-created clubs with a member roster, public or private entry gated by admin approval, their own events, posts, and feed."
       },
       {
@@ -2159,7 +2159,7 @@
         "y": 78
       },
       {
-        "id": "community-groups",
+        "id": "group-membership",
         "x": 50,
         "y": 78
       },
@@ -2197,14 +2197,14 @@
         "effect": "Joining a challenge places a participant in a ranked set for the length of that challenge."
       },
       {
-        "from": "community-groups",
+        "from": "group-membership",
         "to": "challenges",
         "title": "The Strava Club organises most challenges",
         "desc": "Most of the featured and promoted challenges are organised by the Strava Club, a club the product runs itself.",
         "effect": "Club membership is one of the routes through which challenges reach a user."
       },
       {
-        "from": "community-groups",
+        "from": "group-membership",
         "to": "social-feed",
         "title": "Clubs carry their own feed",
         "desc": "A club has a feed of its own alongside the home feed, and the activity visibility controls name both.",

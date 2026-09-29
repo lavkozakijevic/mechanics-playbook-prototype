@@ -332,7 +332,7 @@ const CONNECTIONS = {
   // 2026): the new three-publishable-tag minimum. See the matching note at
   // its former data.js APPS entry.
   "picsart": [
-    { from: "community-groups", to: "challenges", title: "A Space owner can run their own challenge", desc: "A user who owns a Space can start a challenge inside it, in addition to PicsArt's own challenges.", effect: "Space membership isn't only a feed to browse, an owner can turn their own Space into a second source of challenge entries." },
+    { from: "group-membership", to: "challenges", title: "A Space owner can run their own challenge", desc: "A user who owns a Space can start a challenge inside it, in addition to PicsArt's own challenges.", effect: "Space membership isn't only a feed to browse, an owner can turn their own Space into a second source of challenge entries." },
     { from: "challenges", to: "leaderboard", title: "A concluded challenge becomes a ranked history", desc: "Challenge history turns each concluded challenge into a ranked list of winners from first to tenth place.", effect: "The only ranking PicsArt shows anywhere is downstream of a challenge actually finishing, not a standing measure kept on its own." },
     { from: "challenges", to: "soft-currency", title: "Challenge prizes pay into the same credit balance", desc: "Some challenges pay their prize in credits, the identical balance the editor prices its AI tools against.", effect: "Winning a challenge and generating an AI result draw on and add to the same number, tying the community side of the app to the economy the editor runs on." },
     { from: "hard-currency", to: "soft-currency", title: "A subscription adds to the same balance it doesn't replace", desc: "Pro and Plus raise the credit balance to 500 or 200 respectively, on top of the same weekly allowance a free account already has.", effect: "Paying doesn't open a separate premium currency, it just adds more of the identical credits a free user already spends." },
@@ -370,7 +370,7 @@ const CONNECTIONS = {
     { from: "set-collection", to: "challenges", title: "Challenges require stickers already glued into the album", desc: "A sticker must be in the album and clicked before it counts toward a challenge's progress.", effect: "Challenge progress is downstream of album progress, not a separate track running alongside it." },
     { from: "set-collection", to: "achievement", title: "Album completion advances the badge tiers", desc: "Album progress, teams completed and swap counts are all read directly off the same album and profile state the achievement badges track.", effect: "The achievement system adds no state of its own; it recognizes points already reached on the album." },
     { from: "challenges", to: "achievement", title: "Completed challenges are their own badge tier", desc: "Challenges completed is one of the seven achievement categories, tiered at one, three and five.", effect: "A challenge's reward and its contribution to a badge tier are earned by the same completion, not two separate systems." },
-    { from: "community-groups", to: "set-collection", title: "Team members' own completion is read off the same album state", desc: "The team page shows each member's completion, drawn from the same percentage the public profile states for an individual.", effect: "The team adds no separate progress measure; it surfaces the same album state for more than one person at once." },
+    { from: "group-membership", to: "set-collection", title: "Team members' own completion is read off the same album state", desc: "The team page shows each member's completion, drawn from the same percentage the public profile states for an individual.", effect: "The team adds no separate progress measure; it surfaces the same album state for more than one person at once." },
     { from: "purchase-ladder", to: "loot-box", title: "Each purchase toward the ladder is itself a deluxe pack", desc: "The count of deluxe packs purchased, which the ladder's two rewards key off, rises with the same purchase that opens a deluxe loot box.", effect: "Progress toward the ladder's rewards and opening another loot box are the same action, not two separate spends." },
   ],
   "calm": [
@@ -382,14 +382,14 @@ const CONNECTIONS = {
     { from: "commitment", to: "streak", title: "Setting the intention starts the streak", desc: "Setting a daily intention is what starts the streak at one consecutive day; the streak does not begin from opening the app or from a completed practice.", effect: "The daily state runs through the intention first: the user's own composed statement is what sets the retention spine in motion, not the other way around." },
     { from: "streak", to: "milestone", title: "The streak counts down to the next milestone", desc: "The home screen counts down to the next milestone (7 consecutive or 50 non-consecutive days) from the moment the streak starts, tracking it as a separate figure from the day count itself.", effect: "The streak and the milestone are shown as two different records of the same underlying practice, one continuous, one a recognized point along it." },
     { from: "milestone", to: "shareable-win", title: "The milestone moment offers the share card", desc: "Reaching a milestone offers a share card built from the streak count, total days, total minutes, or total milestones, right on the screen where the streak or milestone is shown.", effect: "The system converts a private practice record into an outward-facing artifact at the exact moment the user's own progress is most visible to them." },
-    { from: "community-groups", to: "social-feed", title: "Group membership is what populates the feed", desc: "Joining a group is what enables sharing a practice into it, and the product states directly that 'My feed' collects messages from the groups a user has joined.", effect: "The feed has nothing to show until membership exists; the social layer's feed component is downstream of its membership component, not a separate acquisition path." },
+    { from: "group-membership", to: "social-feed", title: "Group membership is what populates the feed", desc: "Joining a group is what enables sharing a practice into it, and the product states directly that 'My feed' collects messages from the groups a user has joined.", effect: "The feed has nothing to show until membership exists; the social layer's feed component is downstream of its membership component, not a separate acquisition path." },
   ],
   strava: [
     { from: "streak", to: "challenges", title: "One logged activity advances both", desc: "The streak advances when a user logs an activity, and the same saved activity counts toward any challenge they have joined.", effect: "A single recorded activity moves more than one part of the system at once." },
     { from: "challenges", to: "achievement", title: "Completing a challenge produces a held record", desc: "Completing a challenge produces a digital trophy or badge in most cases, held apart from the challenge instance itself.", effect: "The same objective produces both a completed challenge and a separately preserved achievement." },
     { from: "challenges", to: "leaderboard", title: "Every challenge page carries its own leaderboard", desc: "Each challenge has a leaderboard of the users taking part, ordered by the measure that challenge is built on.", effect: "Joining a challenge places a participant in a ranked set for the length of that challenge." },
-    { from: "community-groups", to: "challenges", title: "The Strava Club organises most challenges", desc: "Most of the featured and promoted challenges are organised by the Strava Club, a club the product runs itself.", effect: "Club membership is one of the routes through which challenges reach a user." },
-    { from: "community-groups", to: "social-feed", title: "Clubs carry their own feed", desc: "A club has a feed of its own alongside the home feed, and the activity visibility controls name both.", effect: "A club gives its members a posting surface separate from the main feed." },
+    { from: "group-membership", to: "challenges", title: "The Strava Club organises most challenges", desc: "Most of the featured and promoted challenges are organised by the Strava Club, a club the product runs itself.", effect: "Club membership is one of the routes through which challenges reach a user." },
+    { from: "group-membership", to: "social-feed", title: "Clubs carry their own feed", desc: "A club has a feed of its own alongside the home feed, and the activity visibility controls name both.", effect: "A club gives its members a posting surface separate from the main feed." },
   ],
   acorns: [
     { from: "Bank Connection", to: "future-projection", title: "The projection measures money the connection put there", desc: "Future Projection computes a value from the user's present holding, and every dollar in that holding arrived through the standing bank connection made in onboarding.", effect: "The projected figure only exists because the connection already put money into the account it measures." },
@@ -404,9 +404,9 @@ const CONNECTIONS = {
   ],
   steam: [
     { from: "soft-currency", to: "cosmetics", title: "Points fund cosmetics with no separate spend decision", desc: "Steam Points accrue automatically from purchases, and that same balance buys frames, backgrounds, chat effects and full game profile themes on the Points Shop's cosmetics rows.", effect: "The cosmetics decision is made with a currency the user already has, not with money they have to commit in the moment." },
-    { from: "soft-currency", to: "community-groups", title: "The same balance buys recognition instead of items", desc: "Community Awards spend Steam Points to place a visible marker on another user's review, profile or created content, the identical balance that buys the user's own cosmetics.", effect: "Points spent on someone else's content and points spent on the user's own profile draw from one shared balance." },
+    { from: "soft-currency", to: "community-space", title: "The same balance buys recognition instead of items", desc: "Community Awards spend Steam Points to place a visible marker on another user's review, profile or created content, the identical balance that buys the user's own cosmetics.", effect: "Points spent on someone else's content and points spent on the user's own profile draw from one shared balance." },
     { from: "soft-currency", to: "leveling", title: "A seasonal badge upgrade spends points into profile status", desc: "The seasonal badge, available only during Summer and Winter Sales, is upgraded by spending points, and Steam states that badges count toward the value behind the displayed profile level.", effect: "Spending points does not just buy an item, it can also advance the public status number on the user's profile." },
-    { from: "social-feed", to: "community-groups", title: "A comment opens its own discussion space", desc: "Commenting on a News tab item does not stay inline, it opens that item's own discussion, organized into tabs for artwork, videos, news and guides.", effect: "The feed's main function beyond reading is to route the user into the community hub's discussion spaces." },
+    { from: "social-feed", to: "community-space", title: "A comment opens its own discussion space", desc: "Commenting on a News tab item does not stay inline, it opens that item's own discussion, organized into tabs for artwork, videos, news and guides.", effect: "The feed's main function beyond reading is to route the user into the community hub's discussion spaces." },
   ],
   "fc-mobile": [
     { from: "experience-points", to: "leveling", title: "Every activity feeds one number", desc: "XP from matches, missions, drafts and skill games all advance the same account level, with nothing else in the interface treating that level as worth naming.", effect: "The level becomes the product's real spine without ever being presented as one: a bare number crossed as a side effect of doing almost anything." },
@@ -485,16 +485,16 @@ const CONNECTIONS = {
   // doesn't carry at all (streak, shareable-win, recall-review only), so it
   // was already fully dead, just not visibly so.
   "ladder": [
-    { from: "community-groups", to: "progression-gate", title: "The matched team decides which gate the user faces", desc: "A preference filter assigns one coaching team before the welcome workout is ever shown, and that team decides which specific welcome workout the completion gate is built around.", effect: "The social layer is established before the gate, not after it, so completing the gate is always completing that team's own workout." },
+    { from: "group-membership", to: "progression-gate", title: "The matched team decides which gate the user faces", desc: "A preference filter assigns one coaching team before the welcome workout is ever shown, and that team decides which specific welcome workout the completion gate is built around.", effect: "The social layer is established before the gate, not after it, so completing the gate is always completing that team's own workout." },
     { from: "progression-gate", to: "achievement", title: "The same completion that clears the gate earns the badge", desc: "Rating the completed welcome workout both clears the one-workout threshold on chat, nutrition and the plan and awards the 3D badge in the same sequence.", effect: "A single action produces an access change and a recognition event at once, with no separate step for either." },
-    { from: "progression-gate", to: "community-groups", title: "The wall appears the moment the gate opens", desc: "The 13,728-completion wall is shown directly after the completion badge, immediately following the same welcome workout that clears the gate.", effect: "The new user sees evidence of community scale at the exact moment they cross the gate, before they have formed any expectation of what the community looks like." },
+    { from: "progression-gate", to: "community-space", title: "The wall appears the moment the gate opens", desc: "The 13,728-completion wall is shown directly after the completion badge, immediately following the same welcome workout that clears the gate.", effect: "The new user sees evidence of community scale at the exact moment they cross the gate, before they have formed any expectation of what the community looks like." },
     { from: "progression-gate", to: "streak", title: "The unlock screen introduces the streak in the same breath", desc: "The congratulations screen that announces the gate opening states in the same line that three workouts a week earns a streak.", effect: "The next return-driving commitment is introduced at the exact moment the first one is satisfied, with no gap between them." },
     { from: "progression-gate", to: "referral-boost", title: "The referral offer only appears after the gate opens", desc: "The Get Started checklist, which carries the sharing step behind the $25 offer, appears at the bottom of the workout tab only once the welcome workout has unlocked the plan.", effect: "A user cannot reach the referral offer without first clearing the same gate that opens chat and nutrition." },
     { from: "progression-gate", to: "commitment", title: "The gate also opens the nutrition pledge", desc: "Once chat, nutrition and the plan unlock, the nutrition flow that follows ends in a signed statement restating the targets just set, before the nutrition dashboard opens.", effect: "The same gate that gives access to nutrition also produces a separate commitment moment inside it, one the user has to clear before ever seeing the dashboard the targets belong to." },
     { from: "achievement", to: "shareable-win", title: "The share option sits on the same screen as the badge", desc: "The Instagram share offer, the completion badge, and the workout's volume and reps all appear together on one completion screen.", effect: "The moment that produces the recognition and the moment that offers to publicize it are the same screen, not two separate steps." },
   ],
   "freeletics": [
-    { from: "challenges", to: "community-groups", title: "A created challenge becomes something people discuss", desc: "The same observation that shows a challenge, its objective and its participant count also shows other athletes discussing it in the comment thread under a Freeletics post.", effect: "A challenge doesn't stay a private target: once created, it becomes a topic people comment on in the app's own community space." },
+    { from: "challenges", to: "community-space", title: "A created challenge becomes something people discuss", desc: "The same observation that shows a challenge, its objective and its participant count also shows other athletes discussing it in the comment thread under a Freeletics post.", effect: "A challenge doesn't stay a private target: once created, it becomes a topic people comment on in the app's own community space." },
   ],
   // gymverse's CONNECTIONS entry was removed here (owner ruling, 16 Sep
   // 2026): the new three-publishable-tag minimum. See the matching note at
@@ -509,7 +509,7 @@ const CONNECTIONS = {
     { from: "season-pass", to: "clans-guilds", title: "The pass reaches past the village it's sold from", desc: "Pass perks include a clan castle troop-request reduction and capital gold, spending against the clan layer as well as the solo one.", effect: "A single purchase prices benefits across the solo loop and the social loop at once, rather than staying inside whichever screen sold it." },
   ],
   "fiton": [
-    { from: "community-groups", to: "social-feed", title: "Group membership determines the group feed", desc: "The questions and posts that reach the Friends tab's group feed come only from the groups the user has joined during onboarding or afterward.", effect: "Group membership is the one onboarding answer that goes on to shape ongoing content, deciding what a user sees every time they open the group feed." },
+    { from: "group-membership", to: "social-feed", title: "Group membership determines the group feed", desc: "The questions and posts that reach the Friends tab's group feed come only from the groups the user has joined during onboarding or afterward.", effect: "Group membership is the one onboarding answer that goes on to shape ongoing content, deciding what a user sees every time they open the group feed." },
     { from: "streak", to: "achievement", title: "The weekly streak is a badge's own criterion", desc: "The We're on Fire badge is stated directly against the streak: the longest run of weeks in which the user reaches the weekly workout goal.", effect: "The same weekly-goal measure the streak displays doubles as the exact criterion for a separate badge, so nothing new has to be tracked for the achievement to apply." },
   ],
   "liftoff": [
@@ -628,7 +628,7 @@ const POSITIONS = {
     "daily-login-reward": { x: 38, y: 60 },
     "achievement":        { x: 62, y: 42 },
     "challenges":         { x: 74, y: 60 },
-    "community-groups":   { x: 50, y: 78 },
+    "group-membership":  { x: 50, y: 78 },
     "purchase-ladder":    { x: 86, y: 42 },
   },
   "insight-timer": {
@@ -638,7 +638,8 @@ const POSITIONS = {
     "milestone":             { x: 25, y: 66 },
     "shareable-win":         { x: 75, y: 66 },
     "check-in":              { x: 50, y: 66 },
-    "community-groups":      { x: 25, y: 86 },
+    "group-membership":      { x: 18, y: 86 },
+    "community-space":       { x: 40, y: 86 },
     "social-feed":           { x: 75, y: 86 },
   },
   "strava": {
@@ -648,7 +649,7 @@ const POSITIONS = {
     "standing":              { x: 83, y: 34 },
     "challenges":            { x: 50, y: 47 },
     "social-feed":           { x: 17, y: 78 },
-    "community-groups":      { x: 50, y: 78 },
+    "group-membership":      { x: 50, y: 78 },
     "milestone":             { x: 83, y: 78 },
     "achievement":           { x: 60, y: 61 },
   },
@@ -704,7 +705,7 @@ const POSITIONS = {
     "challenges":            { x: 22, y: 32 },
     "leaderboard":           { x: 50, y: 32 },
     "social-feed":           { x: 78, y: 32 },
-    "community-groups":      { x: 22, y: 62 },
+    "group-membership":      { x: 22, y: 62 },
     "soft-currency":         { x: 50, y: 62 },
     "hard-currency":         { x: 78, y: 62 },
   },
@@ -727,14 +728,14 @@ const POSITIONS = {
     "achievement":          { x: 28, y: 52 },
     "shareable-win":         { x: 28, y: 74 },
     "hard-currency":         { x: 72, y: 40 },
-    "community-groups":      { x: 72, y: 74 },
+    "group-membership":      { x: 72, y: 74 },
   },
   "steam": {
     center:                  { x: 50, y: 8,  label: "STEAM" },
     "soft-currency":         { x: 50, y: 28 },
     "cosmetics":             { x: 22, y: 52 },
     "leveling":              { x: 50, y: 52 },
-    "community-groups":      { x: 78, y: 52 },
+    "community-space":       { x: 78, y: 52 },
     "social-feed":           { x: 78, y: 78 },
   },
   "solitaire-grand-harvest": {
@@ -794,7 +795,7 @@ const POSITIONS = {
   "freeletics": {
     center:              { x: 50, y: 8,  label: "FREELETICS" },
     "challenges":        { x: 50, y: 34 },
-    "community-groups":  { x: 50, y: 62 },
+    "community-space":   { x: 50, y: 62 },
     "leveling":          { x: 80, y: 48 },
   },
   // gymverse's POSITIONS entry was removed here (owner ruling, 16 Sep
@@ -848,7 +849,8 @@ const POSITIONS = {
   "ladder": {
     center:              { x: 50, y: 8,  label: "LADDER" },
     "progression-gate":  { x: 50, y: 28 },
-    "community-groups":  { x: 10, y: 50 },
+    "group-membership":  { x: 4, y: 50 },
+    "community-space":   { x: 17, y: 50 },
     "achievement":       { x: 30, y: 50 },
     "streak":            { x: 50, y: 50 },
     "referral-boost":    { x: 70, y: 50 },
@@ -860,7 +862,7 @@ const POSITIONS = {
     "commitment":         { x: 26, y: 30 },
     "streak":             { x: 50, y: 30 },
     "expert-guidance":    { x: 76, y: 30 },
-    "community-groups":   { x: 26, y: 58 },
+    "group-membership":   { x: 26, y: 58 },
     "achievement":        { x: 50, y: 58 },
     "milestone":          { x: 76, y: 58 },
     "social-feed":        { x: 26, y: 82 },
@@ -895,7 +897,7 @@ const POSITIONS = {
   "tripsy": {
     center:                { x: 50, y: 12, label: "TRIPSY" },
     "set-collection":      { x: 22, y: 60 },
-    "community-groups":    { x: 50, y: 60 },
+    "group-membership":    { x: 50, y: 60 },
     "cosmetics":           { x: 78, y: 60 },
   },
   "vivino": {

@@ -5,7 +5,8 @@
   "desc": "How to build enough social density to make social mechanics feel worth engaging with from day one.",
   "mechanics": [
     "social-feed",
-    "community-groups",
+    "group-membership",
+    "community-space",
     "leaderboard"
   ],
   "apps": [

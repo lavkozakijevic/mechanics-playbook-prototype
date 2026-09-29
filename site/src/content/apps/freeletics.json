@@ -686,7 +686,7 @@
         "role": "Any user can create a challenge on one exercise, a consistency or repetition basis, and a date, and invite others to join it."
       },
       {
-        "id": "community-groups",
+        "id": "community-space",
         "role": "Every Freeletics post in the Community feed carries a running comment thread from other athletes, including discussion of challenges other athletes have created."
       },
       {
@@ -706,7 +706,7 @@
         "y": 34
       },
       {
-        "id": "community-groups",
+        "id": "community-space",
         "x": 50,
         "y": 62
       },
@@ -719,7 +719,7 @@
     "connections": [
       {
         "from": "challenges",
-        "to": "community-groups",
+        "to": "community-space",
         "title": "A created challenge becomes something people discuss",
         "desc": "The same observation that shows a challenge, its objective and its participant count also shows other athletes discussing it in the comment thread under a Freeletics post.",
         "effect": "A challenge doesn't stay a private target: once created, it becomes a topic people comment on in the app's own community space."

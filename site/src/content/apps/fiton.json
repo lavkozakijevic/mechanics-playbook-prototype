@@ -891,7 +891,7 @@
         "role": "A four-subject article library on fitness, nutrition, wellness and self-care, reachable and readable without touching a workout."
       },
       {
-        "id": "community-groups",
+        "id": "group-membership",
         "role": "A four-category group taxonomy presented during onboarding, before any workout, that determines what reaches the Friends tab's group feed."
       },
       {
@@ -929,7 +929,7 @@
         "y": 30
       },
       {
-        "id": "community-groups",
+        "id": "group-membership",
         "x": 26,
         "y": 58
       },
@@ -951,7 +951,7 @@
     ],
     "connections": [
       {
-        "from": "community-groups",
+        "from": "group-membership",
         "to": "social-feed",
         "title": "Group membership determines the group feed",
         "desc": "The questions and posts that reach the Friends tab's group feed come only from the groups the user has joined during onboarding or afterward.",
