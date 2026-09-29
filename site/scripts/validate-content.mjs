@@ -362,6 +362,22 @@ for (const { file, data } of cheatsheets) {
       const bad = badAppRef(id);
       if (bad) problem(file, `step "${step.heading}" references app "${id}" which ${bad}`);
     }
+    // A step built around one or more named app examples reads as an
+    // orphaned lesson once every one of those apps is report-only: the
+    // array itself is never emptied by an unpublishing, nothing removes the
+    // entries, so the step's own prose is left teaching from an example
+    // nobody can see. The per-reference check above already flags each bad
+    // id on its own; this names the actual failure a reader hits — a step
+    // with nothing left to point at — since two of the three app
+    // unpublishings this project has done landed exactly here, and both
+    // were caught by reading the cheatsheet data by hand rather than by
+    // anything the build reported.
+    const stepApps = step.apps ?? [];
+    if (stepApps.length > 0 && stepApps.every((id) => !publishedAppIds.has(id)))
+      problem(
+        file,
+        `step "${step.heading}" has no published app left in its apps list (${stepApps.join(", ")} — all report-only or nonexistent), leaving the step's own example orphaned`
+      );
   }
 }
 
