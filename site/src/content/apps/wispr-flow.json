@@ -14,17 +14,7 @@
     {
       "id": "streak",
       "depth": "supporting",
-      "writeup": {
-        "observed": "A streak counter appears on the home screen after the first dictation session, displaying as one of four summary cards alongside word count, words-per-minute, and trial status. The first appearance is a full-screen celebration: 'one day streak, continue dictating for the next five days so Flow can adapt to you.' The streak is framed as a functional product benefit, five days of use allows the AI to adapt to the user's voice and speech patterns, rather than as a retention mechanic.",
-        "presented": "The streak celebration appears at the conclusion of the onboarding test dictation, before the user has seen the home screen. On the home screen, it appears as one of four cards with a named milestone label: 'Day one, momentum begins,' implying future milestones have their own named labels.",
-        "noting": "Framing the streak as a product improvement mechanism, 'Flow will adapt to you', is the only instance in the library where a streak is explicitly justified to the user on functional grounds. The stated five-day endpoint gives the streak a defined duration rather than an open-ended consecutive-day requirement, making it a bounded commitment the user can evaluate before agreeing to it.",
-        "findings": [
-          "The streak is framed as a product improvement mechanism, 'so Flow can adapt to you', rather than a retention incentive, the only such framing observed across the library.",
-          "The stated five-day adaptation endpoint makes the streak a bounded commitment rather than an open-ended consecutive-day requirement.",
-          "The streak celebration screen appears before the home screen, during onboarding, ensuring 100% first-session exposure.",
-          "The referral gift (one month Pro) is more generous than the standard new-user trial (two weeks Pro), making referral the highest-value acquisition path for recipients."
-        ]
-      },
+      "writeup": null,
       "screenshots": [],
       "suggestedShots": [
         "One-day streak celebration screen showing \"1 day streak — continue dictating for the next five days so Flow can adapt to you\" with the Continue button",
