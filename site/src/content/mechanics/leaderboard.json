@@ -1,0 +1,35 @@
+{
+  "id": "leaderboard",
+  "n": "51",
+  "name": "Leaderboards",
+  "cat": "competition",
+  "tagline": "An ordered list of two or more identified users or groups, ranked together against a shared performance metric and visible as a set.",
+  "desc": "A leaderboard shows more than one identified entity in the same ranked view, ordered against each other by a shared metric. What separates it from a single stated position is the comparison set itself: other identified users or groups sit alongside the viewer's own placement, browsable by looking at the row above and below it, rather than a number reported on its own. A ranked list counts as a leaderboard whether it spans the whole population or a segment, whether it resets on a schedule or accumulates for the life of the account, and whether every position is shown or only a bounded slice around the top or the viewer.",
+  "principle": "Seeing named others ordered in the same view turns private effort into a public, browsable contest.",
+  "players": [
+    "competitor"
+  ],
+  "warn": "A leaderboard that only shows the very top of a large population demotivates everyone below it by making the visible gap feel insurmountable; a segmented or local view keeps the gap closable for a median user.",
+  "variants": [
+    "Individual leaderboard, ranks single users against each other",
+    "Group leaderboard, ranks teams, clans, or leagues as the ranked unit instead of individuals",
+    "Periodic leaderboard, resets on a fixed cadence rather than accumulating for the life of the account",
+    "Promotion-and-relegation leaderboard, movement between separate ranked tiers replaces one continuous list",
+    "Segmented leaderboard, the comparison set is narrowed by geography, friends, or category rather than spanning the whole population"
+  ],
+  "lifecycle": "Mid-to-late lifecycle. Strongest once the user has logged enough activity to have a position worth watching move.",
+  "paired": [
+    "standing",
+    "challenges",
+    "clans-guilds"
+  ],
+  "context": [
+    "retention"
+  ],
+  "sdt": [
+    "competence",
+    "relatedness",
+    "mastery"
+  ],
+  "visibility": "public"
+}

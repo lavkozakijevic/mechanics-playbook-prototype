@@ -2489,7 +2489,7 @@ fs.writeFileSync(
       // guarded by validate-content.mjs.
       spotlightApp: "strava",
       showcaseSystem: ROTATING_FREE_APP,
-      featuredMechanics: ["energy-lives", "clans-guilds", "season-pass", "streak", "leaderboards"],
+      featuredMechanics: ["energy-lives", "clans-guilds", "season-pass", "streak", "leaderboard"],
       // Counted from v44 data.js at conversion time until cheatsheets migrate
       // in Stage 2 — computed, never hardcoded.
       cheatsheetCount: CHEATSHEETS.length,

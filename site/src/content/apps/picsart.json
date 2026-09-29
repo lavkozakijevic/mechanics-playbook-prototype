@@ -807,7 +807,7 @@
         "role": "Bounded challenge instances with a minute-level countdown, a three-entry cap, and a prize of either credits or gallery placement, concluding into a first-to-tenth winners history."
       },
       {
-        "id": "leaderboards",
+        "id": "leaderboard",
         "role": "Challenge history ranks winners first to tenth for each concluded challenge, with no stated measure behind the order beyond the entry, voting and history sequence itself."
       },
       {
@@ -839,7 +839,7 @@
         "y": 32
       },
       {
-        "id": "leaderboards",
+        "id": "leaderboard",
         "x": 50,
         "y": 32
       },
@@ -874,7 +874,7 @@
       },
       {
         "from": "challenges",
-        "to": "leaderboards",
+        "to": "leaderboard",
         "title": "A concluded challenge becomes a ranked history",
         "desc": "Challenge history turns each concluded challenge into a ranked list of winners from first to tenth place.",
         "effect": "The only ranking PicsArt shows anywhere is downstream of a challenge actually finishing, not a standing measure kept on its own."

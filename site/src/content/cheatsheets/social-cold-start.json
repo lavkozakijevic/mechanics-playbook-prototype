@@ -6,7 +6,7 @@
   "mechanics": [
     "social-feed",
     "community-groups",
-    "leaderboards"
+    "leaderboard"
   ],
   "apps": [
     "strava",

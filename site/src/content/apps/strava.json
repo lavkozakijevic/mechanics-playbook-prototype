@@ -2099,8 +2099,12 @@
         "role": "A stream built automatically from recorded activities, populated by recommendation before the user follows anyone, carrying kudos, comments, and media."
       },
       {
-        "id": "leaderboards",
-        "role": "Ordered lists inside challenges and segments, plus a user's own standing as Local Legend, Top 10, or KOM/CR holder, all bounded rather than platform-wide."
+        "id": "leaderboard",
+        "role": "Ordered lists inside challenges and segments, bounded to the segment or challenge rather than platform-wide."
+      },
+      {
+        "id": "standing",
+        "role": "A user's own standing as Local Legend, Top 10, or KOM/CR holder, stated without the product showing the full ordered list behind it."
       },
       {
         "id": "challenges",
@@ -2135,9 +2139,14 @@
         "y": 24
       },
       {
-        "id": "leaderboards",
+        "id": "leaderboard",
         "x": 83,
-        "y": 24
+        "y": 16
+      },
+      {
+        "id": "standing",
+        "x": 83,
+        "y": 34
       },
       {
         "id": "challenges",
@@ -2182,7 +2191,7 @@
       },
       {
         "from": "challenges",
-        "to": "leaderboards",
+        "to": "leaderboard",
         "title": "Every challenge page carries its own leaderboard",
         "desc": "Each challenge has a leaderboard of the users taking part, ordered by the measure that challenge is built on.",
         "effect": "Joining a challenge places a participant in a ranked set for the length of that challenge."

@@ -729,7 +729,7 @@
         "role": "A contributor's public profile lists named, permanently attained states, a ratings-count title and a ranked position, each kept apart from the ongoing rating count they're built from."
       },
       {
-        "id": "leaderboards",
+        "id": "standing",
         "role": "A contributor's public profile states their rank in the United States, without naming the measure it orders by or showing anyone else's position."
       }
     ],
@@ -755,7 +755,7 @@
         "y": 62
       },
       {
-        "id": "leaderboards",
+        "id": "standing",
         "x": 78,
         "y": 84
       }

@@ -7,7 +7,8 @@
     "milestone",
     "experience-points",
     "leveling",
-    "leaderboards"
+    "leaderboard",
+    "standing"
   ],
   "visibility": "public"
 }

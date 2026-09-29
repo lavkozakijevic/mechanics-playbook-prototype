@@ -333,7 +333,7 @@ const CONNECTIONS = {
   // its former data.js APPS entry.
   "picsart": [
     { from: "community-groups", to: "challenges", title: "A Space owner can run their own challenge", desc: "A user who owns a Space can start a challenge inside it, in addition to PicsArt's own challenges.", effect: "Space membership isn't only a feed to browse, an owner can turn their own Space into a second source of challenge entries." },
-    { from: "challenges", to: "leaderboards", title: "A concluded challenge becomes a ranked history", desc: "Challenge history turns each concluded challenge into a ranked list of winners from first to tenth place.", effect: "The only ranking PicsArt shows anywhere is downstream of a challenge actually finishing, not a standing measure kept on its own." },
+    { from: "challenges", to: "leaderboard", title: "A concluded challenge becomes a ranked history", desc: "Challenge history turns each concluded challenge into a ranked list of winners from first to tenth place.", effect: "The only ranking PicsArt shows anywhere is downstream of a challenge actually finishing, not a standing measure kept on its own." },
     { from: "challenges", to: "soft-currency", title: "Challenge prizes pay into the same credit balance", desc: "Some challenges pay their prize in credits, the identical balance the editor prices its AI tools against.", effect: "Winning a challenge and generating an AI result draw on and add to the same number, tying the community side of the app to the economy the editor runs on." },
     { from: "hard-currency", to: "soft-currency", title: "A subscription adds to the same balance it doesn't replace", desc: "Pro and Plus raise the credit balance to 500 or 200 respectively, on top of the same weekly allowance a free account already has.", effect: "Paying doesn't open a separate premium currency, it just adds more of the identical credits a free user already spends." },
   ],
@@ -348,7 +348,8 @@ const CONNECTIONS = {
     { from: "leveling", to: "progression-gate", title: "The level is what the gates read", desc: "Teams at 21, the collection at 41, and each assist item's own unlock all check the same player level rather than any separate condition.", effect: "A single number decides three unrelated unlocks, so the pacing of one governs the pacing of all three." },
     { from: "progression-gate", to: "clans-guilds", title: "Teams open right where difficulty does", desc: "The level-21 team gate sits one level past the level-20 join prompt, arriving just as failures start becoming common around level 18.", effect: "The team is introduced as a solution before the player has fully felt the problem it's positioned to solve." },
     { from: "clans-guilds", to: "gifting", title: "The team resolves the shortage it was sold on", desc: "Teammates are the stated route to free lives from the moment teams are introduced, and the gifting flow itself sits inside the team surface.", effect: "Joining a team and asking a teammate for a life turn the same heart shortage into a social interaction instead of only a purchase decision." },
-    { from: "clans-guilds", to: "leaderboards", title: "Standing runs both above and inside the team", desc: "Teams are ranked against other teams on the world and country leaderboards, and inside the team the tournament separately ranks each member's own contribution.", effect: "A player who never opens the plain leaderboard tab still sees a comparative standing, inside the team surface they're already using." },
+    { from: "clans-guilds", to: "leaderboard", title: "Teams are ranked outward on the world and country boards", desc: "Teams are ranked against other teams on the world and country leaderboards.", effect: "A team's collective performance is measured outward against every other team at once." },
+    { from: "clans-guilds", to: "standing", title: "The tournament states each member's own contribution rank", desc: "Inside the team, the tournament separately states each member's own position by contribution.", effect: "A player who never opens the plain leaderboard tab still sees a comparative standing, inside the team surface they're already using." },
     { from: "hard-currency", to: "season-pass", title: "The pass is bought with the same coins the loop already prices", desc: "Activating the Easter Pass is itself a purchase, priced in the same currency the failure exits use, and its paid lane raises the heart cap that failure spends against.", effect: "The one purchase that changes a rule rather than just refilling a balance is sold using the exact same currency the rest of the economy already runs on." },
   ],
   "subway-surfers": [
@@ -360,7 +361,7 @@ const CONNECTIONS = {
     { from: "daily-login-reward", to: "progression-gate", title: "The Freebird board sits behind the login count", desc: "The Freebird board is locked in the board catalogue behind 20 logins, the same target the Daily Login surface counts toward.", effect: "A reward the login calendar promises is also a gate the board catalogue enforces, so the two surfaces state the same requirement from two directions." },
     { from: "ads", to: "daily-login-reward", title: "Ads recover a missed login day", desc: "A missed day in the Daily Login sequence carries a catch-up option, claimable for five keys or one ad.", effect: "Missing a day carries no hard penalty: the ad route keeps the 20-login target reachable without spending keys." },
     { from: "hard-currency", to: "monthly-card", title: "One key purchase seeds ten days of returns", desc: "The Bonus Keys Trail's first day is a $7.99 purchase for 40 keys, and free keys follow on each of the next nine days.", effect: "A single transaction is stretched into ten separate reasons to open the app, rather than paying out all at once." },
-    { from: "leveling", to: "leaderboards", title: "The multiplier decides who can enter Top Run", desc: "Top Run requires a score of at least 25,000 to enter the current week, and the score multiplier is what scales every run's score.", effect: "Climbing the score multiplier is a precondition for competing at all, not just an advantage once inside." },
+    { from: "leveling", to: "leaderboard", title: "The multiplier decides who can enter Top Run", desc: "Top Run requires a score of at least 25,000 to enter the current week, and the score multiplier is what scales every run's score.", effect: "Climbing the score multiplier is a precondition for competing at all, not just an advantage once inside." },
   ],
   "fifa-panini-collection": [
     { from: "loot-box", to: "set-collection", title: "Opened packs feed the album", desc: "Each opened pack resolves into players, and any that are missing from the album get glued into their own slot.", effect: "The album's completion depends entirely on what the loot box resolves to, not on a separate acquisition step." },
@@ -386,7 +387,7 @@ const CONNECTIONS = {
   strava: [
     { from: "streak", to: "challenges", title: "One logged activity advances both", desc: "The streak advances when a user logs an activity, and the same saved activity counts toward any challenge they have joined.", effect: "A single recorded activity moves more than one part of the system at once." },
     { from: "challenges", to: "achievement", title: "Completing a challenge produces a held record", desc: "Completing a challenge produces a digital trophy or badge in most cases, held apart from the challenge instance itself.", effect: "The same objective produces both a completed challenge and a separately preserved achievement." },
-    { from: "challenges", to: "leaderboards", title: "Every challenge page carries its own leaderboard", desc: "Each challenge has a leaderboard of the users taking part, ordered by the measure that challenge is built on.", effect: "Joining a challenge places a participant in a ranked set for the length of that challenge." },
+    { from: "challenges", to: "leaderboard", title: "Every challenge page carries its own leaderboard", desc: "Each challenge has a leaderboard of the users taking part, ordered by the measure that challenge is built on.", effect: "Joining a challenge places a participant in a ranked set for the length of that challenge." },
     { from: "community-groups", to: "challenges", title: "The Strava Club organises most challenges", desc: "Most of the featured and promoted challenges are organised by the Strava Club, a club the product runs itself.", effect: "Club membership is one of the routes through which challenges reach a user." },
     { from: "community-groups", to: "social-feed", title: "Clubs carry their own feed", desc: "A club has a feed of its own alongside the home feed, and the activity visibility controls name both.", effect: "A club gives its members a posting surface separate from the main feed." },
   ],
@@ -416,7 +417,8 @@ const CONNECTIONS = {
     { from: "companion", to: "soft-currency", title: "Developing a player spends earned balances", desc: "Training consumes other held players, and ranking up consumes rank-up points sold and earned through ordinary play.", effect: "The squad isn't just what currency buys, it's also what currency is spent developing, tying earned balances to squad growth at every stage." },
     { from: "hard-currency", to: "purchase-ladder", title: "The ladders are paid for, never played for", desc: "All three purchase sequences, including the one named a streak, advance strictly by buying the position beneath the next one, with no activity route into any of them.", effect: "This is the one part of the monetization system with no connection back to play at all: money is the only input, in a fixed order." },
     { from: "experience-points", to: "season-pass", title: "The pass runs the same shape as the level", desc: "Star Pass credits are earned from the same Division Rivals and live-event play that feeds account XP, accumulating toward roughly sixty positions and resetting at the season boundary.", effect: "A player advancing their account level is, without any separate decision, also advancing the pass." },
-    { from: "clans-guilds", to: "leaderboards", title: "Standing runs above and inside the league", desc: "Leagues are ranked against each other on a group board with promotion and relegation and on a worldwide board, while members are separately ranked by contribution inside their own league.", effect: "A league's collective activity produces two independent kinds of standing at once, one competing outward and one measuring each member against their own teammates." },
+    { from: "clans-guilds", to: "leaderboard", title: "Leagues are ranked outward on a group and a worldwide board", desc: "Leagues are ranked against each other on a group board with promotion and relegation and on a worldwide board.", effect: "A league's collective activity is measured outward against every other league at once." },
+    { from: "clans-guilds", to: "standing", title: "Each member's own contribution rank is stated inside the league", desc: "Members are separately ranked by contribution inside their own league, each shown their own position rather than a browsable list of the rest.", effect: "A league's collective activity produces two independent kinds of standing at once, one competing outward and one measuring each member against their own teammates." },
   ],
   // A second, bareword-keyed "picsart" CONNECTIONS entry lived here
   // (picsart: [...], no quotes), a duplicate of the quoted "picsart" entry
@@ -459,7 +461,7 @@ const CONNECTIONS = {
     { from: "leveling", to: "progression-gate", title: "Player and farm level decide what opens next", desc: "Power-ups, multipliers, My Trail, the Social Hub, the Grand Album and teams each name a player level; the farm withholds areas until its own level rises.", effect: "Two separate leveling tracks are what every stated gate in the game actually reads." },
     { from: "experience-points", to: "season-pass", title: "Trail energy is what advances My Trail", desc: "My Trail's ten reward positions are advanced by energy paid out from completing missions.", effect: "The trail's own progression is entirely a function of the mission-earned resource feeding it." },
     { from: "variable-reward", to: "set-collection", title: "Packs won from levels fill the album", desc: "The Grand Spring Album is filled by packs won from levels and opened afterward.", effect: "A free, no-cost draw is the primary route into a collection the game also sells access to." },
-    { from: "challenges", to: "leaderboards", title: "The same race backs both the objective and the rank", desc: "Cheese Rally sets a bounded five-level objective and simultaneously orders the player against four named racers.", effect: "One event produces both a pass-or-fail outcome and a live competitive standing." },
+    { from: "challenges", to: "standing", title: "The same race backs both the objective and the rank", desc: "Cheese Rally sets a bounded five-level objective and simultaneously states the player's own position against four named racers, without showing their full order.", effect: "One event produces both a pass-or-fail outcome and a live stated standing." },
   ],
   "fortune-city": [
     { from: "achievement", to: "milestone", title: "Two named criteria overlap on prosperity and population", desc: "Prosperity and population thresholds are recognized both as achievement criteria and as their own milestone pop-ups.", effect: "The same running number can fire two separate named recognition events at once." },
@@ -529,7 +531,7 @@ const CONNECTIONS = {
     { from: "soft-currency", to: "milestone", title: "Coins fund the tasks that fill the completion bar", desc: "Each coin-priced restoration task completed advances the car's restoration percentage toward its 100% reward.", effect: "The currency spent on cosmetic choices is also what drives the episode toward its terminal reward." },
     { from: "milestone", to: "boosters", title: "The episode reward pays power-ups back into the loop", desc: "Completing an episode grants one of each power-up alongside its coin and gem reward.", effect: "Finishing a car restocks the booster supply used to win the next episode's levels." },
     { from: "milestone", to: "energy-lives", title: "The episode reward also grants timed infinite health", desc: "The Episode complete screen grants 30 minutes of infinite health alongside its other rewards.", effect: "Completing a car removes the heart count as a factor for a stated period immediately afterward." },
-    { from: "leveling", to: "leaderboards", title: "The leaderboard ranks players by the same level number", desc: "Each row on the global and country leaderboard states a player's puzzle level, the same number shown on the home screen.", effect: "Winning a level is simultaneously personal progress and a competitive move." },
+    { from: "leveling", to: "leaderboard", title: "The leaderboard ranks players by the same level number", desc: "Each row on the global and country leaderboard states a player's puzzle level, the same number shown on the home screen.", effect: "Winning a level is simultaneously personal progress and a competitive move." },
     { from: "season-pass", to: "energy-lives", title: "The event's first reward is also timed infinite health", desc: "Reaching 50 gas cans on the event track unlocks 30 minutes of infinite health, the same reward type the episode grants.", effect: "Two independent systems both pay out in the same currency that suspends the heart count." },
   ],
   "match-creek-motors": [
@@ -540,7 +542,7 @@ const CONNECTIONS = {
     { from: "soft-currency", to: "milestone", title: "Task spending advances the car toward the track's reward boxes", desc: "Completing coin-priced tasks moves the project track forward, past the two reward boxes placed along it.", effect: "Spending wrenches on the car is also what triggers the track's own milestone payouts." },
     { from: "milestone", to: "hard-currency", title: "Project completion pays a final round of gold coins", desc: "The Episode complete screen grants gold coins alongside boosters once the project is finished.", effect: "Finishing a car adds directly to the same balance the shop also sells." },
     { from: "milestone", to: "boosters", title: "Project completion grants boosters alongside coins", desc: "The project-completion reward grants a number of boosters together with its coin payout.", effect: "Finishing a car restocks whatever boosters are, independent of the pre-level breaker selection." },
-    { from: "achievement", to: "leaderboards", title: "Both systems are reached through the same Game Center surface", desc: "Achievements and leaderboards both route through Settings, Account, and Apple's Game Center, invisible during normal play.", effect: "Neither system is discoverable from inside the game itself; both depend on the player looking in Settings." },
+    { from: "achievement", to: "leaderboard", title: "Both systems are reached through the same Game Center surface", desc: "Achievements and leaderboards both route through Settings, Account, and Apple's Game Center, invisible during normal play.", effect: "Neither system is discoverable from inside the game itself; both depend on the player looking in Settings." },
   ],
   "swgoh": [
     { from: "experience-points", to: "leveling", title: "XP is what moves the level states", desc: "Battle, quest-claim and training XP accumulate toward player level and each character's own level, the values those tracks are stated against.", effect: "Nothing else has to change for a level to rise, the same activity that earns XP for any other reason is also progress toward it." },
@@ -572,7 +574,7 @@ const CONNECTIONS = {
   // assert a relationship the source doesn't support, so this map is drawn
   // with three nodes and zero edges rather than padded with an invented one.
   "tripsy": [],
-  // leaderboards is deliberately left unconnected: the analysis is explicit
+  // standing is deliberately left unconnected: the analysis is explicit
   // that it doesn't know what the profile's stated rank is measured by, and
   // co-occurring with achievement on the same profile page isn't the same
   // as one feeding the other.
@@ -600,7 +602,8 @@ const POSITIONS = {
     "progression-gate":      { x: 35, y: 58 },
     "clans-guilds":          { x: 65, y: 58 },
     "gifting":               { x: 20, y: 80 },
-    "leaderboards":          { x: 50, y: 80 },
+    "leaderboard":           { x: 38, y: 80 },
+    "standing":              { x: 62, y: 80 },
     "season-pass":           { x: 80, y: 80 },
   },
   "subway-surfers": {
@@ -611,7 +614,7 @@ const POSITIONS = {
     "progression-gate":      { x: 15, y: 56 },
     "daily-login-reward":    { x: 40, y: 56 },
     "reward-multiplier":     { x: 65, y: 56 },
-    "leaderboards":          { x: 88, y: 56 },
+    "leaderboard":           { x: 88, y: 56 },
     "soft-currency":         { x: 25, y: 74 },
     "hard-currency":         { x: 50, y: 74 },
     "monthly-card":          { x: 75, y: 74 },
@@ -641,7 +644,8 @@ const POSITIONS = {
   "strava": {
     center:                  { x: 50, y: 8,  label: "STRAVA'S SOCIAL LAYER" },
     "streak":                { x: 17, y: 24 },
-    "leaderboards":          { x: 83, y: 24 },
+    "leaderboard":           { x: 83, y: 16 },
+    "standing":              { x: 83, y: 34 },
     "challenges":            { x: 50, y: 47 },
     "social-feed":           { x: 17, y: 78 },
     "community-groups":      { x: 50, y: 78 },
@@ -679,7 +683,8 @@ const POSITIONS = {
     "purchase-ladder":       { x: 62, y: 58 },
     "season-pass":           { x: 85, y: 58 },
     "clans-guilds":          { x: 25, y: 80 },
-    "leaderboards":          { x: 50, y: 80 },
+    "leaderboard":           { x: 40, y: 80 },
+    "standing":              { x: 60, y: 80 },
     "daily-login-reward":    { x: 75, y: 80 },
   },
   "capybara-go": {
@@ -697,7 +702,7 @@ const POSITIONS = {
   "picsart": {
     center:                  { x: 50, y: 12, label: "PICSART" },
     "challenges":            { x: 22, y: 32 },
-    "leaderboards":          { x: 50, y: 32 },
+    "leaderboard":           { x: 50, y: 32 },
     "social-feed":           { x: 78, y: 32 },
     "community-groups":      { x: 22, y: 62 },
     "soft-currency":         { x: 50, y: 62 },
@@ -748,7 +753,7 @@ const POSITIONS = {
     "leveling":              { x: 22, y: 66 },
     "progression-gate":      { x: 44, y: 66 },
     "challenges":            { x: 66, y: 66 },
-    "leaderboards":          { x: 87, y: 66 },
+    "standing":              { x: 87, y: 66 },
     "streak":                { x: 18, y: 84 },
     "milestone":             { x: 40, y: 84 },
     "referral-boost":        { x: 62, y: 84 },
@@ -804,7 +809,7 @@ const POSITIONS = {
     "milestone":          { x: 38, y: 62 },
     "boosters":           { x: 62, y: 62 },
     "energy-lives":       { x: 50, y: 78 },
-    "leaderboards":       { x: 74, y: 78 },
+    "leaderboard":        { x: 74, y: 78 },
     "season-pass":        { x: 26, y: 78 },
   },
   "match-creek-motors": {
@@ -818,7 +823,7 @@ const POSITIONS = {
     "boosters":           { x: 38, y: 76 },
     "energy-lives":       { x: 62, y: 76 },
     "achievement":        { x: 20, y: 76 },
-    "leaderboards":       { x: 82, y: 76 },
+    "leaderboard":        { x: 82, y: 76 },
   },
   "swgoh": {
     center:                { x: 50, y: 4,  label: "SWGOH" },
@@ -874,7 +879,7 @@ const POSITIONS = {
     "hard-currency":       { x: 50, y: 74 },
     "cosmetics":           { x: 80, y: 74 },
     "social-feed":         { x: 35, y: 90 },
-    "leaderboards":        { x: 65, y: 90 },
+    "leaderboard":         { x: 65, y: 90 },
   },
   "clash-of-clans": {
     center:                { x: 50, y: 6,  label: "CLASH OF CLANS" },
@@ -898,7 +903,7 @@ const POSITIONS = {
     "reviews-and-ratings":    { x: 50, y: 34 },
     "set-collection":         { x: 25, y: 62 },
     "achievement":            { x: 50, y: 62 },
-    "leaderboards":           { x: 78, y: 84 },
+    "standing":              { x: 78, y: 84 },
   },
   };
 

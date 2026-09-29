@@ -1062,7 +1062,7 @@
         "role": "Gold coins are sold directly in four packs and also earned throughout the loop, with no shown spend anywhere in the app."
       },
       {
-        "id": "leaderboards",
+        "id": "leaderboard",
         "role": "Two named boards rank players by win streak and first-try wins, reached entirely outside the game through Game Center."
       },
       {
@@ -1122,7 +1122,7 @@
         "y": 76
       },
       {
-        "id": "leaderboards",
+        "id": "leaderboard",
         "x": 82,
         "y": 76
       }
@@ -1179,7 +1179,7 @@
       },
       {
         "from": "achievement",
-        "to": "leaderboards",
+        "to": "leaderboard",
         "title": "Both systems are reached through the same Game Center surface",
         "desc": "Achievements and leaderboards both route through Settings, Account, and Apple's Game Center, invisible during normal play.",
         "effect": "Neither system is discoverable from inside the game itself; both depend on the player looking in Settings."

@@ -1,0 +1,32 @@
+{
+  "id": "standing",
+  "n": "52",
+  "name": "Standing",
+  "cat": "competition",
+  "tagline": "A position the product assigns and states directly, that depends on other entities' results, without necessarily showing the ordered list behind it.",
+  "desc": "Standing is a position the product communicates on its own terms, a rank, a percentile, a placement, that depends on how other people or groups have done, whether or not the product ever shows those others in an ordered list. What makes it a distinct behavior from a leaderboard is exactly that: the viewer learns where they sit without being handed the rows above and below them to browse. A stated national rank, a percentile among all users, or a position inside a bounded event all count, whether the comparison set is named or left implicit, and whether the position updates live or only at fixed points.",
+  "principle": "A stated position, without the list behind it, still makes a private result feel measured against everyone else.",
+  "players": [
+    "competitor"
+  ],
+  "warn": "A percentile or rank stated with no measure behind it, and no way to see how it was reached, reads as an assertion rather than a result; disclosing the basis for the number is what keeps it feeling earned rather than arbitrary.",
+  "variants": [
+    "Numerical rank, a specific ordinal or percentile stated for the viewer alone",
+    "Bounded-event standing, the position applies only within a time-boxed event or challenge rather than persisting",
+    "Provisional standing, held back until an eligibility condition is met, such as a first qualifying action",
+    "Segmented standing, the comparison set is a named subset, a country, a group, or a category, rather than the whole population"
+  ],
+  "lifecycle": "Needs at least one completed, comparable action before there's a position to state; most consequential once the user has done enough for that position to move.",
+  "paired": [
+    "leaderboard",
+    "challenges"
+  ],
+  "context": [
+    "retention"
+  ],
+  "sdt": [
+    "competence",
+    "relatedness"
+  ],
+  "visibility": "public"
+}

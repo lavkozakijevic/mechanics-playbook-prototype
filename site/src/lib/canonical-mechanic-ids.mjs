@@ -27,10 +27,15 @@ export const CANONICAL_MECHANIC_IDS = {
   "Streak": "streak",
   "Challenge": "challenges",
   "Social Feed": "social-feed",
-  "Leaderboard": "leaderboards",
-  // This library carries one ranking entry; the analysis separates the ordered
-  // list from the user's own standing. Both are written up under leaderboards.
-  "Comparative Rank": "leaderboards",
+  // Split 29 Sep 2026 (sources/taxonomy-map.md): FC Mobile, Royal Match and
+  // Strava each apply Leaderboard and Comparative Rank as separate,
+  // independently evidenced v4.1 tags, clearing the split condition. Each
+  // now resolves to its own site mechanic rather than both collapsing onto
+  // "leaderboards" — Comparative Rank isn't a smaller leaderboard, it states
+  // a position with no browsable list behind it, so it took a fresh id
+  // rather than the retired plural.
+  "Leaderboard": "leaderboard",
+  "Comparative Rank": "standing",
   // Split 13 Sep 2026 (sources/taxonomy-map.md): Clash of Clans and Tiimo
   // each apply Achievement and Milestone as separate, independently
   // evidenced v4.1 tags, clearing the split condition. Each now resolves to

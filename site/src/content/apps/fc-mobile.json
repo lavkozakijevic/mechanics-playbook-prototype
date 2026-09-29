@@ -3447,8 +3447,12 @@
         "role": "Leagues hold their own season level, point total and hundred-position reward track, advanced only by members' combined activity; an inactive roster stalls the whole structure at once."
       },
       {
-        "id": "leaderboards",
+        "id": "leaderboard",
         "role": "Leagues are ranked twice over, on a group board with promotion and relegation and on a worldwide board, while a separate weekly board ranks head-to-head players by wins."
+      },
+      {
+        "id": "standing",
+        "role": "Each league's own global rank and every member's season contribution ranking are stated directly, apart from the ordered boards themselves."
       },
       {
         "id": "season-pass",
@@ -3516,8 +3520,13 @@
         "y": 80
       },
       {
-        "id": "leaderboards",
-        "x": 50,
+        "id": "leaderboard",
+        "x": 40,
+        "y": 80
+      },
+      {
+        "id": "standing",
+        "x": 60,
         "y": 80
       },
       {
@@ -3585,9 +3594,16 @@
       },
       {
         "from": "clans-guilds",
-        "to": "leaderboards",
-        "title": "Standing runs above and inside the league",
-        "desc": "Leagues are ranked against each other on a group board with promotion and relegation and on a worldwide board, while members are separately ranked by contribution inside their own league.",
+        "to": "leaderboard",
+        "title": "Leagues are ranked outward on a group and a worldwide board",
+        "desc": "Leagues are ranked against each other on a group board with promotion and relegation and on a worldwide board.",
+        "effect": "A league's collective activity is measured outward against every other league at once."
+      },
+      {
+        "from": "clans-guilds",
+        "to": "standing",
+        "title": "Each member's own contribution rank is stated inside the league",
+        "desc": "Members are separately ranked by contribution inside their own league, each shown their own position rather than a browsable list of the rest.",
         "effect": "A league's collective activity produces two independent kinds of standing at once, one competing outward and one measuring each member against their own teammates."
       }
     ]

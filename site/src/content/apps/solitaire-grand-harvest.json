@@ -2039,8 +2039,8 @@
         "role": "The ten-minute balloon bonus and the five-level Cheese Rally race each set a bounded objective inside a short window, won or lost within that window rather than carried forward."
       },
       {
-        "id": "leaderboards",
-        "role": "Cheese Rally orders the player against four named racers by progress toward five won levels, deciding who reaches the stage prize first."
+        "id": "standing",
+        "role": "Cheese Rally states the player's own position against four named racers by progress toward five won levels, deciding who reaches the stage prize first, without showing the racers' own order."
       },
       {
         "id": "daily-login-reward",
@@ -2152,7 +2152,7 @@
         "y": 66
       },
       {
-        "id": "leaderboards",
+        "id": "standing",
         "x": 87,
         "y": 66
       },
@@ -2299,10 +2299,10 @@
       },
       {
         "from": "challenges",
-        "to": "leaderboards",
+        "to": "standing",
         "title": "The same race backs both the objective and the rank",
-        "desc": "Cheese Rally sets a bounded five-level objective and simultaneously orders the player against four named racers.",
-        "effect": "One event produces both a pass-or-fail outcome and a live competitive standing."
+        "desc": "Cheese Rally sets a bounded five-level objective and simultaneously states the player's own position against four named racers, without showing their full order.",
+        "effect": "One event produces both a pass-or-fail outcome and a live stated standing."
       }
     ]
   }

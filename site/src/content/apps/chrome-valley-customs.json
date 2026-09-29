@@ -1035,7 +1035,7 @@
         "role": "Reaching 100% on the restoration bar fires its own Episode complete reward, separate from the ordinary percentage climbing."
       },
       {
-        "id": "leaderboards",
+        "id": "leaderboard",
         "role": "A global and country ranking orders other players by puzzle level, without stating the viewer's own position."
       },
       {
@@ -1085,7 +1085,7 @@
         "y": 78
       },
       {
-        "id": "leaderboards",
+        "id": "leaderboard",
         "x": 74,
         "y": 78
       },
@@ -1147,7 +1147,7 @@
       },
       {
         "from": "leveling",
-        "to": "leaderboards",
+        "to": "leaderboard",
         "title": "The leaderboard ranks players by the same level number",
         "desc": "Each row on the global and country leaderboard states a player's puzzle level, the same number shown on the home screen.",
         "effect": "Winning a level is simultaneously personal progress and a competitive move."

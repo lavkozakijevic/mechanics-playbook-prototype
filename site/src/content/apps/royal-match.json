@@ -2783,8 +2783,12 @@
         "role": "Answering a teammate's life request sends a life and pays the sender five coins, turning the same shortage hearts create into a social exchange rather than only a purchase decision."
       },
       {
-        "id": "leaderboards",
-        "role": "Players and teams are both ranked, by level and by score, for the world and for the user's own country, and the tournament separately states the team's own position and the user's standing inside it."
+        "id": "leaderboard",
+        "role": "Players and teams are both ranked, by level and by score, for the world and for the user's own country."
+      },
+      {
+        "id": "standing",
+        "role": "The tournament separately states the team's own position among other teams and the user's own position among teammates, alongside the reward each position earns."
       },
       {
         "id": "season-pass",
@@ -2838,8 +2842,13 @@
         "y": 80
       },
       {
-        "id": "leaderboards",
-        "x": 50,
+        "id": "leaderboard",
+        "x": 38,
+        "y": 80
+      },
+      {
+        "id": "standing",
+        "x": 62,
         "y": 80
       },
       {
@@ -2900,9 +2909,16 @@
       },
       {
         "from": "clans-guilds",
-        "to": "leaderboards",
-        "title": "Standing runs both above and inside the team",
-        "desc": "Teams are ranked against other teams on the world and country leaderboards, and inside the team the tournament separately ranks each member's own contribution.",
+        "to": "leaderboard",
+        "title": "Teams are ranked outward on the world and country boards",
+        "desc": "Teams are ranked against other teams on the world and country leaderboards.",
+        "effect": "A team's collective performance is measured outward against every other team at once."
+      },
+      {
+        "from": "clans-guilds",
+        "to": "standing",
+        "title": "The tournament states each member's own contribution rank",
+        "desc": "Inside the team, the tournament separately states each member's own position by contribution.",
         "effect": "A player who never opens the plain leaderboard tab still sees a comparative standing, inside the team surface they're already using."
       },
       {

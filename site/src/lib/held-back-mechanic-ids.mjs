@@ -50,6 +50,6 @@
  * carry which side; that's exactly the record that went stale twice.
  */
 export const HELD_BACK_MECHANIC_IDS = new Set([
-  "leaderboards", "community-groups",
+  "community-groups",
   "energy-lives", "season-pass",
 ]);

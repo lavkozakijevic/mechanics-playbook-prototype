@@ -63,7 +63,8 @@ mappings were empirically forced versus reasoned out, which is what
 | social-feed | Social Feed | confirmed |
 | community-groups | Community Space, Group Membership | confirmed (Group Membership); inferred (Community Space) |
 | clans-guilds | Clan / Guild | inferred |
-| leaderboards | Leaderboard, Comparative Rank | confirmed |
+| leaderboard | Leaderboard | confirmed |
+| standing | Comparative Rank | confirmed |
 | gifting | Gifting | inferred |
 | hard-currency | Hard Currency | inferred |
 | soft-currency | Soft Currency | inferred |
@@ -113,15 +114,14 @@ mechanics are *confirmed* rather than *inferred*: Capybara Go and FC
 Mobile each apply Loot Box and Variable Reward Outcome as separate,
 independently-evidenced tags under the current (v4.1) model.
 
-## The four merged mechanics (split deferred)
+36 site mechanics, not 35 — `leaderboards` split into `leaderboard` and
+`standing` on 29 Sep 2026 (see "The leaderboards split" below), the same
+one-into-two shape as the three splits above. Both new mechanics are
+*confirmed*: FC Mobile, Royal Match and Strava each apply Leaderboard and
+Comparative Rank as separate, independently-evidenced tags under the
+current (v4.1) model.
 
-**leaderboards** — Leaderboard, Comparative Rank. The tagline is pure
-list-framing (*"a ranked list... publicly comparable"*), but the
-description shifts into personal-rank/loss-aversion framing (*"Rank is
-identity... the threat of falling creates persistent return pressure"*) —
-the Comparative Rank side. Every listed variant (global, friend,
-clan/league, weekly-reset leaderboard) is leaderboard-shaped, though; none
-represents standing without a visible list.
+## The three merged mechanics (split deferred)
 
 **community-groups** — Community Space, Group Membership. Tagline covers
 both, but the description and all four variants (public clubs, private
@@ -480,6 +480,70 @@ default-resolution mechanism as the five above — no build error, since
 for evidence that belongs to the other successor. Neither royal-match,
 capybara-go, nor fc-mobile appears in `REMAPS` for this split — all three
 are v4.1 and never reach the v3 parsing path at all.
+
+## The leaderboards split (29 Sep 2026)
+
+`leaderboards` fused two library entries: Leaderboard and Comparative
+Rank. The split condition fired on real evidence: FC Mobile, Royal Match
+and Strava each apply Leaderboard and Comparative Rank as separate,
+independently-evidenced tags under the current (v4.1) model.
+
+The old fused page treated the two as one list-shaped mechanism (its
+tagline: *"A ranked list of users or groups ordered by a performance
+metric"*), even though its own description drifted into personal-rank,
+loss-aversion framing (*"Rank is identity... the threat of falling
+creates persistent return pressure"*) that belongs to Comparative Rank
+rather than the list itself. So, as with the achievements and
+variable-reward splits, both new pages were written fresh against each
+library entry's own applied-tag text, drawn from FC Mobile's, Royal
+Match's, and Strava's own Pass Two write-ups, rather than divided from
+the old fused prose.
+
+Shape: both successors take fresh ids, the same shape as xp-leveling and
+achievements, not the shape variable-reward took. `leaderboards` is fully
+retired rather than kept on either side. Comparative Rank is not a
+smaller leaderboard, it is a different mechanic: the product states a
+position, Strava's "top 2% of all users," Vivino's national rank, without
+ever showing the list behind it; nobody is ordered and nothing is
+browsable. Keeping the old id on the list side would have implied
+absorption rather than two siblings, and "leaderboards," a list-shaped
+plural, would have survived on the entry least like a list. Names (owner
+ruling, 29 Sep 2026): **Leaderboard** keeps the library entry's own name,
+singular, the same pattern as `achievement`/`milestone`; **Standing** is
+what a product person says for a stated position with no table behind
+it, chosen specifically so it stands on its own rather than reading as
+leaderboard's lesser half.
+
+Both new mechanics carry the old fused entry's app list unchanged, plus
+one correction: `royal-match` was missing from the old entry's app list
+entirely despite its own system map already carrying a `leaderboards`
+node, a pre-existing gap fixed by adding it to both successors' app
+lists rather than carried forward.
+
+Per-app disposition in `APPS[].mechanics[]` was decided from each app's
+own v4.1 analysis rather than assumed from the old fused list: `fc-mobile`,
+`royal-match`, and `strava` carry both, the three apps whose evidence
+cleared the split condition. `capybara-go`, `subway-surfers`, `picsart`,
+`clash-of-clans`, `liftoff`, `chrome-valley-customs`, and
+`match-creek-motors` carry `leaderboard` only, each evidenced by an
+ordered list of two or more identified entities. `solitaire-grand-harvest`
+and `vivino` carry `standing` only: Solitaire Grand Harvest's Cheese Rally
+states the player's own position against named racers without ever
+showing their order (its own analysis explicitly considers and rejects
+Leaderboard for exactly this reason), and Vivino's contributor profile
+states a national rank with no comparison list ever shown.
+
+Zero older v3 analysis files carry a literal `leaderboards` inline id,
+checked across all four remaining v3 files (orbit, starling-bank,
+george-erste-bank, wispr-flow): three mention "Leaderboards" only in
+prose stating that no ranked list was observed, and none uses the
+reviewed inline-heading form. No `REMAPS` entries were needed for this
+split.
+
+The old `/mechanics/leaderboards/` URL 404s rather than redirects, the
+same as `xp-leveling` and `achievements`: the page didn't move, it split
+into two different things, and neither successor is "the same content at
+a new address."
 
 ## When each merge splits
 

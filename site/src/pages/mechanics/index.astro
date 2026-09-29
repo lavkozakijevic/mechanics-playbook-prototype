@@ -39,7 +39,7 @@ interface Card {
 // longer displays it, the implementation summary carries the distinguishing
 // detail instead). Two different library entries resolving to the same
 // site mechanic in the same app (the merged-taxonomy case, e.g.
-// Leaderboard and Comparative Rank both landing on `leaderboards`) still
+// Energy and Lives both landing on `energy-lives`) still
 // get two separate cards here, same as they get two separate blocks on
 // that app's own summary page — not a mistake to fold together (v41.ts).
 const cardsByMechanic = new Map<string, Omit<Card, "locked">[]>();

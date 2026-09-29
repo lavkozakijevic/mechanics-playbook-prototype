@@ -1339,7 +1339,7 @@
         "role": "Three home feeds, For You, Friends and Discovery, with Discovery the only one shown carrying other users' posts."
       },
       {
-        "id": "leaderboards",
+        "id": "leaderboard",
         "role": "Rank standings in friends and global scopes, with a regional scope held for Pro."
       }
     ],
@@ -1410,7 +1410,7 @@
         "y": 90
       },
       {
-        "id": "leaderboards",
+        "id": "leaderboard",
         "x": 65,
         "y": 90
       }

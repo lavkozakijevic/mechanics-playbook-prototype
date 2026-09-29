@@ -4,7 +4,7 @@
   "def": "A belief that causes its own confirmation through the behavior it prompts. Expecting a bank to fail, depositors withdraw their money, and the withdrawals cause the failure.",
   "related": [
     "social-feed",
-    "leaderboards"
+    "leaderboard"
   ],
   "visibility": "public"
 }
