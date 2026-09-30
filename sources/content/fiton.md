@@ -154,6 +154,28 @@ FitOn is a medium-complexity system whose spine is the completed workout: a vide
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** FitOn's onboarding opens with two system permission requests before any screen, then account creation, a personalization funnel, a generated plan, three separate paywalls and the first guided workout.
+
+**Core loop and automation:** FitOn's home screen splits into five tabs covering workouts, articles, meal planning and friends, with live classes and partner content sitting inside the workout catalogue.
+
+**Goals and progression:** For You and the profile carry FitOn's progress structures: a streak, a workout count, a weekly goal and an achievements catalogue.
+
+**Access and eligibility:** One section covers where FitOn marks features as Pro inside a product that is otherwise free to use.
+
+**Economy and resources:** Empty. FitOn holds no currency, points balance, material or other held quantity with routes that produce or consume it.
+
+**Social:** The Friends tab is where FitOn's onboarding groups and contacts questions resurface, carrying a workout feed, a group feed and repeated prompts to add friends.
+
+**Reach beyond the app:** Partner-branded content, an in-article social prompt and device connections in settings extend FitOn beyond its own screens.
+
+**Monetization:** Every Pro surface across the app repeats the same 70%-off offer, framed differently each time it appears.
+
+**Return triggers:** One control at the top of the home screen is FitOn's own name for what should bring a user back.
+
+---
+
 ## Onboarding and first run
 
 FitOn's onboarding opens with two system permission requests before any screen, then account creation, a personalization funnel, a generated plan, three separate paywalls and the first guided workout.

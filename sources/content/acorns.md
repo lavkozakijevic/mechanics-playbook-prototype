@@ -96,6 +96,28 @@ Acorns is a simple system with no loop: its spine is the standing bank connectio
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** Acorns runs twenty-six consecutive screens with no way back: choosing a plan, connecting a bank account, verifying identity, and setting up the first roundups and contributions before the dashboard is reached.
+
+**Core loop and automation:** Acorns' core activity is investing money automatically once a bank account is connected: roundups, recurring contributions, and Money Manager all move money into the right account without further input, with portfolio configuration, tax filing, and a standing library of guidance sitting beside them.
+
+**Goals and progression:** Acorns' progress surfaces are a projected future balance, a retirement contribution measured against an outside limit, and a short course ending in a scored quiz.
+
+**Access and eligibility:** Acorns restricts the product to US residents, holds accounts in a pending state until identity is verified, and bounds retirement contributions and custom portfolio choices by rules set outside the product.
+
+**Economy and resources:** Acorns holds no currency, points, or resource of its own; every quantity it tracks is the user's own money, covered under Core loop and automation instead.
+
+**Social:** Acorns lets a user name a beneficiary and a trusted contact on the retirement account, and opens Early Invest accounts for children under the same subscription.
+
+**Reach beyond the app:** Acorns holds its referral offer permanently in the home screen's top bar, pays a percentage of purchases at outside brands as an investment, and adds a sign-in option after the account already exists.
+
+**Monetization:** Acorns prices three subscription tiers upfront, backs cancellation with a cheaper fallback plan rather than an exit, and pays two of its four rewards as a plan-tier benefit rather than as a standing rate.
+
+**Return triggers:** Nothing in Acorns is built to cause a visit. Every dated statement it makes is set by a settlement window, a verification queue, an offer's own end date, or the IRS.
+
+---
+
 ## Onboarding and first run
 
 Acorns runs twenty-six consecutive screens with no way back: choosing a plan, connecting a bank account, verifying identity, and setting up the first roundups and contributions before the dashboard is reached.

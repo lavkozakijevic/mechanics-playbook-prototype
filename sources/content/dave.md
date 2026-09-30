@@ -79,6 +79,28 @@ Dave is a medium complexity system built around one decision made during onboard
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** Dave walks new users through signup, identity checks, bank connection, and opening the checking account itself, guiding every step until the account exists and the first funding prompt appears.
+
+**Core loop and automation:** Dave's checking account runs on a hub of repeating utilities, direct deposit, round-ups, transfers, checks, cash, and bills, plus the interest it pays, the Extra Cash advance mechanic, and the paid surveys inside its Grow tab.
+
+**Goals and progression:** Dave creates, personalizes, extends, and ends a user's savings goals.
+
+**Access and eligibility:** Dave gates the Extra Cash advance behind an eligibility decision tied to the connected bank account, and publishes its own rules as an FAQ rather than showing them directly.
+
+**Economy and resources:** Dave holds no currency, material, or resource inventory of its own; every balance is real dollars, covered under Core loop and automation instead.
+
+**Social:** Dave has no feature that lets a user see, interact with, compare against, or team up with another identified person.
+
+**Reach beyond the app:** Dave's side hustle board sends job applications out to employers' own sites, and its referral program pays out as a bigger future advance rather than cash.
+
+**Monetization:** Dave charges for membership, advance delivery, funding, and cash and check handling.
+
+**Return triggers:** Dave brings users back through notifications, balance alerts, and a marketing consent gathered during signup.
+
+---
+
 ## Onboarding and first run
 
 This section covers everything from Dave's first screen through creating the checking account itself and reaching the first funding prompt: the pitch before signup, identity verification, connecting a bank account and debit card, and opening the checking account.

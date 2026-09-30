@@ -302,6 +302,28 @@ This is a complex system. Its spine is the expense record: recording a real expe
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** The first expense comes before any account or permission step, and Kashi's guided city tour teaches its own systems one at a time.
+
+**Core loop and automation:** Recording an expense builds the city; citizens, merges and a daily building cap decide how far one record actually goes.
+
+**Goals and progression:** A hundred achievements, named thresholds on prosperity and population, building and City Hall levels, and four collections of characters, buildings and vehicles.
+
+**Access and eligibility:** Sign-in and the subscription each hold their own separate set of features, from backup and rankings to budgets and trend reports.
+
+**Economy and resources:** Coins and diamonds are both earned freely and spent on separate ends of the city, with diamonds also sold directly.
+
+**Social:** Rankings and friends' cities exist behind sign-in.
+
+**Reach beyond the app:** Fortune City sits inside a family of apps from the same publisher, sharing a subscription, a sign-in and a set of cross-install achievements.
+
+**Monetization:** A subscription paywall, five diamond packs, a theme store and four rewarded-ad placements sit alongside interstitials with no reward attached.
+
+**Return triggers:** A nightly reminder, a seven-day reward calendar, next-day building capacity and a handful of timed refreshes bring the mayor back.
+
+---
+
 ## Onboarding and first run
 
 Fortune City opens with the first expense recorded before any account, permission or profile step. Kashi then leads a guided sequence introducing visitors, jobs and the City Hall, one step at a time, before the mayor reaches an unguided screen.

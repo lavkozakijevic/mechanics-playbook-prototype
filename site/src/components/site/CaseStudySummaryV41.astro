@@ -238,6 +238,15 @@ const sections = allSectionCounts(app);
                   )}
                 </div>
                 <div class="cs-msec__body">
+                  {/* Old and new voice shapes render side by side while the
+                      sweep runs (sources/prompts/stage2-website-content.md,
+                      30 Sep 2026) — a block carries one or the other, never
+                      both (convert-content.mjs throws on a mix), so exactly
+                      one branch below ever renders per block. illustrationBrief
+                      is deliberately not among the new-shape fields here: it
+                      never reaches this component at all (see TemplateWriteup,
+                      lib/v41.ts). Delete the old-shape branch once every app's
+                      "Mechanic block shape" build report says "new". */}
                   {block.writeup?.observed && (
                     <div class="cs-sub">
                       <h3 class="cs-sub__h">What was observed</h3>
@@ -262,6 +271,33 @@ const sections = allSectionCounts(app);
                       <ul class="cs-findings">
                         {block.writeup.findings.map((f: string) => <li>{f}</li>)}
                       </ul>
+                    </div>
+                  )}
+                  {block.writeup?.howItWorks && (
+                    <div class="cs-sub">
+                      <h3 class="cs-sub__h">How it works</h3>
+                      <p>{block.writeup.howItWorks}</p>
+                    </div>
+                  )}
+                  {block.writeup?.whatStandsOut && (
+                    <div class="cs-sub">
+                      <h3 class="cs-sub__h">What stands out</h3>
+                      <p>{block.writeup.whatStandsOut}</p>
+                    </div>
+                  )}
+                  {block.writeup?.buildingSomethingLikeThis && (
+                    <div class="cs-sub">
+                      <h3 class="cs-sub__h">Building something like this</h3>
+                      <dl class="cs-building">
+                        <dt>Trigger</dt>
+                        <dd>{block.writeup.buildingSomethingLikeThis.trigger}</dd>
+                        <dt>What it needs</dt>
+                        <dd>{block.writeup.buildingSomethingLikeThis.whatItNeeds}</dd>
+                        <dt>How it connects</dt>
+                        <dd>{block.writeup.buildingSomethingLikeThis.howItConnects}</dd>
+                        <dt>Worth noticing</dt>
+                        <dd>{block.writeup.buildingSomethingLikeThis.worthNoticing}</dd>
+                      </dl>
                     </div>
                   )}
                 </div>

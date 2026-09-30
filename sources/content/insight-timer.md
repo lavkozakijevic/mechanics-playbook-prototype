@@ -168,6 +168,28 @@ Insight Timer's daily state runs through two entry points that both start at onb
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** An opening usage-share claim, four rounds of profiling questions, three consistency-research screens, and a dated well-being prediction all run before any account is created.
+
+**Core loop and automation:** A home screen anchored by a streak, an intention field, and live usage counts feeds into a meditation timer, a completion sequence that includes a check-in, and a stats page that gathers everything into one view.
+
+**Goals and progression:** A consecutive-day goal chosen at onboarding drives a streak, a milestone countdown, and a stats page that gathers every counted activity into one view.
+
+**Access and eligibility:** Account creation asks only for a birth year, Plus content stays visible but locks at the point of use, and setting an intention is blocked until a home screen widget is installed.
+
+**Economy and resources:** Empty. Insight Timer holds no currency, points, credits, tokens, or other held unit that is earned and then spent or exchanged.
+
+**Social:** Named groups with admins and a leave control sit alongside open, unmembered surfaces like a gratitude wall and quote comments, with messages and friends left entirely empty.
+
+**Reach beyond the app:** A progress share card, group and friend invite links, and routes into real-world retreats and a therapist directory all send the user, or an invitation, outside the app.
+
+**Monetization:** An onboarding paywall gives way to a free-tier promise, then a trial-extension gift, contextual Plus offers at every locked surface, and a teacher-donation flow.
+
+**Return triggers:** A post-practice streak prompt, a set of home screen widgets, and a calendar of live teacher-led events bring the user back.
+
+---
+
 ## Onboarding and first run
 
 An opening usage-share claim, four rounds of profiling questions, three consistency-research screens, and a dated well-being prediction all run before any account is created.

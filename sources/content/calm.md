@@ -93,6 +93,28 @@ Calm is a medium system. Its spine is the check-in suite: five self-report entry
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** Calm places nine steps between first launch and the first unguided screen, including two separate paywalls before any content is heard.
+
+**Core loop and automation:** Calm's core loop runs through a mostly locked content catalogue and a mood-based recommendation row on Home, with the check-in suite sitting separately inside Profile.
+
+**Goals and progression:** Calm's stats and streaks are the product's only progression measures, and both move only when a check-in is completed.
+
+**Access and eligibility:** A subscription gates nearly everything in Calm's catalogue, with a handful of free exceptions and a few changes that appear only after signing in.
+
+**Economy and resources:** Calm's economy is a single stated allowance of free listens, with nothing earned, spent, or exchanged anywhere else.
+
+**Social:** No other identified person appears anywhere inside Calm; every social-shaped surface points outward instead.
+
+**Reach beyond the app:** Calm sends a guest pass from two places, composes stats and streaks into outbound shares, and connects to Apple Health from settings.
+
+**Monetization:** Calm's Pro subscription is offered from at least three separate screens, each with its own framing, discount or trial length.
+
+**Return triggers:** Every one of Calm's five check-ins ends by asking when the user will check in again, each with its own preset time and no confirmation once set.
+
+---
+
 ## Onboarding and first run
 
 Calm places nine steps between first launch and the first unguided screen, including two separate paywalls before any content is heard.

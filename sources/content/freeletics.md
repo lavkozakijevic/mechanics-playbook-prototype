@@ -73,6 +73,28 @@ Freeletics is a medium complexity system whose spine is the onboarding questionn
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** A twelve-step questionnaire feeds a stated AI coach, which is shown building a plan twice before account creation and before a discounted offer.
+
+**Core loop and automation:** A calendar of upcoming sessions and a catalogue of workouts sit behind the Coach tab; no workout is started in this analysis.
+
+**Goals and progression:** A profile level and a workouts-and-achievements area sit on an account with no completed workouts.
+
+**Access and eligibility:** Workouts split into an unlocked row and a subscription catalogue, with the training plan itself reachable only through the paywall.
+
+**Economy and resources:** A reward-credit balance, earned by referring friends, prices a gift card and lifetime app access.
+
+**Social:** A community feed of the app's own posts, user-created challenges, and a network of other athletes make up the social layer.
+
+**Reach beyond the app:** A referral link, a friend-facing six-month offer, and a link to the Freeletics podcast each point outside the app.
+
+**Monetization:** Three multi-month plans, a default meal-plan add-on, and a time-limited half-price offer make up a paywall reached before any content is delivered.
+
+**Return triggers:** A single reminders request is the only return trigger found in the app.
+
+---
+
 ## Onboarding and first run
 
 A twelve-step questionnaire feeds a stated AI coach, which is shown building a plan twice, each time immediately before an account request or a paid offer.

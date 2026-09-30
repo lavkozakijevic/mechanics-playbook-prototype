@@ -166,6 +166,28 @@ Ladder is a complex system whose spine is the welcome workout: matching to a coa
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** A tracking prompt, Apple sign-in, a three-part coach video sequence and a team-match filter all run before the user reaches the home screen.
+
+**Core loop and automation:** The weekly plan hub, the welcome workout player and a new nutrition dashboard anchor a loop that opens with one workout and branches into macro tracking.
+
+**Goals and progression:** A completion badge, profile stats, a Get Started checklist, an upcoming strength series and a nutrition flow ending in a signed commitment sit across this section.
+
+**Access and eligibility:** One completed workout unlocks chat, nutrition and the plan at once; three completed workouts unlocks a six-week strength series.
+
+**Economy and resources:** Empty. Ladder holds no currency, points balance or resource of its own.
+
+**Social:** A matched coaching team, teammate cheers, team chat, topic groups and city meetups make up the social layer.
+
+**Reach beyond the app:** Apple Health sync, a music service connection, and a share-to-Instagram option each carry the user outside Ladder.
+
+**Monetization:** A seven-day free trial with no credit card required runs on a fixed timeline toward a monthly or annual plan, with no price shown.
+
+**Return triggers:** Two notification prompts, a workout reminder, a weekly streak and a fixed Sunday content release bring users back.
+
+---
+
 ## Onboarding and first run
 
 A tracking prompt, Apple sign-in, a three-part coach video sequence and a team-match filter all run before the user reaches the home screen.

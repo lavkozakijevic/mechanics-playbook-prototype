@@ -74,6 +74,28 @@ Cleo is a medium complexity system built around one connection made during onboa
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** Cleo walks new users through sign up, a state-law restriction, and connecting a bank account before the chat opens with a habits quiz and a roast.
+
+**Core loop and automation:** Cleo runs its budget, bills, categorization, and chat-persona features through a set of swipeable cards on its chat home, alongside the save tab's autosave and wallet setup and the borrow tab's own credit product.
+
+**Goals and progression:** Cleo sets a monthly spending limit with category limits, and previews a 21-day challenge against one spending habit.
+
+**Access and eligibility:** Cleo restricts its cash advance and paid plans by the user's state, and gates its wallet behind an identity and age check.
+
+**Economy and resources:** Cleo holds no currency or resource inventory of its own; the autosave and wallet features that could look like one are covered under Core loop and automation instead.
+
+**Social:** Cleo has no feature that lets a user see, interact with, compare against, or team up with another identified person.
+
+**Reach beyond the app:** Cleo has no feature that connects a user to something outside the app; its one app store review request is covered under Return triggers instead.
+
+**Monetization:** Cleo pitches Cleo Plus and Cleo Builder with a plan comparison and FAQ, neither purchasable under this account's state restriction.
+
+**Return triggers:** Cleo asks to send notifications, tells users to check in daily, schedules spending reviews days apart, and asks for an app store review at the end of its roast and hype sequences.
+
+---
+
 ## Onboarding and first run
 
 This section covers everything between opening Cleo for the first time and reaching the finished budget. It runs through sign up, connecting a bank account through Plaid, a five-question habits quiz, a roast of the user's own figures, and setting up the budget.

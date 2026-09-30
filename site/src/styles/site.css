@@ -468,9 +468,12 @@
   background:
     linear-gradient(135deg, transparent 46%, var(--ink-200) 46% 54%, transparent 54%) 0 0 / 16px 16px,
     var(--paper-deep); }
-.cstudy__narr { display: grid; grid-template-columns: 1fr; gap: 16px 28px; }
-.narr__label { font: var(--type-label); text-transform: uppercase; letter-spacing: var(--tracking-label); color: var(--text-muted); margin-bottom: 5px; }
-.narr p { font: var(--type-body-sm); color: var(--text-secondary); line-height: 1.55; text-wrap: pretty; }
+/* Two lines (voice rewrite, 30 Sep 2026): always stacked, headline above
+   standout — never the 2x2 grid the old four-part narrative used. */
+.cstudy__narr { display: flex; flex-direction: column; gap: 8px; }
+.cstudy__headline { font: var(--type-body); font-weight: var(--weight-semibold); color: var(--ink-900);
+  line-height: 1.45; text-wrap: pretty; margin: 0; }
+.cstudy__standout { font: var(--type-body-sm); color: var(--text-secondary); line-height: 1.55; text-wrap: pretty; margin: 0; }
 .cstudy__foot { margin-top: 20px; padding-top: 16px; border-top: var(--rule-hairline); }
 .cstudy__link { display: inline-flex; align-items: center; gap: 6px; font: var(--type-body-sm);
   font-weight: var(--weight-semibold); color: var(--text-accent); text-decoration: none; }
@@ -494,7 +497,6 @@ a.amod__item:hover .amod__name { text-decoration: underline; text-decoration-col
 @media (min-width: 700px) {
   .callouts { grid-template-columns: 1fr 1fr; }
   .variants { grid-template-columns: 1fr 1fr; }
-  .cstudy__narr { grid-template-columns: 1fr 1fr; }
 }
 @media (min-width: 1000px) {
   .mech-body { grid-template-columns: minmax(0, 1fr) 300px; gap: clamp(36px, 4vw, 60px); }
@@ -944,6 +946,12 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
 .cs-findings li { position: relative; padding-left: 20px; font: var(--type-body); color: var(--text-secondary); line-height: 1.55; text-wrap: pretty; }
 .cs-findings li::before { content: ""; position: absolute; left: 2px; top: 9px; width: 6px; height: 6px;
   border-radius: 50%; background: var(--accent); }
+/* "Building something like this" (voice rewrite, 30 Sep 2026): four short
+   labelled rows, the same visual weight as .cs-findings beside it. */
+.cs-building { display: grid; grid-template-columns: auto 1fr; column-gap: 14px; row-gap: 9px; margin: 0; }
+.cs-building dt { font: var(--type-label); text-transform: uppercase; letter-spacing: var(--tracking-label);
+  color: var(--ink-700); white-space: nowrap; }
+.cs-building dd { margin: 0; font: var(--type-body); color: var(--text-secondary); line-height: 1.55; text-wrap: pretty; }
 
 /* Screenshot gallery — placeholders */
 .shotgallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: clamp(20px, 2.6vw, 28px); }

@@ -265,6 +265,28 @@ Liftoff is a complex system whose spine is the rank a user is assigned: the onbo
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** A language choice, a guided questionnaire, a first rank assessment, a paywall and its exit offer, and account creation all run before Liftoff's first unguided screen.
+
+**Core loop and automation:** The Workout tab runs logging, posting and history alongside a Nutrition tab for meal logging.
+
+**Goals and progression:** The Ranks tab holds the strength ladder and its supporting surfaces; Profile carries the account level, medals and home-screen goal setting.
+
+**Access and eligibility:** A ranked-leagues requirement and a set of features held for Liftoff Pro make up this section.
+
+**Economy and resources:** Eggs are Liftoff's one named currency, earned through quests, spent in the store, and also sold directly for money.
+
+**Social:** Home carries three feeds, and the Ranks and Friends tabs carry leaderboards and other users' profiles.
+
+**Reach beyond the app:** A Strava link prompt and referral invitations are Liftoff's two routes outside the app.
+
+**Monetization:** A seven-day trial, a same-day exit offer and several Pro prompts run across onboarding, the store and the home screen.
+
+**Return triggers:** A notification opt-in, a widget prompt, a rating request and the streak all run before or alongside the first workout.
+
+---
+
 ## Onboarding and first run
 
 A language choice, a guided questionnaire, a first rank assessment, a paywall and its exit offer, and account creation all run before Liftoff's first unguided screen.

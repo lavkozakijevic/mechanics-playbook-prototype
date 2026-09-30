@@ -82,6 +82,13 @@ export function allSectionCounts(app: App): { slug: string; name: string; count:
 
 type MechanicWriteup = NonNullable<App["mechanicWriteups"]>[number];
 
+// illustrationBrief is stored on the content file (see the schema comment on
+// mechanicWriteup, content.config.ts) but never reaches a template — it's a
+// note for whoever draws the illustration, not copy. Omitted here at the
+// type level, not just by convention not being read, so a future render
+// can't pick it up from this object even by accident.
+type TemplateWriteup = Omit<MechanicWriteup, "illustrationBrief">;
+
 export interface TagBlock {
   // The raw tag name as the analysis wrote it (a library entry name, e.g.
   // "Challenge") — kept only as the join key back onto mechanicWriteups,
@@ -98,7 +105,7 @@ export interface TagBlock {
   // Kept as data for the tag index (spec §6.3) to use later — the summary
   // page no longer renders these directly, `writeup` below is what it reads.
   observations: Observation[];
-  writeup: MechanicWriteup | null;
+  writeup: TemplateWriteup | null;
   // What this mechanic does in this app (engagement/retention/monetization/
   // social, free text, possibly several) — a property of the implementation,
   // not of the mechanic (spec §3 rebuild, 14 Sep 2026), read from any one of
@@ -146,13 +153,18 @@ export function tagBlocks(app: App, mechanicsById: Map<string, Mechanic>): TagBl
     const mechanic = canonicalId ? mechanicsById.get(canonicalId) ?? null : null;
     const observations = byName.get(name)!;
     const role = observations.flatMap((o) => o.tags).find((t) => t.name === name)?.role ?? "";
+    const rawWriteup = writeupsByName.get(name) ?? null;
+    // Strip illustrationBrief here, at construction, rather than trusting
+    // every template to just not read it — see TemplateWriteup above.
+    const { illustrationBrief: _unused, ...rest } = rawWriteup ?? {};
+    const writeup: TemplateWriteup | null = rawWriteup ? rest : null;
     return {
       name,
       displayName: mechanic?.name ?? name,
       mechanicId,
       mechanic,
       observations,
-      writeup: writeupsByName.get(name) ?? null,
+      writeup,
       role,
     };
   });

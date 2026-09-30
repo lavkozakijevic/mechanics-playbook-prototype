@@ -27,8 +27,6 @@ const IconLock = (
   </svg>
 );
 
-const NARR = ["How they use it", "Why it works", "The detail", "Takeaway"];
-
 function Overview({ mech }) {
   const hasMeta = mech.bestFor?.length > 0 || mech.context?.length > 0 || mech.drivers?.length > 0;
   return (
@@ -152,11 +150,14 @@ function CaseStudies({ studies }) {
                 {s.locked && <Badge tone="neutral" variant="outline" icon={IconLock}>For subscribers</Badge>}
               </div>
             </div>
-            {!s.locked && s.body && (
+            {/* Two lines (voice rewrite, 30 Sep 2026): the implementation
+                summary as the headline, What stands out underneath it. See
+                mechanicStudies() (lib/props.ts) for where headline/standout
+                come from. */}
+            {!s.locked && s.narrative && (
               <div className="cstudy__narr">
-                {s.body.map((b, i) => (
-                  <div key={i}><div className="narr__label">{NARR[i]}</div><p>{b}</p></div>
-                ))}
+                <p className="cstudy__headline">{s.narrative.headline}</p>
+                <p className="cstudy__standout">{s.narrative.standout}</p>
               </div>
             )}
             {!s.locked && (

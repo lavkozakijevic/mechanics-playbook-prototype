@@ -341,6 +341,28 @@ Star Wars: Galaxy of Heroes is a complex system whose spine is the character ros
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** A tracking request, a guided first battle, and free starter items run before account details are even asked for.
+
+**Core loop and automation:** Turn-based squad battles run across three campaigns, with auto-battle, sim tickets and a challenges table layered on top.
+
+**Goals and progression:** Player level, four character upgrade tracks, campaign maps, journey quests, the Episode Track and achievements make up this section.
+
+**Access and eligibility:** Player-level gates on nearly every hub table, combined gates on specific features, and gates inside already-open activities make up this section.
+
+**Economy and resources:** Crystals, credits, ally points, cantina tokens, shards and lightspeed tokens run alongside the store's Bronzium card and shipment tabs.
+
+**Social:** Allies, borrowed units, ally requests and player profiles run alongside guild and arena surfaces that stay locked throughout.
+
+**Reach beyond the app:** EA Connect linking, forum links and an email invitation to become allies are the app's routes outside itself.
+
+**Monetization:** Starter deal pop-ups, a five-tab store, crystal and Chromium packs, and an Episode Pass make up this section.
+
+**Return triggers:** Login rewards, a notification pre-prompt, red badge counters and countdown timers on offers and events bring the player back.
+
+---
+
 ## Onboarding and first run
 
 A tracking request, a guided first battle, and free starter items run before account details are even asked for.

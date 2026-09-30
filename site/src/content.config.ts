@@ -76,28 +76,61 @@ const observation = z.object({
 });
 
 // One composed block per applied tag (spec §2.1): a written piece about that
-// mechanic in this app, in four required parts, plus a note on which
-// screenshots the block needs. Written from the observations carrying the
-// tag, not a rendering of them — those stay in `observations` above for the
-// tag index (spec §6.3) to use later. Joined to a tag by `name` matching the
-// same display string in `observations[].tags[].name`.
+// mechanic in this app, plus a note on which screenshots the block needs.
+// Written from the observations carrying the tag, not a rendering of them —
+// those stay in `observations` above for the tag index (spec §6.3) to use
+// later. Joined to a tag by `name` matching the same display string in
+// `observations[].tags[].name`.
 //
 // `summary` (added 16 Sep 2026, stage2-website-content.md amendment): one
 // sentence under 25 words naming what this specific app does with the
-// mechanic — not a definition of the mechanic and not a summary of the
-// four parts below, what tells this app's implementation apart from every
-// other app's on the mechanics index, which renders it as the card content
-// (spec §3.5). Optional, not required like the four parts above: the nine
-// existing v4.1 apps are being backfilled one at a time rather than all at
-// once, and a future app re-run under an older prompt version shouldn't
-// hard-fail the whole build over one missing sentence.
+// mechanic — not a definition of the mechanic and not a summary of the rest
+// of the block, what tells this app's implementation apart from every other
+// app's on the mechanics index, which renders it as the card content
+// (spec §3.5). Optional, not required like the shape-specific fields below:
+// the nine existing v4.1 apps are being backfilled one at a time rather than
+// all at once, and a future app re-run under an older prompt version
+// shouldn't hard-fail the whole build over one missing sentence.
+//
+// Two shapes below, old and new (voice rewrite, 30 Sep 2026,
+// sources/prompts/stage2-website-content.md), both optional on the schema
+// since a given app's block is on one shape or the other, never both —
+// convert-content.mjs's mechanicBlockFields() enforces that per block and
+// throws on a mix; this schema just has to accept whichever one shows up.
+// Every field in a shape is required in practice once that shape is chosen,
+// but marked optional here too, the same reasoning as `summary` above:
+// the parser is where shape and completeness are actually enforced, not
+// this schema, so a block that fails one shape's requirements fails at
+// convert-content.mjs, not silently here.
+//
+// Once every app is swept onto the new shape (see the "Mechanic block
+// shape" report convert-content.mjs prints on every build), delete
+// `observed`/`presented`/`noting`/`findings`, OLD_MECHANIC_BLOCK_LABELS and
+// its parsing branch in convert-content.mjs, the old-shape render branch in
+// CaseStudySummaryV41.astro, and the old-shape fallback in
+// props.ts's exampleComplete()/mechanicStudies().
 const mechanicWriteup = z.object({
   name: z.string(),
   summary: z.string().optional(),
-  observed: z.string(),
-  presented: z.string(),
-  noting: z.string(),
-  findings: z.array(z.string()),
+  // Old shape.
+  observed: z.string().optional(),
+  presented: z.string().optional(),
+  noting: z.string().optional(),
+  findings: z.array(z.string()).optional(),
+  // New shape. `illustrationBrief` is stored for whoever draws the
+  // illustration and is never passed to any template — read it directly
+  // off the content JSON if you need it, don't thread it through props.ts.
+  howItWorks: z.string().optional(),
+  illustrationBrief: z.string().optional(),
+  whatStandsOut: z.string().optional(),
+  buildingSomethingLikeThis: z
+    .object({
+      trigger: z.string(),
+      whatItNeeds: z.string(),
+      howItConnects: z.string(),
+      worthNoticing: z.string(),
+    })
+    .optional(),
   screenshotsNote: z.string(),
 });
 

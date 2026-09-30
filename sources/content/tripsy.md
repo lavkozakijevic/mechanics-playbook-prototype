@@ -74,6 +74,28 @@ Tripsy is a medium system. Nearly everything, the itinerary, guest sharing, the 
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** Tripsy's first run moves fast toward Pro before a single trip exists, then offers three separate ways to see the product working: building a trip, forwarding a reservation, or opening a populated example.
+
+**Core loop and automation:** Tripsy's core loop runs on the trip itself: building one by hand through category search, or letting forwarded reservation emails fill it in automatically, then managing its itinerary, documents and expenses from the trip screen.
+
+**Goals and progression:** Tripsy tracks progress two ways: a simple completed mark on individual activities, and a cumulative travel record kept across every trip in My Tripsy Book.
+
+**Access and eligibility:** Every Pro lock in Tripsy sits on top of a fully working free trip, visible but inactive, while an account is required only for the features that leave the device.
+
+**Economy and resources:** Empty. Tripsy issues no currency, points or resource of its own.
+
+**Social:** Sharing a trip in Tripsy creates named guest roles rather than a single link, set as view-only or collaborators, with a separate setting controlling whether a shared trip counts as the guest's own.
+
+**Reach beyond the app:** Tripsy sends a trip outward through view-only web links, social posts, and a personal forwarding address, and connects inward through Claude, Apple Shortcuts and a TripIt importer.
+
+**Monetization:** Tripsy's Pro offer appears before any trip exists and keeps reappearing everywhere a locked feature sits, backed by a plan catalogue running from a monthly rate to a one-time lifetime purchase.
+
+**Return triggers:** Tripsy asks for notification permission right after account creation, then organizes what it sends into four alert categories alongside trip countdowns, home and lock screen widgets, and a review prompt.
+
+---
+
 ## Onboarding and first run
 
 Tripsy's first run moves fast toward Pro before a single trip exists, then offers three separate ways to see the product working: building a trip, forwarding a reservation, or opening a populated example.

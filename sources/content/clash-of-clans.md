@@ -281,6 +281,28 @@ Clash of Clans is a complex system. Town hall level is the spine: it gates nearl
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** Clash of Clans scripts a cannon build, a defense, and an attack before naming the player, then reveals its interface in stages as the town hall levels up.
+
+**Core loop and automation:** Clash of Clans repeats collecting resources, starting upgrades, training troops, and raiding another village for loot to fund the next upgrade.
+
+**Goals and progression:** Clash of Clans measures progress mainly by town hall level, gated behind a resource cost and a prerequisite building checklist, alongside a smaller account level and a starter challenge ladder.
+
+**Access and eligibility:** Clash of Clans gates nearly everything by town hall level, with a rebuilt clan castle, a repaired boat, and a signup window gating the clan, the second village, and clan war leagues.
+
+**Economy and resources:** Clash of Clans runs five earned currencies across two villages plus a paid currency that converts directly into two of them.
+
+**Social:** Clash of Clans keeps its entire social layer, donation, chat, wars, and leaderboards, behind a clan castle that has to be rebuilt first.
+
+**Reach beyond the app:** Clash of Clans rewards linking an external account roughly ten times more than an ordinary achievement, and hosts its own rewards site behind that link.
+
+**Monetization:** Clash of Clans sells a rotating shop of offers and town-hall-scaled packs alongside a season pass priced against the village, the second village, and the clan at once.
+
+**Return triggers:** Clash of Clans runs a shield countdown, a return-from-absence summary, and an event calendar layered on top of its own season boundary.
+
+---
+
 ## Onboarding and first run
 
 Clash of Clans opens with a fully scripted sequence, from the store listing through consent screens to a guided first attack, before naming the player or leaving them to explore on their own. This section covers that opening in full.

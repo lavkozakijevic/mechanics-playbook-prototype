@@ -421,14 +421,23 @@ function locateLabeledFields(file, blockName, block, slots) {
   return { values, order: found.map((f) => f.key) };
 }
 
-// The six labeled parts of a mechanic write-up block (spec §2.1), in the
-// fixed order the stage2 prompt asks for them: Implementation summary,
-// then the four required composed parts, then a screenshots note. This
-// format is spec'd to have all six in exactly this order, so — unlike
-// Pass three's proposals below — a block missing one, or carrying them
-// out of order, is a real defect worth naming and throwing on rather than
-// a case nothing has ever exercised.
-const MECHANIC_BLOCK_LABELS = [
+// Two label sets for a mechanic write-up block, old and new (voice rewrite,
+// 30 Sep 2026, sources/prompts/stage2-website-content.md). Every app is
+// being swept from the old shape to the new one; both are parsed while the
+// sweep runs, each in its own fixed order, so a block missing a label from
+// its own shape, or carrying its labels out of order, is still a real
+// defect worth throwing on. Shape is detected per block, not per app, from
+// whichever second label (the first shape-specific one, after the shared
+// "Implementation summary") is actually present — see detectMechanicBlockShape.
+//
+// Once every app's content file is on the new shape, delete
+// OLD_MECHANIC_BLOCK_LABELS, the "old" branch in detectMechanicBlockShape,
+// and the old-shape branch in parseContentV41 below; delete the matching
+// old-shape fields from the mechanicWriteup schema (content.config.ts), the
+// old-shape render branch in CaseStudySummaryV41.astro, and the v3-shaped
+// fallback in props.ts's mechanicStudies()/exampleComplete(). Nothing else
+// in the codebase depends on the old shape once that sweep completes.
+const OLD_MECHANIC_BLOCK_LABELS = [
   "Implementation summary",
   "What was observed",
   "How it is presented",
@@ -436,19 +445,38 @@ const MECHANIC_BLOCK_LABELS = [
   "Key findings",
   "Screenshots needed",
 ];
+const NEW_MECHANIC_BLOCK_LABELS = [
+  "Implementation summary",
+  "How it works",
+  "Illustration brief",
+  "What stands out",
+  "Trigger",
+  "What it needs",
+  "How it connects",
+  "Worth noticing",
+  "Screenshots needed",
+];
+
+function detectMechanicBlockShape(file, name, block) {
+  const hasOld = /\*\*What was observed[.:]\*\*/.test(block);
+  const hasNew = /\*\*How it works[.:]\*\*/.test(block);
+  if (hasOld && hasNew)
+    throw new Error(`${file}: mechanic block "${name}" has labels from both the old and the new shape — pick one`);
+  if (!hasOld && !hasNew)
+    throw new Error(`${file}: mechanic block "${name}" has neither shape's required "How it works" or "What was observed" label`);
+  return hasNew ? "new" : "old";
+}
+
 function mechanicBlockFields(file, name, block) {
-  const { values, order } = locateLabeledFields(
-    file,
-    `mechanic block "${name}"`,
-    block,
-    MECHANIC_BLOCK_LABELS.map((l) => [l])
-  );
-  const expectedOrder = MECHANIC_BLOCK_LABELS.filter((l) => order.includes(l));
+  const shape = detectMechanicBlockShape(file, name, block);
+  const labels = shape === "new" ? NEW_MECHANIC_BLOCK_LABELS : OLD_MECHANIC_BLOCK_LABELS;
+  const { values, order } = locateLabeledFields(file, `mechanic block "${name}"`, block, labels.map((l) => [l]));
+  const expectedOrder = labels.filter((l) => order.includes(l));
   if (order.join("|") !== expectedOrder.join("|"))
     throw new Error(
       `${file}: mechanic block "${name}" has its labels out of order — found ${order.join(", ")}, expected ${expectedOrder.join(", ")}`
     );
-  return values;
+  return { shape, values };
 }
 
 function idsIn(text) {
@@ -796,39 +824,89 @@ function parseContentV41(file) {
     .map(norm)
     .filter(Boolean);
 
-  // ---- Mechanics (spec §2.1): one composed block per applied tag, in four
+  // ---- Mechanics (spec §2.1): one composed block per applied tag, in
   // labelled parts plus a screenshots note, using the same "**Label:**"
   // convention the analysis file's Pass Two uses — mechanicBlockFields()
-  // above locates all six by name and position rather than guessing at
-  // where each one ends.
+  // above detects which of the two shapes (old or new voice, see the
+  // comment on OLD_MECHANIC_BLOCK_LABELS) a block uses, then locates that
+  // shape's labels by name and position rather than guessing where each
+  // one ends.
   // Optional: an app with no applied tags has nothing to compose here.
   let mechanicWriteups = [];
   let fixedSectionChunks = h2s.slice(1);
   if (h2s[1] && h2s[1].heading.toLowerCase() === "mechanics") {
     mechanicWriteups = headingChunks(h2s[1].body, 3).map(({ heading: rawName, body: block }) => {
       const name = rawName.trim();
-      const values = mechanicBlockFields(file, name, block);
+      const { shape, values } = mechanicBlockFields(file, name, block);
       // Optional (stage2-website-content.md amendment, 16 Sep 2026): not
-      // one of the four required composed parts below, and not present at
+      // one of the required composed parts below, and not present at
       // all until each app's write-up is backfilled with it — see the
       // schema comment on mechanicWriteup (content.config.ts).
       const summary = values["Implementation summary"] || undefined;
-      const observed = values["What was observed"] || "";
-      const presented = values["How it is presented"] || "";
-      const noting = values["What is worth noting"] || "";
-      const findingsRaw = values["Key findings"] || "";
-      const findings = [...findingsRaw.matchAll(/^- (.+)$/gm)].map((m) => m[1].trim());
       const screenshotsNote = values["Screenshots needed"] || "";
+
+      if (shape === "old") {
+        const observed = values["What was observed"] || "";
+        const presented = values["How it is presented"] || "";
+        const noting = values["What is worth noting"] || "";
+        const findingsRaw = values["Key findings"] || "";
+        const findings = [...findingsRaw.matchAll(/^- (.+)$/gm)].map((m) => m[1].trim());
+        const missing = [];
+        if (!observed) missing.push("What was observed");
+        if (!presented) missing.push("How it is presented");
+        if (!noting) missing.push("What is worth noting");
+        if (!findings.length) missing.push("Key findings");
+        if (missing.length)
+          throw new Error(`${file}: mechanic block "${name}" is missing: ${missing.join(", ")}`);
+        return { name, summary, observed, presented, noting, findings, screenshotsNote };
+      }
+
+      const howItWorks = values["How it works"] || "";
+      const illustrationBrief = values["Illustration brief"] || "";
+      const whatStandsOut = values["What stands out"] || "";
+      const trigger = values["Trigger"] || "";
+      const whatItNeeds = values["What it needs"] || "";
+      const howItConnects = values["How it connects"] || "";
+      const worthNoticing = values["Worth noticing"] || "";
       const missing = [];
-      if (!observed) missing.push("What was observed");
-      if (!presented) missing.push("How it is presented");
-      if (!noting) missing.push("What is worth noting");
-      if (!findings.length) missing.push("Key findings");
+      if (!howItWorks) missing.push("How it works");
+      if (!illustrationBrief) missing.push("Illustration brief");
+      if (!whatStandsOut) missing.push("What stands out");
+      if (!trigger) missing.push("Trigger");
+      if (!whatItNeeds) missing.push("What it needs");
+      if (!howItConnects) missing.push("How it connects");
+      if (!worthNoticing) missing.push("Worth noticing");
       if (missing.length)
         throw new Error(`${file}: mechanic block "${name}" is missing: ${missing.join(", ")}`);
-      return { name, summary, observed, presented, noting, findings, screenshotsNote };
+      return {
+        name,
+        summary,
+        howItWorks,
+        illustrationBrief,
+        whatStandsOut,
+        buildingSomethingLikeThis: { trigger, whatItNeeds, howItConnects, worthNoticing },
+        screenshotsNote,
+      };
     });
     fixedSectionChunks = h2s.slice(2);
+  }
+
+  // ---- Section cards (spec §2.1): the one-line blurb for each section's
+  // card on the summary page. Moved here from V41_APP_META in convert-content.mjs
+  // (voice rewrite, 30 Sep 2026): the same kind of authored copy as
+  // sectionLeadIns below, so it belongs in the same file. Optional heading —
+  // an app can go without it the same way sectionLeadIns can be partial —
+  // and, like sectionLeadIns, keyed by the section's display name rather
+  // than its slug, one "**Name:** text" line per section, in any order.
+  const sectionCards = {};
+  if (fixedSectionChunks[0] && fixedSectionChunks[0].heading.toLowerCase() === "section cards") {
+    for (const [, heading, text] of fixedSectionChunks[0].body.matchAll(/^\*\*([^*]+):\*\*\s*(.+)$/gm)) {
+      const slug = V41_SECTION_SLUG.get(heading.trim());
+      if (!slug) throw new Error(`${file}: section cards has "${heading.trim()}", which is not a current section name`);
+      if (sectionCards[slug]) throw new Error(`${file}: section cards has "${heading.trim()}" more than once`);
+      sectionCards[slug] = text.trim();
+    }
+    fixedSectionChunks = fixedSectionChunks.slice(1);
   }
 
   // ---- the nine fixed sections: a lead-in paragraph, then "### O<n>. Label"
@@ -893,6 +971,7 @@ function parseContentV41(file) {
     systemView,
     mechanicWriteups,
     sectionLeadIns,
+    sectionCards,
     observations,
     obsById,
   };
@@ -1362,766 +1441,173 @@ function resolveHeroImage(appId) {
   return found ? "/images/" + found : null;
 }
 
-// Catalog metadata (name/category/type/sectionCards) for v4.1 apps with no
-// v44 entry. v44 is the hand-maintained catalog; the analysis file itself
-// only records behavior, so a v4.1 app needs this registered somewhere until
-// it has a home of its own.
+// Catalog metadata (name/category/type) for v4.1 apps with no v44 entry.
+// v44 is the hand-maintained catalog; the analysis file itself only records
+// behavior, so a v4.1 app needs this registered somewhere until it has a
+// home of its own.
 //
 // summary/teaser/sectionLeadIns used to live here too, but spec §1.7 moved
 // them into the content file (they're written prose and belong with the
 // rest of the written prose) — parseContentV41 supplies them now.
-//
-// sectionCards is per-section authored copy: a one-line blurb for that
-// section's card on the summary page (spec §2.1), keyed by section slug (see
-// v41-sections.mjs). Not part of spec §1.7's content-file list, so it stays
-// here for now. Optional — complete for Dave.
+// sectionCards moved the same way (voice rewrite, 30 Sep 2026): it's
+// per-section authored copy, the same kind of writing as sectionLeadIns,
+// so it belongs with it rather than in this script. See the "## Section
+// cards" heading parsed in parseContentV41 below.
 const V41_APP_META = {
   "vivino": {
     name: "Vivino",
     category: "Food & Drink",
     type: "app",
-    sectionCards: {
-      onboarding:
-        "Sign-in, account details and a plan choice run before the tracking permission and a trial offer greet the user on first arrival at home.",
-      "core-loop":
-        "Scanning a label and searching are the two routes onto a wine's own page, where rating, a cellar, a wishlist, an AI sommelier and food pairing all sit together.",
-      goals:
-        "Tried and rated counts across styles, regions and grapes, and a taste profile built from what the account has interacted with, run alongside a fixed rating spine.",
-      access:
-        "Wine adventures, the scanner's fuller tools and a wine type's own taste preferences each stay locked until Premium or a stated condition is met.",
-      economy:
-        "Empty. Vivino holds no product-defined currency, points balance, or other held or earned quantity with faucets and sinks.",
-      social:
-        "A contributor's public profile, published reviews and a following system make up a thin social layer built entirely from the same ratings the rest of the app runs on.",
-      reach:
-        "A shareable wine card, social posting toggles and a shared food pairing message each send something outside the app.",
-      monetization:
-        "A three-way plan choice, a benefits comparison and a trial offer with a countdown all lead to the same Premium subscription.",
-      returns:
-        "A notification permission request and a weekly top-list update notice bring the viewer back on two different clocks.",
-    },
   },
   "solitaire-grand-harvest": {
     name: "Solitaire Grand Harvest",
     category: "Casual / Card Game",
     type: "game",
-    sectionCards: {
-      onboarding:
-        "Solitaire Grand Harvest runs through a terms screen and a tracking request before a guided first level, then introduces a second balance, credits, within the first few levels.",
-      "core-loop":
-        "Each level in Solitaire Grand Harvest is a solitaire layout that costs credits to enter, played by moving cards one higher or one lower than a base card, with power-ups, a streak meter and a stake multiplier all sitting around that same core action.",
-      goals:
-        "Levels sit on a path that grows crops in sequence, with fixed-level gifts, a win-streak meter and profile stats layered around that same path, and a separate set of tracks, Crop Master, My Trail, the farm and the album, each running its own progression alongside it.",
-      access:
-        "Player level and farm level each withhold a named set of features until a stated threshold, and a small number of modes and level types carry their own separate conditions.",
-      economy:
-        "Solitaire Grand Harvest runs six separate balances, credits, gems, free rounds, puzzle pieces, cookies and crowns, most of them earned through ordinary play and several of them also sold for money.",
-      social:
-        "Solitaire Grand Harvest's social surfaces are thin: a friends tab, a team feature behind a level gate, a card-trading notice with no surface behind it, and a race against named characters.",
-      reach:
-        "Settings offers sign-in through three services, an invite link sends a reward outside the app, and a newsletter sign-up is the first request for an email address encountered.",
-      monetization:
-        "Solitaire Grand Harvest's monetization runs through a store, a rotating set of timed offers, a piggy bank, a second paid wheel spin and a small puzzle-piece sale, all selling into the same handful of balances.",
-      returns:
-        "Solitaire Grand Harvest brings the player back on three separate clocks, daily, hourly and three-hourly, alongside a notification prompt and a set of multi-day event countdowns.",
-    },
   },
   "subway-surfers": {
     name: "Subway Surfers",
     category: "Casual / Endless Runner",
     type: "game",
-    sectionCards: {
-      onboarding:
-        "Subway Surfers asks for an age and a tracking permission before anything else, then puts the player straight into a guided first run with no menu in between.",
-      "core-loop":
-        "Subway Surfers' core loop is a run through the subway, ended by being caught, between which the player manages a home screen full of missions, boosts and offers.",
-      goals:
-        "The score multiplier is Subway Surfers' one long-term number, raised by missions and read by several of the game's other surfaces.",
-      access:
-        "Four surfaces in Subway Surfers stay locked behind a stated threshold: Quests, Collections, the Freebird board, and Events.",
-      economy:
-        "Subway Surfers runs on two spendable currencies, coins and keys, alongside a separate ad-ticket product and an event-specific currency.",
-      social:
-        "Subway Surfers' social surfaces are thin and reward-linked: adding a friend pays a fixed bonus, and a weekly leaderboard compares the player against friends and their country.",
-      reach:
-        "Two surfaces in Subway Surfers send something outside the game: a shareable player profile, and a photo studio built around the player's own character.",
-      monetization:
-        "Subway Surfers' shop sits behind three tabs, Offers, Store and Boosts, with ad-related offers given the store's leading position ahead of the currency packs themselves.",
-      returns:
-        "Four separate surfaces greet the player on opening Subway Surfers: a login calendar, a fully ad-based rewards track, a timed currency offer, and a daily gift in the store.",
-    },
   },
   dave: {
     name: "Dave",
     category: "Finance / Neo-bank + Cash Advance",
     type: "app",
-    sectionCards: {
-      onboarding:
-        "Dave walks new users through signup, identity checks, bank connection, and opening the checking account itself, guiding every step until the account exists and the first funding prompt appears.",
-      "core-loop":
-        "Dave's checking account runs on a hub of repeating utilities, direct deposit, round-ups, transfers, checks, cash, and bills, plus the interest it pays, the Extra Cash advance mechanic, and the paid surveys inside its Grow tab.",
-      goals: "Dave creates, personalizes, extends, and ends a user's savings goals.",
-      access:
-        "Dave gates the Extra Cash advance behind an eligibility decision tied to the connected bank account, and publishes its own rules as an FAQ rather than showing them directly.",
-      economy:
-        "Dave holds no currency, material, or resource inventory of its own; every balance is real dollars, covered under Core loop and automation instead.",
-      social:
-        "Dave has no feature that lets a user see, interact with, compare against, or team up with another identified person.",
-      reach:
-        "Dave's side hustle board sends job applications out to employers' own sites, and its referral program pays out as a bigger future advance rather than cash.",
-      monetization: "Dave charges for membership, advance delivery, funding, and cash and check handling.",
-      returns:
-        "Dave brings users back through notifications, balance alerts, and a marketing consent gathered during signup.",
-    },
   },
   cleo: {
     name: "Cleo",
     category: "Finance / Personal finance",
     type: "app",
-    sectionCards: {
-      onboarding:
-        "Cleo walks new users through sign up, a state-law restriction, and connecting a bank account before the chat opens with a habits quiz and a roast.",
-      "core-loop":
-        "Cleo runs its budget, bills, categorization, and chat-persona features through a set of swipeable cards on its chat home, alongside the save tab's autosave and wallet setup and the borrow tab's own credit product.",
-      goals: "Cleo sets a monthly spending limit with category limits, and previews a 21-day challenge against one spending habit.",
-      access: "Cleo restricts its cash advance and paid plans by the user's state, and gates its wallet behind an identity and age check.",
-      economy:
-        "Cleo holds no currency or resource inventory of its own; the autosave and wallet features that could look like one are covered under Core loop and automation instead.",
-      social:
-        "Cleo has no feature that lets a user see, interact with, compare against, or team up with another identified person.",
-      reach:
-        "Cleo has no feature that connects a user to something outside the app; its one app store review request is covered under Return triggers instead.",
-      monetization: "Cleo pitches Cleo Plus and Cleo Builder with a plan comparison and FAQ, neither purchasable under this account's state restriction.",
-      returns:
-        "Cleo asks to send notifications, tells users to check in daily, schedules spending reviews days apart, and asks for an app store review at the end of its roast and hype sequences.",
-    },
   },
   "capybara-go": {
     name: "Capybara Go!",
     category: "Roguelite",
     type: "game",
-    sectionCards: {
-      onboarding:
-        "Capybara Go! opens with permission prompts and a long asset download, then drops the player into an unexplained run for almost 20 minutes before anything else is visible.",
-      "core-loop":
-        "Capybara Go! advances a run day by day through automatic battles, in-run choices, and level-up skill picks, then carries gold and materials into permanent upgrades between runs, all gated by an energy and ticket balance and layered with daily and weekly tasks.",
-      goals: "Capybara Go! turns gold and materials into talent levels, a rank title, equipment, and pets, each with its own upgrade path.",
-      access: "Capybara Go! gates nearly everything behind a long sequence of chapter clears and survival-day thresholds.",
-      economy:
-        "Capybara Go! runs a large number of named currencies and materials alongside the chests and shops built around collecting and spending them.",
-      social: "Capybara Go! offers one ranking list available from the very start, with Friends, Guilds, and Arena still locked behind later chapters.",
-      reach: "Capybara Go! offers one feature connecting a user outside the app, linking the game account to an external Habby ID.",
-      monetization: "Capybara Go! charges through packs, cards, and triggered offers across a four-tab store, alongside ads and a permanent ad-removal purchase.",
-      returns:
-        "Capybara Go! runs a seven-day sign-in event, two further timed events, and countdowns on nearly every timed surface in the game.",
-    },
   },
   "clash-of-clans": {
     name: "Clash of Clans",
     category: "Strategy",
     type: "game",
-    sectionCards: {
-      onboarding:
-        "Clash of Clans scripts a cannon build, a defense, and an attack before naming the player, then reveals its interface in stages as the town hall levels up.",
-      "core-loop":
-        "Clash of Clans repeats collecting resources, starting upgrades, training troops, and raiding another village for loot to fund the next upgrade.",
-      goals: "Clash of Clans measures progress mainly by town hall level, gated behind a resource cost and a prerequisite building checklist, alongside a smaller account level and a starter challenge ladder.",
-      access: "Clash of Clans gates nearly everything by town hall level, with a rebuilt clan castle, a repaired boat, and a signup window gating the clan, the second village, and clan war leagues.",
-      economy: "Clash of Clans runs five earned currencies across two villages plus a paid currency that converts directly into two of them.",
-      social: "Clash of Clans keeps its entire social layer, donation, chat, wars, and leaderboards, behind a clan castle that has to be rebuilt first.",
-      reach: "Clash of Clans rewards linking an external account roughly ten times more than an ordinary achievement, and hosts its own rewards site behind that link.",
-      monetization: "Clash of Clans sells a rotating shop of offers and town-hall-scaled packs alongside a season pass priced against the village, the second village, and the clan at once.",
-      returns:
-        "Clash of Clans runs a shield countdown, a return-from-absence summary, and an event calendar layered on top of its own season boundary.",
-    },
   },
   canva: {
     name: "Canva",
     category: "Design",
     type: "app",
-    sectionCards: {
-      onboarding:
-        "Canva asks for tracking consent, creates an account, asks what the product is for, and gets AI training consent before dropping the user straight into a full template catalogue with no tutorial.",
-      "core-loop":
-        "Canva's production loop runs an unrestricted catalogue, editor, and three separate generative tools alongside its document management, all with no capacity limit, cooldown, or schedule anywhere in it.",
-      goals: "Canva runs Design School as a separate certification path, tracking course and certificate completions through counters and a tiered badge grid.",
-      access:
-        "Canva marks premium content with a crown everywhere it appears, locks its brand kit entirely, caps free exports and domains, and defaults to retaining a user's content for its own AI training.",
-      economy: "Canva sells a single purchasable credit balance priced against individual premium elements.",
-      social: "Canva's sharing, comments, and teams are all scoped to one design or one workspace, with no broader social space.",
-      reach: "Canva exports designs directly into other companies' products, publishes live websites, and connects to an apps directory and payment integrations.",
-      monetization: "Canva prices three separate routes, a trial, a one-off licence, and a credit balance, that all converge at the moment a design is exported.",
-      returns:
-        "Canva previews its own notifications during onboarding, defaults every marketing channel to on, and interrupts active use with a rating prompt.",
-    },
   },
   tiimo: {
     name: "Tiimo",
     category: "Productivity / Planning",
     type: "app",
-    sectionCards: {
-      onboarding:
-        "Tiimo asks for an account, a marketing preference, two profiling questions, and permission for four systems before showing any feature, then hands out a streak and a marker before a single task has been completed.",
-      "core-loop":
-        "Tiimo's day runs on a timeline of tasks created directly or through an AI assistant that turns spoken or typed intent into scheduled tasks, alongside separate to-do lists and a focus timer.",
-      goals: "Tiimo tracks a streak of days and a tally of completed tasks, and unlocks a row of named markers built from both.",
-      access:
-        "Tiimo's free tier covers planning and to-do basics, with the AI co-planner, focus timer, themes and several notification options locked behind its paid tier.",
-      economy: "Tiimo holds no currency, balance or tradable unit of any kind.",
-      social: "Tiimo has no social layer at all.",
-      reach: "Tiimo shares through a stats tab control, a screenshot-triggered social prompt, a knowledge library with expert courses, and a second surface on desktop and web.",
-      monetization: "Tiimo sells through one paywall, a persistent upgrade control, an upsell card on the stats tab, and paid notification timing.",
-      returns:
-        "Tiimo asks for a rating twice before a single task is completed, and runs a fixed daily and weekly notification schedule alongside a streak and level banner toggle.",
-    },
   },
   "royal-match": {
     name: "Royal Match",
     category: "Casual / Match-three",
     type: "game",
-    sectionCards: {
-      onboarding:
-        "Royal Match asks for tracking permission before anything else, then teaches its match-three action directly on the board and hands the user a castle to build before a second level is even cleared.",
-      "core-loop":
-        "Royal Match repeats one bounded level with a target and a move limit, layering assist items, King's Nightmare interludes, and bonus levels on top of the same match-three board.",
-      goals:
-        "Royal Match advances a player level with every cleared level, tracks 152 areas and a set of running profile stats, and stages five separate timed events one after another starting at level 27.",
-      access:
-        "Royal Match withholds teams, the collection, and each assist item behind stated player-level requirements, disclosed unevenly from a full explanation down to a single bare number.",
-      economy:
-        "Royal Match runs two earned balances, stars for the castle and coins for undoing failure, alongside several separate event units that only ever move toward their own next threshold.",
-      social:
-        "Royal Match ranks players and teams on two leaderboards, and inside a joined team, teammates trade lives and card requests under a tournament that pays only the ones who contribute.",
-      reach:
-        "Royal Match saves progress only through a Facebook, Google or Apple sign-in, and gates its one social surface, the friends list, behind that same Facebook connection.",
-      monetization:
-        "Royal Match prices its offers directly against the two moments a level fails, layering a shop, named treasure bundles, and a seasonal pass on top of the same 900-coin shortfall.",
-      returns:
-        "Royal Match times a notification prompt to the user's return, a rating prompt to an early clean run, and a countdown to every one of its five running events.",
-    },
   },
   acorns: {
     name: "Acorns",
     category: "Finance / Automated Investing",
     type: "app",
-    sectionCards: {
-      onboarding:
-        "Acorns runs twenty-six consecutive screens with no way back: choosing a plan, connecting a bank account, verifying identity, and setting up the first roundups and contributions before the dashboard is reached.",
-      "core-loop":
-        "Acorns' core activity is investing money automatically once a bank account is connected: roundups, recurring contributions, and Money Manager all move money into the right account without further input, with portfolio configuration, tax filing, and a standing library of guidance sitting beside them.",
-      goals:
-        "Acorns' progress surfaces are a projected future balance, a retirement contribution measured against an outside limit, and a short course ending in a scored quiz.",
-      access:
-        "Acorns restricts the product to US residents, holds accounts in a pending state until identity is verified, and bounds retirement contributions and custom portfolio choices by rules set outside the product.",
-      economy:
-        "Acorns holds no currency, points, or resource of its own; every quantity it tracks is the user's own money, covered under Core loop and automation instead.",
-      social:
-        "Acorns lets a user name a beneficiary and a trusted contact on the retirement account, and opens Early Invest accounts for children under the same subscription.",
-      reach:
-        "Acorns holds its referral offer permanently in the home screen's top bar, pays a percentage of purchases at outside brands as an investment, and adds a sign-in option after the account already exists.",
-      monetization:
-        "Acorns prices three subscription tiers upfront, backs cancellation with a cheaper fallback plan rather than an exit, and pays two of its four rewards as a plan-tier benefit rather than as a standing rate.",
-      returns:
-        "Nothing in Acorns is built to cause a visit. Every dated statement it makes is set by a settlement window, a verification queue, an offer's own end date, or the IRS.",
-    },
   },
   wakeout: {
     name: "Wakeout",
     category: "Fitness / Movement Reminders",
     type: "app",
-    sectionCards: {
-      onboarding:
-        "Wakeout opens with a sedentary-crisis narrative, secures an Apple Health connection, previews watts and goals before any setup, and creates an account through Apple sign-in alone.",
-      "core-loop":
-        "Wakeout's core loop is built on passive tracking: movement recorded by Apple Health fills the day's watts automatically, topped up by short guided Wakeouts, a searchable pack library, and a work timer that ends focus sprints in a movement break.",
-      goals:
-        "Wakeout's progress surfaces are a daily watts bar with a stretch zone beyond the goal, five difficulty levels that set both figures, and a streak and personal-best record kept alongside them.",
-      access:
-        "Wakeout has no free tier of any kind, and one measurement, standing minutes, is only available with an Apple Watch.",
-      economy:
-        "Wakeout measures all activity in Wakeout Watts, earned from any tracked movement, with an hourly cap and an unobserved bonus hour layered on top.",
-      social:
-        "Empty. No observation involves another identified person inside Wakeout.",
-      reach:
-        "Wakeout's reach outside the app runs through system share controls and Active Pass, which extends the loop to whatever apps the user chooses to restrict on the same phone.",
-      monetization:
-        "Wakeout's paywall opens immediately after onboarding with four plans, extensive persuasion sections, and a discounted gift-subscription offer repeated across the app.",
-      returns:
-        "Wakeout brings users back through configurable reminders, a day-off pause that protects the streak, home and lock screen widgets, and a rating entry Wakeout never triggered.",
-    },
   },
   steam: {
     name: "Steam (iOS)",
     category: "Gaming / Digital Storefront and Community",
     type: "app",
-    sectionCards: {
-      onboarding:
-        "Steam requires an existing account rather than a fresh signup, and moves through camera and notification permissions, a Steam Guard email code, and an authenticator setup with a hand-copied recovery code before the unguided Store becomes the first free choice.",
-      "core-loop":
-        "Steam's loop runs through the Store home, a Discovery Queue that records follow, wishlist and ignore decisions, a Wishlist sorted by price and discount, a per-source muteable News feed, and a Library sorted by recent activity.",
-      goals:
-        "Steam displays a profile level built from badge collection, a Badges page with a seasonal badge upgraded by spending points, and showcase upgrades that add display capacity rather than only changing appearance.",
-      access:
-        "Steam conditions a slice of its Points Shop catalogue on owning the related game, and its security confirmations page was found empty.",
-      economy:
-        "Steam Points accrue automatically at 117 per euro spent on any Steam purchase and fund a wide points-priced catalogue, ownership rules, and bundle discounts.",
-      social:
-        "Community Awards spend points on other users' content, profile viewing shows level and badges to visitors, and friends, groups and community hub areas round out the rest.",
-      reach:
-        "Steam hands chat off entirely to a separate app, references the Steam Deck and PC throughout, and carries share and invite links out to other surfaces.",
-      monetization:
-        "Steam Wallet funding happens outside the App Store, and price and discount framing runs through every Store surface.",
-      returns:
-        "Steam brings users back through sale-related notifications, an event reminder bell, and seasonal badge renewal tied to Summer and Winter Sales.",
-    },
   },
   strava: {
     name: "Strava",
     category: "Fitness / Activity Tracking and Social",
     type: "app",
-    sectionCards: {
-      onboarding:
-        "Strava walks new users through an auto-scrolling carousel, account creation, a run of profiling questions tied to leaderboards and safety, and a subscription pitch, before pushing straight into a first recording.",
-      "core-loop":
-        "Strava's loop is recording an activity and saving it, with a grouped sport selector, a live recording screen, and a save flow that composes the activity for other people to see.",
-      goals:
-        "Strava runs a user-set weekly goal, a profile-completion meter, a fixed thousand-position trophy ladder, graded achievements, browsable segments, and a large challenge catalogue in parallel.",
-      access:
-        "Strava spreads its paywall across the map, the activity, the profile, and the groups area, each met at the point of use rather than declared in advance.",
-      economy:
-        "Strava holds no currency, points balance, or spendable resource of any kind; every incentive is a recorded state, another person's attention, or the subscription.",
-      social:
-        "Strava opens on a populated feed and suggested people before the user follows anyone, and adds clubs, messaging, and segment standing on top.",
-      reach:
-        "Strava's reach outside the app runs mainly through a Runna partnership, brand-run challenges, sharing to outside platforms, and device connections.",
-      monetization:
-        "Strava's paywall is met at nine points with copy matched to each one, behind trial and pricing terms that are stated differently across screens.",
-      returns:
-        "Strava brings users back through a long notification catalogue, a streak at the top of the dashboard, and deadlines tied to challenges and events.",
-    },
   },
   doordash: {
     name: "DoorDash",
     category: "Commerce / Food and Grocery Delivery",
     type: "app",
-    sectionCards: {
-      onboarding:
-        "DoorDash lets a new user browse as a guest from the first screen, asking for permissions and an address before any sign-in is required.",
-      "core-loop":
-        "DoorDash's home screen, search, verticals and store pages all feed one destination, a per-merchant cart, through a long sequence of browsing surfaces.",
-      goals:
-        "A single two-tier reviewer badge is the only progression structure found in the app.",
-      access:
-        "Availability follows the delivery address, and sign-in is required only at checkout and for account-linked surfaces.",
-      economy:
-        "DoorDash credits are a dollar-denominated cashback balance tied to DashPass, not a product-specific currency.",
-      social:
-        "DoorDash's social layer covers three gift routes, a one-time group order, and a reviews-and-photos layer built around a public contributor profile.",
-      reach:
-        "A loyalty-program link, sharing store and group-order links, map-app handoffs and an ads-personalization disclosure each point outside DoorDash.",
-      monetization:
-        "DoorDash names a specific set of fees on every order and pairs each one directly to the DashPass subscription that reduces or removes it.",
-      returns:
-        "A notification request, a notification inbox, and dated offer windows make up a thin return layer.",
-    },
   },
   ladder: {
     name: "Ladder",
     category: "Fitness / Coached Training",
     type: "app",
-    sectionCards: {
-      onboarding:
-        "A tracking prompt, Apple sign-in, a three-part coach video sequence and a team-match filter all run before the user reaches the home screen.",
-      "core-loop":
-        "The weekly plan hub, the welcome workout player and a new nutrition dashboard anchor a loop that opens with one workout and branches into macro tracking.",
-      goals:
-        "A completion badge, profile stats, a Get Started checklist, an upcoming strength series and a nutrition flow ending in a signed commitment sit across this section.",
-      access:
-        "One completed workout unlocks chat, nutrition and the plan at once; three completed workouts unlocks a six-week strength series.",
-      economy:
-        "Empty. Ladder holds no currency, points balance or resource of its own.",
-      social:
-        "A matched coaching team, teammate cheers, team chat, topic groups and city meetups make up the social layer.",
-      reach:
-        "Apple Health sync, a music service connection, and a share-to-Instagram option each carry the user outside Ladder.",
-      monetization:
-        "A seven-day free trial with no credit card required runs on a fixed timeline toward a monthly or annual plan, with no price shown.",
-      returns:
-        "Two notification prompts, a workout reminder, a weekly streak and a fixed Sunday content release bring users back.",
-    },
   },
   freeletics: {
     name: "Freeletics",
     category: "Fitness / AI Coaching",
     type: "app",
-    sectionCards: {
-      onboarding:
-        "A twelve-step questionnaire feeds a stated AI coach, which is shown building a plan twice before account creation and before a discounted offer.",
-      "core-loop":
-        "A calendar of upcoming sessions and a catalogue of workouts sit behind the Coach tab; no workout is started in this analysis.",
-      goals:
-        "A profile level and a workouts-and-achievements area sit on an account with no completed workouts.",
-      access:
-        "Workouts split into an unlocked row and a subscription catalogue, with the training plan itself reachable only through the paywall.",
-      economy:
-        "A reward-credit balance, earned by referring friends, prices a gift card and lifetime app access.",
-      social:
-        "A community feed of the app's own posts, user-created challenges, and a network of other athletes make up the social layer.",
-      reach:
-        "A referral link, a friend-facing six-month offer, and a link to the Freeletics podcast each point outside the app.",
-      monetization:
-        "Three multi-month plans, a default meal-plan add-on, and a time-limited half-price offer make up a paywall reached before any content is delivered.",
-      returns:
-        "A single reminders request is the only return trigger found in the app.",
-    },
   },
   fiton: {
     name: "FitOn",
     category: "Fitness / Workout Video Platform",
     type: "app",
-    sectionCards: {
-      onboarding:
-        "FitOn's onboarding opens with two system permission requests before any screen, then account creation, a personalization funnel, a generated plan, three separate paywalls and the first guided workout.",
-      "core-loop":
-        "FitOn's home screen splits into five tabs covering workouts, articles, meal planning and friends, with live classes and partner content sitting inside the workout catalogue.",
-      goals:
-        "For You and the profile carry FitOn's progress structures: a streak, a workout count, a weekly goal and an achievements catalogue.",
-      access:
-        "One section covers where FitOn marks features as Pro inside a product that is otherwise free to use.",
-      economy:
-        "Empty. FitOn holds no currency, points balance, material or other held quantity with routes that produce or consume it.",
-      social:
-        "The Friends tab is where FitOn's onboarding groups and contacts questions resurface, carrying a workout feed, a group feed and repeated prompts to add friends.",
-      reach:
-        "Partner-branded content, an in-article social prompt and device connections in settings extend FitOn beyond its own screens.",
-      monetization:
-        "Every Pro surface across the app repeats the same 70%-off offer, framed differently each time it appears.",
-      returns:
-        "One control at the top of the home screen is FitOn's own name for what should bring a user back.",
-    },
   },
   gymverse: {
     name: "Gymverse",
     category: "Fitness / Gym Training",
     type: "app",
-    sectionCards: {
-      onboarding:
-        "Gymverse numbers nineteen onboarding screens that build a personalized plan, pairing two population statistics with copy that answers several questions the same way regardless of what's chosen.",
-      "core-loop":
-        "Gymverse's workout runs as a fixed warm-up, exercise, and stretch sequence, with a rest countdown that opens automatically between sets and a calendar that fixes which days carry a workout.",
-      goals:
-        "Gymverse projects a weekly weight adjustment before any training happens, reports muscles worked and what's next on the completion screen, and names an Achievements surface that stays unopened.",
-      access:
-        "Gymverse's seven-day free pass opens every surface it reaches, with no lock, gate, or upgrade prompt found anywhere in the product.",
-      economy: "Gymverse holds no currency, points balance, material, or resource of any kind.",
-      social: "Gymverse has no social layer at all; no other identified person appears anywhere in the product.",
-      reach:
-        "Gymverse composes its own records of the user into shareable images, triggered by a screenshot, a workout completion, and a total activity figure.",
-      monetization:
-        "Gymverse prices its plan before a single exercise is seen, then grants a seven-day free pass with no payment details the moment the paywall is declined.",
-      returns:
-        "Gymverse asks for notification permission with a loss-framed heading, sends a message addressing lapsed training, and keeps workout reminders in settings.",
-    },
   },
   "fc-mobile": {
     name: "FC Mobile",
     category: "Sports / Football management",
     type: "game",
-    sectionCards: {
-      onboarding:
-        "FC Mobile scripts a returning account through a tutorial, a squad build and a first match already won, leaving one control live at a time until the sequence ends without a next step.",
-      "core-loop":
-        "FC Mobile repeats football matches across a dozen named modes, automating movement when the stick is released, on top of a squad developed through training, rank-ups and skill assignments.",
-      goals:
-        "FC Mobile advances an account level, a head-to-head division ladder, a roughly sixty-position Star Pass, league season points, and three named player collections, all at once.",
-      access:
-        "FC Mobile gates the market, leagues, challenge mode and several other features behind stated account levels or match counts, and conditions league membership on team overall and not already belonging to one.",
-      economy:
-        "FC Mobile runs more than a dozen named currencies, most earned through play and spent across a transfer market, two exchanges and a four-part store.",
-      social:
-        "FC Mobile's leagues hold their own season level, quests, tournament and two leaderboard positions, advanced entirely by members' combined activity.",
-      reach:
-        "FC Mobile links out to a promotional website, an offerwall paying for other companies' games, another publisher's advertisement, an outside esports competition, and a video hub.",
-      monetization:
-        "FC Mobile runs a four-part store with three locked purchase ladders, two monthly cards, and probability disclosure that appears on some packs and not others.",
-      returns:
-        "FC Mobile runs two separate daily login calendars, countdowns on nearly every surface, and notifications naming exactly what a return would show.",
-    },
   },
   liftoff: {
     name: "Liftoff",
     category: "Fitness / Strength Ranking",
     type: "app",
-    sectionCards: {
-      onboarding:
-        "A language choice, a guided questionnaire, a first rank assessment, a paywall and its exit offer, and account creation all run before Liftoff's first unguided screen.",
-      "core-loop":
-        "The Workout tab runs logging, posting and history alongside a Nutrition tab for meal logging.",
-      goals:
-        "The Ranks tab holds the strength ladder and its supporting surfaces; Profile carries the account level, medals and home-screen goal setting.",
-      access:
-        "A ranked-leagues requirement and a set of features held for Liftoff Pro make up this section.",
-      economy:
-        "Eggs are Liftoff's one named currency, earned through quests, spent in the store, and also sold directly for money.",
-      social:
-        "Home carries three feeds, and the Ranks and Friends tabs carry leaderboards and other users' profiles.",
-      reach:
-        "A Strava link prompt and referral invitations are Liftoff's two routes outside the app.",
-      monetization:
-        "A seven-day trial, a same-day exit offer and several Pro prompts run across onboarding, the store and the home screen.",
-      returns:
-        "A notification opt-in, a widget prompt, a rating request and the streak all run before or alongside the first workout.",
-    },
   },
   uptime: {
     name: "Uptime",
     category: "Learning / Micro-learning",
     type: "app",
-    sectionCards: {
-      onboarding:
-        "A sign-in screen, a consent line, topic selection, three subscription offers, a notification request and a full first hack all run before Uptime's first unguided screen.",
-      "core-loop":
-        "Opening and reading a hack, saving sparks, and browsing Discover, The Backdrop, collections and Browse make up this section.",
-      goals:
-        "Hours saved, topic growth and the daily streak are the three records Uptime keeps on completed activity, shown together on My Stats.",
-      access:
-        "Premium marks on catalogue items and a photo library permission for saved shares make up this section.",
-      economy:
-        "Empty. Uptime maintains no currency, points, credits, tokens or other held unit that is earned and then spent or exchanged.",
-      social:
-        "Empty. No other identified person appears anywhere in the app.",
-      reach:
-        "Sharing hack content, shareable progress images, an invitation banner and an Amazon link are Uptime's routes outside the app.",
-      monetization:
-        "Three successive subscription offers run across onboarding and the first hack, each against the same stated $69.99 standard price.",
-      returns:
-        "A notification pre-prompt, a daily reminder tied to the streak, and eight notification categories bring the user back.",
-    },
   },
   swgoh: {
     name: "Star Wars: Galaxy of Heroes",
     category: "Collectible RPG",
     type: "game",
-    sectionCards: {
-      onboarding:
-        "A tracking request, a guided first battle, and free starter items run before account details are even asked for.",
-      "core-loop":
-        "Turn-based squad battles run across three campaigns, with auto-battle, sim tickets and a challenges table layered on top.",
-      goals:
-        "Player level, four character upgrade tracks, campaign maps, journey quests, the Episode Track and achievements make up this section.",
-      access:
-        "Player-level gates on nearly every hub table, combined gates on specific features, and gates inside already-open activities make up this section.",
-      economy:
-        "Crystals, credits, ally points, cantina tokens, shards and lightspeed tokens run alongside the store's Bronzium card and shipment tabs.",
-      social:
-        "Allies, borrowed units, ally requests and player profiles run alongside guild and arena surfaces that stay locked throughout.",
-      reach:
-        "EA Connect linking, forum links and an email invitation to become allies are the app's routes outside itself.",
-      monetization:
-        "Starter deal pop-ups, a five-tab store, crystal and Chromium packs, and an Episode Pass make up this section.",
-      returns:
-        "Login rewards, a notification pre-prompt, red badge counters and countdown timers on offers and events bring the player back.",
-    },
   },
   calm: {
     name: "Calm",
     category: "Wellness / Meditation",
     type: "app",
-    sectionCards: {
-      onboarding:
-        "Calm places nine steps between first launch and the first unguided screen, including two separate paywalls before any content is heard.",
-      "core-loop":
-        "Calm's core loop runs through a mostly locked content catalogue and a mood-based recommendation row on Home, with the check-in suite sitting separately inside Profile.",
-      goals:
-        "Calm's stats and streaks are the product's only progression measures, and both move only when a check-in is completed.",
-      access:
-        "A subscription gates nearly everything in Calm's catalogue, with a handful of free exceptions and a few changes that appear only after signing in.",
-      economy:
-        "Calm's economy is a single stated allowance of free listens, with nothing earned, spent, or exchanged anywhere else.",
-      social:
-        "No other identified person appears anywhere inside Calm; every social-shaped surface points outward instead.",
-      reach:
-        "Calm sends a guest pass from two places, composes stats and streaks into outbound shares, and connects to Apple Health from settings.",
-      monetization:
-        "Calm's Pro subscription is offered from at least three separate screens, each with its own framing, discount or trial length.",
-      returns:
-        "Every one of Calm's five check-ins ends by asking when the user will check in again, each with its own preset time and no confirmation once set.",
-    },
   },
   "insight-timer": {
     name: "Insight Timer",
     category: "Wellness / Meditation",
     type: "app",
-    sectionCards: {
-      onboarding:
-        "An opening usage-share claim, four rounds of profiling questions, three consistency-research screens, and a dated well-being prediction all run before any account is created.",
-      "core-loop":
-        "A home screen anchored by a streak, an intention field, and live usage counts feeds into a meditation timer, a completion sequence that includes a check-in, and a stats page that gathers everything into one view.",
-      goals:
-        "A consecutive-day goal chosen at onboarding drives a streak, a milestone countdown, and a stats page that gathers every counted activity into one view.",
-      access:
-        "Account creation asks only for a birth year, Plus content stays visible but locks at the point of use, and setting an intention is blocked until a home screen widget is installed.",
-      economy:
-        "Empty. Insight Timer holds no currency, points, credits, tokens, or other held unit that is earned and then spent or exchanged.",
-      social:
-        "Named groups with admins and a leave control sit alongside open, unmembered surfaces like a gratitude wall and quote comments, with messages and friends left entirely empty.",
-      reach:
-        "A progress share card, group and friend invite links, and routes into real-world retreats and a therapist directory all send the user, or an invitation, outside the app.",
-      monetization:
-        "An onboarding paywall gives way to a free-tier promise, then a trial-extension gift, contextual Plus offers at every locked surface, and a teacher-donation flow.",
-      returns:
-        "A post-practice streak prompt, a set of home screen widgets, and a calendar of live teacher-led events bring the user back.",
-    },
   },
   tripsy: {
     name: "Tripsy",
     category: "Travel / Trip Planning",
     type: "app",
-    sectionCards: {
-      onboarding:
-        "Tripsy's first run moves fast toward Pro before a single trip exists, then offers three separate ways to see the product working: building a trip, forwarding a reservation, or opening a populated example.",
-      "core-loop":
-        "Tripsy's core loop runs on the trip itself: building one by hand through category search, or letting forwarded reservation emails fill it in automatically, then managing its itinerary, documents and expenses from the trip screen.",
-      goals:
-        "Tripsy tracks progress two ways: a simple completed mark on individual activities, and a cumulative travel record kept across every trip in My Tripsy Book.",
-      access:
-        "Every Pro lock in Tripsy sits on top of a fully working free trip, visible but inactive, while an account is required only for the features that leave the device.",
-      economy:
-        "Empty. Tripsy issues no currency, points or resource of its own.",
-      social:
-        "Sharing a trip in Tripsy creates named guest roles rather than a single link, set as view-only or collaborators, with a separate setting controlling whether a shared trip counts as the guest's own.",
-      reach:
-        "Tripsy sends a trip outward through view-only web links, social posts, and a personal forwarding address, and connects inward through Claude, Apple Shortcuts and a TripIt importer.",
-      monetization:
-        "Tripsy's Pro offer appears before any trip exists and keeps reappearing everywhere a locked feature sits, backed by a plan catalogue running from a monthly rate to a one-time lifetime purchase.",
-      returns:
-        "Tripsy asks for notification permission right after account creation, then organizes what it sends into four alert categories alongside trip countdowns, home and lock screen widgets, and a review prompt.",
-    },
   },
   picsart: {
     name: "PicsArt",
     category: "Creative",
     type: "app",
-    sectionCards: {
-      onboarding:
-        "PicsArt asks for tracking permission before sign-in, then places its steepest paywall directly after sign-in, before any onboarding question or tool is seen.",
-      "core-loop":
-        "PicsArt's core loop runs through the Create surface into the image editor, with an AI panel, a save and export menu, and a growing files area layered on top.",
-      goals:
-        "PicsArt's only progression measure is a profile completion percentage with no stated path to finishing it.",
-      access:
-        "PicsArt gates its editor at two different points, a photo library permission at the start of an edit and a purchase request placed at two separate moments depending on the tool.",
-      economy:
-        "PicsArt's economy is a single credit balance, priced separately against each AI tool and topped up only through a subscription.",
-      social:
-        "PicsArt's social layer runs on challenges with voting and a winners' history, creator profiles and following, joinable Spaces, and a feed built from other people's work.",
-      reach:
-        "PicsArt's routes outside the app cover a promoted sister app, invitations, per-project sharing with named people, and save and export destinations.",
-      monetization:
-        "PicsArt's Pro and Plus subscriptions are sold from at least three separate entry points, each framing the same purchase differently.",
-      returns:
-        "PicsArt's return machinery is limited to one in-app push prompt during export and the system notification permission reached from the notification bell.",
-    },
   },
   "fortune-city": {
     name: "Fortune City",
     category: "Finance",
     type: "app",
-    sectionCards: {
-      onboarding:
-        "The first expense comes before any account or permission step, and Kashi's guided city tour teaches its own systems one at a time.",
-      "core-loop":
-        "Recording an expense builds the city; citizens, merges and a daily building cap decide how far one record actually goes.",
-      goals:
-        "A hundred achievements, named thresholds on prosperity and population, building and City Hall levels, and four collections of characters, buildings and vehicles.",
-      access:
-        "Sign-in and the subscription each hold their own separate set of features, from backup and rankings to budgets and trend reports.",
-      economy:
-        "Coins and diamonds are both earned freely and spent on separate ends of the city, with diamonds also sold directly.",
-      social:
-        "Rankings and friends' cities exist behind sign-in.",
-      reach:
-        "Fortune City sits inside a family of apps from the same publisher, sharing a subscription, a sign-in and a set of cross-install achievements.",
-      monetization:
-        "A subscription paywall, five diamond packs, a theme store and four rewarded-ad placements sit alongside interstitials with no reward attached.",
-      returns:
-        "A nightly reminder, a seven-day reward calendar, next-day building capacity and a handful of timed refreshes bring the mayor back.",
-    },
   },
   "chrome-valley-customs": {
     name: "Chrome Valley Customs",
     category: "Puzzle / Meta",
     type: "game",
-    sectionCards: {
-      onboarding:
-        "Fifteen observations carry the player from the App Store listing through a fully guided first car, with five crew characters directing each step before handing over control.",
-      "core-loop":
-        "Winning a puzzle level pays coins that fund the next restoration task on the current car, a loop that repeats through customization choices, crew commentary and the finished reveal.",
-      goals:
-        "A restoration percentage, a puzzle level number, and a scrapbook of 52 episodes track progress across the car being built and the episodes still ahead.",
-      access:
-        "Home screen elements and a showroom's own upgrades each stay locked behind conditions Chrome Valley Customs doesn't state.",
-      economy:
-        "Coins fund the current car alone, gems are sold and earned with no shown use, and hearts and infinite health each bound how play continues.",
-      social:
-        "A global and country leaderboard ranks other players by puzzle level, without stating the viewer's own position.",
-      reach:
-        "A photo mode is the only route that sends anything from Chrome Valley Customs outward.",
-      monetization:
-        "A car-themed bundle, three gem packs and a larger offers catalogue sell gems, power-ups and timed infinite health, all discounted against a stated original price.",
-      returns:
-        "A timed event with a multi-day countdown is the one thing that brings the player back.",
-    },
   },
   "match-creek-motors": {
     name: "Match Creek Motors",
     category: "Puzzle / Meta",
     type: "game",
-    sectionCards: {
-      onboarding:
-        "Fifteen observations carry the player from the App Store listing through a fully guided first project, with the garage's cast directing each step before handing over control.",
-      "core-loop":
-        "Winning a match-three level pays wrenches that fund the next restoration task, a loop that repeats through customization choices, crew comments and a blind sale negotiation.",
-      goals:
-        "Reward boxes on the project track, the project's own completion, a missions map of cars still ahead, and an achievement list all track progress at once.",
-      access:
-        "A player profile and the pre-level breaker selection each stay locked behind conditions Match Creek Motors doesn't fully explain.",
-      economy:
-        "Wrenches fund the current car alone, gold coins are sold and earned with no shown use, and hearts and boosters each sit without a shown consumption rule.",
-      social:
-        "Two named leaderboards rank players by win streak and first-try wins, reached entirely through Apple's Game Center.",
-      reach:
-        "A community link to the studio's social pages and a photo mode with system sharing are the two routes that send anything outward.",
-      monetization:
-        "A coin shop sells four gold coin packs, the only purchase surface reached in this analysis.",
-      returns:
-        "A notification permission request arrives before any game content, the earliest of the app's first-launch screens.",
-    },
   },
   "fifa-panini-collection": {
     name: "FIFA Panini Collection",
     category: "Sports / Collectibles",
     type: "app",
-    sectionCards: {
-      onboarding:
-        "A privacy notice, tracking and notification requests, and a guest-versus-account choice run before the guest reaches an unguided home screen.",
-      "core-loop":
-        "Opening a pack reveals players that get glued into the album or routed to a swap stack, bounded by a daily opening allowance and a cap on open swap requests.",
-      goals:
-        "An album tracked by completion percentage, a tiered achievement badge page, and three numbered challenges all track progress at once.",
-      access:
-        "A guest's allowances, feature locks and the registration path through a FIFA.com account all set what the rest of the app opens up.",
-      economy:
-        "Packs held as a count, and stickers split between an album stack and a swap stack, are the two things FIFA Panini Collection actually holds.",
-      social:
-        "A public swap system the app matches on its own, and a private team of up to ten friends, are the two ways other players enter the app.",
-      reach:
-        "Scanning physical Coca-Cola products and Panini packaging, sharing routes on nearly every screen, and registration through FIFA.com are FIFA Panini Collection's three routes beyond its own screens.",
-      monetization:
-        "A $2 deluxe pack and two purchase-count rewards are the only paid routes, both converging on a keepsake album sold outside the app.",
-      returns:
-        "A daily free pack and a notification permission requested before the home screen are FIFA Panini Collection's two return mechanisms.",
-    },
   },
 };
 
@@ -2132,6 +1618,15 @@ const V41_APP_META = {
 // "apps analysed under the current model," so a v3 app's tags, however
 // suggestive, never count toward it and are never added here.
 const tagNameAppearances = new Map(); // libraryEntryName -> Set(appId)
+
+// Which mechanic-block shape (old or new voice) each v4.1 app's own content
+// file uses, filled as the main loop below runs, read once after it to
+// report the sweep's live progress the same way the held-back merge status
+// is reported. An app can carry a mix — mechanicBlockFields() detects shape
+// per block, not per app — so this records every shape actually seen, not
+// just one. Delete alongside the old-shape parsing branch in
+// parseContentV41 once every app has moved to the new shape.
+const mechanicBlockShapesByApp = new Map(); // appId -> Set("old"|"new")
 
 beginRegenerate("apps");
 for (const entry of ALL_APPS) {
@@ -2145,20 +1640,6 @@ for (const entry of ALL_APPS) {
     }
     const meta = V41_APP_META[entry.id];
     if (!meta) throw new Error(`${entry.id}: no catalog metadata registered in V41_APP_META for this v4.1 app`);
-
-    // sectionCards is z.record-typed in content.config.ts, not the
-    // section-slug enum (deliberately, so lead-ins can be written section
-    // by section — see that schema's own comment) — which means a stale or
-    // mistyped key here doesn't throw anywhere else. It just silently stops
-    // matching at render time and the section card blurb quietly renders
-    // as an empty string. Checked here instead, at the one place all four
-    // apps' sectionCards objects are hand-authored, so a rename or a typo
-    // fails the build instead of shipping a blank card.
-    const currentSlugs = new Set(V41_SECTIONS.map((s) => s.slug));
-    for (const key of Object.keys(meta.sectionCards ?? {})) {
-      if (!currentSlugs.has(key))
-        throw new Error(`${entry.id}: sectionCards has key "${key}", which is not a current section slug`);
-    }
 
     // The analysis supplies only the applied tags and the header dates
     // (spec §1.7); ids are the join back onto the content file's
@@ -2202,15 +1683,26 @@ for (const entry of ALL_APPS) {
     }
     for (const obs of content.observations) obs.tags = a.tagsById.get(obs.id) ?? [];
 
-    // Every tag actually applied to an observation needs a composed block to
-    // render on the summary page (spec §2.1) — a missing one is a real gap,
-    // not something to fall back on. A composed block with no applied tag
-    // behind it is stale content rather than a broken page, so it warns
-    // instead of failing the build.
+    // An applied tag with no composed block is no longer a defect (voice
+    // rewrite, 30 Sep 2026): the friend test can hold a mechanic back when
+    // nothing about it is worth a block, and a held-back mechanic stays
+    // tagged in the analysis with its gap recorded in
+    // sources/coverage/<app>.md instead of forcing a page onto the site.
+    // Noted rather than silent, so a genuinely missing block (one that
+    // should have been written but wasn't) is still visible in build
+    // output — just not fatal to the build.
     const appliedTagNames = new Set(content.observations.flatMap((o) => o.tags.map((t) => t.name)));
     for (const tagName of appliedTagNames) {
       if (!content.mechanicWriteups.some((w) => w.name === tagName))
-        throw new Error(`${entry.file}: applied tag "${tagName}" has no composed mechanic block in the content file`);
+        console.log(`note: ${entry.id} applied tag "${tagName}" has no composed mechanic block — held back by the friend test, or still missing; check sources/coverage/${entry.id}.md`);
+    }
+
+    // Voice-rewrite sweep progress (see mechanicBlockShapesByApp above): a
+    // block is on the new shape once it carries howItWorks, old otherwise —
+    // the same signal the templates use to pick a render path.
+    for (const w of content.mechanicWriteups) {
+      if (!mechanicBlockShapesByApp.has(entry.id)) mechanicBlockShapesByApp.set(entry.id, new Set());
+      mechanicBlockShapesByApp.get(entry.id).add(w.howItWorks ? "new" : "old");
     }
     for (const w of content.mechanicWriteups) {
       if (!appliedTagNames.has(w.name))
@@ -2294,7 +1786,7 @@ for (const entry of ALL_APPS) {
       systemView: content.systemView,
       mechanicWriteups: content.mechanicWriteups,
       sectionLeadIns: content.sectionLeadIns,
-      sectionCards: meta.sectionCards ?? {},
+      sectionCards: content.sectionCards,
       proposedTags: a.proposedTags,
       system: buildSystemMap(entry.id),
     });
@@ -2385,6 +1877,26 @@ for (const entry of ALL_APPS) {
   });
 }
 commitRegenerate("apps");
+
+// Voice-rewrite sweep progress: which mechanic-block shape each v4.1 app is
+// on, computed fresh on every build from mechanicBlockShapesByApp (filled as
+// the main loop ran) rather than tracked by hand — the same reasoning as
+// the held-back merge report below. Delete this report, and
+// mechanicBlockShapesByApp above, once every app prints "new" and the old
+// shape is removed from the parser, schema, and templates.
+{
+  const allOld = [], allNew = [], mixed = [];
+  for (const [appId, shapes] of mechanicBlockShapesByApp) {
+    if (shapes.size === 0) continue; // no mechanic blocks at all — nothing to report
+    if (shapes.has("old") && shapes.has("new")) mixed.push(appId);
+    else if (shapes.has("new")) allNew.push(appId);
+    else allOld.push(appId);
+  }
+  console.log("\nMechanic block shape (voice rewrite sweep):");
+  console.log(`  new shape (${allNew.length}): ${allNew.sort().join(", ") || "none"}`);
+  console.log(`  old shape (${allOld.length}): ${allOld.sort().join(", ") || "none"}`);
+  if (mixed.length) console.log(`  mixed within one app (${mixed.length}): ${mixed.sort().join(", ")}`);
+}
 
 // Each held-back merge's split status, computed fresh on every build rather
 // than hand-maintained (sources/taxonomy-map.md, "The merge-split

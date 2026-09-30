@@ -415,6 +415,28 @@ Royal Match is a complex system built around a single spine: clearing a level. E
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** Royal Match asks for tracking permission before anything else, then teaches its match-three action directly on the board and hands the user a castle to build before a second level is even cleared.
+
+**Core loop and automation:** Royal Match repeats one bounded level with a target and a move limit, layering assist items, King's Nightmare interludes, and bonus levels on top of the same match-three board.
+
+**Goals and progression:** Royal Match advances a player level with every cleared level, tracks 152 areas and a set of running profile stats, and stages five separate timed events one after another starting at level 27.
+
+**Access and eligibility:** Royal Match withholds teams, the collection, and each assist item behind stated player-level requirements, disclosed unevenly from a full explanation down to a single bare number.
+
+**Economy and resources:** Royal Match runs two earned balances, stars for the castle and coins for undoing failure, alongside several separate event units that only ever move toward their own next threshold.
+
+**Social:** Royal Match ranks players and teams on two leaderboards, and inside a joined team, teammates trade lives and card requests under a tournament that pays only the ones who contribute.
+
+**Reach beyond the app:** Royal Match saves progress only through a Facebook, Google or Apple sign-in, and gates its one social surface, the friends list, behind that same Facebook connection.
+
+**Monetization:** Royal Match prices its offers directly against the two moments a level fails, layering a shop, named treasure bundles, and a seasonal pass on top of the same 900-coin shortfall.
+
+**Return triggers:** Royal Match times a notification prompt to the user's return, a rating prompt to an early clean run, and a countdown to every one of its five running events.
+
+---
+
 ## Onboarding and first run
 
 Royal Match's first run moves through a tracking request, a guided first match, and the first two castle-building tasks before leaving the user to explore on their own. This section covers that opening sequence in full.

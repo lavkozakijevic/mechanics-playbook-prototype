@@ -56,6 +56,28 @@ DoorDash is a simple system for engagement-design purposes: its spine is filling
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** DoorDash lets a new user browse as a guest from the first screen, asking for permissions and an address before any sign-in is required.
+
+**Core loop and automation:** DoorDash's home screen, search, verticals and store pages all feed one destination, a per-merchant cart, through a long sequence of browsing surfaces.
+
+**Goals and progression:** A single two-tier reviewer badge is the only progression structure found in the app.
+
+**Access and eligibility:** Availability follows the delivery address, and sign-in is required only at checkout and for account-linked surfaces.
+
+**Economy and resources:** DoorDash credits are a dollar-denominated cashback balance tied to DashPass, not a product-specific currency.
+
+**Social:** DoorDash's social layer covers three gift routes, a one-time group order, and a reviews-and-photos layer built around a public contributor profile.
+
+**Reach beyond the app:** A loyalty-program link, sharing store and group-order links, map-app handoffs and an ads-personalization disclosure each point outside DoorDash.
+
+**Monetization:** DoorDash names a specific set of fees on every order and pairs each one directly to the DashPass subscription that reduces or removes it.
+
+**Return triggers:** A notification request, a notification inbox, and dated offer windows make up a thin return layer.
+
+---
+
 ## Onboarding and first run
 
 DoorDash lets a new user browse as a guest from the first screen, asking for permissions and an address before any sign-in is required.

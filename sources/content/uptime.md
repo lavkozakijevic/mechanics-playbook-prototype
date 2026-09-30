@@ -74,6 +74,28 @@ Uptime is a medium-complexity system whose spine is the first completed hack: fi
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** A sign-in screen, a consent line, topic selection, three subscription offers, a notification request and a full first hack all run before Uptime's first unguided screen.
+
+**Core loop and automation:** Opening and reading a hack, saving sparks, and browsing Discover, The Backdrop, collections and Browse make up this section.
+
+**Goals and progression:** Hours saved, topic growth and the daily streak are the three records Uptime keeps on completed activity, shown together on My Stats.
+
+**Access and eligibility:** Premium marks on catalogue items and a photo library permission for saved shares make up this section.
+
+**Economy and resources:** Empty. Uptime maintains no currency, points, credits, tokens or other held unit that is earned and then spent or exchanged.
+
+**Social:** Empty. No other identified person appears anywhere in the app.
+
+**Reach beyond the app:** Sharing hack content, shareable progress images, an invitation banner and an Amazon link are Uptime's routes outside the app.
+
+**Monetization:** Three successive subscription offers run across onboarding and the first hack, each against the same stated $69.99 standard price.
+
+**Return triggers:** A notification pre-prompt, a daily reminder tied to the streak, and eight notification categories bring the user back.
+
+---
+
 ## Onboarding and first run
 
 A sign-in screen, a consent line, topic selection, three subscription offers, a notification request and a full first hack all run before Uptime's first unguided screen.

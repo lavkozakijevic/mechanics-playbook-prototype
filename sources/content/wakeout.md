@@ -96,6 +96,28 @@ Wakeout is a simple system whose spine is the Apple Health connection secured du
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** Wakeout opens with a sedentary-crisis narrative, secures an Apple Health connection, previews watts and goals before any setup, and creates an account through Apple sign-in alone.
+
+**Core loop and automation:** Wakeout's core loop is built on passive tracking: movement recorded by Apple Health fills the day's watts automatically, topped up by short guided Wakeouts, a searchable pack library, and a work timer that ends focus sprints in a movement break.
+
+**Goals and progression:** Wakeout's progress surfaces are a daily watts bar with a stretch zone beyond the goal, five difficulty levels that set both figures, and a streak and personal-best record kept alongside them.
+
+**Access and eligibility:** Wakeout has no free tier of any kind, and one measurement, standing minutes, is only available with an Apple Watch.
+
+**Economy and resources:** Wakeout measures all activity in Wakeout Watts, earned from any tracked movement, with an hourly cap and an unobserved bonus hour layered on top.
+
+**Social:** Empty. No observation involves another identified person inside Wakeout.
+
+**Reach beyond the app:** Wakeout's reach outside the app runs through system share controls and Active Pass, which extends the loop to whatever apps the user chooses to restrict on the same phone.
+
+**Monetization:** Wakeout's paywall opens immediately after onboarding with four plans, extensive persuasion sections, and a discounted gift-subscription offer repeated across the app.
+
+**Return triggers:** Wakeout brings users back through configurable reminders, a day-off pause that protects the streak, home and lock screen widgets, and a rating entry Wakeout never triggered.
+
+---
+
 ## Onboarding and first run
 
 Wakeout opens with a sedentary-crisis narrative, secures an Apple Health connection, previews watts and goals before any setup, and creates an account through Apple sign-in alone.

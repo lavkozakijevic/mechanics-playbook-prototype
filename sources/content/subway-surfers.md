@@ -225,6 +225,28 @@ Subway Surfers is a complex system. Its spine is the score multiplier: missions 
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** Subway Surfers asks for an age and a tracking permission before anything else, then puts the player straight into a guided first run with no menu in between.
+
+**Core loop and automation:** Subway Surfers' core loop is a run through the subway, ended by being caught, between which the player manages a home screen full of missions, boosts and offers.
+
+**Goals and progression:** The score multiplier is Subway Surfers' one long-term number, raised by missions and read by several of the game's other surfaces.
+
+**Access and eligibility:** Four surfaces in Subway Surfers stay locked behind a stated threshold: Quests, Collections, the Freebird board, and Events.
+
+**Economy and resources:** Subway Surfers runs on two spendable currencies, coins and keys, alongside a separate ad-ticket product and an event-specific currency.
+
+**Social:** Subway Surfers' social surfaces are thin and reward-linked: adding a friend pays a fixed bonus, and a weekly leaderboard compares the player against friends and their country.
+
+**Reach beyond the app:** Two surfaces in Subway Surfers send something outside the game: a shareable player profile, and a photo studio built around the player's own character.
+
+**Monetization:** Subway Surfers' shop sits behind three tabs, Offers, Store and Boosts, with ad-related offers given the store's leading position ahead of the currency packs themselves.
+
+**Return triggers:** Four separate surfaces greet the player on opening Subway Surfers: a login calendar, a fully ad-based rewards track, a timed currency offer, and a daily gift in the store.
+
+---
+
 ## Onboarding and first run
 
 Subway Surfers asks for an age and a tracking permission before anything else, then puts the player straight into a guided first run with no menu in between.

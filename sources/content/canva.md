@@ -94,6 +94,28 @@ Canva is a medium complexity system whose spine is export: the production loop, 
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** Canva asks for tracking consent, creates an account, asks what the product is for, and gets AI training consent before dropping the user straight into a full template catalogue with no tutorial.
+
+**Core loop and automation:** Canva's production loop runs an unrestricted catalogue, editor, and three separate generative tools alongside its document management, all with no capacity limit, cooldown, or schedule anywhere in it.
+
+**Goals and progression:** Canva runs Design School as a separate certification path, tracking course and certificate completions through counters and a tiered badge grid.
+
+**Access and eligibility:** Canva marks premium content with a crown everywhere it appears, locks its brand kit entirely, caps free exports and domains, and defaults to retaining a user's content for its own AI training.
+
+**Economy and resources:** Canva sells a single purchasable credit balance priced against individual premium elements.
+
+**Social:** Canva's sharing, comments, and teams are all scoped to one design or one workspace, with no broader social space.
+
+**Reach beyond the app:** Canva exports designs directly into other companies' products, publishes live websites, and connects to an apps directory and payment integrations.
+
+**Monetization:** Canva prices three separate routes, a trial, a one-off licence, and a credit balance, that all converge at the moment a design is exported.
+
+**Return triggers:** Canva previews its own notifications during onboarding, defaults every marketing channel to on, and interrupts active use with a rating prompt.
+
+---
+
 ## Onboarding and first run
 
 Canva's first run moves through consent, account creation and one setup question before dropping the user into the product with no tutorial. This section covers that opening sequence in full.

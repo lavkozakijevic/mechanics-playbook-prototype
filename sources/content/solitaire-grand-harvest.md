@@ -376,6 +376,28 @@ Solitaire Grand Harvest is a complex system. Its spine is credits: every level c
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** Solitaire Grand Harvest runs through a terms screen and a tracking request before a guided first level, then introduces a second balance, credits, within the first few levels.
+
+**Core loop and automation:** Each level in Solitaire Grand Harvest is a solitaire layout that costs credits to enter, played by moving cards one higher or one lower than a base card, with power-ups, a streak meter and a stake multiplier all sitting around that same core action.
+
+**Goals and progression:** Levels sit on a path that grows crops in sequence, with fixed-level gifts, a win-streak meter and profile stats layered around that same path, and a separate set of tracks, Crop Master, My Trail, the farm and the album, each running its own progression alongside it.
+
+**Access and eligibility:** Player level and farm level each withhold a named set of features until a stated threshold, and a small number of modes and level types carry their own separate conditions.
+
+**Economy and resources:** Solitaire Grand Harvest runs six separate balances, credits, gems, free rounds, puzzle pieces, cookies and crowns, most of them earned through ordinary play and several of them also sold for money.
+
+**Social:** Solitaire Grand Harvest's social surfaces are thin: a friends tab, a team feature behind a level gate, a card-trading notice with no surface behind it, and a race against named characters.
+
+**Reach beyond the app:** Settings offers sign-in through three services, an invite link sends a reward outside the app, and a newsletter sign-up is the first request for an email address encountered.
+
+**Monetization:** Solitaire Grand Harvest's monetization runs through a store, a rotating set of timed offers, a piggy bank, a second paid wheel spin and a small puzzle-piece sale, all selling into the same handful of balances.
+
+**Return triggers:** Solitaire Grand Harvest brings the player back on three separate clocks, daily, hourly and three-hourly, alongside a notification prompt and a set of multi-day event countdowns.
+
+---
+
 ## Onboarding and first run
 
 Solitaire Grand Harvest runs through a terms screen and a tracking request before a guided first level, then introduces a second balance, credits, within the first few levels.

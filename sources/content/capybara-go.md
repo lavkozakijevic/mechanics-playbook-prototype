@@ -352,6 +352,28 @@ Capybara Go! is a complex system. Energy-gated runs sit at its center, and nearl
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** Capybara Go! opens with permission prompts and a long asset download, then drops the player into an unexplained run for almost 20 minutes before anything else is visible.
+
+**Core loop and automation:** Capybara Go! advances a run day by day through automatic battles, in-run choices, and level-up skill picks, then carries gold and materials into permanent upgrades between runs, all gated by an energy and ticket balance and layered with daily and weekly tasks.
+
+**Goals and progression:** Capybara Go! turns gold and materials into talent levels, a rank title, equipment, and pets, each with its own upgrade path.
+
+**Access and eligibility:** Capybara Go! gates nearly everything behind a long sequence of chapter clears and survival-day thresholds.
+
+**Economy and resources:** Capybara Go! runs a large number of named currencies and materials alongside the chests and shops built around collecting and spending them.
+
+**Social:** Capybara Go! offers one ranking list available from the very start, with Friends, Guilds, and Arena still locked behind later chapters.
+
+**Reach beyond the app:** Capybara Go! offers one feature connecting a user outside the app, linking the game account to an external Habby ID.
+
+**Monetization:** Capybara Go! charges through packs, cards, and triggered offers across a four-tab store, alongside ads and a permanent ad-removal purchase.
+
+**Return triggers:** Capybara Go! runs a seven-day sign-in event, two further timed events, and countdowns on nearly every timed surface in the game.
+
+---
+
 ## Onboarding and first run
 
 Capybara Go!'s first minutes run without any explanation: a stack of permission prompts, a long asset download, and then a single uninterrupted run before anything else in the app becomes visible. This section covers that opening sequence and the pop-up-and-pointer pattern the app repeats every time a new feature unlocks afterward.

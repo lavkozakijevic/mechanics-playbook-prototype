@@ -113,6 +113,28 @@ Steam is a medium complexity system organized around Steam Points, a currency ea
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** Steam requires an existing account rather than a fresh signup, and moves through camera and notification permissions, a Steam Guard email code, and an authenticator setup with a hand-copied recovery code before the unguided Store becomes the first free choice.
+
+**Core loop and automation:** Steam's loop runs through the Store home, a Discovery Queue that records follow, wishlist and ignore decisions, a Wishlist sorted by price and discount, a per-source muteable News feed, and a Library sorted by recent activity.
+
+**Goals and progression:** Steam displays a profile level built from badge collection, a Badges page with a seasonal badge upgraded by spending points, and showcase upgrades that add display capacity rather than only changing appearance.
+
+**Access and eligibility:** Steam conditions a slice of its Points Shop catalogue on owning the related game, and its security confirmations page was found empty.
+
+**Economy and resources:** Steam Points accrue automatically at 117 per euro spent on any Steam purchase and fund a wide points-priced catalogue, ownership rules, and bundle discounts.
+
+**Social:** Community Awards spend points on other users' content, profile viewing shows level and badges to visitors, and friends, groups and community hub areas round out the rest.
+
+**Reach beyond the app:** Steam hands chat off entirely to a separate app, references the Steam Deck and PC throughout, and carries share and invite links out to other surfaces.
+
+**Monetization:** Steam Wallet funding happens outside the App Store, and price and discount framing runs through every Store surface.
+
+**Return triggers:** Steam brings users back through sale-related notifications, an event reminder bell, and seasonal badge renewal tied to Summer and Winter Sales.
+
+---
+
 ## Onboarding and first run
 
 Steam requires an existing account rather than a fresh signup, and moves through permission prompts, an email verification code and an authenticator setup before any unguided browsing begins.

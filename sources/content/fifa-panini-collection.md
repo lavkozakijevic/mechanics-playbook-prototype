@@ -168,6 +168,28 @@ This is a medium system. Its spine is the pack: every source of stickers in the 
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** A privacy notice, tracking and notification requests, and a guest-versus-account choice run before the guest reaches an unguided home screen.
+
+**Core loop and automation:** Opening a pack reveals players that get glued into the album or routed to a swap stack, bounded by a daily opening allowance and a cap on open swap requests.
+
+**Goals and progression:** An album tracked by completion percentage, a tiered achievement badge page, and three numbered challenges all track progress at once.
+
+**Access and eligibility:** A guest's allowances, feature locks and the registration path through a FIFA.com account all set what the rest of the app opens up.
+
+**Economy and resources:** Packs held as a count, and stickers split between an album stack and a swap stack, are the two things FIFA Panini Collection actually holds.
+
+**Social:** A public swap system the app matches on its own, and a private team of up to ten friends, are the two ways other players enter the app.
+
+**Reach beyond the app:** Scanning physical Coca-Cola products and Panini packaging, sharing routes on nearly every screen, and registration through FIFA.com are FIFA Panini Collection's three routes beyond its own screens.
+
+**Monetization:** A $2 deluxe pack and two purchase-count rewards are the only paid routes, both converging on a keepsake album sold outside the app.
+
+**Return triggers:** A daily free pack and a notification permission requested before the home screen are FIFA Panini Collection's two return mechanisms.
+
+---
+
 ## Onboarding and first run
 
 FIFA Panini Collection asks for tracking and notification permissions before offering a choice between playing as a guest and registering through a FIFA account. This section covers that opening sequence through to the first unguided home screen.

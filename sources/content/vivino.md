@@ -92,6 +92,28 @@ This is a medium system. Its spine is rating: a single composer action feeds the
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** Sign-in, account details and a plan choice run before the tracking permission and a trial offer greet the user on first arrival at home.
+
+**Core loop and automation:** Scanning a label and searching are the two routes onto a wine's own page, where rating, a cellar, a wishlist, an AI sommelier and food pairing all sit together.
+
+**Goals and progression:** Tried and rated counts across styles, regions and grapes, and a taste profile built from what the account has interacted with, run alongside a fixed rating spine.
+
+**Access and eligibility:** Wine adventures, the scanner's fuller tools and a wine type's own taste preferences each stay locked until Premium or a stated condition is met.
+
+**Economy and resources:** Empty. Vivino holds no product-defined currency, points balance, or other held or earned quantity with faucets and sinks.
+
+**Social:** A contributor's public profile, published reviews and a following system make up a thin social layer built entirely from the same ratings the rest of the app runs on.
+
+**Reach beyond the app:** A shareable wine card, social posting toggles and a shared food pairing message each send something outside the app.
+
+**Monetization:** A three-way plan choice, a benefits comparison and a trial offer with a countdown all lead to the same Premium subscription.
+
+**Return triggers:** A notification permission request and a weekly top-list update notice bring the viewer back on two different clocks.
+
+---
+
 ## Onboarding and first run
 
 Sign-in, account details and a plan choice run before the tracking permission and a trial offer greet the user on first arrival at home.

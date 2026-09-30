@@ -114,6 +114,28 @@ Tiimo is a simple system whose spine is task completion: every completed task mo
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** Tiimo asks for an account, a marketing preference, two profiling questions, and permission for four systems before showing any feature, then hands out a streak and a marker before a single task has been completed.
+
+**Core loop and automation:** Tiimo's day runs on a timeline of tasks created directly or through an AI assistant that turns spoken or typed intent into scheduled tasks, alongside separate to-do lists and a focus timer.
+
+**Goals and progression:** Tiimo tracks a streak of days and a tally of completed tasks, and unlocks a row of named markers built from both.
+
+**Access and eligibility:** Tiimo's free tier covers planning and to-do basics, with the AI co-planner, focus timer, themes and several notification options locked behind its paid tier.
+
+**Economy and resources:** Tiimo holds no currency, balance or tradable unit of any kind.
+
+**Social:** Tiimo has no social layer at all.
+
+**Reach beyond the app:** Tiimo shares through a stats tab control, a screenshot-triggered social prompt, a knowledge library with expert courses, and a second surface on desktop and web.
+
+**Monetization:** Tiimo sells through one paywall, a persistent upgrade control, an upsell card on the stats tab, and paid notification timing.
+
+**Return triggers:** Tiimo asks for a rating twice before a single task is completed, and runs a fixed daily and weekly notification schedule alongside a streak and level banner toggle.
+
+---
+
 ## Onboarding and first run
 
 Tiimo asks for an account, a marketing preference, two profiling questions, and permission for four different systems before showing any feature, then hands out a streak and a marker before a single task has been completed. This section covers that full sequence.

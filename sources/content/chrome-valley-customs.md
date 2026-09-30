@@ -186,6 +186,28 @@ This is a medium system. Its spine is the puzzle level: winning one is the only 
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** Fifteen observations carry the player from the App Store listing through a fully guided first car, with five crew characters directing each step before handing over control.
+
+**Core loop and automation:** Winning a puzzle level pays coins that fund the next restoration task on the current car, a loop that repeats through customization choices, crew commentary and the finished reveal.
+
+**Goals and progression:** A restoration percentage, a puzzle level number, and a scrapbook of 52 episodes track progress across the car being built and the episodes still ahead.
+
+**Access and eligibility:** Home screen elements and a showroom's own upgrades each stay locked behind conditions Chrome Valley Customs doesn't state.
+
+**Economy and resources:** Coins fund the current car alone, gems are sold and earned with no shown use, and hearts and infinite health each bound how play continues.
+
+**Social:** A global and country leaderboard ranks other players by puzzle level, without stating the viewer's own position.
+
+**Reach beyond the app:** A photo mode is the only route that sends anything from Chrome Valley Customs outward.
+
+**Monetization:** A car-themed bundle, three gem packs and a larger offers catalogue sell gems, power-ups and timed infinite health, all discounted against a stated original price.
+
+**Return triggers:** A timed event with a multi-day countdown is the one thing that brings the player back.
+
+---
+
 ## Onboarding and first run
 
 Chrome Valley Customs runs a fully guided first car before handing control to the player. This section covers the App Store listing, first launch, and the guided steps that introduce spending, choices and the puzzle itself.

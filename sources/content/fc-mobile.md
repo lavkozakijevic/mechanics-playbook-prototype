@@ -473,6 +473,28 @@ FC Mobile is a complex system whose spine is the account level: XP from nearly e
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** FC Mobile scripts a returning account through a tutorial, a squad build and a first match already won, leaving one control live at a time until the sequence ends without a next step.
+
+**Core loop and automation:** FC Mobile repeats football matches across a dozen named modes, automating movement when the stick is released, on top of a squad developed through training, rank-ups and skill assignments.
+
+**Goals and progression:** FC Mobile advances an account level, a head-to-head division ladder, a roughly sixty-position Star Pass, league season points, and three named player collections, all at once.
+
+**Access and eligibility:** FC Mobile gates the market, leagues, challenge mode and several other features behind stated account levels or match counts, and conditions league membership on team overall and not already belonging to one.
+
+**Economy and resources:** FC Mobile runs more than a dozen named currencies, most earned through play and spent across a transfer market, two exchanges and a four-part store.
+
+**Social:** FC Mobile's leagues hold their own season level, quests, tournament and two leaderboard positions, advanced entirely by members' combined activity.
+
+**Reach beyond the app:** FC Mobile links out to a promotional website, an offerwall paying for other companies' games, another publisher's advertisement, an outside esports competition, and a video hub.
+
+**Monetization:** FC Mobile runs a four-part store with three locked purchase ladders, two monthly cards, and probability disclosure that appears on some packs and not others.
+
+**Return triggers:** FC Mobile runs two separate daily login calendars, countdowns on nearly every surface, and notifications naming exactly what a return would show.
+
+---
+
 ## Onboarding and first run
 
 This section covers a guided restart for a returning account, with a scripted tutorial, sign-in, squad build and a first match won before the player has made a real choice.

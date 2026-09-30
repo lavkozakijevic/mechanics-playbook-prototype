@@ -54,6 +54,28 @@ Gymverse is a simple system whose spine is the plan: nineteen onboarding screens
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** Gymverse numbers nineteen onboarding screens that build a personalized plan, pairing two population statistics with copy that answers several questions the same way regardless of what's chosen.
+
+**Core loop and automation:** Gymverse's workout runs as a fixed warm-up, exercise, and stretch sequence, with a rest countdown that opens automatically between sets and a calendar that fixes which days carry a workout.
+
+**Goals and progression:** Gymverse projects a weekly weight adjustment before any training happens, reports muscles worked and what's next on the completion screen, and names an Achievements surface that stays unopened.
+
+**Access and eligibility:** Gymverse's seven-day free pass opens every surface it reaches, with no lock, gate, or upgrade prompt found anywhere in the product.
+
+**Economy and resources:** Gymverse holds no currency, points balance, material, or resource of any kind.
+
+**Social:** Gymverse has no social layer at all; no other identified person appears anywhere in the product.
+
+**Reach beyond the app:** Gymverse composes its own records of the user into shareable images, triggered by a screenshot, a workout completion, and a total activity figure.
+
+**Monetization:** Gymverse prices its plan before a single exercise is seen, then grants a seven-day free pass with no payment details the moment the paywall is declined.
+
+**Return triggers:** Gymverse asks for notification permission with a loss-framed heading, sends a message addressing lapsed training, and keeps workout reminders in settings.
+
+---
+
 ## Onboarding and first run
 
 This section covers the nineteen numbered onboarding screens that build Gymverse's plan, framed with population statistics and copy that answers every choice the same way.

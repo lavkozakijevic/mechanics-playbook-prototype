@@ -131,6 +131,28 @@ PicsArt is a medium system. Its spine is the AI-and-credit editing loop: opening
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** PicsArt asks for tracking permission before sign-in, then places its steepest paywall directly after sign-in, before any onboarding question or tool is seen.
+
+**Core loop and automation:** PicsArt's core loop runs through the Create surface into the image editor, with an AI panel, a save and export menu, and a growing files area layered on top.
+
+**Goals and progression:** PicsArt's only progression measure is a profile completion percentage with no stated path to finishing it.
+
+**Access and eligibility:** PicsArt gates its editor at two different points, a photo library permission at the start of an edit and a purchase request placed at two separate moments depending on the tool.
+
+**Economy and resources:** PicsArt's economy is a single credit balance, priced separately against each AI tool and topped up only through a subscription.
+
+**Social:** PicsArt's social layer runs on challenges with voting and a winners' history, creator profiles and following, joinable Spaces, and a feed built from other people's work.
+
+**Reach beyond the app:** PicsArt's routes outside the app cover a promoted sister app, invitations, per-project sharing with named people, and save and export destinations.
+
+**Monetization:** PicsArt's Pro and Plus subscriptions are sold from at least three separate entry points, each framing the same purchase differently.
+
+**Return triggers:** PicsArt's return machinery is limited to one in-app push prompt during export and the system notification permission reached from the notification bell.
+
+---
+
 ## Onboarding and first run
 
 PicsArt asks for tracking permission before sign-in, then places its steepest paywall directly after sign-in, before any onboarding question or tool is seen.

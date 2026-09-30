@@ -117,22 +117,20 @@ export const EXAMPLE_EXCLUDED = new Set([
   "george-app-erste-serbia",
 ]);
 
-// An example may render only when its write-up carries all four parts the card
-// shows (How they use it / Why it works / The detail / Takeaway). A missing
-// part hides the whole example rather than printing a half-filled card. Typed
-// loosely (not App["mechanics"][number]["writeup"] specifically) so the same
-// check covers both v3's writeup and a v4.1 app's composed mechanicWriteup —
-// the four field names are identical between the two shapes.
+// An example may render only when its write-up carries what the two-line
+// card shows (voice rewrite, 30 Sep 2026): the implementation summary as the
+// headline, and a standout line under it. "Standout" prefers the new
+// shape's What stands out and falls back to the old shape's What is worth
+// noting (`noting`) while the sweep runs — the two hold the same role, a
+// product person's takeaway, so the card reads the same regardless of which
+// shape the app's own content file is still on. Typed loosely (not
+// App["mechanics"][number]["writeup"] specifically) so the same check
+// covers both v3's writeup and a v4.1 app's composed mechanicWriteup.
+// Once every app is on the new shape, drop the `noting` fallback.
 function exampleComplete(
-  w: { observed?: string; presented?: string; noting?: string; findings?: string[] } | null | undefined
+  w: { summary?: string; whatStandsOut?: string; noting?: string } | null | undefined
 ) {
-  return !!(
-    w &&
-    w.observed?.trim() &&
-    w.noting?.trim() &&
-    w.presented?.trim() &&
-    w.findings?.[0]?.trim()
-  );
+  return !!(w && w.summary?.trim() && (w.whatStandsOut?.trim() || w.noting?.trim()));
 }
 
 // The one thing that differs between a v3 relationship and a v4.1 tag: where
@@ -196,7 +194,10 @@ export function mechanicStudies(mechanicId: string, apps: App[]) {
               while (slots.length < 2) slots.push({});
               return slots;
             })(),
-        body: locked ? null : [w.observed ?? "", w.noting ?? "", w.presented ?? "", w.findings?.[0] ?? ""],
+        // Two lines (voice rewrite, 30 Sep 2026): the implementation summary
+        // as the headline, What stands out under it — Why it works is
+        // dropped entirely, not carried forward from any shape.
+        narrative: locked ? null : { headline: w.summary ?? "", standout: w.whatStandsOut || w.noting || "" },
       };
     });
 }

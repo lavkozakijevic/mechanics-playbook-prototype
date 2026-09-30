@@ -204,6 +204,28 @@ This is a medium system. Wrenches are the currency every restoration task draws 
 
 ---
 
+## Section cards
+
+**Onboarding and first run:** Fifteen observations carry the player from the App Store listing through a fully guided first project, with the garage's cast directing each step before handing over control.
+
+**Core loop and automation:** Winning a match-three level pays wrenches that fund the next restoration task, a loop that repeats through customization choices, crew comments and a blind sale negotiation.
+
+**Goals and progression:** Reward boxes on the project track, the project's own completion, a missions map of cars still ahead, and an achievement list all track progress at once.
+
+**Access and eligibility:** A player profile and the pre-level breaker selection each stay locked behind conditions Match Creek Motors doesn't fully explain.
+
+**Economy and resources:** Wrenches fund the current car alone, gold coins are sold and earned with no shown use, and hearts and boosters each sit without a shown consumption rule.
+
+**Social:** Two named leaderboards rank players by win streak and first-try wins, reached entirely through Apple's Game Center.
+
+**Reach beyond the app:** A community link to the studio's social pages and a photo mode with system sharing are the two routes that send anything outward.
+
+**Monetization:** A coin shop sells four gold coin packs, the only purchase surface reached in this analysis.
+
+**Return triggers:** A notification permission request arrives before any game content, the earliest of the app's first-launch screens.
+
+---
+
 ## Onboarding and first run
 
 Match Creek Motors runs a fully guided first project before handing control to the player. This section covers the App Store listing, first launch, and the guided steps that introduce spending and choices.
