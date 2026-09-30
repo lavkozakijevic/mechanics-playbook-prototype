@@ -5,7 +5,7 @@
   "type": "app",
   "visibility": "public",
   "analysisDate": "2026-09-14",
-  "lastUpdated": "2026-09-14",
+  "lastUpdated": "2026-09-30",
   "asObserved": "2026-04",
   "appVersion": "None.",
   "summary": "Strava is a fitness tracking app built around recording sports activities and publishing them into a social layer of feeds, followers, clubs, and rankings. The entire system runs off one action: saving a recorded activity, which can fill the home feed, count toward a joined challenge, cross a trophy threshold, produce a personal record, and advance a weekly streak in the same motion. Comparison is scoped tightly, to a shared segment, a rolling 90-day window, or a user's own history, so a beginner's numbers are never measured against the platform's best. Strava carries no in-app economy: nothing is earned, held, or spent as a currency, and the paid tier sits entirely on top of the free recording and social loop rather than beside it.",
@@ -169,7 +169,18 @@
       "section": "onboarding",
       "observed": "Strava offers no route back to a previous screen anywhere in onboarding; answers already given can't be revised until the profile editor is reached later.",
       "detail": [],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Profile Completion",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Strava states a proportion over a set of profile attributes, \"your profile is 80% complete\", with the line \"finalize your profile and choose your email\", and names the profile photo as the next step (O46). The set is optional: the product remained usable with the proportion standing at 80%, since nothing in the set was changed, and the flow closes on \"you can update your information at any time from your profile page\" (O46). The next step carries its own explanation, \"why upload a profile photo? Show your friends it's you with an image of your choice\", which answers the objection to supplying the item rather than describing the field (O46). The remaining 20% is not itemised beyond the named step (O46). The badge stayed in place because nothing was changed, so the proportion persists while the set is incomplete (O46). Two asks that are not members of the set are placed inside the completion flow: the subscription pop-up after the photo step and a contact sync screen before the close (O46, O94, O95, O69). Those asks are classified on their own terms and are not part of this tag. The set was never completed, so whether a full proportion is recognized or changes anything was not observed.",
+          "alternativeConsidered": "A required onboarding flow with a progress figure, which the entry excludes. It is rejected because the product functions with the set incomplete: the proportion stood at 80% while the rest of the product was used, and the flow states that the information can be updated later (O46). Milestone and Achievement were also weighed and do not apply, since no figure between 80% and full produced a response of its own and no attained state was observed; the evidence that would bring either in alongside this tag is a session carried through to a complete set.",
+          "role": "engagement, social"
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -638,7 +649,18 @@
         "The percentage is stated without listing what the remaining share consists of beyond the one named step.",
         "Two further asks, the paywall and the contact sync, sit inside the completion flow rather than being raised on their own."
       ],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Profile Completion",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Strava states a proportion over a set of profile attributes, \"your profile is 80% complete\", with the line \"finalize your profile and choose your email\", and names the profile photo as the next step (O46). The set is optional: the product remained usable with the proportion standing at 80%, since nothing in the set was changed, and the flow closes on \"you can update your information at any time from your profile page\" (O46). The next step carries its own explanation, \"why upload a profile photo? Show your friends it's you with an image of your choice\", which answers the objection to supplying the item rather than describing the field (O46). The remaining 20% is not itemised beyond the named step (O46). The badge stayed in place because nothing was changed, so the proportion persists while the set is incomplete (O46). Two asks that are not members of the set are placed inside the completion flow: the subscription pop-up after the photo step and a contact sync screen before the close (O46, O94, O95, O69). Those asks are classified on their own terms and are not part of this tag. The set was never completed, so whether a full proportion is recognized or changes anything was not observed.",
+          "alternativeConsidered": "A required onboarding flow with a progress figure, which the entry excludes. It is rejected because the product functions with the set incomplete: the proportion stood at 80% while the rest of the product was used, and the flow states that the information can be updated later (O46). Milestone and Achievement were also weighed and do not apply, since no figure between 80% and full produced a response of its own and no attained state was observed; the evidence that would bring either in alongside this tag is a session carried through to a complete set.",
+          "role": "engagement, social"
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -1122,7 +1144,18 @@
         "The outcome, that friends are present, is asserted before access is actually granted.",
         "The button's own wording specifically invokes security for what is an ordinary contacts permission request."
       ],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Profile Completion",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Strava states a proportion over a set of profile attributes, \"your profile is 80% complete\", with the line \"finalize your profile and choose your email\", and names the profile photo as the next step (O46). The set is optional: the product remained usable with the proportion standing at 80%, since nothing in the set was changed, and the flow closes on \"you can update your information at any time from your profile page\" (O46). The next step carries its own explanation, \"why upload a profile photo? Show your friends it's you with an image of your choice\", which answers the objection to supplying the item rather than describing the field (O46). The remaining 20% is not itemised beyond the named step (O46). The badge stayed in place because nothing was changed, so the proportion persists while the set is incomplete (O46). Two asks that are not members of the set are placed inside the completion flow: the subscription pop-up after the photo step and a contact sync screen before the close (O46, O94, O95, O69). Those asks are classified on their own terms and are not part of this tag. The set was never completed, so whether a full proportion is recognized or changes anything was not observed.",
+          "alternativeConsidered": "A required onboarding flow with a progress figure, which the entry excludes. It is rejected because the product functions with the set incomplete: the proportion stood at 80% while the rest of the product was used, and the flow states that the information can be updated later (O46). Milestone and Achievement were also weighed and do not apply, since no figure between 80% and full produced a response of its own and no attained state was observed; the evidence that would bring either in alongside this tag is a session carried through to a complete set.",
+          "role": "engagement, social"
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -1599,7 +1632,18 @@
         "Two of the nine placements follow a completed action rather than an attempted one.",
         "The paywall's copy differs by placement while the underlying offer doesn't."
       ],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Profile Completion",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Strava states a proportion over a set of profile attributes, \"your profile is 80% complete\", with the line \"finalize your profile and choose your email\", and names the profile photo as the next step (O46). The set is optional: the product remained usable with the proportion standing at 80%, since nothing in the set was changed, and the flow closes on \"you can update your information at any time from your profile page\" (O46). The next step carries its own explanation, \"why upload a profile photo? Show your friends it's you with an image of your choice\", which answers the objection to supplying the item rather than describing the field (O46). The remaining 20% is not itemised beyond the named step (O46). The badge stayed in place because nothing was changed, so the proportion persists while the set is incomplete (O46). Two asks that are not members of the set are placed inside the completion flow: the subscription pop-up after the photo step and a contact sync screen before the close (O46, O94, O95, O69). Those asks are classified on their own terms and are not part of this tag. The set was never completed, so whether a full proportion is recognized or changes anything was not observed.",
+          "alternativeConsidered": "A required onboarding flow with a progress figure, which the entry excludes. It is rejected because the product functions with the set incomplete: the proportion stood at 80% while the rest of the product was used, and the flow states that the information can be updated later (O46). Milestone and Achievement were also weighed and do not apply, since no figure between 80% and full produced a response of its own and no attained state was observed; the evidence that would bring either in alongside this tag is a session carried through to a complete set.",
+          "role": "engagement, social"
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -1609,7 +1653,18 @@
       "section": "monetization",
       "observed": "Strava words each paywall around what the user was reaching for: the routes paywall names routes and segment leaderboards, the trophy case paywall speaks to stats and performance, and the activity page and streak calendar blocks both speak to progress and goals. Onboarding and the profile-completion flow use a general habits-and-progress framing instead, since neither follows an attempted feature.",
       "detail": [],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Profile Completion",
+          "confidence": "directly observed",
+          "confidences": [
+            "directly observed"
+          ],
+          "rationale": "Strava states a proportion over a set of profile attributes, \"your profile is 80% complete\", with the line \"finalize your profile and choose your email\", and names the profile photo as the next step (O46). The set is optional: the product remained usable with the proportion standing at 80%, since nothing in the set was changed, and the flow closes on \"you can update your information at any time from your profile page\" (O46). The next step carries its own explanation, \"why upload a profile photo? Show your friends it's you with an image of your choice\", which answers the objection to supplying the item rather than describing the field (O46). The remaining 20% is not itemised beyond the named step (O46). The badge stayed in place because nothing was changed, so the proportion persists while the set is incomplete (O46). Two asks that are not members of the set are placed inside the completion flow: the subscription pop-up after the photo step and a contact sync screen before the close (O46, O94, O95, O69). Those asks are classified on their own terms and are not part of this tag. The set was never completed, so whether a full proportion is recognized or changes anything was not observed.",
+          "alternativeConsidered": "A required onboarding flow with a progress figure, which the entry excludes. It is rejected because the product functions with the set incomplete: the proportion stood at 80% while the rest of the product was used, and the flow states that the information can be updated later (O46). Milestone and Achievement were also weighed and do not apply, since no figure between 80% and full produced a response of its own and no attained state was observed; the evidence that would bring either in alongside this tag is a session carried through to a complete set.",
+          "role": "engagement, social"
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -2083,8 +2138,8 @@
       "draftDefinition": "The product supplies a surface on which the user names their own target for a recurring period, choosing the amount while the product supplies the unit and the period. The target is not completed and retired when it is met: the period ends, the measure returns to zero, and the same target stands again for the next period. That reset is what the pattern is; without it the surface is an ordinary self-set goal.",
       "conditions": "A measure the product already records from ordinary use; a recurring period the product defines, such as a week; a target amount the user chooses rather than receives; a surface the product places in front of the user proposing that they set one; a measurement of activity against the chosen amount within each period; and a boundary at which the measure resets and the same target applies again.",
       "whyNotCovered": "Challenge requires the product to define the success condition, and here the product defines only the unit and the period while the user sets the value; a challenge instance also concludes, where this one recurs. Daily / Weekly Quests requires the product to issue, refresh or release objective instances on a cadence, and nothing is issued: what recurs is the period, not the objective. Milestone requires a threshold the product defines within a progression. The distinguishing features are that the commitment is the user's own and that it repeats on a calendar rather than ending, and no approved entry holds both.",
-      "recurrenceElsewhere": "Savings and budgeting products, learning products, step and activity trackers, reading products and habit products all offer a per-period target the user sets. The structure is describable without reference to this product.",
-      "caveat": "Held, not ready. The reset is the invariant and it was not observed. The session saw the surface and the unit it takes, activities per week, but never set a target, so nothing shows how the product measures against one, what happens at the end of a period, whether an unmet target is recorded, or whether the same target stands again (tier: unresolved). A weekly reset is visible elsewhere in the product, on the snapshot and on every profile's week figures, but that is the product's clock rather than the goal's behavior and does not stand in for it (tier: directly observed). The word goals also appears in paywall copy as a subscription feature, and whether the free surface and the paid feature are the same thing is not established (tier: unresolved). Before this can be written as an entry it needs either a second observed instance in another app, or one session that sets a target and carries it across a period boundary. Until one of those exists the proposal stays open and unwritten."
+      "recurrenceElsewhere": "Savings and budgeting products, learning products, step and activity trackers, reading products and habit products all offer a per-period target the user sets. The structure is describable without reference to this product. On 15 Sep 2026 a second app was recorded as carrying the pattern. The FitOn analysis observes an onboarding question, \"How many times per week do you plan to work out?\" (FitOn O7), a weekly progress screen showing exercise at 0 out of 2 workouts as the weekly goal (FitOn O32), and a badge criterion counting weeks reaching the workout goal (FitOn O33).",
+      "caveat": "Held, not ready. The reset is the invariant and it was not observed. The session saw the surface and the unit it takes, activities per week, but never set a target, so nothing shows how the product measures against one, what happens at the end of a period, whether an unmet target is recorded, or whether the same target stands again (tier: unresolved). A weekly reset is visible elsewhere in the product, on the snapshot and on every profile's week figures, but that is the product's clock rather than the goal's behavior and does not stand in for it (tier: directly observed). The word goals also appears in paywall copy as a subscription feature, and whether the free surface and the paid feature are the same thing is not established (tier: unresolved). Before this can be written as an entry it needs either a second observed instance in another app, or one session that sets a target and carries it across a period boundary. Until one of those exists the proposal stays open and unwritten. Held unchanged on 15 Sep 2026 after the FitOn instance was recorded. The blocker is unchanged: FitOn's sessions do not cross a week boundary with the goal in view either, so the reset remains unobserved in both apps. FitOn's badge criterion states that weeks reaching the goal are counted, which is the product's framing rather than the reset seen operating, and whether FitOn's displayed target of 2 is the user's onboarding answer is not established. The second observed instance named above as one route to settling it has now been met, and it is not sufficient on its own, because both instances leave the reset unobserved. What settles the proposal is one session, in either product, that carries a set target across a period boundary."
     }
   ],
   "system": {

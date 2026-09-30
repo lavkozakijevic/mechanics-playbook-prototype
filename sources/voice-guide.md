@@ -11,6 +11,7 @@
 - One idea per sentence. Short beats long.
 - Put the interesting thing where the reader will see it, stated plainly.
 - Say what the app does, never whether it works. "The puzzle pays for the car" is ours to say. "This keeps players hooked" isn't.
+- Say what a choice was, never what it achieves or why the app made it. "Strava grades its medals gold, silver and bronze" is ours to say. "So an ordinary activity feels exceptional" isn't. State the choice and stop; the reader draws the conclusion.
 
 ## Don't
 

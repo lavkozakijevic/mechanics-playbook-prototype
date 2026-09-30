@@ -5,7 +5,7 @@
   "type": "app",
   "visibility": "public",
   "analysisDate": "2026-06-03",
-  "lastUpdated": "2026-09-09",
+  "lastUpdated": "2026-09-30",
   "asObserved": "2024-10",
   "appVersion": null,
   "summary": "Dave is a banking app built around two things: a Dave Checking account and a small cash advance called Extra Cash, worth up to $500. Almost everything in the app is organized around one decision made early on, connecting the bank account a user is already paid into, since that connection is what Dave uses to decide advance eligibility, and it's also one of the things the $1 monthly membership pays for. Saving happens through round-ups on Dave's own debit card, which flow into a Goals account created automatically the first time round-ups are turned on. Getting paid faster by moving direct deposit to Dave does double duty: it's marketed as arriving up to 2 days early, and it's also how an advance eventually gets repaid.",
@@ -631,7 +631,18 @@
         "The benefit is announced as already active, not offered as something to opt into.",
         "The conditions behind that rate aren't shown up front."
       ],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Piggy Bank",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "The product accumulates identifiable units of value in a reserve held separately from the account the user spends from, and it does so through repeated automatic contributions triggered by ordinary activity. Round-up amounts are taken from purchases made on the product's own debit card and roll into a Goals account that the product creates as a precondition of the automation (tier: directly observed). Goals is listed as its own account alongside checking and extra cash, carries its own available balance, and the product describes the release of that value as taking savings out (tier: directly observed). That the value is restricted from ordinary spending while it sits in Goals is not stated in a single sentence anywhere in the session; it follows from the account separation, the separate balance, and the described withdrawal action (tier: strongly supported). The library's own boundary case for an automatic round-up savings pot resolves in favour of this entry on the same structure, and the reserve holding real user funds rather than bonus rewards does not remove the invariant. The surface passes the engagement-design test independently of being stored value: the product creates the goal for the user, sets a default target, shows a progress bar, prompts a first deposit with minimising language, and offers recurring deposits framed as reaching goals faster (tier: directly observed).",
+          "alternativeConsidered": "That the Goals account is an ordinary savings sub-account and therefore commerce infrastructure carrying no mechanic label. The separating evidence would be whether the Goals balance can be spent directly, for example by card or bill payment, without a transfer back to checking. If it can, the reserve is not restricted and the entry does not apply. The session does not test this, which is why the restriction sits at strongly supported rather than directly observed.",
+          "role": ""
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -646,18 +657,7 @@
         "2 delivery speeds carry 2 different prices.",
         "The account can hold money as well as extend an advance."
       ],
-      "tags": [
-        {
-          "name": "Referral Boost",
-          "confidence": "strongly supported",
-          "confidences": [
-            "strongly supported"
-          ],
-          "rationale": "The product identifies the user as someone who can introduce another person and provides the route, offering controls to share or copy a referral link (tier: directly observed). It defines an action the referring user performs and can perform again, the extra cash advance, and it requires a completion event from both parties: the referring user must have taken and repaid an advance, and the introduced person must repay one, with the product stating explicitly that the qualifying event is the friend's repayment rather than their sign-up (tier: directly observed). Satisfying both conditions grants an enhancement expressed relative to the referring user's own future advance, 20% more up to $100 more, which is a larger amount of the same action rather than a payment (tier: directly observed). Nothing in the session presents the boost as a balance, credit or item the user could hold, spend or transfer; the product describes it only as more on an advance (tier: directly observed). That the enhancement is realisable only by taking another advance, and not separable from it, follows from that framing rather than from any observed application (tier: strongly supported). The entry's own borderline case covers a boost described in copy but never seen operating and resolves presence in favour of the label under the operating card's presence standard, which is why the tag is applied at strongly supported rather than withheld; how the boost is actually delivered is recorded as unresolved below.",
-          "alternativeConsidered": "That the boost is a held credit the user could apply elsewhere, in which case the entry's second exclusion sends it to the applicable currency or credit entry instead. The separating evidence is a session in which a boost is earned and the referring user then takes an advance: if the enhancement appears as a credited balance or as a payment separable from the advance, this tag should be withdrawn. Gifting was also considered and set aside, since the sender directs no benefit to the recipient and neither party's balance changes by an act of the sender.",
-          "role": ""
-        }
-      ],
+      "tags": [],
       "crossRefs": [],
       "screenshots": []
     },
@@ -670,7 +670,18 @@
         "A single checkbox covers 3 documents, the same pattern used for opening checking.",
         "The wait shows propositions again rather than status detail."
       ],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Piggy Bank",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "The product accumulates identifiable units of value in a reserve held separately from the account the user spends from, and it does so through repeated automatic contributions triggered by ordinary activity. Round-up amounts are taken from purchases made on the product's own debit card and roll into a Goals account that the product creates as a precondition of the automation (tier: directly observed). Goals is listed as its own account alongside checking and extra cash, carries its own available balance, and the product describes the release of that value as taking savings out (tier: directly observed). That the value is restricted from ordinary spending while it sits in Goals is not stated in a single sentence anywhere in the session; it follows from the account separation, the separate balance, and the described withdrawal action (tier: strongly supported). The library's own boundary case for an automatic round-up savings pot resolves in favour of this entry on the same structure, and the reserve holding real user funds rather than bonus rewards does not remove the invariant. The surface passes the engagement-design test independently of being stored value: the product creates the goal for the user, sets a default target, shows a progress bar, prompts a first deposit with minimising language, and offers recurring deposits framed as reaching goals faster (tier: directly observed).",
+          "alternativeConsidered": "That the Goals account is an ordinary savings sub-account and therefore commerce infrastructure carrying no mechanic label. The separating evidence would be whether the Goals balance can be spent directly, for example by card or bill payment, without a transfer back to checking. If it can, the reserve is not restricted and the entry does not apply. The session does not test this, which is why the restriction sits at strongly supported rather than directly observed.",
+          "role": ""
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -686,13 +697,13 @@
       ],
       "tags": [
         {
-          "name": "Earning Tasks",
+          "name": "Piggy Bank",
           "confidence": "strongly supported",
           "confidences": [
             "strongly supported"
           ],
-          "rationale": "The product presents, inside its own Grow tab, a catalogue of discrete compensated tasks supplied by a named third party, inBrain AI, and directs payment into the product's own checking account (tier: directly observed). Each listed survey carries both a payout and an estimated completion time before the user begins it, which is the entry's per-task disclosure of compensation and effort; the payout figures for the longer recommended surveys are not legible in the session record, but the quick surveys are listed at $0.45 for about 8 minutes and $0.50 for about 10 minutes and the listing form is the same for every item (tier: directly observed). The catalogue is presented as a repeatable activity rather than a concluded one: a further list is offered after the intro questionnaire, and a disqualified survey is removed while the rest of the list remains (tier: directly observed). The tasks are separate from the product's own core activity of banking, advances and saving (tier: directly observed). The entry requires at least one continuation element layered over the individual tasks, and three are present: a monthly earnings total displayed above the list, an ordered division of the catalogue into recommended, other and quick-survey sections, and the stated progression that higher paying surveys unlock as the user continues (tier: directly observed). The entry's own borderline case describes this exact configuration and resolves in favour of the label. The commercial arrangement itself is excluded by the entry and carries no label here: the supplier relationship, the terms toggle, and the deposit into the checking account are commerce infrastructure and are described in Pass One in plain language (tier: directly observed).",
-          "alternativeConsidered": "That the surveys are a payment arrangement rather than a designed earning loop, and therefore commerce infrastructure to be described in plain language under the entry's first exclusion. The separating evidence is whether a continuation element exists independently of the payment relationship. Here it does: the monthly total, the tiered sections and the stated unlock are product-side presentation that would remain if the payout amounts were unchanged, which is what the exclusion carves out as classifiable. Rewarded Advertisement was also considered and set aside, since compensation follows performance of the survey rather than engagement with a promotional unit.",
+          "rationale": "The product accumulates identifiable units of value in a reserve held separately from the account the user spends from, and it does so through repeated automatic contributions triggered by ordinary activity. Round-up amounts are taken from purchases made on the product's own debit card and roll into a Goals account that the product creates as a precondition of the automation (tier: directly observed). Goals is listed as its own account alongside checking and extra cash, carries its own available balance, and the product describes the release of that value as taking savings out (tier: directly observed). That the value is restricted from ordinary spending while it sits in Goals is not stated in a single sentence anywhere in the session; it follows from the account separation, the separate balance, and the described withdrawal action (tier: strongly supported). The library's own boundary case for an automatic round-up savings pot resolves in favour of this entry on the same structure, and the reserve holding real user funds rather than bonus rewards does not remove the invariant. The surface passes the engagement-design test independently of being stored value: the product creates the goal for the user, sets a default target, shows a progress bar, prompts a first deposit with minimising language, and offers recurring deposits framed as reaching goals faster (tier: directly observed).",
+          "alternativeConsidered": "That the Goals account is an ordinary savings sub-account and therefore commerce infrastructure carrying no mechanic label. The separating evidence would be whether the Goals balance can be spent directly, for example by card or bill payment, without a transfer back to checking. If it can, the reserve is not restricted and the entry does not apply. The session does not test this, which is why the restriction sits at strongly supported rather than directly observed.",
           "role": ""
         }
       ],
@@ -709,18 +720,7 @@
         "Disqualification is disclosed before the first survey, not just when it happens.",
         "A partial reward is promised for disqualification, without an amount attached."
       ],
-      "tags": [
-        {
-          "name": "Earning Tasks",
-          "confidence": "strongly supported",
-          "confidences": [
-            "strongly supported"
-          ],
-          "rationale": "The product presents, inside its own Grow tab, a catalogue of discrete compensated tasks supplied by a named third party, inBrain AI, and directs payment into the product's own checking account (tier: directly observed). Each listed survey carries both a payout and an estimated completion time before the user begins it, which is the entry's per-task disclosure of compensation and effort; the payout figures for the longer recommended surveys are not legible in the session record, but the quick surveys are listed at $0.45 for about 8 minutes and $0.50 for about 10 minutes and the listing form is the same for every item (tier: directly observed). The catalogue is presented as a repeatable activity rather than a concluded one: a further list is offered after the intro questionnaire, and a disqualified survey is removed while the rest of the list remains (tier: directly observed). The tasks are separate from the product's own core activity of banking, advances and saving (tier: directly observed). The entry requires at least one continuation element layered over the individual tasks, and three are present: a monthly earnings total displayed above the list, an ordered division of the catalogue into recommended, other and quick-survey sections, and the stated progression that higher paying surveys unlock as the user continues (tier: directly observed). The entry's own borderline case describes this exact configuration and resolves in favour of the label. The commercial arrangement itself is excluded by the entry and carries no label here: the supplier relationship, the terms toggle, and the deposit into the checking account are commerce infrastructure and are described in Pass One in plain language (tier: directly observed).",
-          "alternativeConsidered": "That the surveys are a payment arrangement rather than a designed earning loop, and therefore commerce infrastructure to be described in plain language under the entry's first exclusion. The separating evidence is whether a continuation element exists independently of the payment relationship. Here it does: the monthly total, the tiered sections and the stated unlock are product-side presentation that would remain if the payout amounts were unchanged, which is what the exclusion carves out as classifiable. Rewarded Advertisement was also considered and set aside, since compensation follows performance of the survey rather than engagement with a promotional unit.",
-          "role": ""
-        }
-      ],
+      "tags": [],
       "crossRefs": [],
       "screenshots": []
     },
@@ -735,13 +735,13 @@
       ],
       "tags": [
         {
-          "name": "Earning Tasks",
+          "name": "Piggy Bank",
           "confidence": "strongly supported",
           "confidences": [
             "strongly supported"
           ],
-          "rationale": "The product presents, inside its own Grow tab, a catalogue of discrete compensated tasks supplied by a named third party, inBrain AI, and directs payment into the product's own checking account (tier: directly observed). Each listed survey carries both a payout and an estimated completion time before the user begins it, which is the entry's per-task disclosure of compensation and effort; the payout figures for the longer recommended surveys are not legible in the session record, but the quick surveys are listed at $0.45 for about 8 minutes and $0.50 for about 10 minutes and the listing form is the same for every item (tier: directly observed). The catalogue is presented as a repeatable activity rather than a concluded one: a further list is offered after the intro questionnaire, and a disqualified survey is removed while the rest of the list remains (tier: directly observed). The tasks are separate from the product's own core activity of banking, advances and saving (tier: directly observed). The entry requires at least one continuation element layered over the individual tasks, and three are present: a monthly earnings total displayed above the list, an ordered division of the catalogue into recommended, other and quick-survey sections, and the stated progression that higher paying surveys unlock as the user continues (tier: directly observed). The entry's own borderline case describes this exact configuration and resolves in favour of the label. The commercial arrangement itself is excluded by the entry and carries no label here: the supplier relationship, the terms toggle, and the deposit into the checking account are commerce infrastructure and are described in Pass One in plain language (tier: directly observed).",
-          "alternativeConsidered": "That the surveys are a payment arrangement rather than a designed earning loop, and therefore commerce infrastructure to be described in plain language under the entry's first exclusion. The separating evidence is whether a continuation element exists independently of the payment relationship. Here it does: the monthly total, the tiered sections and the stated unlock are product-side presentation that would remain if the payout amounts were unchanged, which is what the exclusion carves out as classifiable. Rewarded Advertisement was also considered and set aside, since compensation follows performance of the survey rather than engagement with a promotional unit.",
+          "rationale": "The product accumulates identifiable units of value in a reserve held separately from the account the user spends from, and it does so through repeated automatic contributions triggered by ordinary activity. Round-up amounts are taken from purchases made on the product's own debit card and roll into a Goals account that the product creates as a precondition of the automation (tier: directly observed). Goals is listed as its own account alongside checking and extra cash, carries its own available balance, and the product describes the release of that value as taking savings out (tier: directly observed). That the value is restricted from ordinary spending while it sits in Goals is not stated in a single sentence anywhere in the session; it follows from the account separation, the separate balance, and the described withdrawal action (tier: strongly supported). The library's own boundary case for an automatic round-up savings pot resolves in favour of this entry on the same structure, and the reserve holding real user funds rather than bonus rewards does not remove the invariant. The surface passes the engagement-design test independently of being stored value: the product creates the goal for the user, sets a default target, shows a progress bar, prompts a first deposit with minimising language, and offers recurring deposits framed as reaching goals faster (tier: directly observed).",
+          "alternativeConsidered": "That the Goals account is an ordinary savings sub-account and therefore commerce infrastructure carrying no mechanic label. The separating evidence would be whether the Goals balance can be spent directly, for example by card or bill payment, without a transfer back to checking. If it can, the reserve is not restricted and the entry does not apply. The session does not test this, which is why the restriction sits at strongly supported rather than directly observed.",
           "role": ""
         }
       ],
@@ -761,13 +761,13 @@
       ],
       "tags": [
         {
-          "name": "Earning Tasks",
+          "name": "Piggy Bank",
           "confidence": "strongly supported",
           "confidences": [
             "strongly supported"
           ],
-          "rationale": "The product presents, inside its own Grow tab, a catalogue of discrete compensated tasks supplied by a named third party, inBrain AI, and directs payment into the product's own checking account (tier: directly observed). Each listed survey carries both a payout and an estimated completion time before the user begins it, which is the entry's per-task disclosure of compensation and effort; the payout figures for the longer recommended surveys are not legible in the session record, but the quick surveys are listed at $0.45 for about 8 minutes and $0.50 for about 10 minutes and the listing form is the same for every item (tier: directly observed). The catalogue is presented as a repeatable activity rather than a concluded one: a further list is offered after the intro questionnaire, and a disqualified survey is removed while the rest of the list remains (tier: directly observed). The tasks are separate from the product's own core activity of banking, advances and saving (tier: directly observed). The entry requires at least one continuation element layered over the individual tasks, and three are present: a monthly earnings total displayed above the list, an ordered division of the catalogue into recommended, other and quick-survey sections, and the stated progression that higher paying surveys unlock as the user continues (tier: directly observed). The entry's own borderline case describes this exact configuration and resolves in favour of the label. The commercial arrangement itself is excluded by the entry and carries no label here: the supplier relationship, the terms toggle, and the deposit into the checking account are commerce infrastructure and are described in Pass One in plain language (tier: directly observed).",
-          "alternativeConsidered": "That the surveys are a payment arrangement rather than a designed earning loop, and therefore commerce infrastructure to be described in plain language under the entry's first exclusion. The separating evidence is whether a continuation element exists independently of the payment relationship. Here it does: the monthly total, the tiered sections and the stated unlock are product-side presentation that would remain if the payout amounts were unchanged, which is what the exclusion carves out as classifiable. Rewarded Advertisement was also considered and set aside, since compensation follows performance of the survey rather than engagement with a promotional unit.",
+          "rationale": "The product accumulates identifiable units of value in a reserve held separately from the account the user spends from, and it does so through repeated automatic contributions triggered by ordinary activity. Round-up amounts are taken from purchases made on the product's own debit card and roll into a Goals account that the product creates as a precondition of the automation (tier: directly observed). Goals is listed as its own account alongside checking and extra cash, carries its own available balance, and the product describes the release of that value as taking savings out (tier: directly observed). That the value is restricted from ordinary spending while it sits in Goals is not stated in a single sentence anywhere in the session; it follows from the account separation, the separate balance, and the described withdrawal action (tier: strongly supported). The library's own boundary case for an automatic round-up savings pot resolves in favour of this entry on the same structure, and the reserve holding real user funds rather than bonus rewards does not remove the invariant. The surface passes the engagement-design test independently of being stored value: the product creates the goal for the user, sets a default target, shows a progress bar, prompts a first deposit with minimising language, and offers recurring deposits framed as reaching goals faster (tier: directly observed).",
+          "alternativeConsidered": "That the Goals account is an ordinary savings sub-account and therefore commerce infrastructure carrying no mechanic label. The separating evidence would be whether the Goals balance can be spent directly, for example by card or bill payment, without a transfer back to checking. If it can, the reserve is not restricted and the entry does not apply. The session does not test this, which is why the restriction sits at strongly supported rather than directly observed.",
           "role": ""
         }
       ],
@@ -787,13 +787,13 @@
       ],
       "tags": [
         {
-          "name": "Earning Tasks",
+          "name": "Piggy Bank",
           "confidence": "strongly supported",
           "confidences": [
             "strongly supported"
           ],
-          "rationale": "The product presents, inside its own Grow tab, a catalogue of discrete compensated tasks supplied by a named third party, inBrain AI, and directs payment into the product's own checking account (tier: directly observed). Each listed survey carries both a payout and an estimated completion time before the user begins it, which is the entry's per-task disclosure of compensation and effort; the payout figures for the longer recommended surveys are not legible in the session record, but the quick surveys are listed at $0.45 for about 8 minutes and $0.50 for about 10 minutes and the listing form is the same for every item (tier: directly observed). The catalogue is presented as a repeatable activity rather than a concluded one: a further list is offered after the intro questionnaire, and a disqualified survey is removed while the rest of the list remains (tier: directly observed). The tasks are separate from the product's own core activity of banking, advances and saving (tier: directly observed). The entry requires at least one continuation element layered over the individual tasks, and three are present: a monthly earnings total displayed above the list, an ordered division of the catalogue into recommended, other and quick-survey sections, and the stated progression that higher paying surveys unlock as the user continues (tier: directly observed). The entry's own borderline case describes this exact configuration and resolves in favour of the label. The commercial arrangement itself is excluded by the entry and carries no label here: the supplier relationship, the terms toggle, and the deposit into the checking account are commerce infrastructure and are described in Pass One in plain language (tier: directly observed).",
-          "alternativeConsidered": "That the surveys are a payment arrangement rather than a designed earning loop, and therefore commerce infrastructure to be described in plain language under the entry's first exclusion. The separating evidence is whether a continuation element exists independently of the payment relationship. Here it does: the monthly total, the tiered sections and the stated unlock are product-side presentation that would remain if the payout amounts were unchanged, which is what the exclusion carves out as classifiable. Rewarded Advertisement was also considered and set aside, since compensation follows performance of the survey rather than engagement with a promotional unit.",
+          "rationale": "The product accumulates identifiable units of value in a reserve held separately from the account the user spends from, and it does so through repeated automatic contributions triggered by ordinary activity. Round-up amounts are taken from purchases made on the product's own debit card and roll into a Goals account that the product creates as a precondition of the automation (tier: directly observed). Goals is listed as its own account alongside checking and extra cash, carries its own available balance, and the product describes the release of that value as taking savings out (tier: directly observed). That the value is restricted from ordinary spending while it sits in Goals is not stated in a single sentence anywhere in the session; it follows from the account separation, the separate balance, and the described withdrawal action (tier: strongly supported). The library's own boundary case for an automatic round-up savings pot resolves in favour of this entry on the same structure, and the reserve holding real user funds rather than bonus rewards does not remove the invariant. The surface passes the engagement-design test independently of being stored value: the product creates the goal for the user, sets a default target, shows a progress bar, prompts a first deposit with minimising language, and offers recurring deposits framed as reaching goals faster (tier: directly observed).",
+          "alternativeConsidered": "That the Goals account is an ordinary savings sub-account and therefore commerce infrastructure carrying no mechanic label. The separating evidence would be whether the Goals balance can be spent directly, for example by card or bill payment, without a transfer back to checking. If it can, the reserve is not restricted and the entry does not apply. The session does not test this, which is why the restriction sits at strongly supported rather than directly observed.",
           "role": ""
         }
       ],
@@ -810,18 +810,7 @@
         "Topic and length are restated right before starting.",
         "One available survey covered food and beverage, about 10 minutes."
       ],
-      "tags": [
-        {
-          "name": "Earning Tasks",
-          "confidence": "strongly supported",
-          "confidences": [
-            "strongly supported"
-          ],
-          "rationale": "The product presents, inside its own Grow tab, a catalogue of discrete compensated tasks supplied by a named third party, inBrain AI, and directs payment into the product's own checking account (tier: directly observed). Each listed survey carries both a payout and an estimated completion time before the user begins it, which is the entry's per-task disclosure of compensation and effort; the payout figures for the longer recommended surveys are not legible in the session record, but the quick surveys are listed at $0.45 for about 8 minutes and $0.50 for about 10 minutes and the listing form is the same for every item (tier: directly observed). The catalogue is presented as a repeatable activity rather than a concluded one: a further list is offered after the intro questionnaire, and a disqualified survey is removed while the rest of the list remains (tier: directly observed). The tasks are separate from the product's own core activity of banking, advances and saving (tier: directly observed). The entry requires at least one continuation element layered over the individual tasks, and three are present: a monthly earnings total displayed above the list, an ordered division of the catalogue into recommended, other and quick-survey sections, and the stated progression that higher paying surveys unlock as the user continues (tier: directly observed). The entry's own borderline case describes this exact configuration and resolves in favour of the label. The commercial arrangement itself is excluded by the entry and carries no label here: the supplier relationship, the terms toggle, and the deposit into the checking account are commerce infrastructure and are described in Pass One in plain language (tier: directly observed).",
-          "alternativeConsidered": "That the surveys are a payment arrangement rather than a designed earning loop, and therefore commerce infrastructure to be described in plain language under the entry's first exclusion. The separating evidence is whether a continuation element exists independently of the payment relationship. Here it does: the monthly total, the tiered sections and the stated unlock are product-side presentation that would remain if the payout amounts were unchanged, which is what the exclusion carves out as classifiable. Rewarded Advertisement was also considered and set aside, since compensation follows performance of the survey rather than engagement with a promotional unit.",
-          "role": ""
-        }
-      ],
+      "tags": [],
       "crossRefs": [],
       "screenshots": []
     },
@@ -837,13 +826,13 @@
       ],
       "tags": [
         {
-          "name": "Earning Tasks",
+          "name": "Referral",
           "confidence": "strongly supported",
           "confidences": [
             "strongly supported"
           ],
-          "rationale": "The product presents, inside its own Grow tab, a catalogue of discrete compensated tasks supplied by a named third party, inBrain AI, and directs payment into the product's own checking account (tier: directly observed). Each listed survey carries both a payout and an estimated completion time before the user begins it, which is the entry's per-task disclosure of compensation and effort; the payout figures for the longer recommended surveys are not legible in the session record, but the quick surveys are listed at $0.45 for about 8 minutes and $0.50 for about 10 minutes and the listing form is the same for every item (tier: directly observed). The catalogue is presented as a repeatable activity rather than a concluded one: a further list is offered after the intro questionnaire, and a disqualified survey is removed while the rest of the list remains (tier: directly observed). The tasks are separate from the product's own core activity of banking, advances and saving (tier: directly observed). The entry requires at least one continuation element layered over the individual tasks, and three are present: a monthly earnings total displayed above the list, an ordered division of the catalogue into recommended, other and quick-survey sections, and the stated progression that higher paying surveys unlock as the user continues (tier: directly observed). The entry's own borderline case describes this exact configuration and resolves in favour of the label. The commercial arrangement itself is excluded by the entry and carries no label here: the supplier relationship, the terms toggle, and the deposit into the checking account are commerce infrastructure and are described in Pass One in plain language (tier: directly observed).",
-          "alternativeConsidered": "That the surveys are a payment arrangement rather than a designed earning loop, and therefore commerce infrastructure to be described in plain language under the entry's first exclusion. The separating evidence is whether a continuation element exists independently of the payment relationship. Here it does: the monthly total, the tiered sections and the stated unlock are product-side presentation that would remain if the payout amounts were unchanged, which is what the exclusion carves out as classifiable. Rewarded Advertisement was also considered and set aside, since compensation follows performance of the survey rather than engagement with a promotional unit.",
+          "rationale": "The product identifies the user as someone who can introduce another person and provides the route, offering controls to share or copy a referral link (tier: directly observed). It defines an action the referring user performs and can perform again, the extra cash advance, and it requires a completion event from both parties: the referring user must have taken and repaid an advance, and the introduced person must repay one, with the product stating explicitly that the qualifying event is the friend's repayment rather than their sign-up (tier: directly observed). Satisfying both conditions grants an enhancement expressed relative to the referring user's own future advance, 20% more up to $100 more, which is a larger amount of the same action rather than a payment (tier: directly observed). Nothing in the session presents the boost as a balance, credit or item the user could hold, spend or transfer; the product describes it only as more on an advance (tier: directly observed). That the enhancement is realisable only by taking another advance, and not separable from it, follows from that framing rather than from any observed application (tier: strongly supported). The entry's own borderline case covers a boost described in copy but never seen operating and resolves presence in favour of the label under the operating card's presence standard, which is why the tag is applied at strongly supported rather than withheld; how the boost is actually delivered is recorded as unresolved below.",
+          "alternativeConsidered": "That the boost is a held credit the user could apply elsewhere, in which case the entry's second exclusion sends it to the applicable currency or credit entry instead. The separating evidence is a session in which a boost is earned and the referring user then takes an advance: if the enhancement appears as a credited balance or as a payment separable from the advance, this tag should be withdrawn. Gifting was also considered and set aside, since the sender directs no benefit to the recipient and neither party's balance changes by an act of the sender.",
           "role": ""
         }
       ],
@@ -858,18 +847,7 @@
       "detail": [
         "Disqualification comes up often enough to have its own FAQ entry."
       ],
-      "tags": [
-        {
-          "name": "Earning Tasks",
-          "confidence": "strongly supported",
-          "confidences": [
-            "strongly supported"
-          ],
-          "rationale": "The product presents, inside its own Grow tab, a catalogue of discrete compensated tasks supplied by a named third party, inBrain AI, and directs payment into the product's own checking account (tier: directly observed). Each listed survey carries both a payout and an estimated completion time before the user begins it, which is the entry's per-task disclosure of compensation and effort; the payout figures for the longer recommended surveys are not legible in the session record, but the quick surveys are listed at $0.45 for about 8 minutes and $0.50 for about 10 minutes and the listing form is the same for every item (tier: directly observed). The catalogue is presented as a repeatable activity rather than a concluded one: a further list is offered after the intro questionnaire, and a disqualified survey is removed while the rest of the list remains (tier: directly observed). The tasks are separate from the product's own core activity of banking, advances and saving (tier: directly observed). The entry requires at least one continuation element layered over the individual tasks, and three are present: a monthly earnings total displayed above the list, an ordered division of the catalogue into recommended, other and quick-survey sections, and the stated progression that higher paying surveys unlock as the user continues (tier: directly observed). The entry's own borderline case describes this exact configuration and resolves in favour of the label. The commercial arrangement itself is excluded by the entry and carries no label here: the supplier relationship, the terms toggle, and the deposit into the checking account are commerce infrastructure and are described in Pass One in plain language (tier: directly observed).",
-          "alternativeConsidered": "That the surveys are a payment arrangement rather than a designed earning loop, and therefore commerce infrastructure to be described in plain language under the entry's first exclusion. The separating evidence is whether a continuation element exists independently of the payment relationship. Here it does: the monthly total, the tiered sections and the stated unlock are product-side presentation that would remain if the payout amounts were unchanged, which is what the exclusion carves out as classifiable. Rewarded Advertisement was also considered and set aside, since compensation follows performance of the survey rather than engagement with a promotional unit.",
-          "role": ""
-        }
-      ],
+      "tags": [],
       "crossRefs": [],
       "screenshots": []
     },
@@ -882,7 +860,18 @@
         "The stated reasons for the permission, ATMs and fraud protection, aren't what this surface is actually for.",
         "The prompt appears at the entrance to the job feature, not the ATM feature."
       ],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Referral",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "The product identifies the user as someone who can introduce another person and provides the route, offering controls to share or copy a referral link (tier: directly observed). It defines an action the referring user performs and can perform again, the extra cash advance, and it requires a completion event from both parties: the referring user must have taken and repaid an advance, and the introduced person must repay one, with the product stating explicitly that the qualifying event is the friend's repayment rather than their sign-up (tier: directly observed). Satisfying both conditions grants an enhancement expressed relative to the referring user's own future advance, 20% more up to $100 more, which is a larger amount of the same action rather than a payment (tier: directly observed). Nothing in the session presents the boost as a balance, credit or item the user could hold, spend or transfer; the product describes it only as more on an advance (tier: directly observed). That the enhancement is realisable only by taking another advance, and not separable from it, follows from that framing rather than from any observed application (tier: strongly supported). The entry's own borderline case covers a boost described in copy but never seen operating and resolves presence in favour of the label under the operating card's presence standard, which is why the tag is applied at strongly supported rather than withheld; how the boost is actually delivered is recorded as unresolved below.",
+          "alternativeConsidered": "That the boost is a held credit the user could apply elsewhere, in which case the entry's second exclusion sends it to the applicable currency or credit entry instead. The separating evidence is a session in which a boost is earned and the referring user then takes an advance: if the enhancement appears as a credited balance or as a payment separable from the advance, this tag should be withdrawn. Gifting was also considered and set aside, since the sender directs no benefit to the recipient and neither party's balance changes by an act of the sender.",
+          "role": ""
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -909,6 +898,34 @@
         "The distance filter is likely what the earlier location permission enables, though Dave doesn't show the two connected directly.",
         "The listings shown are for the US market."
       ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O57",
+      "name": "Dave suggests the first goal",
+      "section": "goals",
+      "observed": "Once the Goals account is open, Dave hands the user a goal that's already running, round-ups switched on and a savings target of $75 set by default. It invites the user to personalize the title, amount, and end date afterward, and offers a recurring deposit as a way to reach it faster.",
+      "detail": [
+        "The goal exists before the user has defined anything about it.",
+        "The default target is $75.",
+        "Round-up is already switched on for this goal.",
+        "Title, amount, and end date are editable."
+      ],
+      "tags": [],
+      "crossRefs": [],
+      "screenshots": []
+    },
+    {
+      "id": "O58",
+      "name": "Personalizing an empty goal",
+      "section": "goals",
+      "observed": "Dave lets users edit the title, amount, and banner image of a goal from its detail screen, before any money has been added to it.",
+      "detail": [
+        "The banner image is editable right from the goal detail screen.",
+        "Personalization is offered while the goal balance still sits at zero."
+      ],
       "tags": [
         {
           "name": "Earning Tasks",
@@ -925,45 +942,6 @@
       "screenshots": []
     },
     {
-      "id": "O57",
-      "name": "Dave suggests the first goal",
-      "section": "goals",
-      "observed": "Once the Goals account is open, Dave hands the user a goal that's already running, round-ups switched on and a savings target of $75 set by default. It invites the user to personalize the title, amount, and end date afterward, and offers a recurring deposit as a way to reach it faster.",
-      "detail": [
-        "The goal exists before the user has defined anything about it.",
-        "The default target is $75.",
-        "Round-up is already switched on for this goal.",
-        "Title, amount, and end date are editable."
-      ],
-      "tags": [
-        {
-          "name": "Piggy Bank",
-          "confidence": "strongly supported",
-          "confidences": [
-            "strongly supported"
-          ],
-          "rationale": "The product accumulates identifiable units of value in a reserve held separately from the account the user spends from, and it does so through repeated automatic contributions triggered by ordinary activity. Round-up amounts are taken from purchases made on the product's own debit card and roll into a Goals account that the product creates as a precondition of the automation (tier: directly observed). Goals is listed as its own account alongside checking and extra cash, carries its own available balance, and the product describes the release of that value as taking savings out (tier: directly observed). That the value is restricted from ordinary spending while it sits in Goals is not stated in a single sentence anywhere in the session; it follows from the account separation, the separate balance, and the described withdrawal action (tier: strongly supported). The library's own boundary case for an automatic round-up savings pot resolves in favour of this entry on the same structure, and the reserve holding real user funds rather than bonus rewards does not remove the invariant. The surface passes the engagement-design test independently of being stored value: the product creates the goal for the user, sets a default target, shows a progress bar, prompts a first deposit with minimising language, and offers recurring deposits framed as reaching goals faster (tier: directly observed).",
-          "alternativeConsidered": "That the Goals account is an ordinary savings sub-account and therefore commerce infrastructure carrying no mechanic label. The separating evidence would be whether the Goals balance can be spent directly, for example by card or bill payment, without a transfer back to checking. If it can, the reserve is not restricted and the entry does not apply. The session does not test this, which is why the restriction sits at strongly supported rather than directly observed.",
-          "role": ""
-        }
-      ],
-      "crossRefs": [],
-      "screenshots": []
-    },
-    {
-      "id": "O58",
-      "name": "Personalizing an empty goal",
-      "section": "goals",
-      "observed": "Dave lets users edit the title, amount, and banner image of a goal from its detail screen, before any money has been added to it.",
-      "detail": [
-        "The banner image is editable right from the goal detail screen.",
-        "Personalization is offered while the goal balance still sits at zero."
-      ],
-      "tags": [],
-      "crossRefs": [],
-      "screenshots": []
-    },
-    {
       "id": "O59",
       "name": "Goals balance and progress",
       "section": "goals",
@@ -975,13 +953,13 @@
       ],
       "tags": [
         {
-          "name": "Piggy Bank",
+          "name": "Earning Tasks",
           "confidence": "strongly supported",
           "confidences": [
             "strongly supported"
           ],
-          "rationale": "The product accumulates identifiable units of value in a reserve held separately from the account the user spends from, and it does so through repeated automatic contributions triggered by ordinary activity. Round-up amounts are taken from purchases made on the product's own debit card and roll into a Goals account that the product creates as a precondition of the automation (tier: directly observed). Goals is listed as its own account alongside checking and extra cash, carries its own available balance, and the product describes the release of that value as taking savings out (tier: directly observed). That the value is restricted from ordinary spending while it sits in Goals is not stated in a single sentence anywhere in the session; it follows from the account separation, the separate balance, and the described withdrawal action (tier: strongly supported). The library's own boundary case for an automatic round-up savings pot resolves in favour of this entry on the same structure, and the reserve holding real user funds rather than bonus rewards does not remove the invariant. The surface passes the engagement-design test independently of being stored value: the product creates the goal for the user, sets a default target, shows a progress bar, prompts a first deposit with minimising language, and offers recurring deposits framed as reaching goals faster (tier: directly observed).",
-          "alternativeConsidered": "That the Goals account is an ordinary savings sub-account and therefore commerce infrastructure carrying no mechanic label. The separating evidence would be whether the Goals balance can be spent directly, for example by card or bill payment, without a transfer back to checking. If it can, the reserve is not restricted and the entry does not apply. The session does not test this, which is why the restriction sits at strongly supported rather than directly observed.",
+          "rationale": "The product presents, inside its own Grow tab, a catalogue of discrete compensated tasks supplied by a named third party, inBrain AI, and directs payment into the product's own checking account (tier: directly observed). Each listed survey carries both a payout and an estimated completion time before the user begins it, which is the entry's per-task disclosure of compensation and effort; the payout figures for the longer recommended surveys are not legible in the session record, but the quick surveys are listed at $0.45 for about 8 minutes and $0.50 for about 10 minutes and the listing form is the same for every item (tier: directly observed). The catalogue is presented as a repeatable activity rather than a concluded one: a further list is offered after the intro questionnaire, and a disqualified survey is removed while the rest of the list remains (tier: directly observed). The tasks are separate from the product's own core activity of banking, advances and saving (tier: directly observed). The entry requires at least one continuation element layered over the individual tasks, and three are present: a monthly earnings total displayed above the list, an ordered division of the catalogue into recommended, other and quick-survey sections, and the stated progression that higher paying surveys unlock as the user continues (tier: directly observed). The entry's own borderline case describes this exact configuration and resolves in favour of the label. The commercial arrangement itself is excluded by the entry and carries no label here: the supplier relationship, the terms toggle, and the deposit into the checking account are commerce infrastructure and are described in Pass One in plain language (tier: directly observed).",
+          "alternativeConsidered": "That the surveys are a payment arrangement rather than a designed earning loop, and therefore commerce infrastructure to be described in plain language under the entry's first exclusion. The separating evidence is whether a continuation element exists independently of the payment relationship. Here it does: the monthly total, the tiered sections and the stated unlock are product-side presentation that would remain if the payout amounts were unchanged, which is what the exclusion carves out as classifiable. Rewarded Advertisement was also considered and set aside, since compensation follows performance of the survey rather than engagement with a promotional unit.",
           "role": ""
         }
       ],
@@ -999,13 +977,13 @@
       ],
       "tags": [
         {
-          "name": "Piggy Bank",
+          "name": "Earning Tasks",
           "confidence": "strongly supported",
           "confidences": [
             "strongly supported"
           ],
-          "rationale": "The product accumulates identifiable units of value in a reserve held separately from the account the user spends from, and it does so through repeated automatic contributions triggered by ordinary activity. Round-up amounts are taken from purchases made on the product's own debit card and roll into a Goals account that the product creates as a precondition of the automation (tier: directly observed). Goals is listed as its own account alongside checking and extra cash, carries its own available balance, and the product describes the release of that value as taking savings out (tier: directly observed). That the value is restricted from ordinary spending while it sits in Goals is not stated in a single sentence anywhere in the session; it follows from the account separation, the separate balance, and the described withdrawal action (tier: strongly supported). The library's own boundary case for an automatic round-up savings pot resolves in favour of this entry on the same structure, and the reserve holding real user funds rather than bonus rewards does not remove the invariant. The surface passes the engagement-design test independently of being stored value: the product creates the goal for the user, sets a default target, shows a progress bar, prompts a first deposit with minimising language, and offers recurring deposits framed as reaching goals faster (tier: directly observed).",
-          "alternativeConsidered": "That the Goals account is an ordinary savings sub-account and therefore commerce infrastructure carrying no mechanic label. The separating evidence would be whether the Goals balance can be spent directly, for example by card or bill payment, without a transfer back to checking. If it can, the reserve is not restricted and the entry does not apply. The session does not test this, which is why the restriction sits at strongly supported rather than directly observed.",
+          "rationale": "The product presents, inside its own Grow tab, a catalogue of discrete compensated tasks supplied by a named third party, inBrain AI, and directs payment into the product's own checking account (tier: directly observed). Each listed survey carries both a payout and an estimated completion time before the user begins it, which is the entry's per-task disclosure of compensation and effort; the payout figures for the longer recommended surveys are not legible in the session record, but the quick surveys are listed at $0.45 for about 8 minutes and $0.50 for about 10 minutes and the listing form is the same for every item (tier: directly observed). The catalogue is presented as a repeatable activity rather than a concluded one: a further list is offered after the intro questionnaire, and a disqualified survey is removed while the rest of the list remains (tier: directly observed). The tasks are separate from the product's own core activity of banking, advances and saving (tier: directly observed). The entry requires at least one continuation element layered over the individual tasks, and three are present: a monthly earnings total displayed above the list, an ordered division of the catalogue into recommended, other and quick-survey sections, and the stated progression that higher paying surveys unlock as the user continues (tier: directly observed). The entry's own borderline case describes this exact configuration and resolves in favour of the label. The commercial arrangement itself is excluded by the entry and carries no label here: the supplier relationship, the terms toggle, and the deposit into the checking account are commerce infrastructure and are described in Pass One in plain language (tier: directly observed).",
+          "alternativeConsidered": "That the surveys are a payment arrangement rather than a designed earning loop, and therefore commerce infrastructure to be described in plain language under the entry's first exclusion. The separating evidence is whether a continuation element exists independently of the payment relationship. Here it does: the monthly total, the tiered sections and the stated unlock are product-side presentation that would remain if the payout amounts were unchanged, which is what the exclusion carves out as classifiable. Rewarded Advertisement was also considered and set aside, since compensation follows performance of the survey rather than engagement with a promotional unit.",
           "role": ""
         }
       ],
@@ -1022,7 +1000,18 @@
         "It's attached to the individual goal, not to the account or the profile.",
         "Choosing an image doesn't change any goal rule, limit, or rate."
       ],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Earning Tasks",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "The product presents, inside its own Grow tab, a catalogue of discrete compensated tasks supplied by a named third party, inBrain AI, and directs payment into the product's own checking account (tier: directly observed). Each listed survey carries both a payout and an estimated completion time before the user begins it, which is the entry's per-task disclosure of compensation and effort; the payout figures for the longer recommended surveys are not legible in the session record, but the quick surveys are listed at $0.45 for about 8 minutes and $0.50 for about 10 minutes and the listing form is the same for every item (tier: directly observed). The catalogue is presented as a repeatable activity rather than a concluded one: a further list is offered after the intro questionnaire, and a disqualified survey is removed while the rest of the list remains (tier: directly observed). The tasks are separate from the product's own core activity of banking, advances and saving (tier: directly observed). The entry requires at least one continuation element layered over the individual tasks, and three are present: a monthly earnings total displayed above the list, an ordered division of the catalogue into recommended, other and quick-survey sections, and the stated progression that higher paying surveys unlock as the user continues (tier: directly observed). The entry's own borderline case describes this exact configuration and resolves in favour of the label. The commercial arrangement itself is excluded by the entry and carries no label here: the supplier relationship, the terms toggle, and the deposit into the checking account are commerce infrastructure and are described in Pass One in plain language (tier: directly observed).",
+          "alternativeConsidered": "That the surveys are a payment arrangement rather than a designed earning loop, and therefore commerce infrastructure to be described in plain language under the entry's first exclusion. The separating evidence is whether a continuation element exists independently of the payment relationship. Here it does: the monthly total, the tiered sections and the stated unlock are product-side presentation that would remain if the payout amounts were unchanged, which is what the exclusion carves out as classifiable. Rewarded Advertisement was also considered and set aside, since compensation follows performance of the survey rather than engagement with a promotional unit.",
+          "role": ""
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -1038,13 +1027,13 @@
       ],
       "tags": [
         {
-          "name": "Piggy Bank",
+          "name": "Earning Tasks",
           "confidence": "strongly supported",
           "confidences": [
             "strongly supported"
           ],
-          "rationale": "The product accumulates identifiable units of value in a reserve held separately from the account the user spends from, and it does so through repeated automatic contributions triggered by ordinary activity. Round-up amounts are taken from purchases made on the product's own debit card and roll into a Goals account that the product creates as a precondition of the automation (tier: directly observed). Goals is listed as its own account alongside checking and extra cash, carries its own available balance, and the product describes the release of that value as taking savings out (tier: directly observed). That the value is restricted from ordinary spending while it sits in Goals is not stated in a single sentence anywhere in the session; it follows from the account separation, the separate balance, and the described withdrawal action (tier: strongly supported). The library's own boundary case for an automatic round-up savings pot resolves in favour of this entry on the same structure, and the reserve holding real user funds rather than bonus rewards does not remove the invariant. The surface passes the engagement-design test independently of being stored value: the product creates the goal for the user, sets a default target, shows a progress bar, prompts a first deposit with minimising language, and offers recurring deposits framed as reaching goals faster (tier: directly observed).",
-          "alternativeConsidered": "That the Goals account is an ordinary savings sub-account and therefore commerce infrastructure carrying no mechanic label. The separating evidence would be whether the Goals balance can be spent directly, for example by card or bill payment, without a transfer back to checking. If it can, the reserve is not restricted and the entry does not apply. The session does not test this, which is why the restriction sits at strongly supported rather than directly observed.",
+          "rationale": "The product presents, inside its own Grow tab, a catalogue of discrete compensated tasks supplied by a named third party, inBrain AI, and directs payment into the product's own checking account (tier: directly observed). Each listed survey carries both a payout and an estimated completion time before the user begins it, which is the entry's per-task disclosure of compensation and effort; the payout figures for the longer recommended surveys are not legible in the session record, but the quick surveys are listed at $0.45 for about 8 minutes and $0.50 for about 10 minutes and the listing form is the same for every item (tier: directly observed). The catalogue is presented as a repeatable activity rather than a concluded one: a further list is offered after the intro questionnaire, and a disqualified survey is removed while the rest of the list remains (tier: directly observed). The tasks are separate from the product's own core activity of banking, advances and saving (tier: directly observed). The entry requires at least one continuation element layered over the individual tasks, and three are present: a monthly earnings total displayed above the list, an ordered division of the catalogue into recommended, other and quick-survey sections, and the stated progression that higher paying surveys unlock as the user continues (tier: directly observed). The entry's own borderline case describes this exact configuration and resolves in favour of the label. The commercial arrangement itself is excluded by the entry and carries no label here: the supplier relationship, the terms toggle, and the deposit into the checking account are commerce infrastructure and are described in Pass One in plain language (tier: directly observed).",
+          "alternativeConsidered": "That the surveys are a payment arrangement rather than a designed earning loop, and therefore commerce infrastructure to be described in plain language under the entry's first exclusion. The separating evidence is whether a continuation element exists independently of the payment relationship. Here it does: the monthly total, the tiered sections and the stated unlock are product-side presentation that would remain if the payout amounts were unchanged, which is what the exclusion carves out as classifiable. Rewarded Advertisement was also considered and set aside, since compensation follows performance of the survey rather than engagement with a promotional unit.",
           "role": ""
         }
       ],
@@ -1062,13 +1051,13 @@
       ],
       "tags": [
         {
-          "name": "Piggy Bank",
+          "name": "Earning Tasks",
           "confidence": "strongly supported",
           "confidences": [
             "strongly supported"
           ],
-          "rationale": "The product accumulates identifiable units of value in a reserve held separately from the account the user spends from, and it does so through repeated automatic contributions triggered by ordinary activity. Round-up amounts are taken from purchases made on the product's own debit card and roll into a Goals account that the product creates as a precondition of the automation (tier: directly observed). Goals is listed as its own account alongside checking and extra cash, carries its own available balance, and the product describes the release of that value as taking savings out (tier: directly observed). That the value is restricted from ordinary spending while it sits in Goals is not stated in a single sentence anywhere in the session; it follows from the account separation, the separate balance, and the described withdrawal action (tier: strongly supported). The library's own boundary case for an automatic round-up savings pot resolves in favour of this entry on the same structure, and the reserve holding real user funds rather than bonus rewards does not remove the invariant. The surface passes the engagement-design test independently of being stored value: the product creates the goal for the user, sets a default target, shows a progress bar, prompts a first deposit with minimising language, and offers recurring deposits framed as reaching goals faster (tier: directly observed).",
-          "alternativeConsidered": "That the Goals account is an ordinary savings sub-account and therefore commerce infrastructure carrying no mechanic label. The separating evidence would be whether the Goals balance can be spent directly, for example by card or bill payment, without a transfer back to checking. If it can, the reserve is not restricted and the entry does not apply. The session does not test this, which is why the restriction sits at strongly supported rather than directly observed.",
+          "rationale": "The product presents, inside its own Grow tab, a catalogue of discrete compensated tasks supplied by a named third party, inBrain AI, and directs payment into the product's own checking account (tier: directly observed). Each listed survey carries both a payout and an estimated completion time before the user begins it, which is the entry's per-task disclosure of compensation and effort; the payout figures for the longer recommended surveys are not legible in the session record, but the quick surveys are listed at $0.45 for about 8 minutes and $0.50 for about 10 minutes and the listing form is the same for every item (tier: directly observed). The catalogue is presented as a repeatable activity rather than a concluded one: a further list is offered after the intro questionnaire, and a disqualified survey is removed while the rest of the list remains (tier: directly observed). The tasks are separate from the product's own core activity of banking, advances and saving (tier: directly observed). The entry requires at least one continuation element layered over the individual tasks, and three are present: a monthly earnings total displayed above the list, an ordered division of the catalogue into recommended, other and quick-survey sections, and the stated progression that higher paying surveys unlock as the user continues (tier: directly observed). The entry's own borderline case describes this exact configuration and resolves in favour of the label. The commercial arrangement itself is excluded by the entry and carries no label here: the supplier relationship, the terms toggle, and the deposit into the checking account are commerce infrastructure and are described in Pass One in plain language (tier: directly observed).",
+          "alternativeConsidered": "That the surveys are a payment arrangement rather than a designed earning loop, and therefore commerce infrastructure to be described in plain language under the entry's first exclusion. The separating evidence is whether a continuation element exists independently of the payment relationship. Here it does: the monthly total, the tiered sections and the stated unlock are product-side presentation that would remain if the payout amounts were unchanged, which is what the exclusion carves out as classifiable. Rewarded Advertisement was also considered and set aside, since compensation follows performance of the survey rather than engagement with a promotional unit.",
           "role": ""
         }
       ],
@@ -1087,13 +1076,13 @@
       ],
       "tags": [
         {
-          "name": "Piggy Bank",
+          "name": "Earning Tasks",
           "confidence": "strongly supported",
           "confidences": [
             "strongly supported"
           ],
-          "rationale": "The product accumulates identifiable units of value in a reserve held separately from the account the user spends from, and it does so through repeated automatic contributions triggered by ordinary activity. Round-up amounts are taken from purchases made on the product's own debit card and roll into a Goals account that the product creates as a precondition of the automation (tier: directly observed). Goals is listed as its own account alongside checking and extra cash, carries its own available balance, and the product describes the release of that value as taking savings out (tier: directly observed). That the value is restricted from ordinary spending while it sits in Goals is not stated in a single sentence anywhere in the session; it follows from the account separation, the separate balance, and the described withdrawal action (tier: strongly supported). The library's own boundary case for an automatic round-up savings pot resolves in favour of this entry on the same structure, and the reserve holding real user funds rather than bonus rewards does not remove the invariant. The surface passes the engagement-design test independently of being stored value: the product creates the goal for the user, sets a default target, shows a progress bar, prompts a first deposit with minimising language, and offers recurring deposits framed as reaching goals faster (tier: directly observed).",
-          "alternativeConsidered": "That the Goals account is an ordinary savings sub-account and therefore commerce infrastructure carrying no mechanic label. The separating evidence would be whether the Goals balance can be spent directly, for example by card or bill payment, without a transfer back to checking. If it can, the reserve is not restricted and the entry does not apply. The session does not test this, which is why the restriction sits at strongly supported rather than directly observed.",
+          "rationale": "The product presents, inside its own Grow tab, a catalogue of discrete compensated tasks supplied by a named third party, inBrain AI, and directs payment into the product's own checking account (tier: directly observed). Each listed survey carries both a payout and an estimated completion time before the user begins it, which is the entry's per-task disclosure of compensation and effort; the payout figures for the longer recommended surveys are not legible in the session record, but the quick surveys are listed at $0.45 for about 8 minutes and $0.50 for about 10 minutes and the listing form is the same for every item (tier: directly observed). The catalogue is presented as a repeatable activity rather than a concluded one: a further list is offered after the intro questionnaire, and a disqualified survey is removed while the rest of the list remains (tier: directly observed). The tasks are separate from the product's own core activity of banking, advances and saving (tier: directly observed). The entry requires at least one continuation element layered over the individual tasks, and three are present: a monthly earnings total displayed above the list, an ordered division of the catalogue into recommended, other and quick-survey sections, and the stated progression that higher paying surveys unlock as the user continues (tier: directly observed). The entry's own borderline case describes this exact configuration and resolves in favour of the label. The commercial arrangement itself is excluded by the entry and carries no label here: the supplier relationship, the terms toggle, and the deposit into the checking account are commerce infrastructure and are described in Pass One in plain language (tier: directly observed).",
+          "alternativeConsidered": "That the surveys are a payment arrangement rather than a designed earning loop, and therefore commerce infrastructure to be described in plain language under the entry's first exclusion. The separating evidence is whether a continuation element exists independently of the payment relationship. Here it does: the monthly total, the tiered sections and the stated unlock are product-side presentation that would remain if the payout amounts were unchanged, which is what the exclusion carves out as classifiable. Rewarded Advertisement was also considered and set aside, since compensation follows performance of the survey rather than engagement with a promotional unit.",
           "role": ""
         }
       ],
@@ -1109,7 +1098,18 @@
         "The same $500 figure that opens the unauthenticated app opens this tab too.",
         "Getting access is conditioned on opening 2 accounts."
       ],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Earning Tasks",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "The product presents, inside its own Grow tab, a catalogue of discrete compensated tasks supplied by a named third party, inBrain AI, and directs payment into the product's own checking account (tier: directly observed). Each listed survey carries both a payout and an estimated completion time before the user begins it, which is the entry's per-task disclosure of compensation and effort; the payout figures for the longer recommended surveys are not legible in the session record, but the quick surveys are listed at $0.45 for about 8 minutes and $0.50 for about 10 minutes and the listing form is the same for every item (tier: directly observed). The catalogue is presented as a repeatable activity rather than a concluded one: a further list is offered after the intro questionnaire, and a disqualified survey is removed while the rest of the list remains (tier: directly observed). The tasks are separate from the product's own core activity of banking, advances and saving (tier: directly observed). The entry requires at least one continuation element layered over the individual tasks, and three are present: a monthly earnings total displayed above the list, an ordered division of the catalogue into recommended, other and quick-survey sections, and the stated progression that higher paying surveys unlock as the user continues (tier: directly observed). The entry's own borderline case describes this exact configuration and resolves in favour of the label. The commercial arrangement itself is excluded by the entry and carries no label here: the supplier relationship, the terms toggle, and the deposit into the checking account are commerce infrastructure and are described in Pass One in plain language (tier: directly observed).",
+          "alternativeConsidered": "That the surveys are a payment arrangement rather than a designed earning loop, and therefore commerce infrastructure to be described in plain language under the entry's first exclusion. The separating evidence is whether a continuation element exists independently of the payment relationship. Here it does: the monthly total, the tiered sections and the stated unlock are product-side presentation that would remain if the payout amounts were unchanged, which is what the exclusion carves out as classifiable. Rewarded Advertisement was also considered and set aside, since compensation follows performance of the survey rather than engagement with a promotional unit.",
+          "role": ""
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -1124,18 +1124,7 @@
         "A notification opt-in is offered in place of the benefit itself.",
         "This message shows up in more than one place in the tab."
       ],
-      "tags": [
-        {
-          "name": "Referral Boost",
-          "confidence": "strongly supported",
-          "confidences": [
-            "strongly supported"
-          ],
-          "rationale": "The product identifies the user as someone who can introduce another person and provides the route, offering controls to share or copy a referral link (tier: directly observed). It defines an action the referring user performs and can perform again, the extra cash advance, and it requires a completion event from both parties: the referring user must have taken and repaid an advance, and the introduced person must repay one, with the product stating explicitly that the qualifying event is the friend's repayment rather than their sign-up (tier: directly observed). Satisfying both conditions grants an enhancement expressed relative to the referring user's own future advance, 20% more up to $100 more, which is a larger amount of the same action rather than a payment (tier: directly observed). Nothing in the session presents the boost as a balance, credit or item the user could hold, spend or transfer; the product describes it only as more on an advance (tier: directly observed). That the enhancement is realisable only by taking another advance, and not separable from it, follows from that framing rather than from any observed application (tier: strongly supported). The entry's own borderline case covers a boost described in copy but never seen operating and resolves presence in favour of the label under the operating card's presence standard, which is why the tag is applied at strongly supported rather than withheld; how the boost is actually delivered is recorded as unresolved below.",
-          "alternativeConsidered": "That the boost is a held credit the user could apply elsewhere, in which case the entry's second exclusion sends it to the applicable currency or credit entry instead. The separating evidence is a session in which a boost is earned and the referring user then takes an advance: if the enhancement appears as a credited balance or as a payment separable from the advance, this tag should be withdrawn. Gifting was also considered and set aside, since the sender directs no benefit to the recipient and neither party's balance changes by an act of the sender.",
-          "role": ""
-        }
-      ],
+      "tags": [],
       "crossRefs": [],
       "screenshots": []
     },
@@ -1162,7 +1151,18 @@
         "This prompt specifically targets the account the user's salary lands in.",
         "It's the same request made during onboarding, resurfacing at the point of refusal."
       ],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Earning Tasks",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "The product presents, inside its own Grow tab, a catalogue of discrete compensated tasks supplied by a named third party, inBrain AI, and directs payment into the product's own checking account (tier: directly observed). Each listed survey carries both a payout and an estimated completion time before the user begins it, which is the entry's per-task disclosure of compensation and effort; the payout figures for the longer recommended surveys are not legible in the session record, but the quick surveys are listed at $0.45 for about 8 minutes and $0.50 for about 10 minutes and the listing form is the same for every item (tier: directly observed). The catalogue is presented as a repeatable activity rather than a concluded one: a further list is offered after the intro questionnaire, and a disqualified survey is removed while the rest of the list remains (tier: directly observed). The tasks are separate from the product's own core activity of banking, advances and saving (tier: directly observed). The entry requires at least one continuation element layered over the individual tasks, and three are present: a monthly earnings total displayed above the list, an ordered division of the catalogue into recommended, other and quick-survey sections, and the stated progression that higher paying surveys unlock as the user continues (tier: directly observed). The entry's own borderline case describes this exact configuration and resolves in favour of the label. The commercial arrangement itself is excluded by the entry and carries no label here: the supplier relationship, the terms toggle, and the deposit into the checking account are commerce infrastructure and are described in Pass One in plain language (tier: directly observed).",
+          "alternativeConsidered": "That the surveys are a payment arrangement rather than a designed earning loop, and therefore commerce infrastructure to be described in plain language under the entry's first exclusion. The separating evidence is whether a continuation element exists independently of the payment relationship. Here it does: the monthly total, the tiered sections and the stated unlock are product-side presentation that would remain if the payout amounts were unchanged, which is what the exclusion carves out as classifiable. Rewarded Advertisement was also considered and set aside, since compensation follows performance of the survey rather than engagement with a promotional unit.",
+          "role": ""
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -1188,7 +1188,18 @@
         "The application is completed entirely outside Dave.",
         "Dave doesn't show a path back in after applying."
       ],
-      "tags": [],
+      "tags": [
+        {
+          "name": "Referral",
+          "confidence": "strongly supported",
+          "confidences": [
+            "strongly supported"
+          ],
+          "rationale": "The product identifies the user as someone who can introduce another person and provides the route, offering controls to share or copy a referral link (tier: directly observed). It defines an action the referring user performs and can perform again, the extra cash advance, and it requires a completion event from both parties: the referring user must have taken and repaid an advance, and the introduced person must repay one, with the product stating explicitly that the qualifying event is the friend's repayment rather than their sign-up (tier: directly observed). Satisfying both conditions grants an enhancement expressed relative to the referring user's own future advance, 20% more up to $100 more, which is a larger amount of the same action rather than a payment (tier: directly observed). Nothing in the session presents the boost as a balance, credit or item the user could hold, spend or transfer; the product describes it only as more on an advance (tier: directly observed). That the enhancement is realisable only by taking another advance, and not separable from it, follows from that framing rather than from any observed application (tier: strongly supported). The entry's own borderline case covers a boost described in copy but never seen operating and resolves presence in favour of the label under the operating card's presence standard, which is why the tag is applied at strongly supported rather than withheld; how the boost is actually delivered is recorded as unresolved below.",
+          "alternativeConsidered": "That the boost is a held credit the user could apply elsewhere, in which case the entry's second exclusion sends it to the applicable currency or credit entry instead. The separating evidence is a session in which a boost is earned and the referring user then takes an advance: if the enhancement appears as a credited balance or as a payment separable from the advance, this tag should be withdrawn. Gifting was also considered and set aside, since the sender directs no benefit to the recipient and neither party's balance changes by an act of the sender.",
+          "role": ""
+        }
+      ],
       "crossRefs": [],
       "screenshots": []
     },
@@ -1203,7 +1214,7 @@
       ],
       "tags": [
         {
-          "name": "Referral Boost",
+          "name": "Referral",
           "confidence": "strongly supported",
           "confidences": [
             "strongly supported"
@@ -1230,7 +1241,7 @@
       ],
       "tags": [
         {
-          "name": "Referral Boost",
+          "name": "Referral",
           "confidence": "strongly supported",
           "confidences": [
             "strongly supported"
@@ -1255,7 +1266,7 @@
       ],
       "tags": [
         {
-          "name": "Referral Boost",
+          "name": "Referral",
           "confidence": "strongly supported",
           "confidences": [
             "strongly supported"
@@ -1279,18 +1290,7 @@
         "The event that qualifies the reward is the friend's repayment, not their sign-up.",
         "A published question asks whether the boost itself has to be repaid, something the referral screen doesn't otherwise answer."
       ],
-      "tags": [
-        {
-          "name": "Referral Boost",
-          "confidence": "strongly supported",
-          "confidences": [
-            "strongly supported"
-          ],
-          "rationale": "The product identifies the user as someone who can introduce another person and provides the route, offering controls to share or copy a referral link (tier: directly observed). It defines an action the referring user performs and can perform again, the extra cash advance, and it requires a completion event from both parties: the referring user must have taken and repaid an advance, and the introduced person must repay one, with the product stating explicitly that the qualifying event is the friend's repayment rather than their sign-up (tier: directly observed). Satisfying both conditions grants an enhancement expressed relative to the referring user's own future advance, 20% more up to $100 more, which is a larger amount of the same action rather than a payment (tier: directly observed). Nothing in the session presents the boost as a balance, credit or item the user could hold, spend or transfer; the product describes it only as more on an advance (tier: directly observed). That the enhancement is realisable only by taking another advance, and not separable from it, follows from that framing rather than from any observed application (tier: strongly supported). The entry's own borderline case covers a boost described in copy but never seen operating and resolves presence in favour of the label under the operating card's presence standard, which is why the tag is applied at strongly supported rather than withheld; how the boost is actually delivered is recorded as unresolved below.",
-          "alternativeConsidered": "That the boost is a held credit the user could apply elsewhere, in which case the entry's second exclusion sends it to the applicable currency or credit entry instead. The separating evidence is a session in which a boost is earned and the referring user then takes an advance: if the enhancement appears as a credited balance or as a payment separable from the advance, this tag should be withdrawn. Gifting was also considered and set aside, since the sender directs no benefit to the recipient and neither party's balance changes by an act of the sender.",
-          "role": ""
-        }
-      ],
+      "tags": [],
       "crossRefs": [],
       "screenshots": []
     },
@@ -1494,8 +1494,8 @@
     {
       "name": "Scheduled eligibility re-check",
       "sourceObservations": [
-        "O66",
-        "O68",
+        "O54",
+        "O56",
         "O80"
       ],
       "draftDefinition": "When a user requests a gated benefit and does not qualify, the product declines without closing the request, names a recurring interval at which the decision will be reconsidered, and offers a notification for the moment eligibility changes.",

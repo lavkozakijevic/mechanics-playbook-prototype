@@ -38,7 +38,7 @@ This stage produces plain text for review. It does not build anything.
 >    - *Trigger:* what starts this, for the player.
 >    - *What it needs:* the state or resource that already has to exist for this to run.
 >    - *How it connects:* which other mechanics on this page it depends on or feeds, named directly.
->    - *Worth noticing:* what this app's own choice here teaches, specific to what [app] actually did, not general design advice.
+>    - *Worth noticing:* what this app's own choice here was, specific to what [app] actually did, not general design advice. State the choice, never what it achieves or why [app] made it: "Strava grades its medals gold, silver and bronze" is the choice; "so an ordinary activity feels exceptional" is the effect, and it doesn't belong here. That distinction recurs on every app, so hold to it the same way each time.
 >
 >    End each block with a note naming which screenshots it needs.
 > 5. Section cards. Nine one-liners, one per section, in voice. Empty sections appear as such and are not linked.
