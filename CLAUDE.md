@@ -43,6 +43,22 @@ two (Achievement, Shareable Win). It stays off this list rather than being
 folded back in if it's ever republished, since "thin, awaiting backfill"
 would no longer be true of it.
 
+### Diff every analysis upload before building (owner ruling, 30 Sep 2026)
+
+- **Whenever a file in `sources/analyses/` changes through an upload, diff
+  it against the previous version before building anything on top of it.**
+  A Cowork copy can come from a stale branch point and silently reintroduce
+  old section names, old numbering, or dropped material — this is exactly
+  what happened to Dave's analysis and had to be restored from git history.
+- **Report every change beyond what was actually asked for**, not just the
+  ones that were expected going in. If something in the prior version was
+  lost rather than added to, restore it before proceeding.
+- **If you ever edit an analysis file directly in the repo, say so plainly
+  at the end of your report.** The Cowork copy is a separate document; a
+  repo-side edit it doesn't know about is exactly the kind of drift this
+  rule exists to catch, so the person keeping the two in sync needs to be
+  told every time it happens, not asked to notice it later in a diff.
+
 ### Multi-app library entries: tag and block together (owner ruling, 15 Sep 2026)
 
 - **When a library entry is approved from more than one app's evidence,

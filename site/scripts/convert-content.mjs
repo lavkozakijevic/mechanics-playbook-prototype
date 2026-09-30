@@ -446,6 +446,12 @@ const OLD_MECHANIC_BLOCK_LABELS = [
   "Screenshots needed",
 ];
 const NEW_MECHANIC_BLOCK_LABELS = [
+  // Optional (30 Sep 2026): the app's own name for the thing, e.g. "Wrenches"
+  // for Match Creek Motors' soft currency. The block heading itself stays
+  // the library entry name (the join key back onto an applied tag) — this
+  // is a display-only override, resolved in v41.ts's tagBlocks() alongside
+  // the site mechanic's own displayName, never in place of the heading here.
+  "Title",
   "Implementation summary",
   "How it works",
   "Illustration brief",
@@ -861,6 +867,7 @@ function parseContentV41(file) {
         return { name, summary, observed, presented, noting, findings, screenshotsNote };
       }
 
+      const title = values["Title"] || undefined;
       const howItWorks = values["How it works"] || "";
       const illustrationBrief = values["Illustration brief"] || "";
       const whatStandsOut = values["What stands out"] || "";
@@ -880,6 +887,7 @@ function parseContentV41(file) {
         throw new Error(`${file}: mechanic block "${name}" is missing: ${missing.join(", ")}`);
       return {
         name,
+        title,
         summary,
         howItWorks,
         illustrationBrief,

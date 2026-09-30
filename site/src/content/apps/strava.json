@@ -692,7 +692,7 @@
           "role": "social, engagement"
         },
         {
-          "name": "Standing",
+          "name": "Comparative Rank",
           "confidence": "directly observed",
           "confidences": [
             "directly observed"
@@ -867,7 +867,7 @@
           "role": "social, engagement"
         },
         {
-          "name": "Standing",
+          "name": "Comparative Rank",
           "confidence": "directly observed",
           "confidences": [
             "directly observed"
@@ -1199,7 +1199,7 @@
           "role": "social, engagement"
         },
         {
-          "name": "Standing",
+          "name": "Comparative Rank",
           "confidence": "directly observed",
           "confidences": [
             "directly observed"
@@ -1240,7 +1240,7 @@
           "role": "social, engagement"
         },
         {
-          "name": "Standing",
+          "name": "Comparative Rank",
           "confidence": "directly observed",
           "confidences": [
             "directly observed"
@@ -1587,7 +1587,7 @@
           "role": "social, engagement"
         },
         {
-          "name": "Standing",
+          "name": "Comparative Rank",
           "confidence": "directly observed",
           "confidences": [
             "directly observed"
@@ -1784,7 +1784,7 @@
       "screenshotsNote": "a feed activity displaying an earned achievement badge; a profile page showing the achievement count and mixed medal grades."
     },
     {
-      "name": "Standing",
+      "name": "Comparative Rank",
       "summary": "Ride or run the same stretch enough and Strava tells you exactly where you stand against everyone else who has, without necessarily showing you the list behind it.",
       "howItWorks": "On any segment, a repeated stretch of road other people have also covered, Strava can tell you three different things about where you stand: whether you hold the single best time anyone has posted there, whether you're one of the people with the most efforts on it in the last ninety days, and whether you're inside the top ten. Every participant in a challenge you join gets the same kind of treatment: a stated rank, given directly, based on how everyone else in that challenge has done.",
       "illustrationBrief": "A segment screen showing best-overall-time and top-10 standing for a user, alongside a Local Legends callout.",

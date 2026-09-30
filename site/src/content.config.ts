@@ -111,6 +111,13 @@ const observation = z.object({
 // props.ts's exampleComplete()/mechanicStudies().
 const mechanicWriteup = z.object({
   name: z.string(),
+  // Optional (30 Sep 2026, new shape only): the app's own name for the
+  // thing, e.g. "Wrenches" for Match Creek Motors' soft currency. When
+  // present it's the block's heading on the page, with the site mechanic's
+  // own displayName (v41.ts's tagBlocks()) shown beneath it as the tag;
+  // `name` itself stays the library entry name regardless, since it's the
+  // join key back onto an applied tag.
+  title: z.string().optional(),
   summary: z.string().optional(),
   // Old shape.
   observed: z.string().optional(),

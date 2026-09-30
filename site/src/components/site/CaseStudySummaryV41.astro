@@ -227,7 +227,8 @@ const sections = allSectionCounts(app);
                 <div class="cs-msec__head">
                   <div class="cs-msec__meta">
                     <Tag category={cat} dot>{CAT_LABEL[cat]}</Tag>
-                    <h2 class="cs-msec__name">{block.displayName}</h2>
+                    <h2 class="cs-msec__name">{block.writeup?.title || block.displayName}</h2>
+                    {block.writeup?.title && <p class="cs-msec__mechanic-tag">{block.displayName}</p>}
                   </div>
                   {fullPageHref && (
                     <a class="cs-msec__link" href={fullPageHref}>

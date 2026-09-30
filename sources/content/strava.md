@@ -67,7 +67,7 @@ Everything else hangs off that one save. The streak needs you to log another act
 
 **Screenshots needed:** a feed activity displaying an earned achievement badge; a profile page showing the achievement count and mixed medal grades.
 
-### Standing
+### Comparative Rank
 
 **Implementation summary:** Ride or run the same stretch enough and Strava tells you exactly where you stand against everyone else who has, without necessarily showing you the list behind it.
 

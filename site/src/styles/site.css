@@ -933,6 +933,10 @@ a.smap__node:focus-visible { outline: none; box-shadow: var(--ring); }
 .cs-msec__meta { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; min-width: 0; }
 .cs-msec__name { font: var(--type-h2); font-size: clamp(22px, 2.6vw, 30px); letter-spacing: var(--tracking-heading);
   color: var(--ink-900); margin: 0; text-wrap: balance; }
+/* Shown only when a block carries a Title override (30 Sep 2026): the site
+   mechanic's own name, under the app's own name for the thing. */
+.cs-msec__mechanic-tag { font: var(--type-label); text-transform: uppercase; letter-spacing: var(--tracking-label);
+  color: var(--ink-700); margin: 0; }
 .cs-msec__link { display: inline-flex; align-items: center; gap: 6px; font: var(--type-body-sm); font-weight: var(--weight-medium);
   color: var(--text-accent); text-decoration: none; white-space: nowrap; flex: none; }
 .cs-msec__link svg { width: 15px; height: 15px; }
