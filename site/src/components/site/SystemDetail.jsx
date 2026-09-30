@@ -5,6 +5,7 @@
 import React, { useState, useEffect } from "react";
 import { Tag } from "../ds/Tag.jsx";
 import { SubscribeCard, WaitlistModal } from "./Subscribe.jsx";
+import { GATE_EYEBROW, GATE_HEADING, GATE_DETAIL } from "../../lib/site-copy";
 
 // "neutral" covers a v4.1 tag with no mechanics-collection entry yet (spec
 // review, 11 Sep 2026 gap, tracked separately) — same neutral classification
@@ -215,9 +216,9 @@ function LockedSystem({ system }) {
         <div className="container container--narrow">
           <div className="cs-gate">
             <div className="cs-gate__lead">
-              <div className="eyebrow">Subscribers only</div>
-              <h2 className="cs-gate__h">Explore the {system.appName} system map</h2>
-              <p className="cs-gate__p">The full system map draws every mechanic in the loop and the connections that carry the most weight, with the design logic behind each one. Subscribe to unlock this and every other system in the library.</p>
+              <div className="eyebrow">{GATE_EYEBROW}</div>
+              <h2 className="cs-gate__h">{GATE_HEADING.system(system.appName)}</h2>
+              <p className="cs-gate__p">{GATE_DETAIL.system}</p>
             </div>
             <SubscribeCard onSubscribe={() => setModalOpen(true)} />
           </div>

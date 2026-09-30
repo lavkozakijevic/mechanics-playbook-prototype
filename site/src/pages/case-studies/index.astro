@@ -3,6 +3,7 @@ import Base from "../../layouts/Base.astro";
 import { CaseStudiesPage } from "../../components/site/CaseStudies.jsx";
 import { publishedApps, publishedMechanics } from "../../lib/content";
 import { appCard } from "../../lib/props";
+import { SITE_TAGLINE } from "../../lib/site-copy";
 
 const apps = (await publishedApps()).sort((a, b) => {
   const aFree = a.data.visibility !== "subscriber" ? 0 : 1;
@@ -15,7 +16,7 @@ const byId = new Map((await publishedMechanics()).map((m) => [m.data.id, m.data]
 
 <Base
   title="Case studies — Appservatory"
-  description="Every app and game in the library, broken down mechanic by mechanic: what it runs, how it presents it, and why it works."
+  description={`${SITE_TAGLINE}.`}
   current="case-studies"
 >
   <CaseStudiesPage apps={apps.map((a) => appCard(a.data, byId))} />

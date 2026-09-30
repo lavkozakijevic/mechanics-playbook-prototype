@@ -4,6 +4,7 @@
 // list was sample text and v44 has no real list (stage-0 Q13).
 import Base from "../../layouts/Base.astro";
 import { publishedCheatsheets, publishedMechanics } from "../../lib/content";
+import { SUBSCRIBE_TO_EXPLORE_CTA } from "../../lib/site-copy";
 
 const cheatsheets = (await publishedCheatsheets()).sort((a, b) => a.data.n - b.data.n);
 const byId = new Map((await publishedMechanics()).map((m) => [m.data.id, m.data]));
@@ -71,7 +72,7 @@ const byId = new Map((await publishedMechanics()).map((m) => [m.data.id, m.data]
               <div class="csc__foot">
                 <span class="csc__count"><b>{cs.data.steps.length}</b> steps</span>
                 <span class="csc__go">
-                  {locked ? "Subscribe to explore" : "Open the guide"}
+                  {locked ? SUBSCRIBE_TO_EXPLORE_CTA : "Open the guide"}
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" />
                   </svg>

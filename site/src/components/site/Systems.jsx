@@ -4,6 +4,7 @@
 import React from "react";
 import { Tag } from "../ds/Tag.jsx";
 import { Badge } from "../ds/Badge.jsx";
+import { SUBSCRIBE_TO_EXPLORE_CTA } from "../../lib/site-copy";
 
 const LockIcon = (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -38,7 +39,7 @@ function SystemCard({ sys }) {
 
       <div className="csc__foot">
         <span className="csc__count"><b>{mechanics.length}</b> mechanics linked</span>
-        <span className="csc__go">{sys.locked ? "Subscribe to explore" : "Explore the map"} {ArrowIcon}</span>
+        <span className="csc__go">{sys.locked ? SUBSCRIBE_TO_EXPLORE_CTA : "Explore the map"} {ArrowIcon}</span>
       </div>
     </a>
   );

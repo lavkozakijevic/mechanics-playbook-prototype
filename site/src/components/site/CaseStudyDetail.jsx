@@ -6,6 +6,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { Tag } from "../ds/Tag.jsx";
 import { SubscribeCard, WaitlistModal } from "./Subscribe.jsx";
+import { GATE_EYEBROW, GATE_HEADING, GATE_DETAIL } from "../../lib/site-copy";
 
 const CAT_COLOR = { retention: "var(--cat-retention)", monetization: "var(--cat-monetization)", social: "var(--cat-social)", progression: "var(--cat-progression)", competition: "var(--cat-competition)", customization: "var(--cat-customization)", engagement: "var(--cat-engagement)", reach: "var(--cat-reach)" };
 const CAT_LABEL = { retention: "Retention", monetization: "Monetization", social: "Social", progression: "Progression", competition: "Competition", customization: "Customization", engagement: "Engagement", reach: "Reach" };
@@ -151,9 +152,9 @@ function LockedCaseStudy({ app }) {
 
         <div className="cs-gate">
           <div className="cs-gate__lead">
-            <div className="eyebrow">Subscribers only</div>
-            <h2 className="cs-gate__h">Read the full {app.name} breakdown</h2>
-            <p className="cs-gate__p">The complete case study walks every mechanic in the loop with annotated screenshots and the takeaways a product team can use. Subscribe to unlock this and every other breakdown in the library.</p>
+            <div className="eyebrow">{GATE_EYEBROW}</div>
+            <h2 className="cs-gate__h">{GATE_HEADING.breakdown(app.name)}</h2>
+            <p className="cs-gate__p">{GATE_DETAIL.breakdown}</p>
           </div>
           <SubscribeCard onSubscribe={() => setModalOpen(true)} />
         </div>

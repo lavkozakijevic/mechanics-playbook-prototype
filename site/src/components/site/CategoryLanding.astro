@@ -20,6 +20,7 @@ import { AnnotatedScreenshot } from "../ds/AnnotatedScreenshot.jsx";
 import { SystemMap } from "./SystemDetail.jsx";
 import { publishedApps, publishedMechanics } from "../../lib/content";
 import { systemProps } from "../../lib/props";
+import { ACCESS_LIBRARY_CTA } from "../../lib/site-copy";
 
 interface Props {
   cat: {
@@ -40,7 +41,7 @@ const mechanics = await publishedMechanics();
 // Section 1: the hero carousel, drawn from this category's own app logos.
 const carousel = (cat.heroApps ?? []).map((a) => ({ logoOnly: true, id: a.id, name: a.name }));
 const heroCtas = [
-  { label: "Access the library", href: "/subscribe/", variant: "primary" },
+  { label: ACCESS_LIBRARY_CTA, href: "/subscribe/", variant: "primary" },
   { label: "Get the free finance report", href: "#free-report", variant: "secondary" },
 ];
 
@@ -228,7 +229,7 @@ const PROBLEM_ICONS = [
           </div>
         ))}
       </div>
-      <a class="gb-btn gb-btn--accent gb-btn--lg catland-plan__cta" href="/subscribe/">Access the library</a>
+      <a class="gb-btn gb-btn--accent gb-btn--lg catland-plan__cta" href="/subscribe/">{ACCESS_LIBRARY_CTA}</a>
     </div>
   </section>
 
@@ -252,7 +253,7 @@ const PROBLEM_ICONS = [
   <section class="band band--ink sp-close" aria-labelledby="close-h">
     <div class="container container--narrow">
       <h2 class="sp-close__h" id="close-h">Give your product team the Appservatory.</h2>
-      <a class="gb-btn gb-btn--accent gb-btn--lg" href="/subscribe/">Access the library</a>
+      <a class="gb-btn gb-btn--accent gb-btn--lg" href="/subscribe/">{ACCESS_LIBRARY_CTA}</a>
     </div>
   </section>
 

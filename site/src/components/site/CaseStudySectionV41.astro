@@ -21,6 +21,7 @@ import ObservationCard from "./ObservationCard.astro";
 import { GateWidget } from "./GateWidget.jsx";
 import { allSectionCounts, nonEmptySections, tagBlocks } from "../../lib/v41";
 import { PREVIEW_UNLOCK } from "../../lib/preview";
+import { GATE_EYEBROW, GATE_DETAIL } from "../../lib/site-copy";
 
 interface Props {
   app: any;
@@ -60,9 +61,9 @@ const blockByName = locked ? new Map() : new Map(tagBlocks(app, mechanicsById).m
     </nav>
     <div class="cs-gate">
       <div class="cs-gate__lead">
-        <div class="eyebrow">Subscribers only</div>
+        <div class="eyebrow">{GATE_EYEBROW}</div>
         <h2 class="cs-gate__h">Read {current?.name ?? section}</h2>
-        <p class="cs-gate__p">This section is part of the full {app.name} breakdown. Subscribe to unlock it and every other section in the library.</p>
+        <p class="cs-gate__p">{GATE_DETAIL.section(app.name)}</p>
       </div>
       <GateWidget client:load />
     </div>

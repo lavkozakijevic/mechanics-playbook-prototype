@@ -115,31 +115,6 @@ a.gb-tag:hover { filter: brightness(0.97); text-decoration: none; }
 .gb-card--flat { box-shadow: none; }
 .gb-card--sunken { background: var(--surface-sunken); border-color: transparent; box-shadow: none; }
 
-/* LockedNotice.jsx (gb-locked-css) */
-.gb-locked {
-  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;
-  padding: var(--space-6) var(--space-5);
-  background: var(--surface-card);
-  border: 1px solid var(--border-default); border-radius: var(--radius-md);
-  position: relative; overflow: hidden;
-}
-/* a closed archive drawer: a quiet ink band, not an alarm */
-.gb-locked::before {
-  content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
-  background: repeating-linear-gradient(90deg, var(--ink-300) 0 10px, transparent 10px 20px);
-  opacity: 0.7;
-}
-.gb-locked__icon {
-  width: 38px; height: 38px; display: grid; place-items: center;
-  border-radius: var(--radius-md); background: var(--paper-deep); color: var(--ink-600);
-}
-.gb-locked__icon svg { width: 18px; height: 18px; stroke-width: 2; }
-.gb-locked__title { font-family: var(--font-display); font-size: 17px; font-weight: var(--weight-semibold);
-  color: var(--ink-900); margin: 0; letter-spacing: var(--tracking-heading); }
-.gb-locked__body { font-family: var(--font-body); font-size: 14px; line-height: 1.55;
-  color: var(--text-secondary); margin: 0; max-width: 42ch; text-wrap: pretty; }
-.gb-locked__actions { display: flex; gap: 10px; margin-top: 4px; }
-
 /* MechanicCard.jsx (gb-mechanic-css) */
 .gb-mechanic { display: flex; flex-direction: column; gap: 12px; min-height: 168px; }
 .gb-mechanic__top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }

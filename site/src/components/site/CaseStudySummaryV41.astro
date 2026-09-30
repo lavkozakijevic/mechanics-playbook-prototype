@@ -34,6 +34,7 @@ import { allSectionCounts, tagBlocks, CAT_COLOR, CAT_LABEL } from "../../lib/v41
 import { PREVIEW_UNLOCK } from "../../lib/preview";
 import { initials } from "../../lib/props";
 import { formatMonthYear, mechanicHref } from "../../lib/content";
+import { GATE_EYEBROW, GATE_HEADING, GATE_DETAIL } from "../../lib/site-copy";
 
 interface Props {
   app: any;
@@ -113,9 +114,9 @@ const sections = allSectionCounts(app);
 
       <div class="cs-gate">
         <div class="cs-gate__lead">
-          <div class="eyebrow">Subscribers only</div>
-          <h2 class="cs-gate__h">Read the full {app.name} breakdown</h2>
-          <p class="cs-gate__p">The complete case study walks every observation behind each mechanic, with the system view and the full record of every section. Subscribe to unlock this and every other breakdown in the library.</p>
+          <div class="eyebrow">{GATE_EYEBROW}</div>
+          <h2 class="cs-gate__h">{GATE_HEADING.breakdown(app.name)}</h2>
+          <p class="cs-gate__p">{GATE_DETAIL.breakdown}</p>
         </div>
         <GateWidget client:load />
       </div>

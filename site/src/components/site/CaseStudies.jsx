@@ -3,6 +3,7 @@
 import React from "react";
 import { Tag } from "../ds/Tag.jsx";
 import { Badge } from "../ds/Badge.jsx";
+import { SUBSCRIBE_TO_EXPLORE_CTA } from "../../lib/site-copy";
 
 /* Lucide-style inline glyphs (created inline so they render before the CDN
    pass and never turn red). */
@@ -52,7 +53,7 @@ function SystemCard({ s }) {
 
       <div className="csc__foot">
         <span className="csc__count"><b>{s.mechanicCount}</b> mechanics mapped</span>
-        <span className="csc__go">{s.locked ? "Subscribe to explore" : "View case study"} {ArrowIcon}</span>
+        <span className="csc__go">{s.locked ? SUBSCRIBE_TO_EXPLORE_CTA : "View case study"} {ArrowIcon}</span>
       </div>
     </a>
   );

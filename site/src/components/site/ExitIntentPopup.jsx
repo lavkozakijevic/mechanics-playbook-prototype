@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Button } from "../ds/Button.jsx";
 import { Input } from "../ds/Input.jsx";
+import { SITE_TAGLINE, NEWSLETTER_PITCH, NEWSLETTER_CONSENT } from "../../lib/site-copy";
 
 const STORAGE_KEY = "ei-dismissed";
 const MIN_TIME_MS = 3000;
@@ -94,14 +95,14 @@ export function ExitIntentPopup() {
           <>
             <div className="eyebrow" style={{ marginBottom: 10 }}>Before you go</div>
             <h2 className="ei-title" id="ei-h" ref={titleRef} tabIndex={-1}>
-              Documented breakdowns of how real apps build engagement, mechanic by mechanic
+              {SITE_TAGLINE}
             </h2>
-            <p className="ei-body">Each week we add three fresh breakdowns of how successful apps implement game mechanics. Get the most interesting ones straight into your inbox.</p>
+            <p className="ei-body">{NEWSLETTER_PITCH}</p>
             <form className="wl-form" onSubmit={handleSubmit}>
               <Input label="Email" size="lg" type="email" placeholder="you@company.com" aria-label="Email address" value={email} onChange={(e) => setEmail(e.target.value)} required />
               <label className="newsletter__consent">
                 <input type="checkbox" className="newsletter__check" checked={consent} onChange={(e) => setConsent(e.target.checked)} />
-                <span>I agree to receive occasional relevant emails from Appservatory about behavioral design and engagement mechanics.</span>
+                <span>{NEWSLETTER_CONSENT}</span>
               </label>
               {status === "error" && <p className="wl-error">Something went wrong — please try again.</p>}
               <Button variant="primary" size="lg" type="submit" disabled={!consent || status === "loading"}>Sign up</Button>

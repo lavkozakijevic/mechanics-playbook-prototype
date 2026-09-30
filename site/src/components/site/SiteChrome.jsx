@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Button } from "../ds/Button.jsx";
 import { Input } from "../ds/Input.jsx";
+import { NEWSLETTER_PITCH, NEWSLETTER_CONSENT } from "../../lib/site-copy";
 
 // Nav, footer, and login all sit on the same light paper background, so one
 // logo file covers every usage; no separate ink/reverse variant needed.
@@ -166,7 +167,7 @@ export function NewsletterBlock() {
         <div className="newsletter">
           <div>
             <h2 id="newsletter-h">Appservatory Newsletter</h2>
-            <p>Each week we add three fresh breakdowns of how successful apps implement game mechanics. Get the most interesting mechanics from each, straight into your inbox.</p>
+            <p>{NEWSLETTER_PITCH}</p>
           </div>
           <form className="newsletter__form" onSubmit={handleSubmit}>
             <div className="newsletter__row">
@@ -175,7 +176,7 @@ export function NewsletterBlock() {
             </div>
             <label className="newsletter__consent">
               <input type="checkbox" className="newsletter__check" checked={consent} onChange={(e) => setConsent(e.target.checked)} />
-              <span>I agree to receive occasional relevant emails from Appservatory about behavioral design and engagement mechanics.</span>
+              <span>{NEWSLETTER_CONSENT}</span>
             </label>
             {status === "error" && <p className="newsletter__err">Something went wrong — please try again.</p>}
           </form>

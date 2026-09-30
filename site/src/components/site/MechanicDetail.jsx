@@ -2,6 +2,7 @@
 import React from "react";
 import { Tag } from "../ds/Tag.jsx";
 import { Badge } from "../ds/Badge.jsx";
+import { SUBSCRIBE_TO_EXPLORE_CTA } from "../../lib/site-copy";
 
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
@@ -174,7 +175,7 @@ function CaseStudies({ studies }) {
             )}
             <div className="cstudy__foot">
               {s.locked
-                ? <a className="cstudy__link" href="/subscribe/">Subscribe to explore {IconArrow}</a>
+                ? <a className="cstudy__link" href="/subscribe/">{SUBSCRIBE_TO_EXPLORE_CTA} {IconArrow}</a>
                 : <a className="cstudy__link" href={s.href}>View full case study {IconArrow}</a>}
             </div>
           </article>
