@@ -1,929 +1,707 @@
 # Strava
 
-**Teaser:** Saving one activity can fill the feed, cross a trophy, set a personal record, advance the streak, and move a segment ranking, all in the same motion.
+**Teaser:** Take a screenshot of your own activity, and Strava swaps it out for a branded card of its own.
 
-Strava is a fitness tracking app built around recording sports activities and publishing them into a social layer of feeds, followers, clubs, and rankings. The entire system runs off one action: saving a recorded activity, which can fill the home feed, count toward a joined challenge, cross a trophy threshold, produce a personal record, and advance a weekly streak in the same motion. Comparison is scoped tightly, to a shared segment, a rolling 90-day window, or a user's own history, so a beginner's numbers are never measured against the platform's best. Strava carries no in-app economy: nothing is earned, held, or spent as a currency, and the paid tier sits entirely on top of the free recording and social loop rather than beside it.
+Strava is where runners, riders and swimmers turn a workout into something worth showing off. Record an activity and it becomes a small public event: a route map, a burst of stats, kudos from other people, sometimes a trophy. It's worth a look because almost the whole app grows out of that one recorded activity: there's no currency here, no points, nothing to spend, just your own effort and everyone else's attention. And because a brand-new account already opens on a feed full of strangers and a list of clubs waiting, before it's recorded a single mile.
 
 ---
 
 ## System view
 
-Strava is a medium-complexity system with a single spine: recording and saving an activity. That one action publishes to the social feed, can cross a trophy or personal-record threshold, counts toward any joined challenge, advances the weekly streak, and can place the user on a segment ranking, so several mechanics move off the same input rather than needing separate ones of their own. The paid tier sits alongside this loop rather than inside it, withholding maps, deeper stats, and the ability to create rather than join a challenge.
+You open Strava and hit record. While you're moving, it shows your speed, distance, elevation gain and current elevation live, and pauses itself if you stop for more than a few seconds. Finish and you can resume or save; saving is also where you name the activity, tag people in it, add photos, decide who can see it, and choose a map style, all before the record exists anywhere else. Once it's saved, that one activity is what everything else in the app reads from: it lands in other people's feeds unless you've muted it, it's checked against your trophy case and your achievement count, it counts toward any challenge you've joined, and it's what gets composed into a shareable card.
+
+Everything else hangs off that one save. The streak needs you to log another activity to keep its count moving. Challenges and their leaderboards, your standing on any segment you cover, and the trophies and achievements you collect are all read straight off your recorded activities. Clubs and the social feed sit a little further out, built from other people's activity rather than just yours, but they're populated with strangers' activity before you've saved a single ride, so there's always something in them to see. The subscription doesn't touch the loop itself. It locks the parts around it: routes, deeper stats, segment leaderboards, and running your own challenge instead of joining one.
 
 ---
 
 ## Mechanics
 
-### Streak
+### Profile Completion
 
-**Implementation summary:** Strava counts a week, not a day, as the qualifying unit, so one activity anywhere in seven days keeps it alive.
+**Implementation summary:** Your profile shows a completion percentage that only moves when you add the one item it names next, currently your photo.
 
-**What was observed:** Strava keeps a streak counter at the very top of the dashboard, ahead of the goal carousel, challenges, and the feed. It's shown as a flame holding a number of weeks, reading zero on a brand new account, with a line stating that logging an activity starts it and a record button placed directly beside the count. A calendar view opens from the same surface, showing the last twelve weeks of activity alongside how many streak activities are active and what the current streak stands at.
+**How it works.** Open your profile and Strava tells you it's 80% complete, naming your photo as the next thing to add. A small explanation next to that step says a photo lets your friends recognize you. Add it, and you're walked through a subscription pitch, then a prompt to sync your contacts, before Strava tells you you're finished and can update anything later from your profile page.
 
-**How it is presented:** The counter sits above every other dashboard surface, so it's the first thing a user sees on open. Its calendar view spans three months rather than the current period alone, and a feedback button sits beneath it asking specifically how satisfied the user is with the streak feature. A subscription block naming performance predictions, goals, relative effort, and a training log is placed between the calendar and that feedback button.
+**Illustration brief.** The profile screen showing the 80% complete badge next to the named next step, with its explanation open.
 
-**What is worth noting:** Strava counts the streak in weeks on the dashboard but describes it in days on the progress tab, and nothing on either screen reconciles the two units. The app also doesn't say what happens to the count if a week goes by without an activity, or whether any protection exists. Building the streak around a week rather than a day fits a product where training every single day isn't the goal.
+**What stands out.** The badge holds at 80% until you complete the one named step, and Strava never lists what makes up the rest of it.
 
-**Key findings:**
+- **Trigger:** Viewing your own profile with the attribute set still incomplete.
+- **What it needs:** A defined set of profile attributes to check against, and a proportion to report back.
+- **How it connects:** Sits on the same profile Achievement and Milestone report their counts on, though nothing else on this page feeds it or depends on it.
+- **Worth noticing:** Completing the one named step routes you through a subscription pitch and a contact-sync screen before Strava calls the flow finished.
 
-- The streak sits above the goal carousel, challenges, and the feed on the dashboard.
-- It's shown as a flame with a week count, and a record button sits directly beside it.
-- The calendar view covers the last twelve weeks, not just the current one.
-- Strava states the streak in weeks on the dashboard and in days on the progress tab, without reconciling the two.
-- No rule is stated for what breaks the streak or whether it can be protected.
-
-**Screenshots needed:** the dashboard streak flame at zero, and the twelve-week calendar view.
-
-### Challenge
-
-**Implementation summary:** Challenges are month-long, calendar-bound objectives joined in one tap, some run by Strava's own seven-million-member club.
-
-**What was observed:** Strava runs a large, filterable catalogue of challenges, each a discrete objective with a stated success condition and a fixed window. The featured example asks for a first 5km run completed between the first and last day of the month; another asks for 400 minutes logged in the same period. Each challenge page states how many days remain, who organizes it, its terms, and what completing it pays out, and joining takes a single tap with nothing further to configure. Sixteen challenges were recommended based on the user's own recorded activity, and the catalogue can be filtered by activity type, elevation gain, moving time, and distance.
-
-**How it is presented:** Challenges surface on the dashboard under a line about making accountability easier and earning rewards, each showing how many hundreds of thousands or millions of people have already joined. The Groups tab opens directly onto the challenge catalogue rather than onto clubs. Most of the featured and promoted challenges are organized by the Strava Club, a club the product runs itself with close to seven million members.
-
-**What is worth noting:** Strava prices joining a challenge at nothing and running one at a subscription: creating a group challenge and the tab for building a custom one both open the paywall, while joining any of the product's own or partner-run challenges is free. One challenge's exact success condition is stated two different ways in the product, active days within the month against a run of consecutive days, and the app's own wording doesn't settle which applies.
-
-**Key findings:**
-
-- Challenges carry a stated success condition, a days-remaining counter, an organizer, terms, and a named reward.
-- Joining takes one tap; sixteen instances were recommended from the user's own activity.
-- The Strava Club, run by the product itself, organizes most featured and promoted challenges.
-- Creating a group or custom challenge requires a subscription; joining any challenge is free.
-- One challenge's success condition is stated as both a monthly total and a consecutive run, unreconciled.
-
-**Screenshots needed:** the dashboard challenge carousel, and a single challenge's detail page.
-
-### Achievement
-
-**Implementation summary:** Every activity can win graded achievements and a preserved personal record, both held on the profile independent of later activity.
-
-**What was observed:** Strava attaches achievements to individual activities and keeps a running count of them on the profile, graded gold, silver, and bronze; one profile carried ten silver medals and another 53 trophies. Separately, the app recognizes best efforts and personal records against the user's own history: a first activity can already produce a "new best effort" notification and a personal-record badge on the share card. Completing a challenge produces a further held state, a digital trophy or badge in most cases, or a trial of a partner product in one.
-
-**How it is presented:** Achievements travel with the activity in the feed, so other people see them alongside the route and photos. The personal-record badge is composed directly onto the shareable card the app generates after saving. Challenge rewards get their own notification type, separate from the notifications for ordinary achievements.
-
-**What is worth noting:** Strava doesn't state the criteria behind the activity-level achievements, so what separates an attained badge from an unattained one is asserted from the counts held on profiles and the product's own framing rather than from a visible rule. A personal record is compared only against the user's own history, never against anyone else's, which keeps the first-ever recording of any length capable of setting one.
-
-**Key findings:**
-
-- Achievements are graded gold, silver, and bronze and are counted on the profile.
-- A best-effort notification and a personal-record badge can fire on a user's very first recorded activity.
-- Personal records compare only against the user's own history.
-- Completing a challenge produces a held trophy, badge, or partner trial as its own attained state.
-- The criteria behind individual activity achievements are not stated by the app.
-
-**Screenshots needed:** the profile achievement count, and the first-activity best-effort notification.
+**Screenshots needed:** the profile completion badge and its photo-step explanation; the subscription pop-up and contact-sync screen that follow finishing that step.
 
 ### Milestone
 
-**Implementation summary:** A trophy case marks activity-count thresholds from the first ride up to a thousand, with the first reachable in under a minute.
+**Implementation summary:** Every activity you save moves you up a fixed ladder of trophies, and the first rung arrives after your very first one.
 
-**What was observed:** Strava maintains a trophy case built on one measure, the total count of recorded activities, with positions defined at the first, third, fifth, and tenth activity and continuing up to a thousand. Positions not yet reached are shown in place along with their conditions. Saving a first activity crosses the first threshold immediately: it produced a celebratory animation, a pop-up welcoming the user and crediting the first logged activity, and a route straight into the trophy case, all after a recording that lasted 44 seconds.
+**How it works.** You record your first activity, however short, and save it. Strava marks it as your first trophy and offers to take you straight into your trophy case. From there the same ladder keeps going: your third activity, your fifth, your tenth, all the way up to your thousandth. Every rung you haven't reached yet still shows up in the case, with the number of activities it will take to get there. The same shape shows up a second time on gear, where you set your own distance target, between 400 and 1,200 kilometres, and Strava tells you when your shoes or bike reach it.
 
-**How it is presented:** The trophy case sits at the bottom of the profile, with a route to view all trophies opening into the full thousand-position ladder. The completion screen for a first save offers a choice between viewing the activity itself or viewing the trophy case, so one of the two paths leads away from the record just made.
+**Illustration brief.** The trophy case screen: your first position checked off, the third, fifth and tenth shown locked with their conditions, the ladder continuing toward a thousand.
 
-**What is worth noting:** No position on the ladder was found to unlock anything beyond the trophy itself, so the entire thousand-step structure runs on recognition alone. A second, smaller instance of the same shape exists on gear: Strava notifies the user when a shoe or bike reaches a distance the user themselves chooses, from a range of 400 to 1,200 kilometers.
+**What stands out.** The first trophy is nearly instant, a single 44-second ride was enough to claim it. The same reward shape reappears on gear, where the threshold is one you set yourself.
 
-**Key findings:**
+- **Trigger:** Saving an activity that crosses one of the fixed activity-count thresholds.
+- **What it needs:** A running count of the user's total saved activities.
+- **How it connects:** The first threshold overlaps with Achievement's celebration moment; the ladder itself runs independently of the Streak's week count.
+- **Worth noticing:** Strava shows every rung you haven't reached yet in the trophy case already, each one labeled with exactly how many activities away it is.
 
-- Trophy positions are defined by activity count alone, at the first, third, fifth, tenth, and up to a thousand.
-- The first trophy can be earned inside a single 44-second recording.
-- No benefit beyond the trophy itself was found attached to any position.
-- Positions not yet reached are shown in place with their conditions.
-- Gear tracking uses the same threshold shape against a user-chosen distance.
+**Screenshots needed:** the "welcome to the team" first-trophy pop-up; the trophy case showing crossed-off and locked rungs with their conditions; the gear distance-threshold notification setting.
 
-**Screenshots needed:** the trophy case with the first few positions, and the first-activity celebration pop-up.
+### Achievement
 
-### Leaderboard
+**Implementation summary:** Certain activities earn you Strava's own graded medals, gold, silver or bronze, that stack up on your profile for good.
 
-**Implementation summary:** Leaderboards run inside challenges and segments rather than globally, so a beginner can appear on one from a single ride.
+**How it works.** Some of your activities earn you an achievement, shown right there on the activity in your feed. Each one is graded: gold, silver or bronze. They don't disappear once you move on to your next ride or run, they add to a running count on your profile. One profile we looked at held ten silvers; another held 53 medals split between gold and bronze. Finishing one of Strava's monthly challenges adds to the same pile: it hands you a badge that stays with you the same way.
 
-**What was observed:** Strava orders identified participants against each other in two places: challenge pages, which carry both a per-activity leaderboard and an overall one showing pace, distance, and completion time, and segments, where Local Legends orders the people with the most efforts on a stretch of road over the last 90 days. A 100,000-step challenge showed ranks running up toward participants logging close to a billion steps. Segment leaderboards are additionally named directly in the app's own paywall copy as a subscription feature.
+**Illustration brief.** A profile page showing a running achievement count next to a feed activity displaying a gold, silver or bronze badge on it.
 
-**How it is presented:** A challenge's leaderboard sits on its own page alongside the days-remaining counter and the terms. Local Legends sits inside the segments area, framed around effort rather than speed. Losing a top position carries its own dedicated notification types, named "lost CR" and "lost ratings."
+**What stands out.** The count is permanent and visible to anyone who looks at your profile, so it reads as a running scoreboard of your best efforts rather than a one-off congratulations.
 
-**What is worth noting:** Every leaderboard Strava runs is bounded, to a single challenge or a single stretch of road, rather than run across the whole user base, so the comparison a new user meets is always local. Which leaderboards a user can appear on at all is set by the gender selected during onboarding.
+- **Trigger:** An activity you save earns that grade.
+- **What it needs:** A record of every activity you've saved.
+- **How it connects:** Feeds the same profile Milestone's trophy case sits on; challenge completions from Challenge add to the same tally.
+- **Worth noticing:** Strava grades its medals gold, silver and bronze instead of issuing one flat badge.
 
-**Key findings:**
+**Screenshots needed:** a feed activity displaying an earned achievement badge; a profile page showing the achievement count and mixed medal grades.
 
-- Challenge pages carry both a per-activity and an overall leaderboard over participants.
-- Local Legends orders people by effort count on a segment over a rolling 90-day window.
-- Losing a top position triggers its own notification types.
-- Segment leaderboards are named as a subscription feature in paywall copy.
-- Which leaderboards a user appears on is set by the gender selected in onboarding.
+### Standing
 
-**Screenshots needed:** a challenge leaderboard, and the Local Legends segment view.
+**Implementation summary:** Ride or run the same stretch enough and Strava tells you exactly where you stand against everyone else who has, without necessarily showing you the list behind it.
 
-### Comparative Rank
+**How it works.** On any segment, a repeated stretch of road other people have also covered, Strava can tell you three different things about where you stand: whether you hold the single best time anyone has posted there, whether you're one of the people with the most efforts on it in the last ninety days, and whether you're inside the top ten. Every participant in a challenge you join gets the same kind of treatment: a stated rank, given directly, based on how everyone else in that challenge has done.
 
-**Implementation summary:** A user's own standing is tracked in three forms, all separate from the ordered lists the same segments carry.
+**Illustration brief.** A segment screen showing best-overall-time and top-10 standing for a user, alongside a Local Legends callout.
 
-**What was observed:** Alongside the ordered lists on segments, Strava tracks the user's own position in three named forms: KOMs and CRs, for the segments where the user holds the best overall time; personal records on segments; and a Top 10 list, for segments where the user places in the top ten. Inside a challenge, every participating athlete also receives an individual rank.
+**What stands out.** Two of the three ways Strava states your position, best overall time and most efforts, measure entirely different things, speed versus how often you show up, so a good rank on a road you know well doesn't require being fastest, only persistent.
 
-**How it is presented:** All three segment-standing surfaces sit together in the same area of the app, described in the product's own terms as where a user finds their best times and top placements. A challenge's rank is shown to each athlete on the challenge page alongside the leaderboard itself.
+- **Trigger:** Recording an activity that covers a segment, or joining a challenge.
+- **What it needs:** Other people's recorded efforts on the same segment, or other participants in the same challenge, to compare against.
+- **How it connects:** Segments are the same surface Leaderboard's ordered lists run on; challenge participation is shared with Challenge.
+- **Worth noticing:** Strava gives you a stated rank, Local Legends or Top 10, without necessarily showing you the list of everyone else's efforts behind it.
 
-**What is worth noting:** Two of the three segment-standing forms are held against other people, and one, the personal record, is held against the user's own history alone; Strava keeps the personal-record version in the same area as the two comparative ones rather than separating it out. None of this site's four content roles quite covers what a rank like this is doing on its own, since it isn't purely retention, social, monetization, or engagement, it sits closest to social and engagement together.
+**Screenshots needed:** the segment surface showing best-overall-time, Local Legends and Top 10 labels; a challenge participant list showing individual ranks.
 
-**Key findings:**
+### Challenge
 
-- A user's segment standing is tracked as KOMs/CRs, personal records, and a Top 10 list.
-- KOMs/CRs and Top 10 are both comparative; personal records are measured against the user's own history.
-- Challenge participants each receive an individual rank alongside the challenge's overall leaderboard.
-- The gender selected in onboarding determines which leaderboards a rank can appear on.
+**Implementation summary:** Strava hands you a running list of month-long challenges, each with a headline count of how many hundreds of thousands of other people have already joined.
 
-**Screenshots needed:** the segments standing screen showing KOMs/CRs, personal records, and Top 10.
+**How it works.** Open the challenges list and you'll find things like completing your first 5K sometime in April, logging 400 minutes of activity this month, or clearing 180 minutes in a single sweat session. Each one states its deadline, its reward and how many other people have already joined, sometimes well over a million. Joining any of them is one tap, no setup involved. Finish before the window closes and you get a digital trophy, or in one case a two-week trial of Runna. Strava also recommends challenges based on your own recorded activity, sixteen showed up for us, and lets you filter the full catalogue by activity type, elevation gain, moving time or distance. Running your own custom challenge, rather than joining one Strava made, needs a subscription.
 
-### Social Feed
+**Illustration brief.** A challenge card showing its deadline, its reward, and its join count in the hundreds of thousands or millions, next to a join button.
 
-**Implementation summary:** A new account opens on a populated stream of strangers' activities, recommended before the user follows anyone.
+**What stands out.** The join count is shown on every single challenge, so the decision to join is made next to a number that says how many other people already made the same call.
 
-**What was observed:** Strava's dashboard carries a scrolling feed of other athletes' activities, each showing the route, photos or video, distance, elevation, time, and any achievements won, with kudos and comment controls and visible counts for each. On a brand-new account with no follows, the feed is headed as recommendations to stay motivated, and it's populated entirely by suggestion rather than by anyone the user has actually followed.
+- **Trigger:** Opening the challenges list, or being shown one on the dashboard.
+- **What it needs:** A defined objective with a start and end date already set by Strava.
+- **How it connects:** Completing a challenge is also what produces an Achievement badge, and challenge pages carry their own Leaderboard.
+- **Worth noticing:** Joining any challenge is free. Creating and running your own needs a subscription.
 
-**How it is presented:** The feed sits below the follow suggestions and the challenge carousel on the dashboard and continues loading further activities from further users as the screen is scrolled. A feed ordering preference exists in settings, alongside a choice of default highlight image and a video autoplay toggle.
-
-**What is worth noting:** Strava fills the feed with strangers' activity by default rather than leaving it empty until the user follows someone, so the social layer has content from the very first open. Muting an activity is offered as its own control at save time, separate from the visibility setting, and it removes the activity from both the home feed and any club feed while keeping it on the user's own profile.
-
-**Key findings:**
-
-- Feed items show the route, media, and stats, with visible kudos and comment counts.
-- A brand-new account's feed is populated by recommendation, not by following.
-- A feed ordering preference exists in settings, without the options themselves being stated.
-- Muting an activity removes it from the home and club feeds while keeping it on the profile.
-
-**Screenshots needed:** the recommended feed on a new account.
+**Screenshots needed:** the challenges list showing several cards with join counts; a challenge detail page showing days left, reward and organiser; the filter options.
 
 ### Group Membership
 
-**Implementation summary:** Clubs are created public or private, with private membership gated by admin approval rather than the creator alone.
+**Implementation summary:** Creating a Strava club walks you through five steps, including picking up to three tags that describe what kind of group it is.
 
-**What was observed:** Strava lets any user create a club through a five-step flow: choosing a sport, picking up to three descriptive tags from a list spanning personal, commercial, employer, and identity groupings, adding a name, photo, and description, setting it public or private, and setting a location. A private club requires people to request permission to join, and only admins, not necessarily the creator alone, can approve new members. A club's own page shows its member count, sport, and type, alongside events, posts, and a club-scoped feed.
+**How it works.** Join a club and you're in: public ones let anyone in, private ones hold you at a request until an admin approves you. Making your own club runs through five steps: pick the sport, choose up to three tags describing what it's for (a brand, an employee group, a local community, an identity group, among others), add a name, a photo and a description, decide public or private, and set a location. Finish and Strava hands you three things to do next: invite people, write a post, create an event. Every club gets its own page: a member count, a type, and tabs for its overview, its activities, its stats and its posts.
 
-**How it is presented:** Clubs are listed and searched by proximity and by sport, the same organizing principle the app uses for athlete suggestions and segments. The club-creation flow ends by naming three next actions, inviting the community, writing a post, and creating an event, rather than leaving a new, empty club to its creator. Muting an activity from the club feed is offered as its own choice, separate from muting the home feed.
+**Illustration brief.** The five-step club creation flow, focused on the tag-selection step and its list of options.
 
-**What is worth noting:** Membership here carries a governance structure, request and approval, rather than being a simple joined or not-joined state, and roles carry different powers: admins approve members, edit club details, and add events. Strava doesn't show whether a club's activities, stats, or insights tabs hold any state that belongs to the club collectively, or whether they simply list each member's own individual records.
+**What stands out.** The tag list treats a casual local running group, a company's employee team and a brand's own fan club as the same kind of thing, picked from the same thirteen-option list.
 
-**Key findings:**
+- **Trigger:** Choosing to create a club, or requesting to join an existing one.
+- **What it needs:** Nothing pre-existing; a club can be created from scratch in five steps.
+- **How it connects:** Club pages carry their own feed, separate from the main Social Feed, and clubs organise most of Strava's Challenges.
+- **Worth noticing:** Finishing club creation hands you three things to do at once: invite people, write a post, create an event.
 
-- Club creation runs through five steps, including a tag list spanning personal, commercial, employer, and identity categories.
-- Private clubs require admin approval to join; approval is a role, not tied to the creator specifically.
-- A club carries its own feed, separate from the home feed, with its own mute control.
-- Whether club-level tabs hold collective state or individual members' records is not shown by the app.
+**Screenshots needed:** the club creation flow's tag-selection screen; a club's own page showing its member count, type and tabs; the club directory showing nearby clubs.
 
-**Screenshots needed:** the club-creation tag step, and a club's own page.
+### Social Feed
+
+**Implementation summary:** Strava fills your feed with strangers' activities from the moment you open the app, before you've followed a single person.
+
+**How it works.** Scroll down from the dashboard and you land in a feed of other people's activities, headed "recommended for you" on a brand-new account. Each one shows the route on a map, any photos or video attached, the distance covered, the elevation gained, the time it took, and any achievements it won, plus kudos, comment and share controls right on it. Keep scrolling and more activities from more people keep loading in.
+
+**Illustration brief.** A feed card showing a route map, distance/elevation/time stats, an achievement badge, and the kudos and comment controls beneath it.
+
+**What stands out.** The feed isn't empty while you build a following. Strava fills it with other people's activities from the very first visit.
+
+- **Trigger:** Opening the dashboard.
+- **What it needs:** A pool of other users' saved, public activities to recommend from.
+- **How it connects:** Every item in the feed carries the same Achievement badges and Standing that show up elsewhere; saving your own activity is what populates it for others.
+- **Worth noticing:** Every feed card carries its own kudos, comment and share controls right on it, so you never have to open an activity to react to it.
+
+**Screenshots needed:** the dashboard feed on a brand-new account, headed "recommended for you"; a single feed card showing its full set of stats and reaction controls.
+
+### Leaderboard
+
+**Implementation summary:** Every challenge you join comes with its own leaderboard, ranking everyone taking part by pace, distance or whatever the challenge measures.
+
+**How it works.** Open a challenge and there's a leaderboard sitting on it, ranking every participant. One version ranks by a single activity; another ranks everyone across the whole challenge, showing their pace, the distance they've covered and when they finished. The 100,000 steps challenge, for instance, lists everyone's logged step counts next to their rank.
+
+**Illustration brief.** A challenge leaderboard showing ranked participants with pace, distance and completion times.
+
+**What stands out.** The ranking is scoped to whoever joined that specific challenge, not to Strava's whole user base, so the list stays a manageable size no matter how popular the app gets.
+
+- **Trigger:** Joining a challenge that has other participants.
+- **What it needs:** Recorded activity from every other person who joined the same challenge.
+- **How it connects:** Runs on top of Challenge's own join mechanism, and shares its scope with the individual Standing each participant is also given.
+- **Worth noticing:** Strava keeps two separate leaderboards on the same challenge: one ranking a single activity, another ranking the whole challenge.
+
+**Screenshots needed:** a challenge's leaderboard tab; the 100,000 steps challenge showing ranked step counts.
 
 ### Shareable Win
 
-**Implementation summary:** Saving an activity, or even taking a screenshot of one, produces a branded card built from that activity's own best result.
+**Implementation summary:** Strava builds a branded, shareable card out of your activity automatically, and even intercepts your own screenshots to offer it instead.
 
-**What was observed:** Strava composes a self-contained card out of the record it holds on an activity: one such card stated "longest ride ever," carried a personal-record badge, and carried the app's own branding, readable by someone with no Strava account at all. The card can go to Instagram, WhatsApp, a text message, a copy of the link, or a post that stays inside the app, and the product supplies more than one pre-made design for the same result.
+**How it works.** Save an activity and Strava has already composed a shareable version of it: a card carrying your result (ours read "longest ride ever" with a personal-record badge), dressed in Strava's own branding, with more than one design to choose from. From there you can send it to Instagram, WhatsApp, a text message, a Strava message, a Strava post, or just copy the link. Try to take your own screenshot of the activity instead, and Strava steps in: it opens the same sharing pop-up and offers its prepared, branded card in place of the picture you were about to take.
 
-**How it is presented:** The share options appear on the save screen as soon as the activity is composed, and again when the user takes a screenshot of the activity page: the app intercepts the screenshot and offers its own branded composition in place of it. A subscriber-only version of the same card exists, with personalized stat maps available only on a paid account.
+**Illustration brief.** The branded share card itself, showing a result like "longest ride ever" with a personal-record badge and Strava's branding, next to the screenshot-interception moment.
 
-**What is worth noting:** The card Strava builds is drawn from the app's own record of the activity, a best-effort state and a personal-record badge, rather than from anything the user wrote or photographed themselves, and the offer to share it is made unprompted, at the exact moment the record is set. Intercepting a screenshot to substitute the app's own composition is a stronger claim on the moment than an ordinary share button.
+**What stands out.** Intercepting a plain screenshot and swapping in a branded card means Strava's own design reaches other people even when the user never intended to use Strava's share feature at all.
 
-**Key findings:**
+- **Trigger:** Saving an activity, or attempting to take a screenshot of one.
+- **What it needs:** A completed, saved activity with a result worth stating, such as a personal record.
+- **How it connects:** Draws on the same personal-record state that Achievement and Standing track; one destination, a Strava post, feeds directly into the Social Feed.
+- **Worth noticing:** The composed card states your specific result, "longest ride ever" with a personal-record badge, rather than just the activity type.
 
-- The composed card carries the app's own branding and can be read without a Strava account.
-- Share destinations include Instagram, WhatsApp, text message, copy link, and an in-app post.
-- Taking a screenshot of the activity triggers the app's own composed version instead.
-- A subscriber-only personalized stat map version of the same card exists.
+**Screenshots needed:** the composed share card with its personal-record badge and branding; the sharing pop-up appearing after a screenshot attempt.
 
-**Screenshots needed:** the composed share card, and the save-screen share menu.
+### Streak
+
+**Implementation summary:** A flame at the top of your dashboard counts the weeks you've kept your streak alive, and starts the moment you log your first activity.
+
+**How it works.** Right below the top bar, before anything else on the dashboard, sits your streak: a flame with a number of weeks inside it, reading zero until you log an activity to start it. A record button sits right next to it. Tap into the calendar behind it and you get a twelve-week view of your activity alongside the current count.
+
+**Illustration brief.** The dashboard's streak flame reading zero weeks, with the record button beside it, and the twelve-week calendar view behind it.
+
+**What stands out.** Strava counts the streak in weeks on the dashboard but describes it in days on the progress tab, two different units for the same number, with nothing on either screen explaining the difference.
+
+- **Trigger:** Logging and saving an activity.
+- **What it needs:** Nothing beforehand; the count starts at zero and the record button to start it sits right beside the flame.
+- **How it connects:** Stands alone on this page. It shares its weekly reset with the dashboard's suggested-goal surface, but nothing else here feeds it or depends on it.
+- **Worth noticing:** The streak sits above the feed, the challenges and every suggestion on the dashboard.
+
+**Screenshots needed:** the dashboard streak flame at zero weeks; the streak calendar's twelve-week view.
 
 ---
 
 ## Section cards
 
-**Onboarding and first run:** Strava walks new users through an auto-scrolling carousel, account creation, a run of profiling questions tied to leaderboards and safety, and a subscription pitch, before pushing straight into a first recording.
+**Onboarding and first run:** Onboarding asks for a name, a birthday and a gender before it's shown you a single feature, and ends by pushing you straight into recording your first activity.
 
-**Core loop and automation:** Strava's loop is recording an activity and saving it, with a grouped sport selector, a live recording screen, and a save flow that composes the activity for other people to see.
+**Core loop and automation:** Recording, saving and composing an activity for other people to see all happen in the same few taps, with gear, sensors and automatic pausing built in around them.
 
-**Goals and progression:** Strava runs a user-set weekly goal, a profile-completion meter, a fixed thousand-position trophy ladder, graded achievements, browsable segments, and a large challenge catalogue in parallel.
+**Goals and progression:** A trophy case, a streak, and a self-set weekly goal all track your activity at once, while Strava's own subscription pitch calls one of those same things, goals, a paid feature.
 
-**Access and eligibility:** Strava spreads its paywall across the map, the activity, the profile, and the groups area, each met at the point of use rather than declared in advance.
+**Access and eligibility:** Routes, deeper stats, segment leaderboards and running your own challenge are all locked, each one met and explained at the exact moment you try to use it.
 
-**Economy and resources:** Strava holds no currency, points balance, or spendable resource of any kind; every incentive is a recorded state, another person's attention, or the subscription.
+**Economy and resources:** Strava runs no currency, points balance or spendable resource of any kind; there's nothing here to report.
 
-**Social:** Strava opens on a populated feed and suggested people before the user follows anyone, and adds clubs, messaging, and segment standing on top.
+**Social:** A brand-new account opens on a feed of strangers, a list of nearby clubs and suggested people to follow, all before it's recorded a single activity of its own.
 
-**Reach beyond the app:** Strava's reach outside the app runs mainly through a Runna partnership, brand-run challenges, sharing to outside platforms, and device connections.
+**Reach beyond the app:** A partner training product is sold as an upgrade tier, and a competing fitness subscription gets its own promotion inside Strava's own settings.
 
-**Monetization:** Strava's paywall is met at nine points with copy matched to each one, behind trial and pricing terms that are stated differently across screens.
+**Monetization:** The subscription is pitched nine separate times across the app, its price stated differently depending on whether you're paying through the web or through the App Store.
 
-**Return triggers:** Strava brings users back through a long notification catalogue, a streak at the top of the dashboard, and deadlines tied to challenges and events.
+**Return triggers:** A notification exists for nearly everything Strava tracks, from losing a leaderboard spot to a friend joining.
 
 ---
 
 ## Onboarding and first run
 
-Strava's onboarding runs from the first launch carousel through account creation, a run of profiling questions, a subscription pitch, and a push into the first recording. Nothing already answered can be revisited once the flow moves on.
+Onboarding takes you from the first launch carousel through account creation, a long run of profile questions, a first subscription pitch, and straight into recording your first activity, with no way to go back and change an answer once it's given.
 
-### O1. First launch carousel
+### O1. The welcome carousel
 
-Strava opens on an auto-scrolling carousel of four screens covering tracking activity, working toward goals, motivation from other people, and route options, each paired with an image of part of the app. The carousel advances on its own rather than by swiping, and joining for free or logging in are the only two actions offered.
+Open Strava for the first time and you land on a carousel of four screens that scroll through on their own: tracking your active life, making progress on goals, getting motivation from other people, and routes that never run out. You can't swipe past it or skip it, only join for free or log in.
 
-- The carousel advances automatically rather than on a swipe.
-- No route past the screen exists other than joining or logging in.
-- The four screens cover tracking, goals, other people, and routes, the same order the dashboard is later built in.
+### O2. Signing up
 
-### O2. Three signup routes
+Choosing to join gives you three ways in: Google, Apple, or an email address.
 
-Choosing to join offers three routes: continuing with Google, continuing with Apple, or signing up with an email address.
+### O3. Getting your code
 
-### O3. Verification code shortcut
+After you submit your email, Strava tells you a code is on its way and puts an "open email app" button right on the same screen, so you don't have to switch apps yourself to find it.
 
-After an email address is submitted, Strava tells the user a code is on its way and places a button on the same screen that opens the mail app directly.
+### O4. The tracking prompt, early
 
-- The button removes the app switch the user would otherwise make to read the code.
+Right after you enter that code, the system prompt asking to track your activity across other apps and websites shows up, before Strava has shown you anything it actually does.
 
-### O4. Tracking permission first
+### O5. Your name, and a public default
 
-Once the code is entered, a system prompt asks to allow Strava to track the user's activity across other companies' apps and websites, appearing before Strava has shown anything it does.
-
-- No Strava-authored screen precedes or explains the prompt at this point.
-
-### O5. Name tied to findability
-
-Strava asks for a first and last name, explaining that this is how friends can find the user, and states on the same screen that the profile is public by default.
-
-- The reason given for collecting the name is that other people will use it, not that the product needs it.
-- The public default is disclosed at the point of collection rather than later in settings.
+Strava asks for your name so your friends can find you, and on the same screen tells you your profile is public by default.
 
 ### O6. Welcomed by name
 
-Strava greets the user by the first name just entered on the very next screen after the name step.
+The next screen already greets you by the first name you just typed in.
 
-### O7. Birthday, three uses
+### O7. Why it wants your birthday
 
-Strava asks for a birthday, stating it will be used for performance analysis, filtering leaderboards, and keeping younger users safe.
+Strava asks for your birthday and gives three reasons up front: performance analysis, filtering which leaderboards you see, and keeping younger users safe.
 
-- Two of the three stated uses are product features; one is an eligibility condition.
-- Strava doesn't say what the safety condition actually changes for a younger user.
+### O8. Gender decides your leaderboards
 
-### O8. Gender sets leaderboards
+It asks for your gender too, and says directly that the answer decides which leaderboards you'll appear on.
 
-Strava asks for gender, stating it determines which leaderboards the user appears on, with options for man, woman, non-binary, and prefer not to say.
+### O9. Choosing a sport, first look
 
-- The stated purpose is a single feature rather than a general profile field.
-- Strava doesn't say what happens to leaderboard placement when "prefer not to say" is chosen.
+It asks what activities you like doing, framed as a preview of what's coming, lists more than thirty sport types, and lets you skip straight past without picking anything.
 
-### O9. Sport preview, skippable
+### O10. 150 million people, mid-flow
 
-Strava asks what types of activities the user likes, framed as a preview of what the app offers when recording, and lists options including running, cycling, walking, hiking, swimming, and more than a dozen others. The screen can be passed without selecting anything.
+Between two of the data-collection questions sits a screen with no question on it at all, just a claim that you're joining a community of more than 150 million active people.
 
-- The screen is framed as showing off the product as much as collecting an answer.
-- The sport count stated here is "over 30."
+### O11. What you're here for
 
-### O10. Population screen between questions
+It asks what you plan to use Strava for and lets you pick as many reasons as apply, compete with others, connect with active people, build a habit, explore new places, train for something, or just maintain your health, and tapping any one of them reveals a line about a specific feature tied to that reason. This screen states 48 supported sports, a different number than the "over 30" from the sport-type screen just before it.
 
-Strava places a screen between the sport-type question and the next one stating that more than 150 million people are active on the platform, carrying no question of its own.
+### O12. Declaring your fitness level
 
-- It's the only screen in the flow whose content is the size of Strava's user base.
-
-### O11. Purpose reveals features
-
-Strava asks what the user plans to use it for, offering options like competing with others, connecting with active people, building a habit, and maintaining health, more than one selectable. Tapping an option reveals a line of feature copy beneath it tied to that motive.
-
-- The revealed copy names a product feature against the motive the user just claimed.
-- The sport count stated here is 48, conflicting with the "over 30" stated one screen earlier.
-- Strava doesn't say whether these selections change anything later in the product.
-
-### O12. Fitness level self-assessment
-
-Strava asks the user to place themselves on a fitness journey, from beginner to professional athlete, with each level described in a line of its own.
-
-- The level is declared by the user rather than derived from anything the product has recorded.
-- Strava doesn't say whether the declared level changes any later content, suggestion, or threshold.
+You're asked to place yourself on a four-step ladder, from total beginner to professional athlete, purely by your own judgment.
 
 ### O13. No going back
 
-Strava offers no route back to a previous screen anywhere in onboarding; answers already given can't be revised until the profile editor is reached later.
+None of the onboarding screens can be revisited or changed while you're going through them; anything you want to correct waits until you reach the profile editor later, which carries your name, a biography, your primary sport, birthday, gender and weight.
 
-### O14. Privacy defaults disclosed
+### O14. A privacy default, stated
 
-Strava's privacy screen states it hides the start and end of a user's activities by default, and that twelve privacy controls can be customized, covering who can see the profile and activities.
+A privacy screen tells you Strava will hide the start and end points of your activities by default, and that twelve separate privacy controls exist covering who can see your profile and your activities.
 
-- The screen discloses a protective default rather than asking for a decision.
-- It follows directly after the screen that established the profile is public by default.
+### O15. What your shared data powers
 
-### O15. Shared data named to a feature
+Another screen explains that the activity data you and everyone else shares powers community features like the Global Heatmap, and that you can stop sharing it later from settings.
 
-Strava explains, on a data-sharing screen, that activity data shared by its users powers community features like the Global Heatmap, and that sharing can be stopped later in settings.
+### O16. The first paywall, early
 
-- The screen names a specific feature the shared data produces rather than describing sharing in general terms.
-- The opt-out is stated as available later rather than offered on the same screen.
+Before you've recorded anything, Strava shows you a subscription screen: $79.99 a year on its own, or $149.99 a year bundled with the training app Runna. A 30-day free trial unlocks every feature, and Strava tells you upfront that you'll get a reminder 28 days in and be charged $79.99 in 30, unless you skip, which you can do immediately.
 
-### O16. Subscription pitch with full terms
+### O17. What the subscription unlocks
 
-Strava's first subscription screen offers an annual plan at $79.99 a year and a combined Strava-plus-Runna plan at $149.99, with a 30-day free trial that unlocks every feature and a stated reminder 28 days in before the charge lands at 30 days. The screen can be skipped immediately.
+A second screen lists exactly what paying gets you: a custom training plan and expert coaching, both credited to Runna rather than Strava itself, plus estimated race finish times, suggested routes, and deeper workout analysis.
 
-- The reminder is promised 2 days before the charge.
-- The skip is available without scrolling or waiting.
-- This screen arrives before the user has recorded a single activity.
+### O18. Priming the permission prompt
 
-### O17. Partner-led unlock list
+Before the system asks whether you'll allow notifications, Strava shows you its own screen first, previewing what a notification will look like and telling you directly to tap allow on the next step.
 
-Strava's second unlock screen lists five things the paid tier includes: a custom training plan and expert coaching, both credited to the Strava-plus-Runna tier, plus estimated race finish times, route suggestions, and advanced workout analysis. The screen can be skipped.
+### O19. Finding friends, mid-onboarding
 
-- Two of the five items are credited to the partner product rather than to Strava.
+Onboarding includes its own friend-finding step: a search that surfaces people near your location, plus a set of well-known athletes to follow, framed around giving and receiving kudos rather than the follow itself. You can move on without following anyone.
 
-### O18. Priming before the system prompt
+### O20. What you're expected to do now
 
-Strava primes notification permission with its own screen asking whether the user wants an occasional nudge, showing an example notification and telling the user to select allow on the system prompt that follows.
+The last onboarding screen spells out what it expects from you next: upload activities, compete with friends, build a community, and have fun, all in one line.
 
-- The priming screen instructs the user how to answer the prompt that comes right after it.
-- The example notification is shown before permission is actually granted.
+### O21. Straight into recording
 
-### O19. Friend-finding inside onboarding
-
-Strava frames a friend-finding step around not going it alone, inviting the user to find friends, with a search that surfaces people by location and a set of well-known athletes to follow. The step can be passed without following anyone.
-
-- People are surfaced by location before any contact list has been shared.
-- The framing names giving and receiving kudos rather than the follow itself.
-
-### O20. Closing instructions
-
-Strava closes onboarding by telling the user they're ready to go, naming four things to do next: upload activities, compete with friends, build a community, and have fun.
-
-### O21. Pushed into the first recording
-
-Strava ends onboarding with a pop-up inviting the user to record an activity now or connect a device like a Garmin or Peloton instead, and recording opens straight into a permission request for fitness activity and location.
-
-- No further instruction screen follows; the recording surface is where guidance ends.
-- The device route sits on equal footing with recording in-app.
-- A third sport count, "30+," appears on this screen.
+Onboarding ends by pushing you straight into recording, offering to connect a Garmin, Peloton or other device instead if you'd rather upload than record in-app. Choosing to record opens the recording screen directly and asks for location and fitness-activity permissions.
 
 ---
 
 ## Core loop and automation
 
-Strava's core loop is recording an activity, saving it, and everything the app automates or offers around that single action: the sport selector, the recording screen itself, the save flow, gear, and the settings that govern all of it.
+Recording an activity, saving it and composing it for other people all happen in the same short run of screens, with gear, sensors and automatic pausing sitting around the edges of that loop.
 
-### O22. Five-tab navigation
+### O22. The five-tab layout
 
-Strava's bottom navigation bar carries Home, Maps, Record, Groups, and You, with Record occupying the centre position.
+Strava's bottom navigation holds five destinations: Home, Maps, Record, Groups and You, with Record sitting dead centre.
 
-- The five destinations split the product into the feed, the map, recording, other people, and the user's own record.
+### O23. Choosing a sport to record
 
-### O23. Sport selector, grouped
+Tapping Record opens your current location on a map alongside a sport selector grouped into foot sports, cycle sports, strength sports, racquet sports, water sports, winter sports, team sports and more, with a "your top sports" shortcut at the very top holding whatever you pick or do most.
 
-Tapping Record opens a screen showing the user's location and a sport selector grouped into foot, cycle, strength, racquet, water, winter, team, and other sports, opening on a "your top sports" group drawn from what the user has chosen or done most.
+### O24. Before you start recording
 
-- A fourth sport count appears here: "probably 40, at least 30 plus."
-- The recent-and-chosen shortcut sits above the full list, so the common case takes one tap.
-
-### O24. Pre-record screen
-
-Strava's pre-record screen lets the user adjust map layers, shows areas other people have covered nearby, offers a route builder that requires a subscription, and carries an option that starts sharing the user's live location by text as a safety measure.
-
-- Other people's coverage is visible on the map before the user has recorded anything.
-- The route builder is named and reachable but locked.
+Before you start, the screen lets you adjust map layers, shows which nearby areas other people have already covered, and offers a "stay safe" option that texts your live location to someone. Adding a route works; building a new one needs a subscription.
 
 ### O25. Recording settings
 
-Strava's recording settings cover audio cues, a choice between normal and locked screen behaviour, auto pause, live location sending, and a heart rate sensor that requires Bluetooth permission.
+Recording settings cover audio cues, whether the screen stays unlocked, automatic pausing, sending your live location, and connecting a heart rate sensor over Bluetooth.
 
-- Each setting removes a specific interruption during the activity rather than adding a new feature.
+### O26. What you see while recording
 
-### O26. Live recording screen
+Once you start recording, a full screen tracks your speed, distance, elevation gain and current elevation live, pausing itself automatically if you stop moving for a few seconds. You can pause it yourself too, or minimise it.
 
-Starting a recording opens a full screen showing speed, distance, elevation gain, and current elevation, auto-pausing after a few seconds of no movement and showing whether activity is registering. The recording can be paused manually and minimised.
+### O27. Finishing, and a default name
 
-- Auto pause means an interruption doesn't have to be handled manually for the record to stay accurate.
+Finishing offers you the choice to resume or save, and if you save, Strava pre-fills a name for you based on the time of day, for example "Morning Ride" for an early bike ride.
 
-### O27. Finish offers resume or save
+### O28. Composing the save
 
-Finishing offers resuming or saving the activity, and saving pre-fills a name from the time of day, for example suggesting "Morning Ride" for a morning bike activity.
+The save screen is where the activity gets built for other people to see: you can name it, tag people in it with an @ symbol, add photos and videos, and change the map's style, though a personalised stat map on that image needs a subscription.
 
-- Resume is offered alongside save, so ending the recording isn't final.
+### O29. Photo and video limits
 
-### O28. Save screen composes for others
+Add a video and Strava tells you it'll auto-trim anything over 30 seconds down to the first 30, but you can add as many photos and videos as you like.
 
-Strava's save screen carries the activity name, an invitation to tag others with the @ symbol, the activity type, a sample map, and controls to add photos, videos, and change the map type, noting that personalized stat maps require a subscription.
+### O30. Tags and how it felt
 
-- Tagging, description, media, and map treatment are all assembled at the same step as saving.
-- Two of the controls on this screen are partly locked.
+You can tag the activity, race, a cause, a workout, recovery, a commute, with a pet, with a kid, and separately rate how it felt: easy, moderate or max effort.
 
-### O29. Media limits stated upfront
+### O31. Notes only you see
 
-Adding a video states that Strava trims anything over 30 seconds automatically, while the number of photos and videos that can be added has no cap.
+A private notes field on the save screen is visible to you and no one else.
 
-### O30. Activity tags and effort rating
+### O32. Adding gear on the fly
 
-A details section offers tags like race, workout, recovery, commute, with pet, and with kid, alongside a separate question asking how the activity felt: easy, moderate, or max effort.
+If the activity used equipment you haven't registered yet, you can add it right there on the save screen instead of setting it up beforehand.
 
-- The effort rating is available whether or not a heart rate monitor is connected.
+### O33. Who sees this activity
 
-### O31. Private notes
+At save time you choose who can see the activity, everyone, followers only, or just you, hide specific details like calories, speed or start time, and can mute it from the home and club feeds while it still stays on your own profile.
 
-Strava's save screen carries a private notes field described as visible only to the user.
+### O34. Your first save, celebrated
 
-### O32. Gear added during save
+Saving your very first activity plays a "nice work" animation, then a pop-up welcoming you to the team and crediting you with kudos for logging it, offering a route straight into your new trophy case.
 
-New gear can be registered directly from Strava's save screen rather than requiring the user to leave the flow to create it first.
+### O35. The activity page's stats
 
-### O33. Visibility, hidden details, and muting
-
-Visibility can be set to everyone, followers only, or just the user; hidden details cover calories, speed, and start time; and a mute control keeps the activity out of the home and club feeds while leaving it visible on the profile.
-
-- Three separate controls govern who sees it, which figures are shown, and whether it enters the feeds.
-
-### O34. First-activity celebration
-
-Saving a first activity plays a "nice work" animation followed by a welcome message crediting the first logged activity, offering routes to view the activity or the trophy case, and a trophy is granted for it.
-
-- The message uses the app's own social vocabulary, kudos, for a system message.
-- One of the two offered routes leads away from the activity just recorded.
-
-### O35. Activity page and locked insights
-
-Strava's activity page leads with six headline stats, expands into a fuller stats block on tap, carries share, comment, and like controls, and ends in a locked section pitching subscriber-only insights.
-
-- The locked section sits below the user's own numbers rather than above them.
+Your saved activity leads with six figures, distance, elevation gain, moving time, average speed, max elevation and max speed, and tapping any of them scrolls you into a fuller block with more detail. Below all of it sits a locked section promising smarter insights with a subscription.
 
 ### O36. Replaying the route
 
-A play control on Strava's activity page opens a replay of the user's movement across the route.
+A play button on the activity replays your movement across the route you took.
 
-### O37. Seven-option edit menu
+### O37. Editing or deleting an activity
 
-A three-dot menu on the activity offers adding media, editing, cropping, adjusting map visibility, saving the route, refreshing, and deleting the activity, with deletion reachable directly from the activity.
+A three-dot menu on any activity lets you add media, edit it, crop it, edit the map's visibility, save it as a route, refresh it, or delete it outright. A separate bookmark control opens the subscription screen instead.
 
-### O38. Manual entry
+### O38. Adding activity by hand
 
-A plus button on the You tab creates a new post, adds a photo, or logs a manual activity, letting activity performed without the app still enter the record.
+A plus button on the You tab lets you create a post, add a photo, or log an activity manually, one you didn't record through the app at all.
 
-### O39. Instant one-tap workouts
+### O39. One-tap instant workouts
 
-Strava's dashboard carries instant workouts that can be started immediately, each with a stated duration and purpose, such as a 30-minute brisk walk.
+The dashboard suggests instant workouts you can start with one tap, like a 30-minute brisk walk, each carrying its own duration and stated purpose.
 
-- Strava doesn't say whether starting one differs from an ordinary recording.
+### O40. Workout plans, behind a trial
 
-### O40. Locked four-intent workouts
+A separate Workouts tab offers four kinds of plan: maintain, build, explore or recover, and tapping any of them shows a full card, the activity, a difficulty, an estimated time, before ending on a "start free trial" button.
 
-Strava's Workouts tab offers four intents, maintain, build, explore, and recover, each opening a full card with an activity, description, difficulty, and estimated time before ending on a button to start a free trial.
+### O41. Stats by sport
 
-- The cards are shown in full before the lock is stated.
-- The four intents cover the entire range of what a plan could ask: maintaining, increasing, varying, or reducing effort.
+A statistics surface tracks running, cycling and swimming separately, each showing your averages for this week, this year, and all time.
 
-### O41. Statistics for three sports
+### O42. Tracking your gear
 
-Strava's statistics surface holds detailed running, cycling, and swimming stats across this week, year to date, and all time.
+You can register shoes or a bike as gear, giving each a nickname, a brand and a model, and set a distance, anywhere from 400 to 1,200 kilometres, at which Strava will tell you it's been reached.
 
-- Three sports carry dedicated statistics while the recorder offers many more.
+### O43. Health data permissions
 
-### O42. Gear thresholds
+A separate setting governs whether Strava can use health data like heart rate from connected sensors, devices or apps, used to power features like performance insights.
 
-Gear can be registered as shoes or a bike with a nickname, type, brand, model, and notes, tracking accumulated distance against a user-chosen alert between 400 and 1,200 kilometers.
+### O44. Weather and partner content, automatic
 
-- Only two equipment types are offered.
-- The threshold is chosen by the user rather than set by the product.
-
-### O43. Health data setting
-
-A health data setting explains that Strava uses sensor and device data for features like performance insights, with a control over whether that access is allowed.
-
-### O44. Weather and partner content
-
-A weather setting shows Apple Weather data on activities, switchable off, and a partner integrations setting explains that posting with a connected partner can add unique feed content, though no partner was connected on this account.
-
-- Both attach third-party content to an activity without the user adding it.
+Weather, powered by Apple Weather, attaches itself to every activity automatically and can be switched off for all of them at once. Partner integrations work the same way: when you post with a connected partner, they can add their own content to the feed item without you doing anything.
 
 ---
 
 ## Goals and progression
 
-Strava's progression surfaces run in parallel: a user-set weekly goal, a profile-completion meter, a fixed trophy ladder, graded achievements, segments, and a large challenge catalogue.
+A trophy ladder, graded achievements, a browsable layer of segments and a self-set weekly goal all run alongside each other here, with Strava's own paywall copy naming some of the same territory as a paid feature.
 
-### O45. Weekly goal suggestion
+### O45. Setting a weekly goal
 
-Strava's dashboard carries a suggested-goal surface where the user sets a weekly activity target, sitting in a carousel alongside the streak, instant workouts, and the weekly snapshot.
+The dashboard carries a suggested-goal surface where you set how many activities a week you want to complete, sitting in a carousel alongside the streak, instant workouts and your weekly snapshot.
 
-- Strava doesn't say whether the target is tracked, concluded, or reset.
+### O46. The profile completion meter
 
-### O46. Profile completion meter
+Your profile states it's 80% complete and names your photo as the next step, with a question mark explaining why uploading one helps friends recognise you. Add it, though, and you're routed through the subscription pop-up, then a prompt to sync your contacts, before you're told you're finished.
 
-Strava's profile states it's 80% complete, names a photo upload as the next step, and explains that a photo helps friends recognize the user. Continuing from the photo leads into the subscription pitch, then a contact-sync screen, then a closing confirmation; the badge stays in place until the step is actually completed.
+### O47. The trophy ladder
 
-- The percentage is stated without listing what the remaining share consists of beyond the one named step.
-- Two further asks, the paywall and the contact sync, sit inside the completion flow rather than being raised on their own.
+Your trophy case holds fixed positions for your first, third, fifth and tenth activities, continuing all the way to your thousandth, with every position you haven't reached yet shown in place alongside what it will take to get there.
 
-### O47. Trophy case ladder
+### O48. Your first trophy, instantly
 
-Strava's trophy case holds fixed positions for the first, third, fifth, and tenth activities, continuing up to a thousand, with positions not yet reached shown in place alongside their conditions.
+Saving your first activity, even a 44-second one, is enough to claim the first position on that ladder.
 
-- Each position is defined by an activity count rather than distance, time, or sport.
-- No benefit beyond the trophy itself was found at any position.
+### O49. Graded achievements
 
-### O48. First trophy immediate
+Achievements show up on the activities that earn them and add to a running count on your profile, graded gold, silver or bronze. One profile we looked at held ten silver medals; another held 53, split between gold and bronze.
 
-Saving the first activity grants the first trophy immediately and offers a route straight into the trophy case.
+### O50. Personal records, named
 
-- The first position was reachable inside a single 44-second recording.
+A notification after your first activity can read "new best effort, your longest ride ever," and the shareable card composed from that activity carries a personal-record badge. A dedicated "best efforts" tab on your profile is behind the paywall.
 
-### O49. Achievements graded and counted
+### O51. Browsing segments
 
-Activities display any achievements won, and profiles carry a running count graded gold, silver, and bronze; one profile showed ten silver medals and another 53 trophies.
+Segments are named stretches of road you can star to track, each showing how many athletes have completed it and how many total efforts have been logged on it, and you can filter them by length, elevation or surface.
 
-- Strava doesn't say what criteria produce an activity-level achievement.
+### O52. Your standing on a segment
 
-### O50. Best efforts and personal records
+Your own position on any segment is tracked in three ways: KOMs and CRs for where you hold the single best time, your personal records against your own history, and a Top 10 list for segments you rank in the top ten on.
 
-A first activity can produce a "new best effort" notification, and the share card composed for it can carry a personal-record badge; a separate best-efforts tab on the profile is locked behind the subscription.
+### O53. Suggested challenges
 
-- The record is stated against the user's own history rather than against anyone else.
+A challenges block on the dashboard frames itself around accountability and rewards, and lists things like logging 400 minutes in April to unlock a Runna trial, with more than 1.1 million people already joined, or completing a first 5K by month's end for a digital trophy, alongside a dozen more.
 
-### O51. Browsable segments
+### O54. Inside a challenge page
 
-Strava's Segments area offers starred segments and an explore list for the user's area, each showing how many athletes have completed it and total efforts, filterable by length, elevation, and surface.
+Opening a challenge shows how many days are left, which club organised it, its terms, its leaderboard and what finishing it earns you. The featured one asks for a first 5K run sometime in April; joining it is a single tap with nothing else to fill in.
 
-- Segments exist independently of the user, populated by other people's efforts.
+### O55. Filtering and creating challenges
 
-### O52. Three forms of segment standing
+The challenges list can be filtered by activity type, elevation, time or distance, and sixteen were recommended to us based on our own recorded activity. Starting your own custom challenge with friends, rather than joining one Strava made, needs a subscription.
 
-Strava's segments surface holds KOMs and CRs for the segments where the user holds the best time, personal records on segments, and a Top 10 list of segments the user ranks in.
+### O56. What the paid tier adds to progress
 
-- One of the three is measured against the user's own history and two against other people.
-
-### O53. Challenges with rewards
-
-Strava's suggested-challenges block on the dashboard frames challenges around accountability and rewards, listing instances like a 400-minute April running challenge unlocking a Runna trial and several others carrying digital trophies, each showing how many people have joined.
-
-- The success condition of one challenge, an active-days count, is worded ambiguously between a monthly total and a run of consecutive days.
-
-### O54. Challenge detail page
-
-Opening a challenge shows days remaining, the organizing club, terms, the reward, a leaderboard, and a description; joining takes one tap with nothing further to configure.
-
-- The Strava Club organizes most of the featured and promoted challenges.
-
-### O55. Filterable challenge catalogue
-
-Strava's Groups area opens on Challenges, filterable by activity type, elevation gain, moving time, and distance, with sixteen challenges recommended from the user's own activity; creating a custom group challenge requires a subscription.
-
-- Joining a product-run challenge is free; running one is paid.
-
-### O56. Subscription progress features named
-
-Beneath the streak calendar, Strava names four progress features reserved for subscribers: performance predictions, goals, relative effort, and a training log.
-
-- "Goals" is named here as a paid feature while a separate suggested-goal surface exists on the free dashboard.
+Beneath the streak calendar, a block names four things a subscription adds: performance predictions, goals, relative effort, and a training log, goals being notable since a free suggested-goal surface already sits on the same dashboard.
 
 ---
 
 ## Access and eligibility
 
-Strava's paywall spans the map, the activity, the profile, and the groups area rather than sitting in one place, and two onboarding questions double as eligibility conditions.
+A defined set of surfaces stays locked behind the subscription, met and explained at the point you actually try to use each one, and two of the earliest onboarding questions turn out to gate specific features too.
 
 ### O57. What's locked
 
-Strava locks route creation, best efforts, several map layers, terrain, 3D view, activity bookmarking, creating a group challenge, personalized stat maps, Beacon for devices, and the subscription management entry in settings; paywall copy additionally names segment leaderboards, advanced training analysis, and the four progress features.
+Behind the subscription sit route creation, best efforts, several map types and heat maps, terrain, the 3D map view, bookmarking an activity, creating a group challenge, the Active challenges tab, personalised stat maps, Beacon for devices, and managing your subscription itself. Paywall copy also names segment leaderboards, advanced training analysis, performance predictions, goals, relative effort and a training log.
 
-- Each lock is met at the point of use rather than declared in advance.
+### O58. Map layers, locked outright
 
-### O58. Locked layers can't be previewed
+The map offers standard, satellite, hybrid and winter types, plus weekly, night and personal heat maps, terrain and a 3D view. Only the standard types and the global heat map can be opened; every other one goes straight to the paywall without a preview.
 
-Strava's map offers standard, satellite, hybrid, and winter types, plus global, weekly, night, and personal heat maps, places of interest, terrain, and a 3D view; only the global heat map and the ordinary map types are open, and every other layer opens the paywall on tap rather than previewing.
+### O59. Every lock leads to a trial
 
-### O59. Free trial is the only route past a lock
+Every lock we hit opened the same free-trial offer rather than a one-off purchase of just that feature.
 
-Every lock routes to a free trial rather than a one-off purchase of the specific feature.
+### O60. Age as a safety condition
 
-### O60. Age tied to safety
+Your birthday is collected partly as a safety condition, to keep younger users safe, alongside its other stated uses.
 
-Strava's birthday screen states keeping younger users safe as one of its uses.
+### O61. Gender and leaderboard placement
 
-### O61. Gender tied to leaderboards
+Your gender answer is stated to decide which leaderboards you show up on.
 
-Strava's gender screen states its answer determines which leaderboards the user appears on.
+### O63. Public and private clubs
 
-### O62. Private profiles restrict lists
-
-Some Strava profiles are private. Opening a private profile's following list returns a message stating the athlete isn't following anyone, rather than stating that the list is restricted.
-
-### O63. Clubs public or admin-gated
-
-Creating a club on Strava requires choosing public or private; a private club requires people to request permission, and only admins, not necessarily the creator, can approve new members.
+Clubs are either public or private; joining a private one means requesting permission and waiting for an admin to approve you.
 
 ---
 
 ## Economy and resources
 
-(No observations in this app.)
+Strava runs no currency, points balance, or spendable resource of any kind. There's no price payable in anything other than money anywhere in the product, so there's nothing to record in this section.
 
 ---
 
 ## Social
 
-Strava's social layer opens before the user has done anything: a brand-new account meets a populated feed, suggested people to follow, and a list of local clubs. Standing, both what other people can see and how the user compares to them, runs through profiles, messaging, and segment rankings, and clubs add their own membership and governance layer on top.
+A brand-new account opens on a feed of strangers, a list of nearby people and clubs to follow, and a full set of standings against other athletes, all before it has anything of its own recorded.
 
-### O64. Suggested follows
+### O64. Suggested people to follow
 
-Strava's dashboard recommends people to follow. The accounts listed first carry a check mark and the label "fan favorite on Strava" beneath the name, each with follow and remove actions, and three are shown before a larger "local legends near you" group.
+A follow block on the dashboard recommends people to you, leading with accounts marked "fan favorite on Strava," followed by a group of local legends near you, all on a brand-new account with no connections yet.
 
-- The recommendations run on two separate grounds at once, standing on the platform and proximity to the user.
-- The block appears even on a brand-new account with no existing connections.
+### O65. The home feed
 
-### O65. The activity feed
+Below the follow and challenge blocks, the dashboard scrolls into a feed of other people's activities headed "recommended for you," each showing its route, any photos or video, its stats, its achievements, and kudos and comment controls, with more activities loading as you scroll.
 
-Below the follow and challenge blocks, Strava's dashboard shows other athletes' activities headed as recommendations to keep the user motivated. Each item carries the route track, photos or video, distance, elevation gain, time, and any achievements won, plus kudos and comment controls with the counts visible, and scrolling continues into further activities from further users.
+### O66. Configuring your feed
 
-- On a new account the feed is populated by recommendation rather than by anyone the user follows.
-- Standing, in the form of kudos and achievement counts, travels with the activity itself.
-- Muting an activity at save time is expressed against both this feed and a club's own feed.
+Preferences let you set how the feed is ordered, whether uploads default to showing a map or a photo, and whether video autoplays.
 
-### O66. Feed configuration
+### O67. Your profile, social-first
 
-Strava's preferences include a feed ordering setting, a default highlight image choice between a map and a photo for uploaded activities, and a video autoplay toggle.
+Your profile leads with your photo, how many people you follow, your location, how many followers you have, and your total activity count, three of those four figures being about other people rather than you.
 
-- The ordering rule is exposed to the user as a setting rather than fixed by the app.
+### O68. Finding people
 
-### O67. Profile leads with standing
-
-Strava's profile header shows the profile image, how many people the user follows, the user's location, how many followers the user has, and how many activities the user has recorded. Editing a profile takes a name, a biography, a primary sport, birthday, gender, and weight.
-
-- Three of the four figures on the profile header concern other people rather than the user's own activity.
-- The default profile image is a generic character rather than a photo.
-
-### O68. Searching for people
-
-Strava's search splits into two tabs, Friends and Clubs. Friends offers suggested athletes, the user's own contacts, and a QR code, and twenty-one athletes were suggested in the user's local area.
-
-- The three routes to people cover algorithmic suggestion, the user's own address book, and a code handed over in person.
+Search splits into Friends and Clubs. Friends offers suggested athletes, your phone contacts, and a QR code, and one search turned up twenty-one suggested athletes nearby.
 
 ### O69. Syncing contacts
 
-Strava's contacts route tells the user that their friends are already on Strava and invites them to connect to see what those friends are up to, with a button that frames the action specifically as secure. Tapping it raises the system's own permission prompt for contacts access.
+The contacts route tells you your friends are already on Strava before you've connected anything, and asks you to "connect securely."
 
-- The outcome, that friends are present, is asserted before access is actually granted.
-- The button's own wording specifically invokes security for what is an ordinary contacts permission request.
+### O70. Inviting by QR code or link
 
-### O70. QR code and invites
+Your profile can be shared as a link or a QR code for people to follow you directly, and a separate control invites people who aren't on Strava at all.
 
-A Strava profile can be shared as a link or as a QR code that others scan to follow the user, and a separate control invites people who are not on Strava at all.
+### O71. Weekly figures, reset Monday
 
-- The same surface serves both following someone who already uses the app and recruiting someone who doesn't.
+Every profile leads with this week's distance, time and elevation, and on a Monday morning that reads zero for every account, with the longer activity history sitting further down the same screen.
 
-### O71. Weekly figures reset to zero
+### O62. Private profiles
 
-Strava's profiles lead with this week's distance, time, and elevation. Viewed on a Monday morning, these read zero for every suggested athlete, while a graph beneath the figures shows the same athletes active through the previous months.
+A private profile can still be opened and identified, but the lists behind it come back closed: opening the following list, for instance, just returns "this athlete is not following anyone" rather than any stated restriction. Twelve separate privacy controls cover who can see your profile, activities, flybys, local legend status and more.
 
-- The figure a viewer meets first is the one that has just been reset.
-- The longer activity record sits on the same screen, below the reset figures.
+### O73. Finding clubs nearby
 
-### O72. Private profiles
+Clubs are listed by how close they are, searchable by location or sport, and one search returned close to fifty popular clubs nearby.
 
-Some Strava profiles are private. Opening the following list of a private profile returns a message stating that the athlete isn't following anyone, rather than stating that the list is restricted.
+### O74. The Strava Club itself
 
-### O73. Browsing clubs
-
-Strava's Clubs tab lists clubs available near the user, running to dozens or hundreds of entries, including cyclist and runner clubs, and a "popular clubs near you" group showed close to fifty.
-
-- Clubs can be searched by location or by the full sport taxonomy.
-- Proximity is the default organizing principle here, the same as it is for athlete suggestions and segments.
-
-### O74. The Strava Club
-
-The Strava Club itself is listed with close to seven million members, and it organizes most of the featured and promoted challenges.
-
-- Strava participates in its own club system as a club rather than standing outside it.
+Strava runs its own club, listed with almost seven million members, and it's the club that organises most of the featured and promoted challenges.
 
 ### O75. Creating a club
 
-Creating a club on Strava runs through five steps: choosing the club's sport, choosing up to three tags from a list spanning personal, commercial, employer, and identity groupings such as brand, team, coach led, or fundraising, adding a name, photo, and description, setting it public or private, and setting a location.
+Creating a club runs through five steps: the sport, up to three descriptive tags (options include brand, employee group, local community, and identity group), a name, photo and description, public or private, and a location. Finishing hands you three things to do next: invite people, write a post, create an event.
 
-- The tag step states specifically that the choice can be changed later.
-- Finishing the flow names three next actions to the creator, inviting the community, writing a post, and creating an event, rather than leaving a new, empty club as it is.
+### O76. A club's own page
 
-### O76. The club page
-
-Strava's club page shows the sport, member count, and type, and offers insights, events, sharing, editing, and adding events, alongside tabs for overview, activities, stats, and posts. Upcoming events and posts written for the club appear on it.
-
-- Editing details and adding events are available to the club's creator.
-- Strava doesn't show whether the activities, stats, and insights tabs hold a state that belongs to the club collectively or simply list each member's own individual records.
+Every club's page shows its sport, member count and type, plus tabs for its overview, activities, stats and posts, and carries its own upcoming events and posts.
 
 ### O77. Creating a club event
 
-Creating an event for a club takes the sport, timing, whether it recurs, a starting location, whether it's virtual or in person, a description, whether it appears in search and recommendations, an event type of social, workout, or competition, a pace range, and who is allowed to attend.
-
-- The pace range states what a person needs to be able to do to take part.
-- Discoverability is set per event rather than for the whole club.
-- Attendance is recorded as an explicit state.
+Creating an event for a club takes the sport, timing, whether it recurs, a location, whether it's virtual, a description, a pace range, and who's allowed to attend, and once created it shows who's hosting, who's going, and lets it be shared.
 
 ### O78. Messaging permissions
 
-Opening messages for the first time introduces the feature and points the user to settings to choose who can message them. The messaging settings offer a toggle for showing when the user is online and four answers to who can message first: anyone, people the user follows, mutual follows only, or no one.
+Messaging lets you choose who can start a conversation with you: anyone, people you follow, mutual follows only, or no one at all.
 
-- People who follow the user can be found and messaged through search.
+### O79. Local Legends and Top 10
 
-### O79. Segment standing
-
-Local Legends orders the people holding the most overall efforts on a segment over the last 90 days and shows the user's own position among them, while a separate Top 10 list shows which segments the user ranks in the top ten on.
-
-- Local Legends orders by number of efforts rather than by speed, so the measure is frequency of use rather than performance.
-- Losing a top position carries its own notification types, named "lost CR" and "lost ratings."
+Local Legends ranks who's logged the most efforts on a segment over the last ninety days; Top 10 shows which segments you rank in the top ten on. Segment leaderboards themselves are named in paywall copy as a subscription feature, and losing a top spot has its own notification.
 
 ### O80. Challenge leaderboards
 
-A Strava challenge page carries a leaderboard for any single activity and an overall leaderboard across everyone participating, showing pace, distance covered, and completion time. A 100,000-step challenge showed participant ranks running up toward athletes logging close to a billion steps.
-
-- The leaderboard is ordered within the bounds of that one challenge rather than across the whole platform.
-- A change in a group challenge's leaderboard carries its own notification type.
+Challenge pages carry a leaderboard for the whole challenge and for individual activities within it. The 100,000-steps challenge, for instance, ranks everyone by steps logged, some entries running close to a billion steps.
 
 ### O81. Tagging people in an activity
 
-Strava's save screen invites the user to tag others in the activity using the @ symbol. After saving, a further route lets the user add people who were present but didn't record the activity themselves, or invite people who aren't on Strava at all by sharing a link.
+You can tag people in an activity with an @ symbol, and after saving, a separate "add others" option covers people who were there but didn't record it, or aren't on Strava at all, by sharing a link.
 
-- One control covers all three cases: someone who recorded, someone on Strava who didn't, and someone not on Strava.
-- The request is made at the exact moment an activity has just been completed.
+### O82. Sharing your location with Beacon
 
-### O82. Live location sharing
-
-Strava's Beacon setting lets a user share their location with up to three named safety contacts during an activity, sending a message with location sharing and contacts access granted, with the message text itself chosen by the user. Starting Beacon from the recording screen offers a second route that doesn't require granting contacts access: it opens the phone's own Messages app with a prepared message and link, so the recipient doesn't need to be a Strava user at all.
-
-- Subscribing adds Beacon for connected devices, sharing location from a Garmin watch or an Apple Watch running Strava.
+Beacon lets you share your live location during an activity with up to three chosen contacts. From the recording screen you can also send the same kind of share through the iPhone's own Messages app, without giving Strava access to your contacts at all. Sharing from a connected device instead needs a subscription.
 
 ---
 
 ## Reach beyond the app
 
-Strava's reach outside the app runs mainly through one partnership, a running-plan product called Runna, alongside brand-run challenges, sharing to outside platforms, and connections to other devices and services.
+A partner training product runs through several parts of the app, and one outside competitor gets a promotion of its own inside Strava's own settings.
 
-### O83. Runna as a subscription tier
+### O83. Runna, sold as a tier
 
-Strava's onboarding subscription screen offers a combined Strava-plus-Runna plan priced above the plain Strava annual plan, and the "what you unlock" screen attributes two of its five listed benefits, a custom training plan and coach-authored guidance, specifically to that combined tier.
+The Strava plus Runna plan, at $149.99 a year, bundles a partner training app in as an upgrade tier, crediting it with the custom training plan and coaching content on the "what you unlock" screen.
 
-- The partner product is presented as an upgrade inside Strava's own pricing rather than as a separate outside offer.
+### O84. A challenge that pays out a trial
 
-### O84. Challenge unlocks a Runna trial
+One challenge, log 400 minutes in April, unlocks a free two-week Runna trial instead of a trophy, and more than 1.1 million people had joined it.
 
-Strava's April 400 Minute Run challenge states that logging 400 minutes in the month unlocks a free two-week trial of Runna, and more than 1,128,000 athletes were shown as having joined it.
+### O85. Branded challenges
 
-- It's the only challenge whose reward isn't a digital trophy or badge, since the reward is conditioned on activity done inside Strava rather than on signing up for Runna directly.
+Some challenges are run with outside brands by name, Runna, Hoka and Brooks all had their own, sitting in the same list and joined the same way as Strava's own.
 
-### O85. Brand-run challenges
+### O86. A settings route to another app
 
-Strava's challenge catalogue includes instances named for outside brands: a Runna Vert challenge, the Hoka Speedgoat 7 Vert Challenge, and the April 5000 x Brooks challenge.
+A training-plans entry in settings opens a full "Runna by Strava" screen showing a set of plans, and tapping any of them leaves Strava entirely for Runna's own App Store listing.
 
-- These sit in the same list and carry the same one-tap join action as the app's own challenges.
+### O87. Promoting a competitor
 
-### O86. Training plans route to Runna's store listing
+Settings also promotes Apple Fitness+ directly, up to two free months, then $9.99 a month, with its own redeem button. It's the only outside, non-Runna product promoted anywhere in the app.
 
-Strava's training plans entry in settings opens a Runna-branded surface describing plans built around the user's goals, experience, and schedule, synced with Strava, with a group of popular plans shown. Tapping any plan leaves Strava entirely and opens the App Store listing for Runna.
+### O88. Sharing outside Strava
 
-- The plans themselves are shown in full before the route out is taken.
-- The framing names the connection back to Strava.
-
-### O87. Apple Fitness+ promotion
-
-Strava's promotions entry in settings offers up to two free months of Apple Fitness+, stating that product's own price, $9.99 a month after the free period, with a redeem action.
-
-- It's the only promotion for a product outside the Strava-and-Runna pair.
-
-### O88. Sharing a saved activity
-
-Strava offers Instagram, a Strava message, WhatsApp, a text message, an in-app Strava post, and a copied link when sharing a saved activity, using a pre-made design the app supplies rather than a plain screenshot. Taking a screenshot of the activity page instead opens the sharing options directly, with Strava's own branded composition offered in place of the screenshot.
-
-- One of the routes, the in-app post, stays inside the product; the rest leave it.
+Sharing an activity offers Instagram, WhatsApp, a text message, a Strava message or post, and a copy-link option, using a pre-composed, branded design. Taking a screenshot of the activity instead opens the same sharing pop-up, offering that branded version in place of your screenshot.
 
 ### O89. Inviting people who aren't on Strava
 
-Strava's route to add others after saving an activity lets the user invite people who didn't record the activity or don't have Strava at all, by sharing a link.
+The same "add others" flow after saving an activity can invite people who don't have Strava at all, by sharing a link with them.
 
-- The invitation is raised at the moment an activity has just been completed, rather than from a dedicated screen elsewhere in the app.
+### O90. Connecting other devices
 
-### O90. Device and app connections
+Fourteen device and app brands can be connected to your account, and Garmin and Peloton are named specifically at the end of onboarding as ways to upload activity without recording inside Strava.
 
-Strava's account settings offer a route to connect a device or app, listing fourteen brands, and Garmin and Peloton are named specifically at the end of onboarding as devices whose activities can be uploaded into Strava.
+### O91. Beacon without granting contacts
 
-- A separate health data setting governs what those connections are allowed to send.
+Sharing your Beacon location through the iPhone's own Messages app works without granting Strava access to your contacts, and the recipient doesn't need to be a Strava user either.
 
-### O91. Beacon through the phone's own messaging
+### O92. Strava through Siri
 
-Beacon's live-location text is sent through the phone's built-in Messages app rather than through Strava's own systems, using a prepared message and a link.
-
-- The recipient doesn't need a Strava account to receive or open it.
-
-### O92. Siri shortcuts
-
-Strava's Siri and Siri Shortcuts setting raises the operating system's own prompt, stating that some Strava data will be sent to Apple to process requests, and shortcuts for frequently performed actions are configured from the phone's own system settings rather than from inside Strava.
+A Siri setting asks permission to send some of your Strava data to Apple so Siri can act on requests, and shortcuts for frequent actions are then set up in the phone's own system settings.
 
 ---
 
 ## Monetization
 
-Strava's monetization runs through an upgrade button always present on the dashboard, nine distinct paywall placements, and terms that are stated differently across screens without being reconciled.
+The subscription meets you nine separate times across the app, worded differently at every one of them, and its own stated terms don't agree with each other from one placement to the next.
 
-### O93. Upgrade button in the top bar
+### O93. The upgrade button
 
-Strava's dashboard top bar carries a profile, search, message, and notification icon alongside an upgrade button at the centre, coloured differently from every other icon and present on every visit.
+An orange upgrade button sits at the centre of the top bar on every visit to the dashboard, the only coloured element there, and tapping it opens the paywall.
 
-### O94. Paywall met at nine points
+### O94. Nine ways to hit the paywall
 
-Strava's subscription screen is reached from onboarding, the upgrade button, the profile-completion flow, routes, best efforts, locked map layers, activity bookmarking, the trophy case after the first trophy, and creating a group challenge.
+We hit the subscription screen from nine different places: onboarding, the upgrade button, finishing your profile, routes, best efforts, locked map layers, bookmarking an activity, the trophy case right after your first trophy, and creating a group challenge. Two of those nine come right after you've just done something, not while you're trying to.
 
-- Two of the nine placements follow a completed action rather than an attempted one.
-- The paywall's copy differs by placement while the underlying offer doesn't.
+### O95. Paywall copy, rewritten per screen
 
-### O95. Paywall copy matches the surface
+Each paywall is worded for wherever it appears: onboarding and profile completion lean on habit-building language, the routes paywall names routes and segment leaderboards specifically, and the trophy case version promises deeper stats right after you've just earned something.
 
-Strava words each paywall around what the user was reaching for: the routes paywall names routes and segment leaderboards, the trophy case paywall speaks to stats and performance, and the activity page and streak calendar blocks both speak to progress and goals. Onboarding and the profile-completion flow use a general habits-and-progress framing instead, since neither follows an attempted feature.
+### O96. The prices, as stated
 
-### O96. Prices and plans as stated
+The stated prices run: $79.99 a year alone, $149.99 a year with Runna bundled in, the same $79.99 plan framed on the plan screen as a "save 44%" trial offer, and, on the web checkout, an annual plan at 49.99 euros. The in-app purchase sheet through the App Store also shows $79.99 a year.
 
-Strava states its annual plan at $79.99 a year and a combined Strava-plus-Runna plan at $149.99; the plan screen separately frames the same annual plan as a 30-day free trial before the same $79.99 applies, and the web checkout shows an annual subscription at 49.99 euros with nothing billed that day.
+### O97. Checking out on the web
 
-- The web price and the in-app price are stated in different currencies, so the two aren't directly comparable from the screens themselves.
-- A route to see all plans on the plan screen wasn't opened.
+Starting the free trial takes you out of the app entirely, to a web checkout on strava.com offering Apple Pay as the only payment method and nothing else, no links, no navigation, just the payment itself.
 
-### O97. Web-only checkout
+### O98. Three routes, weighted differently
 
-Starting a free trial from Strava's plan screen leaves the app for a browser checkout page that offers Apple Pay as the only payment method and carries no other navigation.
+The plan screen offers three routes with three different visual weights: "see all plans" as an ordinary button, "start a free trial" highlighted and marked as leaving the app, and "pay in app" set as plain, unstyled text beneath both.
 
-### O98. Three routes weighted unevenly
+### O99. The exact charge date
 
-Strava's plan screen offers a highlighted route to start a free trial, marked as leaving the app, alongside a plainer route to see all plans, with paying inside the app set as plain text beneath rather than styled as a button.
+The plan screen states an exact calendar date you'll be charged, rather than just a duration, and a separate reminder to cancel at least 24 hours before the trial ends.
 
-- The route that leaves the app carries the most visual weight; the in-app route carries the least.
+### O100. A discount inside settings
 
-### O99. Charge date stated as a calendar date
+Settings opens on a highlighted offer for "Strava Run," up to 60% off with a free four-week trial, sitting right above the plain "explore and manage subscription" link.
 
-Strava's plan screen states a specific date the user won't be charged until, and separately promises a cancellation window of at least 24 hours before the trial ends.
+### O101. A paywall that doesn't cover everything
 
-### O100. Discounted running-specific offer
+The paywall shown right after your first trophy covers only half the screen, leaving the trophy you just earned visible behind it, the only paywall we saw that doesn't take over the whole screen.
 
-Strava's settings screen opens on a highlighted block offering up to 60% off a running-specific product with a four-week free trial, a discount and trial length that don't appear anywhere else in the app.
+### O102. A lock at the bottom of the activity
 
-### O101. Partial-screen trophy paywall
+Scroll past your stats, comments and likes on a saved activity and you land on a locked block promising deeper results and stats with a subscription.
 
-Strava raises a subscription offer covering half the screen, rather than all of it, when the trophy case is entered after the first trophy, leaving the just-earned trophy visible behind it.
+### O103. Restoring a purchase
 
-- It's the only paywall that doesn't cover the full screen.
+Account settings carries a restore-purchases option, alongside changing your email and adding a phone number.
 
-### O102. Locked insights below the activity
+### O104. Trial terms, stated four ways
 
-Strava places a locked section naming subscriber-only results, speed stats, and elevation stats just past an activity's own stats, share, and comment controls.
-
-### O103. Restoring purchases
-
-Strava's account settings carry a restore-purchases option alongside changing email and adding a phone number.
-
-### O104. Trial length and reminder timing stated four ways
-
-Strava describes its trial length four different ways across the app: 30 days in onboarding, "first month" on the routes paywall, a free 30-day trial with a specific charge date on the plan screen, and a four-week trial in settings. The reminder is described once as arriving 28 days in and once as 2 days before the trial ends.
-
-- 30 days, one month, and four weeks are three different periods.
-- Which terms actually govern isn't settled by any single screen.
+The trial length is stated differently depending on where you read it: 30 days at onboarding, "first month" on the routes paywall, 30 days again on the plan screen, and four weeks in settings, with the reminder timing similarly inconsistent between 28 days in and two days before the end.
 
 ---
 
 ## Return triggers
 
-Strava brings users back through an unusually long notification catalogue, a streak that sits above everything else on the dashboard, a weekly reset that touches four different surfaces, and deadlines tied to challenges and events.
+Notifications exist for nearly everything Strava tracks, the streak sits above all of them on the dashboard, and the usual first-week review-request prompt never showed up.
 
-### O105. Long, granular notification catalogue
+### O105. An unusually long notification list
 
-Strava's push notification settings offer individual control over dozens of categories at once, spanning social reactions like kudos and comments, losing a leaderboard position, challenge and club activity, event scheduling, data corrections, and marketing.
+Push notification settings break down into dozens of individual types: kudos and likes, comments, losing a leaderboard spot, upload reminders, a friend joining, new followers, challenge progress, club activity, event reminders, data corrections, and separate marketing and subscription tips, each one switchable on its own.
 
-- Marketing and subscription messages are requested separately from ordinary product notifications.
+### O106. Email, on by default
 
-### O106. Email on by default
+Email notifications are switched on from the start, with no opt-in step anywhere in onboarding; only push notifications were asked for.
 
-Strava turns email notifications on by default and can be turned off, with no separate opt-in for this channel appearing anywhere in onboarding.
+### O107. The streak, front and centre
 
-### O107. Streak at the top of the dashboard
+Right below the top bar, before anything else on the dashboard, sits your streak: a flame with a number of weeks in it, reading zero until you log an activity to start it, with a record button right beside it.
 
-Strava places a streak surface directly beneath the top bar, shown as a flame holding a week count that reads zero on a new account, with a line inviting the user to start it and a record button placed beside it.
+### O108. The streak calendar
 
-- The streak is the first thing below the navigation bar, above suggestions, challenges, and the feed.
-- Strava doesn't say what breaks the streak, what resets it, or whether any protection exists.
+Opening the streak's calendar shows a twelve-week view of your activity, your current streak count, and a feedback button asking how satisfied you are with the feature specifically.
 
-### O108. Twelve-week streak calendar
+### O109. A notification after saving
 
-Strava's streak calendar shows a three-month window of activity rather than just the current period, with a feedback button beneath it asking specifically how satisfied the user is with the feature.
+After saving an activity, a notification arrives on your home screen telling you to check your stats, and opening it can reveal a new personal best, in one case fired by a 44-second ride.
 
-### O109. Post-save return notification
+### O111. Deadlines bring you back
 
-Strava sends a notification after saving an activity inviting the user to check their stats, opening into the best-effort recognition from that activity.
-
-- It fired on a 44-second recording.
-
-### O110. Upload reminders
-
-Strava lists upload reminders in the notification catalogue as their own controllable type.
-
-### O111. Challenge and event deadlines
-
-Strava's challenge pages show days remaining and are bounded to the calendar month; challenge progress, rewards, invites, and event reminders each carry their own notification type.
+Challenge pages count down the days left, bounded to the calendar month, and challenge progress, rewards, invites and event reminders each carry their own notification type.
 
 ### O112. Gear distance alerts
 
-Strava lets gear be set to notify the user on reaching a chosen distance, triggered by accumulated activity rather than elapsed time.
+Gear can be set to notify you once it reaches a distance you choose yourself, between 400 and 1,200 kilometres.
 
-### O113. Weekly clock across four surfaces
+### O113. One clock, four places
 
-Strava runs the suggested goal, the weekly snapshot, the profile header, and the streak count on the same weekly unit, resetting every profile's week figures to zero on Monday.
-
-### O114. No rating prompt
-
-Strava never raises an app store rating prompt anywhere in the product, though an in-app feedback questionnaire exists on the streak calendar asking about satisfaction with that one feature.
+The same weekly clock runs the suggested goal, the weekly snapshot, the profile header and the streak count, and it resets hard to zero rather than rolling over.

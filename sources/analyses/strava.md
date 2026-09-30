@@ -1240,7 +1240,7 @@ The ordering is over other identified athletes and is reached from the challenge
 
 **Alternative considered:** The feed, on the reading that a scrolling list of other athletes' activities with kudos counts is an ordering of people by performance. It is rejected because the feed is selected and ordered for the viewer rather than representing relative placement, which the entry excludes explicitly (O65). Social Feed carries that surface instead.
 
-**Tag:** Comparative Rank
+**Tag:** Standing
 
 **Observations:** O52, O79, O80
 

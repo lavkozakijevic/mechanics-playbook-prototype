@@ -56,7 +56,7 @@ Dave is a medium complexity system built around one decision made during onboard
 
 **Screenshots needed:** the survey list showing payout, duration and the monthly total; the intro questionnaire or its closing animation; the mid-survey disqualification message; the Grow tab's job board with the survey feature featured first.
 
-### Referral Boost
+### Referral
 
 **Implementation summary:** Dave's referral pays a 20% boost, up to $100, on the referrer's next advance once both sides repay one.
 
