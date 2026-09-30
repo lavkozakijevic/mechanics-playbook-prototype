@@ -59,6 +59,24 @@ would no longer be true of it.
   rule exists to catch, so the person keeping the two in sync needs to be
   told every time it happens, not asked to notice it later in a diff.
 
+### Check and report CI after every push (owner ruling, 30 Sep 2026)
+
+- **After every push, check the CI result for that commit and report it at
+  the end of your summary.** A red run is reported as a problem, never left
+  unmentioned — silence reads as "it passed."
+- **This applies whether or not the push is the reason CI was run** — a
+  push made for something else entirely still needs its own CI checked and
+  reported, not assumed clean because the change looked unrelated.
+- Nothing here excuses skipping the check because a run is slow or still
+  queued: wait for it, or say plainly that it's still pending and follow up
+  once it resolves, rather than reporting before it's known.
+- **This rule exists because it was missing once already:** CI on this
+  branch went red on 14 Sep 2026 and stayed red for sixteen days and about
+  two hundred commits, unnoticed, before it was checked on 30 Sep 2026. If a
+  Cloudflare preview only promotes on a green build, every one of those
+  pushes may have left the preview frozen on whatever last passed — this
+  rule is what would have caught it on day one.
+
 ### Multi-app library entries: tag and block together (owner ruling, 15 Sep 2026)
 
 - **When a library entry is approved from more than one app's evidence,
