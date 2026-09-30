@@ -7,7 +7,7 @@
   "analysisDate": "2026-09-15",
   "lastUpdated": "2026-09-15",
   "asObserved": "2026-02",
-  "appVersion": "None.",
+  "appVersion": null,
   "summary": "FitOn is a free workout app organized around a single video-based workout player, wrapped in an onboarding funnel that asks for a goal, a level, a schedule and a set of community groups before the plan even builds. Everything else in the app sits before or after that workout: a stated intention and a synced calendar entry lead into it, and a summary, a camera composer, a mandatory rating and a subscription offer follow it. A badge catalogue, a weekly streak and a workout-count threshold recognize activity that stays at zero throughout, and a separate library of fitness, nutrition, wellness and self-care articles sits beside the workouts rather than inside them. A single Pro offer at 70% off repeats across five separate surfaces.",
   "teaser": "Two of the five screens pushing FitOn's 70% Pro discount are videos the app doesn't let the user skip or decline.",
   "icon": "/icons/fiton.png",

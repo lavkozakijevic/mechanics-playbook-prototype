@@ -7,7 +7,7 @@
   "analysisDate": "2026-09-28",
   "lastUpdated": "2026-09-28",
   "asObserved": "2026-05",
-  "appVersion": "None.",
+  "appVersion": null,
   "summary": "Subway Surfers is an endless runner where the player's character sprints away from a pursuing figure while collecting coins, ending each run only when caught. A score multiplier, raised by completing sets of missions, is the game's one long-term progression number, scaling every run's score and gating further content. Two currencies, coins and keys, fund an extensive catalogue of characters, boards and boosts, and a rewarded ad substitutes for a coin or key price at nearly every point in the game. A separate paid product, ad tickets, lets a player buy the same rewards an ad would pay without watching one.",
   "teaser": "Subway Surfers offers a rewarded ad as a substitute for nearly every currency price in the game, then sells tickets that buy the same rewards without watching one.",
   "icon": "/icons/subway-surfers.png",

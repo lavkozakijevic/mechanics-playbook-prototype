@@ -7,7 +7,7 @@
   "analysisDate": "2026-09-11",
   "lastUpdated": "2026-09-11",
   "asObserved": "2024-02",
-  "appVersion": "None.",
+  "appVersion": null,
   "summary": "Cleo is a US personal finance app that introduces itself as a way to save money and build credit. It connects to a user's bank account through Plaid and delivers most of what it does through a chat interface with a named persona, alongside a nav bar for spending, budgeting, chatting, saving, borrowing and, once onboarding finishes, habits. Cleo sets a monthly spending limit, $1,400 in this example, and asks the user to come back regularly to review, rate and categorize their own past transactions.",
   "teaser": "A budgeting app that turns a connected bank account into a persona's quizzes, roasts and reviews of the user's own spending.",
   "icon": "/icons/cleo.webp",

@@ -7,7 +7,7 @@
   "analysisDate": "2026-09-14",
   "lastUpdated": "2026-09-15",
   "asObserved": "2026-06",
-  "appVersion": "None.",
+  "appVersion": null,
   "summary": "Acorns is an automated investing app built around a single standing decision: connecting a bank account that funds roundups, recurring contributions, and a retirement account without further input. The core activity, investing money, runs on its own once that connection exists, so the product has no repeated action for a mechanic to attach to. What engagement design exists sits on four separate decisions instead of a loop: a library of investing guidance placed beside the screens where the user configures something, a matched rate on purchases made at outside brands, a projected future balance that leads the home screen in place of the real one, and a referral reward that rises with the number of friends who invest.",
   "teaser": "The home screen leads with what the account could be worth in 40 years, not what it actually holds today.",
   "icon": "/icons/acorns.webp",

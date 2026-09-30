@@ -7,7 +7,7 @@
   "analysisDate": "2026-09-15",
   "lastUpdated": "2026-09-15",
   "asObserved": "2026-02",
-  "appVersion": "None.",
+  "appVersion": null,
   "summary": "Freeletics is a fitness app built as a funnel: a twelve-step questionnaire feeds a stated AI coach, which is shown assembling a plan twice, each time immediately before the app asks for an account or a payment. The plan itself stays behind a subscription throughout: the Coach tab's own training-plan control opens the paywall directly. A profile level, a leaderboard, and a network of other athletes are all visible from the first login, though nothing in the app is seen advancing them. A community layer of user-created challenges and comments under the app's own posts sits apart from all of this, connected to nothing else in the record.",
   "teaser": "Freeletics shows the same animation of a coach building a personalized plan twice, each time right before it asks for an account or a payment, and no plan is ever delivered on the account reviewed.",
   "icon": "/icons/freeletics.png",

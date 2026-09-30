@@ -7,7 +7,7 @@
   "analysisDate": "2026-09-28",
   "lastUpdated": "2026-09-28",
   "asObserved": "2026-04",
-  "appVersion": "None.",
+  "appVersion": null,
   "summary": "Solitaire Grand Harvest is a card game where every level costs credits to enter, and a per-level stake multiplier scales the cost against everything the level can pay back at once, credits, gems, cookies, puzzle pieces and card pack quality. A seeded piggy bank fills with every level played, won or lost, and converts into a single purchase once full. Around the level loop sit four separate ordered reward tracks, a farm restoration project, a collectible card album, and a rotating set of thirty-minute timed offers, each pulling on the same handful of balances the level loop already produces.",
   "teaser": "One multiplier toggle on Solitaire Grand Harvest's pre-level screen raises the entry price and multiplies five separate payouts at once, credits, gems, cookies, puzzle pieces and pack quality.",
   "icon": "/icons/solitaire-grand-harvest.png",

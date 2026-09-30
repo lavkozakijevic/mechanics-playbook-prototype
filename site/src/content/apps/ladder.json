@@ -7,7 +7,7 @@
   "analysisDate": "2026-09-15",
   "lastUpdated": "2026-09-15",
   "asObserved": "2026-02",
-  "appVersion": "None.",
+  "appVersion": null,
   "summary": "Ladder is a fitness app organized around matching a new user to a coaching team and then routing everything else through one hinge: completing the team's welcome workout. The team match decides which coach, which welcome workout and which team chat the user sees, and finishing that one workout is the stated condition for unlocking chat, nutrition and the full training plan at once. The completion screen that follows is the app's single densest moment, firing a badge, a community wall, a streak requirement, a strength-series requirement and an onboarding checklist together, and that checklist is what routes the user into the app's remaining social and referral surfaces.",
   "teaser": "One welcome workout unlocks Ladder's entire app at once: chat, nutrition, the weekly plan, a badge, a community wall and a streak requirement, all on the same completion screen.",
   "icon": "/icons/ladder.png",

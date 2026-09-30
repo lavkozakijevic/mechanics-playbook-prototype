@@ -7,7 +7,7 @@
   "analysisDate": "2026-09-16",
   "lastUpdated": "2026-09-16",
   "asObserved": "2026-04",
-  "appVersion": "None.",
+  "appVersion": null,
   "summary": "Insight Timer opens with graphs of mood improvement and a consistency curve before asking the user to set a goal, then mechanizes that self-chosen commitment through a streak, a daily intention the product shows back as the user's own statement, and a milestone system that pays out in trial length. A social layer runs alongside on two separate tracks: named groups with admins and membership, and open, unmembered surfaces like a gratitude wall and quote comments. A separate sidebar check-in asks how the user is feeling and keeps the answer as a record, apart from both the streak-and-intention spine and the social layer. The product's depth, hundreds of thousands of free tracks, thousands of groups, a retreat marketplace, a therapist directory, keeps the mechanics from feeling like a substitute for content.",
   "teaser": "Insight Timer's most powerful habit-formation tool, a home screen widget, is rewarded with a longer trial — more time to build the exact habit the widget exists to support.",
   "icon": "/icons/insight-timer.png",

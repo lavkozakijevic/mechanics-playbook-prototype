@@ -520,7 +520,12 @@ function parseAnalysisV41(file) {
   // source's own "None" means no version was stated, not a real value.
   const asObserved = monthYear(header["As observed"]);
   if (!asObserved) throw new Error(`${file}: "As observed" (${header["As observed"]}) is not a valid month/year`);
-  const appVersion = header["App version"] === "None" ? null : header["App version"];
+  // Written as a full sentence in the source ("App version: None."), so the
+  // "no version stated" case isn't always the bare word — matched loosely
+  // rather than by exact string, which only caught it when a file happened
+  // to leave the period off (dave.md) and let every "None." through as
+  // literal header text on the page (case study header, 30 Sep 2026 fix).
+  const appVersion = /^none\.?$/i.test(header["App version"].trim()) ? null : header["App version"];
 
   // ---- Pass two: applied tags, keyed by the observation ids they cover —
   // the join back onto the content file's observations happens at the call

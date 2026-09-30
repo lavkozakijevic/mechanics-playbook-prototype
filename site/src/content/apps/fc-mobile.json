@@ -7,7 +7,7 @@
   "analysisDate": "2026-09-14",
   "lastUpdated": "2026-09-14",
   "asObserved": "2026-04",
-  "appVersion": "None.",
+  "appVersion": null,
   "summary": "FC Mobile is a football management and match-play game built around one account-level progression that gates almost everything else in the product. XP from matches, missions, drafts and skill games advances that level, and each crossing releases another named feature, leagues, the market, challenge mode, in a sequence the player doesn't choose, since every activity feeds the same number. Underneath that progression sits a large squad-management system, players held as their own developing items, and around it three overlapping return cadences, daily, weekly and seasonal, that rarely close at the same time. Every currency display doubles as a route into the store, and the one feature carrying the word \"streak\" turns out to be a purchase ladder with no continuity condition at all.",
   "teaser": "The only feature in FC Mobile called a streak has no continuity in it at all, just ten packs bought in order.",
   "icon": "/icons/fc-mobile.png",

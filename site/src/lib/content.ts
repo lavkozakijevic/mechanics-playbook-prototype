@@ -87,6 +87,17 @@ export function formatMonthYear(iso: string | undefined): string {
   });
 }
 
+// A header-metadata field is worth rendering only when it actually says
+// something (case study header, 30 Sep 2026 fix): empty/missing, or the
+// analysis's own "nothing to state" sentinel, "None" (with or without the
+// trailing period a full-sentence field carries it with), never a value to
+// show. convert-content.mjs already normalizes appVersion's own "None" to
+// null at conversion time, but this stays template-side too so every field
+// the header renders is checked the same way, not just whichever one broke.
+export function hasMeta(value: string | null | undefined): value is string {
+  return !!value && !/^none\.?$/i.test(value.trim());
+}
+
 const WORDS = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve"];
 export function numberWord(n: number): string {
   return WORDS[n] ?? String(n);

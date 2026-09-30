@@ -7,7 +7,7 @@
   "analysisDate": "2026-09-13",
   "lastUpdated": "2026-09-13",
   "asObserved": "2026-05",
-  "appVersion": "None.",
+  "appVersion": null,
   "summary": "Tiimo is a planning and productivity app that runs one loop: completing a task moves two counters, a lifetime tally of tasks and a streak of days, and both feed the marker tracks that make up its stats tab. An AI co-planner turns spoken or typed intent into scheduled tasks, though it can create tasks but not yet reschedule them. Notifications sit directly on top of the same two counters, built around the morning, afternoon and evening bands a user sets up during onboarding. There's no social layer anywhere in the app, so every comparison Tiimo offers is between a user and their own record.",
   "teaser": "Tiimo gives new users a streak, a marker and a scheduled day before they've used the app once.",
   "icon": "/icons/tiimo.png",

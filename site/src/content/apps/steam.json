@@ -7,7 +7,7 @@
   "analysisDate": "2026-09-15",
   "lastUpdated": "2026-09-15",
   "asObserved": "2026-05",
-  "appVersion": "None.",
+  "appVersion": null,
   "summary": "Steam on iOS is a companion app for an existing account rather than a fresh signup, and its design is organized around Steam Points, a currency the account earns automatically from purchases already made elsewhere on the platform. Points get spent on cosmetics, on recognizing other users' content and on upgrading a profile level built from badges, all without a separate purchase decision. A single security-first onboarding chain, credential sign-in, an emailed code and an authenticator setup with a hand-copied recovery code, runs before the Store becomes the user's first unguided choice. From there the app runs a browsing loop through the Store, a Discovery Queue and a Wishlist, alongside a News feed, a community hub and a Points Shop that ties nearly everything else together.",
   "teaser": "Steam turns money already spent on games into a second currency that buys cosmetics, praise for other players and profile status, no separate purchase required.",
   "icon": "/icons/steam.png",

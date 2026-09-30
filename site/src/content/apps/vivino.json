@@ -7,7 +7,7 @@
   "analysisDate": "2026-09-28",
   "lastUpdated": "2026-09-28",
   "asObserved": "2026-08",
-  "appVersion": "None.",
+  "appVersion": null,
   "summary": "Vivino is a wine app where rating is the action everything else is arranged around: the rating composer feeds published reviews, review-derived flavor descriptors, a contributor's achievements, tried-and-rated counts across styles, regions and grapes, and user-rated weekly top lists. Scanning a label and searching are the two routes onto a wine's own page, where rating, a cellar, a wishlist, an AI sommelier and food pairing sit together. A subscription, Premium, is offered throughout sign-up and encountered again as a lock on wine adventures, the scanner's fuller tools, and the deeper versions of the taste profile, Sommelier and cellar.",
   "teaser": "Vivino's whole catalogue, from a wine's own page to a critic's public profile, is built to point back at one action: rating.",
   "icon": null,

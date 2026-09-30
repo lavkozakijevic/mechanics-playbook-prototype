@@ -7,7 +7,7 @@
   "analysisDate": "2026-09-14",
   "lastUpdated": "2026-09-14",
   "asObserved": "2026-02",
-  "appVersion": "None.",
+  "appVersion": null,
   "summary": "Gymverse is a gym workout planning app that builds a personalized strength training plan through a nineteen-step onboarding sequence, then prices access to that plan before a single exercise has been performed. The plan itself runs as a fixed three-part sequence, warm-up, exercise, stretch, with an automatic rest countdown as its only real automation. Nothing in the product tracks a currency, a failure state, or another person: the whole system runs on one user working through one plan, alone.",
   "teaser": "Gymverse prices its plan before showing a single exercise, then hands it over free the moment you say no.",
   "icon": null,

@@ -7,7 +7,7 @@
   "analysisDate": "2026-09-13",
   "lastUpdated": "2026-09-13",
   "asObserved": "2026-04",
-  "appVersion": "None.",
+  "appVersion": null,
   "summary": "Canva is a design tool built around an unobstructed production loop: browsing, editing and generating content carries no cap, cooldown or schedule anywhere in it, and the charge only arrives once a design already exists, at export. Three separately priced routes, a subscription trial, a one-off licence and a credit balance, meet at that single point rather than gating the work itself. Design School sits apart from that loop entirely, running a certification path whose badges and certificate point outward, toward being shared, rather than back into the editor.",
   "teaser": "Canva never limits what you can build, only what you can leave with when it's done.",
   "icon": "/icons/canva.png",

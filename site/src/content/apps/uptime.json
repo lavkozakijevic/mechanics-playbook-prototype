@@ -7,7 +7,7 @@
   "analysisDate": "2026-09-16",
   "lastUpdated": "2026-09-16",
   "asObserved": "2026-05",
-  "appVersion": "None.",
+  "appVersion": null,
   "summary": "Uptime delivers five-minute summaries of books, courses, documentaries and podcasts, routing a new account through topic selection, three successive subscription offers and a full first hack before it ever reaches an unguided screen. Finishing that hack produces a streak, an hours-saved total and topic credit together, each composed into a shareable image carrying the Uptime logo. Saved or read material returns later through a separate Spark system, presented as recall cards that ask only whether the material is remembered, with a card always held back for the next day. Pricing runs as a sequence of discounts against the same stated $69.99 standard price, each offer arriving only after the last is declined.",
   "teaser": "Uptime's third subscription offer, the cheapest one, only appears after the first two have both been turned down.",
   "icon": "/icons/uptime.png",

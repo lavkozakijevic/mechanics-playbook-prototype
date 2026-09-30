@@ -7,7 +7,7 @@
   "analysisDate": "2026-09-13",
   "lastUpdated": "2026-09-14",
   "asObserved": "2026-04",
-  "appVersion": "None.",
+  "appVersion": null,
   "summary": "Royal Match is a match-three puzzle game structured around one activity that pays into everything else: clearing a level. The level's star pays for building out a castle and its surrounding areas, its coins fund undoing failure and buying items, and every timed event running at once, a team tournament, a seasonal pass, a card collection, advances from the same completed level. Failure, not entry, is the switch that turns the loop into a monetization surface: hearts are only spent when a level is lost, and the paid offers are priced against exactly that shortfall.",
   "teaser": "Royal Match pays every part of itself, the castle, the team, the season, from the same completed level.",
   "icon": "/icons/royal-match.png",

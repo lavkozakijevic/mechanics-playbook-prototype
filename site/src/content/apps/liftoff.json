@@ -7,7 +7,7 @@
   "analysisDate": "2026-09-15",
   "lastUpdated": "2026-09-15",
   "asObserved": "2026-02",
-  "appVersion": "None.",
+  "appVersion": null,
   "summary": "Liftoff runs a strength-ranking system, Bronze through Diamond, assigned first from a self-reported rep count during onboarding and then extended by logged workouts. Daily, weekly and one-time quests pay a currency called eggs, which doubles as both an earned and a purchasable balance spent on consumables and cosmetics. A predicted date for reaching the next rank tier, a seven-day trial, and a same-day exit offer all sit on top of the same ranking system before the user has completed a single workout. Leagues, leaderboards and a Pro subscription then extend the ranking comparison to other users.",
   "teaser": "Liftoff's exit offer promises \"78% off forever\" on a discount that actually runs about 50%.",
   "icon": "/icons/liftoff.png",

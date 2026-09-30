@@ -7,7 +7,7 @@
   "analysisDate": "2026-09-16",
   "lastUpdated": "2026-09-16",
   "asObserved": "2026-04",
-  "appVersion": "None.",
+  "appVersion": null,
   "summary": "Calm is a meditation and wellness app whose free tier centers on a suite of self-report check-ins, mood, sleep, gratitude, a daily reflection, and a journal, reached from a tab inside Profile rather than from the main navigation. Nearly every piece of listening content sits behind a subscription, with only a handful of free soundscapes and meditations under a stated number of listens. A streak and running stats track how often the check-ins happen, and both are composed into shareable images sent outside the app. A 30-day guest pass, framed as a gift to someone the user cares about, can be sent from the home screen, from Profile, and bundled automatically into one check-in's own share image.",
   "teaser": "Calm's free check-in suite is what actually moves its streak and stats; the subscription content it recommends afterward is what stays locked.",
   "icon": "/icons/calm.png",

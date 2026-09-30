@@ -7,7 +7,7 @@
   "analysisDate": "2026-09-14",
   "lastUpdated": "2026-09-30",
   "asObserved": "2026-04",
-  "appVersion": "None.",
+  "appVersion": null,
   "summary": "Strava is where runners, riders and swimmers turn a workout into something worth showing off. Record an activity and it becomes a small public event: a route map, a burst of stats, kudos from other people, sometimes a trophy. It's worth a look because almost the whole app grows out of that one recorded activity: there's no currency here, no points, nothing to spend, just your own effort and everyone else's attention. And because a brand-new account already opens on a feed full of strangers and a list of clubs waiting, before it's recorded a single mile.",
   "teaser": "Take a screenshot of your own activity, and Strava swaps it out for a branded card of its own.",
   "icon": "/icons/strava.png",

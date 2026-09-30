@@ -7,7 +7,7 @@
   "analysisDate": "2026-09-16",
   "lastUpdated": "2026-09-16",
   "asObserved": "2026-04",
-  "appVersion": "None.",
+  "appVersion": null,
   "summary": "PicsArt is a photo and video editing app organized around one editor loop: pick media, apply a tool, save or export. A row of AI tools inside the editor draws on a credit balance that renews weekly for free or expands through a Pro or Plus subscription, and PicsArt places a purchase request at two different points inside that same editor rather than one. Alongside the editor, a community layer runs challenges with a countdown, a separate voting stage, and a persisted winners' history, plus creator profiles, joinable Spaces and a Discover feed of other people's work. Challenge prizes pay out in the same credits the editor spends, tying the community layer back into the paid economy.",
   "teaser": "PicsArt asks for payment at two different moments inside the same editor: before an AI result exists, and after a tool has already been tried.",
   "icon": "/icons/picsart.png",
