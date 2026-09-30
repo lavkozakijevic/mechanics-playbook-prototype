@@ -7,6 +7,7 @@ import type { CollectionEntry } from "astro:content";
 import { CAT_LABEL, formatDate, numberWord, playerChip, titleCase, mechanicHref } from "./content";
 import { kebabId } from "./v41";
 import { resolveMechanicId } from "./canonical-mechanic-ids.mjs";
+import { EXAMPLE_EXCLUDED } from "./example-excluded.mjs";
 
 type App = CollectionEntry<"apps">["data"];
 type Mechanic = CollectionEntry<"mechanics">["data"];
@@ -102,20 +103,10 @@ export function mechanicDetailProps(mech: Mechanic) {
   };
 }
 
-// Apps barred from appearing as mechanic-page examples (owner ruling, 17 Jun
-// 2026). Dave cleared (owner ruling, since) once it became a complete v4.1
-// app with a full case study — the other five haven't been re-run yet: the
-// report-only finance set never renders as a worked example, and starling-
-// bank/orbit/george are barred on the same ground. cleo and acorns are
-// published as finance hero logos / case studies but must not surface as
-// examples until the owner says otherwise.
-export const EXAMPLE_EXCLUDED = new Set([
-  "cleo",
-  "acorns",
-  "starling-bank",
-  "orbit",
-  "george-app-erste-serbia",
-]);
+// Moved to example-excluded.mjs (30 Sep 2026) so it can be shared with
+// tests/smoke.spec.ts without pulling astro:content into a plain test run;
+// re-exported here so existing imports of it from this module keep working.
+export { EXAMPLE_EXCLUDED };
 
 // An example may render only when its write-up carries what the two-line
 // card shows (voice rewrite, 30 Sep 2026): the implementation summary as the
