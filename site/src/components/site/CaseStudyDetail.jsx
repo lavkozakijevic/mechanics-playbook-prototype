@@ -5,7 +5,7 @@
    table-of-contents sidebar with scroll-spy. */
 import React, { useState, useEffect, useMemo } from "react";
 import { Tag } from "../ds/Tag.jsx";
-import { SubscribeCard, WaitlistModal } from "./Subscribe.jsx";
+import { SubscribeCard } from "./Subscribe.jsx";
 import { GATE_EYEBROW, GATE_HEADING, GATE_DETAIL } from "../../lib/site-copy";
 
 const CAT_COLOR = { retention: "var(--cat-retention)", monetization: "var(--cat-monetization)", social: "var(--cat-social)", progression: "var(--cat-progression)", competition: "var(--cat-competition)", customization: "var(--cat-customization)", engagement: "var(--cat-engagement)", reach: "var(--cat-reach)" };
@@ -121,10 +121,8 @@ function MechanicSection({ m }) {
 /** Locked case study: keep the title and opening introduction, then present
  *  the subscribe offer in place of the full breakdown. */
 function LockedCaseStudy({ app }) {
-  const [modalOpen, setModalOpen] = useState(false);
   return (
     <main id="main">
-      {modalOpen && <WaitlistModal onClose={() => setModalOpen(false)} />}
       <div className="container container--narrow">
         <header className="cs-hd" id="overview">
           <nav className="crumb" aria-label="Breadcrumb">
@@ -156,7 +154,7 @@ function LockedCaseStudy({ app }) {
             <h2 className="cs-gate__h">{GATE_HEADING.breakdown(app.name)}</h2>
             <p className="cs-gate__p">{GATE_DETAIL.breakdown}</p>
           </div>
-          <SubscribeCard onSubscribe={() => setModalOpen(true)} />
+          <SubscribeCard />
         </div>
       </div>
     </main>

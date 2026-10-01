@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Button } from "../ds/Button.jsx";
 import { Input } from "../ds/Input.jsx";
+import { checkoutPath } from "../../lib/checkout.mjs";
 
 const CheckIcon = (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -36,17 +37,18 @@ const VALUE = [
   },
 ];
 
-/** The offer card — price, unlocks list, and the Subscribe button. Reused on
- *  the subscribe page and as the paywall on locked case study pages. */
-/** The two plans. The tag is shown on any plan that carries one. */
+/** The two plans. Each Subscribe button is a link to /checkout/?plan=<id>, which
+ *  sends a signed-out visitor to log in first and a signed-in one to checkout.
+ *  What each plan costs is set in Paddle; this is only what the visitor reads.
+ *  The tag is shown on any plan that carries one. */
 const PLANS = [
-  { id: "monthly", amount: "$25", per: "/m", cycle: "billed quarterly" },
-  { id: "annual", amount: "$250", per: "/y", cycle: "billed annually", tag: "15% off" },
+  { id: "quarterly", amount: "$25", per: "/month", cycle: "billed $75 every 3 months" },
+  { id: "yearly", amount: "$250", per: "/year", tag: "Save 16%" },
 ];
 
 /** The offer card: both plans side by side over the shared unlocks list. Reused
  *  on the subscribe page and as the paywall on locked case study and system pages. */
-export function SubscribeCard({ onSubscribe }) {
+export function SubscribeCard() {
   return (
     <div className="sp-card">
       <div className="sp-plans">
@@ -55,9 +57,9 @@ export function SubscribeCard({ onSubscribe }) {
             {p.tag && <span className="sp-plan__tag">{p.tag}</span>}
             <div className="sp-price">
               <span className="sp-price__amt">{p.amount}<span className="sp-price__per">{p.per}</span></span>
-              <span className="sp-price__cycle">{p.cycle}</span>
+              {p.cycle && <span className="sp-price__cycle">{p.cycle}</span>}
             </div>
-            <Button variant="accent" size="lg" onClick={onSubscribe}>Subscribe</Button>
+            <Button as="a" href={checkoutPath(p.id)} variant="accent" size="lg">Subscribe</Button>
           </div>
         ))}
       </div>
@@ -148,20 +150,16 @@ export function WaitlistModal({ onClose }) {
 
 /** Subscribe page body. */
 export function SubscribePage() {
-  const [modalOpen, setModalOpen] = useState(false);
-
   return (
     <main id="main">
 
-      {modalOpen && <WaitlistModal onClose={() => setModalOpen(false)} />}
-
       {/* 1. The offer */}
-      <section className="band sp-offer" aria-labelledby="offer-h">
+      <section className="band sp-offer" id="offer" aria-labelledby="offer-h">
         <div className="container container--narrow">
           <div className="eyebrow">Subscribe</div>
           <h1 className="sp-offer__h" id="offer-h">Weekly breakdowns of how real apps build engagement.</h1>
 
-          <SubscribeCard onSubscribe={() => setModalOpen(true)} />
+          <SubscribeCard />
         </div>
       </section>
 
@@ -182,7 +180,7 @@ export function SubscribePage() {
       <section className="band band--ink sp-close" aria-labelledby="close-h">
         <div className="container container--narrow">
           <h2 className="sp-close__h" id="close-h">Every mechanic here comes from a product that actually built it. None of it is theory.</h2>
-          <Button variant="accent" size="lg" onClick={() => setModalOpen(true)}>Subscribe</Button>
+          <Button as="a" href="#offer" variant="accent" size="lg">Choose a plan</Button>
         </div>
       </section>
 

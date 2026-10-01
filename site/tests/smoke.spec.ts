@@ -15,6 +15,8 @@ import { EXAMPLE_EXCLUDED } from "../src/lib/example-excluded.mjs";
  *     dist/, which holds both client/ and server/)
  *  5. the login routes: headers, origin checks, and a 503 (never a crash) when
  *     Supabase isn't configured, which is the case in CI
+ *  6. checkout: the plan links and copy, redirects for a visitor with no session,
+ *     refusals, and that the site holds no Paddle configuration
  *
  * Expected counts are computed from the content collection at test time, so
  * the tests stay correct as weekly imports add apps.
@@ -370,6 +372,128 @@ test.describe("login routes", () => {
     expect(await bad.json()).toEqual({ error: "invalid_email" });
     const wrong = await request.get("/api/lead");
     expect(wrong.status()).toBe(405);
+  });
+});
+
+// Checkout (payments step 4). CI has no Supabase or payments Worker, so what is
+// tested here is everything decided before either is asked: the plan links and
+// their copy, the redirects for a visitor with no session, the refusals, and
+// that the site holds no Paddle configuration. The signed-in paths run in the
+// local end-to-end checks (payments-worker/e2e/checkout.mjs).
+test.describe("checkout", () => {
+  test("the subscribe page offers two plans as links, with the agreed copy", async ({ page }) => {
+    await page.goto("/subscribe/");
+    const hrefs = await page.locator(".sp-plan a.gb-btn").evaluateAll((els) => els.map((e) => e.getAttribute("href")));
+    expect(hrefs).toEqual(["/checkout/?plan=quarterly", "/checkout/?plan=yearly"]);
+    const card = await page.locator(".sp-card").innerText();
+    expect(card).toContain("$25/month");
+    expect(card).toContain("billed $75 every 3 months");
+    expect(card).toContain("$250/year");
+    expect(card.toLowerCase()).toContain("save 16%"); // the tag is set in capitals by CSS
+    const all = await page.locator("body").innerText();
+    expect(all).not.toContain("15%");
+    expect(all.toLowerCase()).not.toContain("monthly");
+    await expect(page.locator(".wl-modal")).toHaveCount(0); // no waitlist modal any more
+  });
+
+  test("a signed-out visitor who presses Subscribe is sent to log in, and told why", async ({ page }) => {
+    await page.goto("/subscribe/");
+    await page.locator(".sp-plan a.gb-btn").first().click();
+    await expect(page).toHaveURL(/\/login\/\?next=%2Fcheckout%2F%3Fplan%3Dquarterly$/);
+    await expect(page.getByText("You need an account to subscribe")).toBeVisible();
+  });
+
+  test("checkout with no plan, or a plan we do not sell, goes back to the plans", async ({ request }) => {
+    for (const q of ["", "?plan=", "?plan=monthly", "?plan=annual", "?plan=pri_01abc", "?plan=QUARTERLY"]) {
+      const res = await request.get("/checkout/" + q, { maxRedirects: 0 });
+      expect(res.status(), q).toBe(303);
+      expect(res.headers()["location"], q).toBe("/subscribe/");
+    }
+  });
+
+  test("checkout with no session goes to login and comes back, never touching Paddle", async ({ request }) => {
+    for (const [plan, next] of [["quarterly", "%2Fcheckout%2F%3Fplan%3Dquarterly"], ["yearly", "%2Fcheckout%2F%3Fplan%3Dyearly"]]) {
+      const res = await request.get(`/checkout/?plan=${plan}`, { maxRedirects: 0 });
+      expect(res.status()).toBe(303);
+      expect(res.headers()["location"]).toBe(`/login/?next=${next}`);
+      expectAuthHeaders(res);
+      expect(res.headers()["content-security-policy-report-only"]).toBeUndefined();
+    }
+    const success = await request.get("/checkout/success/", { maxRedirects: 0 });
+    expect(success.status()).toBe(303);
+    expect(success.headers()["location"]).toBe("/login/?next=%2Fcheckout%2Fsuccess%2F");
+  });
+
+  test("a browser navigation to /checkout/ reaches the Worker, not the static 404 page", async ({ page }) => {
+    await page.goto("/checkout/?plan=yearly");
+    await expect(page).toHaveURL(/\/login\/\?next=%2Fcheckout%2F%3Fplan%3Dyearly$/);
+  });
+
+  test("POST /api/checkout refuses a foreign origin, a bad plan and a visitor with no session", async ({ request }) => {
+    const foreign = await request.post("/api/checkout", { data: { plan: "quarterly" }, headers: { origin: "https://evil.example" } });
+    expect(foreign.status()).toBe(403);
+    expectAuthHeaders(foreign);
+    const noOrigin = await request.post("/api/checkout", { data: { plan: "quarterly" } });
+    expect(noOrigin.status()).toBe(403);
+    // a price id, an unknown plan and a missing plan never get as far as Paddle
+    for (const plan of ["monthly", "pri_01abc", "", null, 7, ["quarterly"]]) {
+      const res = await request.post("/api/checkout", { data: { plan }, headers: { origin: SITE_ORIGIN } });
+      expect(res.status(), JSON.stringify(plan)).toBe(400);
+      expectAuthHeaders(res);
+    }
+    const garbage = await request.post("/api/checkout", { data: "not json", headers: { origin: SITE_ORIGIN, "content-type": "text/plain" } });
+    expect(garbage.status()).toBe(400);
+    const noSession = await request.post("/api/checkout", { data: { plan: "yearly" }, headers: { origin: SITE_ORIGIN } });
+    expect(noSession.status()).toBe(401);
+    expect(await noSession.json()).toEqual({ error: "unauthorized" });
+    expectAuthHeaders(noSession);
+  });
+
+  test("the entitlement endpoint needs a session, and the routes only answer their own method", async ({ request }) => {
+    const anon = await request.get("/api/entitlement");
+    expect(anon.status()).toBe(401);
+    expectAuthHeaders(anon);
+    const wrongMethod = await request.post("/api/entitlement", { data: {}, headers: { origin: SITE_ORIGIN } });
+    expect(wrongMethod.status()).toBe(405);
+    expect(wrongMethod.headers()["allow"]).toBe("GET");
+    const wrongCheckout = await request.get("/api/checkout");
+    expect(wrongCheckout.status()).toBe(405);
+    expect(wrongCheckout.headers()["allow"]).toBe("POST");
+    const post = await request.post("/checkout/", { data: {}, headers: { origin: SITE_ORIGIN } });
+    expect(post.status()).toBe(405);
+  });
+
+  test("the site Worker holds no Paddle configuration, and is bound to the payments Worker's entrypoint", () => {
+    // Variable names and key-shaped values. (supabase-js's own comments mention
+    // "sb_secret_" and SUPABASE_SECRET_KEY, so those words alone are not a hit;
+    // a value or an env lookup is.)
+    const patterns = [/PADDLE_(API|CHECKOUT|WEBHOOK|CLIENT|PRICE|ENVIRONMENT|PRODUCT)/, /pdl_(ntfset|sdbx_apikey|live_apikey)_[A-Za-z0-9]{10,}/, /sb_secret_[A-Za-z0-9_-]{20,}/, /(^|[^.\w])env\.SUPABASE_SECRET_KEY/];
+    const hits: string[] = [];
+    const walk = (dir: string) => {
+      for (const name of fs.readdirSync(dir)) {
+        const p = path.join(dir, name);
+        if (fs.statSync(p).isDirectory()) walk(p);
+        else if (/\.(html|js|mjs|cjs|json|css|txt|xml)$/.test(name)) {
+          const body = fs.readFileSync(p, "utf8");
+          for (const re of patterns) if (re.test(body)) hits.push(`${path.relative(distDir, p)}: ${re}`);
+        }
+      }
+    };
+    walk(distDir);
+    expect(hits).toEqual([]);
+    const config = JSON.parse(fs.readFileSync(path.join(distDir, "server", "wrangler.json"), "utf8"));
+    expect(config.services).toEqual([{ binding: "PAYMENTS", service: "appservatory-payments", entrypoint: "Checkout" }]);
+    expect(config.assets.run_worker_first).toEqual(expect.arrayContaining(["/checkout", "/checkout/*", "/auth/*", "/api/*"]));
+    expect(config.vars ?? {}).toEqual({});
+  });
+
+  test("the browser scripts are static files, not inline, and carry no secret", async ({ request }) => {
+    for (const file of ["checkout.js", "success.js"]) {
+      const res = await request.get(`/assets/checkout/${file}`);
+      expect(res.status(), file).toBe(200);
+      const body = await res.text();
+      expect(body).not.toMatch(/pri_|ctm_|sb_|pdl_|Bearer/);
+    }
   });
 });
 

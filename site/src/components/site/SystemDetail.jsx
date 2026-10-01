@@ -4,7 +4,7 @@
    list as the mobile fallback. */
 import React, { useState, useEffect } from "react";
 import { Tag } from "../ds/Tag.jsx";
-import { SubscribeCard, WaitlistModal } from "./Subscribe.jsx";
+import { SubscribeCard } from "./Subscribe.jsx";
 import { GATE_EYEBROW, GATE_HEADING, GATE_DETAIL } from "../../lib/site-copy";
 
 // "neutral" covers a v4.1 tag with no mechanics-collection entry yet (spec
@@ -190,10 +190,8 @@ function ConnectionModal({ conn, byId, onClose }) {
 /** Locked system: keep the title and opening introduction (the tagline), then
  *  present the subscribe offer in place of the interactive map. */
 function LockedSystem({ system }) {
-  const [modalOpen, setModalOpen] = useState(false);
   return (
     <main id="main">
-      {modalOpen && <WaitlistModal onClose={() => setModalOpen(false)} />}
       <section className="mech-head" aria-labelledby="sys-h">
         <div className="container">
           <nav className="crumb" aria-label="Breadcrumb">
@@ -220,7 +218,7 @@ function LockedSystem({ system }) {
               <h2 className="cs-gate__h">{GATE_HEADING.system(system.appName)}</h2>
               <p className="cs-gate__p">{GATE_DETAIL.system}</p>
             </div>
-            <SubscribeCard onSubscribe={() => setModalOpen(true)} />
+            <SubscribeCard />
           </div>
         </div>
       </section>
