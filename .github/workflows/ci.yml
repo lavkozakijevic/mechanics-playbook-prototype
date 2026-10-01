@@ -32,6 +32,12 @@ jobs:
       - name: Build (with content validation and report-only leak check)
         run: npm run build
 
+      # Wrangler's own check of the generated Worker config, which carries the
+      # service binding to the payments Worker, the rate limits and the routes that
+      # run the Worker first. Bundles and validates; deploys nothing, needs no login.
+      - name: Deploy dry run (bindings)
+        run: npx wrangler deploy --dry-run --outdir /tmp/site-dry-run
+
       - name: Install Playwright browser
         run: npx playwright install chromium --with-deps
 
