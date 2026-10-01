@@ -28,14 +28,27 @@
   //    here. Add a path when a page moves to on-request rendering.
   "assets": {
     "not_found_handling": "404-page",
-    "run_worker_first": ["/auth/*", "/api/*"]
+    "run_worker_first": ["/auth/*", "/api/*", "/checkout", "/checkout/*"]
   },
+
+  // The payments Worker's checkout entrypoint (an RPC class, no URL). The
+  // site calls it with the signed-in user's access token; the payments Worker
+  // holds every Paddle secret and the Supabase secret key, this Worker none.
+  "services": [
+    { "binding": "PAYMENTS", "service": "appservatory-payments", "entrypoint": "Checkout" }
+  ],
 
   // Login rate limits (src/pages/api/auth/login.ts, confirm.astro). Periods can
   // only be 10 or 60 seconds. namespace_id only has to be unique in the account.
   "ratelimits": [
     { "name": "LOGIN_IP_LIMITER", "namespace_id": "47101", "simple": { "limit": 5, "period": 60 } },
     { "name": "LOGIN_EMAIL_LIMITER", "namespace_id": "47102", "simple": { "limit": 3, "period": 60 } },
-    { "name": "CONFIRM_IP_LIMITER", "namespace_id": "47103", "simple": { "limit": 10, "period": 60 } }
+    { "name": "CONFIRM_IP_LIMITER", "namespace_id": "47103", "simple": { "limit": 10, "period": 60 } },
+    // Checkout (src/pages/api/checkout.ts, api/entitlement.ts). Each checkout
+    // attempt makes a draft transaction at Paddle; the success page polls every
+    // two seconds, so 60 a minute is the ceiling for one visitor.
+    { "name": "CHECKOUT_USER_LIMITER", "namespace_id": "47104", "simple": { "limit": 5, "period": 60 } },
+    { "name": "CHECKOUT_IP_LIMITER", "namespace_id": "47105", "simple": { "limit": 10, "period": 60 } },
+    { "name": "ENTITLEMENT_LIMITER", "namespace_id": "47106", "simple": { "limit": 60, "period": 60 } }
   ]
 }

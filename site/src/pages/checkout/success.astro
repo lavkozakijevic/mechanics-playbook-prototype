@@ -1,0 +1,74 @@
+---
+// /checkout/success/: where Paddle sends the visitor after paying. Paying and
+// having access are different things: access is granted only when the webhook
+// has written the subscription. This page asks the server (as the visitor,
+// through row-level security) and, until the answer is "active", shows that the
+// payment is being confirmed; /assets/checkout/success.js asks again every two
+// seconds. Nothing the browser reports, including Paddle's own success event,
+// grants anything.
+import { env } from "cloudflare:workers";
+import AuthLayout from "../../layouts/AuthLayout.astro";
+import { Button } from "../../components/ds/Button.jsx";
+import { AUTH_HEADERS, authResponse, hasAuthCookie, setCookieLines } from "../../lib/auth-config.mjs";
+import { createRequestClient, finalCookies, supabaseConfigured } from "../../lib/auth-server.mjs";
+import { SUCCESS_PATH, entitlementState, loginRedirect } from "../../lib/checkout.mjs";
+
+export const prerender = false;
+
+for (const [k, v] of Object.entries(AUTH_HEADERS)) Astro.response.headers.set(k, v);
+
+const request = Astro.request;
+if (request.method !== "GET") {
+  return authResponse("Method not allowed", { status: 405, json: false, headers: { Allow: "GET", "Content-Type": "text/plain; charset=utf-8" } });
+}
+if (!hasAuthCookie(request)) {
+  return authResponse(null, { status: 303, json: false, headers: { Location: loginRedirect(SUCCESS_PATH) } });
+}
+
+let active = false;
+let message: string | null = null;
+
+if (!supabaseConfigured(env)) {
+  Astro.response.status = 503;
+  message = "This page isn't available right now. Try again later.";
+} else {
+  const { supabase, state } = createRequestClient(request, env);
+  const { data: userData } = await supabase.auth.getUser();
+  if (!userData?.user) {
+    return authResponse(null, { status: 303, json: false, headers: { Location: loginRedirect(SUCCESS_PATH) }, cookies: finalCookies(state) });
+  }
+  for (const line of setCookieLines(finalCookies(state))) Astro.response.headers.append("Set-Cookie", line);
+  const { data, error } = await supabase.rpc("current_entitlement");
+  if (error) {
+    Astro.response.status = 503;
+    message = "We couldn't check your access just now. Reload this page in a moment.";
+  } else {
+    active = entitlementState(data) === "active";
+  }
+}
+---
+
+<AuthLayout title="Thank you — Appservatory">
+  <main class="login" id="main">
+    <div class="login__card">
+      <a class="login__brand" href="/" aria-label="Appservatory home">
+        <img src="/assets/logo/appservatory-logo.png" alt="Appservatory" width="123" height="25" />
+      </a>
+
+      {message && <p class="login__status login__status--error" role="alert">{message}</p>}
+
+      {!message && (
+        <Fragment>
+        <div class="login__form" data-success data-active={active ? "true" : "false"}>
+          <h1 class="login__heading" data-heading>{active ? "You're in" : "Payment received"}</h1>
+          <p class="login__lead" data-status role="status" aria-live="polite">
+            {active ? "Your subscription is active." : "We're confirming it with our payment provider. This usually takes a few seconds."}
+          </p>
+          <Button as="a" href="/case-studies/" variant="primary" size="lg" className="login__submit" data-continue hidden={!active}>Start exploring</Button>
+        </div>
+        {!active && <script is:inline src="/assets/checkout/success.js" defer></script>}
+        </Fragment>
+      )}
+    </div>
+  </main>
+</AuthLayout>

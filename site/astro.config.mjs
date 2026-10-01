@@ -44,8 +44,8 @@ export default defineConfig({
     imageService: "passthrough",
   }),
   session: { driver: sessionDrivers.null() },
-  // The sign-in confirmation page renders on request and is not a page to
-  // list: it only ever receives a one-time link.
-  integrations: [react(), sitemap({ filter: (page) => !new URL(page).pathname.startsWith("/auth/") })],
+  // The sign-in and checkout pages render on request and are not pages to
+  // list: they only ever serve a signed-in visitor or a one-time link.
+  integrations: [react(), sitemap({ filter: (page) => !/^\/(auth|checkout)\//.test(new URL(page).pathname) })],
   vite: { plugins: [stripProcessBannerFromClient] },
 });
