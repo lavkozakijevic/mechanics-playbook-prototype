@@ -77,7 +77,7 @@ export function buildRequest(env, args, { nowMs = Date.now(), random = () => ran
     data: {
       id: subId,
       status,
-      customer_id: "ctm_test_customer",
+      customer_id: "ctm_testcustomer",
       started_at: occurredAt,
       canceled_at: status === "canceled" ? occurredAt : null,
       scheduled_change: cancelAt ? { action: "cancel", effective_at: cancelAt, resume_at: null } : null,

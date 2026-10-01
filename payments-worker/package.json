@@ -6,7 +6,8 @@
     "test": "node --test test/*.test.mjs",
     "dev": "wrangler dev --test-scheduled",
     "check": "wrangler deploy --dry-run --outdir .wrangler/dry-run",
-    "e2e": "node e2e/run.mjs"
+    "e2e": "node e2e/run.mjs",
+    "e2e:checkout": "node e2e/checkout.mjs"
   },
   "devDependencies": {
     "wrangler": "^4.145.0"
