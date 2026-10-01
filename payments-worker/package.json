@@ -1,0 +1,14 @@
+{
+  "name": "appservatory-payments",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "dev": "wrangler dev --test-scheduled",
+    "check": "wrangler deploy --dry-run --outdir .wrangler/dry-run",
+    "e2e": "node e2e/run.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.145.0"
+  }
+}

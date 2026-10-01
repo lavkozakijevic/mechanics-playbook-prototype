@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // The Worker's name. The Cloudflare project must have exactly this name.
+  "name": "appservatory-payments",
+  "main": "src/index.mjs",
+  "compatibility_date": "2026-05-28",
+
+  // Variables and secrets live in the dashboard (Settings > Variables and
+  // Secrets) and survive deploys; nothing secret belongs in this file.
+  "keep_vars": true,
+
+  // No invocation logs: they record every request URL and header. The code
+  // logs through src/log.mjs only.
+  "observability": {
+    "enabled": true,
+    "logs": { "invocation_logs": false }
+  },
+
+  // Reconciliation against the Paddle API, hourly (src/reconcile.mjs).
+  "triggers": { "crons": ["17 * * * *"] }
+}
