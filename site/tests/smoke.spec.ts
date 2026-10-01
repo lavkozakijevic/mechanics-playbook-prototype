@@ -4,6 +4,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { tagBlocks } from "../src/lib/v41";
 import { EXAMPLE_EXCLUDED } from "../src/lib/example-excluded.mjs";
+import { needleFor, protectedTexts } from "../src/lib/protected-leak.mjs";
 
 /**
  * Smoke tests (migration brief, Stage 3):
@@ -40,16 +41,16 @@ const visibleApps = apps.filter((a) => a.visibility !== "report-only");
 const reportOnlyApps = apps.filter((a) => a.visibility === "report-only");
 const appsWithSystems = visibleApps.filter((a) => a.system);
 
-// Access gating (owner ruling): every visible app is listed on the index as a
-// card, but only public apps link straight to their case study; subscriber apps
-// link to /subscribe/. Systems additionally open for the rotating free slot
-// named in settings.freeSystemApps.
+// Access gating: every visible app is listed on the index as a card and links to
+// its own page. A free app (declared public: strava and the rotating free slot)
+// has a static page; any other is rendered on request by the site Worker, which
+// shows the gate to a visitor without access (see "gating" below). Systems are
+// also free for the apps named in settings.freeSystemApps.
 const publicApps = visibleApps.filter((a) => a.visibility === "public");
 const homepageSettings = collection("settings").find((s) => s.id === "homepage")!;
 const freeSystemApps = new Set<string>(homepageSettings.freeSystemApps ?? []);
-const freeSystemAppsWithMaps = appsWithSystems.filter(
-  (a) => a.visibility === "public" || freeSystemApps.has(a.id)
-);
+const lockedApps = visibleApps.filter((a) => a.visibility === "subscriber");
+const lockedWithSystems = lockedApps.filter((a) => a.system);
 
 // Mechanics library counts (pages/mechanics/index.astro, spec §3 rebuild, 16
 // Sep 2026): a pill per mechanic with at least one v4.1 implementation
@@ -83,37 +84,36 @@ const [firstMechanicId, firstMechanicCardCount] = [...roleCardsByMechanic.entrie
 )[0];
 
 test.describe("case studies render with content", () => {
-  test("Royal Match case study has real content", async ({ page }) => {
-    await page.goto("/case-studies/royal-match/");
-    await expect(page.locator("h1")).toContainText("Royal Match");
-    // the mechanics relationships render as composed write-up blocks
-    // (v4.1 content model, 14 Sep 2026 — apps no longer carry a `.mechanics`
-    // array; `.mechanicWriteups` is the equivalent this page actually reads)
-    const royalMatch = apps.find((a) => a.id === "royal-match")!;
+  test("a free case study is a real, static page with its full content", async ({ page }) => {
+    const free = publicApps[0];
+    await page.goto(`/case-studies/${free.id}/`);
+    await expect(page.locator("h1")).toContainText(free.name);
     const body = await page.locator("body").innerText();
     expect(body.length).toBeGreaterThan(1000); // not an empty shell
-    expect(royalMatch.mechanicWriteups.length).toBeGreaterThan(0);
+    expect(free.mechanicWriteups.length).toBeGreaterThan(0);
+    await expect(page.locator(".cs-gate")).toHaveCount(0);
+    expect(fs.existsSync(path.join(distDir, "client", "case-studies", free.id, "index.html"))).toBe(true);
   });
 
-  test("a subscriber app's case study renders", async ({ page }) => {
-    const sample = visibleApps.find((a) => a.id !== "royal-match")!;
-    await page.goto(`/case-studies/${sample.id}/`);
-    await expect(page.locator("h1")).toContainText(sample.name);
+  test("a locked app's case study shows its name and the gate, not its content", async ({ page }) => {
+    const locked = visibleApps.find((a) => a.visibility === "subscriber")!;
+    await page.goto(`/case-studies/${locked.id}/`);
+    await expect(page.locator("h1")).toContainText(locked.name);
+    await expect(page.locator(".cs-gate")).toBeVisible();
   });
 });
 
 test.describe("indexes show correct counts", () => {
   test("case studies index lists every visible app and nothing else", async ({ page }) => {
     await page.goto("/case-studies/");
-    // Every visible app gets a card. Subscriber apps are gated (their card links
-    // to /subscribe/), so count the cards themselves, not the case-study links.
+    // Every visible app gets a card, and every card links to its own case study
+    // page (a locked one shows the gate there, rendered on request).
     await expect(page.locator("a.csc")).toHaveCount(visibleApps.length);
-    // Only public apps link straight through to a full case study.
     const links = page.locator('a.csc[href^="/case-studies/"]:not([href="/case-studies/"])');
     const hrefs = await links.evaluateAll((els) =>
       [...new Set(els.map((e) => e.getAttribute("href")))]
     );
-    expect(hrefs.length).toBe(publicApps.length);
+    expect(hrefs.length).toBe(visibleApps.length);
   });
 
   test("mechanics library has all pills and cards in static HTML before hydration", async ({ page }) => {
@@ -148,14 +148,14 @@ test.describe("indexes show correct counts", () => {
 
   test("systems index lists every visible app with a system map", async ({ page }) => {
     await page.goto("/systems/");
-    // Every app with a system map gets a card. Gated systems link to /subscribe/,
-    // so count the cards; only public + free-slot systems link straight through.
+    // Every app with a system map gets a card, and each links to its own system
+    // page (a locked one shows the gate there, rendered on request).
     await expect(page.locator("a.csc")).toHaveCount(appsWithSystems.length);
     const links = page.locator('a.csc[href^="/systems/"]:not([href="/systems/"])');
     const hrefs = await links.evaluateAll((els) =>
       [...new Set(els.map((e) => e.getAttribute("href")))]
     );
-    expect(hrefs.length).toBe(freeSystemAppsWithMaps.length);
+    expect(hrefs.length).toBe(appsWithSystems.length);
   });
 });
 
@@ -514,6 +514,172 @@ test.describe("checkout", () => {
       const body = await res.text();
       expect(body).not.toMatch(/pri_|ctm_|sb_|pdl_|Bearer/);
     }
+  });
+});
+
+// Gating (payments step 5). CI has no Supabase and no REVIEW_WINDOW variable, so
+// the Worker is closed and has no way to ask who anyone is: a visitor with no
+// session cookie gets the gate, and one WITH a cookie gets a plain 503 (it fails
+// closed, never to content). What reaches the browser is checked against the
+// content itself: distinctive text taken from every protected field of every
+// locked app must be absent from every signed-out response. The signed-in
+// paths (full, past_due, none, expired token, image access, the window) run in
+// the local end-to-end checks (payments-worker/e2e/gating.mjs).
+const PRIVATE = (h: Record<string, string>) => {
+  expect(h["cache-control"]).toBe("private, no-store");
+  expect(h["x-robots-tag"]).toBe("noindex");
+  expect(h["vary"]).toMatch(/cookie/i);
+  expect(h["set-cookie"]).toBeUndefined();
+};
+// Distinctive protected text from an app, minus anything that is public on purpose
+// (its own summary, teaser, name, system tagline and write-up headlines, which the
+// gate and the mechanic pages show).
+const sampleNeedles = (app: any, n = 40) => {
+  const publicText = JSON.stringify([app.summary, app.teaser, app.name, app.system?.tagline, (app.mechanicWriteups ?? []).map((w: any) => [w.summary, w.title])]);
+  const all = (protectedTexts(app).map((t: any) => needleFor(t.text)).filter(Boolean) as string[]).filter((x) => !publicText.includes(x));
+  const step = Math.max(1, Math.floor(all.length / n));
+  return all.filter((_, i) => i % step === 0).slice(0, n);
+};
+const lockedApp = lockedApps[0];
+
+test.describe("gating", () => {
+  test("a free app is a static page; no locked app has a page of any kind as a file", () => {
+    const client = path.join(distDir, "client");
+    for (const a of publicApps) {
+      expect(fs.existsSync(path.join(client, "case-studies", a.id, "index.html")), a.id).toBe(true);
+    }
+    for (const a of lockedApps) {
+      expect(fs.existsSync(path.join(client, "case-studies", a.id)), `case-studies/${a.id}`).toBe(false);
+      expect(fs.existsSync(path.join(client, "systems", a.id)), `systems/${a.id}`).toBe(false);
+    }
+  });
+
+  test("a signed-out visitor to a locked case study gets the gate, privately, with a login link back", async ({ request }) => {
+    const res = await request.get(`/case-studies/${lockedApp.id}/`);
+    expect(res.status()).toBe(200);
+    PRIVATE(res.headers());
+    const html = await res.text();
+    expect(html).toContain(lockedApp.name);
+    expect(html).toContain("cs-gate");
+    expect(html).toContain(`href="/login/?next=%2Fcase-studies%2F${lockedApp.id}%2F"`);
+    expect(html).toContain("/checkout/?plan=quarterly");
+    expect(html).not.toContain("pd-banner");
+  });
+
+  test("no protected text from any locked app is in a signed-out case study or system response", async ({ request }) => {
+    for (const a of lockedApps) {
+      const needles = sampleNeedles(a);
+      expect(needles.length, a.id).toBeGreaterThan(5);
+      const urls = [`/case-studies/${a.id}/`, ...(a.system ? [`/systems/${a.id}/`] : [])];
+      for (const url of urls) {
+        const res = await request.get(url);
+        expect(res.status(), url).toBe(200);
+        const body = await res.text();
+        for (const needle of needles) expect(body.includes(needle), `${url} contains "${needle.slice(0, 50)}"`).toBe(false);
+        // the system itself is not in the island props either
+        if (url.startsWith("/systems/")) {
+          for (const field of ["overview", "keyInsight", "loop", "whatMakesItWork"]) {
+            const text = String(a.system[field] ?? "").slice(0, 40);
+            if (text.length >= 20) expect(body.includes(text.replace(/&/g, "&amp;")), `${url} ${field}`).toBe(false);
+          }
+          expect(body).not.toMatch(/&quot;nodes&quot;|"nodes"/);
+        }
+      }
+    }
+  });
+
+  test("a locked system shows only its name, tagline and the gate", async ({ request }) => {
+    const a = lockedWithSystems[0];
+    const res = await request.get(`/systems/${a.id}/`);
+    expect(res.status()).toBe(200);
+    PRIVATE(res.headers());
+    const html = await res.text();
+    expect(html).toContain(`Explore the ${a.name} system map`);
+    expect(html).toContain("Already subscribed?");
+    // the island is given the name and tagline only, plus the flags
+    const props = html.match(/component-export="SystemDetailPage"[^>]*props="([^"]*)"/)![1];
+    expect(Object.keys(JSON.parse(props.replace(/&quot;/g, "\"")).system[1]).sort()).toEqual(["appName", "domain", "tagline", "typeLabel"]);
+  });
+
+  test("a section page of a locked app redirects to the summary page's gate", async ({ request }) => {
+    const section = (lockedApp.observations ?? [])[0].section;
+    const res = await request.get(`/case-studies/${lockedApp.id}/${section}/`, { maxRedirects: 0 });
+    expect(res.status()).toBe(303);
+    expect(res.headers()["location"]).toBe(`/case-studies/${lockedApp.id}/`);
+    PRIVATE(res.headers());
+  });
+
+  test("a visitor with a session cookie, and no way to check it, gets a 503 and no content (fails closed)", async ({ request }) => {
+    const headers = { cookie: "__Host-sb-auth=garbage-not-a-session" };
+    const res = await request.get(`/case-studies/${lockedApp.id}/`, { headers });
+    expect(res.status()).toBe(503);
+    expect(res.headers()["cache-control"]).toBe("private, no-store");
+    const body = await res.text();
+    expect(body).not.toContain("cs-gate");
+    for (const needle of sampleNeedles(lockedApp, 10)) expect(body.includes(needle)).toBe(false);
+    const section = (lockedApp.observations ?? [])[0].section;
+    const sec = await request.get(`/case-studies/${lockedApp.id}/${section}/`, { headers, maxRedirects: 0 });
+    expect(sec.status()).toBe(503);
+    if (lockedWithSystems[0]) expect((await request.get(`/systems/${lockedWithSystems[0].id}/`, { headers })).status()).toBe(503);
+  });
+
+  test("unknown ids and odd paths are a 404 page, and only GET works", async ({ request }) => {
+    for (const url of ["/case-studies/nonexistent-app/", "/case-studies/nonexistent-app/goals/", "/systems/nonexistent-app/", `/case-studies/${lockedApp.id}/not-a-section/`, "/case-studies/Royal%20Match/", "/case-studies/..%2Fetc/"]) {
+      const res = await request.get(url);
+      expect(res.status(), url).toBe(404);
+      expect(res.headers()["cache-control"], url).toBe("private, no-store");
+    }
+    const post = await request.post(`/case-studies/${lockedApp.id}/`, { data: {}, headers: { origin: SITE_ORIGIN } });
+    expect(post.status()).toBe(405);
+  });
+
+  test("a locked app's image is not at any public path, and /protected/ answers 404 or 503, never the file", async ({ request }) => {
+    const hero = lockedApps.map((a) => a.heroImage).find(Boolean) as string | undefined;
+    if (hero) {
+      expect(hero.startsWith("/protected/")).toBe(true);
+      expect(fs.existsSync(path.join(distDir, "client", hero))).toBe(true);
+      const anon = await request.get(hero);
+      expect(anon.status()).toBe(404);
+      expect(anon.headers()["cache-control"]).toBe("private, no-store");
+      expect((await request.get(hero, { headers: { cookie: "__Host-sb-auth=garbage" } })).status()).toBe(503);
+      // the old public path no longer serves it
+      expect((await request.get(hero.replace("/protected/", "/"))).status()).toBe(404);
+    }
+    for (const bad of ["/protected/", "/protected/images/nothing.webp"]) {
+      const res = await request.get(bad);
+      expect([404, 400], bad).toContain(res.status());
+    }
+  });
+
+  test("a mechanic page shows a locked app's name and headline with a link to its case study, and never What stands out", async () => {
+    const dir = path.join(distDir, "client", "mechanics");
+    let sawLocked = 0;
+    let sawFree = 0;
+    for (const name of fs.readdirSync(dir)) {
+      const file = path.join(dir, name, "index.html");
+      if (!fs.existsSync(file)) continue;
+      const html = fs.readFileSync(file, "utf8");
+      const articles = html.split('<article class="cstudy').slice(1).map((a) => a.split("</article>")[0]);
+      for (const a of articles) {
+        if (a.startsWith(" cstudy--locked")) {
+          sawLocked++;
+          expect(a, name).not.toContain("cstudy__standout");
+          expect(a, name).not.toContain("shotgallery");
+          expect(a, name).toMatch(/href="\/case-studies\/[a-z0-9-]+\/"/);
+          expect(a, name).toContain("cstudy__headline");
+        } else {
+          sawFree++;
+          expect(a, name).toContain("cstudy__standout");
+        }
+      }
+    }
+    expect(sawLocked).toBeGreaterThan(10);
+    expect(sawFree).toBeGreaterThan(0);
+  });
+
+  test("the on-request pages carry the past-due banner only when asked, and a gate never does", async ({ request }) => {
+    const res = await request.get(`/case-studies/${lockedApp.id}/`);
+    expect(await res.text()).not.toContain("Your last payment didn't go through");
   });
 });
 

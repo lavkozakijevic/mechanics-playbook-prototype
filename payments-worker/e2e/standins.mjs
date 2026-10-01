@@ -43,7 +43,7 @@ const APPLY_PARAMS = [
 export function createSupabaseStandin({ port }) {
   const state = {
     otps: [], hashes: new Map(), codes: new Map(), users: new Map(), access: new Map(), refresh: new Map(),
-    log: [], down: false,
+    log: [], down: false, expiresIn: 3600,
   };
 
   const userFor = (email) => {
@@ -56,13 +56,13 @@ export function createSupabaseStandin({ port }) {
   };
   const session = (email) => {
     const u = userFor(email);
-    const exp = Math.floor(Date.now() / 1000) + 3600;
+    const exp = Math.floor(Date.now() / 1000) + state.expiresIn;
     const access_token = `${b64u({ alg: "HS256", typ: "JWT" })}.${b64u({ sub: u.id, email, role: "authenticated", aud: "authenticated", exp })}.${b64u("sig")}.${crypto.randomBytes(4).toString("hex")}`;
     const refresh_token = crypto.randomBytes(8).toString("hex");
     state.access.set(access_token, u);
     state.refresh.set(refresh_token, u);
     return {
-      access_token, token_type: "bearer", expires_in: 3600, expires_at: exp, refresh_token,
+      access_token, token_type: "bearer", expires_in: state.expiresIn, expires_at: exp, refresh_token,
       user: { id: u.id, aud: "authenticated", role: "authenticated", email, email_confirmed_at: new Date().toISOString(), app_metadata: {}, user_metadata: {}, created_at: new Date().toISOString() },
     };
   };
@@ -86,7 +86,7 @@ export function createSupabaseStandin({ port }) {
     const raw = await readBody(req);
     let body = {};
     try { body = raw ? JSON.parse(raw) : {}; } catch { /* not JSON */ }
-    state.log.push({ method: req.method, path: url.pathname, apikey: req.headers.apikey, authorization: req.headers.authorization });
+    state.log.push({ method: req.method, path: url.pathname, query: url.search.replace(/^\?/, ''), apikey: req.headers.apikey, authorization: req.headers.authorization });
     const send = (code, b) => { res.writeHead(code, { "content-type": "application/json" }); res.end(b === undefined ? "" : JSON.stringify(b)); };
     const redirect = (to) => { res.writeHead(303, { location: to }); res.end(); };
 

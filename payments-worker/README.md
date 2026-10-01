@@ -20,7 +20,7 @@ The Paddle webhook. A small Cloudflare Worker, separate from the site Worker, wi
 | `src/log.mjs` | The only way to log: allow-listed keys, plain values only |
 | `scripts/send-test-event.mjs` | Sends one signed test event to a deployed Worker |
 | `e2e/run.mjs` | Local end-to-end run of the webhook (needs a local Postgres) |
-| `e2e/checkout.mjs`, `e2e/standins.mjs` | Local end-to-end run of checkout: both Workers, a real browser, stand-ins for Supabase and Paddle |
+| `e2e/checkout.mjs`, `e2e/gating.mjs`, `e2e/standins.mjs` | Local end-to-end runs of checkout and of gating (both Workers, a real browser, stand-ins for Supabase and Paddle) |
 
 ## Answers to Paddle
 
@@ -47,3 +47,4 @@ Nothing secret is in this repository. `.dev.vars` is git-ignored.
     npm run check     deploy dry run: validates wrangler.jsonc and bundles, deploys nothing
     npm run e2e       webhook end to end under wrangler dev; see the header of e2e/run.mjs for the one-time database setup
     npm run e2e:checkout   checkout end to end (build the site first; same database setup)
+    npm run e2e:gating     gating end to end: both Workers, a real browser, the review window closed then open, and render timings
