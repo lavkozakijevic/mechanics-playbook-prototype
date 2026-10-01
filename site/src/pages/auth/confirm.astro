@@ -1,0 +1,112 @@
+---
+// The sign-in link in the email lands here. GET only shows a Continue button;
+// the token is spent by the POST that button sends. Mail scanners and link
+// previewers fetch links with GET, so they cannot use a token up on the
+// person's behalf.
+import { env } from "cloudflare:workers";
+import AuthLayout from "../../layouts/AuthLayout.astro";
+import { Button } from "../../components/ds/Button.jsx";
+import {
+  AUTH_HEADERS,
+  authResponse,
+  checkRateLimit,
+  isOtpType,
+  isSameOrigin,
+  isTokenHash,
+  safeNext,
+} from "../../lib/auth-config.mjs";
+import { createRequestClient, finalCookies, supabaseConfigured } from "../../lib/auth-server.mjs";
+
+export const prerender = false;
+
+for (const [k, v] of Object.entries(AUTH_HEADERS)) Astro.response.headers.set(k, v);
+
+const request = Astro.request;
+let tokenHash = "";
+let type = "";
+let next = "/";
+let message: string | null = null;
+
+if (request.method === "POST") {
+  if (!isSameOrigin(request)) {
+    return authResponse("Forbidden", {
+      status: 403,
+      json: false,
+      headers: { "Content-Type": "text/plain; charset=utf-8" },
+    });
+  }
+  try {
+    const form = await request.formData();
+    tokenHash = String(form.get("token_hash") ?? "");
+    type = String(form.get("type") ?? "");
+    next = safeNext(String(form.get("next") ?? "/"));
+  } catch {
+    /* falls through to the invalid-link message */
+  }
+
+  if (!isTokenHash(tokenHash) || !isOtpType(type)) {
+    Astro.response.status = 400;
+    message = "This sign-in link isn't valid. Request a new one below.";
+  } else if (!supabaseConfigured(env)) {
+    Astro.response.status = 503;
+    message = "Sign-in isn't available right now. Try again later.";
+  } else {
+    const limited = await checkRateLimit((env as any).CONFIRM_IP_LIMITER, request.headers.get("cf-connecting-ip") ?? "unknown");
+    if (limited === "unavailable") {
+      Astro.response.status = 503;
+      message = "Sign-in isn't available right now. Try again later.";
+    } else if (limited === "limited") {
+      Astro.response.status = 429;
+      message = "Too many attempts. Wait a minute and press Continue again.";
+    } else {
+      const { supabase, state } = createRequestClient(request, env);
+      const { error } = await supabase.auth.verifyOtp({ token_hash: tokenHash, type: type as "email" });
+      if (error) {
+        return authResponse(null, { status: 303, json: false, headers: { Location: "/login/?error=expired" } });
+      }
+      return authResponse(null, {
+        status: 303,
+        json: false,
+        headers: { Location: next, ...state.headers },
+        cookies: finalCookies(state),
+      });
+    }
+  }
+} else {
+  const q = new URL(request.url).searchParams;
+  tokenHash = q.get("token_hash") ?? "";
+  type = q.get("type") ?? "";
+  next = safeNext(q.get("next") ?? "/");
+  if (!isTokenHash(tokenHash) || !isOtpType(type)) {
+    Astro.response.status = 400;
+    message = "This sign-in link isn't valid. Request a new one below.";
+  }
+}
+
+const canContinue = isTokenHash(tokenHash) && isOtpType(type);
+---
+
+<AuthLayout title="Continue to Appservatory">
+  <main class="login" id="main">
+    <div class="login__card">
+      <a class="login__brand" href="/" aria-label="Appservatory home">
+        <img src="/assets/logo/appservatory-logo.png" alt="Appservatory" width="123" height="25" />
+      </a>
+
+      {message && <p class="login__status login__status--error" role="alert">{message}</p>}
+
+      {canContinue ? (
+        <form class="login__form" method="post" action="/auth/confirm">
+          <h1 class="login__heading">Finish signing in</h1>
+          <p class="login__lead">Press Continue to sign in to Appservatory on this device.</p>
+          <input type="hidden" name="token_hash" value={tokenHash} />
+          <input type="hidden" name="type" value={type} />
+          <input type="hidden" name="next" value={next} />
+          <Button variant="primary" size="lg" type="submit" className="login__submit">Continue</Button>
+        </form>
+      ) : (
+        <p class="login__alt"><a href="/login/">Request a new sign-in link</a></p>
+      )}
+    </div>
+  </main>
+</AuthLayout>

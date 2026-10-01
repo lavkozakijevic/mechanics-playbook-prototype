@@ -1,0 +1,12 @@
+<!--
+  Supabase dashboard: Authentication > Email Templates > Confirm signup
+  Subject:  Your Appservatory sign-in link
+  Paste everything below this comment into the Message body box.
+  This is the email a first-time address receives (the login form creates the
+  account), so it reads the same as the Magic Link one.
+-->
+<p>Use this link to sign in to Appservatory. It works once and expires soon.</p>
+<p><a href="{{ .RedirectTo }}?token_hash={{ .TokenHash }}&amp;type=email">Sign in to Appservatory</a></p>
+<p>If the link doesn't open, copy this address into your browser:<br>
+{{ .RedirectTo }}?token_hash={{ .TokenHash }}&amp;type=email</p>
+<p>If you didn't ask for this email, ignore it. Nobody can sign in without the link.</p>

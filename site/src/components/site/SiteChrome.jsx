@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Button } from "../ds/Button.jsx";
 import { Input } from "../ds/Input.jsx";
 import { NEWSLETTER_PITCH, NEWSLETTER_CONSENT } from "../../lib/site-copy";
+import { AccountButtons, useSignedInEmail } from "./AuthControl.jsx";
 
 // Nav, footer, and login all sit on the same light paper background, so one
 // logo file covers every usage; no separate ink/reverse variant needed.
@@ -38,6 +39,7 @@ function Caret() {
  *  below 1024px. Subscribe is the one accent action. */
 export function SiteNav({ current }) {
   const [open, setOpen] = useState(false);
+  const email = useSignedInEmail();
   const nav = NAV;
   const isCurrent = (key) => (current && key && key === current ? "page" : undefined);
   const isCurrentItem = (item) =>
@@ -80,7 +82,7 @@ export function SiteNav({ current }) {
           </nav>
 
           <div className="nav__actions">
-            <Button variant="secondary" size="sm" as="a" href="/login/">Log in</Button>
+            <AccountButtons email={email} />
             <Button variant="accent" size="sm" as="a" href="/subscribe/">Subscribe</Button>
           </div>
 
@@ -116,7 +118,7 @@ export function SiteNav({ current }) {
           </div>
         ))}
         <div className="nav__drawer-actions">
-          <Button variant="secondary" size="sm" as="a" href="/login/" onClick={() => setOpen(false)}>Log in</Button>
+          <AccountButtons email={email} onNavigate={() => setOpen(false)} />
           <Button variant="accent" size="sm" as="a" href="/subscribe/" onClick={() => setOpen(false)}>Subscribe</Button>
         </div>
       </div>

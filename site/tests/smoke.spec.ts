@@ -11,7 +11,10 @@ import { EXAMPLE_EXCLUDED } from "../src/lib/example-excluded.mjs";
  *  2. indexes show correct counts
  *  3. navigation works
  *  4. report-only content appears nowhere in the built output, including
- *     data files (a browserless filesystem scan over dist/)
+ *     data files and the Worker bundle (a browserless filesystem scan over
+ *     dist/, which holds both client/ and server/)
+ *  5. the login routes: headers, origin checks, and a 503 (never a crash) when
+ *     Supabase isn't configured, which is the case in CI
  *
  * Expected counts are computed from the content collection at test time, so
  * the tests stay correct as weekly imports add apps.
@@ -180,6 +183,124 @@ test.describe("navigation works", () => {
     const res = await page.goto("/mechanics/nonsense/");
     expect(res!.status()).toBe(404);
     await expect(page.locator("h1")).toContainText("isn't in the library");
+  });
+});
+
+const SITE_ORIGIN = "http://localhost:4321";
+const SAMPLE_LINK = "/auth/confirm?token_hash=abcdefgh12345678&type=email";
+
+function expectAuthHeaders(res: { headers(): Record<string, string> }) {
+  const h = res.headers();
+  expect(h["cache-control"]).toBe("private, no-store");
+  expect(h["x-robots-tag"]).toBe("noindex");
+}
+
+test.describe("login routes", () => {
+  test("a visitor with no session gets no email back, and nothing cacheable", async ({ request }) => {
+    const res = await request.get("/api/auth/me");
+    expect(res.status()).toBe(200);
+    expect(await res.json()).toEqual({ email: null });
+    expectAuthHeaders(res);
+  });
+
+  test("a login POST from another origin, or with none, is refused", async ({ request }) => {
+    for (const headers of [{ origin: "https://evil.example" }, {}]) {
+      const res = await request.post("/api/auth/login", { data: { email: "ci@example.invalid" }, headers });
+      expect(res.status()).toBe(403);
+      expectAuthHeaders(res);
+    }
+  });
+
+  test("an invalid email is rejected", async ({ request }) => {
+    const res = await request.post("/api/auth/login", { data: { email: "nope" }, headers: { origin: SITE_ORIGIN } });
+    expect(res.status()).toBe(400);
+    expectAuthHeaders(res);
+  });
+
+  // CI has no Supabase variables. Locally, run this without a .dev.vars file
+  // holding real values, or the request goes through.
+  test("with Supabase not configured, login answers 503 instead of crashing", async ({ request }) => {
+    const res = await request.post("/api/auth/login", { data: { email: "ci@example.invalid" }, headers: { origin: SITE_ORIGIN } });
+    expect(res.status()).toBe(503);
+    expect(await res.json()).toEqual({ error: "not_configured" });
+    expectAuthHeaders(res);
+  });
+
+  test("the wrong method gets a 405 with the right Allow header", async ({ request }) => {
+    const res = await request.get("/api/auth/login");
+    expect(res.status()).toBe(405);
+    expect(res.headers()["allow"]).toBe("POST");
+    expectAuthHeaders(res);
+  });
+
+  test("sign-out from another origin is refused", async ({ request }) => {
+    const res = await request.post("/api/auth/logout", { data: {}, headers: { origin: "https://evil.example" } });
+    expect(res.status()).toBe(403);
+    expectAuthHeaders(res);
+  });
+
+  test("the confirmation page asks for a click and spends nothing on load", async ({ page, request }) => {
+    const res = await request.get(SAMPLE_LINK + "&next=//evil.example");
+    expect(res.status()).toBe(200);
+    expectAuthHeaders(res);
+    expect(res.headers()["referrer-policy"]).toBe("strict-origin");
+    expect(res.headers()["set-cookie"]).toBeUndefined();
+
+    await page.goto(SAMPLE_LINK + "&next=//evil.example");
+    await expect(page.getByRole("button", { name: "Continue" })).toBeVisible();
+    // an off-site destination is replaced with the home page
+    await expect(page.locator('input[name="next"]')).toHaveValue("/");
+  });
+
+  // Regression test for a real failure: the page's referrer policy made the
+  // browser send "Origin: null" on the form POST, so the user's own click was
+  // refused with a 403. Only a real browser form submit can catch that. With no
+  // Supabase configured (CI), getting a 503 page proves the Origin check passed.
+  test("pressing Continue in a real browser passes the origin check", async ({ page }) => {
+    await page.goto(SAMPLE_LINK);
+    const [posted] = await Promise.all([
+      page.waitForResponse((r) => r.url().endsWith("/auth/confirm") && r.request().method() === "POST"),
+      page.getByRole("button", { name: "Continue" }).click(),
+    ]);
+    expect(posted.request().headers()["origin"]).toBe(SITE_ORIGIN);
+    expect(posted.status()).toBe(503);
+    await expect(page.getByText("Sign-in isn't available right now")).toBeVisible();
+  });
+
+  test("a malformed confirmation link is refused", async ({ page }) => {
+    const res = await page.goto("/auth/confirm?token_hash=x&type=recovery");
+    expect(res!.status()).toBe(400);
+    await expect(page.getByRole("link", { name: "Request a new sign-in link" })).toBeVisible();
+  });
+
+  test("the confirmation POST from another origin is refused", async ({ request }) => {
+    const res = await request.post("/auth/confirm", {
+      form: { token_hash: "abcdefgh12345678", type: "email" },
+      headers: { origin: "https://evil.example" },
+    });
+    expect(res.status()).toBe(403);
+  });
+
+  test("the login page is email-only", async ({ page }) => {
+    await page.goto("/login/");
+    await expect(page.getByRole("heading", { name: "Log in or create an account" })).toBeVisible();
+    await expect(page.locator('input[type="email"]')).toBeVisible();
+    await expect(page.locator('input[type="password"]')).toHaveCount(0);
+  });
+
+  test("a signed-out visitor sees Log in in the header", async ({ page }) => {
+    await page.goto("/");
+    await page.waitForLoadState("networkidle");
+    await expect(page.locator('header a[href="/login/"]').first()).toBeVisible();
+    await expect(page.locator(".nav__who")).toHaveCount(0);
+  });
+
+  test("lead capture still validates input, and only accepts POST", async ({ request }) => {
+    const bad = await request.post("/api/lead", { data: { email: "nope" } });
+    expect(bad.status()).toBe(422);
+    expect(await bad.json()).toEqual({ error: "invalid_email" });
+    const wrong = await request.get("/api/lead");
+    expect(wrong.status()).toBe(405);
   });
 });
 
