@@ -24,7 +24,6 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 import { V41_SECTIONS } from "../src/lib/v41-sections.mjs";
-import { REVIEW_WINDOW_OPEN } from "../src/lib/review-window.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const content = path.resolve(here, "../src/content");
@@ -197,6 +196,25 @@ for (const { file, data } of apps) {
     }
   }
 
+  // Protected images: an app that is not free (anything but declared public,
+  // which includes the rotating free slot) may only use /protected/ paths for
+  // screenshots and its hero image; a free app must not use /protected/ at all.
+  // /protected/ is served by the site Worker only after an entitlement check.
+  {
+    const free = data.visibility === "public";
+    const shotPaths = [
+      ...(data.observations ?? []).flatMap((o) => (o.screenshots ?? []).map((x) => (typeof x === "string" ? x : x.src))),
+      ...(data.mechanics ?? []).flatMap((m) => (m.screenshots ?? []).map((x) => (typeof x === "string" ? x : x.src))),
+    ];
+    for (const src of [...shotPaths, ...(data.heroImage ? [data.heroImage] : [])]) {
+      const isProtected = src.startsWith("/protected/");
+      if (free && isProtected) problem(file, `${src} is under /protected/ but this app is free`);
+      if (!free && data.visibility !== "report-only" && !isProtected)
+        problem(file, `${src} belongs to a locked app but is a public path — it must be under /protected/`);
+    }
+    if (data.icon && data.icon.startsWith("/protected/")) problem(file, "an app icon must be public, not under /protected/");
+  }
+
   // images
   if (data.icon && !fs.existsSync(path.join(pub, data.icon)))
     problem(file, `icon ${data.icon} does not exist under site/public — it would be a broken image on the live site`);
@@ -309,16 +327,9 @@ if (!fs.existsSync(settingsPath)) {
 // rotating slot, whose system page must be a free sample so the showcase
 // never links into the paywall. Anything else means the rotation broke.
 //
-// Suspended, not removed, during the temporary review window (every app's
-// visibility is overridden to "public" then, which would otherwise fail
-// this on sight). Resumes exactly as written, unweakened, the moment
-// REVIEW_WINDOW_OPEN goes back to false — nothing below this line changes
-// when that happens.
-if (REVIEW_WINDOW_OPEN) {
-  console.warn(
-    "NOTE: the two-public-case-studies rule is suspended (REVIEW_WINDOW_OPEN=true in site/src/lib/review-window.mjs). Re-enable it by flipping that switch back to false.\n"
-  );
-} else {
+// The review window is a runtime switch on the site Worker now, so this rule
+// is never suspended: the declared visibility is always what is stored.
+{
   const publicApps = apps.filter((a) => a.data.visibility === "public").map((a) => a.data.id);
   if (!publicApps.includes("strava"))
     problem("apps", "strava must always be the permanent free case study, but it is not public");

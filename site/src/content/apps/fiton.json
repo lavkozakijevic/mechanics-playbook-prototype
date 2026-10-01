@@ -3,7 +3,7 @@
   "name": "FitOn",
   "category": "Fitness / Workout Video Platform",
   "type": "app",
-  "visibility": "public",
+  "visibility": "subscriber",
   "analysisDate": "2026-09-15",
   "lastUpdated": "2026-09-15",
   "asObserved": "2026-02",

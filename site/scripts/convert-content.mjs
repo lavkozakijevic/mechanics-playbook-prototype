@@ -16,19 +16,16 @@ import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 import { V41_SECTIONS } from "../src/lib/v41-sections.mjs";
-import { REVIEW_WINDOW_OPEN } from "../src/lib/review-window.mjs";
 import { CANONICAL_MECHANIC_IDS, resolveMechanicId } from "../src/lib/canonical-mechanic-ids.mjs";
 import { HELD_BACK_MECHANIC_IDS } from "../src/lib/held-back-mechanic-ids.mjs";
 import { extractObjectLiteral, assertNoDuplicateKeys } from "../src/lib/system-html-keys.mjs";
 
-// Temporary public review window (see review-window.mjs, the single
-// switch). Report-only stays excluded regardless — that is a content-safety
-// gate on unfinished analyses, not a paywall, and this window is about the
-// paywall only.
-function effectiveVisibility(computed) {
-  if (REVIEW_WINDOW_OPEN && computed !== "report-only") return "public";
-  return computed;
-}
+// Visibility is always the DECLARED value (public / subscriber / report-only).
+// The temporary review window used to overwrite it here, at build time, which
+// made every protected page a public static file. It is now a runtime switch
+// on the site Worker (REVIEW_WINDOW, see src/lib/access.mjs); nothing about it
+// is known to the build, and nothing protected is ever written to a static
+// file, open window or not.
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repo = path.resolve(here, "../..");
@@ -1047,8 +1044,7 @@ let mechanicCount = 0;
 // preparing the library to go live as the site's search layer): the
 // distinction that used to single out "streak" no longer applies once every
 // entry is public on its own. This is the declared value, independent of
-// REVIEW_WINDOW_OPEN — when the window closes and the site re-locks, these
-// stay public rather than reverting. The two-public-case-studies rule in
+// the review window — these are public whether it is open or closed. The two-public-case-studies rule in
 // validate-content.mjs only ever counted the apps collection, never
 // mechanics, so it's unaffected.
 //
@@ -1072,7 +1068,7 @@ for (const m of MECHANICS) {
   const { apps, libraryEntries, ...rest } = m;
   write("mechanics", m.id, {
     ...rest,
-    visibility: effectiveVisibility("public"),
+    visibility: "public",
   });
   mechanicCount++;
 }
@@ -1405,6 +1401,24 @@ const ALL_APPS = [
 // synced into site/public after the loop so the deployed site can serve them.
 const publicAssets = new Set();
 
+// Screenshots and hero images that belong to an app that is not free are
+// PROTECTED: they are written under public/protected/ (never public/screenshots
+// or public/images) and the content refers to them as /protected/<path>. The
+// site Worker runs first for /protected/* and serves a file only after the
+// entitlement check (src/worker.ts), so the URL is not fetchable by the public.
+// App icons stay public by design. "Free" is the declared state: strava
+// (public) and the rotating free slot.
+const protectedAssets = new Set();
+const isFreeEntry = (entry) => entry.visibility === "public" || entry.id === ROTATING_FREE_APP;
+function shotSrc(entry, rel) {
+  if (isFreeEntry(entry)) {
+    publicAssets.add(rel);
+    return "/" + rel;
+  }
+  protectedAssets.add(rel);
+  return "/protected/" + rel;
+}
+
 const knownMechanicIds = new Set(MECHANICS.map((m) => m.id));
 
 // system map: nodes from POSITIONS (skip "center"), connections from
@@ -1445,13 +1459,19 @@ function resolveIcons(appId) {
   );
 }
 
-function resolveHeroImage(appId) {
+// A free app's hero image is a public file in public/images/. Any other app's
+// is PROTECTED: it lives in public/protected/images/ (committed there, not
+// synced) and is named /protected/images/<file>, served only after the
+// entitlement check (see protectedAssets above).
+function resolveHeroImage(entry) {
+  const appId = entry.id;
   const candidates = [
     appId + "-case-study.png", appId + "-case-study.webp", appId + "-case-study.jpg",
     appId + "-pass-lives.webp", appId + "-pass-lives.png",
   ];
-  const found = candidates.find((f) => fs.existsSync(path.join(here, "../public/images", f)));
-  return found ? "/images/" + found : null;
+  const dir = isFreeEntry(entry) ? "images" : "protected/images";
+  const found = candidates.find((f) => fs.existsSync(path.join(here, "../public", dir, f)));
+  return found ? "/" + dir + "/" + found : null;
 }
 
 // Catalog metadata (name/category/type) for v4.1 apps with no v44 entry.
@@ -1760,12 +1780,15 @@ for (const entry of ALL_APPS) {
       const rawShots = (SCREENSHOTS[entry.id + "_" + obs.id] ?? [])
         .map((p) => (typeof p === "string" ? { src: p, caption: null } : { src: p.src, caption: p.caption ?? null }));
       const registered = rawShots.filter((p) => fs.existsSync(path.join(repo, p.src)));
-      obs.screenshots = registered.map((p) => ({ src: "/" + p.src, caption: p.caption }));
+      // Report-only apps ship no assets at all (below); the rest are routed
+      // through shotSrc: public for a free app, protected otherwise.
+      obs.screenshots = entry.visibility === "report-only"
+        ? registered.map((p) => ({ src: "/" + p.src, caption: p.caption }))
+        : registered.map((p) => ({ src: shotSrc(entry, p.src), caption: p.caption }));
     }
-    // Collect assets to sync into public/ — but never for report-only apps.
+    // Icons are public by design — never for report-only apps.
     if (entry.visibility !== "report-only") {
       for (const icon of icons) publicAssets.add(icon);
-      for (const obs of content.observations) for (const s of obs.screenshots) publicAssets.add(s.src.slice(1));
     }
     // A found icon file is only ever withheld from the publicAssets sync
     // above; the field below used to be set from `icons` unconditionally,
@@ -1785,7 +1808,7 @@ for (const entry of ALL_APPS) {
       type: meta.type,
       // The rotating free slot overrides the declared visibility (standing
       // rule: two open case studies — strava plus the newest addition).
-      visibility: effectiveVisibility(entry.id === ROTATING_FREE_APP ? "public" : entry.visibility),
+      visibility: entry.id === ROTATING_FREE_APP ? "public" : entry.visibility,
       analysisDate: a.analysisDate,
       lastUpdated: a.lastUpdated,
       asObserved: a.asObserved,
@@ -1793,7 +1816,7 @@ for (const entry of ALL_APPS) {
       summary: content.description,
       teaser: content.teaser,
       icon: iconPath,
-      heroImage: resolveHeroImage(entry.id),
+      heroImage: entry.visibility === "report-only" ? null : resolveHeroImage(entry),
       contentFormat: "v4.1",
       observations: content.observations,
       systemView: content.systemView,
@@ -1849,7 +1872,9 @@ for (const entry of ALL_APPS) {
         ...(r.provisionalDepth ? { provisionalDepth: true } : {}),
         ...(r.note ? { note: r.note } : {}),
         writeup,
-        screenshots: registered.map((p) => ({ src: "/" + p.src, caption: p.caption })),
+        screenshots: entry.visibility === "report-only"
+          ? registered.map((p) => ({ src: "/" + p.src, caption: p.caption }))
+          : registered.map((p) => ({ src: shotSrc(entry, p.src), caption: p.caption })),
         suggestedShots: (a.shots[r.originalId ?? r.id] ?? []).slice(0, 3),
       };
     });
@@ -1860,7 +1885,6 @@ for (const entry of ALL_APPS) {
   // nothing of theirs may reach the deployed output, including images.
   if (entry.visibility !== "report-only") {
     for (const icon of icons) publicAssets.add(icon);
-    for (const r of relationships) for (const s of r.screenshots) publicAssets.add(s.src.slice(1));
   }
   // Same gap as the v4.1 branch above (see its comment): the sync guard
   // above only ever withheld a found icon from being copied, not from being
@@ -1878,13 +1902,13 @@ for (const entry of ALL_APPS) {
     type: v44?.type ?? (a.meta["Type"] ?? "app").toLowerCase(),
     // The rotating free slot overrides the declared visibility (standing
     // rule: two open case studies — strava plus the newest addition).
-    visibility: effectiveVisibility(entry.id === ROTATING_FREE_APP ? "public" : entry.visibility),
+    visibility: entry.id === ROTATING_FREE_APP ? "public" : entry.visibility,
     analysisDate: isoDate(a.meta["Analysis date"]),
     lastUpdated: isoDate(a.meta["Last updated"]) ?? isoDate(a.meta["Analysis date"]),
     summary: v44?.summary ?? a.overview,
     teaser: v44?.teaser ?? null,
     icon: iconPath,
-    heroImage: resolveHeroImage(entry.id),
+    heroImage: entry.visibility === "report-only" ? null : resolveHeroImage(entry),
     mechanics: relationships,
     system: buildSystemMap(entry.id),
   });
@@ -1984,7 +2008,7 @@ if (fs.existsSync(categoriesDir)) {
 // wiped and re-populated from the references collected above, so report-only
 // assets can never linger and removed references never leave stale files.
 const pub = path.resolve(here, "../public");
-for (const dir of ["icons", "screenshots"]) {
+for (const dir of ["icons", "screenshots", "protected/screenshots"]) {
   fs.rmSync(path.join(pub, dir), { recursive: true, force: true });
 }
 let assetCount = 0;
@@ -1999,7 +2023,18 @@ for (const rel of publicAssets) {
   fs.copyFileSync(src, dest);
   assetCount++;
 }
-console.log(`synced ${assetCount} assets into site/public`);
+for (const rel of protectedAssets) {
+  const src = path.join(repo, rel);
+  const dest = path.join(pub, "protected", rel);
+  if (!fs.existsSync(src)) {
+    console.warn(`warning: referenced asset missing from repo: ${rel}`);
+    continue;
+  }
+  fs.mkdirSync(path.dirname(dest), { recursive: true });
+  fs.copyFileSync(src, dest);
+  assetCount++;
+}
+console.log(`synced ${assetCount} assets into site/public (${protectedAssets.size} of them protected, under /protected/)`);
 
 // -------------------------------------------------------------- settings
 fs.mkdirSync(path.join(out, "settings"), { recursive: true });

@@ -3,7 +3,7 @@
   "name": "Tripsy",
   "category": "Travel / Trip Planning",
   "type": "app",
-  "visibility": "public",
+  "visibility": "subscriber",
   "analysisDate": "2026-09-16",
   "lastUpdated": "2026-09-16",
   "asObserved": "2026-09",

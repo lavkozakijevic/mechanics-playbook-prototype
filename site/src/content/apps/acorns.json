@@ -3,7 +3,7 @@
   "name": "Acorns",
   "category": "Finance / Automated Investing",
   "type": "app",
-  "visibility": "public",
+  "visibility": "subscriber",
   "analysisDate": "2026-09-14",
   "lastUpdated": "2026-09-15",
   "asObserved": "2026-06",

@@ -1,8 +1,33 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
+import fs from "node:fs";
+import path from "node:path";
 import { V41_SECTIONS } from "./lib/v41-sections.mjs";
 
 const visibility = z.enum(["public", "subscriber", "report-only"]);
+
+// Report-only content (unfinished analyses) must never be in any deployed
+// output. The content store is bundled into the site Worker for the pages that
+// render on request, so a report-only file left in a collection would end up in
+// the Worker bundle even though no page shows it. Files whose visibility is
+// "report-only" are therefore left out of the collections altogether; nothing
+// reads them through astro:content (the helpers in lib/content.ts filter them
+// anyway, and the scripts read the files directly).
+function publishable(dir: string) {
+  const base = `./src/content/${dir}`;
+  const root = path.resolve(base);
+  const skip = fs.existsSync(root)
+    ? fs.readdirSync(root).filter((f) => {
+        if (!f.endsWith(".json")) return false;
+        try {
+          return JSON.parse(fs.readFileSync(path.join(root, f), "utf8")).visibility === "report-only";
+        } catch {
+          return false;
+        }
+      })
+    : [];
+  return glob({ pattern: ["*.json", ...skip.map((f) => `!${f}`)], base });
+}
 
 const writeup = z
   .object({
@@ -29,13 +54,12 @@ const observationTag = z.object({
   // Energy, Leaderboard; consolidating them must not hide how confident the
   // weakest one actually was).
   confidences: z.array(z.string()),
-  // Carried for future review even though nothing renders it yet (spec
-  // review, 9 Sep 2026): re-deriving this from 40 analysis files later would
-  // mean re-parsing all of them, so it comes along now. When a tag has more
-  // than one contributing block, each block's own paragraph is joined here
-  // rather than one being discarded.
-  rationale: z.string(),
-  alternativeConsidered: z.string(),
+  // `rationale` and `alternativeConsidered` (the analysis's own reasoning) are
+  // kept in the content files for future review but are deliberately NOT in this
+  // schema: nothing renders them, and the content store is bundled into the site
+  // Worker, so a field in the schema is a field deployed. Analysis-process text
+  // must not be deployed at all (and it names other apps, report-only ones among
+  // them). Zod drops what the schema does not list.
   // What this mechanic does in this app: engagement, retention, monetization
   // or social (spec review, 11 Sep 2026). Data, not copy — no template
   // renders it. Optional since older analyses (e.g. Dave) predate the field.
@@ -141,25 +165,8 @@ const mechanicWriteup = z.object({
   screenshotsNote: z.string(),
 });
 
-// Recorded per app, not rendered (spec §1.6) — input to library decisions,
-// not published content.
-const proposedTag = z.object({
-  name: z.string(),
-  sourceObservations: z.array(z.string()),
-  draftDefinition: z.string(),
-  conditions: z.string(),
-  whyNotCovered: z.string(),
-  recurrenceElsewhere: z.string(),
-  caveat: z.string(),
-  // Present once a proposal has been ruled on (approved or rejected);
-  // absent while it's still open. Previously read as part of `caveat`
-  // itself when present, a parsing defect fixed alongside the Rationale
-  // and Confidence field-boundary fixes above.
-  status: z.string().optional(),
-});
-
 const apps = defineCollection({
-  loader: glob({ pattern: "*.json", base: "./src/content/apps" }),
+  loader: publishable("apps"),
   schema: z.object({
     id: z.string(),
     name: z.string(),
@@ -203,7 +210,8 @@ const apps = defineCollection({
     // sourced from system.html (spec §1.5).
     systemView: z.array(z.string()).optional(),
     mechanicWriteups: z.array(mechanicWriteup).optional(),
-    proposedTags: z.array(proposedTag).optional(),
+    // proposedTags: carried in the content files, deliberately not in the schema
+    // (see observationTag above: nothing renders it, and it would be deployed).
     // Per-section authored copy (spec §2.1/§2.2), keyed by section slug.
     // sectionLeadIns may be incomplete while it's being written section by
     // section — validate-content.mjs warns rather than fails on a gap until
@@ -240,7 +248,7 @@ const apps = defineCollection({
 });
 
 const mechanics = defineCollection({
-  loader: glob({ pattern: "*.json", base: "./src/content/mechanics" }),
+  loader: publishable("mechanics"),
   schema: z.object({
     id: z.string(),
     n: z.string(),
@@ -274,7 +282,7 @@ const settings = defineCollection({
 });
 
 const cheatsheets = defineCollection({
-  loader: glob({ pattern: "*.json", base: "./src/content/cheatsheets" }),
+  loader: publishable("cheatsheets"),
   schema: z.object({
     id: z.string(),
     n: z.number(),
@@ -295,7 +303,7 @@ const cheatsheets = defineCollection({
 });
 
 const glossary = defineCollection({
-  loader: glob({ pattern: "*.json", base: "./src/content/glossary" }),
+  loader: publishable("glossary"),
   schema: z.object({
     id: z.string(),
     term: z.string(),
@@ -309,7 +317,7 @@ const glossary = defineCollection({
 // directly as JSON (not generated from data.js). The mp3 lives under
 // public/audio/ and is referenced by `audioSrc` (e.g. "/audio/strava.mp3").
 const shortcasts = defineCollection({
-  loader: glob({ pattern: "*.json", base: "./src/content/shortcasts" }),
+  loader: publishable("shortcasts"),
   schema: z.object({
     id: z.string(),
     title: z.string(),
