@@ -24,10 +24,10 @@ const appsById = new Map(apps.map((a) => [a.data.id, a.data]));
 // mechanic name and a title built from them reach the card, never write-up text, so
 // nothing protected is exposed. Fewer than MIN_CAROUSEL_CARDS qualifying pairings
 // and the hero shows its static image instead (HomeTop).
-// Fortune City is left out for now, until a pairing is chosen for it.
 const CAROUSEL_PAIRINGS = [
   { appId: "strava",                  mechId: "leaderboard"    },
   { appId: "fifa-panini-collection",  mechId: "set-collection" },
+  { appId: "fortune-city",            mechId: "personal-data-reflection" },
   { appId: "insight-timer",           mechId: "streak"         },
   { appId: "canva",                   mechId: "achievement"    },
 ];
