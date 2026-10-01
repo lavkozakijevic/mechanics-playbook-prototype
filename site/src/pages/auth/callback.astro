@@ -1,0 +1,93 @@
+---
+// Where Supabase's own email link lands once Supabase has checked it
+// (Supabase's default templates; see EMAIL_LINK_TARGET in auth-config.mjs).
+// The link is /auth/v1/verify on Supabase, which redirects here with ?code=.
+// The code only works together with the PKCE code-verifier cookie that
+// /api/auth/login set in this browser, so a link opened on another device, or
+// replayed, fails and goes back to the login page.
+//
+// Cookies are written through authResponse() like every other auth route, so
+// the session cookie gets exactly the same flags as at /auth/confirm.
+import { env } from "cloudflare:workers";
+import AuthLayout from "../../layouts/AuthLayout.astro";
+import {
+  AUTH_HEADERS,
+  CODE_VERIFIER_COOKIE,
+  authResponse,
+  checkRateLimit,
+  clearingCookies,
+  isAuthCode,
+  safeNext,
+} from "../../lib/auth-config.mjs";
+import { createRequestClient, finalCookies, supabaseConfigured } from "../../lib/auth-server.mjs";
+
+export const prerender = false;
+
+for (const [k, v] of Object.entries(AUTH_HEADERS)) Astro.response.headers.set(k, v);
+
+const request = Astro.request;
+const expired = (cookies: { name: string; value: string; options: object }[] = []) =>
+  authResponse(null, { status: 303, json: false, headers: { Location: "/login/?error=expired" }, cookies });
+
+let message: string | null = null;
+
+if (request.method !== "GET") {
+  return authResponse("Method not allowed", {
+    status: 405,
+    json: false,
+    headers: { Allow: "GET", "Content-Type": "text/plain; charset=utf-8" },
+  });
+}
+
+const q = new URL(request.url).searchParams;
+const code = q.get("code") ?? "";
+
+// Supabase reports a spent, expired or refused link as error, error_code and
+// error_description parameters. None of it is echoed back or logged.
+if (q.has("error") || q.has("error_code") || q.has("error_description") || !isAuthCode(code)) {
+  return expired();
+}
+
+if (!supabaseConfigured(env)) {
+  Astro.response.status = 503;
+  message = "Sign-in isn't available right now. Try again later.";
+} else {
+  const limited = await checkRateLimit((env as any).CONFIRM_IP_LIMITER, request.headers.get("cf-connecting-ip") ?? "unknown");
+  if (limited === "unavailable") {
+    Astro.response.status = 503;
+    message = "Sign-in isn't available right now. Try again later.";
+  } else if (limited === "limited") {
+    Astro.response.status = 429;
+    message = "Too many attempts. Wait a minute and open the link from your email again.";
+  } else {
+    const { supabase, state } = createRequestClient(request, env);
+    const { error } = await supabase.auth.exchangeCodeForSession(code);
+    if (error) {
+      // Status and code only. A stale code-verifier cookie is cleared so the
+      // next attempt starts clean.
+      console.error("auth: callback code exchange failed", error.status ?? "", error.code ?? "");
+      return expired(clearingCookies(request).filter((c) => c.name === CODE_VERIFIER_COOKIE));
+    }
+    return authResponse(null, {
+      status: 303,
+      json: false,
+      headers: { Location: safeNext(q.get("next")), ...state.headers },
+      cookies: finalCookies(state),
+    });
+  }
+}
+---
+
+<AuthLayout title="Sign in to Appservatory">
+  <main class="login" id="main">
+    <div class="login__card">
+      <a class="login__brand" href="/" aria-label="Appservatory home">
+        <img src="/assets/logo/appservatory-logo.png" alt="Appservatory" width="123" height="25" />
+      </a>
+
+      {message && <p class="login__status login__status--error" role="alert">{message}</p>}
+
+      <p class="login__alt"><a href="/login/">Back to the login page</a></p>
+    </div>
+  </main>
+</AuthLayout>

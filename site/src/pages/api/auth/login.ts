@@ -4,6 +4,7 @@
 import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import {
+  EMAIL_LINK_TARGET,
   authResponse,
   checkRateLimit,
   isSameOrigin,
@@ -54,7 +55,8 @@ export const POST: APIRoute = async ({ request }) => {
     options: {
       shouldCreateUser: true,
       // Back to this same origin, so a preview deployment signs in on itself.
-      emailRedirectTo: new URL("/auth/confirm", request.url).href,
+      // Which page that is (callback or confirm) is decided in auth-config.mjs.
+      emailRedirectTo: new URL(EMAIL_LINK_TARGET, request.url).href,
     },
   });
 

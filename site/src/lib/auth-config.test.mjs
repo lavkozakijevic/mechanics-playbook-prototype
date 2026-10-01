@@ -2,13 +2,16 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   AUTH_HEADERS,
+  CODE_VERIFIER_COOKIE,
   COOKIE_NAME,
+  EMAIL_LINK_TARGET,
   SESSION_MAX_AGE_SECONDS,
   authResponse,
   checkRateLimit,
   clearingCookies,
   hardenCookie,
   hasAuthCookie,
+  isAuthCode,
   isAuthCookieName,
   isOtpType,
   isSameOrigin,
@@ -174,6 +177,33 @@ test("token hash and otp type allow-lists", () => {
   assert.equal(isOtpType("magiclink"), true);
   assert.equal(isOtpType("signup"), true);
   for (const bad of ["recovery", "invite", "", "EMAIL", null]) assert.equal(isOtpType(bad), false);
+});
+
+// ------------------------------------------------------------- email link target
+
+test("the emailed link targets one of the two known pages", () => {
+  // Switching is a one-line change; anything else would send a sign-in link
+  // somewhere that does not exist.
+  assert.ok(["/auth/callback", "/auth/confirm"].includes(EMAIL_LINK_TARGET), EMAIL_LINK_TARGET);
+  // Default Supabase templates are in use until the Brevo templates arrive.
+  assert.equal(EMAIL_LINK_TARGET, "/auth/callback");
+});
+
+test("auth code allow-list", () => {
+  assert.equal(isAuthCode("0b9f3c52-6a3e-4c8c-9d59-2d8f6f1d7a10"), true);
+  for (const bad of ["", "short", "has space in it", "a".repeat(301), "ok<script>", "a/b/c/d/e/f", "x\r\ny12345678", null, undefined, 5]) {
+    assert.equal(isAuthCode(bad), false, `should reject ${JSON.stringify(bad)}`);
+  }
+});
+
+test("the PKCE code-verifier cookie is an auth cookie, hardened like the session", () => {
+  assert.equal(CODE_VERIFIER_COOKIE, "__Host-sb-auth-code-verifier");
+  assert.equal(isAuthCookieName(CODE_VERIFIER_COOKIE), true);
+  // what @supabase/ssr asks for by default: readable by script, 400 days, no flags worth the name
+  const line = serializeSetCookie(CODE_VERIFIER_COOKIE, "verifier", { httpOnly: false, sameSite: "strict", maxAge: 400 * 86400, domain: "example.com" });
+  assert.equal(line, `${CODE_VERIFIER_COOKIE}=verifier; Path=/; Max-Age=${SESSION_MAX_AGE_SECONDS}; HttpOnly; Secure; SameSite=Lax`);
+  const res = authResponse(null, { status: 303, json: false, cookies: [{ name: CODE_VERIFIER_COOKIE, value: "v", options: {} }] });
+  assert.match(res.headers.getSetCookie()[0], /; HttpOnly; Secure; SameSite=Lax$/);
 });
 
 // ---------------------------------------------------------------- rate limiter

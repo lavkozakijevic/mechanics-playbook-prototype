@@ -281,6 +281,75 @@ test.describe("login routes", () => {
     expect(res.status()).toBe(403);
   });
 
+  // /auth/callback: where Supabase's default email link lands. CI has no
+  // Supabase variables, so everything that needs the Auth server answers 503
+  // there; the redirects below are decided before Supabase is asked anything.
+  const CODE = "0b9f3c52-6a3e-4c8c-9d59-2d8f6f1d7a10";
+
+  test("a callback with a missing or malformed code goes back to the login page", async ({ request }) => {
+    for (const q of ["", "?code=", "?code=short", "?code=has%20spaces%20in%20it", "?code=" + "a".repeat(400)]) {
+      const res = await request.get("/auth/callback" + q, { maxRedirects: 0 });
+      expect(res.status(), q).toBe(303);
+      expect(res.headers()["location"], q).toBe("/login/?error=expired");
+      expect(res.headers()["set-cookie"], q).toBeUndefined();
+      expectAuthHeaders(res);
+    }
+  });
+
+  test("a callback carrying an error from Supabase goes back to the login page", async ({ request }) => {
+    const res = await request.get(
+      `/auth/callback?error=access_denied&error_code=otp_expired&error_description=Email+link+is+invalid+or+has+expired&code=${CODE}`,
+      { maxRedirects: 0 }
+    );
+    expect(res.status()).toBe(303);
+    expect(res.headers()["location"]).toBe("/login/?error=expired");
+    expect(res.headers()["set-cookie"]).toBeUndefined();
+    expectAuthHeaders(res);
+  });
+
+  test("a callback never redirects to an off-site next", async ({ request }) => {
+    for (const next of ["//evil.example", "https://evil.example/", "/\\evil.example", "javascript:alert(1)"]) {
+      const res = await request.get(`/auth/callback?code=${CODE}&next=${encodeURIComponent(next)}`, { maxRedirects: 0 });
+      // Not configured here, so the page is a 503, never a redirect. With the
+      // Auth server present the redirect target is "/" (checked locally in
+      // auth-config.test.mjs: safeNext).
+      expect(res.status(), next).toBe(503);
+      expect(res.headers()["location"], next).toBeUndefined();
+      expect(res.headers()["set-cookie"], next).toBeUndefined();
+      expectAuthHeaders(res);
+    }
+  });
+
+  test("the callback only answers GET", async ({ request }) => {
+    for (const method of ["POST", "PUT", "DELETE"] as const) {
+      const res = await request.fetch(`/auth/callback?code=${CODE}`, { method, headers: { origin: SITE_ORIGIN } });
+      expect(res.status(), method).toBe(405);
+      expect(res.headers()["allow"]).toBe("GET");
+      expectAuthHeaders(res);
+    }
+  });
+
+  // A real browser navigation, which is what an email link is. Cloudflare
+  // answers a navigation to a path with no static file with the 404 page
+  // unless the path is in assets.run_worker_first (wrangler.jsonc); a plain
+  // request.get does not show that.
+  test("a browser following a failed email link lands on the login page with the friendly message", async ({ page }) => {
+    await page.goto("/auth/callback?error=access_denied&error_code=otp_expired");
+    await expect(page).toHaveURL(/\/login\/\?error=expired$/);
+    await expect(page.getByText("expired or was already used")).toBeVisible();
+  });
+
+  test("the callback is not in the sitemap and has no static page", () => {
+    expect(fs.existsSync(path.join(distDir, "client", "auth"))).toBe(false);
+    const sitemaps = fs.readdirSync(path.join(distDir, "client")).filter((f) => /^sitemap.*\.xml$/.test(f));
+    expect(sitemaps.length).toBeGreaterThan(0);
+    for (const f of sitemaps) {
+      expect(fs.readFileSync(path.join(distDir, "client", f), "utf8")).not.toContain("/auth/");
+    }
+    const config = JSON.parse(fs.readFileSync(path.join(distDir, "server", "wrangler.json"), "utf8"));
+    expect(config.assets.run_worker_first).toContain("/auth/*");
+  });
+
   test("the login page is email-only", async ({ page }) => {
     await page.goto("/login/");
     await expect(page.getByRole("heading", { name: "Log in or create an account" })).toBeVisible();

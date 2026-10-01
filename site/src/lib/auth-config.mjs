@@ -31,6 +31,20 @@ export const AUTH_HEADERS = Object.freeze({
 
 export const OTP_TYPES = Object.freeze(["email", "magiclink", "signup"]);
 
+/**
+ * Where the emailed sign-in link sends the browser (login.ts passes it to
+ * Supabase as emailRedirectTo).
+ *
+ * "/auth/callback" while Supabase's default email templates are in use: their
+ * link ({{ .ConfirmationURL }}) goes to Supabase's own verify endpoint, which
+ * redirects here with a one-time ?code= that callback.astro exchanges for a
+ * session. /auth/confirm becomes the target again once the Brevo custom
+ * templates (supabase/email-templates/) are in; its scanner-safe Continue
+ * button is kept in the repo for exactly that. Change this one line to switch,
+ * and add the matching address to Supabase's Redirect URLs.
+ */
+export const EMAIL_LINK_TARGET = "/auth/callback";
+
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 const TOKEN_HASH_RE = /^[A-Za-z0-9._~-]{8,300}$/;
 // eslint-disable-next-line no-control-regex
@@ -47,6 +61,17 @@ export function normalizeEmail(raw) {
 export function isTokenHash(raw) {
   return typeof raw === "string" && TOKEN_HASH_RE.test(raw);
 }
+
+// What Supabase puts in ?code= (a UUID today). Only the characters that can
+// appear in one are accepted, and the length is bounded, before it is used.
+const AUTH_CODE_RE = /^[A-Za-z0-9._~-]{8,300}$/;
+
+export function isAuthCode(raw) {
+  return typeof raw === "string" && AUTH_CODE_RE.test(raw);
+}
+
+/** Name of the PKCE code-verifier cookie @supabase/ssr keeps beside the session. */
+export const CODE_VERIFIER_COOKIE = COOKIE_NAME + "-code-verifier";
 
 export function isOtpType(raw) {
   return OTP_TYPES.includes(raw);
