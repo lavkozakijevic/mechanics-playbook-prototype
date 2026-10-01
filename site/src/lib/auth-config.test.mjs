@@ -5,6 +5,8 @@ import {
   CODE_VERIFIER_COOKIE,
   COOKIE_NAME,
   EMAIL_LINK_TARGET,
+  NEXT_COOKIE,
+  NEXT_MAX_AGE_SECONDS,
   SESSION_MAX_AGE_SECONDS,
   authResponse,
   checkRateLimit,
@@ -18,6 +20,7 @@ import {
   isTokenHash,
   normalizeEmail,
   parseCookieHeader,
+  resolveNext,
   safeNext,
   serializeSetCookie,
   sha256Hex,
@@ -204,6 +207,40 @@ test("the PKCE code-verifier cookie is an auth cookie, hardened like the session
   assert.equal(line, `${CODE_VERIFIER_COOKIE}=verifier; Path=/; Max-Age=${SESSION_MAX_AGE_SECONDS}; HttpOnly; Secure; SameSite=Lax`);
   const res = authResponse(null, { status: 303, json: false, cookies: [{ name: CODE_VERIFIER_COOKIE, value: "v", options: {} }] });
   assert.match(res.headers.getSetCookie()[0], /; HttpOnly; Secure; SameSite=Lax$/);
+});
+
+// ------------------------------------------------- the stored sign-in destination
+
+test("the destination cookie is an auth cookie: hardened like the session, but short-lived", () => {
+  assert.equal(NEXT_COOKIE, "__Host-sb-auth-next");
+  assert.equal(isAuthCookieName(NEXT_COOKIE), true);
+  const line = serializeSetCookie(NEXT_COOKIE, "/checkout/", { httpOnly: false, sameSite: "none", domain: "x.test", maxAge: 400 * 86400 });
+  assert.equal(line, `${NEXT_COOKIE}=${encodeURIComponent("/checkout/")}; Path=/; Max-Age=${NEXT_MAX_AGE_SECONDS}; HttpOnly; Secure; SameSite=Lax`);
+  assert.equal(NEXT_MAX_AGE_SECONDS, 600);
+  // the session cookie keeps its own lifetime
+  assert.match(serializeSetCookie(COOKIE_NAME, "x", {}), new RegExp(`Max-Age=${SESSION_MAX_AGE_SECONDS};`));
+  assert.match(serializeSetCookie(NEXT_COOKIE, "", { maxAge: 0 }), /Max-Age=0.*HttpOnly; Secure; SameSite=Lax$/);
+});
+
+test("sign-out and clearing treat the destination cookie like any other auth cookie", () => {
+  const r = req("https://x.test/", { cookie: `${NEXT_COOKIE}=%2Fcheckout%2F; theme=dark` });
+  assert.equal(hasAuthCookie(r), true);
+  assert.deepEqual(clearingCookies(r).map((c) => c.name), [NEXT_COOKIE]);
+});
+
+test("resolveNext: an explicit same-site destination wins, then the stored one, then /; the stored one is used once", () => {
+  const withCookie = (v) => req("https://x.test/", { cookie: `${NEXT_COOKIE}=${encodeURIComponent(v)}` });
+  const bare = req("https://x.test/");
+  assert.deepEqual(resolveNext("/case-studies/", withCookie("/checkout/")), { location: "/case-studies/", clear: [{ name: NEXT_COOKIE, value: "", options: { maxAge: 0 } }] });
+  assert.equal(resolveNext(null, withCookie("/checkout/?plan=yearly")).location, "/checkout/?plan=yearly");
+  assert.equal(resolveNext("/", withCookie("/checkout/")).location, "/checkout/");
+  assert.deepEqual(resolveNext(null, bare), { location: "/", clear: [] });
+  // anything off-site, wherever it came from, becomes /
+  for (const evil of ["//evil.example", "https://evil.example/", "javascript:alert(1)", "/\\evil.example"]) {
+    assert.equal(resolveNext(evil, bare).location, "/", evil);
+    assert.equal(resolveNext(null, withCookie(evil)).location, "/", evil);
+    assert.equal(resolveNext(evil, withCookie("/checkout/")).location, "/checkout/", evil);
+  }
 });
 
 // ---------------------------------------------------------------- rate limiter

@@ -13,6 +13,14 @@
 export const COOKIE_NAME = "__Host-sb-auth";
 export const SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 30;
 
+// Where to send the visitor after signing in (for example back to checkout).
+// A short-lived cookie, not a query on the email link: Supabase matches the
+// link's address against its allow-list, so it cannot carry a destination. Its
+// name starts with the session cookie's, so it is hardened, listed and cleared
+// by the same code (including at sign-out).
+export const NEXT_COOKIE = COOKIE_NAME + "-next";
+export const NEXT_MAX_AGE_SECONDS = 60 * 10;
+
 /**
  * On every auth response (JSON or HTML), whatever the status.
  *
@@ -128,25 +136,30 @@ export function hasAuthCookie(request) {
  * asks for (httpOnly: false, a Domain, a 400-day lifetime) is discarded; only
  * "this is a removal" survives.
  */
-export function hardenCookie(options) {
+export function hardenCookie(options, name) {
   const removing = options?.maxAge === 0;
   return {
     path: "/",
     httpOnly: true,
     secure: true,
     sameSite: "lax",
-    maxAge: removing ? 0 : SESSION_MAX_AGE_SECONDS,
+    maxAge: removing ? 0 : name === NEXT_COOKIE ? NEXT_MAX_AGE_SECONDS : SESSION_MAX_AGE_SECONDS,
   };
 }
 
 /** One Set-Cookie header value, or null for a cookie this site must never set. */
 export function serializeSetCookie(name, value, options) {
   if (!isAuthCookieName(name)) return null;
-  const o = hardenCookie(options);
+  const o = hardenCookie(options, name);
   const parts = [`${name}=${encodeURIComponent(value)}`, `Path=${o.path}`, `Max-Age=${o.maxAge}`];
   if (o.maxAge === 0) parts.push("Expires=Thu, 01 Jan 1970 00:00:00 GMT");
   parts.push("HttpOnly", "Secure", "SameSite=Lax");
   return parts.join("; ");
+}
+
+/** Set-Cookie header values for a list of { name, value, options }, for pages that build their own response. */
+export function setCookieLines(cookies) {
+  return cookies.map((c) => serializeSetCookie(c.name, c.value, c.options)).filter(Boolean);
 }
 
 /** Removal cookies for every auth cookie the request arrived with. */
@@ -154,6 +167,21 @@ export function clearingCookies(request) {
   return parseCookieHeader(request.headers.get("cookie"))
     .filter((c) => isAuthCookieName(c.name))
     .map((c) => ({ name: c.name, value: "", options: { maxAge: 0 } }));
+}
+
+/**
+ * Where to send the visitor after a successful sign-in: an explicit ?next= (or
+ * form field) if it is a same-site path other than "/", otherwise the
+ * destination the login page stored, otherwise "/". Always a same-site path.
+ * `clear` lists the removal cookie to add to the response, so a stored
+ * destination is used once.
+ */
+export function resolveNext(explicit, request) {
+  const stored = parseCookieHeader(request.headers.get("cookie")).find((c) => c.name === NEXT_COOKIE);
+  const clear = stored ? [{ name: NEXT_COOKIE, value: "", options: { maxAge: 0 } }] : [];
+  const fromParam = safeNext(explicit);
+  if (fromParam !== "/") return { location: fromParam, clear };
+  return { location: stored ? safeNext(stored.value) : "/", clear };
 }
 
 /**

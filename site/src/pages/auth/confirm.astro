@@ -13,6 +13,7 @@ import {
   isOtpType,
   isSameOrigin,
   isTokenHash,
+  resolveNext,
   safeNext,
 } from "../../lib/auth-config.mjs";
 import { createRequestClient, finalCookies, supabaseConfigured } from "../../lib/auth-server.mjs";
@@ -64,11 +65,13 @@ if (request.method === "POST") {
       if (error) {
         return authResponse(null, { status: 303, json: false, headers: { Location: "/login/?error=expired" } });
       }
+      // The form's next if it is not "/", else where the login page said to go.
+      const { location, clear } = resolveNext(next, request);
       return authResponse(null, {
         status: 303,
         json: false,
-        headers: { Location: next, ...state.headers },
-        cookies: finalCookies(state),
+        headers: { Location: location, ...state.headers },
+        cookies: [...finalCookies(state), ...clear],
       });
     }
   }

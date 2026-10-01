@@ -5,10 +5,12 @@ import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import {
   EMAIL_LINK_TARGET,
+  NEXT_COOKIE,
   authResponse,
   checkRateLimit,
   isSameOrigin,
   normalizeEmail,
+  safeNext,
   sha256Hex,
 } from "../../../lib/auth-config.mjs";
 import { createRequestClient, finalCookies, supabaseConfigured } from "../../../lib/auth-server.mjs";
@@ -19,10 +21,15 @@ export const POST: APIRoute = async ({ request }) => {
   if (!isSameOrigin(request)) return authResponse({ error: "forbidden" }, { status: 403 });
 
   let email: string | null = null;
+  let next = "/";
   try {
     const text = await request.text();
     if (text.length > 2048) throw new Error("too large");
-    email = normalizeEmail(JSON.parse(text)?.email);
+    const body = JSON.parse(text);
+    email = normalizeEmail(body?.email);
+    // Where to go after signing in (checkout, for one). Only a same-site path
+    // survives; anything else is "/" and nothing is stored.
+    next = safeNext(body?.next);
   } catch {
     return authResponse({ error: "bad_request" }, { status: 400 });
   }
@@ -70,7 +77,9 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   // The same answer whether or not the address already had an account.
-  return authResponse({ ok: true }, { headers: state.headers, cookies: finalCookies(state) });
+  const cookies = finalCookies(state);
+  if (next !== "/") cookies.push({ name: NEXT_COOKIE, value: next, options: {} });
+  return authResponse({ ok: true }, { headers: state.headers, cookies });
 };
 
 export const ALL: APIRoute = () =>

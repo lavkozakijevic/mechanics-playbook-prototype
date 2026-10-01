@@ -14,6 +14,16 @@ const MailIcon = (
   </svg>
 );
 
+/** A same-site path from ?next=, or null. The server checks it again before storing it. */
+function readNext() {
+  try {
+    const next = new URLSearchParams(window.location.search).get("next");
+    return next && next.startsWith("/") && !next.startsWith("//") && next.length <= 200 ? next : null;
+  } catch {
+    return null;
+  }
+}
+
 const MESSAGES = {
   invalid: "That doesn't look like an email address. Check it and try again.",
   limited: "Too many requests. Wait a minute and try again.",
@@ -25,6 +35,7 @@ export function LoginPage() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("idle"); // idle | sending | sent | invalid | limited | error
   const [expired, setExpired] = useState(false);
+  const [toCheckout, setToCheckout] = useState(false);
 
   useEffect(() => {
     try {
@@ -32,6 +43,7 @@ export function LoginPage() {
     } catch {
       /* no query string to read */
     }
+    setToCheckout((readNext() ?? "").startsWith("/checkout"));
   }, []);
 
   const submit = async (e) => {
@@ -42,7 +54,7 @@ export function LoginPage() {
       const res = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, next: readNext() }),
         credentials: "same-origin",
       });
       if (res.ok) setStatus("sent");
@@ -78,6 +90,9 @@ export function LoginPage() {
           <form className="login__form" onSubmit={submit} noValidate>
             <h1 className="login__heading">Log in or create an account</h1>
             <p className="login__lead">Enter your email and we'll send you a link. No password needed.</p>
+            {toCheckout && (
+              <p className="login__lead">You need an account to subscribe. After you sign in you'll go straight to checkout.</p>
+            )}
             {expired && status === "idle" && (
               <p className="login__status login__status--error" role="alert">
                 That sign-in link has expired or was already used. Enter your email for a new one.

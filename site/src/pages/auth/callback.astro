@@ -17,7 +17,7 @@ import {
   checkRateLimit,
   clearingCookies,
   isAuthCode,
-  safeNext,
+  resolveNext,
 } from "../../lib/auth-config.mjs";
 import { createRequestClient, finalCookies, supabaseConfigured } from "../../lib/auth-server.mjs";
 
@@ -68,11 +68,13 @@ if (!supabaseConfigured(env)) {
       console.error("auth: callback code exchange failed", error.status ?? "", error.code ?? "");
       return expired(clearingCookies(request).filter((c) => c.name === CODE_VERIFIER_COOKIE));
     }
+    // ?next= if given, else where the login page said to go (checkout, for one).
+    const { location, clear } = resolveNext(q.get("next"), request);
     return authResponse(null, {
       status: 303,
       json: false,
-      headers: { Location: safeNext(q.get("next")), ...state.headers },
-      cookies: finalCookies(state),
+      headers: { Location: location, ...state.headers },
+      cookies: [...finalCookies(state), ...clear],
     });
   }
 }
