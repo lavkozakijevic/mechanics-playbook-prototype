@@ -224,8 +224,20 @@ const sections = allSectionCounts(app);
           {mechanicBlocks.map((block) => {
             const cat = block.mechanic?.cat ?? "neutral";
             const fullPageHref = block.mechanic ? mechanicHref(block.mechanic.id, block.mechanic.visibility) : null;
+            // A block carries one voice shape or the other (convert-content.mjs
+            // throws on a mix), so any one of the new-shape fields identifies it.
+            // Only new-shape blocks get the single-column article layout
+            // (.cs-msec--article); old-shape blocks keep the classes they had.
+            const isNewShape = Boolean(
+              block.writeup?.howItWorks || block.writeup?.whatStandsOut || block.writeup?.buildingSomethingLikeThis
+            );
+            // No block has an illustration yet: the content model stores only a
+            // brief for whoever draws one (never rendered), not a file. The slot
+            // below renders nothing at all unless a block carries
+            // { src, alt }, so no placeholder and no empty space appear.
+            const illustration = (block.writeup as any)?.illustration as { src?: string; alt?: string } | undefined;
             return (
-              <div class="cs-msec" id={`mechanic-${block.mechanicId}`}>
+              <div class:list={["cs-msec", isNewShape && "cs-msec--article"]} id={`mechanic-${block.mechanicId}`}>
                 <div class="cs-msec__head">
                   <div class="cs-msec__meta">
                     <Tag category={cat} dot>{CAT_LABEL[cat]}</Tag>
@@ -278,10 +290,21 @@ const sections = allSectionCounts(app);
                     </div>
                   )}
                   {block.writeup?.howItWorks && (
-                    <div class="cs-sub">
-                      <h3 class="cs-sub__h">How it works</h3>
-                      <p>{block.writeup.howItWorks}</p>
-                    </div>
+                    <>
+                      <div class="cs-sub">
+                        <h3 class="cs-sub__h">How it works</h3>
+                        <p>{block.writeup.howItWorks}</p>
+                      </div>
+                      {/* The illustration slot: after How it works, before What
+                          stands out. Inside this expression, not beside it, so
+                          blocks without one (and old-shape blocks) render no
+                          extra node at all. */}
+                      {illustration?.src && (
+                        <figure class="cs-msec__illustration">
+                          <img src={illustration.src} alt={illustration.alt ?? ""} loading="lazy" />
+                        </figure>
+                      )}
+                    </>
                   )}
                   {block.writeup?.whatStandsOut && (
                     <div class="cs-sub">
@@ -290,19 +313,27 @@ const sections = allSectionCounts(app);
                     </div>
                   )}
                   {block.writeup?.buildingSomethingLikeThis && (
-                    <div class="cs-sub">
-                      <h3 class="cs-sub__h">Building something like this</h3>
-                      <dl class="cs-building">
-                        <dt>Trigger</dt>
-                        <dd>{block.writeup.buildingSomethingLikeThis.trigger}</dd>
-                        <dt>What it needs</dt>
-                        <dd>{block.writeup.buildingSomethingLikeThis.whatItNeeds}</dd>
-                        <dt>How it connects</dt>
-                        <dd>{block.writeup.buildingSomethingLikeThis.howItConnects}</dd>
-                        <dt>Worth noticing</dt>
-                        <dd>{block.writeup.buildingSomethingLikeThis.worthNoticing}</dd>
+                    <section class="cs-panel" aria-labelledby={`building-${block.mechanicId}`}>
+                      <h3 class="cs-panel__h" id={`building-${block.mechanicId}`}>Building something like this</h3>
+                      <dl class="cs-panel__fields">
+                        <div class="cs-panel__field">
+                          <dt>Trigger</dt>
+                          <dd>{block.writeup.buildingSomethingLikeThis.trigger}</dd>
+                        </div>
+                        <div class="cs-panel__field">
+                          <dt>What it needs</dt>
+                          <dd>{block.writeup.buildingSomethingLikeThis.whatItNeeds}</dd>
+                        </div>
+                        <div class="cs-panel__field">
+                          <dt>How it connects</dt>
+                          <dd>{block.writeup.buildingSomethingLikeThis.howItConnects}</dd>
+                        </div>
+                        <div class="cs-panel__field">
+                          <dt>Worth noticing</dt>
+                          <dd>{block.writeup.buildingSomethingLikeThis.worthNoticing}</dd>
+                        </div>
                       </dl>
-                    </div>
+                    </section>
                   )}
                 </div>
               </div>

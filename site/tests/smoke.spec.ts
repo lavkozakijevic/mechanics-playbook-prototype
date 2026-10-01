@@ -97,6 +97,65 @@ test.describe("case studies render with content", () => {
   });
 });
 
+// Mechanic blocks on the case study summary page (layout fix, 1 Oct 2026):
+// a block written in the new voice is one column — How it works, the
+// illustration slot (nothing when there is none), What stands out, then the
+// "Building something like this" panel. Old-shape blocks keep their layout.
+// The app is found from the content collection, not hard-coded.
+const newShapeApp = visibleApps.find(
+  (a) => a.visibility === "public" && (a.mechanicWriteups ?? []).some((w: any) => w.howItWorks)
+);
+
+test.describe("new-shape mechanic blocks", () => {
+  test("a new-shape block is one column in the right order, with a framed panel and no empty illustration slot", async ({ page }) => {
+    expect(newShapeApp, "an app with new-shape blocks is needed to test the layout").toBeTruthy();
+    await page.goto(`/case-studies/${newShapeApp!.id}/`);
+    const block = page.locator(".cs-msec--article").first();
+    await expect(block).toBeVisible();
+
+    // heading and the Full mechanic page link come first, in the head row
+    await expect(block.locator(".cs-msec__head h2")).toBeVisible();
+    await expect(block.locator(".cs-msec__head a.cs-msec__link")).toBeVisible();
+
+    // order of the body, and no illustration markup when a block has none
+    const order = await block.locator(".cs-msec__body > *").evaluateAll((els) =>
+      els.map((e) => e.querySelector("h3")?.textContent?.trim())
+    );
+    expect(order).toEqual(["How it works", "What stands out", "Building something like this"]);
+    await expect(page.locator(".cs-msec__illustration")).toHaveCount(0);
+
+    // a single column that does not run past the foundation's reading measure
+    const cols = await block.locator(".cs-msec__body").evaluate((el) => getComputedStyle(el).gridTemplateColumns.split(" ").length);
+    expect(cols).toBe(1);
+    const width = await block.locator(".cs-msec__body").evaluate((el) => el.getBoundingClientRect().width);
+    expect(width).toBeLessThanOrEqual(720);
+
+    // the panel: its heading inside it, a fill different from the page, each
+    // label above its answer (same left edge, label ends before answer starts)
+    const panel = block.locator(".cs-panel");
+    await expect(panel.locator("h3")).toHaveText("Building something like this");
+    const fills = await panel.evaluate((el) => [getComputedStyle(el).backgroundColor, getComputedStyle(document.body).backgroundColor]);
+    expect(fills[0]).not.toBe(fills[1]);
+    const stacked = await panel.locator(".cs-panel__field").evaluateAll((fields) =>
+      fields.map((f) => {
+        const dt = f.querySelector("dt")!.getBoundingClientRect();
+        const dd = f.querySelector("dd")!.getBoundingClientRect();
+        return dt.bottom <= dd.top + 1 && Math.abs(dt.left - dd.left) < 2;
+      })
+    );
+    expect(stacked.length).toBe(4);
+    expect(stacked.every(Boolean)).toBe(true);
+  });
+
+  test("on a phone the block stays one column with no sideways scroll", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 800 });
+    await page.goto(`/case-studies/${newShapeApp!.id}/`);
+    await expect(page.locator(".cs-msec--article").first()).toBeVisible();
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth);
+    expect(overflow).toBe(false);
+  });
+});
+
 test.describe("indexes show correct counts", () => {
   test("case studies index lists every visible app and nothing else", async ({ page }) => {
     await page.goto("/case-studies/");
