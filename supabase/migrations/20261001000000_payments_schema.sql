@@ -265,6 +265,7 @@ commit;
 --    pg_cron as available on this project. If it is not available, skip this
 --    section; nothing else depends on it and the table stays small.
 --    Run this block on its own, after the migration above has committed.
+--    This section has been superseded by 20261001000100_payments_hardening.sql.
 -- ---------------------------------------------------------------------------
 -- create extension if not exists pg_cron;
 --

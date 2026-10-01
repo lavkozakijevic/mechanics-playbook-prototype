@@ -201,3 +201,34 @@ select to_regclass('cron.job') as cron_job_table;
 -- installed, so leave it commented until then): the pruning job exists and is
 -- active.
 -- select jobid, jobname, schedule, command, active from cron.job;
+
+-- [17] Default table privileges for role postgres in schema public (run after
+-- 20261001000100_payments_hardening.sql).
+-- Expect: exactly one row, grantee = postgres (its own privileges on tables it
+-- creates). No row for anon, authenticated, service_role or PUBLIC. If the
+-- default entry was removed entirely because it now equals Postgres's built-in
+-- default, this still lists postgres only, which is the expected result.
+-- Entries that apply to all schemas, and other roles such as supabase_admin,
+-- are not part of this check; query 13 lists every default entry.
+select case x.grantee when 0 then 'PUBLIC' else pg_get_userbyid(x.grantee) end as grantee,
+       string_agg(x.privilege_type, ', ' order by x.privilege_type)             as privileges
+  from pg_roles r
+ cross join lateral aclexplode(coalesce(
+         (select d.defaclacl
+            from pg_default_acl d
+           where d.defaclrole      = r.oid
+             and d.defaclnamespace = 'public'::regnamespace
+             and d.defaclobjtype   = 'r'),
+         acldefault('r', r.oid))) x
+ where r.rolname = 'postgres'
+ group by x.grantee
+ order by 1;
+
+-- [18] The pruning job (run after 20261001000100_payments_hardening.sql; errors
+-- if pg_cron is not installed).
+-- Expect: exactly one row, jobname = prune-webhook-events, schedule =
+-- 17 3 * * *, active = true, username = postgres, and a command that deletes
+-- from public.webhook_events where received_at is older than 30 days.
+select jobid, jobname, schedule, command, active, username, database
+  from cron.job
+ where jobname = 'prune-webhook-events';
