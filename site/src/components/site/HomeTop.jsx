@@ -170,10 +170,20 @@ function CaseStudySpotlight({ spotlight }) {
 }
 
 /** Top homepage sections, in page order. */
+/** The slider needs at least this many cards to be worth showing; with fewer, the
+ *  hero shows the spotlight case study's static image instead of a thin or empty
+ *  slider. (With no image to fall back on it shows what cards there are.) */
+export const MIN_CAROUSEL_CARDS = 3;
+
 export function HomeTop({ carousel, stats, spotlight }) {
+  const cards = carousel || [];
+  const heroImage =
+    cards.length < MIN_CAROUSEL_CARDS && spotlight?.imageSrc
+      ? { src: spotlight.imageSrc, alt: spotlight.imageAlt, appName: spotlight.name, screenLabel: spotlight.screenLabel }
+      : undefined;
   return (
     <>
-      <Hero carousel={carousel || []} />
+      <Hero carousel={cards} heroImage={heroImage} />
       {stats && <LibraryContents stats={stats} />}
       {spotlight && <CaseStudySpotlight spotlight={spotlight} />}
     </>

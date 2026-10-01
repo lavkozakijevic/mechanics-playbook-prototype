@@ -156,6 +156,23 @@ test.describe("new-shape mechanic blocks", () => {
   });
 });
 
+test.describe("homepage hero", () => {
+  // The slider went empty without a sound when the last app it drew from moved to
+  // the v4.1 content model; nothing checked it. It needs at least three cards (the
+  // hero shows a static image instead when fewer qualify), and a card carries only
+  // the app name, the mechanic name and a title, never write-up text.
+  test("the hero slider shows at least three cards, each with only names and a title", async ({ page }) => {
+    await page.goto("/");
+    const cards = page.locator('.carousel .mcard:not([aria-hidden="true"])');
+    expect(await cards.count()).toBeGreaterThanOrEqual(3);
+    for (const text of await cards.allInnerTexts()) {
+      expect(text.length, text).toBeLessThan(120);
+      expect(text).toMatch(/How .+ uses .+/);
+    }
+    await expect(page.locator(".hero__shot")).toHaveCount(0);
+  });
+});
+
 test.describe("indexes show correct counts", () => {
   test("case studies index lists every visible app and nothing else", async ({ page }) => {
     await page.goto("/case-studies/");

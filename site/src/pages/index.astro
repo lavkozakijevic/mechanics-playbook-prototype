@@ -5,6 +5,7 @@ import { HomeTop } from "../components/site/HomeTop.jsx";
 import { HomeBottom } from "../components/site/HomeBottom.jsx";
 import { publishedApps, publishedMechanics, formatDate, mechanicHref } from "../lib/content";
 import { dominantCategory, systemProps } from "../lib/props";
+import { tagBlocks } from "../lib/v41";
 import { SITE_TAGLINE } from "../lib/site-copy";
 
 const apps = await publishedApps();
@@ -15,15 +16,20 @@ const settings = (await getEntry("settings", "homepage"))!.data;
 const spotlightApp = apps.find((a) => a.data.id === settings.spotlightApp)!.data;
 const appsById = new Map(apps.map((a) => [a.data.id, a.data]));
 
-// Hero carousel: five fixed app-mechanic pairings, each verified to have a
-// complete write-up. Any pairing that fails the completeness check is skipped
-// silently rather than showing a broken card.
+// Hero carousel: fixed app-mechanic pairings, each verified to have a complete
+// write-up. A card needs the app's write-up for that mechanic to carry a headline
+// (summary) and a How it works (the old shape's equivalent counts too); the write-up is found through tagBlocks(), the same
+// tag-to-mechanic resolution every case study page uses. A pairing that fails is
+// skipped silently rather than showing a broken card. Only the app name, the
+// mechanic name and a title built from them reach the card, never write-up text, so
+// nothing protected is exposed. Fewer than MIN_CAROUSEL_CARDS qualifying pairings
+// and the hero shows its static image instead (HomeTop).
+// Fortune City is left out for now, until a pairing is chosen for it.
 const CAROUSEL_PAIRINGS = [
-  { appId: "strava",                  mechId: "leaderboard"       },
-  { appId: "fifa-panini-collection",  mechId: "set-collection"    },
-  { appId: "fortune-city",            mechId: "daily-login-reward"},
-  { appId: "insight-timer",           mechId: "streak"            },
-  { appId: "canva",                   mechId: "achievement"       },
+  { appId: "strava",                  mechId: "leaderboard"    },
+  { appId: "fifa-panini-collection",  mechId: "set-collection" },
+  { appId: "insight-timer",           mechId: "streak"         },
+  { appId: "canva",                   mechId: "achievement"    },
 ];
 
 const shortShot = (s?: string) => (s ? s.split(/ showing | with |,/)[0] : "Screen study");
@@ -31,15 +37,14 @@ const carousel = CAROUSEL_PAIRINGS
   .map(({ appId, mechId }) => {
     const app = appsById.get(appId);
     const mech = byId.get(mechId);
-    // A pairing can point at an app that has since moved from the v3 shape
-    // (`mechanics`, depth-graded) to v4.1 (`observations`), which carries no
-    // `mechanics` field at all — the same "skip silently" rule that already
-    // covers a missing write-up has to cover a missing field too, or this
-    // crashes the whole homepage build instead of just dropping one card.
-    if (!app || !mech || !app.mechanics) return null;
-    const rel = app.mechanics.find((r) => r.id === mechId);
-    const w = rel?.writeup;
-    if (!w?.observed?.trim() || !w?.noting?.trim() || !w?.presented?.trim() || !w?.findings?.[0]?.trim()) return null;
+    if (!app || !mech || app.contentFormat !== "v4.1") return null;
+    const block = tagBlocks(app, byId).find((b) => b.mechanic?.id === mechId);
+    const w = block?.writeup;
+    // "How it works" is the new voice shape's field; the write-ups not yet rewritten
+    // carry its equivalent as What was observed + How it is presented. Either
+    // counts, so the slider does not wait on the voice rewrite.
+    const howItWorks = w?.howItWorks?.trim() || (w?.observed?.trim() && w?.presented?.trim());
+    if (!w?.summary?.trim() || !howItWorks) return null;
     return {
       appId,
       app: app.name,
