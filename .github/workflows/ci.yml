@@ -45,3 +45,31 @@ jobs:
           name: playwright-report
           path: site/playwright-report/
           retention-days: 7
+
+  # The Paddle webhook Worker (payments-worker/): its unit tests (signature,
+  # mapping, response table, log redaction, reconciliation, the test-event
+  # script) and a deploy dry run, which checks wrangler.jsonc and bundles the
+  # code without touching Cloudflare. The end-to-end run needs a local Postgres
+  # and is run by hand (payments-worker/e2e/run.mjs).
+  payments-worker:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: payments-worker
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: payments-worker/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Deploy dry run
+        run: npm run check
