@@ -186,7 +186,7 @@ async function main() {
   const open1 = calls.find((c) => c[0] === "Checkout.open")[1];
   check("Paddle.Environment.set('sandbox') first", JSON.stringify(calls[0]) === JSON.stringify(["Environment.set", "sandbox"]), JSON.stringify(calls[0]));
   check("Paddle.Initialize gets the client-side token and an event callback", JSON.stringify(calls[1]) === JSON.stringify(["Initialize", { token: CLIENT_TOKEN, hasCallback: true }]), JSON.stringify(calls[1]));
-  check("Paddle.Checkout.open gets the transaction id and the overlay settings", open1.transactionId === "txn_e2e1" && open1.settings.displayMode === "overlay" && open1.settings.successUrl === `${SITE}/checkout/success/`, JSON.stringify(open1));
+  check("Paddle.Checkout.open gets the transaction id and the overlay settings (email locked)", open1.transactionId === "txn_e2e1" && open1.settings.displayMode === "overlay" && open1.settings.allowLogout === false && open1.settings.successUrl === `${SITE}/checkout/success/`, JSON.stringify(open1));
   check("open() is given only transactionId and settings (no price, user or email)", JSON.stringify(Object.keys(open1).sort()) === '["settings","transactionId"]', JSON.stringify(Object.keys(open1)));
 
   // 5. what the server asked Paddle for

@@ -134,3 +134,14 @@ test("payloads nobody could apply are bad payloads (200 and a log line, never a 
   assert.deepEqual(map(null), { kind: "bad_payload", reason: "envelope" });
   assert.deepEqual(map([]), { kind: "bad_payload", reason: "envelope" });
 });
+
+test("a different customer or email on the payload cannot change which user the subscription belongs to", () => {
+  // Paddle's checkout can let a buyer change the email (and so the customer). The user always
+  // comes from custom_data.supabase_user_id, which was set from the verified session when our
+  // server created the transaction; nothing about the customer takes part.
+  const base = map(subscriptionEvent()).params;
+  const other = map(subscriptionEvent({ data: subscriptionData({ customer_id: "ctm_01someoneelse", customer: { email: "other@example.invalid" }, address_id: "add_other" }) })).params;
+  assert.equal(other.p_user_id, USER_ID);
+  assert.equal(other.p_user_id, base.p_user_id);
+  assert.equal(JSON.stringify(other).includes("other@example.invalid"), false);
+});

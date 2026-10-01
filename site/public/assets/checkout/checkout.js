@@ -52,6 +52,9 @@
       settings: {
         displayMode: "overlay",
         theme: "light",
+        // The transaction already names the customer (their login email), so
+        // hide Paddle's "Not you? Change" and keep the email fixed.
+        allowLogout: false,
         successUrl: window.location.origin + "/checkout/success/",
       },
     });

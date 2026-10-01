@@ -20,8 +20,9 @@ const { title } = Astro.props;
     <meta name="robots" content="noindex" />
     <meta name="referrer" content="strict-origin" />
     <link rel="icon" href="/assets/logo/favicon.png" type="image/png" />
-    <link rel="preload" href="/assets/fonts/sora-700.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- No font preloads here: these pages use Sora 600 and DM Sans 400/600, so
+         the sora-700 preload Base.astro carries is never used, and the pages are
+         small enough that font-display: swap is fine without them. -->
   </head>
   <body>
     <slot />

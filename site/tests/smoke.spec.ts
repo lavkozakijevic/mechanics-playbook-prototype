@@ -403,6 +403,26 @@ test.describe("checkout", () => {
     await expect(page.getByText("You need an account to subscribe")).toBeVisible();
   });
 
+  test("the login page reads the checkout reason first, then the email instruction", async ({ page }) => {
+    await page.goto("/login/?next=%2Fcheckout%2F%3Fplan%3Dyearly");
+    const leads = page.locator("form .login__lead");
+    await expect(leads).toHaveCount(2);
+    await expect(leads.nth(0)).toHaveText("You need an account to subscribe. After you sign in you'll go straight to checkout.");
+    await expect(leads.nth(1)).toHaveText("Enter your email and we'll send you a link. No password needed.");
+    // without a checkout destination only the instruction shows
+    await page.goto("/login/");
+    await expect(page.locator("form .login__lead")).toHaveCount(1);
+  });
+
+  test("the checkout script keeps the email fixed, and the auth pages preload no fonts", async ({ request }) => {
+    const js = await (await request.get("/assets/checkout/checkout.js")).text();
+    expect(js).toMatch(/allowLogout:\s*false/);
+    for (const url of ["/auth/confirm?token_hash=abcdefgh12345678&type=email", "/login/"]) {
+      const html = await (await request.get(url)).text();
+      if (url.startsWith("/auth/")) expect(html).not.toMatch(/rel="preload"/);
+    }
+  });
+
   test("checkout with no plan, or a plan we do not sell, goes back to the plans", async ({ request }) => {
     for (const q of ["", "?plan=", "?plan=monthly", "?plan=annual", "?plan=pri_01abc", "?plan=QUARTERLY"]) {
       const res = await request.get("/checkout/" + q, { maxRedirects: 0 });

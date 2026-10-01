@@ -89,10 +89,10 @@ export function LoginPage() {
         ) : (
           <form className="login__form" onSubmit={submit} noValidate>
             <h1 className="login__heading">Log in or create an account</h1>
-            <p className="login__lead">Enter your email and we'll send you a link. No password needed.</p>
             {toCheckout && (
               <p className="login__lead">You need an account to subscribe. After you sign in you'll go straight to checkout.</p>
             )}
+            <p className="login__lead">Enter your email and we'll send you a link. No password needed.</p>
             {expired && status === "idle" && (
               <p className="login__status login__status--error" role="alert">
                 That sign-in link has expired or was already used. Enter your email for a new one.
