@@ -78,7 +78,7 @@ Everything else in Strava hangs off that one save. The streak needs you to log a
 
 ### Comparative Rank
 
-**Implementation summary:** Ride or run the same stretch enough and Strava tells you exactly where you stand against everyone else who has, without necessarily showing you the list behind it.
+**Implementation summary:** Ride or run the same stretch enough and Strava tells you where you stand, as a named rank rather than a place in a list.
 
 **How it works.** On any segment, a repeated stretch of road other people have also covered, Strava can tell you three different things about where you stand: whether you hold the single best time anyone has posted there, whether you're one of the people with the most efforts on it in the last ninety days, or whether you're inside the top ten. Every participant in a challenge you join gets the same kind of treatment, a stated rank, given directly, based on how everyone else in that challenge has done.
 
@@ -92,7 +92,7 @@ Everything else in Strava hangs off that one save. The streak needs you to log a
 
 **How it connects.** Segments are the same surface that Leaderboard's ordered lists run on, and challenge participation is shared with Challenge.
 
-**Worth noticing.** Strava gives you a stated rank, Local Legends or Top 10, without necessarily showing you the list of everyone else's efforts behind it.
+**Worth noticing.** Strava states your position as a named rank, Local Legend or Top 10, rather than as a place in a list.
 
 **Screenshots needed:** the segment surface showing best-overall-time, Local Legends and Top 10 labels; a challenge participant list showing individual ranks.
 
@@ -204,7 +204,7 @@ Everything else in Strava hangs off that one save. The streak needs you to log a
 
 **Illustration brief.** The dashboard's streak flame reading zero weeks, with the record button beside it, and the twelve-week calendar view behind it.
 
-**What stands out.** Strava counts the streak in weeks on the dashboard but describes it in days on the progress tab, two different units for the same number, with nothing on either screen explaining the difference.
+**What stands out.** Strava counts the streak in weeks on the dashboard and in days on the progress tab.
 
 **Trigger.** Logging and saving an activity.
 

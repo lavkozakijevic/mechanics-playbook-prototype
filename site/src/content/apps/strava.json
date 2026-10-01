@@ -1785,7 +1785,7 @@
     },
     {
       "name": "Comparative Rank",
-      "summary": "Ride or run the same stretch enough and Strava tells you exactly where you stand against everyone else who has, without necessarily showing you the list behind it.",
+      "summary": "Ride or run the same stretch enough and Strava tells you where you stand, as a named rank rather than a place in a list.",
       "howItWorks": "On any segment, a repeated stretch of road other people have also covered, Strava can tell you three different things about where you stand: whether you hold the single best time anyone has posted there, whether you're one of the people with the most efforts on it in the last ninety days, or whether you're inside the top ten. Every participant in a challenge you join gets the same kind of treatment, a stated rank, given directly, based on how everyone else in that challenge has done.",
       "illustrationBrief": "A segment screen showing best-overall-time and top-10 standing for a user, alongside a Local Legends callout.",
       "whatStandsOut": "Two of the three ways Strava states your position, best overall time and most efforts, measure entirely different things, speed versus how often you show up, so a good rank on a road you know well doesn't require being fastest, only persistent.",
@@ -1793,7 +1793,7 @@
         "trigger": "Recording an activity that covers a segment, or joining a challenge.",
         "whatItNeeds": "Other people's recorded efforts on the same segment, or other participants in the same challenge, to compare against.",
         "howItConnects": "Segments are the same surface that Leaderboard's ordered lists run on, and challenge participation is shared with Challenge.",
-        "worthNoticing": "Strava gives you a stated rank, Local Legends or Top 10, without necessarily showing you the list of everyone else's efforts behind it."
+        "worthNoticing": "Strava states your position as a named rank, Local Legend or Top 10, rather than as a place in a list."
       },
       "screenshotsNote": "the segment surface showing best-overall-time, Local Legends and Top 10 labels; a challenge participant list showing individual ranks."
     },
@@ -1872,7 +1872,7 @@
       "summary": "A flame at the top of your dashboard counts the weeks you've kept your streak alive, and starts the moment you log your first activity.",
       "howItWorks": "Right below the top bar, before anything else on the dashboard, sits your streak, a flame with a number of weeks inside it, reading zero until you log an activity to start it, with a record button sitting right next to it. Tapping into the calendar behind it gives you a twelve-week view of your activity alongside the current count.",
       "illustrationBrief": "The dashboard's streak flame reading zero weeks, with the record button beside it, and the twelve-week calendar view behind it.",
-      "whatStandsOut": "Strava counts the streak in weeks on the dashboard but describes it in days on the progress tab, two different units for the same number, with nothing on either screen explaining the difference.",
+      "whatStandsOut": "Strava counts the streak in weeks on the dashboard and in days on the progress tab.",
       "buildingSomethingLikeThis": {
         "trigger": "Logging and saving an activity.",
         "whatItNeeds": "Nothing beforehand; the count starts at zero, with the record button to start it sitting right beside the flame.",
