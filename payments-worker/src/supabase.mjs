@@ -82,3 +82,85 @@ export async function readSubscriptions(env, fetchImpl = fetch) {
     if (page.length < PAGE_SIZE) return rows;
   }
 }
+
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+export const isUuid = (v) => typeof v === "string" && UUID_RE.test(v);
+
+/**
+ * Who a user's access token belongs to, asked of Supabase itself. The caller's
+ * own claims about the user are never used: the id and the email come from
+ * Supabase's answer. The publishable key is the right apikey for this call (it
+ * is what the browser-facing client uses); the visitor's token is the Bearer.
+ *
+ * @returns {Promise<{ ok: true, user: { id: string, email: string } } | { ok: false, reason: "unauthorized" | "unavailable" }>}
+ */
+export async function verifyAccessToken(env, accessToken, fetchImpl = fetch) {
+  const base = baseUrl(env.SUPABASE_URL);
+  if (!base || !env.SUPABASE_PUBLISHABLE_KEY) return { ok: false, reason: "unavailable" };
+  if (typeof accessToken !== "string" || accessToken.length < 20 || accessToken.length > 4096 || /\s/.test(accessToken)) {
+    return { ok: false, reason: "unauthorized" };
+  }
+  let res;
+  try {
+    res = await fetchImpl(`${base}/auth/v1/user`, {
+      headers: { apikey: env.SUPABASE_PUBLISHABLE_KEY, authorization: `Bearer ${accessToken}`, accept: "application/json" },
+      signal: AbortSignal.timeout(TIMEOUT_MS),
+    });
+  } catch {
+    return { ok: false, reason: "unavailable" };
+  }
+  if (res.status === 401 || res.status === 403) {
+    try { await res.arrayBuffer(); } catch { /* drain only */ }
+    return { ok: false, reason: "unauthorized" };
+  }
+  if (!res.ok) {
+    try { await res.arrayBuffer(); } catch { /* drain only */ }
+    return { ok: false, reason: "unavailable" };
+  }
+  let body;
+  try {
+    body = await res.json();
+  } catch {
+    return { ok: false, reason: "unavailable" };
+  }
+  const email = typeof body?.email === "string" ? body.email.trim().toLowerCase() : "";
+  // The address is only ever fixed into a checkout once Supabase has confirmed
+  // it (the sign-in link proves the visitor controls the inbox).
+  const confirmed = Boolean(body?.email_confirmed_at || body?.confirmed_at);
+  if (!isUuid(body?.id) || !email || !confirmed) return { ok: false, reason: "unauthorized" };
+  return { ok: true, user: { id: body.id.toLowerCase(), email } };
+}
+
+/** 'full' | 'past_due' | 'none' from public.entitlement_of, the one definition of access. */
+export async function entitlementOf(env, userId, fetchImpl = fetch) {
+  const base = baseUrl(env.SUPABASE_URL);
+  if (!base || !env.SUPABASE_SECRET_KEY || !isUuid(userId)) throw new Error("not_configured");
+  const res = await fetchImpl(`${base}/rest/v1/rpc/entitlement_of`, {
+    method: "POST",
+    headers: { ...headers(env), "content-type": "application/json" },
+    body: JSON.stringify({ p_user_id: userId }),
+    signal: AbortSignal.timeout(TIMEOUT_MS),
+  });
+  if (!res.ok) {
+    try { await res.arrayBuffer(); } catch { /* drain only */ }
+    throw new Error(`entitlement_${res.status}`);
+  }
+  const answer = await res.json();
+  if (!["full", "past_due", "none"].includes(answer)) throw new Error("entitlement_unexpected");
+  return answer;
+}
+
+/** This user's subscription rows, newest first: status, scheduled cancellation, Paddle customer id. */
+export async function readUserSubscriptions(env, userId, fetchImpl = fetch) {
+  const base = baseUrl(env.SUPABASE_URL);
+  if (!base || !env.SUPABASE_SECRET_KEY || !isUuid(userId)) throw new Error("not_configured");
+  const url = `${base}/rest/v1/subscriptions?select=status,cancel_effective_at,paddle_customer_id&user_id=eq.${userId}&order=created_at.desc&limit=50`;
+  const res = await fetchImpl(url, { headers: headers(env), signal: AbortSignal.timeout(TIMEOUT_MS) });
+  if (!res.ok) {
+    try { await res.arrayBuffer(); } catch { /* drain only */ }
+    throw new Error(`read_${res.status}`);
+  }
+  const rows = await res.json();
+  if (!Array.isArray(rows)) throw new Error("read_unexpected");
+  return rows;
+}

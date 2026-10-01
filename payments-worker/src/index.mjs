@@ -1,9 +1,13 @@
-// Entry point of the appservatory-payments Worker. It does two things: answers
-// Paddle's webhook, and reconciles against the Paddle API once an hour. It
-// serves no pages and holds the only copy of the Supabase secret key and the
-// Paddle secrets.
+// Entry point of the appservatory-payments Worker. It answers Paddle's webhook,
+// reconciles against the Paddle API once an hour, and creates checkout
+// transactions for the site Worker through the Checkout entrypoint. It serves
+// no pages and holds the only copy of the Supabase secret key and the Paddle
+// secrets.
 import { handleWebhook } from "./handler.mjs";
 import { reconcile } from "./reconcile.mjs";
+
+// The site Worker's service binding points at this class.
+export { Checkout } from "./entrypoint.mjs";
 
 export default {
   async fetch(request, env) {
