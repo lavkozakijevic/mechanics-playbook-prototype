@@ -2,15 +2,15 @@
 
 **Teaser:** Take a screenshot of your own activity, and Strava swaps it out for a branded card of its own.
 
-Strava is where runners, riders and swimmers turn a workout into something worth showing off. Record an activity and it becomes a small public event: a route map, a burst of stats, kudos from other people, sometimes a trophy. It's worth a look because almost the whole app grows out of that one recorded activity: there's no currency here, no points, nothing to spend, just your own effort and everyone else's attention. And because a brand-new account already opens on a feed full of strangers and a list of clubs waiting, before it's recorded a single mile.
+Strava is where runners, riders and swimmers turn a workout into something worth showing off. You record an activity, and it becomes a small public event: a route map, a burst of stats, kudos from other people, sometimes a trophy. Almost everything else in the app grows out of that one recorded activity, and there's no currency running underneath it: no points, nothing to spend, just your own effort and everyone else's attention. Even before you've recorded a single mile, a brand-new account already opens on a feed full of strangers and a list of clubs waiting to be joined.
 
 ---
 
 ## System view
 
-You open Strava and hit record. While you're moving, it shows your speed, distance, elevation gain and current elevation live, and pauses itself if you stop for more than a few seconds. Finish and you can resume or save; saving is also where you name the activity, tag people in it, add photos, decide who can see it, and choose a map style, all before the record exists anywhere else. Once it's saved, that one activity is what everything else in the app reads from: it lands in other people's feeds unless you've muted it, it's checked against your trophy case and your achievement count, it counts toward any challenge you've joined, and it's what gets composed into a shareable card.
+Whenever you're about to work out, you open Strava and hit record. While you're moving, it shows your speed, distance, elevation gain and current elevation live, and it pauses itself automatically if you stop for more than a few seconds. Once you finish, you can resume or save; saving is also where you name the activity, tag people in it, add photos, decide who can see it, and choose a map style, all before the record exists anywhere else. After it's saved, that one activity is what everything else in the app reads from: it lands in other people's feeds unless you've muted it, it's checked against your trophy case and your achievement count, it counts toward any challenge you've joined, and it's what gets composed into a shareable card.
 
-Everything else hangs off that one save. The streak needs you to log another activity to keep its count moving. Challenges and their leaderboards, your standing on any segment you cover, and the trophies and achievements you collect are all read straight off your recorded activities. Clubs and the social feed sit a little further out, built from other people's activity rather than just yours, but they're populated with strangers' activity before you've saved a single ride, so there's always something in them to see. The subscription doesn't touch the loop itself. It locks the parts around it: routes, deeper stats, segment leaderboards, and running your own challenge instead of joining one.
+Everything else in Strava hangs off that one save. The streak needs you to log another activity to keep its count moving, and the trophies, achievements, and your standing on any segment you cover are all read straight off your recorded activities, along with the challenges and leaderboards built around them. Clubs and the social feed sit a little further out, built from other people's activity rather than just yours, but they're already populated with strangers' activity before you've saved a single ride of your own, so there's always something there to see. The subscription never touches the loop itself; it only locks the parts around it, routes, deeper stats, segment leaderboards, and running your own challenge instead of joining one.
 
 ---
 
@@ -18,18 +18,21 @@ Everything else hangs off that one save. The streak needs you to log another act
 
 ### Profile Completion
 
-**Implementation summary:** Your profile shows a completion percentage that only moves when you add the one item it names next, currently your photo.
+**Implementation summary:** Your profile shows a completion percentage and suggests the next item to add.
 
-**How it works.** Open your profile and Strava tells you it's 80% complete, naming your photo as the next thing to add. A small explanation next to that step says a photo lets your friends recognize you. Add it, and you're walked through a subscription pitch, then a prompt to sync your contacts, before Strava tells you you're finished and can update anything later from your profile page.
+**How it works.** During onboarding, Strava collects some of your details and uses them to start your profile. The first time you open it, the app shows how complete it is and names the next thing to add, your photo, with a short note explaining that a photo helps your friends recognise you. Adding it takes you through a subscription offer and a prompt to sync your contacts, and at the end Strava tells you that anything can be changed later from your profile.
 
-**Illustration brief.** The profile screen showing the 80% complete badge next to the named next step, with its explanation open.
+**Illustration brief.** The profile screen showing the completion state and the named next step, with its explanation open.
 
-**What stands out.** The badge holds at 80% until you complete the one named step, and Strava never lists what makes up the rest of it.
+**What stands out.** The completion badge holds at its stated level until you complete the one named step.
 
-- **Trigger:** Viewing your own profile with the attribute set still incomplete.
-- **What it needs:** A defined set of profile attributes to check against, and a proportion to report back.
-- **How it connects:** Sits on the same profile Achievement and Milestone report their counts on, though nothing else on this page feeds it or depends on it.
-- **Worth noticing:** Completing the one named step routes you through a subscription pitch and a contact-sync screen before Strava calls the flow finished.
+**Trigger.** Opening your profile for the first time, before every field is filled in.
+
+**What it needs.** A defined set of profile attributes to check against, so the app has something to measure completeness by.
+
+**How it connects.** It sits on the same profile that Achievement and Milestone report their counts on, though nothing else here feeds it or depends on it.
+
+**Worth noticing.** Completing that one named step routes you through a subscription pitch and a contact-sync screen before Strava calls the whole thing finished.
 
 **Screenshots needed:** the profile completion badge and its photo-step explanation; the subscription pop-up and contact-sync screen that follow finishing that step.
 
@@ -37,16 +40,19 @@ Everything else hangs off that one save. The streak needs you to log another act
 
 **Implementation summary:** Every activity you save moves you up a fixed ladder of trophies, and the first rung arrives after your very first one.
 
-**How it works.** You record your first activity, however short, and save it. Strava marks it as your first trophy and offers to take you straight into your trophy case. From there the same ladder keeps going: your third activity, your fifth, your tenth, all the way up to your thousandth. Every rung you haven't reached yet still shows up in the case, with the number of activities it will take to get there. The same shape shows up a second time on gear, where you set your own distance target, between 400 and 1,200 kilometres, and Strava tells you when your shoes or bike reach it.
+**How it works.** The first time you save an activity, however short, Strava marks it as your first trophy and offers to take you straight into your trophy case. From there, the same ladder keeps going: your third activity, your fifth, your tenth, all the way up to your thousandth, and every rung you haven't reached yet still shows up in the case, with the number of activities it will take to get there. The same shape shows up a second time on gear, where you set your own distance target, between 400 and 1,200 kilometres, and Strava tells you once your shoes or bike reach it.
 
-**Illustration brief.** The trophy case screen: your first position checked off, the third, fifth and tenth shown locked with their conditions, the ladder continuing toward a thousand.
+**Illustration brief.** The trophy case screen, your first position checked off, the third, fifth and tenth shown locked with their conditions, the ladder continuing toward a thousand.
 
-**What stands out.** The first trophy is nearly instant, a single 44-second ride was enough to claim it. The same reward shape reappears on gear, where the threshold is one you set yourself.
+**What stands out.** The first trophy arrives almost instantly, a single 44-second ride was enough to claim it, and the same reward shape reappears on gear, where the threshold is one you set yourself.
 
-- **Trigger:** Saving an activity that crosses one of the fixed activity-count thresholds.
-- **What it needs:** A running count of the user's total saved activities.
-- **How it connects:** The first threshold overlaps with Achievement's celebration moment; the ladder itself runs independently of the Streak's week count.
-- **Worth noticing:** Strava shows every rung you haven't reached yet in the trophy case already, each one labeled with exactly how many activities away it is.
+**Trigger.** Saving any activity that crosses one of the fixed activity-count thresholds.
+
+**What it needs.** A running count of how many activities you've saved in total.
+
+**How it connects.** The first threshold lines up with Achievement's own celebration moment, though the ladder itself runs independently of the Streak's week count.
+
+**Worth noticing.** Strava shows every rung you haven't reached yet in the trophy case already, each one labelled with exactly how many activities away it is.
 
 **Screenshots needed:** the "welcome to the team" first-trophy pop-up; the trophy case showing crossed-off and locked rungs with their conditions; the gear distance-threshold notification setting.
 
@@ -54,16 +60,19 @@ Everything else hangs off that one save. The streak needs you to log another act
 
 **Implementation summary:** Certain activities earn you Strava's own graded medals, gold, silver or bronze, that stack up on your profile for good.
 
-**How it works.** Some of your activities earn you an achievement, shown right there on the activity in your feed. Each one is graded: gold, silver or bronze. They don't disappear once you move on to your next ride or run, they add to a running count on your profile. One profile we looked at held ten silvers; another held 53 medals split between gold and bronze. Finishing one of Strava's monthly challenges adds to the same pile: it hands you a badge that stays with you the same way.
+**How it works.** Every so often, one of your activities earns you an achievement, and it shows up right there on the activity in your feed, graded gold, silver or bronze. It doesn't disappear once you move on to your next ride or run; instead, it adds to a running count on your profile. One profile we looked at held ten silvers, and another held 53 medals split between gold and bronze. Finishing one of Strava's monthly challenges adds to the same pile, handing you a badge that stays with you the same way.
 
 **Illustration brief.** A profile page showing a running achievement count next to a feed activity displaying a gold, silver or bronze badge on it.
 
 **What stands out.** The count is permanent and visible to anyone who looks at your profile, so it reads as a running scoreboard of your best efforts rather than a one-off congratulations.
 
-- **Trigger:** An activity you save earns that grade.
-- **What it needs:** A record of every activity you've saved.
-- **How it connects:** Feeds the same profile Milestone's trophy case sits on; challenge completions from Challenge add to the same tally.
-- **Worth noticing:** Strava grades its medals gold, silver and bronze instead of issuing one flat badge.
+**Trigger.** An activity you save earning that grade.
+
+**What it needs.** A record of every activity you've saved, since each one gets checked against the criteria.
+
+**How it connects.** It feeds the same profile that Milestone's trophy case sits on, and challenge completions from Challenge add to the same tally.
+
+**Worth noticing.** Strava grades its medals gold, silver and bronze instead of issuing one flat badge.
 
 **Screenshots needed:** a feed activity displaying an earned achievement badge; a profile page showing the achievement count and mixed medal grades.
 
@@ -71,16 +80,19 @@ Everything else hangs off that one save. The streak needs you to log another act
 
 **Implementation summary:** Ride or run the same stretch enough and Strava tells you exactly where you stand against everyone else who has, without necessarily showing you the list behind it.
 
-**How it works.** On any segment, a repeated stretch of road other people have also covered, Strava can tell you three different things about where you stand: whether you hold the single best time anyone has posted there, whether you're one of the people with the most efforts on it in the last ninety days, and whether you're inside the top ten. Every participant in a challenge you join gets the same kind of treatment: a stated rank, given directly, based on how everyone else in that challenge has done.
+**How it works.** On any segment, a repeated stretch of road other people have also covered, Strava can tell you three different things about where you stand: whether you hold the single best time anyone has posted there, whether you're one of the people with the most efforts on it in the last ninety days, or whether you're inside the top ten. Every participant in a challenge you join gets the same kind of treatment, a stated rank, given directly, based on how everyone else in that challenge has done.
 
 **Illustration brief.** A segment screen showing best-overall-time and top-10 standing for a user, alongside a Local Legends callout.
 
 **What stands out.** Two of the three ways Strava states your position, best overall time and most efforts, measure entirely different things, speed versus how often you show up, so a good rank on a road you know well doesn't require being fastest, only persistent.
 
-- **Trigger:** Recording an activity that covers a segment, or joining a challenge.
-- **What it needs:** Other people's recorded efforts on the same segment, or other participants in the same challenge, to compare against.
-- **How it connects:** Segments are the same surface Leaderboard's ordered lists run on; challenge participation is shared with Challenge.
-- **Worth noticing:** Strava gives you a stated rank, Local Legends or Top 10, without necessarily showing you the list of everyone else's efforts behind it.
+**Trigger.** Recording an activity that covers a segment, or joining a challenge.
+
+**What it needs.** Other people's recorded efforts on the same segment, or other participants in the same challenge, to compare against.
+
+**How it connects.** Segments are the same surface that Leaderboard's ordered lists run on, and challenge participation is shared with Challenge.
+
+**Worth noticing.** Strava gives you a stated rank, Local Legends or Top 10, without necessarily showing you the list of everyone else's efforts behind it.
 
 **Screenshots needed:** the segment surface showing best-overall-time, Local Legends and Top 10 labels; a challenge participant list showing individual ranks.
 
@@ -88,16 +100,19 @@ Everything else hangs off that one save. The streak needs you to log another act
 
 **Implementation summary:** Strava hands you a running list of month-long challenges, each with a headline count of how many hundreds of thousands of other people have already joined.
 
-**How it works.** Open the challenges list and you'll find things like completing your first 5K sometime in April, logging 400 minutes of activity this month, or clearing 180 minutes in a single sweat session. Each one states its deadline, its reward and how many other people have already joined, sometimes well over a million. Joining any of them is one tap, no setup involved. Finish before the window closes and you get a digital trophy, or in one case a two-week trial of Runna. Strava also recommends challenges based on your own recorded activity, sixteen showed up for us, and lets you filter the full catalogue by activity type, elevation gain, moving time or distance. Running your own custom challenge, rather than joining one Strava made, needs a subscription.
+**How it works.** Whenever you open the challenges list, you'll find things like completing your first 5K sometime in April, logging 400 minutes of activity this month, or clearing 180 minutes in a single sweat session. Each one states its deadline, its reward and how many other people have already joined, sometimes well over a million, and joining any of them is one tap, with no setup involved. Finish before the window closes and you get a digital trophy, or in one case a two-week trial of Runna. Strava also recommends challenges based on your own recorded activity, sixteen showed up for us, and lets you filter the full catalogue by activity type, elevation gain, moving time or distance. Running your own custom challenge, rather than joining one Strava made, needs a subscription.
 
 **Illustration brief.** A challenge card showing its deadline, its reward, and its join count in the hundreds of thousands or millions, next to a join button.
 
 **What stands out.** The join count is shown on every single challenge, so the decision to join is made next to a number that says how many other people already made the same call.
 
-- **Trigger:** Opening the challenges list, or being shown one on the dashboard.
-- **What it needs:** A defined objective with a start and end date already set by Strava.
-- **How it connects:** Completing a challenge is also what produces an Achievement badge, and challenge pages carry their own Leaderboard.
-- **Worth noticing:** Joining any challenge is free. Creating and running your own needs a subscription.
+**Trigger.** Opening the challenges list, or being shown one on the dashboard.
+
+**What it needs.** A defined objective with a start and end date that Strava has already set.
+
+**How it connects.** Completing a challenge is also what produces an Achievement badge, and challenge pages carry their own Leaderboard.
+
+**Worth noticing.** Joining any challenge is free, and only creating and running your own needs a subscription.
 
 **Screenshots needed:** the challenges list showing several cards with join counts; a challenge detail page showing days left, reward and organiser; the filter options.
 
@@ -105,16 +120,19 @@ Everything else hangs off that one save. The streak needs you to log another act
 
 **Implementation summary:** Creating a Strava club walks you through five steps, including picking up to three tags that describe what kind of group it is.
 
-**How it works.** Join a club and you're in: public ones let anyone in, private ones hold you at a request until an admin approves you. Making your own club runs through five steps: pick the sport, choose up to three tags describing what it's for (a brand, an employee group, a local community, an identity group, among others), add a name, a photo and a description, decide public or private, and set a location. Finish and Strava hands you three things to do next: invite people, write a post, create an event. Every club gets its own page: a member count, a type, and tabs for its overview, its activities, its stats and its posts.
+**How it works.** When you join a club, you're in right away if it's public, or held at a request until an admin approves you if it's private. Making your own club runs through five steps: you pick the sport, choose up to three tags describing what it's for, a brand, an employee group, a local community, an identity group, among others, add a name, a photo and a description, decide public or private, and set a location. Once you finish, Strava hands you three things to do next: invite people, write a post, create an event. Every club then gets its own page, with a member count, a type, and tabs for its overview, its activities, its stats and its posts.
 
 **Illustration brief.** The five-step club creation flow, focused on the tag-selection step and its list of options.
 
 **What stands out.** The tag list treats a casual local running group, a company's employee team and a brand's own fan club as the same kind of thing, picked from the same thirteen-option list.
 
-- **Trigger:** Choosing to create a club, or requesting to join an existing one.
-- **What it needs:** Nothing pre-existing; a club can be created from scratch in five steps.
-- **How it connects:** Club pages carry their own feed, separate from the main Social Feed, and clubs organise most of Strava's Challenges.
-- **Worth noticing:** Finishing club creation hands you three things to do at once: invite people, write a post, create an event.
+**Trigger.** Choosing to create a club, or requesting to join an existing one.
+
+**What it needs.** Nothing beforehand; a club can be created from scratch in five steps.
+
+**How it connects.** Club pages carry their own feed, separate from the main Social Feed, and clubs organise most of Strava's Challenges.
+
+**Worth noticing.** Finishing club creation hands you three things to do at once: invite people, write a post, create an event.
 
 **Screenshots needed:** the club creation flow's tag-selection screen; a club's own page showing its member count, type and tabs; the club directory showing nearby clubs.
 
@@ -122,16 +140,19 @@ Everything else hangs off that one save. The streak needs you to log another act
 
 **Implementation summary:** Strava fills your feed with strangers' activities from the moment you open the app, before you've followed a single person.
 
-**How it works.** Scroll down from the dashboard and you land in a feed of other people's activities, headed "recommended for you" on a brand-new account. Each one shows the route on a map, any photos or video attached, the distance covered, the elevation gained, the time it took, and any achievements it won, plus kudos, comment and share controls right on it. Keep scrolling and more activities from more people keep loading in.
+**How it works.** From the dashboard, scrolling down lands you in a feed of other people's activities, headed "recommended for you" on a brand-new account. Each one shows the route on a map, any photos or video attached, the distance covered, the elevation gained, the time it took, and any achievements it won, plus kudos, comment and share controls right on it. Keep scrolling, and more activities from more people keep loading in.
 
 **Illustration brief.** A feed card showing a route map, distance/elevation/time stats, an achievement badge, and the kudos and comment controls beneath it.
 
-**What stands out.** The feed isn't empty while you build a following. Strava fills it with other people's activities from the very first visit.
+**What stands out.** The feed isn't empty while you build a following; Strava fills it with other people's activities from the very first visit.
 
-- **Trigger:** Opening the dashboard.
-- **What it needs:** A pool of other users' saved, public activities to recommend from.
-- **How it connects:** Every item in the feed carries the same Achievement badges and Standing that show up elsewhere; saving your own activity is what populates it for others.
-- **Worth noticing:** Every feed card carries its own kudos, comment and share controls right on it, so you never have to open an activity to react to it.
+**Trigger.** Opening the dashboard.
+
+**What it needs.** A pool of other users' saved, public activities to recommend from.
+
+**How it connects.** Every item in the feed carries the same Achievement badges and Standing that show up elsewhere, and saving your own activity is what populates it for others.
+
+**Worth noticing.** Every feed card carries its own kudos, comment and share controls right on it, so you never have to open an activity to react to it.
 
 **Screenshots needed:** the dashboard feed on a brand-new account, headed "recommended for you"; a single feed card showing its full set of stats and reaction controls.
 
@@ -139,16 +160,19 @@ Everything else hangs off that one save. The streak needs you to log another act
 
 **Implementation summary:** Every challenge you join comes with its own leaderboard, ranking everyone taking part by pace, distance or whatever the challenge measures.
 
-**How it works.** Open a challenge and there's a leaderboard sitting on it, ranking every participant. One version ranks by a single activity; another ranks everyone across the whole challenge, showing their pace, the distance they've covered and when they finished. The 100,000 steps challenge, for instance, lists everyone's logged step counts next to their rank.
+**How it works.** Whenever you open a challenge, there's a leaderboard sitting on it, ranking every participant. One version ranks by a single activity, and another ranks everyone across the whole challenge, showing their pace, the distance they've covered and when they finished. The 100,000 steps challenge, for instance, lists everyone's logged step counts next to their rank.
 
 **Illustration brief.** A challenge leaderboard showing ranked participants with pace, distance and completion times.
 
 **What stands out.** The ranking is scoped to whoever joined that specific challenge, not to Strava's whole user base, so the list stays a manageable size no matter how popular the app gets.
 
-- **Trigger:** Joining a challenge that has other participants.
-- **What it needs:** Recorded activity from every other person who joined the same challenge.
-- **How it connects:** Runs on top of Challenge's own join mechanism, and shares its scope with the individual Standing each participant is also given.
-- **Worth noticing:** Strava keeps two separate leaderboards on the same challenge: one ranking a single activity, another ranking the whole challenge.
+**Trigger.** Joining a challenge that has other participants.
+
+**What it needs.** Recorded activity from everyone else who joined the same challenge.
+
+**How it connects.** It runs on top of Challenge's own join mechanism, and shares its scope with the individual Standing each participant is also given.
+
+**Worth noticing.** Strava keeps two separate leaderboards on the same challenge: one ranking a single activity, another ranking the whole challenge.
 
 **Screenshots needed:** a challenge's leaderboard tab; the 100,000 steps challenge showing ranked step counts.
 
@@ -156,16 +180,19 @@ Everything else hangs off that one save. The streak needs you to log another act
 
 **Implementation summary:** Strava builds a branded, shareable card out of your activity automatically, and even intercepts your own screenshots to offer it instead.
 
-**How it works.** Save an activity and Strava has already composed a shareable version of it: a card carrying your result (ours read "longest ride ever" with a personal-record badge), dressed in Strava's own branding, with more than one design to choose from. From there you can send it to Instagram, WhatsApp, a text message, a Strava message, a Strava post, or just copy the link. Try to take your own screenshot of the activity instead, and Strava steps in: it opens the same sharing pop-up and offers its prepared, branded card in place of the picture you were about to take.
+**How it works.** As soon as you save an activity, Strava has already composed a shareable version of it, a card carrying your result (ours read "longest ride ever" with a personal-record badge), dressed in Strava's own branding, with more than one design to choose from. From there you can send it to Instagram, WhatsApp, a text message, a Strava message, a Strava post, or just copy the link. If you try to take your own screenshot of the activity instead, Strava steps in: it opens the same sharing pop-up and offers its prepared, branded card in place of the picture you were about to take.
 
 **Illustration brief.** The branded share card itself, showing a result like "longest ride ever" with a personal-record badge and Strava's branding, next to the screenshot-interception moment.
 
-**What stands out.** Intercepting a plain screenshot and swapping in a branded card means Strava's own design reaches other people even when the user never intended to use Strava's share feature at all.
+**What stands out.** Intercepting a plain screenshot and swapping in a branded card means Strava's own design reaches other people even when you never intended to use Strava's share feature at all.
 
-- **Trigger:** Saving an activity, or attempting to take a screenshot of one.
-- **What it needs:** A completed, saved activity with a result worth stating, such as a personal record.
-- **How it connects:** Draws on the same personal-record state that Achievement and Standing track; one destination, a Strava post, feeds directly into the Social Feed.
-- **Worth noticing:** The composed card states your specific result, "longest ride ever" with a personal-record badge, rather than just the activity type.
+**Trigger.** Saving an activity, or attempting to take a screenshot of one.
+
+**What it needs.** A completed, saved activity with a result worth stating, such as a personal record.
+
+**How it connects.** It draws on the same personal-record state that Achievement and Standing track, and one destination, a Strava post, feeds directly into the Social Feed.
+
+**Worth noticing.** The composed card states your specific result, "longest ride ever" with a personal-record badge, rather than just the activity type.
 
 **Screenshots needed:** the composed share card with its personal-record badge and branding; the sharing pop-up appearing after a screenshot attempt.
 
@@ -173,16 +200,19 @@ Everything else hangs off that one save. The streak needs you to log another act
 
 **Implementation summary:** A flame at the top of your dashboard counts the weeks you've kept your streak alive, and starts the moment you log your first activity.
 
-**How it works.** Right below the top bar, before anything else on the dashboard, sits your streak: a flame with a number of weeks inside it, reading zero until you log an activity to start it. A record button sits right next to it. Tap into the calendar behind it and you get a twelve-week view of your activity alongside the current count.
+**How it works.** Right below the top bar, before anything else on the dashboard, sits your streak, a flame with a number of weeks inside it, reading zero until you log an activity to start it, with a record button sitting right next to it. Tapping into the calendar behind it gives you a twelve-week view of your activity alongside the current count.
 
 **Illustration brief.** The dashboard's streak flame reading zero weeks, with the record button beside it, and the twelve-week calendar view behind it.
 
 **What stands out.** Strava counts the streak in weeks on the dashboard but describes it in days on the progress tab, two different units for the same number, with nothing on either screen explaining the difference.
 
-- **Trigger:** Logging and saving an activity.
-- **What it needs:** Nothing beforehand; the count starts at zero and the record button to start it sits right beside the flame.
-- **How it connects:** Stands alone on this page. It shares its weekly reset with the dashboard's suggested-goal surface, but nothing else here feeds it or depends on it.
-- **Worth noticing:** The streak sits above the feed, the challenges and every suggestion on the dashboard.
+**Trigger.** Logging and saving an activity.
+
+**What it needs.** Nothing beforehand; the count starts at zero, with the record button to start it sitting right beside the flame.
+
+**How it connects.** It stands alone on this page, sharing its weekly reset with the dashboard's suggested-goal surface, though nothing else here feeds it or depends on it.
+
+**Worth noticing.** The streak sits above the feed, the challenges and every suggestion on the dashboard.
 
 **Screenshots needed:** the dashboard streak flame at zero weeks; the streak calendar's twelve-week view.
 
