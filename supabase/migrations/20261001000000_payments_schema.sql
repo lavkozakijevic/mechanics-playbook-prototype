@@ -114,8 +114,11 @@ alter table public.manual_entitlements enable row level security;
 -- so the Worker sees an error and Paddle retries rather than the event being
 -- recorded as handled.
 --
--- Reconciliation calls this with the time of its Paddle API read as
--- p_occurred_at, so it can never overwrite a newer webhook.
+-- Reconciliation calls this with the subscription's own updated_at from the
+-- Paddle API as p_occurred_at (and "reconcile:<subscription>:<updated_at>" as
+-- p_event_id). That time and the webhooks' occurred_at both come from Paddle's
+-- clock, so a reconciliation can never overwrite a newer webhook; the time of
+-- the read would come from the Worker's clock, which can run ahead of Paddle's.
 
 create function public.apply_subscription_event(
   p_event_id               text,
