@@ -21,6 +21,9 @@
 - Start sentence after sentence with the app's name.
 - Describe what we never saw as if it were the app's design. If a friend would ask "wait, what does it do?" and we can't answer, it doesn't go on the page. It goes on the coverage list.
 - Only state that an app hides or withholds something when it does so deliberately, such as a mystery box's contents or a medal's hidden criteria. If a user of the app would know it and we don't, that's our gap, not a fact about the app.
+- Describe what the app shows and does. Never frame what it leaves out as a failing ("never lists", "doesn't tell you", "won't say"). If an absence changes what you can do or decide, state it plainly and without blame. Otherwise leave it out.
+  Not: "The badge holds at its stated level until you complete the one named step, and Strava never lists what makes up the rest of it."
+  But: "The completion badge holds at its stated level until you complete the one named step."
 - Mention the write-up, the analysis or the session. The one exception is plain first-person experience, used sparingly when it helps: "we never lost a level".
 - Use templates or stock openers. Never "This is a medium system".
 - Open an explanation with a command. Never "Open your profile and…" or "Tap one and…" — set the scene first, then let the player arrive at the action.
