@@ -20,9 +20,10 @@ select c.relname                      as table_name,
  order by c.relname;
 
 -- [2] Policies.
--- Expect: exactly one row, subscriptions / subscriptions_select_own / SELECT /
--- {authenticated} / (user_id = ( SELECT auth.uid() )). No policy for anon, and
--- none on webhook_events or manual_entitlements.
+-- Expect: exactly two rows, both SELECT / {authenticated} / (user_id = ( SELECT
+-- auth.uid() )): subscriptions_select_own on subscriptions, and (after
+-- 20261002000000_entitlement.sql) manual_entitlements_select_own on
+-- manual_entitlements. No policy for anon, and none on webhook_events.
 select tablename, policyname, cmd, roles, qual, with_check
   from pg_policies
  where schemaname = 'public'
@@ -31,11 +32,13 @@ select tablename, policyname, cmd, roles, qual, with_check
 -- [3] Table privileges per role, against what the plan grants.
 -- Shows every privilege that is granted or expected; result = 'ok' when they
 -- agree, 'MISMATCH' when they do not.
--- Expect: four rows, all 'ok':
+-- Expect: five rows, all 'ok' (the first four from the first migration, the
+-- last from 20261002000000_entitlement.sql):
 --   authenticated  subscriptions        SELECT
 --   service_role   subscriptions        SELECT
 --   service_role   webhook_events       SELECT
 --   service_role   manual_entitlements  SELECT
+--   authenticated  manual_entitlements  SELECT
 -- anon appears nowhere. Any 'MISMATCH' row is a problem.
 with roles(role_name) as (
   values ('anon'), ('authenticated'), ('service_role')
@@ -51,7 +54,8 @@ expected(role_name, table_name, priv) as (
   values ('authenticated', 'subscriptions',       'SELECT'),
          ('service_role',  'subscriptions',       'SELECT'),
          ('service_role',  'webhook_events',      'SELECT'),
-         ('service_role',  'manual_entitlements', 'SELECT')
+         ('service_role',  'manual_entitlements', 'SELECT'),
+         ('authenticated', 'manual_entitlements', 'SELECT')
 ),
 matrix as (
   select r.role_name, t.table_name, p.priv,
@@ -69,7 +73,7 @@ select role_name, table_name, priv as privilege,
  order by table_name, role_name, privilege;
 
 -- [4] Raw table ACLs, including PUBLIC (grantee 0).
--- Expect: only the owner, plus the four grants listed under [3]. No row with
+-- Expect: only the owner, plus the grants listed under [3]. No row with
 -- grantee = PUBLIC, none for anon.
 select c.relname as table_name,
        case a.grantee when 0 then 'PUBLIC' else pg_get_userbyid(a.grantee) end as grantee,
@@ -134,8 +138,10 @@ select exists (
        ) as public_can_execute;
 
 -- [9] Informational: other functions in public that anon or authenticated can
--- call through the Data API. Not created by this migration (for example the
--- automatic-RLS helper), so review rather than expect a particular result.
+-- call through the Data API. Not created by the first migration (for example the
+-- automatic-RLS helper), so review rather than expect a particular result. After
+-- 20261002000000_entitlement.sql, current_entitlement() is listed here for
+-- authenticated (and only authenticated); that is intended.
 select p.proname,
        pg_get_function_identity_arguments(p.oid) as args,
        has_function_privilege('anon', p.oid, 'EXECUTE')          as anon_can_execute,
@@ -232,3 +238,57 @@ select case x.grantee when 0 then 'PUBLIC' else pg_get_userbyid(x.grantee) end a
 select jobid, jobname, schedule, command, active, username, database
   from cron.job
  where jobname = 'prune-webhook-events';
+
+-- [19] The entitlement functions: definer, fixed search_path, owner (run after
+-- 20261002000000_entitlement.sql).
+-- Expect: two rows (current_entitlement, entitlement_of), owner postgres,
+-- security_definer = true, config = {search_path=""}, volatility 's' (stable).
+select p.proname,
+       pg_get_function_identity_arguments(p.oid) as args,
+       pg_get_userbyid(p.proowner)               as owner,
+       p.prosecdef                               as security_definer,
+       p.proconfig                               as config,
+       p.provolatile                             as volatility
+  from pg_proc p
+  join pg_namespace n on n.oid = p.pronamespace
+ where n.nspname = 'public'
+   and p.proname in ('entitlement_of', 'current_entitlement')
+ order by p.proname;
+
+-- [20] Who can execute the entitlement functions.
+-- Expect: every row 'ok'. entitlement_of: service_role only. current_entitlement:
+-- authenticated only (anon false, service_role false).
+select f.proname, r.role_name,
+       has_function_privilege(r.role_name, f.oid, 'EXECUTE')            as can_execute,
+       (   (f.proname = 'entitlement_of'      and r.role_name = 'service_role')
+        or (f.proname = 'current_entitlement' and r.role_name = 'authenticated')) as expected,
+       case when has_function_privilege(r.role_name, f.oid, 'EXECUTE')
+                 = (   (f.proname = 'entitlement_of'      and r.role_name = 'service_role')
+                    or (f.proname = 'current_entitlement' and r.role_name = 'authenticated'))
+            then 'ok' else 'MISMATCH' end                                as result
+  from (select p.oid, p.proname
+          from pg_proc p
+          join pg_namespace n on n.oid = p.pronamespace
+         where n.nspname = 'public'
+           and p.proname in ('entitlement_of', 'current_entitlement')) f
+ cross join (values ('anon'), ('authenticated'), ('service_role')) r(role_name)
+ order by f.proname, r.role_name;
+
+-- [21] PUBLIC cannot execute either entitlement function.
+-- Expect: zero rows.
+select p.proname
+  from pg_proc p
+  join pg_namespace n on n.oid = p.pronamespace,
+       lateral aclexplode(coalesce(p.proacl, acldefault('f', p.proowner))) a
+ where n.nspname = 'public'
+   and p.proname in ('entitlement_of', 'current_entitlement')
+   and a.grantee = 0
+   and a.privilege_type = 'EXECUTE';
+
+-- [22] The rules, read-only. Expect 'none' for an id that does not exist.
+select public.entitlement_of('00000000-0000-0000-0000-000000000000') as unknown_user;
+
+-- [23] Your own answer. Replace the placeholder with your user id
+-- (Authentication > Users). Expect 'full' while your manual entitlement has not
+-- expired. Leave commented until you have replaced it.
+-- select public.entitlement_of('<LAV_USER_ID>') as lav;
