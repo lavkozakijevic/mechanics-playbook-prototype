@@ -220,7 +220,7 @@ Everything else in Strava hangs off that one save. The streak needs you to log a
 
 ## Section cards
 
-**Onboarding and first run:** Onboarding asks for a name, a birthday and a gender before it's shown you a single feature, and ends by pushing you straight into recording your first activity.
+**Onboarding and first run:** Onboarding asks for your name, birthday and gender first, then ends by taking you straight into recording your first activity.
 
 **Core loop and automation:** Recording, saving and composing an activity for other people to see all happen in the same few taps, with gear, sensors and automatic pausing built in around them.
 
@@ -228,9 +228,7 @@ Everything else in Strava hangs off that one save. The streak needs you to log a
 
 **Access and eligibility:** Routes, deeper stats, segment leaderboards and running your own challenge are all locked, each one met and explained at the exact moment you try to use it.
 
-**Economy and resources:** Strava runs no currency, points balance or spendable resource of any kind; there's nothing here to report.
-
-**Social:** A brand-new account opens on a feed of strangers, a list of nearby clubs and suggested people to follow, all before it's recorded a single activity of its own.
+**Social:** A brand-new account opens on a feed of strangers, a list of nearby clubs and suggested people to follow, all before you've recorded a single activity of your own.
 
 **Reach beyond the app:** A partner training product is sold as an upgrade tier, and a competing fitness subscription gets its own promotion inside Strava's own settings.
 
@@ -242,11 +240,11 @@ Everything else in Strava hangs off that one save. The streak needs you to log a
 
 ## Onboarding and first run
 
-Onboarding takes you from the first launch carousel through account creation, a long run of profile questions, a first subscription pitch, and straight into recording your first activity, with no way to go back and change an answer once it's given.
+Onboarding takes you from the first launch carousel through account creation, a long run of profile questions, a first subscription pitch, and straight into recording your first activity. Anything you want to change, you change afterwards in the profile editor.
 
 ### O1. The welcome carousel
 
-Open Strava for the first time and you land on a carousel of four screens that scroll through on their own: tracking your active life, making progress on goals, getting motivation from other people, and routes that never run out. You can't swipe past it or skip it, only join for free or log in.
+The first time you open Strava, you land on a carousel of four screens that scroll through on their own: tracking your active life, making progress on goals, getting motivation from other people, and routes that never run out. Your two choices are to join for free or log in.
 
 ### O2. Signing up
 
@@ -254,11 +252,11 @@ Choosing to join gives you three ways in: Google, Apple, or an email address.
 
 ### O3. Getting your code
 
-After you submit your email, Strava tells you a code is on its way and puts an "open email app" button right on the same screen, so you don't have to switch apps yourself to find it.
+After you submit your email, Strava tells you a code is on its way and puts an "open email app" button on the same screen.
 
 ### O4. The tracking prompt, early
 
-Right after you enter that code, the system prompt asking to track your activity across other apps and websites shows up, before Strava has shown you anything it actually does.
+Right after you enter that code, the first thing that appears is the system prompt asking to track your activity across other apps and websites.
 
 ### O5. Your name, and a public default
 
@@ -282,7 +280,7 @@ It asks what activities you like doing, framed as a preview of what's coming, li
 
 ### O10. 150 million people, mid-flow
 
-Between two of the data-collection questions sits a screen with no question on it at all, just a claim that you're joining a community of more than 150 million active people.
+Between two of the data-collection questions sits a screen that carries one claim: that you're joining a community of more than 150 million active people.
 
 ### O11. What you're here for
 
@@ -292,9 +290,9 @@ It asks what you plan to use Strava for and lets you pick as many reasons as app
 
 You're asked to place yourself on a four-step ladder, from total beginner to professional athlete, purely by your own judgment.
 
-### O13. No going back
+### O13. Corrections come later, in the profile editor
 
-None of the onboarding screens can be revisited or changed while you're going through them; anything you want to correct waits until you reach the profile editor later, which carries your name, a biography, your primary sport, birthday, gender and weight.
+While you're going through onboarding, each screen leads on to the next. Anything you want to correct, you change afterwards in the profile editor, which carries your name, a biography, your primary sport, birthday, gender and weight.
 
 ### O14. A privacy default, stated
 
@@ -318,7 +316,7 @@ Before the system asks whether you'll allow notifications, Strava shows you its 
 
 ### O19. Finding friends, mid-onboarding
 
-Onboarding includes its own friend-finding step: a search that surfaces people near your location, plus a set of well-known athletes to follow, framed around giving and receiving kudos rather than the follow itself. You can move on without following anyone.
+Onboarding includes its own friend-finding step: a search that surfaces people near your location, plus a set of well-known athletes to follow, framed around giving and receiving kudos. You can move on without following anyone.
 
 ### O20. What you're expected to do now
 
@@ -326,7 +324,7 @@ The last onboarding screen spells out what it expects from you next: upload acti
 
 ### O21. Straight into recording
 
-Onboarding ends by pushing you straight into recording, offering to connect a Garmin, Peloton or other device instead if you'd rather upload than record in-app. Choosing to record opens the recording screen directly and asks for location and fitness-activity permissions.
+Onboarding ends by taking you straight into recording, offering to connect a Garmin, Peloton or other device instead if you'd rather upload than record in-app. Choosing to record opens the recording screen directly and asks for location and fitness-activity permissions.
 
 ---
 
@@ -364,7 +362,7 @@ The save screen is where the activity gets built for other people to see: you ca
 
 ### O29. Photo and video limits
 
-Add a video and Strava tells you it'll auto-trim anything over 30 seconds down to the first 30, but you can add as many photos and videos as you like.
+When you add a video, Strava tells you it will trim anything over 30 seconds down to the first 30. You can add as many photos and videos as you like.
 
 ### O30. Tags and how it felt
 
@@ -412,7 +410,7 @@ A separate Workouts tab offers four kinds of plan: maintain, build, explore or r
 
 ### O41. Stats by sport
 
-A statistics surface tracks running, cycling and swimming separately, each showing your averages for this week, this year, and all time.
+A statistics screen tracks running, cycling and swimming separately, each showing your averages for this week, this year, and all time.
 
 ### O42. Tracking your gear
 
@@ -434,11 +432,11 @@ A trophy ladder, graded achievements, a browsable layer of segments and a self-s
 
 ### O45. Setting a weekly goal
 
-The dashboard carries a suggested-goal surface where you set how many activities a week you want to complete, sitting in a carousel alongside the streak, instant workouts and your weekly snapshot.
+The dashboard carries a suggested-goal block where you set how many activities a week you want to complete, sitting in a carousel alongside the streak, instant workouts and your weekly snapshot.
 
 ### O46. The profile completion meter
 
-Your profile states it's 80% complete and names your photo as the next step, with a question mark explaining why uploading one helps friends recognise you. Add it, though, and you're routed through the subscription pop-up, then a prompt to sync your contacts, before you're told you're finished.
+Your profile states it's 80% complete and names your photo as the next step, with a question mark explaining why uploading one helps friends recognise you. Adding it takes you through the subscription pop-up, then a prompt to sync your contacts, before you're told you're finished.
 
 ### O47. The trophy ladder
 
@@ -450,7 +448,7 @@ Saving your first activity, even a 44-second one, is enough to claim the first p
 
 ### O49. Graded achievements
 
-Achievements show up on the activities that earn them and add to a running count on your profile, graded gold, silver or bronze. One profile we looked at held ten silver medals; another held 53, split between gold and bronze.
+Achievements show up on the activities that earn them and add to a running count on your profile, graded gold, silver or bronze. One profile holds ten silver medals; another holds 53, split between gold and bronze.
 
 ### O50. Personal records, named
 
@@ -470,21 +468,21 @@ A challenges block on the dashboard frames itself around accountability and rewa
 
 ### O54. Inside a challenge page
 
-Opening a challenge shows how many days are left, which club organised it, its terms, its leaderboard and what finishing it earns you. The featured one asks for a first 5K run sometime in April; joining it is a single tap with nothing else to fill in.
+Opening a challenge shows how many days are left, which club organised it, its terms, its leaderboard and what finishing it earns you. The featured one asks for a first 5K run sometime in April; joining it takes a single tap.
 
 ### O55. Filtering and creating challenges
 
-The challenges list can be filtered by activity type, elevation, time or distance, and sixteen were recommended to us based on our own recorded activity. Starting your own custom challenge with friends, rather than joining one Strava made, needs a subscription.
+The challenges list can be filtered by activity type, elevation, time or distance, and sixteen were recommended to you based on your own recorded activity. Starting your own custom challenge with friends, rather than joining one Strava made, needs a subscription.
 
 ### O56. What the paid tier adds to progress
 
-Beneath the streak calendar, a block names four things a subscription adds: performance predictions, goals, relative effort, and a training log, goals being notable since a free suggested-goal surface already sits on the same dashboard.
+Beneath the streak calendar, a block names four things a subscription adds: performance predictions, goals, relative effort and a training log. A free suggested-goal block also sits on the same dashboard.
 
 ---
 
 ## Access and eligibility
 
-A defined set of surfaces stays locked behind the subscription, met and explained at the point you actually try to use each one, and two of the earliest onboarding questions turn out to gate specific features too.
+A set of features sits behind the subscription, each one met and explained at the point you try to use it. Two of the earliest onboarding questions also decide specific features.
 
 ### O57. What's locked
 
@@ -492,11 +490,11 @@ Behind the subscription sit route creation, best efforts, several map types and 
 
 ### O58. Map layers, locked outright
 
-The map offers standard, satellite, hybrid and winter types, plus weekly, night and personal heat maps, terrain and a 3D view. Only the standard types and the global heat map can be opened; every other one goes straight to the paywall without a preview.
+The map offers standard, satellite, hybrid and winter types, plus weekly, night and personal heat maps, terrain and a 3D view. The standard types and the global heat map open; every other one goes straight to the paywall.
 
 ### O59. Every lock leads to a trial
 
-Every lock we hit opened the same free-trial offer rather than a one-off purchase of just that feature.
+Every lock leads to the same free-trial offer; features aren't sold separately.
 
 ### O60. Age as a safety condition
 
@@ -514,17 +512,17 @@ Clubs are either public or private; joining a private one means requesting permi
 
 ## Economy and resources
 
-Strava runs no currency, points balance, or spendable resource of any kind. There's no price payable in anything other than money anywhere in the product, so there's nothing to record in this section.
+(no observations in this app.)
 
 ---
 
 ## Social
 
-A brand-new account opens on a feed of strangers, a list of nearby people and clubs to follow, and a full set of standings against other athletes, all before it has anything of its own recorded.
+A brand-new account opens on a feed of strangers, a list of nearby people and clubs to follow, and a full set of standings against other athletes, all before you've recorded anything of your own.
 
 ### O64. Suggested people to follow
 
-A follow block on the dashboard recommends people to you, leading with accounts marked "fan favorite on Strava," followed by a group of local legends near you, all on a brand-new account with no connections yet.
+A follow block on the dashboard recommends people to you, leading with accounts marked "fan favorite on Strava," followed by a group of local legends near you, all on a brand-new account, before you've connected with anyone.
 
 ### O65. The home feed
 
@@ -536,7 +534,7 @@ Preferences let you set how the feed is ordered, whether uploads default to show
 
 ### O67. Your profile, social-first
 
-Your profile leads with your photo, how many people you follow, your location, how many followers you have, and your total activity count, three of those four figures being about other people rather than you.
+Your profile leads with your photo, how many people you follow, your location, how many followers you have, and your total activity count, three of those four figures being about other people.
 
 ### O68. Finding people
 
@@ -556,7 +554,7 @@ Every profile leads with this week's distance, time and elevation, and on a Mond
 
 ### O62. Private profiles
 
-A private profile can still be opened and identified, but the lists behind it come back closed: opening the following list, for instance, just returns "this athlete is not following anyone" rather than any stated restriction. Twelve separate privacy controls cover who can see your profile, activities, flybys, local legend status and more.
+A private profile can still be opened and identified, but the lists behind it come back closed: opening the following list, for instance, returns "this athlete is not following anyone". Twelve separate privacy controls cover who can see your profile, activities, flybys, local legend status and more.
 
 ### O73. Finding clubs nearby
 
@@ -622,7 +620,7 @@ A training-plans entry in settings opens a full "Runna by Strava" screen showing
 
 ### O87. Promoting a competitor
 
-Settings also promotes Apple Fitness+ directly, up to two free months, then $9.99 a month, with its own redeem button. It's the only outside, non-Runna product promoted anywhere in the app.
+Settings also promotes Apple Fitness+ directly, up to two free months, then $9.99 a month, with its own redeem button.
 
 ### O88. Sharing outside Strava
 
@@ -648,7 +646,7 @@ A Siri setting asks permission to send some of your Strava data to Apple so Siri
 
 ## Monetization
 
-The subscription meets you nine separate times across the app, worded differently at every one of them, and its own stated terms don't agree with each other from one placement to the next.
+The subscription meets you nine separate times across the app, worded differently at each one, and its terms are stated differently from one placement to the next.
 
 ### O93. The upgrade button
 
@@ -656,7 +654,7 @@ An orange upgrade button sits at the centre of the top bar on every visit to the
 
 ### O94. Nine ways to hit the paywall
 
-We hit the subscription screen from nine different places: onboarding, the upgrade button, finishing your profile, routes, best efforts, locked map layers, bookmarking an activity, the trophy case right after your first trophy, and creating a group challenge. Two of those nine come right after you've just done something, not while you're trying to.
+The subscription screen comes up from nine different places: onboarding, the upgrade button, finishing your profile, routes, best efforts, locked map layers, bookmarking an activity, the trophy case right after your first trophy, and creating a group challenge. Two of those nine come right after you've just done something, not while you're trying to use a locked feature.
 
 ### O95. Paywall copy, rewritten per screen
 
@@ -668,7 +666,7 @@ The stated prices run: $79.99 a year alone, $149.99 a year with Runna bundled in
 
 ### O97. Checking out on the web
 
-Starting the free trial takes you out of the app entirely, to a web checkout on strava.com offering Apple Pay as the only payment method and nothing else, no links, no navigation, just the payment itself.
+Starting the free trial takes you out of the app entirely, to a web checkout on strava.com that offers Apple Pay as its only payment method and shows just the payment itself.
 
 ### O98. Three routes, weighted differently
 
@@ -676,19 +674,19 @@ The plan screen offers three routes with three different visual weights: "see al
 
 ### O99. The exact charge date
 
-The plan screen states an exact calendar date you'll be charged, rather than just a duration, and a separate reminder to cancel at least 24 hours before the trial ends.
+The plan screen states the exact calendar date you'll be charged, and separately reminds you to cancel at least 24 hours before the trial ends.
 
 ### O100. A discount inside settings
 
 Settings opens on a highlighted offer for "Strava Run," up to 60% off with a free four-week trial, sitting right above the plain "explore and manage subscription" link.
 
-### O101. A paywall that doesn't cover everything
+### O101. A paywall over half the screen
 
-The paywall shown right after your first trophy covers only half the screen, leaving the trophy you just earned visible behind it, the only paywall we saw that doesn't take over the whole screen.
+The paywall shown right after your first trophy covers half the screen, leaving the trophy you just earned visible behind it.
 
 ### O102. A lock at the bottom of the activity
 
-Scroll past your stats, comments and likes on a saved activity and you land on a locked block promising deeper results and stats with a subscription.
+Below your stats, comments and likes on a saved activity sits a locked block promising deeper results and stats with a subscription.
 
 ### O103. Restoring a purchase
 
@@ -696,21 +694,21 @@ Account settings carries a restore-purchases option, alongside changing your ema
 
 ### O104. Trial terms, stated four ways
 
-The trial length is stated differently depending on where you read it: 30 days at onboarding, "first month" on the routes paywall, 30 days again on the plan screen, and four weeks in settings, with the reminder timing similarly inconsistent between 28 days in and two days before the end.
+The trial length is stated differently depending on where you read it: 30 days at onboarding, "first month" on the routes paywall, 30 days again on the plan screen, and four weeks in settings. The reminder timing is stated as 28 days in at one point and two days before the end at another.
 
 ---
 
 ## Return triggers
 
-Notifications exist for nearly everything Strava tracks, the streak sits above all of them on the dashboard, and the usual first-week review-request prompt never showed up.
+Notifications exist for nearly everything Strava tracks, and your streak sits first on the dashboard, right below the top bar.
 
-### O105. An unusually long notification list
+### O105. Dozens of notification types
 
 Push notification settings break down into dozens of individual types: kudos and likes, comments, losing a leaderboard spot, upload reminders, a friend joining, new followers, challenge progress, club activity, event reminders, data corrections, and separate marketing and subscription tips, each one switchable on its own.
 
 ### O106. Email, on by default
 
-Email notifications are switched on from the start, with no opt-in step anywhere in onboarding; only push notifications were asked for.
+Email notifications are switched on from the start; onboarding asks only about push notifications.
 
 ### O107. The streak, front and centre
 
@@ -734,4 +732,4 @@ Gear can be set to notify you once it reaches a distance you choose yourself, be
 
 ### O113. One clock, four places
 
-The same weekly clock runs the suggested goal, the weekly snapshot, the profile header and the streak count, and it resets hard to zero rather than rolling over.
+The same weekly clock runs the suggested goal, the weekly snapshot, the profile header and the streak count, and it resets to zero.
