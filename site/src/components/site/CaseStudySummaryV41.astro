@@ -27,11 +27,11 @@
  * header's left edge flush with the body content below it rather than
  * spanning the full container width above the two-column grid.
  */
-import { GateWidget } from "./GateWidget.jsx";
+import { SubscribeCard } from "./Subscribe.jsx";
+import PastDueBanner from "./PastDueBanner.astro";
 import { SystemMap } from "./SystemDetail.jsx";
 import { Tag } from "../ds/Tag.jsx";
 import { allSectionCounts, tagBlocks, CAT_COLOR, CAT_LABEL } from "../../lib/v41";
-import { PREVIEW_UNLOCK } from "../../lib/preview";
 import { initials } from "../../lib/props";
 import { formatMonthYear, hasMeta, mechanicHref } from "../../lib/content";
 import { GATE_EYEBROW, GATE_HEADING, GATE_DETAIL } from "../../lib/site-copy";
@@ -39,17 +39,21 @@ import { GATE_EYEBROW, GATE_HEADING, GATE_DETAIL } from "../../lib/site-copy";
 interface Props {
   app: any;
   mechanicsById: Map<string, any>;
+  /** What the visitor may see (src/lib/access.mjs). Static pages are only built for free apps: always "full". */
+  access?: { view: "full" | "gate"; pastDue?: boolean; signedIn?: boolean };
+  /** Where the gate's "Log in" link goes (it returns the visitor to this page). */
+  loginHref?: string;
 }
 
-const { app, mechanicsById } = Astro.props as Props;
+const { app, mechanicsById, access = { view: "full" }, loginHref = "/login/" } = Astro.props as Props;
 
-// Gating (spec §2.1): "not present in HTML at all." This page never reads
-// `app.observations`/`systemView`/`proposedTags` into the template below
-// this point when locked — there is nothing to strip client-side because
-// nothing gated is interpolated in the first place. PREVIEW_UNLOCK is a
-// build-time-only override (off by default, see lib/preview.ts) for reading
-// gated content locally before authentication exists.
-const locked = app.visibility !== "public" && !PREVIEW_UNLOCK;
+// Gating (spec §2.1): "not present in HTML at all." The decision is made on the
+// server, per request, in src/lib/gate-server.ts (or at build time for a free
+// app, whose page is public). When it is not "full" this component is given a
+// PUBLIC-FIELDS-ONLY app (src/lib/gate-data.mjs): the observations, system view,
+// write-ups and system are not in the object, so there is nothing gated for the
+// template to interpolate, for an island prop to carry, or for a mistake to leak.
+const locked = access.view !== "full";
 
 // Diagram mapping, computed here (not inline in the template) so the
 // client:visible directive below binds to a real, statically-analyzable
@@ -79,10 +83,12 @@ const systemConnections = app.system
   ? app.system.connections.map((c: any) => ({ from: c.from, to: c.to, type: "mechanic", label: c.title }))
   : [];
 
-const mechanicBlocks = tagBlocks(app, mechanicsById);
-const sections = allSectionCounts(app);
+// Only when the content is being shown: a gate has no observations to read.
+const mechanicBlocks = locked ? [] : tagBlocks(app, mechanicsById);
+const sections = locked ? [] : allSectionCounts(app);
 ---
 
+{access.pastDue && !locked && <PastDueBanner />}
 <div class="container">
   {locked ? (
     <div class="container--narrow">
@@ -118,7 +124,10 @@ const sections = allSectionCounts(app);
           <h2 class="cs-gate__h">{GATE_HEADING.breakdown(app.name)}</h2>
           <p class="cs-gate__p">{GATE_DETAIL.breakdown}</p>
         </div>
-        <GateWidget client:load />
+        <SubscribeCard />
+        {!access.signedIn && (
+          <p class="cs-gate__login">Already subscribed? <a href={loginHref}>Log in</a></p>
+        )}
       </div>
     </div>
   ) : (

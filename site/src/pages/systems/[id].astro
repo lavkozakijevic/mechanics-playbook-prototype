@@ -4,21 +4,22 @@ import Base from "../../layouts/Base.astro";
 import { SystemDetailPage } from "../../components/site/SystemDetail.jsx";
 import { publishedApps, publishedMechanics } from "../../lib/content";
 import { systemProps } from "../../lib/props";
+import { isFreeSystem } from "../../lib/gate-data.mjs";
 
+// Free systems only (settings.freeSystemApps, or an app declared public: strava
+// and the rotating free slot) are built as static pages. Every other system is
+// rendered on request by systems/[...rest].astro after an entitlement check and
+// never written to a file.
 export async function getStaticPaths() {
+  const freeSystems = (await getEntry("settings", "homepage"))!.data.freeSystemApps;
   return (await publishedApps())
-    .filter((a) => a.data.system)
+    .filter((a) => a.data.system && isFreeSystem(a.data, freeSystems))
     .map((app) => ({ params: { id: app.data.id }, props: { app } }));
 }
 
 const { app } = Astro.props;
 const byId = new Map((await publishedMechanics()).map((m) => [m.data.id, m.data]));
 const system = systemProps(app.data, byId);
-// System pages named in settings.freeSystemApps open as free samples even when
-// their app is subscriber-gated (the rotating free slot). Everything else that
-// is not public shows the subscribe gate.
-const freeSystems = new Set((await getEntry("settings", "homepage"))!.data.freeSystemApps);
-const locked = app.data.visibility !== "public" && !freeSystems.has(app.data.id);
 ---
 
 <Base
@@ -26,5 +27,5 @@ const locked = app.data.visibility !== "public" && !freeSystems.has(app.data.id)
   description={app.data.system!.tagline.slice(0, 155)}
   current="systems"
 >
-  <SystemDetailPage client:load system={system} locked={locked} />
+  <SystemDetailPage client:load system={system} locked={false} />
 </Base>

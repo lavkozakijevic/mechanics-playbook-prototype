@@ -3,9 +3,11 @@ import Base from "../../../layouts/Base.astro";
 import CaseStudySectionV41 from "../../../components/site/CaseStudySectionV41.astro";
 import { publishedApps, publishedMechanics } from "../../../lib/content";
 import { nonEmptySections } from "../../../lib/v41";
+import { isFreeApp } from "../../../lib/gate-data.mjs";
 
+// Free apps only (see case-studies/[id].astro); the rest render on request.
 export async function getStaticPaths() {
-  const apps = (await publishedApps()).filter((a) => a.data.contentFormat === "v4.1");
+  const apps = (await publishedApps()).filter((a) => a.data.contentFormat === "v4.1" && isFreeApp(a.data));
   return apps.flatMap((app) =>
     nonEmptySections(app.data).map((s) => ({
       params: { id: app.data.id, section: s.slug },

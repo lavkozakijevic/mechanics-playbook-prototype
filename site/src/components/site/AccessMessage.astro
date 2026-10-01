@@ -1,0 +1,28 @@
+---
+// A plain page for the two cases where there is nothing protected to show: a
+// path that is not in the library (404), and "we could not check your access"
+// (503). It touches no content at all, so it cannot leak any.
+import AuthLayout from "../../layouts/AuthLayout.astro";
+
+interface Props {
+  title: string;
+  heading: string;
+  body: string;
+}
+const { title, heading, body } = Astro.props as Props;
+---
+
+<AuthLayout title={title}>
+  <main class="login" id="main">
+    <div class="login__card">
+      <a class="login__brand" href="/" aria-label="Appservatory home">
+        <img src="/assets/logo/appservatory-logo.png" alt="Appservatory" width="123" height="25" />
+      </a>
+      <div class="login__form">
+        <h1 class="login__heading">{heading}</h1>
+        <p class="login__lead">{body}</p>
+      </div>
+      <p class="login__alt"><a href="/case-studies/">Back to the case studies</a></p>
+    </div>
+  </main>
+</AuthLayout>

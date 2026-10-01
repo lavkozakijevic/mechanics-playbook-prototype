@@ -45,10 +45,10 @@ function mechHref(id) {
   const m = mechById.get(id);
   return m ? mechanicHref(id, m.visibility) : null;
 }
-// Apps genuinely are subscriber content, so this one still routes to /subscribe/.
+// Every app links to its case study; for a locked one the Worker renders the gate there.
 function caseStudyHref(app) {
   if (!app) return null;
-  return app.visibility === "public" ? `/case-studies/${app.id}/` : "/subscribe/";
+  return `/case-studies/${app.id}/`;
 }
 
 const SECTIONS = [

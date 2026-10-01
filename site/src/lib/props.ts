@@ -145,35 +145,36 @@ function mechanicRelationship(a: App, mechanicId: string) {
   return rel ? { writeup: rel.writeup, screenshots: rel.screenshots, suggestedShots: rel.suggestedShots, depth: rel.depth } : null;
 }
 
-// Open-first, locked-rest (spec §3.2/§3.3, extended to mechanic pages by
-// §4's "Seen in the wild now lists implementations under the same rule").
-// "First" is first survivor after the filters above, in whatever order the
-// caller's `apps` already arrive in — there's no curation field, by design,
-// so this reads the existing order rather than adding one. A locked example
-// always points at /subscribe/, regardless of whether that app happens to
-// be public elsewhere on the site: the gate is about what this mechanic page
-// gives away for free, not about the app's own visibility.
+// What a mechanic page gives away about each app that uses it (gating, 1 Oct
+// 2026, replacing the old "first example open, the rest locked" rule):
+//   a FREE app (strava, the rotating free slot) keeps its full sample: the
+//   headline, What stands out and the screenshot area, since its case study is
+//   public anyway;
+//   any other app shows its name and the write-up headline, with a link to its
+//   case study (which is a gate for a visitor without access), and nothing else:
+//   no What stands out, no screenshots. The headline is the one-sentence
+//   implementation summary, the same line the mechanics library already shows on
+//   every card. The order is the caller's, as before.
 export function mechanicStudies(mechanicId: string, apps: App[]) {
   return apps
     .filter((a) => !EXAMPLE_EXCLUDED.has(a.id))
     .map((a) => ({ a, rel: mechanicRelationship(a, mechanicId) }))
     .filter((x): x is { a: App; rel: NonNullable<ReturnType<typeof mechanicRelationship>> } => x.rel !== null)
     .filter((x) => exampleComplete(x.rel.writeup))
-    .map(({ a, rel }, i) => {
+    .map(({ a, rel }) => {
       const w = rel.writeup!;
-      const locked = i > 0;
+      const free = a.visibility === "public";
       return {
         app: a.name,
         cat: a.category,
-        locked,
-        href: locked ? "/subscribe/" : a.visibility === "public" ? `/case-studies/${a.id}/` : "/subscribe/",
+        locked: !free,
+        href: `/case-studies/${a.id}/`,
         depth: rel.depth,
-        // Every open example shows a screenshot area (owner ruling, 11 Jun
+        // Every free example shows a screenshot area (owner ruling, 11 Jun
         // 2026): real screenshots and suggested-shot captions both flex the
-        // count above two — the two-frame stack is a minimum, never a cap —
-        // with blank placeholders padding examples where the analysis has
-        // neither. Locked examples show no screenshots at all.
-        shots: locked
+        // count above two, with blank placeholders padding examples where the
+        // analysis has neither. A locked app's example shows no screenshots.
+        shots: !free
           ? []
           : (() => {
               if (rel.screenshots.length > 0) {
@@ -185,10 +186,10 @@ export function mechanicStudies(mechanicId: string, apps: App[]) {
               while (slots.length < 2) slots.push({});
               return slots;
             })(),
-        // Two lines (voice rewrite, 30 Sep 2026): the implementation summary
-        // as the headline, What stands out under it — Why it works is
-        // dropped entirely, not carried forward from any shape.
-        narrative: locked ? null : { headline: w.summary ?? "", standout: w.whatStandsOut || w.noting || "" },
+        // The headline is public for every app; What stands out is the free
+        // apps' alone.
+        headline: w.summary ?? "",
+        narrative: free ? { headline: w.summary ?? "", standout: w.whatStandsOut || w.noting || "" } : null,
       };
     });
 }
@@ -252,7 +253,7 @@ export function systemProps(app: App, byId: MechanicsById) {
   const wmw = sys.whatMakesItWork;
   return {
     appName: app.name,
-    appHref: app.visibility === "public" ? `/case-studies/${app.id}/` : "/subscribe/",
+    appHref: `/case-studies/${app.id}/`,
     typeLabel: titleCase(app.type),
     domain: { label: app.category, cat: dominantCategory(app, byId) },
     overview: sys.overview,
@@ -333,7 +334,7 @@ export function appCard(app: App, byId?: MechanicsById) {
     desc: app.teaser ?? app.summary,
     mechanicCount: app.mechanics.length,
     date: formatDate(app.analysisDate),
-    href: app.visibility === "public" ? `/case-studies/${app.id}/` : "/subscribe/",
+    href: `/case-studies/${app.id}/`, // a locked one shows the gate there
     iconSrc: app.icon,
     iconInitials: initials(app.name),
     free: app.visibility === "public",

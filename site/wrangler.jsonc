@@ -4,6 +4,8 @@
   // name (see the setup steps). Not "mechanics-playbook": that name belongs to
   // the repo-root wrangler.jsonc, which serves the live site.
   "name": "appservatory",
+  // Astro's own handler with one addition in front (protected files). See src/worker.ts.
+  "main": "src/worker.ts",
   "compatibility_date": "2026-05-28",
   "compatibility_flags": ["nodejs_compat"],
 
@@ -18,17 +20,19 @@
     "logs": { "invocation_logs": false }
   },
 
-  // The adapter sets `main` and the assets directory itself. Only what it
-  // can't know goes here.
-  //  - not_found_handling: serve 404.html with a 404 status for unknown paths.
-  //  - run_worker_first: for a browser *navigation* to a path with no static
-  //    file, Cloudflare answers with 404.html without ever starting the Worker.
-  //    The sign-in link in the email is exactly that (/auth/confirm has no
-  //    static file), so every path served by an on-request route must be listed
-  //    here. Add a path when a page moves to on-request rendering.
+  // The adapter sets the assets directory itself. Only what it can't know goes
+  // here.
+  //  - not_found_handling "none": a static file is served first, and a request
+  //    with no file (a protected case study or system, whatever is not built
+  //    static) is handed to the Worker. Astro then renders its own 404 page for
+  //    a path nothing matches. ("404-page" would answer 404.html for a browser
+  //    navigation to such a path without ever starting the Worker.)
+  //  - run_worker_first: these paths always start the Worker, even where a file
+  //    exists. /auth, /api and /checkout are on-request routes; /protected/ is
+  //    the one place real files must NOT be served without a check (src/worker.ts).
   "assets": {
-    "not_found_handling": "404-page",
-    "run_worker_first": ["/auth/*", "/api/*", "/checkout", "/checkout/*"]
+    "not_found_handling": "none",
+    "run_worker_first": ["/auth/*", "/api/*", "/checkout", "/checkout/*", "/protected/*"]
   },
 
   // The payments Worker's checkout entrypoint (an RPC class, no URL). The

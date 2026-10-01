@@ -1,0 +1,85 @@
+---
+// Every system map that is NOT free, rendered on request (see
+// case-studies/[...rest].astro for the pattern; systems/[id].astro builds only
+// the free ones). A visitor without access is given the app's name, type,
+// category and tagline and the subscribe card, and nothing of the system itself:
+// the old locked page was handed the whole system as island props, which put it
+// in the page source. Full system data is in a response only when the visitor is
+// entitled (or the review window is open).
+import { env } from "cloudflare:workers";
+import { getEntry } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import { SystemDetailPage } from "../../components/site/SystemDetail.jsx";
+import PastDueBanner from "../../components/site/PastDueBanner.astro";
+import AccessMessage from "../../components/site/AccessMessage.astro";
+import { publishedApp, publishedMechanics } from "../../lib/content";
+import { systemProps } from "../../lib/props";
+import { isFreeSystem, systemGateFields } from "../../lib/gate-data.mjs";
+import { PROTECTED_HEADERS, isAppId, loginHrefFor, parseProtectedPath } from "../../lib/access.mjs";
+import { setCookieLines } from "../../lib/auth-config.mjs";
+import { resolveAccess } from "../../lib/gate-server";
+
+export const prerender = false;
+
+const request = Astro.request;
+const headers = Astro.response.headers;
+for (const [k, v] of Object.entries(PROTECTED_HEADERS)) headers.set(k, v);
+
+if (request.method !== "GET" && request.method !== "HEAD") {
+  return new Response("Method not allowed", { status: 405, headers: { ...PROTECTED_HEADERS, Allow: "GET, HEAD", "Content-Type": "text/plain; charset=utf-8" } });
+}
+
+let view: "not-found" | "unavailable" | "full" | "gate" = "not-found";
+let app: any = null;
+let access: any = { view: "gate", pastDue: false, signedIn: false };
+let name = "";
+let tagline = "";
+let props: any = null;
+
+const parsed = parseProtectedPath(Astro.url.pathname);
+if (parsed?.kind === "system" && isAppId(parsed.id)) {
+  const found = (await publishedApp(parsed.id))?.data;
+  if (found && found.system) {
+    app = found;
+    const freeSystems = (await getEntry("settings", "homepage"))!.data.freeSystemApps;
+    access = await resolveAccess(request, env, { free: isFreeSystem(found, freeSystems) });
+    for (const line of setCookieLines(access.cookies)) headers.append("Set-Cookie", line);
+    const byId = new Map((await publishedMechanics()).map((m) => [m.data.id, m.data]));
+    const full = systemProps(found, byId);
+    name = found.name;
+    tagline = full.tagline ?? "";
+    if (access.view === "unavailable") {
+      view = "unavailable";
+    } else if (access.view === "full") {
+      view = "full";
+      props = full;
+    } else {
+      view = "gate";
+      props = systemGateFields(full);
+    }
+  }
+}
+if (view === "not-found") Astro.response.status = 404;
+if (view === "unavailable") Astro.response.status = 503;
+---
+
+{view === "not-found" && (
+  <AccessMessage title="Not found — Appservatory" heading="That page isn't in the library" body="Check the address, or go back to the case studies." />
+)}
+
+{view === "unavailable" && (
+  <AccessMessage title="Appservatory" heading="We couldn't check your access" body="Try again in a moment. Nothing has been charged and nothing is lost." />
+)}
+
+{view === "full" && (
+  <Base title={`${name} system map — Appservatory`} description={tagline.slice(0, 155)} current="systems">
+    {access.pastDue && <PastDueBanner />}
+    <SystemDetailPage client:load system={props} locked={false} />
+  </Base>
+)}
+
+{view === "gate" && (
+  <Base title={`${name} system map — Appservatory`} description={tagline.slice(0, 155)} current="systems">
+    <SystemDetailPage client:load system={props} locked={true} signedIn={access.signedIn} loginHref={loginHrefFor(Astro.url.pathname)} />
+  </Base>
+)}

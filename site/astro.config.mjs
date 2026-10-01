@@ -2,11 +2,31 @@ import { defineConfig, sessionDrivers } from "astro/config";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import cloudflare from "@astrojs/cloudflare";
+import fs from "node:fs";
+import path from "node:path";
 
 // The production domain is set when Cloudflare is pointed at the new build
 // (Stage 2 sign-off). Until then the env var or placeholder keeps sitemap
 // generation working on previews.
 const site = process.env.SITE_URL || "https://mechanics-playbook.pages.dev";
+
+// Case study and system pages for apps that are not free are rendered on request
+// (never written to a file), so the sitemap integration cannot see them. Their
+// gate pages are still real pages (indexable after launch, with only public text),
+// so they are listed here from the content. Section pages of a locked app redirect
+// to the summary page and are not listed. Report-only apps are never listed.
+function lockedAppPages() {
+  const dir = path.resolve("./src/content/apps");
+  if (!fs.existsSync(dir)) return [];
+  const pages = [];
+  for (const f of fs.readdirSync(dir).filter((n) => n.endsWith(".json")).sort()) {
+    const app = JSON.parse(fs.readFileSync(path.join(dir, f), "utf8"));
+    if (app.visibility !== "subscriber") continue;
+    pages.push(new URL(`/case-studies/${app.id}/`, site).href);
+    if (app.system) pages.push(new URL(`/systems/${app.id}/`, site).href);
+  }
+  return pages;
+}
 
 // Output stays static: every page is pre-built exactly as before. The adapter
 // only matters for routes that opt out with `export const prerender = false`
@@ -46,6 +66,6 @@ export default defineConfig({
   session: { driver: sessionDrivers.null() },
   // The sign-in and checkout pages render on request and are not pages to
   // list: they only ever serve a signed-in visitor or a one-time link.
-  integrations: [react(), sitemap({ filter: (page) => !/^\/(auth|checkout)\//.test(new URL(page).pathname) })],
+  integrations: [react(), sitemap({ filter: (page) => !/^\/(auth|checkout)\//.test(new URL(page).pathname), customPages: lockedAppPages() })],
   vite: { plugins: [stripProcessBannerFromClient] },
 });

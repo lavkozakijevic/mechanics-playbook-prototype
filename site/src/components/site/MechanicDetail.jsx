@@ -2,7 +2,6 @@
 import React from "react";
 import { Tag } from "../ds/Tag.jsx";
 import { Badge } from "../ds/Badge.jsx";
-import { SUBSCRIBE_TO_EXPLORE_CTA } from "../../lib/site-copy";
 
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
@@ -151,14 +150,18 @@ function CaseStudies({ studies }) {
                 {s.locked && <Badge tone="neutral" variant="outline" icon={IconLock}>For subscribers</Badge>}
               </div>
             </div>
-            {/* Two lines (voice rewrite, 30 Sep 2026): the implementation
-                summary as the headline, What stands out underneath it. See
-                mechanicStudies() (lib/props.ts) for where headline/standout
-                come from. */}
+            {/* A free app: the headline and What stands out. Any other app: the
+                headline alone, and a link to its case study. See
+                mechanicStudies() (lib/props.ts). */}
             {!s.locked && s.narrative && (
               <div className="cstudy__narr">
                 <p className="cstudy__headline">{s.narrative.headline}</p>
                 <p className="cstudy__standout">{s.narrative.standout}</p>
+              </div>
+            )}
+            {s.locked && s.headline && (
+              <div className="cstudy__narr">
+                <p className="cstudy__headline">{s.headline}</p>
               </div>
             )}
             {!s.locked && (
@@ -174,9 +177,7 @@ function CaseStudies({ studies }) {
               </div>
             )}
             <div className="cstudy__foot">
-              {s.locked
-                ? <a className="cstudy__link" href="/subscribe/">{SUBSCRIBE_TO_EXPLORE_CTA} {IconArrow}</a>
-                : <a className="cstudy__link" href={s.href}>View full case study {IconArrow}</a>}
+              <a className="cstudy__link" href={s.href}>{s.locked ? "Read the case study" : "View full case study"} {IconArrow}</a>
             </div>
           </article>
         ))}

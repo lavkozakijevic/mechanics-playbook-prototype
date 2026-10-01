@@ -17,7 +17,8 @@ const systems = withSystems.map((a) => {
     id: a.data.id,
     name: a.data.name,
     oneLiner: a.data.system!.tagline,
-    href: locked ? "/subscribe/" : `/systems/${a.data.id}/`,
+    // Always the system page: for a locked one the Worker renders the gate there.
+    href: `/systems/${a.data.id}/`,
     nodes: p.nodes,
     connections: p.connections,
     type: a.data.type === "game" ? "Game" : "App",

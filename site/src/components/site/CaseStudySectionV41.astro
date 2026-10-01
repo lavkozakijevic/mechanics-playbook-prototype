@@ -18,19 +18,24 @@
  * modifier class added: .cs-toc__link--empty.
  */
 import ObservationCard from "./ObservationCard.astro";
-import { GateWidget } from "./GateWidget.jsx";
+import PastDueBanner from "./PastDueBanner.astro";
+import { SubscribeCard } from "./Subscribe.jsx";
 import { allSectionCounts, nonEmptySections, tagBlocks } from "../../lib/v41";
-import { PREVIEW_UNLOCK } from "../../lib/preview";
 import { GATE_EYEBROW, GATE_DETAIL } from "../../lib/site-copy";
 
 interface Props {
   app: any;
   section: string;
   mechanicsById: Map<string, any>;
+  /** What the visitor may see. A section page is only ever rendered in full: a visitor
+   *  without access is redirected to the summary page's gate before this runs. */
+  access?: { view: "full"; pastDue?: boolean };
 }
 
-const { app, section, mechanicsById } = Astro.props as Props;
-const locked = app.visibility !== "public" && !PREVIEW_UNLOCK;
+const { app, section, mechanicsById, access = { view: "full" } } = Astro.props as Props;
+// Kept as a variable so the (now unreachable) gate branch below stays correct if
+// a caller ever passes a non-full view.
+const locked = access.view !== "full";
 
 const nonEmpty = nonEmptySections(app);
 const currentIndex = nonEmpty.findIndex((s) => s.slug === section);
@@ -52,6 +57,7 @@ const allSections = locked ? [] : allSectionCounts(app);
 const blockByName = locked ? new Map() : new Map(tagBlocks(app, mechanicsById).map((b) => [b.name, b]));
 ---
 
+{access.pastDue && !locked && <PastDueBanner />}
 {locked ? (
   <div class="container container--narrow">
     <nav class="crumb" aria-label="Breadcrumb">
@@ -65,7 +71,7 @@ const blockByName = locked ? new Map() : new Map(tagBlocks(app, mechanicsById).m
         <h2 class="cs-gate__h">Read {current?.name ?? section}</h2>
         <p class="cs-gate__p">{GATE_DETAIL.section(app.name)}</p>
       </div>
-      <GateWidget client:load />
+      <SubscribeCard />
     </div>
   </div>
 ) : (

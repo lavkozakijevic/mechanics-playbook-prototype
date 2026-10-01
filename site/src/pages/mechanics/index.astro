@@ -42,7 +42,7 @@ interface Card {
 // Energy and Lives both landing on `energy-lives`) still
 // get two separate cards here, same as they get two separate blocks on
 // that app's own summary page — not a mistake to fold together (v41.ts).
-const cardsByMechanic = new Map<string, Omit<Card, "locked">[]>();
+const cardsByMechanic = new Map<string, Card[]>();
 for (const app of v41Apps) {
   const blocks = tagBlocks(app.data, mechanicsById);
   for (const block of blocks) {
@@ -62,6 +62,10 @@ for (const app of v41Apps) {
           .filter(Boolean)
       )],
       mechanicId: block.mechanicId,
+      // Gating (1 Oct 2026): a card for an app that is not free shows its name and
+      // the headline, and links to its case study (a gate for a visitor without
+      // access). Free apps (strava, the rotating free slot) are unlocked.
+      locked: app.data.visibility !== "public",
     });
     cardsByMechanic.set(block.mechanic.id, list);
   }
@@ -77,16 +81,13 @@ const ROLE_OPTIONS = ["retention", "monetization", "social", "progression", "com
 //
 // A mechanic with zero implementations gets no pill at all (spec §3.0: "not
 // as an empty tag, not as a disabled one" — a permanent rule, not a
-// migration workaround). Locking is positional (spec §3.3: "the first is
-// open, the rest are locked"), not app-visibility-based — the earlier build
-// of this page locked by `app.data.visibility`, which this rebuild
-// corrects; a mechanic's index card is about what the library is willing
-// to show for free on this page, not about what's public elsewhere on the
-// site.
+// migration workaround). Locking follows the app (gating, 1 Oct 2026): an app
+// that is not free gets a locked-style card with its name and the one-line
+// headline and a link to its case study; the free apps' cards are unlocked.
 const pills = mechanics
   .map((m) => {
     const sorted = (cardsByMechanic.get(m.data.id) ?? []).sort((a, b) => a.appName.localeCompare(b.appName));
-    const cards: Card[] = sorted.map((c, i) => ({ ...c, locked: i > 0 }));
+    const cards: Card[] = sorted;
     return { card: mechanicCard(m.data, cards.length), cat: m.data.cat, cards };
   })
   .filter((p) => p.cards.length > 0)
@@ -183,7 +184,12 @@ const playerOptions = [...new Set(mechanics.flatMap((m) => m.data.players ?? [])
               <div class="mech-cards" data-mech-cards={card.id} hidden>
                 {cards.map((c) => (
                   c.locked ? (
-                    <div class="csc csc--impl csc--locked-strict" data-role-card data-roles={JSON.stringify(c.roleTokens)}>
+                    <a
+                      class="csc csc--impl csc--locked-strict"
+                      href={`/case-studies/${c.appId}/`}
+                      data-role-card
+                      data-roles={JSON.stringify(c.roleTokens)}
+                    >
                       <div class="csc__head">
                         {c.appIcon ? (
                           <div class="csc__icon" aria-hidden="true"><img src={c.appIcon} alt="" style="width:100%;height:100%;object-fit:cover;" /></div>
@@ -194,9 +200,9 @@ const playerOptions = [...new Set(mechanics.flatMap((m) => m.data.players ?? [])
                       </div>
                       {c.summary && <p class="csc__desc">{c.summary}</p>}
                       <div class="csc__foot">
-                        <a class="csc__go" href="/subscribe/">Subscribe to see this in context</a>
+                        <span class="csc__go">Read the case study</span>
                       </div>
-                    </div>
+                    </a>
                   ) : (
                     <a
                       class="csc csc--impl"

@@ -4,9 +4,17 @@ import { CaseStudyDetailPage } from "../../components/site/CaseStudyDetail.jsx";
 import CaseStudySummaryV41 from "../../components/site/CaseStudySummaryV41.astro";
 import { publishedApps, publishedMechanics } from "../../lib/content";
 import { caseStudyProps } from "../../lib/props";
+import { isFreeApp } from "../../lib/gate-data.mjs";
 
+// Only FREE apps (strava, and the rotating free slot) are built as static pages:
+// they are public, so a file is right. Every other case study is rendered on
+// request by case-studies/[...rest].astro after an entitlement check, and is
+// never written to a file. Astro matches the more specific route first and, in
+// the Worker, falls through to [...rest] for a path this one has no page for.
 export async function getStaticPaths() {
-  return (await publishedApps()).map((app) => ({ params: { id: app.data.id }, props: { app } }));
+  return (await publishedApps())
+    .filter((app) => isFreeApp(app.data))
+    .map((app) => ({ params: { id: app.data.id }, props: { app } }));
 }
 
 const { app } = Astro.props;
@@ -22,6 +30,6 @@ const byId = new Map(mechanics.map((m) => [m.data.id, m.data]));
   {app.data.contentFormat === "v4.1" ? (
     <CaseStudySummaryV41 app={app.data} mechanicsById={byId} />
   ) : (
-    <CaseStudyDetailPage client:load app={caseStudyProps(app.data, byId)} locked={app.data.visibility !== "public"} />
+    <CaseStudyDetailPage client:load app={caseStudyProps(app.data, byId)} locked={false} />
   )}
 </Base>

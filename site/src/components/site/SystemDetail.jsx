@@ -189,7 +189,7 @@ function ConnectionModal({ conn, byId, onClose }) {
  *  insight, what makes it work, and a link to the full case study. */
 /** Locked system: keep the title and opening introduction (the tagline), then
  *  present the subscribe offer in place of the interactive map. */
-function LockedSystem({ system }) {
+function LockedSystem({ system, loginHref, signedIn }) {
   return (
     <main id="main">
       <section className="mech-head" aria-labelledby="sys-h">
@@ -219,6 +219,9 @@ function LockedSystem({ system }) {
               <p className="cs-gate__p">{GATE_DETAIL.system}</p>
             </div>
             <SubscribeCard />
+            {!signedIn && (
+              <p className="cs-gate__login">Already subscribed? <a href={loginHref}>Log in</a></p>
+            )}
           </div>
         </div>
       </section>
@@ -351,6 +354,6 @@ function FullSystem({ system }) {
 
 /** System page: the interactive map for public/free-slot apps, or the subscribe
  *  gate (title + opening introduction + offer) for subscriber apps. */
-export function SystemDetailPage({ system, locked = false }) {
-  return locked ? <LockedSystem system={system} /> : <FullSystem system={system} />;
+export function SystemDetailPage({ system, locked = false, loginHref = "/login/", signedIn = false }) {
+  return locked ? <LockedSystem system={system} loginHref={loginHref} signedIn={signedIn} /> : <FullSystem system={system} />;
 }

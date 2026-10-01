@@ -1,4 +1,4 @@
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection, getEntry, type CollectionEntry } from "astro:content";
 import { HELD_BACK_MECHANIC_IDS } from "./held-back-mechanic-ids.mjs";
 export { HELD_BACK_MECHANIC_IDS };
 
@@ -8,6 +8,14 @@ export { HELD_BACK_MECHANIC_IDS };
  */
 export async function publishedApps(): Promise<CollectionEntry<"apps">[]> {
   return (await getCollection("apps")).filter((a) => a.data.visibility !== "report-only");
+}
+
+/** One app by id (not report-only), without loading and walking every app: the
+ *  on-request pages call this per request, and getCollection("apps") would copy
+ *  and walk all of them each time. */
+export async function publishedApp(id: string): Promise<CollectionEntry<"apps"> | undefined> {
+  const entry = await getEntry("apps", id);
+  return entry && entry.data.visibility !== "report-only" ? entry : undefined;
 }
 
 export async function publishedMechanics(): Promise<CollectionEntry<"mechanics">[]> {

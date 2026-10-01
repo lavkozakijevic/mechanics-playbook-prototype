@@ -1,0 +1,115 @@
+---
+// Every case study that is NOT free, rendered on request. Never a static file:
+// /case-studies/<id>/ and /case-studies/<id>/<section>/ for an app that is not
+// declared public reach this route, because the build only writes pages for the
+// free apps (case-studies/[id].astro) and Cloudflare hands a path with no file
+// to the Worker.
+//
+// For each request the Worker works out what this visitor may see
+// (src/lib/gate-server.ts, src/lib/access.mjs):
+//   full / past_due   the case study (past_due with a banner)
+//   no session, none  the gate: the name, summary and the subscribe card only;
+//                     a section page redirects to the summary page's gate
+//   could not check   a plain 503, never content
+// and every response here, whatever it is, is private, no-store and noindex.
+import { env } from "cloudflare:workers";
+import Base from "../../layouts/Base.astro";
+import CaseStudySummaryV41 from "../../components/site/CaseStudySummaryV41.astro";
+import CaseStudySectionV41 from "../../components/site/CaseStudySectionV41.astro";
+import AccessMessage from "../../components/site/AccessMessage.astro";
+import { publishedApp, publishedMechanics } from "../../lib/content";
+import { nonEmptySections } from "../../lib/v41";
+import { isFreeApp, publicAppFields } from "../../lib/gate-data.mjs";
+import { PROTECTED_HEADERS, isAppId, loginHrefFor, parseProtectedPath } from "../../lib/access.mjs";
+import { setCookieLines } from "../../lib/auth-config.mjs";
+import { resolveAccess } from "../../lib/gate-server";
+
+export const prerender = false;
+
+const request = Astro.request;
+const headers = Astro.response.headers;
+for (const [k, v] of Object.entries(PROTECTED_HEADERS)) headers.set(k, v);
+
+const notFound = () => {
+  Astro.response.status = 404;
+  return "not-found" as const;
+};
+
+let view: "not-found" | "unavailable" | "summary-gate" | "summary" | "section" = "not-found";
+let app: any = null;
+let section = "";
+let access: any = { view: "gate", pastDue: false, signedIn: false };
+
+const parsed = parseProtectedPath(Astro.url.pathname);
+if (request.method !== "GET" && request.method !== "HEAD") {
+  return new Response("Method not allowed", { status: 405, headers: { ...PROTECTED_HEADERS, Allow: "GET, HEAD", "Content-Type": "text/plain; charset=utf-8" } });
+}
+
+if (!parsed || (parsed.kind !== "case-study" && parsed.kind !== "section") || !isAppId(parsed.id)) {
+  view = notFound();
+} else {
+  const found = (await publishedApp(parsed.id))?.data;
+  // A report-only app is not in publishedApps(), so it cannot be found here. Only
+  // the v4.1 shape is rendered on request (every live app is on it).
+  if (!found || found.contentFormat !== "v4.1") {
+    view = notFound();
+  } else if (parsed.kind === "section" && !nonEmptySections(found).some((s: any) => s.slug === parsed.section)) {
+    view = notFound();
+  } else {
+    app = found;
+    access = await resolveAccess(request, env, { free: isFreeApp(found) });
+    for (const line of setCookieLines(access.cookies)) headers.append("Set-Cookie", line);
+    if (access.view === "unavailable") {
+      Astro.response.status = 503;
+      view = "unavailable";
+    } else if (parsed.kind === "section") {
+      if (access.view !== "full") {
+        // Not entitled: the summary page's gate, not nine empty ones.
+        const redirect = new Headers({ ...PROTECTED_HEADERS, Location: `/case-studies/${found.id}/` });
+        for (const line of setCookieLines(access.cookies)) redirect.append("Set-Cookie", line);
+        return new Response(null, { status: 303, headers: redirect });
+      }
+      section = parsed.section;
+      view = "section";
+    } else {
+      view = access.view === "full" ? "summary" : "summary-gate";
+    }
+  }
+}
+
+const mechanicsById = view === "summary" || view === "section"
+  ? new Map((await publishedMechanics()).map((m) => [m.data.id, m.data]))
+  : new Map();
+const sectionName = view === "section" ? nonEmptySections(app).find((s: any) => s.slug === section)?.name ?? section : "";
+---
+
+{view === "not-found" && (
+  <AccessMessage title="Not found — Appservatory" heading="That page isn't in the library" body="Check the address, or go back to the case studies." />
+)}
+
+{view === "unavailable" && (
+  <AccessMessage title="Appservatory" heading="We couldn't check your access" body="Try again in a moment. Nothing has been charged and nothing is lost." />
+)}
+
+{view === "summary" && (
+  <Base title={`${app.name} — case study — Appservatory`} description={app.summary.slice(0, 155)} current="case-studies">
+    <CaseStudySummaryV41 app={app} mechanicsById={mechanicsById} access={{ view: "full", pastDue: access.pastDue, signedIn: true }} />
+  </Base>
+)}
+
+{view === "summary-gate" && (
+  <Base title={`${app.name} — case study — Appservatory`} description={app.summary.slice(0, 155)} current="case-studies">
+    <CaseStudySummaryV41
+      app={publicAppFields(app)}
+      mechanicsById={new Map()}
+      access={{ view: "gate", signedIn: access.signedIn }}
+      loginHref={loginHrefFor(Astro.url.pathname)}
+    />
+  </Base>
+)}
+
+{view === "section" && (
+  <Base title={`${app.name} — ${sectionName} — Appservatory`} description={app.summary.slice(0, 155)} current="case-studies">
+    <CaseStudySectionV41 app={app} section={section} mechanicsById={mechanicsById} access={{ view: "full", pastDue: access.pastDue }} />
+  </Base>
+)}

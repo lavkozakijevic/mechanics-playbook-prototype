@@ -1712,6 +1712,18 @@ span.cs-chip--sm:hover { border-color: var(--border-default); box-shadow: none; 
   letter-spacing: var(--tracking-display); color: var(--paper); margin: 0 auto; max-width: 18ch; text-wrap: balance; }
 .sp-close .gb-btn, .sp-close a[class*="btn"] { margin-top: clamp(26px, 3vw, 36px); }
 
+/* Past-due banner (every protected page when the last payment failed). Fill
+   and text carry it; the hairline is only an edge. Placeholder wording until the
+   customer portal exists. */
+.pd-banner { background: var(--warn-tint); color: var(--ink-900); border-bottom: var(--rule-hairline); padding-block: var(--space-3); }
+.pd-banner__inner { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-3); align-items: baseline; font: var(--type-body-sm); }
+.pd-banner strong { font-weight: var(--weight-semibold); }
+
+/* The gate's "Already subscribed? Log in" line, under the subscribe card. */
+.cs-gate__login { font: var(--type-body-sm); color: var(--text-muted); text-align: center; margin: var(--space-4) 0 0; }
+.cs-gate__login a { color: var(--text-accent); font-weight: var(--weight-medium); text-decoration: none; }
+.cs-gate__login a:hover { text-decoration: underline; text-underline-offset: 2px; }
+
 /* Form pieces the exit-intent popup uses (they began in the waitlist modal, which
    has been removed: Subscribe now goes to checkout). */
 .wl-close {
