@@ -2,6 +2,10 @@
  * Report-only leak check — runs after every build (migration brief, Stage 3).
  *
  * Scans every text file in dist/ for the IDs and names of report-only apps.
+ * dist/ holds two trees since the Cloudflare adapter (30 Sep 2026): client/
+ * (the pre-built pages and assets) and server/ (the Worker bundle for the
+ * routes that render on request). Both are scanned, so report-only content
+ * can't hide in the bundle either.
  * The report-only list is read from the content collection itself, so newly
  * imported report-only apps are covered automatically. Any hit fails the
  * build, which means a leaking build can never reach Cloudflare.
@@ -17,6 +21,14 @@ const appsDir = path.resolve(here, "../src/content/apps");
 if (!fs.existsSync(dist)) {
   console.error("check-report-leak: dist/ does not exist — run the build first.");
   process.exit(1);
+}
+// If the build ever stops producing either tree, fail loudly rather than
+// quietly scanning less than we think we are.
+for (const sub of ["client", "server"]) {
+  if (!fs.existsSync(path.join(dist, sub))) {
+    console.error(`check-report-leak: dist/${sub}/ is missing — expected both dist/client and dist/server.`);
+    process.exit(1);
+  }
 }
 
 // Collect the terms that must never appear: report-only app IDs and names.
@@ -37,7 +49,8 @@ const patterns = terms.map((t) => ({
   re: new RegExp("\\b" + t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b", "i"),
 }));
 
-const TEXT_EXT = new Set([".html", ".xml", ".json", ".js", ".css", ".txt", ".svg", ".webmanifest"]);
+// .mjs and .cjs: the Worker bundle in dist/server is made of them.
+const TEXT_EXT = new Set([".html", ".xml", ".json", ".js", ".mjs", ".cjs", ".css", ".txt", ".svg", ".webmanifest"]);
 const hits = [];
 function walk(dir) {
   for (const name of fs.readdirSync(dir)) {
@@ -76,7 +89,7 @@ if (hits.length) {
 // EXAMPLE_EXCLUDED in site/src/lib/props.ts, which is the list that actually
 // gates rendering; this is the independent build-time check that it worked.
 const EXAMPLE_EXCLUDED_IDS = ["cleo", "acorns", "starling-bank", "orbit", "george-app-erste-serbia"];
-const mechDir = path.join(dist, "mechanics");
+const mechDir = path.join(dist, "client", "mechanics");
 const exampleHits = [];
 if (fs.existsSync(mechDir)) {
   const walkMech = (dir) => {
@@ -103,6 +116,6 @@ if (exampleHits.length) {
 }
 
 console.log(
-  `Report-only leak check passed: ${terms.length / 2} report-only apps, zero traces in dist/; ` +
+  `Report-only leak check passed: ${terms.length / 2} report-only apps, zero traces in dist/ (client and server); ` +
     `example-block guard passed: ${EXAMPLE_EXCLUDED_IDS.length} barred apps, none rendered as examples.`
 );

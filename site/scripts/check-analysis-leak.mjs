@@ -63,10 +63,11 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const dist = path.resolve(here, "../dist");
+// The pre-built pages live in dist/client since the Cloudflare adapter.
+const dist = path.resolve(here, "../dist/client");
 
 if (!fs.existsSync(dist)) {
-  console.error("check-analysis-leak: dist/ does not exist — run the build first.");
+  console.error("check-analysis-leak: dist/client/ does not exist — run the build first.");
   process.exit(1);
 }
 

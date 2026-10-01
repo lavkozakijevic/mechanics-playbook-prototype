@@ -1,0 +1,41 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // The Worker's name. The Cloudflare project must be created with exactly this
+  // name (see the setup steps). Not "mechanics-playbook": that name belongs to
+  // the repo-root wrangler.jsonc, which serves the live site.
+  "name": "appservatory",
+  "compatibility_date": "2026-05-28",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // Variables and secrets are set in the Cloudflare dashboard and survive
+  // deploys; nothing secret belongs in this file.
+  "keep_vars": true,
+
+  // Invocation logs would record every request URL, and the sign-in link
+  // carries a one-time token in its query string. Turned off on purpose.
+  "observability": {
+    "enabled": true,
+    "logs": { "invocation_logs": false }
+  },
+
+  // The adapter sets `main` and the assets directory itself. Only what it
+  // can't know goes here.
+  //  - not_found_handling: serve 404.html with a 404 status for unknown paths.
+  //  - run_worker_first: for a browser *navigation* to a path with no static
+  //    file, Cloudflare answers with 404.html without ever starting the Worker.
+  //    The sign-in link in the email is exactly that (/auth/confirm has no
+  //    static file), so every path served by an on-request route must be listed
+  //    here. Add a path when a page moves to on-request rendering.
+  "assets": {
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/auth/*", "/api/*"]
+  },
+
+  // Login rate limits (src/pages/api/auth/login.ts, confirm.astro). Periods can
+  // only be 10 or 60 seconds. namespace_id only has to be unique in the account.
+  "ratelimits": [
+    { "name": "LOGIN_IP_LIMITER", "namespace_id": "47101", "simple": { "limit": 5, "period": 60 } },
+    { "name": "LOGIN_EMAIL_LIMITER", "namespace_id": "47102", "simple": { "limit": 3, "period": 60 } },
+    { "name": "CONFIRM_IP_LIMITER", "namespace_id": "47103", "simple": { "limit": 10, "period": 60 } }
+  ]
+}
