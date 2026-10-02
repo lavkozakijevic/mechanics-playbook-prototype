@@ -1,0 +1,97 @@
+---
+// /account/: the signed-in visitor's email, a Billing link when they have a
+// Paddle customer, and Sign out. Rendered on request, never pre-built, and
+// deliberately not Base.astro (see AuthLayout): it touches no content.
+//
+//   no session -> login, then straight back here
+//   otherwise  -> the page
+//
+// Whether to show Billing comes from the payments Worker (it re-verifies the
+// token and reads this visitor's own rows). That is a display choice only:
+// /account/billing/ checks again before it sends anyone anywhere.
+import { env } from "cloudflare:workers";
+import AuthLayout from "../../layouts/AuthLayout.astro";
+import { Button } from "../../components/ds/Button.jsx";
+import { AUTH_HEADERS, authResponse, hasAuthCookie, setCookieLines } from "../../lib/auth-config.mjs";
+import { createRequestClient, finalCookies, supabaseConfigured } from "../../lib/auth-server.mjs";
+import { ACCOUNT_COPY, ACCOUNT_PATH, BILLING_PATH } from "../../lib/account.mjs";
+import { loginRedirect } from "../../lib/checkout.mjs";
+
+export const prerender = false;
+
+for (const [k, v] of Object.entries(AUTH_HEADERS)) Astro.response.headers.set(k, v);
+
+const request = Astro.request;
+const redirect = (to: string, cookies: { name: string; value: string; options: object }[] = []) =>
+  authResponse(null, { status: 303, json: false, headers: { Location: to }, cookies });
+
+if (request.method !== "GET") {
+  return authResponse("Method not allowed", { status: 405, json: false, headers: { Allow: "GET", "Content-Type": "text/plain; charset=utf-8" } });
+}
+
+if (!hasAuthCookie(request)) return redirect(loginRedirect(ACCOUNT_PATH));
+
+let email: string | null = null;
+let billing = false;
+let billingProblem = false;
+let message: string | null = null;
+
+if (!supabaseConfigured(env)) {
+  Astro.response.status = 503;
+  message = ACCOUNT_COPY.unavailable;
+} else {
+  const { supabase, state } = createRequestClient(request, env);
+  const { data: userData } = await supabase.auth.getUser();
+  if (!userData?.user) return redirect(loginRedirect(ACCOUNT_PATH), finalCookies(state));
+  for (const line of setCookieLines(finalCookies(state))) Astro.response.headers.append("Set-Cookie", line);
+  email = userData.user.email ?? null;
+
+  const { data: sessionData } = await supabase.auth.getSession();
+  let out: any = null;
+  try {
+    out = await (env as any).PAYMENTS?.status({ accessToken: sessionData?.session?.access_token });
+  } catch {
+    console.error(JSON.stringify({ evt: "account_page", reason: "binding_failed" }));
+  }
+  if (out?.ok === true) billing = out.billing === true;
+  else billingProblem = true;
+}
+---
+
+<AuthLayout title={ACCOUNT_COPY.title}>
+  <main class="login" id="main">
+    <div class="login__card">
+      <a class="login__brand" href="/" aria-label="Appservatory home">
+        <img src="/assets/logo/appservatory-logo.png" alt="Appservatory" width="123" height="25" />
+      </a>
+
+      {message && <p class="login__status login__status--error" role="alert">{message}</p>}
+
+      {email && (
+        <div class="login__form" data-account>
+          <h1 class="login__heading">{ACCOUNT_COPY.heading}</h1>
+
+          <dl class="acct__list">
+            <div class="acct__row">
+              <dt class="acct__label">{ACCOUNT_COPY.emailLabel}</dt>
+              <dd class="acct__value" data-email>{email}</dd>
+            </div>
+          </dl>
+
+          {billing && (
+            <div class="acct__billing">
+              <Button as="a" href={BILLING_PATH} variant="secondary" size="lg" className="login__submit" rel="nofollow">{ACCOUNT_COPY.billingLabel}</Button>
+              <p class="acct__note">{ACCOUNT_COPY.billingNote}</p>
+            </div>
+          )}
+          {billingProblem && <p class="acct__note" role="status">{ACCOUNT_COPY.billingUnavailable}</p>}
+
+          <Button variant="secondary" size="lg" type="button" className="login__submit" data-signout>{ACCOUNT_COPY.signOut}</Button>
+        </div>
+      )}
+
+      <p class="login__alt"><a href={ACCOUNT_COPY.back.href}>{ACCOUNT_COPY.back.label}</a></p>
+    </div>
+  </main>
+  {email && <script is:inline src="/assets/account/account.js" defer></script>}
+</AuthLayout>

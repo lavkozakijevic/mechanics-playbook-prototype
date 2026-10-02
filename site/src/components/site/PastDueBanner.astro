@@ -1,13 +1,14 @@
 ---
 // Shown at the top of every protected page when the visitor's last payment
-// failed (entitlement past_due): they still have full access. The wording is a
-// placeholder until the customer portal exists (a later step): it points at the
-// emails Paddle sends, because there is no portal link yet.
+// failed (entitlement past_due): they still have full access. The link opens
+// the payment method page in Paddle's customer portal, through /account/billing/.
+import { BILLING_PAYMENT_PATH } from "../../lib/account.mjs";
 ---
 
 <div class="pd-banner" role="status">
   <div class="container pd-banner__inner">
     <strong>Your last payment didn't go through.</strong>
-    <span>You still have full access for now. Use the link in the emails Paddle sent you to update your payment method. Managing it from this site is coming soon.</span>
+    <span>You still have full access for now.</span>
+    <a class="pd-banner__link" href={BILLING_PAYMENT_PATH} rel="nofollow">Update your payment method</a>
   </div>
 </div>

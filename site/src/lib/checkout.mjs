@@ -9,6 +9,9 @@
  * decides what that plan costs.
  */
 
+import { BILLING_PATH, BILLING_PAYMENT_PATH } from "./account.mjs";
+import { CONTACT_EMAIL } from "./contact.mjs";
+
 export const PLAN_IDS = Object.freeze(["quarterly", "yearly"]);
 
 /** What a visitor reads for each plan. The amounts Paddle charges are set in Paddle. */
@@ -56,32 +59,36 @@ export function formatDate(iso) {
 
 /**
  * What to say instead of checkout. Never offers a second subscription.
- * Wording for past_due and paused is a holding message until the customer
- * portal exists (a later step).
+ * `billing` is whether a Paddle customer is on record: only then is there a
+ * billing page to link to. A link is { href, label }; `secondary` is a smaller
+ * one beneath the button.
  */
-export function stateCopy(state, until) {
+export function stateCopy(state, until, billing = false) {
+  const library = { href: "/case-studies/", label: "Go to the library" };
+  const manage = billing ? { href: BILLING_PATH, label: "Manage billing" } : undefined;
   switch (state) {
     case "entitled":
-      return { heading: "You already have access", body: "Your subscription is active, so there's nothing more to buy.", link: { href: "/case-studies/", label: "Go to the library" } };
+      return { heading: "You already have access", body: "Your subscription is active, so there's nothing more to buy.", link: library, ...(manage ? { secondary: manage } : {}) };
     case "scheduled_cancel": {
       const date = formatDate(until);
       return {
         heading: date ? `Your subscription is active until ${date}` : "Your subscription is active",
         body: "You've chosen to cancel, and you keep full access until then. You can subscribe again after that date.",
-        link: { href: "/case-studies/", label: "Go to the library" },
+        link: library,
+        ...(manage ? { secondary: manage } : {}),
       };
     }
     case "past_due":
       return {
         heading: "Your last payment didn't go through",
-        body: "You still have access for now. Use the link in the emails Paddle sent you to update your payment method. Managing it from this site is coming soon.",
-        link: { href: "/case-studies/", label: "Go to the library" },
+        body: "You still have access for now. Update your payment method to keep it.",
+        ...(billing ? { link: { href: BILLING_PAYMENT_PATH, label: "Update payment method" }, secondary: library } : { link: library }),
       };
     case "paused":
       return {
         heading: "Your subscription is paused",
-        body: "You can't start a second subscription while this one exists. Resuming it from this site is coming soon.",
-        link: { href: "/subscribe/", label: "Back to plans" },
+        body: `You can't start a new subscription while this one exists. To resume it, contact us at ${CONTACT_EMAIL}.`,
+        link: { href: `mailto:${CONTACT_EMAIL}`, label: "Email us" },
       };
     default:
       return null;

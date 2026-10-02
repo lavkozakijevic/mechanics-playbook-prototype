@@ -64,8 +64,8 @@ export default defineConfig({
     imageService: "passthrough",
   }),
   session: { driver: sessionDrivers.null() },
-  // The sign-in and checkout pages render on request and are not pages to
+  // The sign-in, checkout and account pages render on request and are not pages to
   // list: they only ever serve a signed-in visitor or a one-time link.
-  integrations: [react(), sitemap({ filter: (page) => !/^\/(auth|checkout)\//.test(new URL(page).pathname), customPages: lockedAppPages() })],
+  integrations: [react(), sitemap({ filter: (page) => !/^\/(auth|checkout|account)\//.test(new URL(page).pathname), customPages: lockedAppPages() })],
   vite: { plugins: [stripProcessBannerFromClient] },
 });

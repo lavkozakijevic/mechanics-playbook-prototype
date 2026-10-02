@@ -18,6 +18,9 @@ import { needleFor, protectedTexts } from "../src/lib/protected-leak.mjs";
  *     Supabase isn't configured, which is the case in CI
  *  6. checkout: the plan links and copy, redirects for a visitor with no session,
  *     refusals, and that the site holds no Paddle configuration
+ *  7. the account page and the billing link: redirects for a visitor with no
+ *     session, refusals, no static page or sitemap entry, and no leftover
+ *     placeholder wording
  *
  * Expected counts are computed from the content collection at test time, so
  * the tests stay correct as weekly imports add apps.
@@ -487,7 +490,7 @@ test.describe("checkout", () => {
     // Variable names and key-shaped values. (supabase-js's own comments mention
     // "sb_secret_" and SUPABASE_SECRET_KEY, so those words alone are not a hit;
     // a value or an env lookup is.)
-    const patterns = [/PADDLE_(API|CHECKOUT|WEBHOOK|CLIENT|PRICE|ENVIRONMENT|PRODUCT)/, /pdl_(ntfset|sdbx_apikey|live_apikey)_[A-Za-z0-9]{10,}/, /sb_secret_[A-Za-z0-9_-]{20,}/, /(^|[^.\w])env\.SUPABASE_SECRET_KEY/];
+    const patterns = [/PADDLE_(API|CHECKOUT|PORTAL|WEBHOOK|CLIENT|PRICE|ENVIRONMENT|PRODUCT)/, /pdl_(ntfset|sdbx_apikey|live_apikey)_[A-Za-z0-9]{10,}/, /sb_secret_[A-Za-z0-9_-]{20,}/, /(^|[^.\w])env\.SUPABASE_SECRET_KEY/];
     const hits: string[] = [];
     const walk = (dir: string) => {
       for (const name of fs.readdirSync(dir)) {
@@ -513,6 +516,101 @@ test.describe("checkout", () => {
       expect(res.status(), file).toBe(200);
       const body = await res.text();
       expect(body).not.toMatch(/pri_|ctm_|sb_|pdl_|Bearer/);
+    }
+  });
+});
+
+// Account and billing (payments step 6). CI has no Supabase and no Paddle, so
+// what runs here is everything decided before a session is checked: where a
+// visitor with no session is sent, what a foreign site gets, and that a cookie
+// with nothing behind it fails closed. The signed-in paths (the page, the
+// Billing link only with a customer, the redirect to the portal, the refusals)
+// run in the local end-to-end checks (payments-worker/e2e/portal.mjs).
+test.describe("account and billing", () => {
+  test("/account/ and /account/billing/ send a visitor with no session to login and back", async ({ request }) => {
+    for (const [path, next] of [
+      ["/account/", "%2Faccount%2F"],
+      ["/account/billing/", "%2Faccount%2Fbilling%2F"],
+      ["/account/billing/?to=payment", "%2Faccount%2Fbilling%2F%3Fto%3Dpayment"],
+      ["/account/billing/?to=anything-else", "%2Faccount%2Fbilling%2F"],
+    ]) {
+      const res = await request.get(path, { maxRedirects: 0 });
+      expect(res.status(), path).toBe(303);
+      expect(res.headers()["location"], path).toBe(`/login/?next=${next}`);
+      expectAuthHeaders(res);
+    }
+  });
+
+  test("a browser navigation to /account/ reaches the Worker, not the static 404 page", async ({ page }) => {
+    await page.goto("/account/");
+    await expect(page).toHaveURL(/\/login\/\?next=%2Faccount%2F$/);
+  });
+
+  test("the account page answers only GET", async ({ request }) => {
+    for (const path of ["/account/", "/account/billing/"]) {
+      const res = await request.post(path, { data: {}, headers: { origin: SITE_ORIGIN } });
+      expect(res.status(), path).toBe(405);
+      expect(res.headers()["allow"], path).toBe("GET");
+    }
+  });
+
+  test("billing from another site is refused, and makes nothing", async ({ request }) => {
+    const res = await request.get("/account/billing/", { maxRedirects: 0, headers: { "sec-fetch-site": "cross-site", cookie: "__Host-sb-auth=x" } });
+    expect(res.status()).toBe(403);
+    expectAuthHeaders(res);
+    const body = await res.text();
+    expect(body).toContain("didn&#39;t work");
+    expect(body).not.toMatch(/https?:\/\/(?!localhost)[^"' ]*paddle/i);
+  });
+
+  test("a cookie with nothing behind it fails closed: a plain 503 and no account details", async ({ request }) => {
+    // CI has no Supabase, so the Worker cannot ask who this is.
+    const acct = await request.get("/account/", { maxRedirects: 0, headers: { cookie: "__Host-sb-auth=x" } });
+    expect(acct.status()).toBe(503);
+    expectAuthHeaders(acct);
+    const acctBody = await acct.text();
+    expect(acctBody).toContain("isn&#39;t available right now");
+    expect(acctBody).not.toContain('data-email');
+    expect(acctBody).not.toContain("/account/billing/");
+    const billing = await request.get("/account/billing/?to=payment", { maxRedirects: 0, headers: { cookie: "__Host-sb-auth=x" } });
+    expect(billing.status()).toBe(503);
+    expect(billing.headers()["location"]).toBeUndefined();
+    expect(await billing.text()).toContain("Billing isn&#39;t available right now");
+  });
+
+  test("the account and billing pages are not built, not in the sitemap, and always start the Worker", () => {
+    expect(fs.existsSync(path.join(distDir, "client", "account"))).toBe(false);
+    const sitemaps = fs.readdirSync(path.join(distDir, "client")).filter((f) => /^sitemap.*\.xml$/.test(f));
+    expect(sitemaps.length).toBeGreaterThan(0);
+    for (const f of sitemaps) expect(fs.readFileSync(path.join(distDir, "client", f), "utf8")).not.toContain("/account/");
+    const config = JSON.parse(fs.readFileSync(path.join(distDir, "server", "wrangler.json"), "utf8"));
+    expect(config.assets.run_worker_first).toEqual(expect.arrayContaining(["/account", "/account/*"]));
+    const limiters = (config.ratelimits ?? []).map((r: any) => r.name);
+    expect(limiters).toEqual(expect.arrayContaining(["PORTAL_USER_LIMITER", "PORTAL_IP_LIMITER"]));
+    const ids = (config.ratelimits ?? []).map((r: any) => r.namespace_id);
+    expect(new Set(ids).size).toBe(ids.length);
+  });
+
+  test("no pre-built page links to the account or billing pages: the header is the same for everyone", async ({ request }) => {
+    for (const url of ["/", "/subscribe/", "/case-studies/"]) {
+      const html = await (await request.get(url)).text();
+      expect(html, url).not.toContain("/account/");
+    }
+  });
+
+  test("the sign-out script is a static file that only ends the session", async ({ request }) => {
+    const res = await request.get("/assets/account/account.js");
+    expect(res.status()).toBe(200);
+    const body = await res.text();
+    expect(body).toContain("/api/auth/logout");
+    expect(body).not.toMatch(/pri_|ctm_|sub_|sb_|pdl_|Bearer|paddle/i);
+    expect((body.match(/fetch\(/g) ?? []).length).toBe(1);
+  });
+
+  test("no wording from the old portal placeholders is left in what the site serves", async ({ request }) => {
+    for (const url of ["/", "/subscribe/", "/login/", "/case-studies/"]) {
+      const html = await (await request.get(url)).text();
+      expect(html, url).not.toMatch(/emails Paddle|from this site is coming soon/);
     }
   });
 });

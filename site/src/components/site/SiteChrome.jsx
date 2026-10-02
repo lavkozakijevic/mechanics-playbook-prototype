@@ -4,6 +4,7 @@ import { Button } from "../ds/Button.jsx";
 import { Input } from "../ds/Input.jsx";
 import { NEWSLETTER_PITCH, NEWSLETTER_CONSENT } from "../../lib/site-copy";
 import { AccountButtons, useSignedInEmail } from "./AuthControl.jsx";
+import { CONTACT_EMAIL } from "../../lib/contact.mjs";
 
 // Nav, footer, and login all sit on the same light paper background, so one
 // logo file covers every usage; no separate ink/reverse variant needed.
@@ -254,7 +255,7 @@ export function SiteFooter({ lastUpdated, categories }) {
               Cookie Preferences
             </button>
             <span className="footer__sep" aria-hidden="true">·</span>
-            <a className="footer__email" href="mailto:lav@gamebizconsulting.com">lav@gamebizconsulting.com</a>
+            <a className="footer__email" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
             <span className="footer__sep" aria-hidden="true">·</span>
             © 2026 GameBiz Consulting
           </span>

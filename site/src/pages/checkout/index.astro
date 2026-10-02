@@ -64,7 +64,7 @@ if (!supabaseConfigured(env) || !(env as any).PAYMENTS) {
     // Only this response loads Paddle.js, so only this one carries the policy.
     Astro.response.headers.set(CHECKOUT_CSP_HEADER, CHECKOUT_CSP);
   } else {
-    copy = stateCopy(out.state, out.until);
+    copy = stateCopy(out.state, out.until, out.billing === true);
     if (!copy) {
       Astro.response.status = 503;
       message = "Checkout isn't available right now. Try again in a moment.";
@@ -87,6 +87,7 @@ if (!supabaseConfigured(env) || !(env as any).PAYMENTS) {
           <h1 class="login__heading">{copy.heading}</h1>
           <p class="login__lead">{copy.body}</p>
           <Button as="a" href={copy.link.href} variant="primary" size="lg" className="login__submit">{copy.link.label}</Button>
+          {copy.secondary && <p class="login__alt"><a href={copy.secondary.href} rel="nofollow">{copy.secondary.label}</a></p>}
         </div>
       )}
 

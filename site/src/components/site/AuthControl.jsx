@@ -37,7 +37,7 @@ async function signOut() {
   window.location.assign("/");
 }
 
-/** "Log in" when signed out; the address and a Sign out button when signed in. */
+/** "Log in" when signed out; the address (a link to the account page) and a Sign out button when signed in. */
 export function AccountButtons({ email, onNavigate }) {
   if (!email) {
     return (
@@ -48,7 +48,7 @@ export function AccountButtons({ email, onNavigate }) {
   }
   return (
     <>
-      <span className="nav__who" title={email}>{email}</span>
+      <a className="nav__who" href="/account/" title="Your account" aria-label={`Your account, ${email}`} onClick={onNavigate}>{email}</a>
       <Button variant="secondary" size="sm" type="button" onClick={signOut}>
         Sign out
       </Button>

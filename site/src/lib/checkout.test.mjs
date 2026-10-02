@@ -51,6 +51,30 @@ test("every refusal state has copy and a way on; none offers a second checkout",
   assert.equal(formatDate("2026-11-01T23:59:00Z"), "1 November 2026");
 });
 
+test("the state pages link to billing only when a Paddle customer is on record", () => {
+  for (const state of ["entitled", "scheduled_cancel"]) {
+    const without = stateCopy(state, "2026-11-01T00:00:00Z", false);
+    assert.equal(without.secondary, undefined, state);
+    assert.equal(without.link.href, "/case-studies/", state);
+    const withBilling = stateCopy(state, "2026-11-01T00:00:00Z", true);
+    assert.deepEqual(withBilling.secondary, { href: "/account/billing/", label: "Manage billing" }, state);
+    assert.equal(withBilling.link.href, "/case-studies/", state);
+  }
+  const due = stateCopy("past_due", undefined, true);
+  assert.deepEqual(due.link, { href: "/account/billing/?to=payment", label: "Update payment method" });
+  assert.deepEqual(due.secondary, { href: "/case-studies/", label: "Go to the library" });
+  assert.equal(stateCopy("past_due", undefined, false).link.href, "/case-studies/");
+  assert.equal(stateCopy("past_due", undefined, false).secondary, undefined);
+  // paused asks the user to get in touch, and never links to billing, with or without a customer
+  for (const billing of [true, false]) {
+    const paused = stateCopy("paused", undefined, billing);
+    assert.equal(paused.link.href, "mailto:lav@gamebizconsulting.com");
+    assert.equal(paused.secondary, undefined);
+    assert.ok(paused.body.includes("lav@gamebizconsulting.com"));
+    assert.equal(JSON.stringify(paused).includes("/account/billing"), false);
+  }
+});
+
 test("payments Worker results become HTTP answers", () => {
   assert.deepEqual(checkoutResponse({ ok: true, transactionId: "txn_1", clientToken: "test_x", environment: "sandbox", extra: "dropped" }),
     { status: 200, body: { transactionId: "txn_1", clientToken: "test_x", environment: "sandbox" } });

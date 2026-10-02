@@ -1,0 +1,108 @@
+---
+// /account/billing/ (?to=payment): sends the signed-in visitor to Paddle's
+// customer portal. A page, not an API: a plain link works from the banner, the
+// account page and the checkout messages. Rendered on request, never cached.
+//
+// The site holds no Paddle secret. This checks the request and the session,
+// then asks the payments Worker (service binding PAYMENTS) for a portal link,
+// passing the visitor's access token and one of two targets. The payments
+// Worker re-checks the token, takes the Paddle customer from the visitor's own
+// rows, and answers with one URL. A portal link is temporary and lets its
+// holder cancel and read invoices, so one is made per visit and the answer is a
+// redirect: the URL is never put in a page, a log or a response body.
+//
+//   from another site -> a message, nothing made
+//   no session        -> login, then straight back here
+//   no customer       -> a message
+//   otherwise         -> 303 to the portal
+import { env } from "cloudflare:workers";
+import AuthLayout from "../../../layouts/AuthLayout.astro";
+import { Button } from "../../../components/ds/Button.jsx";
+import { AUTH_HEADERS, authResponse, checkRateLimit, hasAuthCookie, setCookieLines } from "../../../lib/auth-config.mjs";
+import { createRequestClient, finalCookies, supabaseConfigured } from "../../../lib/auth-server.mjs";
+import { billingMessage, fetchSiteAllowed, parsePortalTarget, portalOutcome } from "../../../lib/account.mjs";
+import { loginRedirect } from "../../../lib/checkout.mjs";
+
+export const prerender = false;
+
+for (const [k, v] of Object.entries(AUTH_HEADERS)) Astro.response.headers.set(k, v);
+
+const request = Astro.request;
+const url = new URL(request.url);
+const redirect = (to: string, cookies: { name: string; value: string; options: object }[] = []) =>
+  authResponse(null, { status: 303, json: false, headers: { Location: to }, cookies });
+
+if (request.method !== "GET") {
+  return authResponse("Method not allowed", { status: 405, json: false, headers: { Allow: "GET", "Content-Type": "text/plain; charset=utf-8" } });
+}
+
+const target = parsePortalTarget(url.searchParams.get("to"));
+// What comes back here after sign-in: the same target, nothing else.
+const here = target === "payment" ? "/account/billing/?to=payment" : "/account/billing/";
+
+let shown: ReturnType<typeof billingMessage> | null = null;
+
+if (!fetchSiteAllowed(request.headers.get("sec-fetch-site"))) {
+  shown = billingMessage("forbidden");
+} else if (!hasAuthCookie(request)) {
+  return redirect(loginRedirect(here));
+} else if (!supabaseConfigured(env) || !(env as any).PAYMENTS) {
+  shown = billingMessage("unavailable");
+} else {
+  const { supabase, state } = createRequestClient(request, env);
+  const { data: userData } = await supabase.auth.getUser();
+  const user = userData?.user;
+  if (!user) return redirect(loginRedirect(here), finalCookies(state));
+  for (const line of setCookieLines(finalCookies(state))) Astro.response.headers.append("Set-Cookie", line);
+
+  // Each visit makes a portal session at Paddle, so both limits are low. A
+  // missing binding fails closed, like missing configuration.
+  const ip = request.headers.get("cf-connecting-ip") ?? "unknown";
+  const [byUser, byIp] = await Promise.all([
+    checkRateLimit((env as any).PORTAL_USER_LIMITER, user.id),
+    checkRateLimit((env as any).PORTAL_IP_LIMITER, ip),
+  ]);
+  if (byUser === "unavailable" || byIp === "unavailable") {
+    shown = billingMessage("unavailable");
+  } else if (byUser === "limited" || byIp === "limited") {
+    shown = billingMessage("rate_limited");
+    Astro.response.headers.set("Retry-After", "60");
+  } else {
+    // getUser() has just refreshed the session if it needed to, so this is a current token.
+    const { data: sessionData } = await supabase.auth.getSession();
+    const accessToken = sessionData?.session?.access_token;
+    if (!accessToken) return redirect(loginRedirect(here), finalCookies(state));
+
+    let result: unknown = null;
+    try {
+      result = await (env as any).PAYMENTS.portal({ accessToken, target });
+    } catch {
+      // The binding itself failed (the payments Worker is down or not deployed).
+      console.error(JSON.stringify({ evt: "portal_call", reason: "binding_failed" }));
+    }
+    const outcome = portalOutcome(result);
+    if (outcome.kind === "redirect") return redirect(outcome.url, finalCookies(state));
+    if (outcome.kind === "login") return redirect(loginRedirect(here), finalCookies(state));
+    shown = outcome;
+  }
+}
+
+if (shown) Astro.response.status = shown.status;
+---
+
+<AuthLayout title="Billing">
+  <main class="login" id="main">
+    <div class="login__card">
+      <a class="login__brand" href="/" aria-label="Appservatory home">
+        <img src="/assets/logo/appservatory-logo.png" alt="Appservatory" width="123" height="25" />
+      </a>
+      {shown && (
+        <div class="login__form">
+          <h1 class="login__heading">{shown.heading}</h1>
+          <p class="login__lead">{shown.body}</p>
+          <Button as="a" href={shown.link.href} variant="secondary" size="lg" className="login__submit">{shown.link.label}</Button>
+        </div>
+      )}
+    </div>
+  </main>
+</AuthLayout>
