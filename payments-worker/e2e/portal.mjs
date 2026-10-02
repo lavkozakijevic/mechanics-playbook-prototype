@@ -222,7 +222,7 @@ async function main() {
   await page.goto("/checkout/?plan=quarterly");
   body = await text(page);
   const pausedHtml = await page.content();
-  check("paused page: asks to get in touch at the site's contact address, with an Email us button", body.includes("Your subscription is paused") && body.includes("contact us at lav@gamebizconsulting.com") && (await page.locator('a[href="mailto:lav@gamebizconsulting.com"]').count()) >= 1);
+  check("paused page: asks to email the site's contact address to resume, with an Email us button", body.includes("Your subscription is paused") && body.includes("To resume it, email us at lav@gamebizconsulting.com.") && (await page.locator('a[href="mailto:lav@gamebizconsulting.com"]').count()) >= 1);
   check("paused page: no billing link and no resume call", !pausedHtml.includes("/account/billing") && !body.includes("coming soon"));
 
   await sendEvent(sign({ type: "subscription.updated", status: "active", sub: sub1, "occurred-at": at(180), "scheduled-cancel": "2027-01-15T00:00:00Z" }, user1));

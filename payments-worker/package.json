@@ -9,6 +9,8 @@
     "e2e": "node e2e/run.mjs",
     "e2e:checkout": "node e2e/checkout.mjs",
     "e2e:portal": "node e2e/portal.mjs",
+    "e2e:delete": "node e2e/delete.mjs",
+    "e2e:access": "node e2e/access.mjs",
     "e2e:gating": "node e2e/gating.mjs"
   },
   "devDependencies": {

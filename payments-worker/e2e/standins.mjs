@@ -8,8 +8,8 @@
  *    (secret key -> service_role, publishable key + a user's token ->
  *    authenticated with that user's id), so a missing grant or policy fails
  *    here exactly as it would on the real project.
- *  - Paddle: customers, transactions and customer portal sessions (each with
- *    its own key), recording every call. GET /portal/... is the "portal" a
+ *  - Paddle: customers, transactions, customer portal sessions, a subscription
+ *    list and cancel (each behind its own key), recording every call in order. GET /portal/... is the "portal" a
  *    redirect lands on.
  *
  * Test infrastructure only. Needs `psql` and the PG* environment variables.
@@ -23,6 +23,9 @@ export const SB_PUBLISHABLE = "sb_publishable_E2E_ONLY_abcdef";
 export const PADDLE_CHECKOUT_KEY = "pdl_sdbx_apikey_CHECKOUT_E2E_ONLY";
 export const PADDLE_RECONCILE_KEY = "pdl_sdbx_apikey_E2E_ONLY";
 export const PADDLE_PORTAL_KEY = "pdl_sdbx_apikey_PORTAL_E2E_ONLY";
+export const PADDLE_CANCEL_KEY = "pdl_sdbx_apikey_CANCEL_E2E_ONLY";
+/** One counter shared by both stand-ins, so a test can say which call came first. */
+export const seq = { n: 0 };
 
 export const psql = (sql) => {
   const r = spawnSync("psql", ["-X", "-q", "-A", "-t", "-v", "ON_ERROR_STOP=1"], { input: sql, encoding: "utf8" });
@@ -46,7 +49,7 @@ const APPLY_PARAMS = [
 export function createSupabaseStandin({ port }) {
   const state = {
     otps: [], hashes: new Map(), codes: new Map(), users: new Map(), access: new Map(), refresh: new Map(),
-    log: [], down: false, expiresIn: 3600,
+    log: [], down: false, expiresIn: 3600, lastSignIn: new Map(), adminFail: false, adminDeletes: [],
   };
 
   const userFor = (email) => {
@@ -59,6 +62,7 @@ export function createSupabaseStandin({ port }) {
   };
   const session = (email) => {
     const u = userFor(email);
+    state.lastSignIn.set(email, new Date().toISOString());
     const exp = Math.floor(Date.now() / 1000) + state.expiresIn;
     const access_token = `${b64u({ alg: "HS256", typ: "JWT" })}.${b64u({ sub: u.id, email, role: "authenticated", aud: "authenticated", exp })}.${b64u("sig")}.${crypto.randomBytes(4).toString("hex")}`;
     const refresh_token = crypto.randomBytes(8).toString("hex");
@@ -139,9 +143,27 @@ export function createSupabaseStandin({ port }) {
     if (url.pathname === "/auth/v1/user" && req.method === "GET") {
       const u = whoIs(req);
       if (!u) return send(401, { code: 401, error_code: "bad_jwt", msg: "invalid JWT" });
-      return send(200, { id: u.id, aud: "authenticated", role: "authenticated", email: u.email, email_confirmed_at: new Date().toISOString(), app_metadata: {}, user_metadata: {}, created_at: new Date().toISOString() });
+      return send(200, { id: u.id, aud: "authenticated", role: "authenticated", email: u.email, email_confirmed_at: new Date().toISOString(), last_sign_in_at: state.lastSignIn.get(u.email), app_metadata: {}, user_metadata: {}, created_at: new Date().toISOString() });
     }
     if (url.pathname === "/auth/v1/logout") return send(204);
+    // the admin delete: real deletion in the database, so the cascade is real
+    const adminDel = /^\/auth\/v1\/admin\/users\/([0-9a-f-]{36})$/.exec(url.pathname);
+    if (req.method === "DELETE" && adminDel) {
+      if (req.headers.apikey !== SB_SECRET) return send(401, { message: "Invalid API key" });
+      state.log[state.log.length - 1].n = ++seq.n;
+      state.log[state.log.length - 1].body = body;
+      if (state.adminFail) return send(500, { message: "boom" });
+      const id = adminDel[1];
+      const email = [...state.users].find(([, v]) => v === id)?.[0];
+      if (!email) return send(404, { message: "User not found" });
+      const r = psql(`delete from auth.users where id = ${lit(id)};`);
+      if (!r.ok) return send(500, { message: "db" });
+      state.users.delete(email);
+      for (const [t, u] of state.access) if (u.id === id) state.access.delete(t);
+      for (const [t, u] of state.refresh) if (u.id === id) state.refresh.delete(t);
+      state.adminDeletes.push(id);
+      return send(200, {});
+    }
 
     // ---- Data API
     if (req.method === "POST" && url.pathname === "/rest/v1/rpc/apply_subscription_event") {
@@ -186,11 +208,13 @@ export function createSupabaseStandin({ port }) {
     /** The email link as Supabase's default template builds it (our /auth/callback via Supabase's verify). */
     defaultLink: (otp) => `http://127.0.0.1:${port}/auth/v1/verify?` + new URLSearchParams({ token: otp.token_hash, type: "magiclink", redirect_to: otp.redirect_to }),
     userId: (email) => state.users.get(email),
+    /** Pretend this user last signed in at `iso`, to test the fresh sign-in rule. */
+    setLastSignIn: (email, iso) => state.lastSignIn.set(email, iso),
   };
 }
 
 export function createPaddleStandin({ port }) {
-  const state = { customers: [], transactions: [], calls: [], portalSessions: [], customerSeq: 0, txnSeq: 0, portalSeq: 0, down: false, portalStatus: 201 };
+  const state = { customers: [], transactions: [], calls: [], portalSessions: [], subscriptions: [], cancels: [], customerSeq: 0, txnSeq: 0, portalSeq: 0, down: false, portalStatus: 201, cancelStatus: 200 };
   const server = http.createServer(async (req, res) => {
     const url = new URL(req.url, `http://127.0.0.1:${port}`);
     const raw = await readBody(req);
@@ -199,8 +223,27 @@ export function createPaddleStandin({ port }) {
     const send = (code, b) => { res.writeHead(code, { "content-type": "application/json" }); res.end(JSON.stringify(b)); };
     // What a portal link lands on (a browser follows the redirect here).
     if (req.method === "GET" && url.pathname.startsWith("/portal/")) { res.writeHead(200, { "content-type": "text/html" }); return res.end("<h1>Paddle portal stand-in</h1>"); }
-    state.calls.push({ method: req.method, path: url.pathname, authorization: req.headers.authorization });
+    state.calls.push({ method: req.method, path: url.pathname, authorization: req.headers.authorization, body, n: ++seq.n });
     if (state.down) return send(503, {});
+    // The subscription list (the read-only key) and cancel (the cancel key).
+    if (req.method === "GET" && url.pathname === "/subscriptions") {
+      if (req.headers.authorization !== `Bearer ${PADDLE_RECONCILE_KEY}`) return send(403, { error: { code: "forbidden" } });
+      const ids = (url.searchParams.get("customer_id") ?? "").split(",").filter(Boolean);
+      const data = state.subscriptions.filter((s) => !ids.length || ids.includes(s.customer_id));
+      return send(200, { data, meta: { pagination: { per_page: 200, next: null, has_more: false } } });
+    }
+    const cancel = /^\/subscriptions\/(sub_[a-z0-9_]+)\/cancel$/.exec(url.pathname);
+    if (req.method === "POST" && cancel) {
+      if (req.headers.authorization !== `Bearer ${PADDLE_CANCEL_KEY}`) return send(403, { error: { code: "forbidden" } });
+      const sub = state.subscriptions.find((s) => s.id === cancel[1]);
+      if (!sub) return send(404, { error: { code: "not_found" } });
+      if (state.cancelStatus !== 200) return send(state.cancelStatus, { error: { code: "x" } });
+      state.cancels.push({ id: sub.id, body, n: seq.n });
+      sub.status = "canceled";
+      sub.canceled_at = new Date().toISOString();
+      sub.updated_at = new Date().toISOString();
+      return send(200, { data: sub });
+    }
     // Customer portal sessions need the portal key and nothing else does.
     const portal = /^\/customers\/(ctm_[a-z0-9]+)\/portal-sessions$/.exec(url.pathname);
     if (req.method === "POST" && portal) {
