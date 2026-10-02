@@ -261,9 +261,14 @@ test("missing configuration answers unavailable", async () => {
 
 test("status reports where the visitor stands and never touches Paddle or returns the client token", async () => {
   const w = world();
-  assert.deepEqual(await status(w), { ok: true, state: "ready" });
+  assert.deepEqual(await status(w), { ok: true, state: "ready", billing: false });
   assert.equal(paddleCalls(w).length, 0);
-  assert.deepEqual(await status(world({ entitlement: "full" })), { ok: true, state: "entitled" });
+  assert.deepEqual(await status(world({ entitlement: "full" })), { ok: true, state: "entitled", billing: false }, "a manual entitlement has no Paddle customer");
+  assert.deepEqual(
+    await status(world({ entitlement: "full", subscriptions: [{ status: "active", cancel_effective_at: null, paddle_customer_id: "ctm_01abc" }] })),
+    { ok: true, state: "entitled", billing: true },
+  );
+  assert.equal((await status(world({ subscriptions: [{ status: "canceled", paddle_customer_id: "ctm_01abc" }] }))).billing, true, "a canceled customer still has invoices");
   assert.deepEqual(await status(world({ userStatus: 401 })), { ok: false, reason: "unauthorized" });
   assert.deepEqual(await status(world({ dbStatus: 500 })), { ok: false, reason: "unavailable" });
   const e = env();

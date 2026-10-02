@@ -1,6 +1,8 @@
 /**
- * Read-only use of the Paddle API: GET /subscriptions, all statuses, paged.
- * The API key needs the subscription read permission and nothing else.
+ * The Paddle API calls this Worker makes, each with its own key:
+ *   GET /subscriptions (reconciliation)         PADDLE_API_KEY, subscription read only
+ *   customers and transactions (checkout)       PADDLE_CHECKOUT_API_KEY
+ *   POST /customers/{id}/portal-sessions        PADDLE_PORTAL_API_KEY, portal session only
  */
 import { baseUrl } from "./supabase.mjs";
 
@@ -61,19 +63,19 @@ export async function listSubscriptions(env, fetchImpl = fetch) {
 }
 
 /**
- * One call with the checkout key (customers and transactions). Returns the
- * status and parsed JSON, or { status: 0 } when Paddle could not be reached.
- * The key is sent to the API origin for the configured environment only.
+ * One Paddle call with the given key. Returns the status and parsed JSON, or
+ * { status: 0 } when Paddle could not be reached. The key is sent to the API
+ * origin for the configured environment only.
  */
-export async function paddleCall(env, method, path, body, fetchImpl = fetch) {
+async function send(env, key, method, path, body, fetchImpl) {
   const base = paddleBase(env);
-  if (!base || !env.PADDLE_CHECKOUT_API_KEY) throw new Error("not_configured");
+  if (!base || !key) throw new Error("not_configured");
   let res;
   try {
     res = await fetchImpl(`${base}${path}`, {
       method,
       headers: {
-        authorization: `Bearer ${env.PADDLE_CHECKOUT_API_KEY}`,
+        authorization: `Bearer ${key}`,
         accept: "application/json",
         ...(body === undefined ? {} : { "content-type": "application/json" }),
       },
@@ -88,4 +90,18 @@ export async function paddleCall(env, method, path, body, fetchImpl = fetch) {
     json = await res.json();
   } catch { /* an error answer without a body */ }
   return { status: res.status, json };
+}
+
+/** A call with the checkout key (customers and transactions). */
+export function paddleCall(env, method, path, body, fetchImpl = fetch) {
+  return send(env, env.PADDLE_CHECKOUT_API_KEY, method, path, body, fetchImpl);
+}
+
+/**
+ * A call with the customer portal key, which holds the portal-session
+ * permission and nothing else. Separate from the checkout key on purpose: a
+ * portal link lets whoever holds it cancel and read invoices for any customer.
+ */
+export function paddlePortalCall(env, method, path, body, fetchImpl = fetch) {
+  return send(env, env.PADDLE_PORTAL_API_KEY, method, path, body, fetchImpl);
 }

@@ -150,11 +150,11 @@ export async function entitlementOf(env, userId, fetchImpl = fetch) {
   return answer;
 }
 
-/** This user's subscription rows, newest first: status, scheduled cancellation, Paddle customer id. */
+/** This user's subscription rows, newest first: status, scheduled cancellation, Paddle customer and subscription ids. */
 export async function readUserSubscriptions(env, userId, fetchImpl = fetch) {
   const base = baseUrl(env.SUPABASE_URL);
   if (!base || !env.SUPABASE_SECRET_KEY || !isUuid(userId)) throw new Error("not_configured");
-  const url = `${base}/rest/v1/subscriptions?select=status,cancel_effective_at,paddle_customer_id&user_id=eq.${userId}&order=created_at.desc&limit=50`;
+  const url = `${base}/rest/v1/subscriptions?select=status,cancel_effective_at,paddle_customer_id,paddle_subscription_id&user_id=eq.${userId}&order=created_at.desc&limit=50`;
   const res = await fetchImpl(url, { headers: headers(env), signal: AbortSignal.timeout(TIMEOUT_MS) });
   if (!res.ok) {
     try { await res.arrayBuffer(); } catch { /* drain only */ }

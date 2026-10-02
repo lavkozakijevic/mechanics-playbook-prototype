@@ -13,6 +13,7 @@
 import { paddleBase, paddleCall } from "./paddle-api.mjs";
 import { baseUrl, entitlementOf, readUserSubscriptions, verifyAccessToken } from "./supabase.mjs";
 import { logError, logInfo } from "./log.mjs";
+import { hasCustomer } from "./portal.mjs";
 
 export const PLANS = Object.freeze(["quarterly", "yearly"]);
 const PRICE_VARS = { quarterly: "PADDLE_PRICE_QUARTERLY", yearly: "PADDLE_PRICE_YEARLY" };
@@ -74,8 +75,8 @@ async function loadState(env, userId, deps) {
 }
 
 /**
- * Where this visitor stands, for the checkout page to render. No Paddle call and
- * no transaction. @returns {Promise<{ ok: true, state: string, until?: string } | { ok: false, reason: string }>}
+ * Where this visitor stands, for the checkout and account pages to render. No
+ * Paddle call and no transaction. @returns {Promise<{ ok: true, state: string, until?: string, billing: boolean } | { ok: false, reason: string }>}
  */
 export async function checkoutStatus(env, input, deps = {}) {
   if (!configuredForState(env)) {
@@ -85,8 +86,10 @@ export async function checkoutStatus(env, input, deps = {}) {
   const who = await verifyAccessToken(env, input?.accessToken, deps.fetch);
   if (!who.ok) return { ok: false, reason: who.reason };
   try {
-    const state = eligibility(await loadState(env, who.user.id, deps), deps.now?.());
-    return { ok: true, ...state };
+    const loaded = await loadState(env, who.user.id, deps);
+    const state = eligibility(loaded, deps.now?.());
+    // Whether a billing link has anywhere to go: a Paddle customer is on record.
+    return { ok: true, ...state, billing: hasCustomer(loaded.subscriptions) };
   } catch (e) {
     logError({ evt: "checkout_status", reason: String(e?.message ?? "failed") });
     return { ok: false, reason: "unavailable" };
