@@ -8,7 +8,9 @@
  *    (secret key -> service_role, publishable key + a user's token ->
  *    authenticated with that user's id), so a missing grant or policy fails
  *    here exactly as it would on the real project.
- *  - Paddle: customers and transactions, recording every call.
+ *  - Paddle: customers, transactions and customer portal sessions (each with
+ *    its own key), recording every call. GET /portal/... is the "portal" a
+ *    redirect lands on.
  *
  * Test infrastructure only. Needs `psql` and the PG* environment variables.
  */
@@ -20,6 +22,7 @@ export const SB_SECRET = "sb_secret_E2E_ONLY_abcdef";
 export const SB_PUBLISHABLE = "sb_publishable_E2E_ONLY_abcdef";
 export const PADDLE_CHECKOUT_KEY = "pdl_sdbx_apikey_CHECKOUT_E2E_ONLY";
 export const PADDLE_RECONCILE_KEY = "pdl_sdbx_apikey_E2E_ONLY";
+export const PADDLE_PORTAL_KEY = "pdl_sdbx_apikey_PORTAL_E2E_ONLY";
 
 export const psql = (sql) => {
   const r = spawnSync("psql", ["-X", "-q", "-A", "-t", "-v", "ON_ERROR_STOP=1"], { input: sql, encoding: "utf8" });
@@ -187,15 +190,31 @@ export function createSupabaseStandin({ port }) {
 }
 
 export function createPaddleStandin({ port }) {
-  const state = { customers: [], transactions: [], calls: [], customerSeq: 0, txnSeq: 0, down: false };
+  const state = { customers: [], transactions: [], calls: [], portalSessions: [], customerSeq: 0, txnSeq: 0, portalSeq: 0, down: false, portalStatus: 201 };
   const server = http.createServer(async (req, res) => {
     const url = new URL(req.url, `http://127.0.0.1:${port}`);
     const raw = await readBody(req);
     let body = {};
     try { body = raw ? JSON.parse(raw) : {}; } catch { /* not JSON */ }
-    state.calls.push({ method: req.method, path: url.pathname, authorization: req.headers.authorization });
     const send = (code, b) => { res.writeHead(code, { "content-type": "application/json" }); res.end(JSON.stringify(b)); };
+    // What a portal link lands on (a browser follows the redirect here).
+    if (req.method === "GET" && url.pathname.startsWith("/portal/")) { res.writeHead(200, { "content-type": "text/html" }); return res.end("<h1>Paddle portal stand-in</h1>"); }
+    state.calls.push({ method: req.method, path: url.pathname, authorization: req.headers.authorization });
     if (state.down) return send(503, {});
+    // Customer portal sessions need the portal key and nothing else does.
+    const portal = /^\/customers\/(ctm_[a-z0-9]+)\/portal-sessions$/.exec(url.pathname);
+    if (req.method === "POST" && portal) {
+      if (req.headers.authorization !== `Bearer ${PADDLE_PORTAL_KEY}`) return send(403, { error: { code: "forbidden" } });
+      if (state.portalStatus >= 300) return send(state.portalStatus, { error: { code: "x" } });
+      const n = ++state.portalSeq;
+      const origin = `http://127.0.0.1:${port}`;
+      const ids = Array.isArray(body.subscription_ids) ? body.subscription_ids : [];
+      state.portalSessions.push({ customer: portal[1], body });
+      return send(201, { data: { id: `cpls_e2e${n}`, customer_id: portal[1], urls: {
+        general: { overview: `${origin}/portal/tok_general_${n}` },
+        subscriptions: ids.map((id) => ({ id, cancel_subscription: `${origin}/portal/tok_cancel_${n}`, update_subscription_payment_method: `${origin}/portal/tok_payment_${n}/update-payment-method` })),
+      } } });
+    }
     if (req.headers.authorization !== `Bearer ${PADDLE_CHECKOUT_KEY}`) return send(403, { error: { code: "forbidden" } });
     if (req.method === "GET" && url.pathname === "/customers") {
       const email = (url.searchParams.get("email") ?? "").toLowerCase();

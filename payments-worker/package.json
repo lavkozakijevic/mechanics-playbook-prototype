@@ -8,6 +8,7 @@
     "check": "wrangler deploy --dry-run --outdir .wrangler/dry-run",
     "e2e": "node e2e/run.mjs",
     "e2e:checkout": "node e2e/checkout.mjs",
+    "e2e:portal": "node e2e/portal.mjs",
     "e2e:gating": "node e2e/gating.mjs"
   },
   "devDependencies": {

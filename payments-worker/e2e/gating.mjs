@@ -260,6 +260,8 @@ async function main() {
     const sec = await text(await get(late, url.sec));
     const sys = await text(await get(late, url.sys));
     check("past due: banner on the section page and the system page too", sec.includes("pd-banner") && sys.includes("pd-banner"));
+    check("past due: the banner links to the payment method page, with no placeholder wording left",
+      body.includes('href="/account/billing/?to=payment"') && sec.includes('href="/account/billing/?to=payment"') && sys.includes('href="/account/billing/?to=payment"') && !/emails Paddle|coming soon/.test(body));
     check("past due: protected image is served", (await get(late, HERO)).status() === 200);
     const free = await text(await get(late, `/case-studies/${FREE.id}/`));
     check("past due: a free (static) page carries no banner", !free.includes("pd-banner"));
