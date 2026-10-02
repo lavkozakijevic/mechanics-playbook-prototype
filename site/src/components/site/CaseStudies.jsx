@@ -25,7 +25,7 @@ function SystemCard({ s }) {
         <Tag category="neutral" variant="outline">{s.category}</Tag>
         <span className="csc__badge">
           {s.locked
-            ? <Badge tone="neutral" variant="outline" icon={LockIcon}>For subscribers</Badge>
+            ? <span data-lock-only><Badge tone="neutral" variant="outline" icon={LockIcon}>For subscribers</Badge></span>
             : s.free
               ? <Badge tone="ok" variant="soft">Free</Badge>
               : null}
@@ -53,7 +53,11 @@ function SystemCard({ s }) {
 
       <div className="csc__foot">
         <span className="csc__count"><b>{s.mechanicCount}</b> mechanics mapped</span>
-        <span className="csc__go">{s.locked ? SUBSCRIBE_TO_EXPLORE_CTA : "View case study"} {ArrowIcon}</span>
+        <span className="csc__go">
+          {s.locked
+            ? <><span data-lock-only>{SUBSCRIBE_TO_EXPLORE_CTA}</span><span data-entitled-only>View case study</span></>
+            : "View case study"} {ArrowIcon}
+        </span>
       </div>
     </a>
   );

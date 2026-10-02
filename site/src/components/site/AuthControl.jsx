@@ -14,6 +14,10 @@ export function useSignedInEmail() {
       .then((r) => (r.ok ? r.json() : null))
       .then((d) => {
         if (live && d && typeof d.email === "string" && d.email) setEmail(d.email);
+        // Display only: marks the page so locked badges and subscribe buttons
+        // give way to the unlocked wording (src/styles/site.css). What anyone
+        // may open is decided on the server, never from this.
+        if (live && d) document.documentElement.dataset.access = d.entitled === true ? "entitled" : "none";
       })
       .catch(() => {});
     return () => {

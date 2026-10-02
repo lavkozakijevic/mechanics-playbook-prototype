@@ -84,7 +84,7 @@ export function SiteNav({ current }) {
 
           <div className="nav__actions">
             <AccountButtons email={email} />
-            <Button variant="accent" size="sm" as="a" href="/subscribe/">Subscribe</Button>
+            <Button variant="accent" size="sm" as="a" href="/subscribe/" data-lock-only>Subscribe</Button>
           </div>
 
           <button
@@ -120,7 +120,7 @@ export function SiteNav({ current }) {
         ))}
         <div className="nav__drawer-actions">
           <AccountButtons email={email} onNavigate={() => setOpen(false)} />
-          <Button variant="accent" size="sm" as="a" href="/subscribe/" onClick={() => setOpen(false)}>Subscribe</Button>
+          <Button variant="accent" size="sm" as="a" href="/subscribe/" onClick={() => setOpen(false)} data-lock-only>Subscribe</Button>
         </div>
       </div>
     </>

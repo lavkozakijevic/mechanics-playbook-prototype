@@ -1713,6 +1713,20 @@ span.cs-chip--sm:hover { border-color: var(--border-default); box-shadow: none; 
   letter-spacing: var(--tracking-display); color: var(--paper); margin: 0 auto; max-width: 18ch; text-wrap: balance; }
 .sp-close .gb-btn, .sp-close a[class*="btn"] { margin-top: clamp(26px, 3vw, 36px); }
 
+/* Locked-state wording that gives way to the unlocked wording for a visitor who
+   has access. The pre-built HTML is the same for everyone: a script in the header
+   sets data-access="entitled" on <html> after load (AuthControl.jsx), and these
+   rules do the rest. Display only; the server decides access. */
+[data-entitled-only] { display: none; }
+html[data-access="entitled"] [data-entitled-only] { display: revert; }
+html[data-access="entitled"] [data-lock-only] { display: none !important; }
+html[data-access="entitled"] .csc--locked .csc__name,
+html[data-access="entitled"] .csc--locked .csc__desc,
+html[data-access="entitled"] .csc--locked .csc__tags,
+html[data-access="entitled"] .csc--locked .csc__foot,
+html[data-access="entitled"] .cstudy--locked .cstudy__app,
+html[data-access="entitled"] .cstudy--locked .cstudy__foot { opacity: 1; }
+
 /* Past-due banner (every protected page when the last payment failed). Fill
    and text carry it; the hairline is only an edge. */
 .pd-banner { background: var(--warn-tint); color: var(--ink-900); border-bottom: var(--rule-hairline); padding-block: var(--space-3); }

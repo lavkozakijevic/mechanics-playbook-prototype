@@ -25,7 +25,7 @@ function SystemCard({ sys }) {
         <Tag category="neutral" variant="outline">{sys.type}</Tag>
         <span className="csc__badge">
           {sys.locked
-            ? <Badge tone="neutral" variant="outline" icon={LockIcon}>For subscribers</Badge>
+            ? <span data-lock-only><Badge tone="neutral" variant="outline" icon={LockIcon}>For subscribers</Badge></span>
             : <Badge tone="ok" variant="soft">Free</Badge>}
         </span>
       </div>
@@ -39,7 +39,11 @@ function SystemCard({ sys }) {
 
       <div className="csc__foot">
         <span className="csc__count"><b>{mechanics.length}</b> mechanics linked</span>
-        <span className="csc__go">{sys.locked ? SUBSCRIBE_TO_EXPLORE_CTA : "Explore the map"} {ArrowIcon}</span>
+        <span className="csc__go">
+          {sys.locked
+            ? <><span data-lock-only>{SUBSCRIBE_TO_EXPLORE_CTA}</span><span data-entitled-only>Explore the map</span></>
+            : "Explore the map"} {ArrowIcon}
+        </span>
       </div>
     </a>
   );

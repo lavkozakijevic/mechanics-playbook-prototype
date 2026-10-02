@@ -147,7 +147,7 @@ function CaseStudies({ studies }) {
               <span className="cstudy__app">{s.app}</span>
               <div className="cstudy__headmeta">
                 <Tag category="neutral">{s.cat}</Tag>
-                {s.locked && <Badge tone="neutral" variant="outline" icon={IconLock}>For subscribers</Badge>}
+                {s.locked && <span data-lock-only><Badge tone="neutral" variant="outline" icon={IconLock}>For subscribers</Badge></span>}
               </div>
             </div>
             {/* A free app: the headline and What stands out. Any other app: the
