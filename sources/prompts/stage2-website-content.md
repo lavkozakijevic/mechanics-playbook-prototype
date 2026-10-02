@@ -22,12 +22,12 @@ This stage produces plain text for review. It does not build anything.
 >
 > **Deliver the summary page in full,** in this order:
 >
-> 1. Teaser. One line: the most interesting true thing about [app].
-> 2. Intro. Three or four sentences: what [app] is and how it works, plainly enough that the reader draws their own conclusion about it. Never say it's worth a look, that it's interesting, or what stands out — say what it is and let that decide it (voice guide).
-> 3. How it fits together. The core loop, in plain steps, as the player experiences it: what they do, in order, and what happens next. Then, in the same short paragraph or two, how the other mechanics hang off that loop. Never open with a complexity label: no "this is a simple system" or "a medium system." The full system account and its diagram still live on the systems page and are written separately; do not write that narrative here.
-> 4. Mechanics. One block per applied tag that survives the friend test, headed by the mechanic name alone. If [app] has its own name for the thing, a branded currency, a named feature, add an optional **Title:** field naming it: the page then uses that name as the block's own heading and shows the mechanic's name beneath it as the tag. The block itself still keys on the mechanic name regardless of any title, since that's what joins the block to its applied tag; never rename the block to the title. Open each block with **an implementation summary:** one sentence, under 25 words, naming what [app] specifically does with this mechanic. It is not a definition of the mechanic, it is what separates this app's version from every other app's: a reader scanning eight implementations of the same mechanic should be able to tell them apart from this line alone. After the summary, write the block in four parts:
+> 1. Teaser. One line: the most telling true thing about what [app] asks of its users and gives them in return. No levels, prices, timings or counts (voice guide: Narrative, not inventory).
+> 2. Intro. Three or four sentences, following the lens in the voice guide: what the developer wants the user to do, what the app gives the user in return, and what motivation it works on, plainly enough that the reader draws their own conclusion about it. No levels, prices, timings or counts. Never say it's worth a look, that it's interesting, or what stands out; say what it is and let that decide it (voice guide).
+> 3. How it fits together. The app's core loop as a narrative, following the lens in the voice guide: what the app wants the user to do, what the loop gives them in return, and what motivation it works on. Then, in the same short paragraph or two, how the other mechanics serve that loop and that motivation. Do not walk through features in the order they appear, and keep levels, prices, timings and counts to examples inside a point. Never open with a complexity label: no "this is a simple system" or "a medium system." The full system account and its diagram still live on the systems page and are written separately; do not write that narrative here.
+> 4. Mechanics. One block per applied tag that survives the friend test, headed by the mechanic name alone. If [app] has its own name for the thing, a branded currency, a named feature, add an optional **Title:** field naming it: the page then uses that name as the block's own heading and shows the mechanic's name beneath it as the tag. The block itself still keys on the mechanic name regardless of any title, since that's what joins the block to its applied tag; never rename the block to the title. Open each block with **an implementation summary:** one sentence, under 25 words, naming what [app] specifically does with this mechanic and what it intends by it. It is not a definition of the mechanic, it is what separates this app's version from every other app's: a reader scanning eight implementations of the same mechanic should be able to tell them apart from this line alone. After the summary, write the block in four parts:
 >
->    **How it works.** What [app] does with this mechanic, told as it happens to the player: what they do, what the app does back, in the order it happens.
+>    **How it works.** What [app] does with this mechanic, told as it happens to the user (the player, in a game's case study): what it asks them to do, what it gives them back, and the motivation it works on, in the order it happens.
 >
 >    **Illustration brief.** Not displayed on the page: a note for whoever draws the illustration, not copy. The one idea the illustration should show, and the facts it may draw on to show it. Only what the app does. Never an absence: if the app never shows something, that's not material for an illustration either.
 >
@@ -35,10 +35,10 @@ This stage produces plain text for review. It does not build anything.
 >
 >    **Building something like this.** Four short fields, each a plain phrase or short sentence, written the way you'd say it out loud, never clipped into note-taking shorthand (voice guide: "Trigger: opening your profile before every field is filled in," not "Viewing your own profile with the attribute set still incomplete."):
 >
->    - *Trigger:* what starts this, for the player.
+>    - *Trigger:* what starts this, for the user.
 >    - *What it needs:* the state or resource that already has to exist for this to run.
 >    - *How it connects:* which other mechanics on this page it depends on or feeds, named directly.
->    - *Worth noticing:* what this app's own choice here was, specific to what [app] actually did, not general design advice. State the choice, never what it achieves or why [app] made it: "Strava grades its medals gold, silver and bronze" is the choice; "so an ordinary activity feels exceptional" is the effect, and it doesn't belong here. That distinction recurs on every app, so hold to it the same way each time.
+>    - *Worth noticing:* what this app's own choice here was, specific to what [app] actually did, not general design advice. State the choice the app made and, where it helps, the motivation it works on; never what it achieves: "Strava grades its medals gold, silver and bronze" is the choice. That distinction recurs on every app, so hold to it the same way each time.
 >
 >    End each block with a note naming which screenshots it needs.
 > 5. Section cards. Nine one-liners, one per section, in voice. Empty sections appear as such and are not linked.
@@ -73,7 +73,7 @@ This stage produces plain text for review. It does not build anything.
 >
 > No evidence tiers, no analysis vocabulary, no observation numbers. Contractions are fine.
 >
-> Numerals over spelled-out numbers except idiomatic uses. App and feature names spelled exactly as the app spells them. No percentages or statistics that are not in the analysis. No speculation about intent beyond what the analysis states.
+> Numerals over spelled-out numbers except idiomatic uses. App and feature names spelled exactly as the app spells them. No percentages or statistics that are not in the analysis. Intent and motivation (the lens in the voice guide) rest on what the analysis states: its roles, its tags and what the app says about itself. No speculation beyond that.
 >
 > Every observation gets a decision. Rewrite it if it says something about the app; drop it if it's only about what we didn't see. Do not merge two observations into one or split one into two, and do not reorder them within a section. Never skip one without deciding which it is.
 >
