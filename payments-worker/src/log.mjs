@@ -6,7 +6,7 @@
  */
 const ALLOWED_KEYS = new Set([
   "evt", "event_id", "event_type", "outcome", "reason", "status", "env",
-  "plan", "target", "state", "read", "differing", "applied", "stale", "duplicate", "rejected_user", "skipped", "errors", "truncated", "only_ours",
+  "plan", "target", "state", "read", "differing", "applied", "stale", "duplicate", "rejected_user", "skipped", "errors", "truncated", "only_ours", "cancelled", "orphans",
 ]);
 const SAFE_VALUE_RE = /^[A-Za-z0-9_:.\-]{0,80}$/;
 

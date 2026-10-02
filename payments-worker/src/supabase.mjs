@@ -92,7 +92,7 @@ export const isUuid = (v) => typeof v === "string" && UUID_RE.test(v);
  * Supabase's answer. The publishable key is the right apikey for this call (it
  * is what the browser-facing client uses); the visitor's token is the Bearer.
  *
- * @returns {Promise<{ ok: true, user: { id: string, email: string } } | { ok: false, reason: "unauthorized" | "unavailable" }>}
+ * @returns {Promise<{ ok: true, user: { id: string, email: string, lastSignInAt: string | null } } | { ok: false, reason: "unauthorized" | "unavailable" }>}
  */
 export async function verifyAccessToken(env, accessToken, fetchImpl = fetch) {
   const base = baseUrl(env.SUPABASE_URL);
@@ -128,7 +128,10 @@ export async function verifyAccessToken(env, accessToken, fetchImpl = fetch) {
   // it (the sign-in link proves the visitor controls the inbox).
   const confirmed = Boolean(body?.email_confirmed_at || body?.confirmed_at);
   if (!isUuid(body?.id) || !email || !confirmed) return { ok: false, reason: "unauthorized" };
-  return { ok: true, user: { id: body.id.toLowerCase(), email } };
+  // When this user last signed in (a fresh email link moves it; a token refresh
+  // does not). Supabase's own answer, so the browser cannot say it.
+  const lastSignInAt = typeof body?.last_sign_in_at === "string" && !Number.isNaN(Date.parse(body.last_sign_in_at)) ? body.last_sign_in_at : null;
+  return { ok: true, user: { id: body.id.toLowerCase(), email, lastSignInAt } };
 }
 
 /** 'full' | 'past_due' | 'none' from public.entitlement_of, the one definition of access. */
@@ -163,4 +166,31 @@ export async function readUserSubscriptions(env, userId, fetchImpl = fetch) {
   const rows = await res.json();
   if (!Array.isArray(rows)) throw new Error("read_unexpected");
   return rows;
+}
+
+/**
+ * Deletes one Auth user: DELETE /auth/v1/admin/users/{id}, hard delete (not
+ * soft). The id is whatever the caller passes, so the caller must only ever pass
+ * the id Supabase itself returned for a verified token. Rows in subscriptions,
+ * webhook_events and manual_entitlements go with it (on delete cascade). An
+ * already-deleted user (404) counts as done, so a retry is safe.
+ * @returns {Promise<{ ok: true } | { ok: false, reason: string }>}
+ */
+export async function deleteAuthUser(env, userId, fetchImpl = fetch) {
+  const base = baseUrl(env.SUPABASE_URL);
+  if (!base || !env.SUPABASE_SECRET_KEY || !isUuid(userId)) return { ok: false, reason: "not_configured" };
+  let res;
+  try {
+    res = await fetchImpl(`${base}/auth/v1/admin/users/${userId}`, {
+      method: "DELETE",
+      headers: { ...headers(env), "content-type": "application/json" },
+      body: JSON.stringify({ should_soft_delete: false }),
+      signal: AbortSignal.timeout(TIMEOUT_MS),
+    });
+  } catch {
+    return { ok: false, reason: "delete_unreachable" };
+  }
+  try { await res.arrayBuffer(); } catch { /* drain only */ }
+  if (res.ok || res.status === 404) return { ok: true };
+  return { ok: false, reason: `delete_${res.status}` };
 }

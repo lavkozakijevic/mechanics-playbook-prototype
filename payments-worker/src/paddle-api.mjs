@@ -3,6 +3,7 @@
  *   GET /subscriptions (reconciliation)         PADDLE_API_KEY, subscription read only
  *   customers and transactions (checkout)       PADDLE_CHECKOUT_API_KEY
  *   POST /customers/{id}/portal-sessions        PADDLE_PORTAL_API_KEY, portal session only
+ *   POST /subscriptions/{id}/cancel             PADDLE_CANCEL_API_KEY, subscriptions write (account deletion)
  */
 import { baseUrl } from "./supabase.mjs";
 
@@ -30,11 +31,13 @@ export function paddleBase(env) {
  * @returns {Promise<{ subscriptions: object[], truncated: boolean }>}
  * Throws with a short code on any failure; the caller logs the code only.
  */
-export async function listSubscriptions(env, fetchImpl = fetch) {
+export async function listSubscriptions(env, fetchImpl = fetch, { customerIds } = {}) {
   const base = paddleBase(env);
   if (!base || !env.PADDLE_API_KEY) throw new Error("not_configured");
   const subscriptions = [];
-  let url = `${base}/subscriptions?per_page=${PER_PAGE}`;
+  // Every status. Optionally only these customers' subscriptions (ids are checked by the caller).
+  const filter = Array.isArray(customerIds) && customerIds.length ? `&customer_id=${customerIds.map(encodeURIComponent).join(",")}` : "";
+  let url = `${base}/subscriptions?per_page=${PER_PAGE}${filter}`;
   for (let page = 0; page < MAX_PAGES; page++) {
     const res = await fetchImpl(url, {
       headers: { authorization: `Bearer ${env.PADDLE_API_KEY}`, accept: "application/json" },
@@ -104,4 +107,13 @@ export function paddleCall(env, method, path, body, fetchImpl = fetch) {
  */
 export function paddlePortalCall(env, method, path, body, fetchImpl = fetch) {
   return send(env, env.PADDLE_PORTAL_API_KEY, method, path, body, fetchImpl);
+}
+
+/**
+ * A call with the cancel key (subscriptions write; Paddle offers no narrower
+ * permission). Used for one thing: cancelling a subscription when its owner
+ * deletes their account. Reads use PADDLE_API_KEY, never this one.
+ */
+export function paddleCancelCall(env, method, path, body, fetchImpl = fetch) {
+  return send(env, env.PADDLE_CANCEL_API_KEY, method, path, body, fetchImpl);
 }

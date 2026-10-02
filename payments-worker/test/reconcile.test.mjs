@@ -159,3 +159,64 @@ test("the Supabase address must be https, except loopback for local tests", () =
   assert.equal(baseUrl("http://127.0.0.1:54321"), "http://127.0.0.1:54321");
   for (const bad of ["http://abc.supabase.co", "ftp://x", "nope", "", undefined, null, 5]) assert.equal(baseUrl(bad), null);
 });
+
+// ------------------------------------------------- accounts that no longer exist
+
+const captureErrors = async (fn) => {
+  const lines = [];
+  const real = console.error;
+  console.error = (...a) => lines.push(a.join(" "));
+  try {
+    return { result: await fn(), lines };
+  } finally {
+    console.error = real;
+  }
+};
+
+test("a cancelled subscription we do not have is skipped: no call to the function, nothing recreated", async () => {
+  const f = world({ paddlePages: [[entity({ status: "canceled", canceled_at: "2026-10-01T09:00:00Z" })]], ours: [] });
+  const s = await reconcile(baseEnv(), { fetch: f });
+  assert.equal(f.calls.rpc.length, 0);
+  assert.deepEqual([s.read, s.differing, s.applied, s.skipped, s.orphans], [1, 0, 0, 1, 0]);
+});
+
+test("many deleted users' cancelled subscriptions cannot use up the run's allowance", async () => {
+  const gone = Array.from({ length: MAX_APPLY_PER_RUN + 10 }, (_, i) => entity({ id: `sub_01gone${i}`, status: "canceled", canceled_at: "2026-10-01T09:00:00Z" }));
+  const f = world({ paddlePages: [[...gone, entity({ id: "sub_01real", status: "active" })]], ours: [] });
+  const s = await reconcile(baseEnv(), { fetch: f });
+  assert.equal(f.calls.rpc.length, 1, "only the live one is applied");
+  assert.equal(f.calls.rpc[0].p_subscription_id, "sub_01real");
+  assert.equal(s.truncated, 0);
+});
+
+test("a cancelled subscription we DO have still reconciles", async () => {
+  const f = world({ paddlePages: [[entity({ status: "canceled", canceled_at: "2026-10-01T09:00:00Z" })]], ours: [row()] });
+  await reconcile(baseEnv(), { fetch: f });
+  assert.equal(f.calls.rpc.length, 1);
+});
+
+test("a live subscription whose user is gone is logged as an orphan, on the first run and on every run after", async () => {
+  for (const outcome of ["rejected_user", "duplicate"]) {
+    const f = world({ paddlePages: [[entity({ status: "active" })]], ours: [], rpcAnswer: outcome });
+    const { result: s, lines } = await captureErrors(() => reconcile(baseEnv(), { fetch: f }));
+    assert.equal(s.orphans, 1, outcome);
+    const line = lines.find((l) => l.includes("orphan_subscription"));
+    assert.ok(line, outcome);
+    assert.ok(line.includes('"evt":"reconcile_orphan"') && line.includes('"status":"active"'), line);
+    assert.ok(!line.includes("sub_") && !line.includes("ctm_"), "no id in the log line");
+    assert.equal(f.calls.rpc.length, 1, "nothing is cancelled or created, only the function's own record");
+  }
+});
+
+test("an ordinary applied subscription is not an orphan", async () => {
+  const f = world({ paddlePages: [[entity()]], ours: [], rpcAnswer: "applied" });
+  const { result: s, lines } = await captureErrors(() => reconcile(baseEnv(), { fetch: f }));
+  assert.equal(s.orphans, 0);
+  assert.ok(!lines.some((l) => l.includes("orphan")));
+});
+
+test("a subscription we hold that Paddle now reports with a different user is not logged as an orphan", async () => {
+  const f = world({ paddlePages: [[entity()]], ours: [row({ user_id: "99999999-9999-4999-8999-999999999999" })], rpcAnswer: "rejected_user" });
+  const { result: s } = await captureErrors(() => reconcile(baseEnv(), { fetch: f }));
+  assert.equal(s.orphans, 0);
+});

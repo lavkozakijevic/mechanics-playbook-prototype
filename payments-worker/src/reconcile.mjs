@@ -9,6 +9,17 @@
  * ahead can never make this overwrite a newer webhook. The event id is
  * "reconcile:<subscription>:<updated_at>", so running it again for an
  * unchanged subscription is a harmless duplicate.
+ *
+ * Two cases that come from accounts that no longer exist:
+ *  - A cancelled subscription that is not in our table is skipped. A user who
+ *    deleted their account takes their rows with them, but Paddle lists their
+ *    cancelled subscriptions for ever; applying them every hour would use up the
+ *    run's allowance. A cancelled subscription grants nothing, so nothing is lost.
+ *  - A live subscription that is not in our table and whose user is gone (the
+ *    function answers rejected_user, or duplicate on every run after the first)
+ *    is someone who paid after deleting their account, or a subscription tied to
+ *    no real user. It is logged with the reason "orphan_subscription" on every
+ *    run until it is dealt with. Nothing is cancelled or created automatically.
  */
 import { listSubscriptions } from "./paddle-api.mjs";
 import { applyEvent, readSubscriptions } from "./supabase.mjs";
@@ -37,7 +48,7 @@ export function differs(row, params) {
 
 export async function reconcile(env, deps = {}) {
   const fetchImpl = deps.fetch ?? fetch;
-  const summary = { read: 0, differing: 0, applied: 0, stale: 0, duplicate: 0, rejected_user: 0, skipped: 0, errors: 0, truncated: 0, only_ours: 0 };
+  const summary = { read: 0, differing: 0, applied: 0, stale: 0, duplicate: 0, rejected_user: 0, skipped: 0, errors: 0, truncated: 0, only_ours: 0, orphans: 0 };
 
   let paddle;
   let ours;
@@ -65,7 +76,12 @@ export async function reconcile(env, deps = {}) {
       continue;
     }
     seen.add(mapped.params.p_subscription_id);
-    if (!differs(ours.get(mapped.params.p_subscription_id), mapped.params)) continue;
+    const stored = ours.get(mapped.params.p_subscription_id);
+    if (!stored && mapped.params.p_status === "canceled") {
+      summary.skipped++;
+      continue;
+    }
+    if (!differs(stored, mapped.params)) continue;
     summary.differing++;
     if (summary.applied + summary.stale + summary.duplicate + summary.rejected_user >= MAX_APPLY_PER_RUN) {
       summary.truncated = 1;
@@ -78,6 +94,10 @@ export async function reconcile(env, deps = {}) {
       continue;
     }
     summary[result.outcome]++;
+    if (!stored && (result.outcome === "rejected_user" || result.outcome === "duplicate")) {
+      summary.orphans++;
+      logError({ evt: "reconcile_orphan", reason: "orphan_subscription", status: mapped.params.p_status });
+    }
   }
   for (const id of ours.keys()) if (!seen.has(id)) summary.only_ours++;
 

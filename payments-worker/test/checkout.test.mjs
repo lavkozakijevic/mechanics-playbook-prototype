@@ -282,7 +282,7 @@ test("status reports where the visitor stands and never touches Paddle or return
 test("verifyAccessToken: the Bearer is the visitor's token, the id is lower-cased", async () => {
   const w = world({ user: { id: USER_ID.toUpperCase(), email: " Someone@Example.INVALID ", confirmed_at: "2026-10-01T00:00:00Z" } });
   const r = await verifyAccessToken(env(), TOKEN, w.fetch);
-  assert.deepEqual(r, { ok: true, user: { id: USER_ID, email: EMAIL } });
+  assert.deepEqual(r, { ok: true, user: { id: USER_ID, email: EMAIL, lastSignInAt: null } });
 });
 
 // -------------------------------------------------------------------- logging

@@ -4,8 +4,9 @@ The Paddle webhook. A small Cloudflare Worker, separate from the site Worker, wi
 
 - The `Checkout` entrypoint (`src/entrypoint.mjs`, `src/checkout.mjs`) creates Paddle transactions for the site Worker. It is an RPC class bound as `PAYMENTS` in the site's `wrangler.jsonc`: it has no URL, so only a Worker in this account that binds it can call it. The caller passes the visitor's access token and a plan name; the token is re-checked with Supabase and the user id and email come from that answer.
 - The same entrypoint's `portal` method (`src/portal.mjs`) creates a Paddle customer portal session for a signed-in visitor and returns one URL. The Paddle customer comes only from the visitor's own `subscriptions` rows, never from the browser and never by email; two distinct customers on one user is refused. It uses its own Paddle key (`PADDLE_PORTAL_API_KEY`, the portal session permission and nothing else).
+- The same entrypoint's `deleteAccount` method (`src/account-delete.mjs`) deletes a signed-in user's account: it checks the typed word and a sign-in from the last ten minutes, cancels every live Paddle subscription of that user immediately (`PADDLE_CANCEL_API_KEY`), reads Paddle back, and only then deletes the Auth user (`DELETE /auth/v1/admin/users/{id}`), whose cascade removes our rows. Any failure stops the run with the user still there; every step is safe to repeat.
 - `POST /paddle/webhook` verifies Paddle's signature over the raw body, then calls `public.apply_subscription_event` once. All eight `subscription.*` events share one code path.
-- An hourly cron (`17 * * * *`) reads Paddle's subscriptions and applies only the ones that are missing from, or differ from, `public.subscriptions`.
+- An hourly cron (`17 * * * *`) reads Paddle's subscriptions and applies only the ones that are missing from, or differ from, `public.subscriptions`. Cancelled subscriptions we do not hold (a deleted user's) are skipped; a live one whose user is gone is logged as `orphan_subscription` on every run.
 
 ## Layout
 
@@ -18,6 +19,7 @@ The Paddle webhook. A small Cloudflare Worker, separate from the site Worker, wi
 | `src/paddle-api.mjs` | The Paddle calls, each with its own key: `GET /subscriptions` (read only), customers and transactions (checkout), portal sessions (portal) |
 | `src/reconcile.mjs` | The hourly job |
 | `src/checkout.mjs`, `src/entrypoint.mjs` | Checkout: plan allow-list, customer reuse, transaction creation, who may start one |
+| `src/account-delete.mjs` | Account deletion: the order of steps, whose subscriptions are cancelled, the freshness check |
 | `src/portal.mjs` | Customer portal links: who gets one, which customer, general or payment deep link, the Paddle-host check on the URL |
 | `src/log.mjs` | The only way to log: allow-listed keys, plain values only |
 | `scripts/send-test-event.mjs` | Sends one signed test event to a deployed Worker |
@@ -38,7 +40,7 @@ The Paddle webhook. A small Cloudflare Worker, separate from the site Worker, wi
 
 ## Configuration (Cloudflare dashboard, Settings > Variables and Secrets)
 
-Secrets: `SUPABASE_SECRET_KEY`, `PADDLE_WEBHOOK_SECRET_SANDBOX`, `PADDLE_WEBHOOK_SECRET_LIVE` (at launch), `PADDLE_API_KEY` (read-only, reconciliation), `PADDLE_CHECKOUT_API_KEY` (checkout: transactions and customers), `PADDLE_PORTAL_API_KEY` (customer portal sessions only).
+Secrets: `SUPABASE_SECRET_KEY`, `PADDLE_WEBHOOK_SECRET_SANDBOX`, `PADDLE_WEBHOOK_SECRET_LIVE` (at launch), `PADDLE_API_KEY` (read-only, reconciliation), `PADDLE_CHECKOUT_API_KEY` (checkout: transactions and customers), `PADDLE_PORTAL_API_KEY` (customer portal sessions only), `PADDLE_CANCEL_API_KEY` (cancelling subscriptions on account deletion; Subscriptions write, the narrowest permission Paddle offers).
 Text variables: `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY` (public by design; used to ask Supabase who a visitor's token belongs to), `PADDLE_ENVIRONMENT` (`sandbox` or `live`; selects the one secret and API host in use), `PADDLE_PRODUCT_ID`, `PADDLE_PRICE_QUARTERLY`, `PADDLE_PRICE_YEARLY` (the server-side plan allow-list), `PADDLE_CLIENT_TOKEN` (public by design; handed to the browser with a transaction id).
 
 Nothing secret is in this repository. `.dev.vars` is git-ignored.
