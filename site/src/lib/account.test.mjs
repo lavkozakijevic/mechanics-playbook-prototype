@@ -1,7 +1,8 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {
-  ACCOUNT_COPY, ACCOUNT_PATH, BILLING_PATH, BILLING_PAYMENT_PATH, billingMessage, fetchSiteAllowed, isRedirectUrl, parsePortalTarget, portalOutcome,
+  ACCOUNT_COPY, ACCOUNT_PATH, BILLING_PATH, BILLING_PAYMENT_PATH, CONFIRM_WORD, DELETED_PATH, DELETE_COPY, DELETE_ERRORS, DELETE_PATH, FRESH_MS,
+  billingMessage, deleteResponse, deleteSituation, fetchSiteAllowed, isFreshSignIn, isRedirectUrl, parsePortalTarget, portalOutcome,
 } from "./account.mjs";
 import { CONTACT_EMAIL } from "./contact.mjs";
 import { loginRedirect } from "./checkout.mjs";
@@ -64,4 +65,63 @@ test("the account page copy: address the reader as you, never 'players', no em d
   const all = JSON.stringify([ACCOUNT_COPY, ["no_customer", "ambiguous", "rate_limited", "forbidden", "unavailable"].map(billingMessage)]);
   assert.equal(/player|the user|—/i.test(all), false);
   assert.equal(ACCOUNT_COPY.billingLabel, "Billing");
+});
+
+// ------------------------------------------------------------ account deletion
+
+test("the delete paths, and the login round trip for the delete page", () => {
+  assert.equal(DELETE_PATH, "/account/delete/");
+  assert.equal(DELETED_PATH, "/account/deleted/");
+  const back = decodeURIComponent(loginRedirect(DELETE_PATH).split("next=")[1]);
+  assert.equal(back, DELETE_PATH);
+  assert.equal(safeNext(back), DELETE_PATH, "the login page's own check keeps the destination (the fresh email link returns here)");
+});
+
+test("the confirmation word and the window match what the payments Worker checks", () => {
+  assert.equal(CONFIRM_WORD, "DELETE");
+  assert.equal(FRESH_MS, 10 * 60 * 1000);
+  const NOW = Date.parse("2026-10-02T12:00:00Z");
+  assert.equal(isFreshSignIn("2026-10-02T11:55:00Z", NOW), true);
+  assert.equal(isFreshSignIn("2026-10-02T11:49:59Z", NOW), false);
+  for (const bad of [null, undefined, "", "garbage", 5, "2026-10-02T13:00:00Z"]) assert.equal(isFreshSignIn(bad, NOW), false, String(bad));
+});
+
+test("what the delete page says depends on what the payments Worker reports", () => {
+  for (const state of ["entitled", "scheduled_cancel", "past_due", "paused"]) {
+    assert.deepEqual(deleteSituation({ ok: true, state, billing: true }), { billing: true, subscription: true, manual: false }, state);
+  }
+  assert.deepEqual(deleteSituation({ ok: true, state: "entitled", billing: false }), { billing: false, subscription: false, manual: true }, "access set by hand: no subscription, no invoices");
+  assert.deepEqual(deleteSituation({ ok: true, state: "ready", billing: false }), { billing: false, subscription: false, manual: false }, "never subscribed");
+  assert.deepEqual(deleteSituation({ ok: true, state: "ready", billing: true }), { billing: true, subscription: false, manual: false }, "a cancelled subscriber still has invoices to download");
+  assert.deepEqual(deleteSituation(null), { billing: false, subscription: false, manual: false });
+});
+
+test("the payments Worker's answers become HTTP answers, and unknown ones carry no detail", () => {
+  assert.deepEqual(deleteResponse({ ok: true, cancelled: 2, extra: "dropped" }), { status: 200, body: { ok: true } });
+  assert.deepEqual(deleteResponse({ ok: false, reason: "unauthorized" }), { status: 401, body: { error: "unauthorized" } });
+  assert.deepEqual(deleteResponse({ ok: false, reason: "confirm" }), { status: 400, body: { error: "confirm" } });
+  assert.deepEqual(deleteResponse({ ok: false, reason: "reauth_required" }), { status: 403, body: { error: "reauth_required" } });
+  assert.deepEqual(deleteResponse({ ok: false, reason: "cancel_failed" }), { status: 502, body: { error: "cancel_failed" } });
+  assert.deepEqual(deleteResponse({ ok: false, reason: "delete_failed" }), { status: 502, body: { error: "delete_failed" } });
+  for (const odd of [{ ok: false, reason: "unavailable" }, { ok: false, reason: "customer_ambiguous" }, { ok: false }, null, undefined, "boom", { ok: "yes" }]) {
+    assert.deepEqual(deleteResponse(odd), { status: 503, body: { error: "unavailable" } }, JSON.stringify(odd));
+  }
+});
+
+test("every error the delete page can show has words, and the two that need the contact address carry it", () => {
+  for (const code of ["confirm", "reauth_required", "cancel_failed", "delete_failed", "unavailable", "rate_limited", "network", "send_failed"]) {
+    assert.ok(typeof DELETE_ERRORS[code] === "string" && DELETE_ERRORS[code].length > 10, code);
+  }
+  for (const code of ["cancel_failed", "delete_failed"]) assert.ok(DELETE_ERRORS[code].includes(CONTACT_EMAIL), code);
+  assert.ok(DELETE_ERRORS.cancel_failed.includes("still here"), "a failed cancel says nothing was deleted");
+});
+
+test("the delete copy: you, users, no em dash, a plain refund line, and the policy link", () => {
+  const all = JSON.stringify([DELETE_COPY, DELETE_ERRORS]);
+  assert.equal(/player|the user|—/i.test(all), false);
+  assert.equal(DELETE_COPY.subscriptionBefore + DELETE_COPY.refundLabel + DELETE_COPY.subscriptionAfter,
+    "Your subscription is cancelled immediately and your access ends now. Unused time isn't refunded automatically. See the Refund Policy.");
+  assert.equal(DELETE_COPY.refundHref, "/refund-policy/");
+  assert.equal(DELETE_COPY.deleted.heading, "Your account has been deleted");
+  assert.equal(ACCOUNT_COPY.delete, "Delete account");
 });

@@ -58,6 +58,12 @@
     // Customer portal (src/pages/account/billing). Each visit makes a portal
     // session at Paddle.
     { "name": "PORTAL_USER_LIMITER", "namespace_id": "47107", "simple": { "limit": 5, "period": 60 } },
-    { "name": "PORTAL_IP_LIMITER", "namespace_id": "47108", "simple": { "limit": 10, "period": 60 } }
+    { "name": "PORTAL_IP_LIMITER", "namespace_id": "47108", "simple": { "limit": 10, "period": 60 } },
+    // Account deletion (src/pages/api/account/delete.ts). Irreversible, so low.
+    { "name": "DELETE_USER_LIMITER", "namespace_id": "47109", "simple": { "limit": 3, "period": 60 } },
+    { "name": "DELETE_IP_LIMITER", "namespace_id": "47110", "simple": { "limit": 5, "period": 60 } },
+    // /api/auth/me asks for access on every page load (the locked wording
+    // gives way to the unlocked wording), so it has its own allowance.
+    { "name": "ACCESS_LIMITER", "namespace_id": "47111", "simple": { "limit": 60, "period": 60 } }
   ]
 }

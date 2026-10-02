@@ -6,6 +6,7 @@
 //   no session -> login, then straight back here
 //   otherwise  -> the page
 //
+// Deleting the account starts from a link here (/account/delete/).
 // Whether to show Billing comes from the payments Worker (it re-verifies the
 // token and reads this visitor's own rows). That is a display choice only:
 // /account/billing/ checks again before it sends anyone anywhere.
@@ -14,7 +15,7 @@ import AuthLayout from "../../layouts/AuthLayout.astro";
 import { Button } from "../../components/ds/Button.jsx";
 import { AUTH_HEADERS, authResponse, hasAuthCookie, setCookieLines } from "../../lib/auth-config.mjs";
 import { createRequestClient, finalCookies, supabaseConfigured } from "../../lib/auth-server.mjs";
-import { ACCOUNT_COPY, ACCOUNT_PATH, BILLING_PATH } from "../../lib/account.mjs";
+import { ACCOUNT_COPY, ACCOUNT_PATH, BILLING_PATH, DELETE_PATH } from "../../lib/account.mjs";
 import { loginRedirect } from "../../lib/checkout.mjs";
 
 export const prerender = false;
@@ -91,6 +92,7 @@ if (!supabaseConfigured(env)) {
       )}
 
       <p class="login__alt"><a href={ACCOUNT_COPY.back.href}>{ACCOUNT_COPY.back.label}</a></p>
+      {email && <p class="login__alt"><a href={DELETE_PATH} rel="nofollow">{ACCOUNT_COPY.delete}</a></p>}
     </div>
   </main>
   {email && <script is:inline src="/assets/account/account.js" defer></script>}

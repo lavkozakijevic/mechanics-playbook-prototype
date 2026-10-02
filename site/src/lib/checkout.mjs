@@ -87,7 +87,7 @@ export function stateCopy(state, until, billing = false) {
     case "paused":
       return {
         heading: "Your subscription is paused",
-        body: `You can't start a new subscription while this one exists. To resume it, contact us at ${CONTACT_EMAIL}.`,
+        body: `To resume it, email us at ${CONTACT_EMAIL}.`,
         link: { href: `mailto:${CONTACT_EMAIL}`, label: "Email us" },
       };
     default:

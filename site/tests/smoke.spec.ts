@@ -21,6 +21,9 @@ import { needleFor, protectedTexts } from "../src/lib/protected-leak.mjs";
  *  7. the account page and the billing link: redirects for a visitor with no
  *     session, refusals, no static page or sitemap entry, and no leftover
  *     placeholder wording
+ *  8. account deletion: the routes' refusals before any session is checked, and
+ *     the display-only markers that let locked wording give way for a visitor
+ *     with access (the pre-built HTML stays the same for everyone)
  *
  * Expected counts are computed from the content collection at test time, so
  * the tests stay correct as weekly imports add apps.
@@ -612,6 +615,125 @@ test.describe("account and billing", () => {
       const html = await (await request.get(url)).text();
       expect(html, url).not.toMatch(/emails Paddle|from this site is coming soon/);
     }
+  });
+});
+
+// Account deletion and the access wording (payments step 7). CI has no
+// Supabase and no payments Worker, so what runs here is everything decided before
+// a session is checked, and the shape of the pre-built pages. The signed-in
+// paths (the delete page, the order of cancel then delete, every refusal, the
+// badge swap for each access state) run in the local end-to-end checks
+// (payments-worker/e2e/delete.mjs and access.mjs).
+test.describe("account deletion and the access wording", () => {
+  test("the delete page sends a visitor with no session to login and back", async ({ request }) => {
+    const res = await request.get("/account/delete/", { maxRedirects: 0 });
+    expect(res.status()).toBe(303);
+    expect(res.headers()["location"]).toBe("/login/?next=%2Faccount%2Fdelete%2F");
+    expectAuthHeaders(res);
+    const post = await request.post("/account/delete/", { data: {}, headers: { origin: SITE_ORIGIN } });
+    expect(post.status()).toBe(405);
+    expect(post.headers()["allow"]).toBe("GET");
+  });
+
+  test("a browser navigation to /account/delete/ reaches the Worker, not the static 404 page", async ({ page }) => {
+    await page.goto("/account/delete/");
+    await expect(page).toHaveURL(/\/login\/\?next=%2Faccount%2Fdelete%2F$/);
+  });
+
+  test("the confirmation page needs no session and shows nothing about anyone", async ({ request }) => {
+    const res = await request.get("/account/deleted/");
+    expect(res.status()).toBe(200);
+    expectAuthHeaders(res);
+    const html = await res.text();
+    expect(html).toContain("Your account has been deleted");
+    expect(html).not.toMatch(/@|ctm_|sub_|pdl_|sb_/);
+  });
+
+  test("POST /api/account/delete refuses a foreign origin, a missing word and a visitor with no session", async ({ request }) => {
+    const foreign = await request.post("/api/account/delete", { data: { confirm: "DELETE" }, headers: { origin: "https://evil.example" } });
+    expect(foreign.status()).toBe(403);
+    expectAuthHeaders(foreign);
+    const noOrigin = await request.post("/api/account/delete", { data: { confirm: "DELETE" } });
+    expect(noOrigin.status()).toBe(403);
+    const noWord = await request.post("/api/account/delete", { data: {}, headers: { origin: SITE_ORIGIN } });
+    expect(noWord.status()).toBe(400);
+    expect(await noWord.json()).toEqual({ error: "confirm" });
+    const garbage = await request.post("/api/account/delete", { data: "not json", headers: { origin: SITE_ORIGIN, "content-type": "application/json" } });
+    expect(garbage.status()).toBe(400);
+    const big = await request.post("/api/account/delete", { data: { confirm: "x".repeat(400) }, headers: { origin: SITE_ORIGIN } });
+    expect(big.status()).toBe(400);
+    const anon = await request.post("/api/account/delete", { data: { confirm: "DELETE" }, headers: { origin: SITE_ORIGIN } });
+    expect(anon.status()).toBe(401);
+    expect(anon.headers()["set-cookie"]).toBeUndefined();
+  });
+
+  test("a cookie with nothing behind it fails closed on delete: a plain 503, nothing deleted", async ({ request }) => {
+    const res = await request.post("/api/account/delete", { data: { confirm: "DELETE" }, headers: { origin: SITE_ORIGIN, cookie: "__Host-sb-auth=x" } });
+    expect(res.status()).toBe(503);
+    expect(await res.json()).toEqual({ error: "unavailable" });
+    const page = await request.get("/account/delete/", { maxRedirects: 0, headers: { cookie: "__Host-sb-auth=x" } });
+    expect(page.status()).toBe(503);
+    const body = await page.text();
+    expect(body).toContain("isn&#39;t available right now");
+    expect(body).not.toContain("data-delete-form");
+  });
+
+  test("only POST works on the delete route", async ({ request }) => {
+    const res = await request.get("/api/account/delete");
+    expect(res.status()).toBe(405);
+    expect(res.headers()["allow"]).toBe("POST");
+  });
+
+  test("the delete script is a static file that only talks to our own routes", async ({ request }) => {
+    const res = await request.get("/assets/account/delete.js");
+    expect(res.status()).toBe(200);
+    const body = await res.text();
+    expect(body).toContain("/api/account/delete");
+    expect(body).toContain("/api/auth/login");
+    expect(body).not.toMatch(/pri_|ctm_|sub_|sb_|pdl_|Bearer|paddle/i);
+    expect(body.match(/https?:\/\//g) ?? []).toEqual([]);
+  });
+
+  test("the new routes are not built, not in the sitemap, and the Worker config carries their limits", () => {
+    expect(fs.existsSync(path.join(distDir, "client", "account"))).toBe(false);
+    const config = JSON.parse(fs.readFileSync(path.join(distDir, "server", "wrangler.json"), "utf8"));
+    const limiters = Object.fromEntries((config.ratelimits ?? []).map((r: any) => [r.name, r.simple]));
+    expect(limiters["DELETE_USER_LIMITER"]).toEqual({ limit: 3, period: 60 });
+    expect(limiters["DELETE_IP_LIMITER"]).toEqual({ limit: 5, period: 60 });
+    expect(limiters["ACCESS_LIMITER"]).toEqual({ limit: 60, period: 60 });
+    const ids = (config.ratelimits ?? []).map((r: any) => r.namespace_id);
+    expect(new Set(ids).size).toBe(ids.length);
+  });
+
+  test("/api/auth/me with no cookie still answers without touching Supabase, and says nothing about access", async ({ request }) => {
+    const res = await request.get("/api/auth/me");
+    expect(res.status()).toBe(200);
+    expect(await res.json()).toEqual({ email: null });
+  });
+
+  test("the locked wording is in the pre-built HTML for everyone, with the unlocked wording beside it, hidden by a rule", async ({ request }) => {
+    for (const url of ["/case-studies/", "/systems/"]) {
+      const html = await (await request.get(url)).text();
+      expect(html, url).toMatch(/data-lock-only/);
+      expect(html, url).toMatch(/data-entitled-only/);
+      expect(html, url).toContain("For subscribers");
+      expect(html, url).toContain("Subscribe to explore");
+      expect(html, url).not.toMatch(/data-access=/);
+    }
+    const home = await (await request.get("/")).text();
+    expect(home).toMatch(/<a[^>]*href="\/subscribe\/"[^>]*data-lock-only/);
+    const css = (await Promise.all(
+      fs.readdirSync(path.join(distDir, "client", "_astro")).filter((f) => f.endsWith(".css")).map((f) => fs.readFileSync(path.join(distDir, "client", "_astro", f), "utf8")),
+    )).join("\n");
+    expect(css).toMatch(/\[data-entitled-only\]\{display:none\}/);
+    expect(css).toMatch(/html\[data-access=entitled\] \[data-lock-only\]\{display:none!important\}/);
+  });
+
+  test("the unlocked wording is only text that is public anyway", async ({ request }) => {
+    const html = await (await request.get("/case-studies/")).text();
+    const swapped = [...html.matchAll(/<span data-entitled-only[^>]*>([^<]*)<\/span>/g)].map((m) => m[1]);
+    expect(swapped.length).toBeGreaterThan(0);
+    for (const t of swapped) expect(t).toBe("View case study");
   });
 });
 

@@ -1,0 +1,28 @@
+---
+// /account/deleted/: where a deleted account lands. No session, no account
+// details; a plain page, rendered on request like the rest of /account/.
+import AuthLayout from "../../../layouts/AuthLayout.astro";
+import { Button } from "../../../components/ds/Button.jsx";
+import { AUTH_HEADERS } from "../../../lib/auth-config.mjs";
+import { DELETE_COPY } from "../../../lib/account.mjs";
+
+export const prerender = false;
+
+for (const [k, v] of Object.entries(AUTH_HEADERS)) Astro.response.headers.set(k, v);
+const copy = DELETE_COPY.deleted;
+---
+
+<AuthLayout title={copy.title}>
+  <main class="login" id="main">
+    <div class="login__card">
+      <a class="login__brand" href="/" aria-label="Appservatory home">
+        <img src="/assets/logo/appservatory-logo.png" alt="Appservatory" width="123" height="25" />
+      </a>
+      <div class="login__form">
+        <h1 class="login__heading">{copy.heading}</h1>
+        <p class="login__lead">{copy.body}</p>
+        <Button as="a" href={copy.link.href} variant="secondary" size="lg" className="login__submit">{copy.link.label}</Button>
+      </div>
+    </div>
+  </main>
+</AuthLayout>

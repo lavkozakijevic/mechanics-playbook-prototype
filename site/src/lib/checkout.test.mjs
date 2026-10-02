@@ -71,6 +71,9 @@ test("the state pages link to billing only when a Paddle customer is on record",
     assert.equal(paused.link.href, "mailto:lav@gamebizconsulting.com");
     assert.equal(paused.secondary, undefined);
     assert.ok(paused.body.includes("lav@gamebizconsulting.com"));
+    assert.equal(paused.heading, "Your subscription is paused");
+    assert.equal(paused.body, "To resume it, email us at lav@gamebizconsulting.com.");
+    assert.equal(paused.link.label, "Email us");
     assert.equal(JSON.stringify(paused).includes("/account/billing"), false);
   }
 });
